@@ -1,9 +1,6 @@
-# Now To Love
+# Multi Site
 
-[![Run Status](https://api.shippable.com/projects/583638adf207180f005cec9e/badge?branch=master)](https://app.shippable.com/projects/583638adf207180f005cec9e)
-[![Run Status](https://api.shippable.com/projects/583638adf207180f005cec9e/coverageBadge?branch=master)](https://app.shippable.com/projects/583638adf207180f005cec9e)
-
-A news and lifestyle hub site which includes popular magazine products for women.
+multi-site provides a bootstrapped, mobile first, responsive, Women's Network website running on a Flux and BFF based architecture. It is an opinionated set of constrains that favours rapid delivery over bespoke designs. Home, listing (section, sub section, tag listing), article and gallery pages are included.
 
 ## Platform Requirements
 
@@ -19,12 +16,12 @@ Use NVM to manage Node versions and `nvm install` in this repo for correct Node 
 `APP_KEY` environment variable is required for the app to know which resources (components, styles, assets) to use.
 
 ```shell
-cd src/ && nvm install && npm install && APP_KEY=now-site npm run dev
+cd src/ && nvm install && npm install && APP_KEY=elle-site npm run dev
 ```
 
-(Windows in Git Bash: `setx APP_KEY now-site` then `npm run dev-win`)
+(Windows in Git Bash: `setx APP_KEY elle-site` then `npm run dev-win`)
 
-Replace 'now-site' above for site key. Site keys are defined in TeamCity build `serviceName` parameters.
+Replace 'elle-site' above for site key. Site keys are defined in TeamCity build `serviceName` parameters.
 
 ## Run Scripts
 

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "now-site",
+  "name": "multi-site",
   "version": "1.0.0",
   "description": "",
   "main": "start.js",
@@ -32,11 +32,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bauerxcelmedia/now-site.git"
+    "url": "git+https://github.com/bauerxcelmedia/multi-site.git"
   },
   "author": "",
   "license": "",
-  "homepage": "https://github.com/bauerxcelmedia/now-site#readme",
+  "homepage": "https://github.com/bauerxcelmedia/multi-site#readme",
   "dependencies": {
     "@bxm/ad": "^10.3.1",
     "@bxm/article": "^21.4.0",

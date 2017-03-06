@@ -10,7 +10,7 @@ export default {
             pageTypes: {
                 Brand: 'index'
             },
-            siteId: 'NowToLove',
+            siteId: 'elle',
             tagsObject: 'tags',
             sizes: {
                 native: [250, 30],
