@@ -10,7 +10,7 @@ export default {
             pageTypes: {
                 Brand: 'index'
             },
-            siteId: 'elle',
+            siteId: 'Elle',
             tagsObject: 'tags',
             sizes: {
                 native: [250, 30],

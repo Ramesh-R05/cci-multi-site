@@ -6,9 +6,9 @@ node_js: "6.1.0"
 env:
   global:
     - APP_ENV=stubbed
-    - APP_KEY=now-site
-    - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/now-site
-    - XUNIT_FILE=$SHIPPABLE_BUILD_DIR/shippable/testresults/result.xml # location to store test results 
+    - APP_KEY=elle-site
+    - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/multi-site
+    - XUNIT_FILE=$SHIPPABLE_BUILD_DIR/shippable/testresults/result.xml # location to store test results
     - BRANCH_NAME="$(sed 's/\//-/g' <<< $BRANCH).$BUILD_NUMBER" # need to replace '/' in the branch name with '-'
 
 build:
@@ -26,8 +26,8 @@ build:
     - npm run build
     - npm run test:ci
     - cd ..
-    - if [ "$BRANCH" == "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/now-site-img-master.env; fi
-    - if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/now-site-img-branch.env; fi        
+    - if [ "$BRANCH" == "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/elle-site-img-master.env; fi
+    - if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/elle-site-img-branch.env; fi
   post_ci:
     - ./src/node_modules/.bin/babel-istanbul report cobertura --dir  ./shippable/codecoverage/
     - docker --version

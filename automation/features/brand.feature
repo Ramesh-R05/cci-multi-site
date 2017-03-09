@@ -1,4 +1,4 @@
-@brand @now @BXMA-107 @BXMA-104
+@brand @elle @BXMA-107 @BXMA-104
 Feature: Brand Landing page
     As a user
     I should be able to see brand landing page

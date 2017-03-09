@@ -8,6 +8,12 @@ const dehydratedState = window.App;
 
 window.React = React; // For chrome dev tool support
 
+if (process.env.DEV_BUILD) {
+    /* eslint-disable */
+    require(`../app-${process.env.APP_KEY}/breakpoints`);
+    /* eslint-enable */
+}
+
 app.rehydrate(dehydratedState, (err, context) => {
     if (err) {
         throw err;

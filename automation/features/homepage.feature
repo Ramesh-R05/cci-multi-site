@@ -1,4 +1,4 @@
-@homepage @now
+@homepage @elle
 Feature: Homepage
     As a user
     I should be able to see homepage

@@ -1,4 +1,4 @@
-@section @now
+@section @elle
 Feature: Section Landing page
     As a user
     I should be able to see section landing page which has the same layout as homepage

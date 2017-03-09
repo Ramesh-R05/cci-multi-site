@@ -1,4 +1,4 @@
-@footer @BXMA-145 @now
+@footer @BXMA-145 @elle
 Feature: Footer
     As a user
     I should be able to see the Footer
@@ -9,9 +9,9 @@ Feature: Footer
         * I can see the social logo in the footer
         * I can see the social icons clickable to open its page in the footer
             |social     |url                                    |
-            |Facebook   |https://www.facebook.com/nowtolove     |
-            |Twitter    |https://twitter.com/NowToLove          |
-            |Instagram  |https://www.instagram.com/NowToLove   |
+            |Facebook   |https://www.facebook.com/ELLEaus     |
+            |Twitter    |https://twitter.com/ELLEaus          |
+            |Instagram  |https://www.instagram.com/elleaus   |
         * I can see the brands title in the footer as "CONTENT SUPPORTED BY"
         * I can navigate to all sites in the footer
             |title                      |url                |gtm                           |
