@@ -75,10 +75,6 @@ export default function responseBody(req, res, next) {
             res.body.section = req.data.section;
         }
 
-        if (get(req, 'data.subsection')) {
-            res.body.subsection = req.data.subsection;
-        }
-
         if (get(req, 'data.promoted')) {
             res.body.promoted = {
                 title: '',

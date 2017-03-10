@@ -26,13 +26,13 @@ export default {
         action: loadPageContent
     },
     page: {
-        path: '/:section/:subsection/:page',
+        path: '/:section/:page',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
     },
     previewPage: {
-        path: '/:preview(preview)/:section/:subsection/:page',
+        path: '/:preview(preview)/:section/:page',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent

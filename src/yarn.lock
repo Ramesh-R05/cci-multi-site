@@ -291,10 +291,6 @@ acorn@^3.0.4, acorn@^3.1.0:
   version "3.3.0"
   resolved "http://npm.digital.bauer-media.net.au/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
 
-acorn@^4.0.1:
-  version "4.0.3"
-  resolved "http://npm.digital.bauer-media.net.au/acorn/-/acorn-4.0.3.tgz#1a3e850b428e73ba6b09d1cc527f5aaad4d03ef1"
-
 agent-base@~1.0.1:
   version "1.0.2"
   resolved "http://npm.digital.bauer-media.net.au/agent-base/-/agent-base-1.0.2.tgz#6890d3fb217004b62b70f8928e0fae5f8952a706"
@@ -2561,14 +2557,7 @@ eslint@^3.15.0:
     text-table "~0.2.0"
     user-home "^2.0.0"
 
-espree@^3.1.6:
-  version "3.3.2"
-  resolved "http://npm.digital.bauer-media.net.au/espree/-/espree-3.3.2.tgz#dbf3fadeb4ecb4d4778303e50103b3d36c88b89c"
-  dependencies:
-    acorn "^4.0.1"
-    acorn-jsx "^3.0.0"
-
-espree@^3.4.0:
+espree@^3.1.6, espree@^3.4.0:
   version "3.4.0"
   resolved "http://npm.digital.bauer-media.net.au/espree/-/espree-3.4.0.tgz#41656fa5628e042878025ef467e78f125cb86e1d"
   dependencies:
@@ -5374,6 +5363,10 @@ request@2.75.x:
     stringstream "~0.0.4"
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
+
+require-dir@^0.3.1:
+  version "0.3.1"
+  resolved "http://npm.digital.bauer-media.net.au/require-dir/-/require-dir-0.3.1.tgz#b5a8e28bae0343bb0d0cc38ab1f531e1931b264a"
 
 require-directory@^2.1.1:
   version "2.1.1"

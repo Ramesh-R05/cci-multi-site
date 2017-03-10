@@ -6,7 +6,7 @@ Feature: Article
     @DDO-46 @DAW-1125 @high
     Scenario: Verify an article page which contains a hero image on mobile
         When I switch to "mobile" view
-        Given I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I can see the long title "Automation Test Article With Hero Image Test Title Long Title"
         * I can see the created date "FEB 12, 2016 4:00PM"
         * I can see the author "EMILY KERR"
@@ -36,7 +36,7 @@ Feature: Article
     @DAW-1125 @med
     Scenario: Verify an article page which contains a hero video on tablet portrait
         When I switch to "tablet portrait" view
-        Given I am currently viewing "beauty/hair/automation-test-article-with-hero-video-3664"
+        Given I am currently viewing "beauty/automation-test-article-with-hero-video-3664"
         * I can see the long title "Automation Test Article With Hero Image Test Title Long Title"
         * I can see the created date "FEB 12, 2016 4:00PM"
         * I can see the author "EMILY KERR"
@@ -65,7 +65,7 @@ Feature: Article
     @high
     Scenario: Verify an article page which contains a hero image on desktop
         When I switch to "desktop" view
-        Given I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I can see the long title "Automation Test Article With Hero Image Test Title Long Title"
         * I can see the created date "FEB 12, 2016 4:00PM"
         * I can see the author "EMILY KERR"
@@ -95,7 +95,7 @@ Feature: Article
 
     @DDO-160 @DDO-48
     Scenario Outline: Verify LHR on different screen sizes "<device>"
-        Given I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "<device>" view
         * I can see the LHR
         @high
@@ -109,7 +109,7 @@ Feature: Article
 
     @med
     Scenario Outline: Verify LHR on different screen sizes "<device>"
-        Given I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "<device>" view
         * I should not see the LHR
         Examples:
@@ -119,7 +119,7 @@ Feature: Article
 
     @BXMA-174 @high
     Scenario: Verify the LHR on an article page
-        Given I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "desktop" view
         * I can see 20 items in the list of items in LHR
         * I can see the 20 images of each item in LHR
@@ -130,7 +130,7 @@ Feature: Article
 
     @BXMA-155
     Scenario Outline: Verify the share buttons on an article page in "<device>" view
-        Given I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "<device>" view
         * I can see the facebook share button on article page
         * I can see the pinterest share button on article page
@@ -144,4 +144,3 @@ Feature: Article
             | device            |
             | tablet portrait   |
             | tablet landscape  |
-

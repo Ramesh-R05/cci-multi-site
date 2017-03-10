@@ -51,6 +51,6 @@ Feature: Footer
         Examples:
             |page               |url                                                                |
             |section landing    |fashion                                                            |
-            |article            |fashion/red-carpet/automation-test-article-with-hero-image-3663    |
-            |gallery            |fashion/red-carpet/automation-test-gallery-13302                   |
+            |article            |fashion/automation-test-article-with-hero-image-3663    |
+            |gallery            |fashion/automation-test-gallery-13302                   |
             |404                |404                                                                |

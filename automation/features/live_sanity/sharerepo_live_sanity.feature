@@ -178,7 +178,7 @@ Feature: I have an automated sanity for my live environments
     @article
     Scenario Outline: Verify an article page on the "<device>" view
         Given I switch to "<device>" view
-        When I am currently viewing "how-to/expert-qa/baking-soda-bicarb-soda-baking-powder-what-is-the-difference-15828"
+        When I am currently viewing "how-to/baking-soda-bicarb-soda-baking-powder-what-is-the-difference-15828"
         * I can see the long title "Baking soda, bicarb soda, baking powder. What is the difference?"
         * I can see the created date "SEP 26, 2007 12:00PM"
         * I can see the hero image
@@ -199,7 +199,7 @@ Feature: I have an automated sanity for my live environments
     @LHR @BXMA-174
     Scenario: Verify the LHR on an article page
         Given I switch to "desktop" view
-        When I am currently viewing "how-to/expert-qa/baking-soda-bicarb-soda-baking-powder-what-is-the-difference-15828"
+        When I am currently viewing "how-to/baking-soda-bicarb-soda-baking-powder-what-is-the-difference-15828"
         * I can see 20 items in the list of items in LHR
         * I can see the 20 images of each item in LHR
         * Image in LHR is clickable to open its page
@@ -210,7 +210,7 @@ Feature: I have an automated sanity for my live environments
     @gallery
     Scenario: Verify a gallery page in mobile style on mobile view
         When I switch to "mobile" view
-        Given I am currently viewing "celebrity/celeb-news/natalie-portman-is-pregnant-with-second-child-5734"
+        Given I am currently viewing "celebrity/natalie-portman-is-pregnant-with-second-child-5734"
         * I can see the logo on the gallery header
         * I can click the logo to go to homepage
         * I can see the gallery title containing "Natalie Portman shows off her divine baby bump"
@@ -244,7 +244,7 @@ Feature: I have an automated sanity for my live environments
     @gallery
     Scenario: Verify the slide of MREC ad on mobile view
         When I switch to "mobile" view
-        Given I am currently viewing "lifestyle/homes/beautiful-christmas-gifts-for-yourself-18321"
+        Given I am currently viewing "lifestyle/beautiful-christmas-gifts-for-yourself-18321"
         * I can slide to the first MREC ad
         * I cannot go to the next slide when the ad is not loaded
         * I can go to the next slide when the ad is loaded

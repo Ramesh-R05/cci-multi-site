@@ -6,7 +6,7 @@ Feature: Ad
     @DAW-1070 @high @must
     Scenario: Add sticky mobile banner to bottom of the article
         Given I switch to "mobile portrait" view
-        When I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         Then I can see the sticky ad when the top banner disappears from view
 
     @homepage @BXMA-90 @high
@@ -100,7 +100,7 @@ Feature: Ad
     @gallery @BXMA-132 @high
     Scenario: Ads on gallery page in the desktop view
         Given I switch to "desktop" view
-        When I am currently viewing "fashion/red-carpet/automation-test-gallery-13302"
+        When I am currently viewing "fashion/automation-test-gallery-13302"
         * I should see the top leaderboard ad above the gallery slide
         * I should not see the bottom leaderboard ad under the gallery slide
         * I should see the MREC ad at the bottom right of the gallery
@@ -109,7 +109,7 @@ Feature: Ad
     @gallery @BXMA-132 @med
     Scenario: Ads on gallery page in the tablet landscape view
         Given I switch to "tablet landscape" view
-        When I am currently viewing "fashion/red-carpet/automation-test-gallery-13302"
+        When I am currently viewing "fashion/automation-test-gallery-13302"
         * I should see the top leaderboard ad above the gallery slide
         * I should not see the bottom leaderboard ad under the gallery slide
         * I should see the MREC ad at the bottom right of the gallery
@@ -118,7 +118,7 @@ Feature: Ad
     @gallery @BXMA-132 @med
     Scenario: Ads on gallery page in the tablet portrait view
         Given I switch to "tablet portrait" view
-        When I am currently viewing "fashion/red-carpet/automation-test-gallery-13302"
+        When I am currently viewing "fashion/automation-test-gallery-13302"
         * I should see the top leaderboard ad above the gallery slide
         * I should not see the bottom leaderboard ad under the gallery slide
         * I should not see the MREC ad at the bottom right of the gallery
@@ -127,7 +127,7 @@ Feature: Ad
     @gallery @BXMA-132 @high
     Scenario: Ads on gallery page in the mobile view
         Given I switch to "mobile" view
-        When I am currently viewing "fashion/red-carpet/automation-test-gallery-13302"
+        When I am currently viewing "fashion/automation-test-gallery-13302"
         * I should see the top leaderboard ad above the gallery slide
         * I should not see the bottom leaderboard ad under the gallery slide
         * I should not see the MREC ad at the bottom right of the gallery
@@ -136,7 +136,7 @@ Feature: Ad
     @article @BXMA-326 @high
     Scenario: Ads on article page in the desktop view
         Given I switch to "desktop" view
-        When I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I should see the top leaderboard ad under navigation
         * I should see the bottom leaderboard ad above the footer on article
         * I should see four MREC ads in the RHR feed
@@ -146,7 +146,7 @@ Feature: Ad
     @article @BXMA-326 @med
     Scenario: Ads on article page in the tablet landscape view
         Given I switch to "tablet landscape" view
-        When I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I should see the top leaderboard ad under navigation
         * I should see the bottom leaderboard ad above the footer on article
         * I should see four MREC ads in the RHR feed
@@ -156,7 +156,7 @@ Feature: Ad
     @article @BXMA-326 @med
     Scenario: Ads on article page in the tablet portrait view
         Given I switch to "tablet portrait" view
-        When I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I should see the top leaderboard ad under navigation
         * I should see MREC ad above recommendation
         * I should see the bottom leaderboard ad above the footer on article
@@ -165,7 +165,7 @@ Feature: Ad
     @article @BXMA-326 @high
     Scenario: Ads on article page in the mobile view
         Given I switch to "mobile" view
-        When I am currently viewing "fashion/red-carpet/automation-test-article-with-hero-image-3663"
+        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I should see the top leaderboard ad under navigation
         * I should see MREC ad under the hero image
         * I should see MREC ad above recommendation
@@ -180,8 +180,8 @@ Feature: Ad
         Examples:
             |page       |url                                                                |
             |section    |fashion                                                            |
-            |article    |fashion/red-carpet/automation-test-article-with-hero-image-3663    |
-            |gallery    |fashion/red-carpet/automation-test-gallery-13302                   |
+            |article    |fashion/automation-test-article-with-hero-image-3663    |
+            |gallery    |fashion/automation-test-gallery-13302                   |
 
     @BXMA-156 @low
     Scenario Outline: Wallpaper ad and side panel ad should not appear on "<page>" page in the "<device>" view
@@ -192,8 +192,8 @@ Feature: Ad
         Examples:
             |device             |page       |url                                                                |
             |tablet portrait    |section    |fashion                                                            |
-            |tablet portrait    |article    |fashion/red-carpet/automation-test-article-with-hero-image-3663    |
-            |mobile             |gallery    |fashion/red-carpet/automation-test-gallery-13302                   |
+            |tablet portrait    |article    |fashion/automation-test-article-with-hero-image-3663    |
+            |mobile             |gallery    |fashion/automation-test-gallery-13302                   |
 
     @BXMA-156
     Scenario Outline: Out of page (Inskin) ad should appear on "<page>" page in the "<device>" view
