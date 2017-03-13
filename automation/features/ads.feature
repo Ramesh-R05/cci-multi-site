@@ -207,5 +207,5 @@ Feature: Ad
         @med
         Examples:
             |device             |page       |url                                                         |
-            |tablet landscape   |article    |beauty/hair/automation-test-article-with-hero-video-3664    |
-            |tablet portrait    |gallery    |beauty/hair/automation-test-gallery-inskin-13303            |
+            |tablet landscape   |article    |beauty/automation-test-article-with-hero-video-3664    |
+            |tablet portrait    |gallery    |beauty/automation-test-gallery-inskin-13303            |

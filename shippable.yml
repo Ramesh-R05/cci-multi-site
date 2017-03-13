@@ -32,7 +32,7 @@ build:
     - ./src/node_modules/.bin/babel-istanbul report cobertura --dir  ./shippable/codecoverage/
     - docker --version
     - docker build -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME --label build-number=$BUILD_NUMBER .
-    - docker tag -f $IMAGE:$BRANCH_NAME $IMAGE:latest
+    - docker tag $IMAGE:$BRANCH_NAME $IMAGE:latest
   push:
     - docker push $IMAGE:$BRANCH_NAME
     - docker push $IMAGE:latest
