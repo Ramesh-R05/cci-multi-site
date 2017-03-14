@@ -45,6 +45,7 @@ var article_widget = {
     instagramEmb1: '.instagram-media',
     facebookEmb1: '.fb_iframe_widget',
     playbuzzEmb1: '.content-body__embed--playbuzz .pb_feed_rendered',
+    whooshkaEmb1: '.content-body__embed-whooshka iframe',
     videoEmbArry: '.content-body__embed-video-container iframe',
     stickyAdSection: 'div.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view',
     reactionText: ".reactions-leader",

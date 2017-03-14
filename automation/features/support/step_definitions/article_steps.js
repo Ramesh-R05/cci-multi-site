@@ -229,6 +229,11 @@ module.exports = function() {
         console.log(videoEmbArry[1]); //The stubbed data of Vimeo is in the second iframe of video container.
         expect(videoEmbArry[1]).toEqual(vimeoUrl);
     });
+    this.Given(/^I can see the body Whooshka embed "([^"]*)"$/, function (whooshkaUrl) {
+        var whooshkaEmbed = browser.getAttribute(wn_article.whooshkaEmb1, 'src');
+        console.log(whooshkaEmbed);
+        expect(whooshkaEmbed).toEqual(whooshkaUrl);
+    });
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag1) {
         var relatedTags = browser.getText(wn_article.relatedTags, 'href');
         expect(relatedTags).toEqual(rTag1);

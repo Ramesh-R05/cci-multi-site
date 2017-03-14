@@ -235,6 +235,13 @@ export default{
                 "content": {
                     "url": "https://player.vimeo.com/video/181027959"
                 }
+            },
+            {
+                "type": "whooshka",
+                "label": "Whooshka",
+                "content": {
+                    "url": "https://player.whooshkaa.com/player/episode/id/90704?visual=true"
+                }
             }
         ],
         "authorProfiles": [
