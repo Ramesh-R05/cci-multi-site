@@ -57,6 +57,7 @@ export default class Home extends Component {
 
     render() {
         const polarLabels = this.context.config.polar.details;
+
         return (
             <Page
               currentUrl={this.props.currentUrl}

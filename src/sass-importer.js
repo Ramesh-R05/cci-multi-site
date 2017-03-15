@@ -10,7 +10,7 @@ function fileExists(filePath) {
 }
 
 module.exports = function(url, prev, done) {
-    if (url.indexOf('../../node_modules')>=0 || prev.indexOf('node_modules')>=0) return done(null);
+    if (url.indexOf('../../node_modules') >= 0 || prev.indexOf('node_modules') >= 0) return done(null);
 
     var paths = this.options.file.split(path.sep);
     var baseName = path.basename(url);
