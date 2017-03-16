@@ -210,7 +210,8 @@ module.exports = function() {
         expect(instagramEmbed[1]).not.toMatch("captioned");
     });
     this.Given(/^I can see the body Facebook embed "([^"]*)"$/, function (facebookUrl) {
-       var facebookEmbed = browser.getAttribute(wn_article.facebookEmb1, 'data-href');
+        browser.waitForExist(wn_article.facebookEmb1, 3000);
+        var facebookEmbed = browser.getAttribute(wn_article.facebookEmb1, 'data-href');
         console.log(facebookEmbed);
         expect(facebookEmbed).toEqual(facebookUrl);
     });

@@ -29,6 +29,7 @@ module.exports = function() {
         //Identify the element
         switch(position) {
             case 'header':
+                browser.waitForVisible(site_nav.siteNavSectionDetail, 5000);
                 var sectionDetail = site_nav.siteNavSectionDetail
                 break;
             case 'hamburger':
