@@ -242,6 +242,13 @@ export default{
                 "content": {
                     "url": "https://player.whooshkaa.com/player/episode/id/90704?visual=true"
                 }
+            },
+            {
+                "type": "wirewax",
+                "label": "Wirewax",
+                "content": {
+                    "url": "http://embed.wirewax.com/8040968"
+                }
             }
         ],
         "authorProfiles": [

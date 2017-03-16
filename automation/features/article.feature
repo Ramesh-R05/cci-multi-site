@@ -124,7 +124,6 @@ Feature: Article
             | tablet portrait   |
             | tablet landscape  |
 
-
     Scenario Outline: Editorial team can add social feeds to the article body
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
@@ -136,6 +135,7 @@ Feature: Article
         * I can see the body Youtube embed "https://www.youtube.com/embed/4GpnNxjy6m0"
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
         * I can see the body Whooshka embed "https://player.whooshkaa.com/player/episode/id/90704?visual=true"
+        * I can see the body Wirewax embed "http://embed.wirewax.com/8040968"
     @high
         Examples:
             | device            |

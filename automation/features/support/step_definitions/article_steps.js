@@ -235,6 +235,11 @@ module.exports = function() {
         console.log(whooshkaEmbed);
         expect(whooshkaEmbed).toEqual(whooshkaUrl);
     });
+    this.Given(/^I can see the body Wirewax embed "([^"]*)"$/, function (wirewaxUrl) {
+        var wirewaxEmbed = browser.getAttribute(wn_article.wirewaxEmb1, 'src');
+        console.log(wirewaxEmbed);
+        expect(wirewaxEmbed).toEqual(wirewaxUrl);
+    });
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag1) {
         var relatedTags = browser.getText(wn_article.relatedTags, 'href');
         expect(relatedTags).toEqual(rTag1);
