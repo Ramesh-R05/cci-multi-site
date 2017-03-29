@@ -8,23 +8,14 @@ var SubscribeMagBlock = proxyquire('../../../../app/components/footer/subscribe/
 
 //These tests added after infinite scroll. Older tests are in a separate describe block below.
 describe('SubscribeMagBlock', function() {
-    const imageUrl = 'path/of/image';
+    const magCoverUrl = 'path/of/image';
     let reactModule;
     let subscribeImage;
-
-    Context.addStore('PageStore', {
-        getFooter() {
-            return {
-                moduleName: 'footer',
-                moduleImageUrl: imageUrl
-            };
-        }
-    });
 
     afterEach(Context.cleanup);
 
     beforeEach(function() {
-        reactModule = Context.mountComponent(SubscribeMagBlock, { imageUrl });
+        reactModule = Context.mountComponent(SubscribeMagBlock, { magCoverUrl });
     });
 
     it('should exist', function () {
@@ -42,7 +33,7 @@ describe('SubscribeMagBlock', function() {
         expect(images.length).to.equal(2);
 
         images.forEach(function(image) {
-            expect(ReactDOM.findDOMNode(image).src).to.equal(imageUrl);
+            expect(ReactDOM.findDOMNode(image).src).to.equal(magCoverUrl);
         });
     });
 

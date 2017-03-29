@@ -17,28 +17,38 @@ export default class Subscribe extends Component {
 
     render() {
         const { inSideNav, content } = this.props;
-        const { subscribeHeading, subscribeText, subscribeMagUrl, subscribeIpadUrl, subscribeButtonUrl } = content;
+        const {
+            subscribeHeading,
+            subscribeText,
+            magCover
+        } = content;
+        const magCoverImageUrl = magCover && magCover.moduleImageUrl;
         const xLargeGridClass = (!inSideNav) ? 'xlarge-6' : '';
+
         return (
             <div className="subscribe">
                 <div className="row">
 
-                    <SubscribeMagBlock inSideNav={inSideNav} subscribeMagUrl={subscribeMagUrl} subscribeIpadUrl={subscribeIpadUrl} />
+                    { magCoverImageUrl && <SubscribeMagBlock
+                      inSideNav={inSideNav}
+                      magCoverUrl={magCoverImageUrl}
+                    /> }
 
                     <div className={`small-12 ${xLargeGridClass} medium-6 columns`}>
                         <div className="subscribe__subscribe">
                             <h4 className="subscribe__heading">{subscribeHeading}</h4>
-                            <p className="subscribe__content">
-                                {subscribeText}
-                            </p>
-                            <p className="subscribe__action">
+                            {/* eslint-disable react/no-danger */}
+                            <p className="subscribe__content" dangerouslySetInnerHTML={{ __html: subscribeText }} />
+                            <div className="subscribe__action">
                                 <a
-                                  className="button button--link button--subscribe" href={subscribeButtonUrl}
-                                  target="_blank" onClick={this.fireEvent}
+                                  className="button button--link button--subscribe"
+                                  href="/subscribe-magazine"
+                                  target="_blank"
+                                  onClick={this.fireEvent}
                                 >
                                     Subscribe
                                 </a>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>

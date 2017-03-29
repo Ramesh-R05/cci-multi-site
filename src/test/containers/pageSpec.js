@@ -46,8 +46,8 @@ describe('Page Container', () => {
         type: '',
         value: {
             brands: brandStubData,
-            get() {
-                return siteName;
+            site: {
+                name: siteName
             }
         }
     };
@@ -100,6 +100,12 @@ describe('Page Container', () => {
         }
     });
 
+    Context.addStore('PageStore', {
+        getModule(module) {
+            if (module === 'magCover') return {};
+        }
+    });
+
     describe(`when passing all props`, () => {
         const props = {
             className: 'customClass',
@@ -110,7 +116,8 @@ describe('Page Container', () => {
             currentUrl: '/',
             showUniheader: true,
             hideLeaderboard: false,
-            theme: {}
+            theme: {},
+            magCover: {}
         };
 
         before(() => {

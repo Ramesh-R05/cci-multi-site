@@ -5,7 +5,21 @@ describe(`loadPage Reducer`, () => {
     let payload;
     describe(`on LOAD_CONTENT`, () => {
         beforeEach(() => {
-            body = {entity: { nodeType: 'Article', title: 'Title',  imageUrl: '', shortTitle: 'Short Title', summary: 'Summary' }, footer: {}, trendingItems: [], mustRead: []};
+            body = {
+                entity: {
+                    nodeType: 'Article',
+                    title: 'Title',
+                    imageUrl: '',
+                    shortTitle: 'Short Title',
+                    summary: 'Summary'
+                },
+                footer: {},
+                trendingItems: [],
+                mustRead: [],
+                magCover: {
+                    magCoverImageUrl: '/path/to/magcover.jpg'
+                }
+            };
             payload = {
                 type: 'LOAD_CONTENT',
                 body
@@ -22,7 +36,8 @@ describe(`loadPage Reducer`, () => {
                     shortTitle: payload.body.entity.shortTitle,
                     summary: payload.body.entity.summary,
                     trendingItems: payload.body.trendingItems,
-                    magazineImageUrl: payload.body.entity.imageUrl
+                    magazineImageUrl: payload.body.entity.imageUrl,
+                    magCover: payload.body.magCover
                 });
             });
 
@@ -35,7 +50,8 @@ describe(`loadPage Reducer`, () => {
                     shortTitle: payload.body.entity.shortTitle,
                     summary: payload.body.entity.summary,
                     trendingItems: payload.body.trendingItems,
-                    magazineImageUrl: payload.body.entity.imageUrl
+                    magazineImageUrl: payload.body.entity.imageUrl,
+                    magCover: payload.body.magCover
                 });
             });
         });
@@ -73,7 +89,8 @@ describe(`loadPage Reducer`, () => {
                 title: '',
                 trendingItems: [],
                 magazineImageUrl: '',
-                theme: ''
+                theme: '',
+                magCover: {}
             });
         });
 
@@ -86,7 +103,8 @@ describe(`loadPage Reducer`, () => {
                 title: '',
                 trendingItems: [],
                 magazineImageUrl: '',
-                theme: ''
+                theme: '',
+                magCover: {}
             });
         });
     });

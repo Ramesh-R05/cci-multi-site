@@ -1,11 +1,17 @@
 var footer = require('../page_objects/footer_widget');
 
+// Used to test the subscription links. Only test the relevant part of the url.
+function endsWith(str, endStr){
+    var index = str.lastIndexOf(endStr);
+    return index === str.length - endStr.length;
+}
+
 module.exports = function() {
 
     this.Given(/^I can see the social logo in the footer$/, function () {
-        //Validate the existence of the logo
-        var socialLogo = browser.getCssProperty(footer.footerSocialLogo, 'background-image').value;
-        expect(socialLogo).toMatch("/assets/logos/follownowtolove.svg");
+        //Validate the existence of the 'Elle' text
+        var logoText = browser.getText(footer.footerSocialLogo);
+        expect(logoText.toLowerCase()).toMatch('elle');
     });
 
     this.Given(/^I can see the social icons clickable to open its page in the footer$/, function (dataTable) {
@@ -61,16 +67,56 @@ module.exports = function() {
         }
     });
 
+    this.Given(/^I can see the standard bauer text in the footer as "([^"]*)"$/, function (text) {
+        //Validate the bauer text is correct
+        var bauer = browser.getText(footer.footerElementCopyrightBauer);
+        expect(text).toContain(bauer);
+    });
+
     this.Given(/^I can see the standard copyright text in the footer as "([^"]*)"$/, function (text) {
         //Validate the copyright text is correct
-        expect(browser.getText(footer.footerElementCopyright)).toContain(text)
+        var copyright = browser.getText(footer.footerElementCopyright);
+        expect(text).toContain(copyright);
     });
 
     this.Given(/^I can see all main elements in the footer$/, function () {
         //Validate that the four main elements in the footer appears
         expect(browser.isVisible(footer.footerElementSocialContainer)).toBe(true);
-        expect(browser.isVisible(footer.footerElementLogos)).toBe(true);
         expect(browser.isVisible(footer.footerElementNavigation)).toBe(true);
         expect(browser.isVisible(footer.footerElementCopyright)).toBe(true);
     });
+
+    this.Given(/^I can see the subscription magazine cover image$/, function (dataTable) {
+
+        // Check that the anchor is present
+        expect(browser.isVisible(footer.footerElementSubscriptionCover)).toBe(true);
+        expect(browser.isVisible(footer.footerElementSubscriptionCoveriPad)).toBe(true);
+
+        // Check that the image is present
+        expect(browser.isVisible(footer.footerElementSubscriptionCover + ' > img')).toBe(true);
+        expect(browser.isVisible(footer.footerElementSubscriptionCoveriPad + ' > img')).toBe(true);
+
+        // Check that the anchors have the right urls
+        var rows = dataTable.hashes();
+        var coverLink = browser.getAttribute(footer.footerElementSubscriptionCover, 'href');
+        var ipadLink = browser.getAttribute(footer.footerElementSubscriptionCoveriPad, 'href');
+
+        expect(endsWith(coverLink, rows[0].url)).toBe(true);
+        expect(endsWith(ipadLink, rows[1].url)).toBe(true);
+
+    });
+
+    this.Given(/^I can see the subscription button$/, function (dataTable) {
+
+        // Check that the button is present
+        browser.waitForVisible(footer.footerElementSubscriptionButton, 5000);
+
+        // Check that the anchor has the right url
+        var rows = dataTable.hashes();
+        var buttonLink = browser.getAttribute(footer.footerElementSubscriptionButton, 'href');
+
+        expect(endsWith(buttonLink, rows[0].url)).toBe(true);
+    });
+
+
 };

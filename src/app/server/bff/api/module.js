@@ -26,6 +26,8 @@ export default async function getModules(...args) {
                 moduleList.theme = moduleConfig;
             } else if (arg === 'hero') {
                 moduleList[arg] = get(moduleConfig, 'moduleManualContent.data[0]', null);
+            } else if (arg === 'magcover') {
+                moduleList[arg] = moduleConfig;
             } else {
                 moduleList[arg] = get(moduleConfig, 'moduleManualContent.data', []);
             }

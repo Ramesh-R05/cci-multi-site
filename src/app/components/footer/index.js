@@ -7,13 +7,13 @@ import FooterSubscribe from './footerSubscribe';
 
 export default class Footer extends Component {
     static propTypes = {
-        iframeKey: PropTypes.string,
         modifier: PropTypes.string.isRequired,
-        logoList: PropTypes.arrayOf(PropTypes.element).isRequired
+        logoList: PropTypes.arrayOf(PropTypes.element).isRequired,
+        magCover: PropTypes.object
     };
 
     static defaultProps = {
-        iframeKey: 'wnfooter'
+        magCover: {}
     };
 
     static contextTypes = {
@@ -22,32 +22,42 @@ export default class Footer extends Component {
 
     render() {
         const { config } = this.context;
-        const { iframeKey, modifier, logoList } = this.props;
+        const { modifier, logoList, magCover } = this.props;
+        const subscribeContent = config.subscribe;
         let classNames = 'footer';
 
-        if (modifier) classNames += ` footer--${modifier}`;
+        // Only show the brand logos and title, if the array list has items.
+        const brandLogos = logoList.length === 0 ? null : (
+            <div className="footer__logos">
+                <span className="footer__logos-title">CONTENT SUPPORTED BY</span><br />
+                <nav className="footer__logos-nav">
+                    <Logos className="footer__logos-list" openInNewTab logoList={logoList} />
+                </nav>
+            </div>
+        );
+
+        if (modifier) {
+            classNames += ` footer--${modifier}`;
+        }
 
         return (
             <div>
                 <footer className={classNames}>
                     <div className="home-page__get-social-container">
-                        <span className="home-page__social-logo">Now To Love</span>
+                        <span className="home-page__social-logo">{config.site.name}</span>
                         <SocialContainer socialUrls={config.urls.socialUrls} />
                     </div>
                     <FooterSubscribe
-                      url={`${config.get('newsletterIframeUrl')}!${iframeKey}`}
-                      content={config.get('subscribe')}
-                      isDisplayed={false}
+                      content={{ ...subscribeContent, magCover }}
+                      isDisplayed={magCover !== {}}
                     />
-                    <div className="footer__logos">
-                        <span className="footer__logos-title">CONTENT SUPPORTED BY</span><br />
-                        <nav className="footer__logos-nav">
-                            <Logos className="footer__logos-list" openInNewTab logoList={logoList} />
-                        </nav>
-                    </div>
+
+                    { brandLogos }
+
                     <FooterNavigation footerUrls={config.urls.footerUrls} />
                     <div className="footer__copyright">
-                        <span>&copy; Copyright Bauer Media Pty Ltd All Rights Reserved</span>
+                        <span className="footer__copyright-bauer">&copy; Copyright Bauer Media Pty Ltd</span>
+                        <span className="footer__copyright-rights">All Rights Reserved</span>
                     </div>
                 </footer>
                 <BackToTop className="button" />

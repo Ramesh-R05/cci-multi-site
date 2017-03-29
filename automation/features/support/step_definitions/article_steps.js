@@ -253,7 +253,7 @@ module.exports = function() {
         var author = browser.getText(wn_article.authorText);
             expect(author).toEqual(authorName);
     });
-
+    
     this.Given(/^I can see the "([^"]*)" source appearing with gtm "([^"]*)"$/, function (position,gtm) {
         //Identify the element
         switch(position) {

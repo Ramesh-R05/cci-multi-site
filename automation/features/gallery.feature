@@ -11,7 +11,6 @@ Feature: Gallery
         * I can click the logo to go to homepage
         * I can see the gallery title containing "Automation Test Gallery"
         * I can see an image appearing on the gallery
-        * I can see the source appearing on the gallery with gtm "gtm-brandlogotop-gallery"
         * I can see the created date on the gallery "DEC 15, 2016 2:25PM"
         * I can see the gallery description of the gallery containing "Test the second paragraph"
         * I can see the right arrow on the gallery
@@ -49,7 +48,6 @@ Feature: Gallery
         * I can click the logo to go to homepage
         * I can see the gallery title containing "Automation Test Gallery"
         * I can see an image appearing on the gallery
-        * I can see the source appearing on the gallery with gtm "gtm-brandlogotop-gallery"
         * I can see the created date on the gallery "DEC 15, 2016 2:25PM"
         * I can see the gallery description of the gallery containing "Test the second paragraph"
         * I can see the right arrow on the gallery

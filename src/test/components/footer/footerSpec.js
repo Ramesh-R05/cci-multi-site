@@ -6,18 +6,17 @@ noCallThru();
 
 const SocialLinksStub = Context.createStubComponentWithChildren();
 const FooterNavigationStub = Context.createStubComponentWithChildren();
-const SubscribeStub = Context.createStubComponentWithChildren();
+const FooterSubscribeStub = Context.createStubComponentWithChildren();
 const NewsletterStub = Context.createStubComponent();
 const BackToTopStub = Context.createStubComponent();
 const LogosStub = Context.createStubComponent();
 const Footer = proxyquire('../../../app/components/footer', {
     'react': React,
-    './subscribe/subscribe': SubscribeStub,
-    './footerNavigation': FooterNavigationStub,
-    '@bxm/newsletter/lib/components/newsletter': NewsletterStub,
     '../social/block': SocialLinksStub,
+    './footerNavigation': FooterNavigationStub,
     '@bxm/ui/lib/back-to-top/backToTop': BackToTopStub,
-    '../page/logos': LogosStub
+    '../page/logos': LogosStub,
+    './footerSubscribe': FooterSubscribeStub
 }).default;
 
 describe(`Footer`, () => {
@@ -30,7 +29,7 @@ describe(`Footer`, () => {
             subscribeUrl: 'https://www.magshop.com.au/store/homestolove'
         },
         newsletterIframeUrl: 'https://iframe.url.com',
-        urls: { 
+        urls: {
             footerUrls: {
                 privacy: "http://www.bauer-media.com.au/privacy",
                 advertise: "http://www.bauer-media.com.au/advertising/advertise-with-us",
@@ -46,6 +45,9 @@ describe(`Footer`, () => {
             get(arg) {
                 if ( arg === 'subscribe') return configData.subscribe;
                 if ( arg === 'newsletterIframeUrl') return configData.newsletterIframeUrl
+            },
+            site: {
+                name: 'elle'
             }
         }
     };
@@ -59,7 +61,14 @@ describe(`Footer`, () => {
 
     describe('with default props', () => {
         before(() => {
-            reactModule = Context.mountComponent(Footer, {}, [contextConfigStub]);
+            const logoList = [
+                {
+                    id:'logo',
+                    title: 'Logo Title',
+                    imageUrl:'path/of/image'
+                }
+            ];
+            reactModule = Context.mountComponent(Footer, {logoList}, [contextConfigStub]);
             //-------------the subscribe iframe will be used in future so the tests aren't being removed.----------
             //subscribe = TestUtils.findRenderedComponentWithType(reactModule, SubscribeStub);
             footerNavigation = TestUtils.findRenderedComponentWithType(reactModule, FooterNavigationStub);
@@ -109,7 +118,8 @@ describe(`Footer`, () => {
 
         before(() => {
             reactModule = Context.mountComponent(Footer, {
-                modifier: modifier
+                modifier: modifier,
+                logoList: []
             }, [contextConfigStub]);
 
             footer = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'footer');

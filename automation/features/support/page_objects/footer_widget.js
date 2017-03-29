@@ -4,10 +4,14 @@ var footer_widget = {
     footerLogosTitle: '.footer__logos-title',
     footerLogosList: '.footer__logos-list a',
     footerStandardPage: '.footer__navigation a',
-    footerElementCopyright: '.footer__copyright',
+    footerElementCopyrightBauer: '.footer__copyright-bauer',
+    footerElementCopyright: '.footer__copyright-rights',
     footerElementSocialContainer: '.footer .home-page__get-social-container',
     footerElementLogos: '.footer__logos',
     footerElementNavigation: '.footer__navigation',
+    footerElementSubscriptionCover: '.subscription__image--mag',
+    footerElementSubscriptionCoveriPad: '.subscription__image--ipad',
+    footerElementSubscriptionButton: '.button--subscribe'
 };
 
 module.exports = footer_widget;

@@ -16,6 +16,11 @@ export default {
 
     gigya: { apiKey: '3_R74vzxKbWVOiWuMSjElPNubJi5gS7NQ-KkpquR6Y3zVBafukYzJSZRMHKtri2igs' },
 
+    subscribe: {
+        subscribeHeading: 'GET THE MAGAZINE',
+        subscribeText: 'Never miss an issue:<br>Subscribe to ELLE magazine'
+    },
+
     features,
 
     global,

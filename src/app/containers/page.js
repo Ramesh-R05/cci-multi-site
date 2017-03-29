@@ -15,11 +15,12 @@ function mapStateToProps(context) {
     return {
         headerNavItems: context.getStore('NavigationStore').getHeaderItems(),
         hamburgerNavItems: context.getStore('NavigationStore').getHamburgerItems(),
-        content: context.getStore('articleStore').getContent()
+        content: context.getStore('articleStore').getContent(),
+        magCover: context.getStore('PageStore').getModule('magCover')
     };
 }
 
-@connectToStores(['NavigationStore', 'articleStore'], mapStateToProps)
+@connectToStores(['NavigationStore', 'articleStore', 'PageStore'], mapStateToProps)
 @hamburgerWrapper
 export default class Page extends Component {
     static displayName = 'Page';
@@ -41,7 +42,8 @@ export default class Page extends Component {
         hideLeaderboard: PropTypes.bool,
         pageTitle: PropTypes.string.isRequired,
         headerClassName: PropTypes.string,
-        theme: PropTypes.object
+        theme: PropTypes.object,
+        magCover: PropTypes.object
     };
 
     static contextTypes = {
@@ -51,7 +53,8 @@ export default class Page extends Component {
     static defaultProps = {
         hideLeaderboard: false,
         headerClassName: '',
-        theme: {}
+        theme: {},
+        magCover: {}
     };
 
     toggleMenu = () => {
@@ -69,12 +72,20 @@ export default class Page extends Component {
             hideLeaderboard,
             pageTitle,
             headerClassName,
-            content
+            content,
+            theme,
+            menuClasses,
+            magCover
         } = this.props;
+        const { config } = this.context;
         const mobileNav = hamburgerNavItems ? hamburgerNavItems.slice() : headerNavItems.slice();
-        mobileNav.unshift({ name: 'Home', url: '/' });
         const pageClassName = classnames('page', this.props.className);
         let keyword;
+
+        mobileNav.unshift({
+            name: 'Home',
+            url: '/'
+        });
 
         if (content) {
             const tags = content.tagsDetails;
@@ -83,18 +94,20 @@ export default class Page extends Component {
 
         return (
             <div className={pageClassName}>
-                <div className={this.props.menuClasses}>
+                <div className={menuClasses}>
 
-                    {showUniheader && <UniHeader className="uniheader" logoList={this.context.config.brands.uniheader} />}
+                    {showUniheader && <UniHeader className="uniheader" logoList={config.brands.uniheader} />}
 
                     <Header
                       currentUrl={currentUrl}
                       isExpanded={headerExpanded}
                       navItems={headerNavItems}
-                      siteName={this.context.config.get('site.name')}
+                      siteName={config.site.name}
                       toggleMenu={this.toggleMenu}
-                      headerClassName={headerClassName}theme={this.props.theme}
+                      headerClassName={headerClassName}
+                      theme={theme}
                     />
+
                     {!hideLeaderboard && <Ad
                       className="ad--section-top-leaderboard"
                       sizes={{
@@ -110,7 +123,7 @@ export default class Page extends Component {
                     <StandardPageAdsWrapper>
                         <div className="content-wrapper">
                             { this.props.children }
-                            { !hideFooter && <Footer logoList={this.context.config.brands.uniheader} />}
+                            { !hideFooter && <Footer magCover={magCover} logoList={config.brands.uniheader} />}
                         </div>
                     </StandardPageAdsWrapper>
 
@@ -127,9 +140,10 @@ export default class Page extends Component {
                     ` }}
                             />
                             <Navigation className="mobile-menu" items={mobileNav} currentUrl={currentUrl} />
-                            <Logos className="mobile-menu-list" gtmPrefix="hamburger" openInNewTab logoList={this.context.config.brands.hamburgers} />
+                            <Logos className="mobile-menu-list" gtmPrefix="hamburger" openInNewTab logoList={config.brands.hamburgers} />
                         </div>
                     </MobileOffCanvas>
+
                 </div>
             </div>
         );

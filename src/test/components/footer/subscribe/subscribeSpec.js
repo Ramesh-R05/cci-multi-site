@@ -4,7 +4,6 @@ const {React, ReactDOM, TestUtils} = Context;
 import proxyquire, {noCallThru} from 'proxyquire';
 noCallThru();
 
-
 const SubscribeMagBlockStub = Context.createStubComponent();
 
 const Subscribe = proxyquire('../../../../app/components/footer/subscribe/subscribe', {
@@ -17,37 +16,24 @@ const dataLayerStub = {
 };
 
 describe(`Subscribe`, () => {
-    const configData = {
-        localeData: {
-            subscribe: {
-                subscribeCoverAltText: 'Women\'s Weekly Cookbooks',
-                subscribeHeading: 'More ways to read',
-                subscribeText: 'Subscribe to our homes mags to gain access to more inspiring homes and gardens, plus renovating, decorating, food and travel stories.',
-                subscribeMagUrl: 'https://www.magshop.com.au/store/homestolove',
-                subscribeIpadUrl: 'https://www.magshop.com.au/store/homestolove'
-            },
-            newsletterIframeUrl: 'https://iframe.url.com'
-        }
+    const content = {
+        subscribeCoverAltText: 'Women\'s Weekly Cookbooks',
+        subscribeHeading: 'More ways to read',
+        subscribeText: 'Subscribe to our homes mags to gain access to more inspiring homes and gardens, plus renovating, decorating, food and travel stories.',
+        magCover: {moduleImageUrl: '/mag/cover/path.jpg'}
     };
-    const subscribeData = configData.localeData.subscribe;
-    let previousDataLayer;
     let reactModule;
     let domElement;
 
     beforeEach( () => {
         reactModule = Context.mountComponent(Subscribe, {
-            content: subscribeData,
+            content,
             inSideNav : false
         });
         domElement = ReactDOM.findDOMNode(reactModule);
     });
 
     afterEach(Context.cleanup);
-
-    it(`should render the Subscribe Component`, () => {
-        expect(reactModule).to.exist;
-    });
-
 
     describe(`SubscribeMagBlock Component`, () => {
 
@@ -59,9 +45,7 @@ describe(`Subscribe`, () => {
             const SubscribeMagBlockComponent = TestUtils.findRenderedComponentWithType(reactModule, SubscribeMagBlockStub);
 
             expect(SubscribeMagBlockComponent.props).to.deep.contain({
-                inSideNav: false,
-                subscribeMagUrl: 'https://www.magshop.com.au/store/homestolove',
-                subscribeIpadUrl: 'https://www.magshop.com.au/store/homestolove'
+                inSideNav: false
             });
         });
     });

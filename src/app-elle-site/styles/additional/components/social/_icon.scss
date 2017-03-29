@@ -1,0 +1,31 @@
+.social-link {
+    padding-top: 0;
+
+    &__label {
+        display: none;
+    }
+
+    svg path:first-child {
+        fill: $color-primary;
+    }
+
+    &--facebook:hover svg path:first-child {
+        fill: $facebook-blue;
+    }
+
+    &--twitter:hover svg path:first-child {
+        fill: $twitter-blue;
+    }
+
+    &--instagram:hover svg path:first-child {
+        fill: $instagram-pink;
+    }
+
+    &--pinterest:hover svg path:first-child {
+        fill: $pinterest-red;
+    }
+
+    &--youtube:hover svg path:first-child {
+        fill: $youtube-red;
+    }
+}

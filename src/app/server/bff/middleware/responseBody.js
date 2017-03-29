@@ -88,6 +88,10 @@ export default function responseBody(req, res, next) {
             res.body.promoted.title = req.data.promoted.title;
         }
 
+        if (get(req, 'data.magcover')) {
+            res.body.magCover = req.data.magcover;
+        }
+
         next();
     } catch (error) {
         next(error);

@@ -23,8 +23,6 @@ Feature: Article
         * I can see the body tips "body tips body tips EOM"
         * I can see the body competition
         * I can see the related tags "Gossip Girl," "Dolly Doctor"
-        * I can see the "header" source appearing with gtm "gtm-brandlogotop-article"
-        * I can see the "bottom" source appearing with gtm "gtm-brandlogobottom-article"
 
     @DAW-1125 @med
     Scenario: Verify an article page which contains a hero video on tablet portrait
@@ -45,8 +43,6 @@ Feature: Article
         * I can see the body tips "body tips body tips EOM"
         * I can see the body competition
         * I can see the related tags "Gossip Girl," "Dolly Doctor"
-        * I can see the "header" source appearing with gtm "gtm-brandlogotop-article"
-        * I can see the "bottom" source appearing with gtm "gtm-brandlogobottom-article"
 
     @high
     Scenario: Verify an article page which contains a hero image on desktop
@@ -68,8 +64,8 @@ Feature: Article
         * I can see the body tips "body tips body tips EOM"
         * I can see the body competition
         * I can see the related tags "Gossip Girl," "Dolly Doctor"
-        * I can see the "header" source appearing with gtm "gtm-brandlogotop-article"
-        * I can see the "bottom" source appearing with gtm "gtm-brandlogobottom-article"
+#        * I can see the "header" source appearing with gtm "gtm-brandlogotop-article"
+#        * I can see the "bottom" source appearing with gtm "gtm-brandlogobottom-article"
 
 
     @DDO-160 @DDO-48

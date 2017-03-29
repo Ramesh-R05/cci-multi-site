@@ -100,10 +100,10 @@
 @import 'components/teaser/list-box';
 @import 'components/teaser/list-layout';
 
-//Homepage
+// Homepage
 @import 'components/trending';
 
-//inline gallery homepage
+// inline gallery homepage
 @import 'components/inline-gallery/item';
 @import 'components/inline-gallery/carousel';
 
@@ -112,3 +112,6 @@
 @import 'components/social/link';
 @import 'components/social/social';
 @import 'components/social/title';
+
+// Overrides
+@import 'additional';
