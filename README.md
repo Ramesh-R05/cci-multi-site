@@ -1,5 +1,8 @@
 # Multi Site
 
+[![Run Status](https://api.shippable.com/projects/58bcb62ce4b9a205009ab6e3/badge?branch=master)](https://app.shippable.com/github/bauerxcelmedia/multi-site)
+[![Coverage Badge](https://api.shippable.com/projects/58bcb62ce4b9a205009ab6e3/coverageBadge?branch=master)](https://app.shippable.com/github/bauerxcelmedia/multi-site)
+
 multi-site provides a bootstrapped, mobile first, responsive, Women's Network website running on a Flux and BFF based architecture. It is an opinionated set of constrains that favours rapid delivery over bespoke designs. Home, listing (section, sub section, tag listing), article and gallery pages are included.
 
 ## Platform Requirements
