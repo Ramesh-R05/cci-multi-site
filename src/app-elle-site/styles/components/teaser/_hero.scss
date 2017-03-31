@@ -16,6 +16,7 @@ $hero-teaser-line-height: 25px;
             position: relative;
 
             .promoted-teaser-view-grid + .hero-wrapper__get-social-container {
+                display: none;
                 position: absolute;
                 bottom: 35%;
             }
@@ -27,6 +28,7 @@ $hero-teaser-line-height: 25px;
             position: static;
 
             .promoted-teaser-view-grid + .hero-wrapper__get-social-container {
+                display: none;
                 position: static;
                 bottom: auto;
             }
@@ -159,6 +161,7 @@ $hero-teaser-line-height: 25px;
     }
 
     &__get-social-container {
+        display: none;
         text-align: center;
         margin: {
             top: 35px;
@@ -214,15 +217,20 @@ $hero-teaser-line-height: 25px;
     }
 
     .teaser__body {
-        @include grid-column(11, false, true);
         position: relative;
         margin-top: -3px;
-        padding-left: 0;
         margin-left: 0;
+        padding: 0 $column-gutter/2;
 
         @media #{$medium-only} {
             @include grid-column(4, false, false);
+            padding-left: 15px;
         }
+
+        @media #{$large-up} {
+            padding: 0;
+        }
+
     }
 
     .teaser__badge-container {
@@ -243,37 +251,54 @@ $hero-teaser-line-height: 25px;
 
     .teaser__title {
         @include type-hero-title();
+        line-height: 27px;
         margin: {
-            bottom: 0;
-            top: 3px;
+            bottom: 9px;
+            top: 0;
         }
-        padding: 15px;
 
         @media #{$large-up} {
             padding: 0;
             display: block;
-            margin-top: 18px;
             margin-bottom: 4px;
+            font-size: 30px;
+            line-height: 35px;
         }
 
         a {
             text-decoration: none;
             font-weight: 600;
-            line-height: $hero-teaser-line-height;
+        }
+    }
+
+    .teaser__section-tag {
+        margin-top: 19px;
+        margin-bottom: 9px;
+
+        @media #{$medium-only} {
+            margin-top: 0;
+        }
+
+        @media #{$medium-up} {
+            margin-bottom: 9px;
         }
     }
 
     .teaser__summary {
         @include type-teaser-summary();
-        margin-top: 4px;
-        margin-bottom: 20px;
+        margin-top: 0;
+        margin-bottom: 4px;
+        line-height: 22px;
 
         @media #{$medium-up} {
             margin: 10px 0 25px;
         }
 
         @media #{$large-up} {
-            margin-bottom: 30px;
+            margin-top: 12px;
+            margin-bottom: 26px;
+            font-size: 14px;
+            line-height: 22px;
         }
     }
 }

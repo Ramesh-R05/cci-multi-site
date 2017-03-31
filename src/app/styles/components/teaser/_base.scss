@@ -28,11 +28,16 @@
         }
     }
 
+    &__section-tag {
+        display: none;
+    }
+
     &__badge-container {
         @include type-teaser-tag;
     }
 
     &__summary {
+        display: none;
         @include type-teaser-summary();
         margin: 12px 0;
 

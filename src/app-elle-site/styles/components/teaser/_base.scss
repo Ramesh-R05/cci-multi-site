@@ -1,3 +1,8 @@
+.teaser.teaser--has-video:after,
+.teaser.teaser--gallery:after {
+    display: none;
+}
+
 .teaser {
     &__body {
         a:active,
@@ -24,7 +29,7 @@
             font-weight: 600;
 
             &:hover {
-                opacity: 0.85;
+                opacity: 0.55;
                 text-decoration: none;
             }
         }
@@ -32,6 +37,17 @@
 
     &__badge-container {
         @include type-teaser-tag;
+    }
+
+    &__section-tag {
+        @include type-teaser-tag;
+        margin-bottom: 5px;
+
+        @media #{$large-up} {
+            margin-top: 16px;
+            margin-bottom: 9px;
+        }
+
     }
 
     &__summary {
@@ -47,13 +63,17 @@
         .teaser__summary {
             margin-top: 5px;
         }
+
+        .teaser__section-tag {
+            margin-top: 1px;
+        }
     }
 
     &__image {
         transition: opacity .5s ease;
 
         &:hover {
-            opacity: 0.9;
+            opacity: 0.8;
         }
     }
 

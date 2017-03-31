@@ -154,7 +154,7 @@ a {
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
     color: $color-black;
-    font: 24px / 26px $font-family-sans-serif-primary;
+    font: 20px / 26px $font-family-sans-serif-primary;
     font-weight: bold;
     letter-spacing: .01rem;
     text-transform: none;
@@ -171,13 +171,9 @@ a {
 
 @mixin type-teaser-summary {
     color: $color-grey;
-    font: 400 16px / 20px $font-family-serif-primary;
+    font: 400 14px / 20px $font-family-serif-primary;
     letter-spacing: 0.01em;
-
-    @media #{$xlarge-up} {
-        font-size: 18px;
-        line-height: 25px;
-    }
+    -webkit-font-smoothing: antialiased;
 }
 
 .type-hero-summary {
@@ -416,7 +412,7 @@ a {
 // Top half teasers
 @mixin type-top-teaser-title {
     color: $color-black;
-    font: 24px / 26px $font-family-sans-serif-primary;
+    font: 20px / 26px $font-family-sans-serif-primary;
     text-transform: uppercase;
 
     @media #{$medium-up} {
@@ -475,38 +471,26 @@ a {
 }
 
 @mixin type-teaser-tag {
-    box-shadow: 0 5px 0 0 $color-yellow inset;
-    color: $color-black;
     text-decoration: none;
-    font-size: 7px;
+    font-size: 11px;
+    display: block;
 
     a, span {
-        color: $color-black;
-        font: 11px / 12px $font-family-sans-serif-primary;
+        color: $color-accent;
+        font: 600 11px / 12px $font-family-sans-serif-primary;
         letter-spacing: .1em;
         text-transform: uppercase;
-
-        @media #{$medium-up} {
-            font-size: 16px;
-            letter-spacing: .05em;
-            line-height: 24px;
-        }
-    }
-
-    @media #{$medium-up} {
-        box-shadow: 0 7px 0 0 $color-yellow inset;
-        font-size: 10px;
     }
 
     &:hover {
-        color: $color-black-hover;
-        text-decoration: none;
+        text-decoration: none !important; //Chrome underlines all links in user agent stylesheet, this prevents that
     }
 }
 
 .type-teaser-tag {
     @include type-teaser-tag();
 }
+
 
 
 // Navigation

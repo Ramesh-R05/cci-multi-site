@@ -14,7 +14,6 @@ export default class Teaser extends Component {
         article: PropTypes.object.isRequired,
         imageSizes: PropTypes.object,
         showResponsiveImage: PropTypes.bool,
-        showTeaserSummary: PropTypes.bool,
         className: PropTypes.string.isRequired,
         sourceClassName: PropTypes.string,
         onClick: PropTypes.func,
@@ -40,7 +39,6 @@ export default class Teaser extends Component {
         },
         showDate: true,
         showResponsiveImage: true,
-        showTeaserSummary: false,
         sourceClassName: 'teaser__source',
         imageSizes: {
             s: { w: 880, h: 710 },
@@ -79,16 +77,6 @@ export default class Teaser extends Component {
         );
     };
 
-    renderSummary = () => {
-        const { article, showTeaserSummary } = this.props;
-
-        if (!showTeaserSummary) return null;
-
-        return (
-            <TeaserSummary summary={article.summary} className="teaser__summary" />
-        );
-    };
-
     render() {
         const { config } = this.context;
         const { className, sourceClassName, showDate, sourceDefault } = this.props;
@@ -117,21 +105,25 @@ export default class Teaser extends Component {
         return (
             <article className={containerClassNames} onClick={this.props.onClick}>
                 <div className="teaser__inner">
+
                     {this.renderImage()}
 
                     <div className="teaser__body">
 
+                        <a href={article.parentUrl} className="teaser__section-tag"><span>{article.parentName}</span></a>
+
                         <TeaserTitle title={articleTitle} url={article.url} gtmClass={this.getGTMClass()} />
 
-                        {this.renderSummary()}
+                        <TeaserSummary summary={article.summary} className="teaser__summary" />
 
                         <p className={articleSourceClassName}>
-
                             {sourceDefault || `${sourceName}`}
 
-                            {showDate ? (<span><span className={`${sourceClassName}__breaker`}>|</span>
-                                <Date dateCreated={article.dateCreated} showElapsed />
-                            </span>) : null}
+                            { showDate && (<span>
+                                <span className={`${sourceClassName}__breaker`}>|</span><Date dateCreated={article.dateCreated} showElapsed />
+                            </span>)
+                            }
+
                         </p>
                     </div>
                 </div>

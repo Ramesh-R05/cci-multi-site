@@ -1,0 +1,14 @@
+.page {
+    &__get-social-container {
+        display: none;
+    }
+
+    &__top-container {
+        padding-top: 20px;
+        margin-bottom: 0;
+
+        @media #{$medium-up} {
+            padding-top: 40px;
+        }
+    }
+}

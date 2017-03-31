@@ -37,8 +37,7 @@ export default class Subscribe extends Component {
                     <div className={`small-12 ${xLargeGridClass} medium-6 columns`}>
                         <div className="subscribe__subscribe">
                             <h4 className="subscribe__heading">{subscribeHeading}</h4>
-                            {/* eslint-disable react/no-danger */}
-                            <p className="subscribe__content" dangerouslySetInnerHTML={{ __html: subscribeText }} />
+                            <p className="subscribe__content"> {subscribeText} </p>
                             <div className="subscribe__action">
                                 <a
                                   className="button button--link button--subscribe"

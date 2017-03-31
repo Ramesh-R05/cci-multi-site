@@ -18,7 +18,7 @@ export default {
 
     subscribe: {
         subscribeHeading: 'GET THE MAGAZINE',
-        subscribeText: 'Never miss an issue:<br>Subscribe to ELLE magazine'
+        subscribeText: 'Subscribe to ELLE magazine now'
     },
 
     features,
