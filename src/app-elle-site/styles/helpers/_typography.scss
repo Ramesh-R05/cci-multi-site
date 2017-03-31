@@ -85,12 +85,12 @@ h6 {
 }
 
 a {
-    color: $color-black;
-    text-decoration: underline;
+    color: $color-accent;
+    text-decoration: none;
 
     &:hover,
     &:focus {
-        text-decoration: underline;
+        text-decoration: none;
     }
 }
 
@@ -170,10 +170,14 @@ a {
 }
 
 @mixin type-teaser-summary {
-    color: $color-grey;
-    font: 400 14px / 20px $font-family-serif-primary;
+    color: $color-grey-light;
+    font: 400 12px / 16px $font-family-sans-serif-primary;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
+
+    @media #{$medium-up} {
+        line-height: 26px;
+    }
 }
 
 .type-hero-summary {
@@ -213,9 +217,16 @@ a {
 }
 
 @mixin type-article-body {
-    color: $color-black;
-    font: 400 20px / 32px $font-family-serif-primary;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: $color-grey;
+    font: 400 17px / 27px $font-family-serif-primary;
     letter-spacing: .01em;
+
+    @media #{$medium-up} {
+        font-size: 18px;
+        line-height: 32px;
+    }
 }
 
 .type-article-body {
@@ -224,12 +235,8 @@ a {
 
 @mixin type-article-heading {
     color: $color-black;
-    font: 400 24px / 26px $font-family-sans-serif-primary;
-
-    @media #{$medium-up} {
-        font-size: 24px;
-        line-height: 36px;
-    }
+    font: 400 20px / 30px $font-family-sans-serif-primary;
+    text-transform: uppercase;
 }
 
 .type-article-heading {
@@ -238,7 +245,7 @@ a {
 
 @mixin type-related-teaser-title {
     color: $color-black;
-    font: 14px/20px $font-family-sans-serif-primary;
+    font: 13px/20px $font-family-sans-serif-primary;
     margin-bottom: 5px;
     text-align: center;
 }
@@ -265,7 +272,7 @@ a {
 // XSmall teaser (e.g. article page left hand side rail)
 @mixin type-xsmall-teaser-title {
     color: $color-black;
-    font: 400 14px / 20px $font-family-sans-serif-primary;
+    font: 400 13px / 20px $font-family-sans-serif-primary;
     margin-bottom: 10px;
 }
 
@@ -289,10 +296,15 @@ a {
 }
 
 @mixin type-inline-gallery-heading {
-    font: 400 20px / 22px $font-family-sans-serif-primary;
+    font: 400 18px / 20px $font-family-sans-serif-primary;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.1rem;
+
+    @media #{$medium-up} {
+        font-size: 20px;
+        line-height: 22px;
+    }
 }
 
 .type-inline-gallery-heading {
@@ -400,6 +412,7 @@ a {
     color: $color;
     font: 500 11px / 1.5 $font-family-sans-serif-primary;
     letter-spacing: .04em;
+    text-decoration: none;
     text-transform: uppercase;
 }
 

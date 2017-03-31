@@ -182,6 +182,7 @@
 
 .article__footer {
     @include type-article-body();
+    margin-bottom: $column-gutter;
     font-style: italic;
     text-transform: capitalize;
 
@@ -199,6 +200,8 @@
 }
 
 .article__tags {
+    margin-bottom: $column-gutter;
+
     .related-tags {
         li {
             a {

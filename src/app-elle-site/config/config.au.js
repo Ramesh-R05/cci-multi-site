@@ -73,12 +73,7 @@ export default {
     },
     features: {
         outbrain: {
-            enabled: true
+            enabled: false
         }
-    },
-    outbrain: {
-        templateId: 'NowtoLove',
-        widgetId: 'AR_1',
-        scriptUrl: 'http://widgets.outbrain.com/outbrain.js'
     }
 };
