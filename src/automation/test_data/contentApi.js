@@ -131,7 +131,13 @@ export default function start(port, site) {
     });
 
     server.use((err, req, res, next) => {
-        res.status(404).json({response: {...err}});
+        const errorResponse = {
+            error: err,
+            magcover: {
+                moduleImageUrl: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/27/6096/0018975_elle-australia-magazine-subscription.png"
+            }
+        };
+        res.status(404).json(errorResponse);
     });
 
     server.listen(port);

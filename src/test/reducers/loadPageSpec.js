@@ -74,7 +74,15 @@ describe(`loadPage Reducer`, () => {
         let response;
 
         beforeEach(() => {
-            response = {msg: 'Error Message', status: 404};
+            response = {
+                msg: 'Error Message',
+                status: 404,
+                body: {
+                    magCover: {
+                        moduleImageUrl: '/path/to/magcover.jpg'
+                    }
+                }
+            };
             payload = {
                 type: 'LOAD_CONTENT_FAILED',
                 response
@@ -97,7 +105,10 @@ describe(`loadPage Reducer`, () => {
         it(`should set the error status to 400 if it is not set in response`, () => {
             delete response.status;
             expect(reducer(initialState, payload)).to.deep.eq({
-                error: {msg: 'Error Message', status: 400},
+                error: {
+                    ...response,
+                    status: 400
+                },
                 footer: {},
                 nodeType: '',
                 title: '',

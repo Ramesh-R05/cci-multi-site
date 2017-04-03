@@ -1,11 +1,5 @@
 var footer = require('../page_objects/footer_widget');
 
-// Used to test the subscription links. Only test the relevant part of the url.
-function endsWith(str, endStr){
-    var index = str.lastIndexOf(endStr);
-    return index === str.length - endStr.length;
-}
-
 module.exports = function() {
 
     this.Given(/^I can see the social logo in the footer$/, function () {
@@ -84,38 +78,49 @@ module.exports = function() {
         expect(browser.isVisible(footer.footerElementSocialContainer)).toBe(true);
         expect(browser.isVisible(footer.footerElementNavigation)).toBe(true);
         expect(browser.isVisible(footer.footerElementCopyright)).toBe(true);
-    });
 
-    this.Given(/^I can see the subscription magazine cover image$/, function (dataTable) {
-
-        // Check that the anchor is present
-        expect(browser.isVisible(footer.footerElementSubscriptionCover)).toBe(true);
-        expect(browser.isVisible(footer.footerElementSubscriptionCoveriPad)).toBe(true);
-
-        // Check that the image is present
-        expect(browser.isVisible(footer.footerElementSubscriptionCover + ' > img')).toBe(true);
-        expect(browser.isVisible(footer.footerElementSubscriptionCoveriPad + ' > img')).toBe(true);
-
-        // Check that the anchors have the right urls
-        var rows = dataTable.hashes();
-        var coverLink = browser.getAttribute(footer.footerElementSubscriptionCover, 'href');
-        var ipadLink = browser.getAttribute(footer.footerElementSubscriptionCoveriPad, 'href');
-
-        expect(endsWith(coverLink, rows[0].url)).toBe(true);
-        expect(endsWith(ipadLink, rows[1].url)).toBe(true);
+        expect(browser.isVisible(footer.footerElementSubscriptionCoverLink)).toBe(true);
+        expect(browser.isVisible(footer.footerElementSubscriptionCoveriPadLink)).toBe(true);
+        expect(browser.isVisible(footer.footerElementSubscriptionButton)).toBe(true);
 
     });
 
-    this.Given(/^I can see the subscription button$/, function (dataTable) {
+    this.Given(/^I can see the subscription magazine and digital cover$/, function () {
+
+        //Verify the src is not null
+        var magCover = browser.getAttribute(footer.footerElementSubscriptionCoverImage, 'src');
+        console.log(magCover);
+        expect(magCover).not.toBeUndefined();
+
+        //Verify the src is not null
+        var magCoverIpad = browser.getAttribute(footer.footerElementSubscriptionCoveriPadImage, 'src');
+        console.log(magCoverIpad);
+        expect(magCoverIpad).not.toBeUndefined();
+
+    });
+
+    this.Given(/^I can click both the images$/, function () {
+
+        //Verify the href is not null
+        var magCoverLink = browser.getAttribute(footer.footerElementSubscriptionCoverLink, 'href');
+        console.log(magCoverLink);
+        expect(magCoverLink).toContain('subscribe-magazine');
+
+        //Verify the href is not null
+        var magCoverIpadLink = browser.getAttribute(footer.footerElementSubscriptionCoveriPadLink, 'href');
+        console.log(magCoverIpadLink);
+        expect(magCoverIpadLink).toContain('subscribe-digital');
+
+    });
+
+    this.Given(/^I can see the subscription button$/, function () {
 
         // Check that the button is present
         browser.waitForVisible(footer.footerElementSubscriptionButton, 5000);
-
-        // Check that the anchor has the right url
-        var rows = dataTable.hashes();
-        var buttonLink = browser.getAttribute(footer.footerElementSubscriptionButton, 'href');
-
-        expect(endsWith(buttonLink, rows[0].url)).toBe(true);
+        // Check the link should not be empty
+        var subscribeButton = browser.getAttribute(footer.footerElementSubscriptionButton, 'href');
+        console.log(subscribeButton);
+        expect(subscribeButton).toContain('subscribe-magazine');
     });
 
 

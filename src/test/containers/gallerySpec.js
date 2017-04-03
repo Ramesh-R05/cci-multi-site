@@ -76,6 +76,9 @@ const currentSlideAd = 0;
 const ads = { data: {}, id: 1, rendered: false, viewed: false, failed: false };
 const isAdSlideItem = false;
 const isAdViewed = false;
+const magCover = {
+    moduleImageUrl: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/27/6096/0018975_elle-australia-magazine-subscription.png"
+};
 function addStores() {
     Context.addStore('GalleryPageStore', {
         getGallery: () => gallery,
@@ -101,6 +104,9 @@ function addStores() {
         isGalleryCompletedItemActive: true,
         isAdSlideItem: () => isAdSlideItem,
         isAdViewed: () => isAdViewed
+    });
+    Context.addStore('PageStore', {
+        getModule: () => magCover
     });
 }
 

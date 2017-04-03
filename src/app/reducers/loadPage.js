@@ -1,5 +1,3 @@
-import get from 'lodash/object/get';
-
 export const initialState = {
     error: null,
     footer: {},
@@ -32,6 +30,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
     }
     case 'LOAD_CONTENT_FAILED': {
         const { response } = payload;
+        const { footer = {}, magcover = {} } = response.body;
         response.status = response.status || 400;
 
         return {
@@ -39,10 +38,10 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             nodeType: '',
             title: '',
             trendingItems: [],
-            footer: get(payload, 'response.body.footer', {}),
+            footer,
             magazineImageUrl: '',
             theme: '',
-            magCover: {}
+            magCover: magcover
         };
     }
     default:

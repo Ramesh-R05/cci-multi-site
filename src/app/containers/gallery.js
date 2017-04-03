@@ -46,11 +46,13 @@ class GallerySection extends Component {
         viewport: PropTypes.shape({
             width: PropTypes.number.isRequired,
             height: PropTypes.number.isRequired
-        }).isRequired
+        }).isRequired,
+        magCover: PropTypes.object
     };
 
     static defaultProps = {
-        theme: {}
+        theme: {},
+        magCover: {}
     };
 
     static contextTypes = {
@@ -145,7 +147,7 @@ class GallerySection extends Component {
     };
 
     render() {
-        const { gallery, hamburgerNavItems, headerNavItems, customisedTeaser, theme } = this.props;
+        const { gallery, hamburgerNavItems, headerNavItems, customisedTeaser, theme, magCover } = this.props;
         if (!gallery) return null;
 
         const tags = gallery.tagsDetails;
@@ -156,6 +158,7 @@ class GallerySection extends Component {
         };
         const mobileNav = hamburgerNavItems ? hamburgerNavItems.slice() : headerNavItems.slice();
         mobileNav.unshift({ name: 'Home', url: '/' });
+
         return (
             <div className={this.props.menuClasses}>
                 <section
@@ -205,7 +208,7 @@ class GallerySection extends Component {
                         </section>
                     </StandardPageAdsWrapper>
 
-                    <Footer logoList={this.context.config.brands.uniheader} />
+                    <Footer magCover={magCover} logoList={this.context.config.brands.uniheader} />
 
                     <MobileOffCanvas side="left" toggleSideMenu={this.toggleMenu}>
                         <div className="off-canvas-content-wrapper">
@@ -229,7 +232,7 @@ class GallerySection extends Component {
     }
 }
 
-export default connectToStores(resizeViewport(GallerySection), ['NavigationStore', GalleryStore, GalleryPageStore, AdStore], (context) => {
+export default connectToStores(resizeViewport(GallerySection), ['NavigationStore', GalleryStore, GalleryPageStore, AdStore, 'PageStore'], (context) => {
     const theAdStore = context.getStore(AdStore);
     const ads = theAdStore.getAds();
     const viewed = ads[`gpt-slot-${theAdStore.getCurrentSlideAd()}`] && ads[`gpt-slot-${theAdStore.getCurrentSlideAd()}`].viewed;
@@ -237,7 +240,7 @@ export default connectToStores(resizeViewport(GallerySection), ['NavigationStore
     const galleryStore = context.getStore(GalleryStore);
     const headerNavItems = context.getStore('NavigationStore').getHeaderItems();
     const hamburgerNavItems = context.getStore('NavigationStore').getHamburgerItems();
-
+    const magCover = context.getStore('PageStore').getModule('magCover');
 
     return {
         gallery: galleryPageStore.getGallery(),
@@ -252,6 +255,7 @@ export default connectToStores(resizeViewport(GallerySection), ['NavigationStore
         isAdSlideItem: galleryStore.isAdSlideItem(),
         isAdViewed: galleryStore.isAdSlideItem() && viewed,
         headerNavItems,
-        hamburgerNavItems
+        hamburgerNavItems,
+        magCover
     };
 });

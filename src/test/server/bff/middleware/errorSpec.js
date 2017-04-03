@@ -8,7 +8,7 @@ describe('Error middleware', () => {
     });
 
     describe('when an unhandled exception occurs', () => {
-        const reqDataStub = { footer: { id: '1234' } };
+        const reqDataStub = { footer: { id: '1234' }, magcover: {} };
         let err = {};
         let res = {};
         let req = { data: reqDataStub };

@@ -45,17 +45,13 @@ Feature: Footer
             |gallery            |fashion/automation-test-gallery-13302                              |
             |404                |404                                                                |
 
-    @must @watch
+    @must
     Scenario Outline: Verify the subscription cover and button on the homepage
         Given I switch to "<device>" view
         When I am currently viewing the homepage
-        * I can see the subscription magazine cover image
-            |url                        |
-            |/subscribe-magazine        |
-            |/subscribe-digital         |
+        * I can see the subscription magazine and digital cover
+        * I can click both the images
         * I can see the subscription button
-            |url                      |
-            |/subscribe-magazine      |
         @high
         Examples:
             |device            |

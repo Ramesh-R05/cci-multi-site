@@ -9,8 +9,10 @@ var footer_widget = {
     footerElementSocialContainer: '.footer .home-page__get-social-container',
     footerElementLogos: '.footer__logos',
     footerElementNavigation: '.footer__navigation',
-    footerElementSubscriptionCover: '.subscription__image--mag',
-    footerElementSubscriptionCoveriPad: '.subscription__image--ipad',
+    footerElementSubscriptionCoverLink: '.subscription__image--mag',
+    footerElementSubscriptionCoveriPadLink: '.subscription__image--ipad',
+    footerElementSubscriptionCoverImage: '.subscription__image--mag img',
+    footerElementSubscriptionCoveriPadImage: '.subscription__image--ipad img',
     footerElementSubscriptionButton: '.button--subscribe'
 };
 

@@ -121,5 +121,8 @@ export default {
         "robots": "NOINDEX,NOFOLLOW",
         "title": "Kendall Page Title"
     },
-    headerNavigation: navigation.getData()
+    headerNavigation: navigation.getData(),
+    "magCover": {
+        "moduleImageUrl": 'http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/17/16588/0018975_elle-australia-magazine-subscription.png'
+    }
 };
