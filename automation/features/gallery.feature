@@ -107,19 +107,19 @@ Feature: Gallery
         * I cannot go to the next slide when the ad is not loaded
         * I can go to the next slide when the ad is loaded
 
-    @BXMA-155
-    Scenario Outline: Verify the share buttons on a gallery page in "<device>" view
-        When I switch to "<device>" view
-        Given I am currently viewing "fashion/automation-test-gallery-13302"
-        * I can see the facebook share button on gallery page
-        * I can see the pinterest share button on gallery page
-        @high
-        Examples:
-            | device            |
-            | mobile            |
-            | desktop           |
-        @med
-        Examples:
-            | device            |
-            | tablet portrait   |
-            | tablet landscape  |
+#    @BXMA-155
+#    Scenario Outline: Verify the share buttons on a gallery page in "<device>" view
+#        When I switch to "<device>" view
+#        Given I am currently viewing "fashion/automation-test-gallery-13302"
+#        * I can see the facebook share button on gallery page
+#        * I can see the pinterest share button on gallery page
+#        @high
+#        Examples:
+#            | device            |
+#            | mobile            |
+#            | desktop           |
+#        @med
+#        Examples:
+#            | device            |
+#            | tablet portrait   |
+#            | tablet landscape  |
