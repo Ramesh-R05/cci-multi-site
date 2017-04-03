@@ -17,12 +17,12 @@ Feature: Article
         * I can see the body paragraph "Test body paragraph"
         * I can see the body related content
         * I can see the body image
-        * I can see the body image caption "Photography by"
+        * I can see the body image caption "PHOTOGRAPHY BY"
         * I can see the body gallery
         * I can see the body video
-        * I can see the body tips "body tips body tips EOM"
+        * I can see the body tips "BODY TIPS BODY TIPS EOM"
         * I can see the body competition
-        * I can see the related tags "Gossip Girl," "Dolly Doctor"
+        * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
 
     @DAW-1125 @med
     Scenario: Verify an article page which contains a hero video on tablet portrait
@@ -37,12 +37,12 @@ Feature: Article
         * I can see the body paragraph "Test body paragraph"
         * I can see the body related content
         * I can see the body image
-        * I can see the body image caption "Photography by"
+        * I can see the body image caption "PHOTOGRAPHY BY"
         * I can see the body gallery
         * I can see the body video
-        * I can see the body tips "body tips body tips EOM"
+        * I can see the body tips "BODY TIPS BODY TIPS EOM"
         * I can see the body competition
-        * I can see the related tags "Gossip Girl," "Dolly Doctor"
+        * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
 
     @high
     Scenario: Verify an article page which contains a hero image on desktop
@@ -58,12 +58,12 @@ Feature: Article
         * I can see the body paragraph "Test body paragraph"
         * I can see the body related content
         * I can see the body image
-        * I can see the body image caption "Photography by"
+        * I can see the body image caption "PHOTOGRAPHY BY"
         * I can see the body gallery
         * I can see the body video
-        * I can see the body tips "body tips body tips EOM"
+        * I can see the body tips "BODY TIPS BODY TIPS EOM"
         * I can see the body competition
-        * I can see the related tags "Gossip Girl," "Dolly Doctor"
+        * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
 #        * I can see the "header" source appearing with gtm "gtm-brandlogotop-article"
 #        * I can see the "bottom" source appearing with gtm "gtm-brandlogobottom-article"
 
@@ -102,23 +102,6 @@ Feature: Article
         * I can see the long title of each item in LHR
         * Long title in LHR is clickable to open its page
         * I can see each item in LHR containing source and date
-
-    @BXMA-155
-    Scenario Outline: Verify the share buttons on an article page in "<device>" view
-        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        When I switch to "<device>" view
-        * I can see the facebook share button on article page
-        * I can see the pinterest share button on article page
-        @high
-        Examples:
-            | device            |
-            | mobile            |
-            | desktop           |
-        @med
-        Examples:
-            | device            |
-            | tablet portrait   |
-            | tablet landscape  |
 
     Scenario Outline: Editorial team can add social feeds to the article body
         Given I switch to "<device>" view

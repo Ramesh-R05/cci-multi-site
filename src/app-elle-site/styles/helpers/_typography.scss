@@ -170,14 +170,10 @@ a {
 }
 
 @mixin type-teaser-summary {
-    color: $color-grey-light;
-    font: 400 12px / 16px $font-family-sans-serif-primary;
+    color: $color-grey;
+    font: 400 14px / 20px $font-family-serif-primary;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
-
-    @media #{$medium-up} {
-        line-height: 26px;
-    }
 }
 
 .type-hero-summary {
