@@ -22,7 +22,7 @@ export default async function sectionMiddleware(req, res, next) {
         let teaserFilter;
 
         if (nodeTypeAlias === 'Section') {
-            teaserQuery = `/${section}/`;
+            teaserQuery = `/${section}`;
             teaserFilter = 'parentUrl';
             listingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
         }

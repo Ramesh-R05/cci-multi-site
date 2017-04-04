@@ -87,14 +87,14 @@ describe('Section middleware', () => {
 
             it('should store the latest teasers in `req.data`', (done) => {
                 sectionMiddleware(req, res, next).then(() => {
-                    expect(getLatestTeasersStub).to.have.been.calledWith(14, 0, `parentUrl eq %27/${req.query.section}/%27`);
+                    expect(getLatestTeasersStub).to.have.been.calledWith(14, 0, `parentUrl eq %27/${req.query.section}%27`);
                     done();
                 }).catch(done);
             });
 
             it('should have valid section value in `req.data.list`', (done) => {
                 sectionMiddleware(req, res, next).then(() => {
-                    expect(req.data.list.params.section).to.equal('/sec/');
+                    expect(req.data.list.params.section).to.equal('/sec');
                     done();
                 }).catch(done);
             });
