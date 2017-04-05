@@ -47,6 +47,9 @@ describe('Home Container', () => {
                     twitterUrl: 'https://twitter.com/NowToLovenz',
                     instagramUrl: 'https://www.instagram.com/NowToLovenz'
                 }
+            },
+            features: {
+                headerExpanded: true
             }
         }
     };

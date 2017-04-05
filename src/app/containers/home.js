@@ -56,14 +56,25 @@ export default class Home extends Component {
     }
 
     render() {
-        const polarLabels = this.context.config.polar.details;
+
+        const {config} = this.context;
+        const polarLabels = config.polar.details;
+        const {
+            currentUrl,
+            theme,
+            heroTeaser,
+            teasers,
+            list,
+            listNextParams
+        } = this.props;
 
         return (
             <Page
-              currentUrl={this.props.currentUrl}
-              headerExpanded={false}
+              currentUrl={currentUrl}
+              headerExpanded={config.features.headerExpanded}
               showUniheader
-              theme={this.props.theme}
+              theme={theme}
+              className="page--home"
             >
                 <div className="home-page">
                     {/* 1st Leaderboard or billboard to show on tablet and up */}
@@ -76,14 +87,14 @@ export default class Home extends Component {
                                 <div className="page__top-container columns">
                                     <div className="row">
                                         <div className="columns large-8 xlarge-9 home-page__teasers-container" ref={(c) => { this.top = c; }}>
-                                            <HeroTeaser article={this.props.heroTeaser} showPromoted />
+                                            <HeroTeaser article={heroTeaser} showPromoted />
 
                                             <div className="home-page__teasers-title">
                                                 <span>what&apos;s happening now</span>
                                             </div>
 
                                             <TeaserGridView
-                                              teasers={this.props.teasers.slice(0, 6)}
+                                              teasers={teasers.slice(0, 6)}
                                               className="news-feed top-news-feed"
                                               adPosition={8}
                                               adSizes={{ small: 'mrec', medium: ['mrec', 'double-mrec'] }}
@@ -110,7 +121,7 @@ export default class Home extends Component {
                                                     />
                                                     <div className="page__get-social-container">
                                                         <span className="page__social-logo">Now To Love</span>
-                                                        <SocialContainer socialUrls={this.context.config.urls.socialUrls} />
+                                                        <SocialContainer socialUrls={config.urls.socialUrls} />
                                                     </div>
                                                 </StickyAndDockAd>
                                             </div>
@@ -135,8 +146,8 @@ export default class Home extends Component {
                     <Repeatable
                       component={TeaserListView}
                       action={loadList}
-                      dataSource={this.props.list}
-                      nextParams={this.props.listNextParams}
+                      dataSource={list}
+                      nextParams={listNextParams}
                       className="news-feed bottom-news-feed"
                       adTargets={{ position: 3 }}
                       nativeAdConfig={{

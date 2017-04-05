@@ -18,5 +18,6 @@ export default {
     lazyLoadAds: {
         enabled: false
     },
-    showTeaserBadgeLink: false
+    showTeaserBadgeLink: false,
+    headerExpanded: true
 };
