@@ -42,7 +42,7 @@ module.exports = function() {
         //Get values of class, href, and name
         var navClass = browser.getAttribute(sectionDetail,'class');
         var navLink = browser.getAttribute(sectionDetail,'href');
-        var navName = browser.getText(sectionDetail);
+        var navName = browser.getAttribute(sectionDetail, 'textContent');
 
         //Validate the values
         for (var i=0; i<navName.length; i++){
