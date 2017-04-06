@@ -56,8 +56,7 @@ export default class Home extends Component {
     }
 
     render() {
-
-        const {config} = this.context;
+        const { config } = this.context;
         const polarLabels = config.polar.details;
         const {
             currentUrl,

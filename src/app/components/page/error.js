@@ -36,16 +36,21 @@ export default class Error extends Component {
                         {symbol ? <span className="page-title__symbol">{symbol}</span> : null }
                         {title}
                     </h1>
-
-                    {content.map((item, i) => (
-                        <p className="error-page-container__body-item">{item} {
-                            emojiSrc && i === content.length - 1 ? <img className="emoji emoji--grin" alt="emoji grin" src={emojiSrc} /> : null
-                        }</p>
-                    ))}
+                    <a href="/">
+                        {content.map((item, i) => (
+                            <p className="error-page-container__body-item">{item} {
+                                    emojiSrc && i === content.length - 1
+                                        ? <img className="emoji emoji--grin" alt="emoji grin" src={emojiSrc} /> : null
+                            }</p>
+                        ))}
+                    </a>
                     <p className="error-page-container__footer">
-                        <a href="/" className="gtm-error-goback error-page-container__homepage-link">
-                            {returnHomeText}
-                        </a>
+                        {/* eslint-disable react/no-danger */}
+                        <a
+                          href="/"
+                          className="gtm-error-goback error-page-container__homepage-link"
+                          dangerouslySetInnerHTML={{ __html: returnHomeText }}
+                        />
                     </p>
                 </section>
             </Page>

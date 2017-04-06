@@ -37,18 +37,18 @@ export default {
 
     error: {
         404: {
-            title: 'Sorry, this page is broken.',
+            title: 'Oops, we don\'t have the page you\'re looking for.',
             symbol: null,
             content: [''],
-            emojiSrc: '/assets/images/error.gif',
-            returnHomeText: 'Try refreshing this page or join us back on the homepage'
+            emojiSrc: '/assets/images/error.jpg',
+            returnHomeText: 'Try refreshing this page or <span class="error-page__text-hyperlink"> join us</span> back on the homepage'
         },
         503: {
-            title: 'Sorry, this page is broken.',
+            title: 'Oops, we don\'t have the page you\'re looking for',
             symbol: null,
             content: [''],
-            emojiSrc: '/assets/images/error.gif',
-            returnHomeText: 'Try refreshing this page or join us back on the homepage'
+            emojiSrc: '/assets/images/error.jpg',
+            returnHomeText: 'Try refreshing this page or <span class="error-page__text-hyperlink"> join us</span> back on the homepage'
         }
     },
 
