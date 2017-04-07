@@ -17,7 +17,6 @@ module.exports = function() {
     this.Given(/^I can see an image appearing on the gallery$/, function() {
         var img = browser.getAttribute(gallery.galleryImg, 'src');
         expect(img).not.toBe(null);
-        console.log("IMAGE SRC =" + " " + img);
     });
 
     this.Given(/^I can see the source appearing on the gallery with gtm "([^"]*)"$/, function (gtm) {
@@ -27,17 +26,13 @@ module.exports = function() {
         var sourceLogo = browser.getAttribute(gallery.gallerySourceImg,'src');
 
         //Validate the values
-        console.log(sourceHref);
         expect(sourceHref).not.toEqual('');
-        console.log(sourceGTM);
         expect(sourceGTM).toEqual(gtm);
-        console.log(sourceLogo);
         expect(sourceLogo).not.toEqual('');
     });
 
     this.Given(/^I can see the created date on the gallery "([^"]*)"$/, function(date) {
         var galleryDate = browser.getText(gallery.galleryDate);
-        console.log(galleryDate);
         expect(galleryDate).toEqual(date);
     });
 
@@ -74,14 +69,12 @@ module.exports = function() {
     this.Given(/^I can see the image number "([^"]*)" of total "([^"]*)" on the gallery$/, function(num, total) {
         var imageCount = browser.getText(gallery.imageCount);
         expect(imageCount).toEqual(num + " / " + total);
-        console.log(imageCount);
     });
 
     this.Given(/^I can see the image caption on the gallery containing "([^"]*)"$/, function(caption) {
         browser.waitForVisible(gallery.imgCaption);
         var imgCaption = browser.getText(gallery.imgCaption);
         expect(imgCaption).toMatch(caption);
-        console.log(imgCaption);
     });
 
     this.Given(/^I can click MORE to see the full image caption on the gallery$/, function() {

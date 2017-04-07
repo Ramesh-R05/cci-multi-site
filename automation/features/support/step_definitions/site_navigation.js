@@ -13,10 +13,10 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the site header logo clickable to open homepage and contain "([^"]*)" class name$/, function (gtm) {
-        browser.waitForVisible(site_nav.siteNavHeaderLogo, 3000);
+        browser.waitForExist(site_nav.siteNavHeaderLogo, 3000);
         //Validate the existence of the logo
         var headerLogo = browser.getCssProperty(site_nav.siteNavHeaderLogo, 'background-image').value;
-        expect(headerLogo).toMatch("/assets/images/now-logo-white.svg");
+        expect(headerLogo).toMatch("/assets/logos/elle.svg");
         //Validate the logo is clickable to open homepage
         var headerLogoLink = browser.getAttribute(site_nav.siteNavHeaderLogo,'href');
         expect(headerLogoLink).not.toEqual('');
@@ -46,7 +46,6 @@ module.exports = function() {
 
         //Validate the values
         for (var i=0; i<navName.length; i++){
-            console.log( i + ":" + navClass[i] + " => " + navLink[i] + " => " + navName[i]);
             expect(navClass[i]).toContain(gtm);
             expect(navLink[i]).not.toEqual('');
             expect(navName[i]).not.toEqual('');

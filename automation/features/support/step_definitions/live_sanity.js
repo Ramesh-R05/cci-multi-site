@@ -20,13 +20,12 @@ module.exports = function(){
         });
 
         this.Then(/^see the publishing date$/, function () {
-                console.log(browser.getText(wn_article.dateText));
+            console.log(browser.getText(wn_article.dateText));
         });
 
         this.Then(/^I can see the reactions to this article$/, function () {
             browser.scroll(wn_article.smileBtn);
             browser.click(wn_article.smileBtn);
-            console.log(browser.getText(wn_article.reactionText));
         });
 
         this.Given(/^the user lands on the "([^"]*)" tage page$/, function (tag) {
@@ -37,7 +36,6 @@ module.exports = function(){
         this.Then(/^the results are presented on the page$/, function () {
             var header = browser.getText(".search-results__header");
             expect(header).toContain(tagText);
-            console.log(header);
         });
 
         this.When(/^I search for "([^"]*)" using the search box$/, function (tag) {
@@ -56,7 +54,6 @@ module.exports = function(){
             browser.waitUntil(function () {
                 return browser.getUrl() === world.Urls.home_page+"version";
             }, 20000, 1000);
-            console.log(browser.getSource());
             expect(browser.getSource()).toContain('"version":{"buildNumber"')
         });
 

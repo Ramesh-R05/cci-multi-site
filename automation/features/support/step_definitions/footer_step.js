@@ -17,7 +17,6 @@ module.exports = function() {
         for (var i = 0; i < rows.length; ++i) {
             var row = rows[i];
             //validates position of social icons on Index and their link
-            console.log(row['social'] + ' : ' + socialLink[i]);
             expect(socialLink[i]).toContain(row['url']);
         }
     });
@@ -89,12 +88,10 @@ module.exports = function() {
 
         //Verify the src is not null
         var magCover = browser.getAttribute(footer.footerElementSubscriptionCoverImage, 'src');
-        console.log(magCover);
         expect(magCover).not.toBeUndefined();
 
         //Verify the src is not null
         var magCoverIpad = browser.getAttribute(footer.footerElementSubscriptionCoveriPadImage, 'src');
-        console.log(magCoverIpad);
         expect(magCoverIpad).not.toBeUndefined();
 
     });
@@ -103,12 +100,10 @@ module.exports = function() {
 
         //Verify the href is not null
         var magCoverLink = browser.getAttribute(footer.footerElementSubscriptionCoverLink, 'href');
-        console.log(magCoverLink);
         expect(magCoverLink).toContain('subscribe-magazine');
 
         //Verify the href is not null
         var magCoverIpadLink = browser.getAttribute(footer.footerElementSubscriptionCoveriPadLink, 'href');
-        console.log(magCoverIpadLink);
         expect(magCoverIpadLink).toContain('subscribe-digital');
 
     });
@@ -119,7 +114,6 @@ module.exports = function() {
         browser.waitForVisible(footer.footerElementSubscriptionButton, 5000);
         // Check the link should not be empty
         var subscribeButton = browser.getAttribute(footer.footerElementSubscriptionButton, 'href');
-        console.log(subscribeButton);
         expect(subscribeButton).toContain('subscribe-magazine');
     });
 

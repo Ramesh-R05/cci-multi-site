@@ -19,6 +19,12 @@ export default {
         uniheader: [],
         hamburgers: [
             {
+                id: 'now',
+                imageUrl: '/assets/images/menulogos/NTL-logo.svg',
+                url: 'http://nowtolove.com.au/',
+                title: 'Now To Love'
+            },
+            {
                 id: 'homes',
                 imageUrl: '/assets/images/menulogos/HTL-logo-greytext.svg',
                 url: 'http://homestolove.com.au/',
@@ -29,12 +35,6 @@ export default {
                 imageUrl: '/assets/images/menulogos/FTL-logo.svg',
                 url: 'http://foodtolove.com.au/',
                 title: 'Food To Love'
-            },
-            {
-                id: 'elle',
-                imageUrl: '/assets/images/menulogos/ELLE-logo-redtext.svg',
-                url: 'http://elle.com.au/',
-                title: 'Elle'
             },
             {
                 id: 'harpers',

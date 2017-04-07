@@ -45,7 +45,7 @@ Feature: Homepage
 
 
 #    @promoted @BXMA-205 @high
-#    Scenario Outline: Verify the promoted module is functional correctly in "<device>" view
+#   Scenario Outline: Verify the promoted module is functional correctly in "<device>" view
 #        Given I switch to "<device>" view
 #        When I am currently viewing the homepage
 #        * I should see promoted header as "WOMEN OF THE YEAR"
@@ -104,4 +104,3 @@ Feature: Homepage
             |device|
             |tablet portrait |
             |tablet landscape|
-

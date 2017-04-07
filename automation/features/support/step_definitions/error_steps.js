@@ -19,9 +19,7 @@ module.exports = function() {
         var errorGTM = browser.getAttribute(error.errorLink,'class');
 
         //Validate text, link and gtm
-        console.log(errorText);
         expect(errorText).not.toEqual('');
-        console.log(errorLink);
         expect(errorLink).not.toEqual('');
         expect(errorGTM).toMatch(gtm);
     });

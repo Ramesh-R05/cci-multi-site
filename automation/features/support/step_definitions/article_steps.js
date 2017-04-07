@@ -20,7 +20,6 @@ module.exports = function() {
         var feedImagesUrls = browser.getAttribute(wn_article.lhrFeedImgs, 'href');
         for (var i = 0; i < feedImagesUrls.length; ++i) {
             var indFeedImgUrl = feedImagesUrls[i];
-            console.log('image url is :'+indFeedImgUrl);
             expect(indFeedImgUrl === '').toBe(false);
         }
     });
@@ -29,7 +28,6 @@ module.exports = function() {
         var feedTitles = browser.getText(wn_article.lhrFeedTitles);
         for (var i = 0; i < feedTitles.length; ++i) {
             var title = feedTitles[i];
-            console.log('teaser title is :'+title);
             expect(title === '').toBe(false);
         }
     });
@@ -38,7 +36,6 @@ module.exports = function() {
         var feedTitlesUrls = browser.getAttribute(wn_article.lhrFeedTitles, 'href');
         for (var i = 0; i < feedTitlesUrls.length; ++i) {
             var titleUrl = feedTitlesUrls[i];
-            console.log('teaser title url is :'+titleUrl);
             expect(titleUrl === '').toBe(false);
             expect(titleUrl === null).toBe(false);
         }
@@ -49,11 +46,9 @@ module.exports = function() {
         var feedSource = browser.getText(wn_article.lhrFeedSource);
         var feedDate = browser.getText(wn_article.lhrFeedDate);
         for (var i=0; i<feedSource.length; i++){
-            console.log( i + ":Source:" + feedSource[i]);
             //validate the source
             expect(feedSource[i]).not.toEqual('');
             if (i != 1 && i != 4 && i != 8 && i != 13){ //Skip the polar ad spot as no date is required
-                console.log( i + ":Date:" + feedDate[i]);
                 //validate the date
                 expect(feedDate[i]).not.toEqual('');
                 expect(feedDate[i]).not.toMatch('ago');
@@ -74,7 +69,6 @@ module.exports = function() {
     });
     this.Given(/^I can see the image alt text in the hero image element "([^"]*)"$/, function (altText) {
         var imgaltText = browser.getAttribute(wn_article.heroImg, 'alt');
-        console.log(imgaltText);
         expect(imgaltText).toMatch(altText);
     });
     this.When(/^I should not see the hero image caption$/, function () {
@@ -100,7 +94,6 @@ module.exports = function() {
     this.Given(/^I can see the created date "([^"]*)"$/, function (date) {
         var articleDate = browser.getText(wn_article.dateText);
         expect(articleDate.toString()).toEqual(date);
-        console.log('article date is:' + articleDate)
     });
     this.Given(/^I can see the hero video instead of the main image$/, function () {
         var heroVideo = browser.isVisible(wn_article.heroVideo);
@@ -132,22 +125,19 @@ module.exports = function() {
 
     this.Given(/^I can see the body related content$/, function () {
         // use the site domain to select different class element for aww,wd,food and dolly,cosmo,homes
-            browser.scroll(wn_article.relatedContentHeading);
-            var rcHeading = browser.getText(wn_article.relatedContentHeading);
-            var rcItemsImage = browser.getAttribute(wn_article.relatedContentItemsImage, 'data-srcset');
-            var rcItemsTitle = browser.getText(wn_article.relatedContentItemsTitle);
+        browser.scroll(wn_article.relatedContentHeading);
+        var rcHeading = browser.getText(wn_article.relatedContentHeading);
+        var rcItemsImage = browser.getAttribute(wn_article.relatedContentItemsImage, 'data-srcset');
+        var rcItemsTitle = browser.getText(wn_article.relatedContentItemsTitle);
 
         //Validate the heading of Related
-            console.log(rcHeading);
-            expect(rcHeading).not.toEqual('');
+        expect(rcHeading).not.toEqual('');
 
         //Loop through the related items, and Validate the body related items' image and title
         for(var i=0; i<rcItemsTitle.length; i++) {
             var image = rcItemsImage[i];
             var title = rcItemsTitle[i];
-            console.log( i + ':' + image);
             expect(image === '').toBe(false);
-            console.log( i + ':' + title);
             expect(title === '').toBe(false);
         }
     });
@@ -160,9 +150,7 @@ module.exports = function() {
         for(var i=0; i<rcItemsTitle.length; i++) {
             var image = rcItemsImage[i];
             var title = rcItemsTitle[i];
-            console.log( i + ':' + image);
             expect(image === '').toBe(false);
-            console.log( i + ':' + title);
             expect(title === '').toBe(false);
         }
     });
@@ -192,12 +180,10 @@ module.exports = function() {
     });
     this.Given(/^I can see the body competition$/, function () {
         var competiton = browser.getAttribute(wn_article.Bodycomp,'src');
-        console.log(competiton);
         expect(competiton).toMatch("engagesciences");
     });
     this.Given(/^I can see the body Twitter embed "([^"]*)"$/, function (twitterId) {
        var twitEmbed = browser.getAttribute(wn_article.twitterEmb1, 'data-tweet-id');
-        console.log(twitEmbed);
         expect(twitEmbed).toEqual(twitterId);
        });
     this.Given(/^I can see the body Instagram embed with caption "([^"]*)"$/, function (instagramSrc) {
@@ -212,32 +198,28 @@ module.exports = function() {
     this.Given(/^I can see the body Facebook embed "([^"]*)"$/, function (facebookUrl) {
         browser.waitForExist(wn_article.facebookEmb1, 3000);
         var facebookEmbed = browser.getAttribute(wn_article.facebookEmb1, 'data-href');
-        console.log(facebookEmbed);
         expect(facebookEmbed).toEqual(facebookUrl);
     });
     this.Given(/^I can see the body Playbuzz embed "([^"]*)"$/, function (playbuzzUrl) {
         var playbuzzEmbed = browser.getAttribute(wn_article.playbuzzEmb1, 'data-game');
-        console.log(playbuzzEmbed);
         expect(playbuzzEmbed).toEqual(playbuzzUrl);
     });
     this.Given(/^I can see the body Youtube embed "([^"]*)"$/, function (youtubeUrl) {
+        //The stubbed data of Youtube is in the first iframe of video container.
         var videoEmbArry = browser.getAttribute(wn_article.videoEmbArry, 'src');
-        console.log(videoEmbArry[0]); //The stubbed data of Youtube is in the first iframe of video container.
         expect(videoEmbArry[0]).toEqual(youtubeUrl);
     });
     this.Given(/^I can see the body Vimeo embed "([^"]*)"$/, function (vimeoUrl) {
+        //The stubbed data of Vimeo is in the second iframe of video container.
         var videoEmbArry = browser.getAttribute(wn_article.videoEmbArry, 'src');
-        console.log(videoEmbArry[1]); //The stubbed data of Vimeo is in the second iframe of video container.
         expect(videoEmbArry[1]).toEqual(vimeoUrl);
     });
     this.Given(/^I can see the body Whooshka embed "([^"]*)"$/, function (whooshkaUrl) {
         var whooshkaEmbed = browser.getAttribute(wn_article.whooshkaEmb1, 'src');
-        console.log(whooshkaEmbed);
         expect(whooshkaEmbed).toEqual(whooshkaUrl);
     });
     this.Given(/^I can see the body Wirewax embed "([^"]*)"$/, function (wirewaxUrl) {
         var wirewaxEmbed = browser.getAttribute(wn_article.wirewaxEmb1, 'src');
-        console.log(wirewaxEmbed);
         expect(wirewaxEmbed).toEqual(wirewaxUrl);
     });
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag1) {
@@ -273,11 +255,8 @@ module.exports = function() {
         var sourceLogo = browser.getAttribute(sourceImg,'src');
 
         //Validate the values
-        console.log(sourceHref);
         expect(sourceHref).not.toEqual('');
-        console.log(sourceGTM);
         expect(sourceGTM).toEqual(gtm);
-        console.log(sourceLogo);
         expect(sourceLogo).not.toEqual('');
     });
 
@@ -290,7 +269,6 @@ module.exports = function() {
                 break;
             case 'leaderboard':
                 adPlacements = browser.getText(wn_article.adSection);
-                console.log(adPlacements);
                 break;
             case 'banner':
                 adPlacements = browser.getText(wn_article.adSection);
@@ -338,7 +316,6 @@ module.exports = function() {
         var heroVideoPlaylistThumbnail = browser.getAttribute(wn_article.heroVideoPlaylistThumbnail, 'src');
         for (var i = 0; i < heroVideoPlaylistThumbnail.length; ++i) {
             var thumbnail = heroVideoPlaylistThumbnail[i];
-            console.log( i + ':' + thumbnail);
             expect(thumbnail === '').toBe(false);
         }
         // Verify the thumbnail images in the playlist
@@ -348,7 +325,6 @@ module.exports = function() {
         var heroVideoPlaylistTitle = browser.getText(wn_article.heroVideoPlaylistTitle);
         for (var i = 0; i < heroVideoPlaylistTitle.length; ++i) {
             var title = heroVideoPlaylistTitle[i];
-            console.log( i + ':' + title);
             expect(title === '').toBe(false);
         }
         // Verify the titles in the playlist
@@ -356,7 +332,6 @@ module.exports = function() {
 
     this.Given(/^I can click the play button of the main video$/, function () {
         var heroVideoProgress = browser.getAttribute(wn_article.heroVideoProgress,'aria-valuenow');
-        console.log('Before playing : ' + heroVideoProgress[0])
         expect(heroVideoProgress[0]).toEqual('NaN');
         // Verify the progress bar is not loaded before playing.
 
@@ -372,7 +347,6 @@ module.exports = function() {
         wait(6000);
 
         var heroVideoProgress = browser.getAttribute(wn_article.heroVideoProgress,'aria-valuenow');
-        console.log('During playing : ' + heroVideoProgress[0])
         expect(heroVideoProgress[0]).not.toEqual('NaN');
         // Verify the control bar of the hero video shows the loading progress. (When it isn't started, it will show NaN.)
     });
@@ -381,9 +355,6 @@ module.exports = function() {
         var heroVideoPlaylistItem = browser.getAttribute(wn_article.heroVideoPlaylistItem, 'class');
         expect(heroVideoPlaylistItem[0]).toContain('vjs-selected');
         expect(heroVideoPlaylistItem[1]).not.toContain('vjs-selected');
-        for (var i=0; i<heroVideoPlaylistItem.length; i++){
-            console.log(heroVideoPlaylistItem[i]);
-        }
 
         console.log('Waiting 9 seconds to ensure the first video is ended before validating the next video')
         wait(9000);
@@ -391,13 +362,9 @@ module.exports = function() {
 
         var heroVideoPlaylistItem = browser.getAttribute(wn_article.heroVideoPlaylistItem, 'class');
         expect(heroVideoPlaylistItem[0]).not.toContain('vjs-selected');
-        for (var i=0; i<heroVideoPlaylistItem.length; i++){
-            console.log(heroVideoPlaylistItem[i]);
-        }
+        
         // Verify that the first video is not the selected one
-
         var heroVideoProgress = browser.getAttribute(wn_article.heroVideoProgress,'aria-valuetext');
-        console.log(heroVideoProgress[0])
         expect(heroVideoProgress[0]).not.toEqual('NaN');
         // Verify that the player is still playing.
     });
@@ -412,7 +379,6 @@ module.exports = function() {
         var lhrFeedImage = browser.getAttribute(wn_article.wd_lhrFeedImage, 'src');
         for (var i=0; i<2; i++){
             var FeedImage = lhrFeedImage[i];
-            console.log('image url is :'+ FeedImage);
             expect(FeedImage === '').toBe(false);
         }
     });
@@ -422,7 +388,6 @@ module.exports = function() {
         var lhrFeedImageLink = browser.getAttribute(wn_article.wd_lhrFeedImageLink, 'href');
         for (var i=0; i<2; i++){
             var FeedImageLink = lhrFeedImageLink[i];
-            console.log('image link is :'+ FeedImageLink);
             expect(FeedImageLink === '').toBe(false);
         }
     });
@@ -432,7 +397,6 @@ module.exports = function() {
         var lhrFeedLongTitle = browser.getText(wn_article.wd_lhrFeedLongTitle);
         for (var i=0; i<2; i++){
             var FeedLongTitle = lhrFeedLongTitle[i];
-            console.log('Long title is :'+ FeedLongTitle);
             expect(FeedLongTitle === '').toBe(false);
         }
     });
@@ -442,7 +406,6 @@ module.exports = function() {
         var lhrFeedLongTitleLink = browser.getAttribute(wn_article.wd_lhrFeedLongTitleLink, 'href');
         for (var i=0; i<2; i++){
             var FeedLongTitleLink = lhrFeedLongTitleLink[i];
-            console.log('Long title link is :'+ FeedLongTitleLink);
             expect(FeedLongTitleLink === '').toBe(false);
         }
     });
@@ -452,7 +415,6 @@ module.exports = function() {
         var lhrFeedSubsection = browser.getText(wn_article.wd_lhrFeedSubsection);
         for (var i=0; i<2; i++){
             var FeedSubsection = lhrFeedSubsection[i];
-            console.log('Subsection is :'+ FeedSubsection);
             expect(FeedSubsection === '').toBe(false);
         }
     });
@@ -462,7 +424,6 @@ module.exports = function() {
         var lhrFeedSubsectionLink = browser.getAttribute(wn_article.wd_lhrFeedSubsectionLink, 'href');
         for (var i=0; i<2; i++){
             var FeedSubsectionLink = lhrFeedSubsectionLink[i];
-            console.log('Subsection link is :'+ FeedSubsectionLink);
             expect(FeedSubsectionLink === '').toBe(false);
         }
     });
@@ -472,7 +433,6 @@ module.exports = function() {
         var lhrFeedDate = browser.getText(wn_article.wd_lhrFeedDate);
         for (var i=0; i<2; i++){
             var FeedDate = lhrFeedDate[i];
-            console.log('Date is :'+ FeedDate);
             expect(FeedDate === '').toBe(false);
         }
     });

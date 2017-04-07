@@ -9,12 +9,16 @@ export const initialState = {
 
 export function reducer(state = initialState, payload = {}, eventName = '') {
     const actionType = eventName || payload.type || '';
+
     switch (actionType) {
+
     case 'LOAD_CONTENT': {
         const entity = payload.body.entity;
         const trendingItems = payload.body.trendingItems || [];
         const footer = payload.body.footer || {};
+
         if (!entity) return state;
+
         return {
             error: null,
             nodeType: entity.nodeType,
@@ -28,9 +32,13 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             magCover: payload.body.magCover
         };
     }
+
     case 'LOAD_CONTENT_FAILED': {
-        const { response } = payload;
-        const { footer = {}, magcover = {} } = response.body;
+        const { response = {} } = payload;
+        const { body = {} } = response;
+        const footer = body.footer || {};
+        const magcover = body.magcover || {};
+
         response.status = response.status || 400;
 
         return {
@@ -44,6 +52,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             magCover: magcover
         };
     }
+
     default:
         return state;
     }
