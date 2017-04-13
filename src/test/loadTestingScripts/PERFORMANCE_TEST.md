@@ -2,13 +2,26 @@ Performance Test framework
 ==========================
 
 #Set Up
+- latest jmeter (3.1 or above) from [Apache Jmeter](http://jmeter.apache.org/download_jmeter.cgi)
+- ensure Jmeter bin is added to your Path (C:\apache-jmeter-3.1\bin)
 
-##Proxy
+##CLI execution
+
 - In order to run Jmeter beyond proxy, the below command script might be required.
   ```
   jmeter -H sydproxy.acp.net -P 8080 -u acp\{yourusername} -a {yourpw}
   ```
 
+- In order to run Jmeter with HTML report
+  ```
+  jmeter -n -t <test JMX file> -l <test log file> -e -o <Path to output folder>
+  ```
+
+- Generate report from existing Log file
+  ```
+  jmeter -g <log file> -o <Path to output folder>
+  ```
+ 
 ##Data
 - ArticleData.csv is a data set for the Article thread. It should be amended accordingly.
 
