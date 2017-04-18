@@ -11,10 +11,8 @@ var exportedObject = {
     saveScreenshotsToDisk: false,
     webdriverio: {
         desiredCapabilities: {
-            desiredCapabilities: {
-                chromeOptions: {
-                    args: ["--enable-automation"]
-                }
+            chromeOptions: {
+                args: ["--enable-automation"]
             }
         }
     }
