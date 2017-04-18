@@ -8,6 +8,7 @@ const { React } = Context;
 const ImageStub = Context.createStubComponent();
 const TeaserTitleStub = Context.createStubComponent();
 const DateStub = Context.createStubComponent();
+const AdStub = Context.createStubComponent();
 const context = {
     config: {
         defaultImageUrl: '',
@@ -34,7 +35,8 @@ const Teaser = proxyquire('../../../app/components/teaser/teaser', {
     "react": React,
     '@bxm/teaser/lib/components/image': ImageStub,
     '@bxm/teaser/lib/components/title': TeaserTitleStub,
-    '@bxm/datetime/lib/components/Date': DateStub
+    '@bxm/datetime/lib/components/Date': DateStub,
+    '@bxm/ad/lib/google/components/ad': AdStub
 }).default;
 
 describe('Component', () => {

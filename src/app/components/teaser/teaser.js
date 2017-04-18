@@ -7,6 +7,7 @@ import Date from '@bxm/datetime/lib/components/Date';
 import teaserContentOverride from '@bxm/teaser/lib/teaserContentOverride';
 import has from 'lodash/object/has';
 import get from 'lodash/object/get';
+import Ad from '@bxm/ad/lib/google/components/ad';
 
 export default class Teaser extends Component {
 
@@ -18,7 +19,16 @@ export default class Teaser extends Component {
         sourceClassName: PropTypes.string,
         onClick: PropTypes.func,
         showDate: PropTypes.bool,
-        sourceDefault: PropTypes.string
+        sourceDefault: PropTypes.string,
+        polar: PropTypes.oneOfType([
+            PropTypes.shape({
+                targets: PropTypes.shape({
+                    kw: PropTypes.string
+                }),
+                label: PropTypes.string
+            }),
+            PropTypes.bool
+        ])
     };
 
     static contextTypes = {
@@ -47,7 +57,8 @@ export default class Teaser extends Component {
             xl: { w: 880, h: 710 }
         },
         onClick: function onClick() {},
-        sourceDefault: ''
+        sourceDefault: '',
+        polar: false
     };
 
     getGTMClass = () => {
@@ -79,7 +90,7 @@ export default class Teaser extends Component {
 
     render() {
         const { config } = this.context;
-        const { className, sourceClassName, showDate, sourceDefault } = this.props;
+        const { className, sourceClassName, showDate, sourceDefault, polar } = this.props;
         let { article } = this.props;
 
         if (!article) return null;
@@ -127,6 +138,14 @@ export default class Teaser extends Component {
                         </p>
                     </div>
                 </div>
+
+                {polar && (
+                    <Ad
+                      label={polar.label}
+                      targets={polar.targets}
+                    />
+                )}
+
             </article>
         );
     }
