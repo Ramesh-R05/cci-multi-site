@@ -5,13 +5,18 @@ var site_domain = nconf.get('APP_KEY');
 var exportedObject = {
     //Generic config
     tags: null,
-    screenshotsOnError: true,
+    screenshotsOnError: false,
     captureAllStepScreenshots: false,
     saveScreenshotsToReport: false,
-    screenshotsPath: 'screenshots',
-    saveScreenshotsToDisk: true,
+    saveScreenshotsToDisk: false,
     webdriverio: {
-        desiredCapabilities: {}
+        desiredCapabilities: {
+            desiredCapabilities: {
+                chromeOptions: {
+                    args: ["--enable-automation"]
+                }
+            }
+        }
     }
 };
 
