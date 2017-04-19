@@ -141,6 +141,7 @@ export default class Teaser extends Component {
 
                 {polar && (
                     <Ad
+                      nativeAd
                       label={polar.label}
                       targets={polar.targets}
                     />
