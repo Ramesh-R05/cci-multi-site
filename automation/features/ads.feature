@@ -97,7 +97,7 @@ Feature: Ad
         * I should see MREC ad in the bottom news feed
         * I should not see the bottom leaderboard ad above the footer
 
-    @gallery @BXMA-132 @high
+    @gallery @BXMA-©32 @high
     Scenario: Ads on gallery page in the desktop view
         Given I switch to "desktop" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
@@ -106,7 +106,7 @@ Feature: Ad
         * I should see the MREC ad at the bottom right of the gallery
         * I should see the MREC ad after the 3 slide
 
-    @gallery @BXMA-132 @med
+    @gallery @BXMA-©32 @med
     Scenario: Ads on gallery page in the tablet landscape view
         Given I switch to "tablet landscape" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
@@ -183,28 +183,17 @@ Feature: Ad
             |article    |fashion/automation-test-article-with-hero-image-3663    |
             |gallery    |fashion/automation-test-gallery-13302                   |
 
-    @BXMA-156 @low
-    Scenario Outline: Wallpaper ad and side panel ad should not appear on "<page>" page in the "<device>" view
-        Given I switch to "<device>" view
-        When I am currently viewing "<url>"
-        * I should "not see" the wallpaper ad slot on "<page>"
-        * I should "not see" the left and right side ad slot on "<page>"
-        Examples:
-            |device             |page       |url                                                                |
-            |tablet portrait    |section    |fashion                                                            |
-            |tablet portrait    |article    |fashion/automation-test-article-with-hero-image-3663    |
-            |mobile             |gallery    |fashion/automation-test-gallery-13302                   |
 
     @BXMA-156
     Scenario Outline: Out of page (Inskin) ad should appear on "<page>" page in the "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing "<url>"
         * I should "see" the out of page ad slot on "<page>"
-        @high
+        @manual
         Examples:
             |device             |page       |url                                                         |
             |desktop            |section    |beauty                                                      |
-        @med
+        @manual
         Examples:
             |device             |page       |url                                                         |
             |tablet landscape   |article    |beauty/automation-test-article-with-hero-video-3664    |

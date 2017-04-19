@@ -23,7 +23,7 @@ var ads_widget = {
     adWallpaperHomepageSection: '.ad--wallpaper [id^=gpt-slot-]', //homepage, section
     adLeftSideHomepageSection: '.ad--sidepanel-left [id^=gpt-slot-]', //homepage, section
     adRightSideHomepageSection: '.ad--sidepanel-right [id^=gpt-slot-]', //homepage, section
-    adOutOfPageHomepageSection: '.ad--out-of-page [id^=gpt-slot-]', //homepage, section
+    adOutOfPage: '#inskinanchor', //all
     adWallpaperArticle: '.ad--wallpaper [id^=gpt-slot-]', //article
     adLeftSideArticle: '.ad--sidepanel-left [id^=gpt-slot-]', //article
     adRightSideArticle: '.ad--sidepanel-right [id^=gpt-slot-]', //article
