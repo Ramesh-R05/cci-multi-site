@@ -1,4 +1,5 @@
 .article {
+    @include type-article-body();
 
     &__title {
         font-family: $font-family-serif-primary;
