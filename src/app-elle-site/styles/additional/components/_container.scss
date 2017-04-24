@@ -5,12 +5,8 @@
 
     .home-page {
         .page__top-container {
-            padding-top: 20px;
             margin-bottom: 0;
-
-            @media #{$medium-up} {
-                padding-top: 40px;
-            }
+            padding-top: 20px;
         }
     }
 }

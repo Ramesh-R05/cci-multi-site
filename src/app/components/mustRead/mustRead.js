@@ -6,7 +6,8 @@ import Teaser from '../teaser/teaser';
 class MustRead extends Component {
 
     static propTypes = {
-        mustRead: PropTypes.array.isRequired
+        mustRead: PropTypes.array.isRequired,
+        show: PropTypes.bool.isRequired
     };
 
     static contextTypes = {
@@ -22,16 +23,21 @@ class MustRead extends Component {
         xl: { w: 230, h: 130 }
     };
 
-    static listClassName = 'small-block-grid-2 medium-block-grid-4 large-block-grid-6';
-
     render() {
         let { mustRead } = this.props;
-        if (!mustRead || mustRead.length < 6) {
+        const { show } = this.props;
+        const { desktopCount, tabletCount } = this.context.config.features.mustRead;
+
+        if (!show) {
             return null;
         }
 
-        mustRead = mustRead.slice(0, 6);
+        if (!mustRead || mustRead.length < desktopCount) {
+            return null;
+        }
 
+        mustRead = mustRead.slice(0, desktopCount);
+        const listClassName = `small-block-grid-2 medium-block-grid-${tabletCount} large-block-grid-${desktopCount}`;
         const shortenedNameList = this.context.config.brands.shortSources || {};
 
         // Add gtm class name,
@@ -52,7 +58,7 @@ class MustRead extends Component {
                 </div>
                 <div className="columns xlarge-10">
                     <TeaserList
-                      listClassName={MustRead.listClassName}
+                      listClassName={listClassName}
                       imageSizes={MustRead.imageSizes}
                       articles={newMustRead}
                       CustomisedTeaser={Teaser}

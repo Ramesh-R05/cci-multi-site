@@ -15,7 +15,7 @@ const MustRead = proxyquire('../../../app/components/mustRead/mustRead', {
 }).default;
 
 describe('#MustRead Component', () => {
-    
+
     const contextConfigStub = {
         key: 'config',
         type: '',
@@ -25,7 +25,15 @@ describe('#MustRead Component', () => {
                     "Australian Women's Weekly": "AWW"
                 }
             },
-            polar: polarConfig.polarSetting
+            polar: polarConfig.polarSetting,
+            features : {
+                mustRead: {
+                    desktopCount: 6,
+                    tabletCount: 4,
+                    outsideContainer: true,
+                    insideContainer: false
+                }
+            }
         }
     };
 
@@ -84,7 +92,7 @@ describe('#MustRead Component', () => {
     });
 
     beforeEach(() => {
-        reactModule = Context.mountComponent(MustRead,{mustReadItems},[contextConfigStub]);
+        reactModule = Context.mountComponent(MustRead,{mustReadItems, show:true},[contextConfigStub]);
         teaserSource = TestUtils.scryRenderedComponentsWithType(reactModule,TeaserListStub);
     });
 

@@ -217,43 +217,61 @@
     }
 
     .teaser__list {
-        margin: 10px 0 15px;
+        margin: 0 0 10px;
 
         @media #{$medium-up} {
-            margin: 30px 0 35px;
+            margin: 0 0 30px;
         }
     }
 
     .teaser__list-item {
         padding-bottom: 0;
 
-        .teaser__title {
-            font-size: $must-teaser-title-size;
-            line-height: $must-teaser-title-lineheight;
-            padding-left: 0;
-            padding-right: 0;
-            display: block;
+        .teaser {
 
-            a {
-                color: #000;
-                font-weight: 400;
-                font-size: 13px;
-                letter-spacing: 0.4px;
-                line-height: 18px;
-                text-transform: capitalize;
+            &__section-tag {
+                margin-top: 9px;
+                margin-bottom: 4px;
+
+                span {
+                    font-size: 11px;
+                    line-height: 20px;
+
+                    @media #{$medium-up} {
+                        font-size: 10px;
+                    }
+                }
+
+            }
+
+            &__title {
+                font-size: $must-teaser-title-size;
+                line-height: $must-teaser-title-lineheight;
+                margin-top: 0;
+                padding-left: 0;
+                padding-right: 0;
+                display: block;
+
+                a {
+                    color: $color-primary;
+                    font-weight: 400;
+                    font-size: 13px;
+                    letter-spacing: 0.4px;
+                    line-height: 20px;
+                    text-transform: capitalize;
+                }
+            }
+
+            &__summary {
+                display: none;
+            }
+
+            &__body {
+                margin-bottom: 0;
             }
 
         }
 
-        .teaser__source {
-            padding-left: 0;
-            padding-right: 0;
-            letter-spacing: .7px;
-        }
-
-        .teaser__body {
-            margin-bottom: 0;
-        }
 
         .teaser.teaser--has-video:after,
         .teaser.teaser--gallery:after {
@@ -290,11 +308,11 @@
         }
 
         @media #{$medium-up} {
-
             &:nth-child(3),
             &:nth-child(4) {
-                display: block;
+                display: none;
             }
+
 
             &:nth-child(1) {
                 padding-left: $must-teaser-gutter/2;
@@ -306,8 +324,8 @@
         }
 
         @media #{$large-up} {
-            &:nth-child(5),
-            &:nth-child(6) {
+            &:nth-child(3),
+            &:nth-child(4) {
                 display: block;
             }
         }
@@ -420,98 +438,6 @@
             &:nth-child(4) {
                 display: block;
             }
-        }
-    }
-}
-
-//--------------Polar ads size adjust, it may be removed later------------------
-$must-read-polar-height: 56.5%;
-$top-news-feed-polar-height: 83%;
-$top-news-feed-polar-height-sml: 56.23%;
-$bottom-news-feed-polar-height-lg: 25.6%;
-$bottom-news-feed-polar-height-md: 56%;
-$bottom-news-feed-polar-height-sml: 35%;
-
-.teaser--polar {
-    .teaser__image {
-        position: relative;
-        height: 0;
-        overflow: hidden;
-        display: block;
-    }
-
-    h3.teaser__title {
-        margin-top: 0;
-    }
-
-    .mustread-teaser-view-grid & {
-
-        .teaser__image {
-            padding-bottom: $must-read-polar-height;
-        }
-    }
-
-    .top-news-feed & {
-
-        .teaser__image {
-            padding-bottom: $top-news-feed-polar-height-sml;
-
-            @media #{$medium-up} {
-                padding-bottom: $top-news-feed-polar-height;
-            }
-        }
-    }
-
-    .bottom-news-feed & {
-        .teaser__image {
-            padding-bottom: $bottom-news-feed-polar-height-sml;
-
-            @media #{$medium-up} {
-                padding-bottom: $bottom-news-feed-polar-height-md;
-            }
-
-            @media #{$large-up} {
-                padding-bottom: $bottom-news-feed-polar-height-lg;
-            }
-        }
-
-        &.polar-horizontal {
-            .teaser__image span {
-                position: absolute;
-                top: 0;
-                overflow: hidden;
-                width: calc( 100% - 30px );
-                height: 100%;
-
-                @media #{$medium-up} {
-                    width: 100%;
-                    left: 0;
-                }
-            }
-        }
-    }
-
-    &.polar-horizontal,
-    &.polar-verticle {
-        img {
-            max-height: none;
-            max-width: none;
-        }
-    }
-
-    &.polar-horizontal {
-        img {
-            position: absolute;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-        }
-    }
-
-    &.polar-verticle {
-        img {
-            width: 100%;
         }
     }
 }

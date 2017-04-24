@@ -1,4 +1,10 @@
 export default {
+    mustRead: {
+        desktopCount: 6,
+        tabletCount: 4,
+        showOutsideContainer: true,
+        showInsideContainer: false
+    },
     galleryOfGalleries: {
         enabled: true
     },

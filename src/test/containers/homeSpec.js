@@ -49,7 +49,11 @@ describe('Home Container', () => {
                 }
             },
             features: {
-                headerExpanded: true
+                headerExpanded: true,
+                mustRead: {
+                    showOutsideContainer: true,
+                    showInsideContainer: false
+                }
             }
         }
     };
@@ -96,12 +100,6 @@ describe('Home Container', () => {
         reactModule = Context.mountComponent(HomeContainer, {}, [contextConfigStub]);
         const AdComponents = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         expect(AdComponents.length).to.eq(2);
-    });
-
-    it(`should render MustRead Component`, () => {
-        reactModule = Context.mountComponent(HomeContainer, {}, [contextConfigStub]);
-        const MustReadComponents = TestUtils.scryRenderedComponentsWithType(reactModule, MustReadStub);
-        expect(MustReadComponents.length).to.eq(1);
     });
 
 });

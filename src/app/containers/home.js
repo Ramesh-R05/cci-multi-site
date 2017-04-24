@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+
 import { connectToStores } from '@bxm/flux';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import SocialContainer from '../components/social/block';
@@ -58,6 +59,8 @@ export default class Home extends Component {
     render() {
         const { config } = this.context;
         const polarLabels = config.polar.details;
+        const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
+
         const {
             currentUrl,
             theme,
@@ -80,18 +83,19 @@ export default class Home extends Component {
                     <div className="stripe-bg">
                         <div className="container">
                             <div className="row">
-                                <MustRead />
+                                <MustRead show={showOutsideContainer} />
                             </div>
                             <div className="row">
                                 <div className="page__top-container columns">
                                     <div className="row">
                                         <div className="columns large-8 xlarge-9 home-page__teasers-container" ref={(c) => { this.top = c; }}>
+                                            <div className="row">
+                                                <MustRead show={showInsideContainer} />
+                                            </div>
                                             <HeroTeaser article={heroTeaser} showPromoted />
-
                                             <div className="home-page__teasers-title">
                                                 <span>what&apos;s happening now</span>
                                             </div>
-
                                             <TeaserGridView
                                               teasers={teasers.slice(0, 6)}
                                               className="news-feed top-news-feed"

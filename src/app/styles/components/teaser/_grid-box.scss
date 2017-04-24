@@ -151,7 +151,7 @@
         .teaser__source--new-zealand-s-woman-s-weekly span:first-child:not(.teaser__source__breaker) {
             color: $nz-womans-weekly-color;
         }
-            
+
         .teaser__source--simply-you span:first-child:not(.teaser__source__breaker) {
             color: $nz-simply-you-color;
         }
@@ -292,7 +292,7 @@
         }
 
         @media #{$small-up} {
-            
+
             &:before {
                 border-top-color: #e9e9e9;
             }
@@ -314,7 +314,7 @@
                 color: #000;
             }
         }
-        
+
         .teaser__source {
             padding-left: 0;
             padding-right: 0;
@@ -396,7 +396,7 @@ $bottom-news-feed-polar-height-sml: 35%;
         position: relative;
         height: 0;
         overflow: hidden;
-        display: block; 
+        display: block;
     }
 
     h3.teaser__title {
