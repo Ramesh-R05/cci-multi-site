@@ -63,4 +63,31 @@
             text-decoration: none;
         }
     }
+
+    .related-content {
+        padding-bottom: 20px;
+
+        &-items {
+            .teaser__image {
+                margin-bottom: 5px;
+            }
+
+            .feed-item {
+                &__section-tag {
+                    @include type-teaser-tag;
+                    display: block;
+                }
+
+                &__body-title {
+                    margin-top: 0;
+                }
+
+            }
+        }
+    }
+
+}
+
+.feed__container .feed-item.feed-item--gallery::after {
+    display: none;
 }
