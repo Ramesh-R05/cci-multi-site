@@ -207,4 +207,55 @@ module.exports = function(){
         }
     });
 
+    this.Then(/^I should see the GTM container id "([^"]*)" on the DOM$/, function (containerId) {
+
+        var result = browser.execute(checkGoogleTagManager, containerId);
+        expect(result.value).toBe(true);
+
+        // To test for only the presence of Google Tag Manager, supply a containerId of null.
+        function checkGoogleTagManager(containerId){
+
+            var result = false;
+            var gtm = window.google_tag_manager || {};
+
+            for (var prop in gtm){
+                if (gtm.hasOwnProperty(prop)){
+                    if (prop.substr(0, 4).toLowerCase() === 'gtm-'){
+                        result = containerId === null ? true : containerId.toLowerCase() === prop.toLowerCase();
+                        break;
+                    }
+                }
+            }
+
+            return result;
+
+        }
+
+    });
+
+    this.Then(/^I should see the GA container id "([^"]*)" on the DOM$/, function (containerId) {
+
+        var result = browser.execute(checkGoogleAnalytics, containerId);
+        expect(result.value).toBe(true);
+
+        // To test for only the presence of Google Analytics, supply a containerId of null.
+        function checkGoogleAnalytics(containerId){
+
+            var result = false;
+            var ga = window.gaData || {};
+
+            for (var prop in ga){
+                if (ga.hasOwnProperty(prop)){
+                    if (prop.substr(0, 3).toLowerCase() === 'ua-'){
+                        result = containerId === null ? true : containerId.toLowerCase() === prop.toLowerCase();
+                        break;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+    });
+
 };

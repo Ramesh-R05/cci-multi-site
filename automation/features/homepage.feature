@@ -104,3 +104,15 @@ Feature: Homepage
             |device|
             |tablet portrait |
             |tablet landscape|
+
+
+    @high
+    Scenario: I can see the GTM container with id "GTM-TXC6CF"
+        When I am currently viewing the homepage
+        Then I should see the GTM container id "GTM-TXC6CF" on the DOM
+
+
+    @high
+    Scenario: I can see the GA container with id "UA-42966291-1"
+        When I am currently viewing the homepage
+        Then I should see the GA container id "UA-42966291-1" on the DOM
