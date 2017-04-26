@@ -40,7 +40,7 @@ Feature: Gallery
         * I should not see the left arrow on the gallery
         * I should not see the gallery description on mobile for next image
 
-    @high
+    @med
     Scenario: Verify a gallery page in desktop style on desktop view
         When I switch to "desktop" view
         Given I am currently viewing "fashion/automation-test-gallery-13302"
@@ -77,14 +77,14 @@ Feature: Gallery
         * I can see the right arrow on the next gallery slide
         * I should not see the left arrow on the gallery
 
-    @med
+    @low
     Scenario: Verify a gallery page in mobile style on tablet portrait view
         When I switch to "tablet portrait" view
         Given I am currently viewing "fashion/automation-test-gallery-13302"
         * I can click the right arrow on the gallery to check the next image
         * I should not see the gallery description on mobile for next image
 
-    @med
+    @low
     Scenario: Verify a gallery page in desktop style on tablet landscape view
         When I switch to "tablet landscape" view
         Given I am currently viewing "fashion/automation-test-gallery-13302"
@@ -99,7 +99,7 @@ Feature: Gallery
         * I cannot go to the next slide when the ad is not loaded
         * I can go to the next slide when the ad is loaded
 
-    @DAV-80 @DAV-81 @high
+    @DAV-80 @DAV-81 @med
     Scenario: Verify the slide of MREC ad on desktop view
         When I switch to "desktop" view
         Given I am currently viewing "fashion/automation-test-gallery-13302"

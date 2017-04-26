@@ -3,6 +3,7 @@ Feature: Footer
     As a user
     I should be able to see the Footer
 
+# -------- Footer page is med and low priority in terms of Impact  ---------------#
     Scenario Outline: Verify the footer in the "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing the homepage
@@ -22,7 +23,7 @@ Feature: Footer
             |CONTACT US     |contact-us                                                     |
         * I can see the standard bauer text in the footer as "© COPYRIGHT BAUER MEDIA PTY LTD"
         * I can see the standard copyright text in the footer as "ALL RIGHTS RESERVED"
-        @high
+        @med
         Examples:
             |device            |
             |mobile            |
@@ -52,7 +53,7 @@ Feature: Footer
         * I can see the subscription magazine and digital cover
         * I can click both the images
         * I can see the subscription button
-        @high
+        @med
         Examples:
             |device            |
             |mobile            |

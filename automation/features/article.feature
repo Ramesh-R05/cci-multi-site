@@ -3,9 +3,10 @@ Feature: Article
     As a user
     I should be able to see the article page
 
-    @DDO-46 @DAW-1125 @high
-    Scenario: Verify an article page which contains a hero image on mobile
-        When I switch to "mobile" view
+# -------- Hero Image and its description on mobile is High priority  ---------------#
+    @DDO-46 @DAW-1125
+    Scenario Outline: Verify an article page which contains a hero image on mobile
+        When I switch to "<device>" view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I can see the long title "Automation Test Article With Hero Image Test Title Long Title"
         * I can see the created date "FEB 12, 2016 4:00PM"
@@ -23,8 +24,15 @@ Feature: Article
         * I can see the body tips "BODY TIPS BODY TIPS EOM"
         * I can see the body competition
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
+        @high
+        Examples:
+            |device             |
+            |desktop            |
+            |mobile             |
 
-    @DAW-1125 @med
+
+# -------- Hero video and its description on tablet portrait is low priority  ---------------#
+    @DAW-1125 @low
     Scenario: Verify an article page which contains a hero video on tablet portrait
         When I switch to "tablet portrait" view
         Given I am currently viewing "beauty/automation-test-article-with-hero-video-3664"
@@ -44,54 +52,23 @@ Feature: Article
         * I can see the body competition
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
 
-    @high
-    Scenario: Verify an article page which contains a hero image on desktop
-        When I switch to "desktop" view
-        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        * I can see the long title "Automation Test Article With Hero Image Test Title Long Title"
-        * I can see the created date "FEB 12, 2016 4:00PM"
-        * I can see the author "EMILY KERR"
-        * I can see the hero image
-        * I should not see the hero image caption
-        * I can see the image alt text in the hero image element "Image ALT TEXT"
-        * I can see the short teaser "Short Teaser EOM"
-        * I can see the body paragraph "Test body paragraph"
-        * I can see the body related content
-        * I can see the body image
-        * I can see the body image caption "PHOTOGRAPHY BY"
-        * I can see the body gallery
-        * I can see the body video
-        * I can see the body tips "BODY TIPS BODY TIPS EOM"
-        * I can see the body competition
-        * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
-#        * I can see the "header" source appearing with gtm "gtm-brandlogotop-article"
-#        * I can see the "bottom" source appearing with gtm "gtm-brandlogobottom-article"
 
-
+# -------- Verifying LHR on different screen sizes is low priority  ---------------#
     @DDO-160 @DDO-48
     Scenario Outline: Verify LHR on different screen sizes "<device>"
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "<device>" view
         * I can see the LHR
-        @high
-        Examples:
-            | device            |
-            | desktop           |
         @med
         Examples:
-            | device            |
-            | tablet landscape  |
-
-    @med
-    Scenario Outline: Verify LHR on different screen sizes "<device>"
-        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        When I switch to "<device>" view
-        * I should not see the LHR
+            |device            |
+            |desktop           |
+        @low
         Examples:
-        | device            |
-        | tablet portrait   |
-        | mobile            |
+            |device            |
+            |tablet landscape  |
 
+# -------- LHR are High as this Helps recirculate users ---------------#
     @BXMA-174 @high
     Scenario: Verify the LHR on an article page
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
@@ -103,6 +80,8 @@ Feature: Article
         * Long title in LHR is clickable to open its page
         * I can see each item in LHR containing source and date
 
+
+# -------- Social embed is Medium and low ---------------#
     Scenario Outline: Editorial team can add social feeds to the article body
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
@@ -115,12 +94,12 @@ Feature: Article
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
         * I can see the body Whooshka embed "https://player.whooshkaa.com/player/episode/id/90704?visual=true"
         * I can see the body Wirewax embed "http://embed.wirewax.com/8040968"
-    @high
+    @med
         Examples:
             | device            |
             | mobile            |
             | desktop           |
-    @med
+    @low
         Examples:
             | device            |
             | tablet portrait   |

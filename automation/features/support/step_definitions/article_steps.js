@@ -88,7 +88,8 @@ module.exports = function() {
         expect(lhrFeed).toBe(false);
     });
     this.Given(/^I can see the long title "([^"]*)"$/, function (articleTitle) {
-           var longTitle = browser.getText(wn_article.longTitle);
+        browser.waitForVisible(wn_article.longTitle, 2000);
+        var longTitle = browser.getText(wn_article.longTitle);
            expect(longTitle).toContain(articleTitle);
     });
     this.Given(/^I can see the created date "([^"]*)"$/, function (date) {
@@ -235,17 +236,17 @@ module.exports = function() {
         var author = browser.getText(wn_article.authorText);
             expect(author).toEqual(authorName);
     });
-    
+
     this.Given(/^I can see the "([^"]*)" source appearing with gtm "([^"]*)"$/, function (position,gtm) {
         //Identify the element
         switch(position) {
             case 'header':
-                var source = wn_article.headerSource
-                var sourceImg = wn_article.headerSourceImg
+                var source = wn_article.headerSource;
+                var sourceImg = wn_article.headerSourceImg;
                 break;
             case 'bottom':
-                var source = wn_article.bottomSource
-                var sourceImg = wn_article.bottomSourceImg
+                var source = wn_article.bottomSource;
+                var sourceImg = wn_article.bottomSourceImg;
                 break;
         }
 
@@ -362,7 +363,7 @@ module.exports = function() {
 
         var heroVideoPlaylistItem = browser.getAttribute(wn_article.heroVideoPlaylistItem, 'class');
         expect(heroVideoPlaylistItem[0]).not.toContain('vjs-selected');
-        
+
         // Verify that the first video is not the selected one
         var heroVideoProgress = browser.getAttribute(wn_article.heroVideoProgress,'aria-valuetext');
         expect(heroVideoProgress[0]).not.toEqual('NaN');

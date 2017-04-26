@@ -87,6 +87,7 @@ module.exports = function() {
 
     //BELOW ARE STEPS FOR ARTICLE
     this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
+        browser.moveToObject(wn_ads.adBottomLeaderboardArticle,5000);
         expect(browser.isVisible(wn_ads.adBottomLeaderboardArticle)).toBe(true);
     });
 
@@ -186,8 +187,7 @@ module.exports = function() {
                 break;
         }
         //Validate
+        browser.waitForVisible(wn_ads.adOutOfPage,3000);
         expect(browser.isVisible(wn_ads.adOutOfPage)).toBe(valueVisible);
     });
-
-
 };

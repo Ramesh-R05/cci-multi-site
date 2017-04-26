@@ -3,8 +3,6 @@ Feature: Section Landing page
     As a user
     I should be able to see section landing page which has the same layout as homepage
 
-# Re-enable below tests after section layout has been changed.
-
     @hero @BXMA-34
     Scenario Outline: Verify the hero teaser element is functional correctly in "<device>" view
         Given I am currently viewing "fashion"
@@ -12,8 +10,8 @@ Feature: Section Landing page
         * I should not see the section title containing the default word as now
         * I should see the main hero item containing its image and clickable to open its page
         * I should see the main hero item containing its title and clickable to open its page
-#        * I should see the main hero item containing source
-        @high
+        * I should see the main hero item containing source
+        @med
         Examples:
             |device|
             |mobile|
@@ -33,7 +31,7 @@ Feature: Section Landing page
         * I should see each top feed item containing its image and clickable to open its page
         * I should see each top feed item containing its title and clickable to open its page
 #        * I should see each top feed item containing source and date
-        @high
+        @med
         Examples:
             |device|
             |mobile|
@@ -52,7 +50,7 @@ Feature: Section Landing page
         * I should see each bottom feed item containing its image and clickable to open its page
         * I should see each bottom feed item containing its title and clickable to open its page
 #        * I should see each bottom feed item containing source and date
-        @high
+        @med
         Examples:
             |device|
             |mobile|

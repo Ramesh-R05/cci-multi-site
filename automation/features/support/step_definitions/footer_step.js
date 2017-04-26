@@ -74,6 +74,7 @@ module.exports = function() {
 
     this.Given(/^I can see all main elements in the footer$/, function () {
         //Validate that the four main elements in the footer appears
+        browser.waitForVisible(footer.footerElementSocialContainer, 2000);
         expect(browser.isVisible(footer.footerElementSocialContainer)).toBe(true);
         expect(browser.isVisible(footer.footerElementNavigation)).toBe(true);
         expect(browser.isVisible(footer.footerElementCopyright)).toBe(true);
