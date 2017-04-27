@@ -1,0 +1,12 @@
+.page {
+    &__get-social-container {
+        display: none;
+    }
+
+    .home-page {
+        .page__top-container {
+            margin-bottom: 0;
+            padding-top: 20px;
+        }
+    }
+}

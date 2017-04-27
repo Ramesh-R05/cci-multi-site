@@ -1,0 +1,33 @@
+.off-canvas-content-wrapper svg {
+    fill: $color-accent;
+}
+
+.mobile-menu__nav {
+
+    a:hover {
+        color: $color-accent;
+    }
+
+    &::after {
+        border-top-color: $color-accent;
+    }
+
+    .nav-item {
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        padding: 8px 0;
+        font-size: 16px;
+
+        @media #{$medium-up} {
+            font-size: 20px;
+        }
+
+        &--active {
+            color: $color-accent;
+        }
+    }
+}
+
+.off-canvas {
+    background-color: $offcanvas-background-color;
+}
