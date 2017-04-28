@@ -1,11 +1,11 @@
 var ads_widget = {
     adTopLeaderboard: '.side-menu-wrapper > .ad--section-top-leaderboard [id^=gpt-slot-]', //homepage, section, article
     adMrecUnderHero: '.hero-wrapper [id^=gpt-slot-]', //homepage, section
-    adMrecNextToTopFeed: '.page__top-container [id^=gpt-slot-]', //homepage, section
+    adMrecNextToTopFeed: '.page__top-container .ad--section-mrec [id^=gpt-slot-]', //homepage, section
     adMrecNextToTopFeedSticky: '.page__top-container .page__social-wrapper > div > div > span', //homepage, section
     adMiddleLeaderboard: '.ad--section-leaderboard [id^=gpt-slot-]', //homepage, section
     adMrecInBottomNewsFeed: '.ad--teaser-list [id^=gpt-slot-]', //homepage, section
-    adMrecNextToBottomFeed: '.bottom-news-feed [id^=gpt-slot-]', //homepage, section
+    adMrecNextToBottomFeed: '.bottom-news-feed .ad--section-mrec [id^=gpt-slot-]', //homepage, section
     adMrecNextToBottomFeedSticky: '.bottom-news-feed div.carriage', //homepage, section
     adBottomLeaderboard: '.content-wrapper .ad--section-top-leaderboard > [id^=gpt-slot-]', //homepage, section, article
     adTopLeaderboardGallery: '.ad.gallery__mobile-ad.ad--bottom-label [id^=gpt-slot-]', //gallery
