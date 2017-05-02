@@ -3,7 +3,7 @@ jobs:
   ####
   # ELLE pipeline
   ###
-  - name: elle-site_runCI # sync pipeline to CI
+  - name: multi-site_runCI # sync pipeline to CI
     type: runCI
     steps:
       - OUT: elle-site-img-master
