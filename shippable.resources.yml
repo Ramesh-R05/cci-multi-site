@@ -1,0 +1,136 @@
+resources:
+
+#
+# Common setup for all sits sitting in the multi-site repo
+#
+  - name: multi-slack-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#au-shippable"
+
+  # Github repo
+  - name: multi-site-repo
+    type: gitRepo
+    integration: production-github
+    pointer:
+      sourceName: bauerxcelmedia/multi-site
+      branch: master
+
+  - name: multi-env-sit-ecs
+    type: cluster
+    integration: AWS-digital-nonprod
+    pointer:
+      sourceName : "app_ecs"
+      region: "ap-southeast-2"
+
+    # TO BE UPDATED
+  - name: multi-site-params-sit
+    type: params
+    version:
+      params:
+        NODE_ENV: "dev"  #change this to dev when we are ready
+
+  - name: multi-site-params-test
+    type: params
+    version:
+      params:
+        NODE_ENV: "automation"
+
+  - name: multi-site-replicas-non-prod
+    type: replicas
+    version:
+      count: 2
+
+  - name: multi-site-params-prod
+    type: params
+    version:
+      params:
+        NODE_ENV: "production"
+        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
+
+###########################
+# This section is for ELLE
+###########################
+# Docker Image for the elle-site
+  - name: elle-site-img-master
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/elle-site"
+    seed:
+      versionName: latest
+
+# Docker Image for the elle-site
+  - name: elle-site-img-branch
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/elle-site"
+    seed:
+      versionName: latest
+
+# Release version
+  - name: elle-site-version
+    type: version
+    seed:
+      versionName: "1.0.0"
+
+#
+# SIT environment configuration
+#
+  - name: elle-site-alb-sit
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/elle-site-sit-elle-au/4d1eb96993978e0f"
+      method: application
+
+  - name: elle-site-alb-sit-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-elle-site-sit-au/6b08a2d46009bd16"
+      method: application
+
+  - name: elle-site-alb-test
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/elle-site-test/d582948cc527070d"
+      method: application
+
+# Docker Image Options
+  - name: elle-site-opts-sit
+    type: dockerOptions
+    version:
+      memory: 512
+      memoryReservation: 256
+      cpuShares: 64
+      portMappings:
+        - 0:3001
+      publishAllPorts : true
+      logConfig:
+        type: awslogs
+        options:
+          awslogs-group: "app_ecs"
+          awslogs-region: "ap-southeast-2"
+          awslogs-stream-prefix: "app-elle-site"
+
+# PROD environment configuration
+  - name: elle-site-alb-prod
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/elle-site-prod-elle-au/b51274db4bd99d59"
+      method: application
+
+  - name: elle-site-replicas-production
+    type: replicas
+    version:
+      count: 3
+
+###########################
+# This section is for HB
+###########################
+
+###########################
+# This section is for Cosmo
+###########################
