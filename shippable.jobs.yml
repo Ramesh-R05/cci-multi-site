@@ -46,6 +46,7 @@ jobs:
        - script: cd ./IN/multi-site-repo/gitRepo/automation
        - script: npm set registry http://npm.digital.bauer-media.net.au
        - script: npm install
+       - script: export APP_KEY=elle-site
        - script: export URL=http://elle.test.bxm.net.au/
        - script: npm run test:high || true
        - script: actualsize=$(wc -c <"@rerun.txt")
