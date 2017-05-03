@@ -3,6 +3,14 @@ resources:
 #
 # Common setup for all sits sitting in the multi-site repo
 #
+
+  - name: multi-env-sit-ecs
+    type: cluster
+    integration: AWS-digital-nonprod
+    pointer:
+      sourceName : "app_ecs"
+      region: "ap-southeast-2"
+
   - name: multi-slack-notifications
     type: notification                          #required
     integration: slack-bauerxcelmedia
@@ -18,12 +26,6 @@ resources:
       sourceName: bauerxcelmedia/multi-site
       branch: master
 
-  - name: multi-env-sit-ecs
-    type: cluster
-    integration: AWS-digital-nonprod
-    pointer:
-      sourceName : "app_ecs"
-      region: "ap-southeast-2"
 
     # TO BE UPDATED
   - name: multi-site-params-sit
@@ -130,6 +132,75 @@ resources:
 ###########################
 # This section is for HB
 ###########################
+
+# Docker Image for the hb-site
+  - name: hb-site-img-master
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/hb-site"
+    seed:
+      versionName: latest
+
+# Docker Image for the hb-site
+  - name: hb-site-img-branch
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/hb-site"
+    seed:
+      versionName: latest
+
+# Release version
+  - name: hb-site-version
+    type: version
+    seed:
+      versionName: "1.0.0"
+
+#
+# SIT environment configuration
+#
+  - name: hb-site-alb-sit
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/hb-site-sit-hb-au/c7523340b0c28366"
+      method: application
+
+  - name: hb-site-alb-sit-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-hb-site-sit-au/2a08525ca7743230"
+      method: application
+
+# Docker Image Options
+  - name: hb-site-opts-sit
+    type: dockerOptions
+    version:
+      memory: 512
+      memoryReservation: 256
+      cpuShares: 64
+      portMappings:
+        - 0:3001
+      publishAllPorts : true
+      logConfig:
+        type: awslogs
+        options:
+          awslogs-group: "app_ecs"
+          awslogs-region: "ap-southeast-2"
+          awslogs-stream-prefix: "app-hb-site"
+
+# PROD environment configuration
+  - name: hb-site-alb-prod
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/hb-site-prod-hb-au/5754953aba52d2bb"
+      method: application
+
+  - name: hb-site-replicas-production
+    type: replicas
+    version:
+      count: 3
+
 
 ###########################
 # This section is for Cosmo

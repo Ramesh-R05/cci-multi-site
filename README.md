@@ -1,6 +1,8 @@
 # Multi Site Pipeline
 
-This Branch is created to maintain the deployment pipeline from shippable separate to master branch
+This Branch is created to maintain the deployment pipeline from shippable separate to master branch. Shippable uses YMAL as their descriptive language.
+
+for YMAL validation go [here.](http://beautifytools.com/yaml-validator.php)
 
 
 ## Jobs file

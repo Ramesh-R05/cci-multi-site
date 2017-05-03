@@ -1,16 +1,59 @@
 jobs:
 
   ####
-  # ELLE pipeline
+  # Multi pipeline (shared)
   ###
+
   - name: multi-site_runCI # sync pipeline to CI
     type: runCI
     steps:
       - OUT: elle-site-img-master
       - OUT: elle-site-img-branch
+      - OUT: hb-site-img-master
+      - OUT: hb-site-img-branch
     flags:
-      - elle-site
+      - multi-site
 
+  - name: multi-site-test-deploy-master # Stubbed deployment for automation tests
+    type: deploy
+    steps:
+      - IN: multi-site-replicas-non-prod #number of running tasks
+      - IN: elle-site-man-master # for master - auto deploy to TEST
+        switch: on
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-test
+      - IN: elle-site-alb-test
+        applyTo:
+          - manifest: elle-site-man-master
+            image: elle-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
+
+  - name: multi-site-automation-test # Test Stub site
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    steps:
+    - IN: multi-site-test-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "6.1.0"
+       - script: nvm use "6.1.0"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export URL=http://elle.test.bxm.net.au/
+       - script: npm run test:high || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+
+  ####
+  # ELLE pipeline
+  ###
   - name: elle-site-man-branch # manifest for a branch image
     type: manifest
     steps:
@@ -34,7 +77,7 @@ jobs:
       - IN: multi-site-replicas-non-prod #number of running tasks
       - IN: elle-site-man-branch # for non-master, don't auto deploy.
         switch: off
-      - IN: env-sit-ecs
+      - IN: multi-env-sit-ecs
       - IN: multi-site-params-sit
       - IN: elle-site-alb-sit-branch
         applyTo:
@@ -52,7 +95,7 @@ jobs:
       - IN: multi-site-replicas-non-prod #number of running tasks
       - IN: elle-site-man-master # for master - auto deploy to SIT
         switch: on
-      - IN: env-sit-ecs
+      - IN: multi-env-sit-ecs
       - IN: multi-site-params-sit
       - IN: elle-site-alb-sit
         applyTo:
@@ -61,45 +104,6 @@ jobs:
             port: 3001
       - TASK: managed
         deployMethod: upgrade
-
-  - name: elle-site-test-deploy-master # Stubbed deployment for automation tests
-    type: deploy
-    steps:
-      - IN: multi-site-replicas-non-prod #number of running tasks
-      - IN: elle-site-man-master # for master - auto deploy to SIT
-        switch: on
-      - IN: env-sit-ecs
-      - IN: multi-site-params-test
-      - IN: elle-site-alb-test
-        applyTo:
-          - manifest: elle-site-man-master
-            image: elle-site-img-master
-            port: 3001
-      - TASK: managed
-        deployMethod: upgrade
-
-
-  # - name: homes-site-automation-test # Test Stub site
-  #   type: runSh
-  #   always:
-  #     - NOTIFY: homes-slack-notifications
-  #   steps:
-  #    - IN: homes-site-test-deploy-master
-  #    - IN: homes-site-repo
-  #      switch: off
-  #    - TASK:
-  #       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-  #       - script: source ~/.nvm/nvm.sh
-  #       - script: nvm install "6.1.0"
-  #       - script: nvm use "6.1.0"
-  #       - script: cd ./IN/homes-site-repo/gitRepo/automation
-  #       - script: npm set registry http://npm.digital.bauer-media.net.au
-  #       - script: npm install
-  #       - script: export URL=http://homes.test.bxm.net.au/
-  #       - script: npm run test:high || true
-  #       - script: actualsize=$(wc -c <"@rerun.txt")
-  #       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-
 
 
   # - name: homes-site-mobile-automation-test # Test Stub site on Browser Stack
@@ -227,3 +231,58 @@ jobs:
 #         - script: ./node_modules/.bin/chimp chimp.js --browser=phantomjs --debug --tags=@ad --tags=@now --tags=@gallery --tags=@BXMA-132 --tags=@high
 #     flags:
 #       - now-site
+
+  ####
+  # HB pipeline
+  ###
+
+  - name: hb-site-man-branch # manifest for a branch image
+    type: manifest
+    steps:
+      - IN: hb-site-img-branch
+      - IN: hb-site-opts-sit
+      - TASK: managed
+
+  - name: hb-site-man-master # manifest for master image
+    type: manifest
+    steps:
+      - IN: hb-site-img-master
+      - IN: hb-site-opts-sit
+      - TASK: managed
+
+
+  - name: hb-site-sit-deploy-branch # DEV deployment for FEATURE BRANCH
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: multi-site-replicas-non-prod #number of running tasks
+      - IN: hb-site-man-branch # for non-master, don't auto deploy.
+        switch: off
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: hb-site-alb-sit-branch
+        applyTo:
+          - manifest: hb-site-man-branch
+            image: hb-site-img-branch
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
+
+  - name: hb-site-sit-deploy-master # DEV deployment for MASTER
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: multi-site-replicas-non-prod #number of running tasks
+      - IN: hb-site-man-master # for master - auto deploy to SIT
+        switch: on
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: hb-site-alb-sit
+        applyTo:
+          - manifest: hb-site-man-master
+            image: hb-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
