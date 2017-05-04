@@ -53,6 +53,10 @@ describe('Home Container', () => {
                 mustRead: {
                     showOutsideContainer: true,
                     showInsideContainer: false
+                },
+                promoted: {
+                    showBelowHero: false,
+                    showAboveBottomTeasers: true
                 }
             }
         }

@@ -50,7 +50,7 @@ Feature: Homepage
             |tablet landscape|
 
 
-    @promoted @BXMA-205 @high
+   @promoted @BXMA-205 @low
    Scenario Outline: Verify the promoted module is functional correctly in "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing the homepage

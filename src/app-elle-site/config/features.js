@@ -5,6 +5,16 @@ export default {
         showOutsideContainer: false,
         showInsideContainer: true
     },
+    promoted: {
+        showBelowHero: false,
+        showAboveBottomTeasers: true,
+        imageSizes: {
+            s: { w: 300, h: 170 },
+            m: { w: 300, h: 170 },
+            l: { w: 300, h: 170 },
+            xl: { w: 219, h: 124 }
+        }
+    },
     galleryOfGalleries: {
         enabled: true
     },

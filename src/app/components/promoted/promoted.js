@@ -8,7 +8,8 @@ class Promoted extends Component {
 
 
     static propTypes = {
-        promoted: PropTypes.object.isRequired
+        promoted: PropTypes.object.isRequired,
+        show: PropTypes.bool.isRequired
     };
 
     static contextTypes = {
@@ -17,17 +18,12 @@ class Promoted extends Component {
         executeAction: PropTypes.func
     };
 
-    static imageSizes = {
-        s: { w: 300, h: 170 },
-        m: { w: 300, h: 170 },
-        l: { w: 300, h: 170 },
-        xl: { w: 230, h: 130 }
-    };
-
-    static listClassName = 'small-block-grid-2 medium-block-grid-3 large-block-grid-4'
+    static listClassName = 'small-block-grid-2 medium-block-grid-3 large-block-grid-4';
 
     render() {
-        const { promoted } = this.props;
+        const { promoted, show } = this.props;
+
+        if (!show) return null;
 
         if (!promoted) return null;
 
@@ -38,6 +34,7 @@ class Promoted extends Component {
         promotedItems = promotedItems.slice(0, 4);
 
         const shortenedNameList = this.context.config.brands.shortSources || {};
+        const imageSizes = this.context.config.features.promoted.imageSizes || {};
         const promotedTitle = promoted.title || 'WOMEN OF THE YEAR';
 
         // Add gtm class name,
@@ -57,7 +54,7 @@ class Promoted extends Component {
 
                 <TeaserList
                   listClassName={Promoted.listClassName}
-                  imageSizes={Promoted.imageSizes}
+                  imageSizes={imageSizes}
                   CustomisedTeaser={Teaser}
                   articles={promotedItems}
                   showDate={false}

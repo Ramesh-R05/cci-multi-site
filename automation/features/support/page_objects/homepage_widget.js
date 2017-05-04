@@ -7,6 +7,7 @@ var homepage_widget = {
     promotedHeader: '.promoted-teaser-view-grid .home-page__teasers-title',
     promotedImage: '.promoted-teaser-view-grid .teaser__list-item .teaser__inner img',
     promotedImageLink: '.promoted-teaser-view-grid .teaser__list-item .teaser__inner > a',
+    promotedSectionTag: '.promoted-teaser-view-grid a.teaser__section-tag',
     promotedTitle: '.promoted-teaser-view-grid .teaser__list-item .teaser__title a',
     heroImg: '.hero-wrapper',
     heroImgUrl: '.hero-wrapper img',

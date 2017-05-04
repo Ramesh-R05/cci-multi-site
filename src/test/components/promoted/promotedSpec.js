@@ -15,7 +15,7 @@ const Promoted = proxyquire('../../../app/components/promoted/promoted', {
 }).default;
 
 describe('#Promoted Component', () => {
-    
+
     const contextConfigStub = {
         key: 'config',
         type: '',
@@ -23,6 +23,16 @@ describe('#Promoted Component', () => {
             brands: {
                 shortSources: {
                     "Australian Women's Weekly": "AWW"
+                }
+            },
+            features: {
+                promoted: {
+                    imageSizes: {
+                        s: { w: 300, h: 170 },
+                        m: { w: 300, h: 170 },
+                        l: { w: 300, h: 170 },
+                        xl: { w: 219, h: 124 }
+                    }
                 }
             }
         }
@@ -75,7 +85,7 @@ describe('#Promoted Component', () => {
     });
 
     beforeEach(() => {
-        reactModule = Context.mountComponent(Promoted,{ promoted: promotedData },[contextConfigStub]);
+        reactModule = Context.mountComponent(Promoted,{ promoted: promotedData, show: true },[contextConfigStub]);
         teaserSource = TestUtils.scryRenderedComponentsWithType(reactModule,TeaserListStub);
     });
 

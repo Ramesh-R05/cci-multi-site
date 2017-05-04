@@ -11,6 +11,7 @@ import Repeatable from '../components/repeatable';
 import loadList from '../actions/loadList';
 import StickyAndDockAd from '../components/page/stickyAndDockAd';
 import MustRead from '../components/mustRead/mustRead';
+import Promoted from '../components/promoted/promoted';
 
 function mapStateToProps(context) {
     const teaserStore = context.getStore('TeaserStore');
@@ -60,6 +61,7 @@ export default class Home extends Component {
         const { config } = this.context;
         const polarLabels = config.polar.details;
         const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
+        const { showBelowHero, showAboveBottomTeasers } = config.features.promoted;
 
         const {
             currentUrl,
@@ -92,7 +94,7 @@ export default class Home extends Component {
                                             <div className="row">
                                                 <MustRead show={showInsideContainer} />
                                             </div>
-                                            <HeroTeaser article={heroTeaser} showPromoted />
+                                            <HeroTeaser article={heroTeaser} showPromoted={showBelowHero} />
                                             <div className="home-page__teasers-title">
                                                 <span>what&apos;s happening now</span>
                                             </div>
@@ -145,6 +147,8 @@ export default class Home extends Component {
                           billboard: ['billboard', 'leaderboard'] }}
                       targets={{ position: 2 }}
                     />
+
+                    <Promoted show={showAboveBottomTeasers} />
 
                     <Repeatable
                       component={TeaserListView}

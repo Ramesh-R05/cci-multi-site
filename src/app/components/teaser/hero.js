@@ -47,7 +47,7 @@ export default class HeroTeaser extends Component {
                   targets={{ position: 1 }}
                 />
 
-                { showPromoted && <Promoted /> }
+                { showPromoted && <Promoted show /> }
 
                 { brand ? <div className="hide-for-large-up"><BrandMagazine brand={brand} /> </div> :
                 <div className="hero-wrapper__get-social-container">

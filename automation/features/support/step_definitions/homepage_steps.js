@@ -168,6 +168,7 @@ module.exports = function(){
         var promotedImage = browser.getAttribute(home.promotedImage,'data-srcset');
         var promotedImageLink = browser.getAttribute(home.promotedImageLink,'href');
         var promotedTitle = browser.getText(home.promotedTitle);
+        var promotedImageSectionTag = browser.getText(home.promotedSectionTag);
         var promotedTitleLink = browser.getAttribute(home.promotedTitle,'href');
 
         //validate image and title and their links
@@ -175,6 +176,7 @@ module.exports = function(){
             expect(promotedImage[i]).not.toEqual('');
             expect(promotedImageLink[i]).not.toEqual('');
             expect(promotedTitle[i]).not.toEqual('');
+            expect(promotedImageSectionTag[i]).not.toEqual('');
             expect(promotedTitleLink[i]).toEqual(promotedImageLink[i]);
         }
     });

@@ -356,7 +356,8 @@ export default {
                 "imageUrl": "http://cdn.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets/WomansDay/2013/11/18/18213/Lilly.jpg",
                 "nodeType": "Gallery",
                 "source": "Woman's Day",
-                "url": "/lifestyle/pets/readers-pets-gallery-too-cute-31818"
+                "url": "/lifestyle/pets/readers-pets-gallery-too-cute-31818",
+                "parentName": "fashion"
             },
             {
                 "id": "NOW-14557",
@@ -366,6 +367,7 @@ export default {
                 "nodeType": "Gallery",
                 "summary": "Talk about hair envy!",
                 "url": "/beauty/hair/duchess-kate-best-hair-looks-14557",
+                "parentName": "fashion",
                 "tagsDetails": [
                     {
                         "name": "royalty:noble_person:Catherine, Duchess of Cambridge",
@@ -394,7 +396,8 @@ export default {
                 "imageUrl": "http://cdn.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets/WomansDay/2013/11/14/11735/nat_45.jpg",
                 "nodeType": "Article",
                 "source": "Mother And Baby",
-                "url": "/news/real-life/from-kidnap-victim-to-talk-show-host-30085"
+                "url": "/news/real-life/from-kidnap-victim-to-talk-show-host-30085",
+                "parentName": "fashion"
             },
             {
                 "id": "NOW-31892",
@@ -405,6 +408,7 @@ export default {
                 "summary": "Automation Test Article With Hero Image Short Teaser Short Teaser Short Teaser Short Teaser Short Teaser Short Teaser Short Teaser Short Teaser Short Teaser Short Teaser Short Teaser Short Teaser EOM",
                 "source": "Australian Women's Weekly",
                 "url": "/beauty/hair/automation-test-article-with-hero-video-31892",
+                "parentName": "fashion",
                 "video": {
                     "id": "4066659625001",
                     "name": "Moroccan Lamb Salad",
