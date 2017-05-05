@@ -12,18 +12,21 @@ import loadList from '../actions/loadList';
 import StickyAndDockAd from '../components/page/stickyAndDockAd';
 import MustRead from '../components/mustRead/mustRead';
 import Promoted from '../components/promoted/promoted';
+import BrandMagazine from '../components/brand/brandMagazine';
 
 function mapStateToProps(context) {
+    const pageStore = context.getStore('PageStore');
     const teaserStore = context.getStore('TeaserStore');
     return {
         heroTeaser: teaserStore.getHeroTeaser(),
         teasers: teaserStore.getLatestTeasers(),
         list: teaserStore.getList(),
-        listNextParams: teaserStore.getListNextParams()
+        listNextParams: teaserStore.getListNextParams(),
+        magazineImageUrl: pageStore.getMagazineImageUrl()
     };
 }
 
-@connectToStores(['TeaserStore'], mapStateToProps)
+@connectToStores(['PageStore', 'TeaserStore'], mapStateToProps)
 export default class Home extends Component {
     static displayName = 'HomePage';
 
@@ -59,10 +62,10 @@ export default class Home extends Component {
 
     render() {
         const { config } = this.context;
+        const brand = config.product;
         const polarLabels = config.polar.details;
         const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
         const { showBelowHero, showAboveBottomTeasers } = config.features.promoted;
-
         const {
             currentUrl,
             theme,
@@ -94,7 +97,7 @@ export default class Home extends Component {
                                             <div className="row">
                                                 <MustRead show={showInsideContainer} />
                                             </div>
-                                            <HeroTeaser article={heroTeaser} showPromoted={showBelowHero} />
+                                            <HeroTeaser article={heroTeaser} showPromoted={showBelowHero} brand={brand} />
                                             <div className="home-page__teasers-title">
                                                 <span>what&apos;s happening now</span>
                                             </div>
@@ -124,10 +127,11 @@ export default class Home extends Component {
                                                       displayFor="large"
                                                       targets={{ position: 1 }}
                                                     />
+                                                    { brand ? <BrandMagazine brand={brand} /> :
                                                     <div className="page__get-social-container">
                                                         <span className="page__social-logo">Now To Love</span>
                                                         <SocialContainer socialUrls={config.urls.socialUrls} />
-                                                    </div>
+                                                    </div> }
                                                 </StickyAndDockAd>
                                             </div>
                                         </div>

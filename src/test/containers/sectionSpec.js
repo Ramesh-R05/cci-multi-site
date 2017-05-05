@@ -65,6 +65,9 @@ describe('Section Container', () => {
         },
         getSummary() {
             return 'Summary'
+        },
+        getMagazineImageUrl() {
+            return 'http://stubbedimages.biz/content.jpg';
         }
     });
 
@@ -123,28 +126,3 @@ describe('Section Container', () => {
     });
 });
 
-describe('Brand Container', () => {
-    it('should render page with correct brand props', () => {
-        const reactModule = Context.mountComponent(SectionContainer, {currentUrl: '/aww', nodeType: 'Brand'}, [contextConfigStub]);
-        const PageStubComponent = TestUtils.findRenderedComponentWithType(reactModule, PageStub);
-        expect(PageStubComponent.props.headerClassName).to.eq('header-aww');
-    });
-
-    it('should render page with correct pagetitle prop', () => {
-        const reactModule = Context.mountComponent(SectionContainer, {currentUrl: '/aww', nodeType: 'Brand'}, [contextConfigStub]);
-        const PageStubComponent = TestUtils.findRenderedComponentWithType(reactModule, PageStub);
-        expect(PageStubComponent.props.pageTitle.props.brand).to.deep.eq(contextConfigStub.value.brands.uniheader[0]);
-    });
-
-    it('should render page with correct brand props when params are passed through url', () => {
-        const reactModule = Context.mountComponent(SectionContainer, {currentUrl: '/aww?pageNo=2', nodeType: 'Brand'}, [contextConfigStub]);
-        const PageStubComponent = TestUtils.findRenderedComponentWithType(reactModule, PageStub);
-        expect(PageStubComponent.props.headerClassName).to.eq('header-aww');
-    });
-
-    it('should render page with correct pagetitle prop when params are passed through url', () => {
-        const reactModule = Context.mountComponent(SectionContainer, {currentUrl: '/aww?pageNo=2', nodeType: 'Brand'}, [contextConfigStub]);
-        const PageStubComponent = TestUtils.findRenderedComponentWithType(reactModule, PageStub);
-        expect(PageStubComponent.props.pageTitle.props.brand).to.deep.eq(contextConfigStub.value.brands.uniheader[0]);
-    });
-});

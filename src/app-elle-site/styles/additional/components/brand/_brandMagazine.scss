@@ -1,0 +1,24 @@
+.brand--magazine {
+    &-container {
+        padding-top: 5px;
+
+        @media #{$medium-only} {
+            padding-top: 0;
+            width: 50%;
+        }
+
+        @media #{$large-only} {
+            margin-left: -5px;
+        }
+
+        .button--subscribe {
+            margin: 20px 0;
+        }
+    }
+    &-title {
+        display: none;
+    }
+    &-image img {
+        max-height: 295px;
+    }
+}

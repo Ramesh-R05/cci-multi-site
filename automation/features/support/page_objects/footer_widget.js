@@ -13,7 +13,7 @@ var footer_widget = {
     footerElementSubscriptionCoveriPadLink: '.subscription__image--ipad',
     footerElementSubscriptionCoverImage: '.subscription__image--mag img',
     footerElementSubscriptionCoveriPadImage: '.subscription__image--ipad img',
-    footerElementSubscriptionButton: '.button--subscribe'
+    footerElementSubscriptionButton: '.footer .button--subscribe'
 };
 
 module.exports = footer_widget;

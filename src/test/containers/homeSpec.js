@@ -73,6 +73,9 @@ describe('Home Container', () => {
 
         getMustReadItems() {
           return [];
+        },
+        getMagazineImageUrl() {
+            return 'http://stubbedimages.biz/content.jpg';
         }
     });
 

@@ -1,3 +1,12 @@
+const socialUrls = {
+    facebook: 'https://www.facebook.com/ELLEaus',
+    twitter: 'https://twitter.com/ELLEaus',
+    instagram: 'https://www.instagram.com/elleaus',
+    pinterest: 'https://au.pinterest.com/elleaus',
+    youtube: 'https://www.youtube.com/elleaus'
+};
+const imageSize = { w: 275 };
+
 export default {
     urls: {
         footerUrls: {
@@ -5,16 +14,23 @@ export default {
             advertise: 'http://www.bauer-media.com.au/advertising/advertise-with-us',
             terms: 'http://www.bauer-media.com.au/terms/website-terms'
         },
-
-        socialUrls: {
-            facebook: 'https://www.facebook.com/ELLEaus',
-            twitter: 'https://twitter.com/ELLEaus',
-            pinterest: 'https://au.pinterest.com/elleaus',
-            instagram: 'https://www.instagram.com/elleaus',
-            youtube: 'https://www.youtube.com/elleaus'
+        socialUrls: socialUrls
+    },
+    // Used for the magazine Image (not the one in the footer)
+    product: {
+        id: 'elle',
+        title: '',
+        magazineTitle: '',
+        socialLinks: socialUrls,
+        subscribeButtonText: 'Subscribe',
+        subscribeButtonUrl: 'subscribe-magazine',
+        imageSizes: {
+            s: imageSize,
+            m: imageSize,
+            l: imageSize,
+            xl: imageSize
         }
     },
-
     brands: {
         uniheader: [],
         hamburgers: [

@@ -31,12 +31,17 @@ class BrandMagazine extends Component {
         }
     };
 
+    static DEFAULT_SUBSCRIBE_URL = 'subscribe-magazine';
+    static DEFAULT_SUBSCRIBE_TEXT = 'SUBSCRIBE NOW';
+
     render() {
         const { imageSizes, responsiveConfig, magazineImageUrl, brand } = this.props;
         const breakpoints = this.context.config.global.breakpoints;
         const { socialLinks, id, title, magazineTitle } = brand;
         const renderSubscribeElements = get(brand, 'renderSubscribeElements', true);
-        const subscribeUrl = `subscribe-${id}`;
+        const buttonText = get(brand, 'subscribeButtonText', BrandMagazine.DEFAULT_SUBSCRIBE_TEXT);
+        const buttonUrl = get(brand, 'subscribeButtonUrl', BrandMagazine.DEFAULT_SUBSCRIBE_URL);
+        const sizes = get(brand, 'imageSizes', imageSizes);
 
         return (
             <div>
@@ -45,7 +50,7 @@ class BrandMagazine extends Component {
                     <div className="brand--magazine-image">
                         <ResponsiveImage
                           url={magazineImageUrl}
-                          sizes={imageSizes}
+                          sizes={sizes}
                           breakpoints={breakpoints}
                           scale={responsiveConfig.scale}
                           mode={responsiveConfig.mode}
@@ -54,12 +59,11 @@ class BrandMagazine extends Component {
                         />
                     </div>
                     {renderSubscribeElements &&
-                        <a target="_blank" className={`gtm-subscribe-${id}`} href={subscribeUrl}>
-                            <span className={`sub-now sub-now-${id}`}>SUBSCRIBE NOW</span>
+                        <a target="_blank" className={`gtm-subscribe-${id}`} href={buttonUrl}>
+                            <span className="button button--link button--subscribe">{buttonText}</span>
                         </a>
                     }
                 </div>
-                <hr />
                 <div className="page__get-social-container">
                     <SocialContainer socialUrls={socialLinks} />
                 </div>
@@ -68,8 +72,6 @@ class BrandMagazine extends Component {
     }
 }
 
-
 export default connectToStores(BrandMagazine, ['PageStore'], context => ({
     magazineImageUrl: context.getStore('PageStore').getMagazineImageUrl()
 }));
-
