@@ -174,15 +174,13 @@ jobs:
   #   flags:
   #     - now-site
 
-  - name: multi-site-release-master # Package release for production release
+  - name: elle-release-master # Package release for production release
     type: release
     steps:
-      - IN: multi-site-man-master
+      - IN: elle-man-master
         switch: off
       - IN: multi-site-automation-test
         switch: off
-#      - IN: homes-site-mobile-automation-test
-#        switch: off
       - IN: multi-site-version
       - TASK: managed
 
@@ -193,7 +191,7 @@ jobs:
       - NOTIFY: multi-slack-notifications
     steps:
       - IN: elle-site-replicas-production #number of running tasks
-      - IN: multi-site-release-master
+      - IN: elle-release-master
       - IN: env-prod-ecs
       - IN: multi-site-params-prod
       - IN: elle-site-alb-prod
@@ -204,13 +202,23 @@ jobs:
       - TASK: managed
         deployMethod: upgrade
 
+  - name: hb-release-master # Package release for production release
+    type: release
+    steps:
+      - IN: hb-man-master
+        switch: off
+      - IN: multi-site-automation-test
+        switch: off
+      - IN: multi-site-version
+      - TASK: managed
+
   - name: hb-site-prod-deploy-master # PROD deployment for MASTER with Region AU
     type: deploy
     always:
       - NOTIFY: multi-slack-notifications
     steps:
       - IN: hb-site-replicas-production #number of running tasks
-      - IN: multi-site-release-master
+      - IN: hb-release-master
       - IN: env-prod-ecs
       - IN: multi-site-params-prod
       - IN: hb-site-alb-prod
