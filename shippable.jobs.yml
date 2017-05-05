@@ -177,7 +177,7 @@ jobs:
   - name: elle-release-master # Package release for production release
     type: release
     steps:
-      - IN: elle-man-master
+      - IN: elle-site-man-master 
         switch: off
       - IN: multi-site-automation-test
         switch: off
@@ -205,7 +205,7 @@ jobs:
   - name: hb-release-master # Package release for production release
     type: release
     steps:
-      - IN: hb-man-master
+      - IN: hb-site-man-master
         switch: off
       - IN: multi-site-automation-test
         switch: off
