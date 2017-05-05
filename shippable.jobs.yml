@@ -174,35 +174,52 @@ jobs:
   #   flags:
   #     - now-site
 
-  # - name: homes-site-release-master # Package release for production release
-  #   type: release
-  #   steps:
-  #     - IN: homes-site-man-master
-  #       switch: off
-  #     - IN: homes-site-automation-test
-  #       switch: off
-  #     - IN: homes-site-mobile-automation-test
-  #       switch: off
-  #     - IN: homes-site-version
-  #     - TASK: managed
+  - name: multi-site-release-master # Package release for production release
+    type: release
+    steps:
+      - IN: multi-site-man-master
+        switch: off
+      - IN: multi-site-automation-test
+        switch: off
+#      - IN: homes-site-mobile-automation-test
+#        switch: off
+      - IN: multi-site-version
+      - TASK: managed
 
 
-  # - name: homes-site-prod-deploy-master # PROD deployment for MASTER with Region AU
-  #   type: deploy
-  #   always:
-  #     - NOTIFY: homes-slack-notifications
-  #   steps:
-  #     - IN: homes-site-replicas-production #number of running tasks
-  #     - IN: homes-site-release-master
-  #     - IN: env-prod-ecs
-  #     - IN: homes-site-params-prod
-  #     - IN: homes-site-alb-prod
-  #       applyTo:
-  #         - manifest: homes-site-man-master
-  #           image: homes-site-img-master
-  #           port: 3001
-  #     - TASK: managed
-  #       deployMethod: upgrade
+  - name: elle-site-prod-deploy-master # PROD deployment for MASTER with Region AU
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: elle-site-replicas-production #number of running tasks
+      - IN: multi-site-release-master
+      - IN: env-prod-ecs
+      - IN: multi-site-params-prod
+      - IN: elle-site-alb-prod
+        applyTo:
+          - manifest: elle-site-man-master
+            image: elle-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
+
+  - name: hb-site-prod-deploy-master # PROD deployment for MASTER with Region AU
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: hb-site-replicas-production #number of running tasks
+      - IN: multi-site-release-master
+      - IN: env-prod-ecs
+      - IN: multi-site-params-prod
+      - IN: hb-site-alb-prod
+        applyTo:
+          - manifest: hb-site-man-master
+            image: hb-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
 
 # ###### DEBUG MODE ###
 # #Tags use for DEBUG

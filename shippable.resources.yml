@@ -52,6 +52,12 @@ resources:
         NODE_ENV: "production"
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
 
+    # Release version
+  - name: multi-site-version
+    type: version
+    seed:
+      versionName: "1.0.0"
+
 ###########################
 # This section is for ELLE
 ###########################
@@ -72,12 +78,6 @@ resources:
       sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/elle-site"
     seed:
       versionName: latest
-
-# Release version
-  - name: elle-site-version
-    type: version
-    seed:
-      versionName: "1.0.0"
 
 #
 # SIT environment configuration
