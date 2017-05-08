@@ -1,7 +1,7 @@
 .off-canvas {
     height: 100%;
     overflow: auto;
-    padding: 0; 
+    padding: 0;
 }
 
 .off-canvas--left {
@@ -11,7 +11,7 @@
     @media #{$small-only} {
         transform: translateX(-270px);
     }
-    
+
     @media #{$medium-up} {
         transform: translateX(-450px);
     }
@@ -89,7 +89,7 @@
     color: $color-white;
     display: block;
     padding: 5px 0;
-    font-size: 28px;    
+    font-size: 28px;
     font-weight: 400;
 
     @media #{$small-only} {
@@ -133,10 +133,10 @@
             }
 
             &:nth-child(4) {
-                padding-right: 10px;   
-            }   
+                padding-right: 10px;
+            }
         }
-        
+
         @media #{$small-only} {
             padding: 5px 15px 18px 0px;
         }
@@ -152,7 +152,7 @@
                         width: 210px;
                     }
                 }
-                
+
                 &--food {
                     width: 90px;
                     height: 36px;
@@ -292,12 +292,12 @@
     height: 0px;
 
     @media #{$small-only} {
-        font-size: 11px; 
+        font-size: 11px;
         margin: 25px 0px 34px;
     }
 }
 
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
     .off-canvas-wrapper {
         transition: 0s all;
     }
@@ -306,6 +306,10 @@
 .off-canvas-wrapper {
     z-index: 2000;
     pointer-events: none;
+}
+
+.side-menu-wrapper {
+    overflow: hidden;
 }
 
 .side-menu-wrapper--open-left {

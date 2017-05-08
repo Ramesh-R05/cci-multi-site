@@ -1,23 +1,28 @@
-// The demo font that we made the decision on was TagusNormal-Light.
-// After purchasing this font, the supplied font files are terrible.
-// Have reverted back to using the demo OTF font, which looks a whole lot better than the other ones.
 @font-face {
-    font-family: 'TagusNormal-Light';
-    src: url('../../assets/fonts/TagusNormal-Light-Original.otf');
-    //src: url('../../assets/fonts/TagusNormal-Light.otf');
-    //src: url('../../assets/fonts/TagusNormal-Light.eot');                                       /* IE9 Compat Modes */
-    //src: url('../../assets/fonts/TagusNormal-Light.eot?#iefix') format('embedded-opentype'),    /* IE6-IE8 */
-    ////url('../../assets/fonts/TagusNormal-Light.woff2') format('woff2'),                        /* Super Modern Browsers */
-    //url('../../assets/fonts/TagusNormal-Light.woff') format('woff'),                            /* Pretty Modern Browsers */
-    //url('../../assets/fonts/TagusNormal-Light.ttf')  format('truetype'),                        /* Safari, Android, iOS */
-    //url('../../assets/fonts/TagusNormal-Light.svg#svgFontName') format('svg');                  /* Legacy iOS */
+    font-family: 'Questa-grande-light';
+    src: url('../../assets/fonts/questa_grande_light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-$font-family-sans-serif-primary: 'TagusNormal-Light', sans-serif;
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../../assets/fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('../../assets/fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-family-serif-primary: 'Questa-grande-light', serif;
+$font-family-sans-serif-primary: 'Montserrat-Regular', sans-serif;
 $small-text-font: $font-family-sans-serif-primary;
-$font-family-serif-primary: 'Georgia', serif;
+$font-family-sans-serif-light: 'Montserrat-Light', serif;
 
 // ---------------------------------------------------- base elements
 
@@ -154,9 +159,9 @@ a {
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
     color: $color-black;
-    font: 20px / 26px $font-family-sans-serif-primary;
-    font-weight: bold;
-    letter-spacing: .01rem;
+    font: 33px / 26px $font-family-serif-primary;
+    letter-spacing: 2px;
+    word-spacing: 0.02em;
     text-transform: none;
 
     @media #{$medium-up} {
@@ -171,7 +176,7 @@ a {
 
 @mixin type-teaser-summary {
     color: $color-grey;
-    font: 400 14px / 20px $font-family-serif-primary;
+    font: 400 14px / 20px $font-family-sans-serif-primary;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
 }
@@ -443,7 +448,7 @@ a {
 // Second half teasers
 @mixin type-bottom-teaser-title {
     color: $color-black;
-    font: 15px / 20px $font-family-sans-serif-primary;
+    font: 15px / 20px $font-family-serif-primary;
     margin-bottom: 0;
     text-transform: none;
 
@@ -486,8 +491,8 @@ a {
 
     a, span {
         color: $color-accent;
-        font: 600 11px / 12px $font-family-sans-serif-primary;
-        letter-spacing: .1em;
+        font: 600 11px/12px $font-family-sans-serif-light;
+        letter-spacing: .03em;
         text-transform: uppercase;
     }
 

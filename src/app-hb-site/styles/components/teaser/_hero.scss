@@ -41,104 +41,7 @@ $hero-teaser-line-height: 25px;
     }
 
     .hero-teaser__source {
-        color: $color-grey-light;
-        text-transform: uppercase;
-        font-family: $font-family-sans-serif-primary;
-        font-size: 11px;
-        margin-left: 15px;
-        margin-bottom: 0;
-        letter-spacing: 0.7px;
         display: none;
-
-        &__breaker {
-            padding: 0 8px;
-            color: $color-grey-light;
-        }
-
-        @media #{$large-up} {
-            margin: 3px 0 0 0;
-        }
-
-        span:first-child:not(.hero-teaser__source__breaker),
-        &--now-to-love span:first-child:not(.hero-teaser__source__breaker) {
-            color: $nl-color;
-        }
-
-        &--woman-s-day span:first-child:not(.hero-teaser__source__breaker) {
-            color: $wd-color;
-        }
-
-        &--australian-women-s-weekly span:first-child:not(.hero-teaser__source__breaker) {
-            color: $aww-color;
-        }
-
-        &--good-health span:first-child:not(.hero-teaser__source__breaker) {
-            color: $good-health-color;
-        }
-
-        &--yours span:first-child:not(.hero-teaser__source__breaker) {
-            color: $yours-color;
-        }
-
-        &--ok--magazine span:first-child:not(.hero-teaser__source__breaker) {
-            color: $ok-color;
-        }
-
-        &--shop-til-you-drop span:first-child:not(.hero-teaser__source__breaker) {
-            color: $shop-color;
-        }
-
-        &--mother-and-baby span:first-child:not(.hero-teaser__source__breaker) {
-            color: $mother-baby-color;
-        }
-
-        &--take-5 span:first-child:not(.hero-teaser__source__breaker) {
-            color: $take-5-color;
-        }
-
-        &--nw span:first-child:not(.hero-teaser__source__breaker) {
-            color: $nw-color;
-        }
-
-        &--tv-week span:first-child:not(.hero-teaser__source__breaker) {
-            color: $tv-color;
-        }
-
-        .home-page & {
-            .hero-teaser__source__breaker,
-            .hero-teaser__source__breaker + span {
-                display: none;
-            }
-        }
-    }
-
-    .hero-teaser.teaser--nz {
-        .hero-teaser__source--the-australian-women-s-weekly span:first-child:not(.hero-teaser__source__breaker) {
-            color: $nz-aww-color;
-        }
-        .hero-teaser__source--next span:first-child:not(.teaser__source__breaker) {
-            color: $nz-next-color;
-        }
-
-        .hero-teaser__source--woman-s-day span:first-child:not(.teaser__source__breaker) {
-            color: $nz-womans-day-color;
-        }
-
-        .hero-teaser__source--new-zealand-s-woman-s-weekly span:first-child:not(.teaser__source__breaker) {
-            color: $nz-womans-weekly-color;
-        }
-
-        .hero-teaser__source--simply-you span:first-child:not(.teaser__source__breaker) {
-            color: $nz-simply-you-color;
-        }
-
-        .hero-teaser__source--new-zealand-good-health-choices span:first-child:not(.teaser__source__breaker) {
-            color: $nz-good-health-choices-color;
-        }
-
-        .hero-teaser__source--nadia-lim span:first-child:not(.teaser__source__breaker) {
-            color: $nz-nadia-color;
-        }
     }
 
     &__social-logo {
@@ -251,9 +154,11 @@ $hero-teaser-line-height: 25px;
 
     .teaser__title {
         @include type-hero-title();
-        line-height: 27px;
+        font-size: 23px;
+        line-height: 24px;
+        letter-spacing: 1px;
         margin: {
-            bottom: 9px;
+            bottom: 12px;
             top: 0;
         }
 
@@ -261,8 +166,8 @@ $hero-teaser-line-height: 25px;
             padding: 0;
             display: block;
             margin-bottom: 4px;
-            font-size: 30px;
-            line-height: 35px;
+            font-size: 33px;
+            line-height: 36px;
         }
 
         a {
@@ -272,8 +177,8 @@ $hero-teaser-line-height: 25px;
     }
 
     .teaser__section-tag {
-        margin-top: 19px;
-        margin-bottom: 9px;
+        margin-top: 20px;
+        margin-bottom: 13px;
 
         @media #{$medium-only} {
             margin-top: 0;
@@ -295,7 +200,7 @@ $hero-teaser-line-height: 25px;
         }
 
         @media #{$large-up} {
-            margin-top: 12px;
+            margin-top: 10px;
             margin-bottom: 26px;
             font-size: 14px;
             line-height: 22px;
