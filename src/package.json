@@ -11,7 +11,7 @@
   "scripts": {
     "prepush": "npm run lint && npm test",
     "clean": "rimraf dist/ coverage/ .build/ && mkdirp dist/scripts dist/styles .build/",
-    "start": "node ./start.js",
+    "start": "node $NODE_DEBUG_OPTION ./start.js",
     "test": "babel-node $NODE_DEBUG_OPTION ./node_modules/babel-istanbul/lib/cli cover --root ./ --include-all-sources --report teamcity --report cobertura --report html ./node_modules/mocha/bin/_mocha -- --require ./test/setup.js --recursive --check-leaks",
     "test:ci": "npm run test -- --reporter=xunit-file",
     "test:unit": "mocha --require babel-polyfill --require babel-register --require test/setup.js --reporter min --recursive --check-leaks",

@@ -18,7 +18,18 @@
     &-title {
         display: none;
     }
-    &-image img {
-        max-height: 295px;
+    &-image {
+        @media #{$large-up} {
+            width: 225px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        & img {
+            max-height: 295px;
+
+            @media #{$large-up} {
+                max-height: none;
+            }
+        }
     }
 }
