@@ -8,13 +8,6 @@ Feature: Footer
         Given I switch to "<device>" view
         When I am currently viewing the homepage
         * I can see the social logo in the footer
-        * I can see the social icons clickable to open its page in the footer
-            |social     |url                                    |
-            |Facebook   |https://www.facebook.com/ELLEaus       |
-            |Twitter    |https://twitter.com/ELLEaus            |
-            |Instagram  |https://www.instagram.com/elleaus      |
-            |Pinterest  |https://au.pinterest.com/elleaus       |
-            |YouTube    |https://www.youtube.com/elleaus        |
         * I can navigate to all standard pages in the footer
             |page           |url                                                            |
             |PRIVACY POLICY |http://www.bauer-media.com.au/privacy                          |

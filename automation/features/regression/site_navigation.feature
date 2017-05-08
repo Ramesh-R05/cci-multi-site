@@ -77,17 +77,4 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         Then I should not see the site navigation links
         And I should see the hamburger menu
 
-    @BXMA-65 @med
-    Scenario: I can see the brand logos in the hamburger menu
-        Given I switch to "mobile" view
-        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-         * I can navigate to all sites in the hamburger navigation menu
-            |title                      |url                                |gtm                        |
-            |Now To Love                |http://nowtolove.com.au/           |gtm-hamburger-now          |
-            |Homes To Love              |http://homestolove.com.au/         |gtm-hamburger-homes        |
-            |Food To Love               |http://foodtolove.com.au/          |gtm-hamburger-food         |
-            |Harper's Bazaar            |http://harpersbazaar.com.au/       |gtm-hamburger-harpers      |
-            |Gourmet Traveller          |http://gourmettraveller.com.au/    |gtm-hamburger-gt           |
-            |Cosmopolitan               |http://cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
-            |Dolly                      |http://dolly.com.au/               |gtm-hamburger-dolly        |
-            |Beauty Heaven              |http://beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
+
