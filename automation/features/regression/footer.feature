@@ -7,7 +7,7 @@ Feature: Footer
     Scenario Outline: Verify the footer in the "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing the homepage
-        * I can see the social logo in the footer
+        * I can see the social heading in the footer
         * I can navigate to all standard pages in the footer
             |page           |url                                                            |
             |PRIVACY POLICY |http://www.bauer-media.com.au/privacy                          |

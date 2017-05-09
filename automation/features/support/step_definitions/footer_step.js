@@ -2,10 +2,9 @@ var footer = require('../page_objects/footer_widget');
 
 module.exports = function() {
 
-    this.Given(/^I can see the social logo in the footer$/, function () {
-        //Validate the existence of the 'Elle' text
-        var logoText = browser.getText(footer.footerSocialLogo);
-        expect(logoText.toLowerCase()).toMatch('elle');
+    this.Given(/^I can see the social heading in the footer$/, function () {
+        //Validate the existence of the social heading
+        expect(browser.isExisting(footer.footerSocialLogo)).toBe(true);
     });
 
     this.Given(/^I can see the social icons clickable to open its page in the footer$/, function (dataTable) {

@@ -122,7 +122,7 @@ Feature: I have an automated sanity for my live environments
         Given I switch to "desktop" view
         When I am currently viewing the homepage
         * I should see the site header banner
-        * I should see the site header logo clickable to open homepage and contain "gtm-navbar-elle" class name
+        * I should see the site header logo clickable to open homepage
         * I should see the site navigation links and "gtm-navigation-section nav-item" class name in "header"
         * I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
 
@@ -130,7 +130,7 @@ Feature: I have an automated sanity for my live environments
     Scenario: I can see the navigation widget on the homepage mobile
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        * I should see the site header logo clickable to open homepage and contain "gtm-navbar-elle" class name
+        * I should see the site header logo clickable to open homepage
         * I should not see the site navigation links
         * I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
 
@@ -138,7 +138,7 @@ Feature: I have an automated sanity for my live environments
     Scenario: Verify the footer in the mobile view
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        * I can see the social logo in the footer
+        * I can see the social heading in the footer
         * I can see the social icons clickable to open its page in the footer
             |social     |url                                    |
             |Facebook   |https://www.facebook.com/nowtolove     |
@@ -169,7 +169,7 @@ Feature: I have an automated sanity for my live environments
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
-        * I should see the site header logo clickable to open homepage and contain "gtm-navbar-elle" class name
+        * I should see the site header logo clickable to open homepage
         * I should see the hamburger menu
         * I should see the error title as "Sorry, this page is broken."
         * I should see the error giphy image

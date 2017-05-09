@@ -8,7 +8,7 @@ Feature: Error page
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
-        * I should see the site header logo clickable to open homepage and contain "gtm-navbar-elle" class name
+        * I should see the site header logo clickable to open homepage
         * I should see the hamburger menu
         * I should see the error title as "Oops, we don't have the page you're looking for."
         * I should see the error giphy image

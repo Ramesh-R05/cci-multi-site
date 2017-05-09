@@ -12,17 +12,24 @@ module.exports = function() {
         expect(headerBackground).toContain('background-image: url');
     });
 
-    this.Then(/^I should see the site header logo clickable to open homepage and contain "([^"]*)" class name$/, function (gtm) {
+    this.Then(/^I should see the site header logo "([^"]*)" clickable to open homepage and contain "([^"]*)" class name$/, function (logo, gtm) {
         browser.waitForExist(site_nav.siteNavHeaderLogo, 3000);
         //Validate the existence of the logo
         var headerLogo = browser.getCssProperty(site_nav.siteNavHeaderLogo, 'background-image').value;
-        expect(headerLogo).toMatch("/assets/logos/elle.svg");
+        expect(headerLogo).toMatch(logo);
         //Validate the logo is clickable to open homepage
         var headerLogoLink = browser.getAttribute(site_nav.siteNavHeaderLogo,'href');
         expect(headerLogoLink).not.toEqual('');
         //Validate GTM
         var headerLogoClass = browser.getAttribute(site_nav.siteNavHeaderLogo,'class');
         expect(headerLogoClass).toContain(gtm);
+    });
+
+    this.Then(/^I should see the site header logo clickable to open homepage$/, function () {
+        browser.waitForExist(site_nav.siteNavHeaderLogo, 3000);
+        //Validate the logo is clickable to open homepage
+        var headerLogoLink = browser.getAttribute(site_nav.siteNavHeaderLogo,'href');
+        expect(headerLogoLink).not.toEqual('');
     });
 
     this.Then(/^I should see the site navigation links and "([^"]*)" class name in "([^"]*)"$/, function (gtm, position) {
@@ -64,14 +71,14 @@ module.exports = function() {
 
     this.Then(/^I can see the link "([^"]*)" is highlighted on the navigation links$/, function (section) {
         var activeLink = (browser.getText(site_nav.siteNavActiveLink));
-        expect(activeLink).toEqual(section);
+        expect(activeLink.toUpperCase()).toEqual(section);
     });
 
     this.Then(/^I can see the link "([^"]*)" is highlighted on the hamburger navigation links$/, function (section) {
         browser.click(site_nav.siteHamburger);
         browser.waitForVisible(site_nav.siteHamburgerDetail, 3000);
         var activeLink = (browser.getText(site_nav.siteHamburgerActiveLink));
-        expect(activeLink).toEqual(section);
+        expect(activeLink.toUpperCase()).toEqual(section);
         wait(500); // ensure it waits for transition effect to complete
         browser.click(site_nav.siteHamburgerClose);
     });
