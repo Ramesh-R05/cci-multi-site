@@ -37,10 +37,10 @@ export default {
                 title: 'Food To Love'
             },
             {
-                id: 'harpers',
-                imageUrl: '/assets/images/menulogos/HB-logo.svg',
-                url: 'http://harpersbazaar.com.au/',
-                title: "Harper's Bazaar"
+                id: 'elle',
+                imageUrl: '/assets/images/menulogos/elle-logo.svg',
+                url: 'http://elle.com.au/',
+                title: "Elle"
             },
             {
                 id: 'gt',

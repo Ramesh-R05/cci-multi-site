@@ -5,7 +5,7 @@
 .mobile-menu__nav {
 
     a:hover {
-        color: $color-accent;
+        color: $color-accent-2;
     }
 
     &::after {
@@ -13,7 +13,7 @@
     }
 
     .nav-item {
-        text-transform: uppercase;
+        text-transform: capitalize;
         letter-spacing: 0.02em;
         padding: 8px 0;
         font-size: 16px;
@@ -23,9 +23,23 @@
         }
 
         &--active {
-            color: $color-accent;
+            color: $color-accent-2;
         }
     }
+}
+
+.mobile-menu-list {
+
+    li:nth-child(5) {
+
+        margin-left: -3px;
+
+        @media #{$medium-up} {
+            margin-left: -6px;
+        }
+
+    }
+
 }
 
 .off-canvas {
