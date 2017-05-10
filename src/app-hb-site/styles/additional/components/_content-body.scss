@@ -4,7 +4,7 @@
     }
 
     a {
-        color: $color-accent;
+        color: $color-tertiary;
     }
 
     p {
@@ -29,7 +29,7 @@
             padding-right: 0;
 
             a {
-                color: $color-accent;
+                color: $color-tertiary;
             }
 
             @media #{$medium-up} {

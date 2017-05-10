@@ -10,7 +10,7 @@ export default {
             pageTypes: {
                 Brand: 'index'
             },
-            siteId: "Harper's Bazaar",
+            siteId: 'harpersbazaar',
             tagsObject: 'tags',
             sizes: {
                 native: [250, 30],

@@ -79,7 +79,7 @@
             }
 
             .button {
-                background: $color-accent;
+                background: $color-tertiary;
                 -webkit-font-smoothing: antialiased;
                 font-size: 17px;
             }
@@ -104,10 +104,10 @@
             }
 
             .button {
-                background: $color-accent;
+                background: $color-tertiary;
 
                 &:hover {
-                    background: lighten($color-accent, 15);
+                    background: lighten($color-tertiary, 15);
                 }
 
             }
@@ -130,7 +130,7 @@
     }
 
     .gallery-caption__toggle {
-        color: $color-accent;
+        color: $color-tertiary;
         text-decoration: none;
     }
 

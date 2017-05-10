@@ -24,7 +24,7 @@ module.exports = function(url, prev, done) {
 
     if (fileExists(replacementPath)) {
         // enable for debugging only as the log text will appear in the stylesheet code
-        console.log(`/* -> replacement found for ${originalPath}, using ${replacementPath} */`);
+        //console.log(`/* -> replacement found for ${originalPath}, using ${replacementPath} */`);
         done({ file: replacementPath });
 
     }

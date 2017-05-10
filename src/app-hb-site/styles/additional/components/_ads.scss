@@ -1,0 +1,5 @@
+.ad--section-top-leaderboard {
+    @media #{$small-only} {
+        margin-top: -1px;
+    }
+}

@@ -18,11 +18,25 @@
     }
 }
 
+.page--home .header {
+    position: absolute;
+    &--pinned {
+        position: fixed;
+    }
+}
+
+.error-page .header {
+    @media #{$medium-up} {
+        position: absolute;
+    }
+}
+
 // Header styles for all header types
 .header {
     border-width: 0;
     background-color: $color-primary;
     color: $color-white;
+    position: fixed;
 
     @media #{$medium-up} {
         border-width: 1px;
@@ -32,7 +46,7 @@
         background: none;
 
         .nav-item--active {
-            color: $color-accent;
+            color: $color-tertiary;
         }
     }
 
@@ -57,11 +71,12 @@
         // Try to keep the logo's aspect ratio
         // logoWidth = logoHeight * $header-logo-aspect-ratio
         // logoHeight = logoWidth / $header-logo-aspect-ratio;
-        height: 35px;
-        width: (35px * $header-logo-aspect-ratio);
+        width: 125px;
+        height: (125px / $header-logo-aspect-ratio);
         background-repeat: no-repeat;
-        background-position: 0 3px;
+        background-position: 0 0;
         background-size: 100% 100%;
+        margin-top: -5px;
 
         @media #{$medium-up} {
             margin-left: 0;
@@ -85,15 +100,13 @@
             background-repeat: no-repeat;
             background-size: 100% 100%;
             height: 100px;
-            margin-top: 20px;
-            max-width: 540px;
             vertical-align: top;
             width: 70%;
 
             @media #{$medium-up} {
-                margin: 20px 0;
-                height: 133px;
-                width: 332px;
+                margin: 11px 0;
+                height: 158px;
+                width: 635px;
             }
         }
     }
@@ -113,7 +126,7 @@
 
             &:hover svg,
             &:hover svg path {
-                fill: $color-accent-2;
+                fill: $color-accent;
                 opacity: $hover-opacity;
                 transition: opacity 0.3s;
                 transition-timing-function: ease-in-out;
@@ -136,14 +149,14 @@
             padding: 0 6px;
             color: $color-white;
             letter-spacing: 0.4pt;
-            font: 12px $font-family-sans-serif-light;
+            font: 13px $font-family-sans-serif-light;
             text-transform: capitalize;
 
             &:active,
             &:focus,
             &:hover,
             &.nav-item--active {
-                color: $color-accent-2;
+                color: $color-accent;
             }
 
             @media #{$xlarge-up} {
@@ -162,7 +175,7 @@
         filter: blur(0);
         height: 35px;
         line-height: 2em;
-        margin-top: 12px;
+        margin-top: 14px;
         vertical-align: top;
         white-space: normal;
         width: 100%;
@@ -189,6 +202,8 @@
     }
 
     .header-banner {
+        background-color: $color-primary;
+
         @media #{$xlarge-up} {
             line-height: $header-banner-logo-height;
         }

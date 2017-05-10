@@ -1,15 +1,15 @@
 .off-canvas-content-wrapper svg {
-    fill: $color-accent;
+    fill: $color-tertiary;
 }
 
 .mobile-menu__nav {
 
     a:hover {
-        color: $color-accent-2;
+        color: $color-accent;
     }
 
     &::after {
-        border-top-color: $color-accent;
+        border-top-color: $color-tertiary;
     }
 
     .nav-item {
@@ -23,7 +23,7 @@
         }
 
         &--active {
-            color: $color-accent-2;
+            color: $color-accent;
         }
     }
 }
