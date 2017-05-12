@@ -3,7 +3,12 @@
     .feed-item {
 
         &__body-title {
+            text-transform: uppercase;
+            font-size: 12px;
+            line-height: 16px;
             letter-spacing: .03em;
+            margin-top: -3px;
+            margin-bottom: 9px;
         }
 
     }

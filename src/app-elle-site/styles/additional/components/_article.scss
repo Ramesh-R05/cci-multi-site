@@ -38,6 +38,21 @@
         }
     }
 
+    &-header-section {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 4px;
+
+        &__text {
+            @include type-teaser-tag();
+            visibility: visible;
+        }
+
+        @media #{$medium-up} {
+            display: none;
+        }
+    }
+
     .article-header-author {
         span:nth-child(2) {
             border-bottom: none;

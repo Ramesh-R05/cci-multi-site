@@ -8,7 +8,7 @@ Feature: Article
     Scenario Outline: Verify an article page which contains a hero image on mobile
         When I switch to "<device>" view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        * I can see the long title "Automation Test Article With Hero Image Test Title Long Title"
+        * I can see the long title "automation test article with hero image test title long title"
         * I can see the created date "FEB 12, 2016 4:00PM"
         * I can see the author "EMILY KERR"
         * I can see the hero image
@@ -21,7 +21,7 @@ Feature: Article
         * I can see the body image caption "PHOTOGRAPHY BY"
         * I can see the body gallery
         * I can see the body video
-        * I can see the body tips "BODY TIPS BODY TIPS EOM"
+        * I can see the body tips "body tips body tips eom"
         * I can see the body competition
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
         @high
@@ -36,7 +36,7 @@ Feature: Article
     Scenario: Verify an article page which contains a hero video on tablet portrait
         When I switch to "tablet portrait" view
         Given I am currently viewing "beauty/automation-test-article-with-hero-video-3664"
-        * I can see the long title "Automation Test Article With Hero Image Test Title Long Title"
+        * I can see the long title "automation test article with hero image test title long title"
         * I can see the created date "FEB 12, 2016 4:00PM"
         * I can see the author "EMILY KERR"
         * I can see the hero video instead of the main image
@@ -48,7 +48,7 @@ Feature: Article
         * I can see the body image caption "PHOTOGRAPHY BY"
         * I can see the body gallery
         * I can see the body video
-        * I can see the body tips "BODY TIPS BODY TIPS EOM"
+        * I can see the body tips "body tips body tips eom"
         * I can see the body competition
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
 

@@ -89,8 +89,8 @@ module.exports = function() {
     });
     this.Given(/^I can see the long title "([^"]*)"$/, function (articleTitle) {
         browser.waitForVisible(wn_article.longTitle, 2000);
-        var longTitle = browser.getText(wn_article.longTitle);
-           expect(longTitle).toContain(articleTitle);
+        var longTitle = browser.getText(wn_article.longTitle).toLowerCase();
+        expect(longTitle).toContain(articleTitle);
     });
     this.Given(/^I can see the created date "([^"]*)"$/, function (date) {
         var articleDate = browser.getText(wn_article.dateText);
@@ -176,7 +176,7 @@ module.exports = function() {
         expect(bodyVideo).toBe(true);
     });
     this.Given(/^I can see the body tips "([^"]*)"$/, function (articleBodyTips) {
-        var bodyTips = browser.getText(wn_article.bodyTips);
+        var bodyTips = browser.getText(wn_article.bodyTips).toLowerCase();
         expect(bodyTips).toContain(articleBodyTips);
     });
     this.Given(/^I can see the body competition$/, function () {

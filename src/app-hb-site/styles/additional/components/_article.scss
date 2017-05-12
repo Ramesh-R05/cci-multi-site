@@ -1,21 +1,61 @@
 .article {
     @include type-article-body();
+    margin: 15px 0 0 0;
 
-    &__title {
-        font-family: $font-family-serif-primary;
+    &__date-created,
+    &-header-author {
+        color: $color-tertiary;
+        font-size: 12px;
+        line-height: 20px;
 
-        @media #{$small-only} {
-            font-size: 22px;
-            line-height: 32px;
+        &__name {
+            color: $color-accent;
+        }
+    }
+
+    &-header-section {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 4px;
+
+        &__text {
+            @include type-teaser-tag();
+            visibility: visible;
         }
 
         @media #{$medium-up} {
-            line-height: 50px;
+            display: none;
+        }
+    }
+
+    &__hero {
+        &-container {
+            margin-top: 28px;
+         }
+    }
+
+
+    &__title {
+        font-family: $font-family-serif-primary;
+        text-transform: uppercase;
+
+        @media #{$small-only} {
+            margin-top: 0;
+            margin-bottom: 9px;
+            font-size: 22px;
+            line-height: 26px;
+        }
+
+        @media #{$medium-up} {
+            line-height: 42px;
+            margin-bottom: 8px;
+            font-size: 41px;
         }
     }
 
     &__summary {
-        font-family: $font-family-sans-serif-primary;
+        font-family: $article-body-font;
+        font-style: italic;
 
         @media #{$small-only} {
             font-size: 16px;
@@ -23,24 +63,26 @@
         }
 
         @media #{$medium-up} {
-            font-size: 16px;
-        }
-    }
-
-    &__date-created,
-    &-header-author {
-        color: $color-grey;
-        font-size: 12px;
-        line-height: 20px;
-
-        &__name {
-            color: $color-tertiary;
+            font-size: 17px;
         }
     }
 
     .article-header-author {
         span:nth-child(2) {
             border-bottom: none;
+        }
+    }
+
+    .content-body {
+        &__inline-image-caption {
+            color: $color-tertiary;
+            font-size: 12px;
+            line-height: 18px;
+
+            @media #{$small-only} {
+                padding: 10px 15px 6px 15px;
+            }
+
         }
     }
 
@@ -60,6 +102,7 @@
         letter-spacing: .03em;
 
         .related-tags li a {
+            color: $color-accent;
             text-decoration: none;
         }
     }
