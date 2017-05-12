@@ -1,10 +1,16 @@
 .header-wrapper {
     overflow: auto;
-    margin-bottom: 105px;
+    margin-bottom: 54px;
     padding-bottom: 1px;
 
     @media #{$medium-up} {
         margin-bottom: 95px;
+    }
+
+    .page--home & {
+        @media #{$small-only} {
+            margin-bottom: 105px;
+        }
     }
 
     &.header-wrapper--expanded {
@@ -26,9 +32,18 @@
     box-shadow: 3px 1px 8px 0 rgba(0, 0, 0, 0.07);
     border-bottom: 1px solid #e6e6e6;
 
+    @media #{$small-only} {
+        height: 54px;
+    }
 
     @media #{$medium-up} {
         border-width: 1px;
+    }
+
+    .page--home & {
+        @media #{$small-only} {
+            height: 105px;
+        }
     }
 
     .header__sections {
@@ -68,12 +83,19 @@
 
         i {
             color: #000;
-            font-size: 50px;
-            line-height: 105px;
+            font-size: 35px;
+            line-height: 54px;
 
             @media #{$medium-up} {
                 font-size: 35px;
                 line-height: 35px;
+            }
+
+            .page--home & {
+                @media #{$small-only} {
+                    font-size: 50px;
+                    line-height: 105px;
+                }
             }
         }
 
