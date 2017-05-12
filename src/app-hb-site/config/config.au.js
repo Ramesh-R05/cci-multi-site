@@ -71,9 +71,7 @@ export default {
             "Australian Women's Weekly": 'AWW'
         }
     },
-    features: {
-        outbrain: {
-            enabled: false
-        }
+    outbrain: {
+        templateId: 'Harper\'sBazaarAU'
     }
 };
