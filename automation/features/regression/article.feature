@@ -9,7 +9,7 @@ Feature: Article
         When I switch to "<device>" view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I can see the long title "automation test article with hero image test title long title"
-        * I can see the created date "FEB 12, 2016 4:00PM"
+        * I can see the created date "FEB 12, 2016"
         * I can see the author "EMILY KERR"
         * I can see the hero image
         * I should not see the hero image caption
@@ -37,7 +37,7 @@ Feature: Article
         When I switch to "tablet portrait" view
         Given I am currently viewing "beauty/automation-test-article-with-hero-video-3664"
         * I can see the long title "automation test article with hero image test title long title"
-        * I can see the created date "FEB 12, 2016 4:00PM"
+        * I can see the created date "FEB 12, 2016"
         * I can see the author "EMILY KERR"
         * I can see the hero video instead of the main image
         * I should not see the hero image caption

@@ -33,7 +33,7 @@ module.exports = function() {
 
     this.Given(/^I can see the created date on the gallery "([^"]*)"$/, function(date) {
         var galleryDate = browser.getText(gallery.galleryDate);
-        expect(galleryDate).toEqual(date);
+        expect(galleryDate).toContain(date);
     });
 
     this.Given(/^I can see the gallery title containing "([^"]*)"$/, function(longTitle) {
