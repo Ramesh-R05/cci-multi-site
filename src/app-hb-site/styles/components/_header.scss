@@ -1,10 +1,10 @@
 .header-wrapper {
     overflow: auto;
     margin-bottom: 54px;
-    padding-bottom: 1px;
 
     @media #{$medium-up} {
-        margin-bottom: 95px;
+        padding-bottom: 0;
+        margin-bottom: 72px;
     }
 
     &.header-wrapper--expanded {
@@ -61,7 +61,7 @@
         transition: width $header-transition-duration;
 
         @media #{$medium-up} {
-            width: 125px;
+            width: 140px;
             margin-left: -20px;
         }
     }
@@ -106,7 +106,7 @@
             @media #{$medium-up} {
                 margin: 11px 0;
                 height: 158px;
-                width: 635px;
+                width: (158px * $header-logo-aspect-ratio);
             }
         }
     }
@@ -120,7 +120,8 @@
                 padding: 0 $column-gutter 0 38px;
             }
 
-            svg, svg path {
+            svg,
+            svg path {
                 fill: $color-white;
             }
 

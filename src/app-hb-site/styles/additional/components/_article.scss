@@ -54,7 +54,7 @@
     }
 
     &__summary {
-        font-family: $article-body-font;
+        font-family: $font-family-serif-secondary;
         font-style: italic;
 
         @media #{$small-only} {

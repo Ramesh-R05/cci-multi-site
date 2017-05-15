@@ -20,10 +20,10 @@
 }
 
 $font-family-serif-primary: 'Questa-grande-light', serif;
+$font-family-serif-secondary: 'Times New Roman', 'Georgia', serif;
 $font-family-sans-serif-primary: 'Montserrat-Regular', sans-serif;
 $small-text-font: $font-family-sans-serif-primary;
-$article-body-font: 'times-new-roman', serif;
-$font-family-sans-serif-light: 'Montserrat-Light', serif;
+$font-family-sans-serif-light: 'Montserrat-Light', sans-serif;
 
 // ---------------------------------------------------- base elements
 
@@ -222,7 +222,7 @@ a {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     color: $color-grey;
-    font: 400 18px / 27px $article-body-font;
+    font: 400 18px / 27px $font-family-serif-secondary;
     letter-spacing: .01em;
 
     @media #{$medium-up} {

@@ -1,5 +1,4 @@
-.ad--section-top-leaderboard {
-    @media #{$small-only} {
-        margin-top: -1px;
-    }
+.gallery__mobile-ad {
+    margin-top: 0;
+    padding: 0 0 15px;
 }
