@@ -37,18 +37,18 @@ export default {
 
     error: {
         404: {
-            title: 'Oops, we don\'t have the page you\'re looking for.',
+            title: 'Whoops! Looks like we don\'t have the page you’re looking for.',
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.jpg',
-            returnHomeText: 'Try refreshing this page or <span class="error-page__text-hyperlink"> join us</span> back on the homepage'
+            returnHomeText: 'Try refreshing this page or join us back on the <span class="error-page__text-hyperlink">homepage</span>.'
         },
         503: {
-            title: 'Oops, we don\'t have the page you\'re looking for',
+            title: 'Whoops! Looks like we don\'t have the page you\'re looking for.',
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.jpg',
-            returnHomeText: 'Try refreshing this page or <span class="error-page__text-hyperlink"> join us</span> back on the homepage'
+            returnHomeText: 'Try refreshing this page or join us back on the <span class="error-page__text-hyperlink">homepage</span>.'
         }
     },
 
