@@ -105,6 +105,8 @@
     &__icon svg {
         height: 35px;
         width: 35px;
+        border: 1px solid $line-color;
+        border-radius: 16px;
     }
 }
 

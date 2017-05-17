@@ -11,7 +11,7 @@ export default function errorMiddleware(err, req, res, next) {
     const errorResponse = {
         error: err,
         footer: parseModule(get(req, 'data.footer', {})),
-        magcover: parseModule(get(req, 'data.magcover', {}))
+        magCover: parseModule(get(req, 'data.magcover', {}))
     };
 
     res.status(status).json(errorResponse);

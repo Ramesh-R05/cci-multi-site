@@ -20,7 +20,10 @@ describe(`Subscribe`, () => {
         subscribeCoverAltText: 'Women\'s Weekly Cookbooks',
         subscribeHeading: 'More ways to read',
         subscribeText: 'Subscribe to our homes mags to gain access to more inspiring homes and gardens, plus renovating, decorating, food and travel stories.',
-        magCover: {moduleImageUrl: '/mag/cover/path.jpg'}
+        magCover: {
+            moduleImageUrl: '/mag/cover/path.jpg',
+            moduleTitle: 'Subscribe Now'
+        }
     };
     let reactModule;
     let domElement;

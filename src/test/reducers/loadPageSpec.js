@@ -1,8 +1,15 @@
 import {initialState, reducer} from '../../app/reducers/loadPage';
 
+
 describe(`loadPage Reducer`, () => {
+
+    const DEFAULT_MAGCOVER = {
+        moduleImageUrl: '/path/to/magCover.jpg',
+        moduleTitle: 'Subscribe Now'
+    };
     let body;
     let payload;
+
     describe(`on LOAD_CONTENT`, () => {
         beforeEach(() => {
             body = {
@@ -16,9 +23,7 @@ describe(`loadPage Reducer`, () => {
                 footer: {},
                 trendingItems: [],
                 mustRead: [],
-                magCover: {
-                    magCoverImageUrl: '/path/to/magcover.jpg'
-                }
+                magCover: DEFAULT_MAGCOVER
             };
             payload = {
                 type: 'LOAD_CONTENT',
@@ -78,9 +83,7 @@ describe(`loadPage Reducer`, () => {
                 msg: 'Error Message',
                 status: 404,
                 body: {
-                    magCover: {
-                        moduleImageUrl: '/path/to/magcover.jpg'
-                    }
+                    magCover: DEFAULT_MAGCOVER
                 }
             };
             payload = {
@@ -98,7 +101,7 @@ describe(`loadPage Reducer`, () => {
                 trendingItems: [],
                 magazineImageUrl: '',
                 theme: '',
-                magCover: {}
+                magCover: DEFAULT_MAGCOVER
             });
         });
 
@@ -115,14 +118,19 @@ describe(`loadPage Reducer`, () => {
                 trendingItems: [],
                 magazineImageUrl: '',
                 theme: '',
-                magCover: {}
+                magCover: DEFAULT_MAGCOVER
             });
         });
     });
 
     describe(`on RANDOM_ACTION`, () => {
         beforeEach(() => {
-            body = {entity: { nodeType: 'Article', title: 'Title' }};
+            body = {
+                entity: {
+                    nodeType: 'Article',
+                    title: 'Title'
+                }
+            };
             payload = {
                 type: 'RANDOM_ACTION',
                 body

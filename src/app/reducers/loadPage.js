@@ -4,7 +4,8 @@ export const initialState = {
     nodeType: '',
     title: '',
     magazineImageUrl: '',
-    trendingItems: []
+    trendingItems: [],
+    magCover: {}
 };
 
 export function reducer(state = initialState, payload = {}, eventName = '') {
@@ -37,7 +38,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
         const { response = {} } = payload;
         const { body = {} } = response;
         const footer = body.footer || {};
-        const magcover = body.magcover || {};
+        const magCover = body.magCover || {};
 
         response.status = response.status || 400;
 
@@ -49,7 +50,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             footer,
             magazineImageUrl: '',
             theme: '',
-            magCover: magcover
+            magCover: magCover
         };
     }
 

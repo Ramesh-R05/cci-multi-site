@@ -77,7 +77,8 @@ const ads = { data: {}, id: 1, rendered: false, viewed: false, failed: false };
 const isAdSlideItem = false;
 const isAdViewed = false;
 const magCover = {
-    moduleImageUrl: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/27/6096/0018975_elle-australia-magazine-subscription.png"
+    moduleImageUrl: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/27/6096/0018975_elle-australia-magazine-subscription.png",
+    moduleTitle: 'Subscribe Now'
 };
 function addStores() {
     Context.addStore('GalleryPageStore', {

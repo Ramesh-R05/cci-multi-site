@@ -17,8 +17,7 @@ export default {
     gigya: { apiKey: '' },
 
     subscribe: {
-        subscribeHeading: 'GET THE MAGAZINE',
-        subscribeText: "Subscribe to Harper's Bazaar magazine now"
+        subscribeHeading: 'GET THE MAGAZINE'
     },
 
     features,

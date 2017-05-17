@@ -1,7 +1,8 @@
 const modulePropertyMap = {
     id: 'id',
     moduleName: 'moduleName',
-    moduleImageUrl: 'moduleImageUrl'
+    moduleImageUrl: 'moduleImageUrl',
+    moduleTitle: 'moduleTitle'
 };
 
 export default function parseModule(data, propertyMapOverride = {}) {

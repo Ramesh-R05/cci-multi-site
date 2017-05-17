@@ -7,7 +7,14 @@ export default async function pageModules(req, res, next) {
         req.data = {};
         const section = (req.query && req.query.section) || 'home';
         req.data = await getModules(
-            'headernavigation', 'hamburgernavigation', 'footer', 'mustread', 'promoted', 'hero', `${section}theme`, 'magcover'
+            'headernavigation',
+            'hamburgernavigation',
+            'footer',
+            'mustread',
+            'promoted',
+            'hero',
+            `${section}theme`,
+            'magcover'
         );
     } catch (error) {
         logger.log('error', error);

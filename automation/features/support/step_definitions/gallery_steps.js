@@ -38,7 +38,7 @@ module.exports = function() {
 
     this.Given(/^I can see the gallery title containing "([^"]*)"$/, function(longTitle) {
         var galleryTitle = browser.getText(gallery.galleryLongTitle);
-        expect(galleryTitle).toContain(longTitle);
+        expect(galleryTitle.toLowerCase()).toContain(longTitle.toLowerCase());
     });
 
     this.Given(/^I can not see the gallery title$/, function() {
