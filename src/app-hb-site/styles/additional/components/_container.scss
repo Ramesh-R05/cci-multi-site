@@ -1,6 +1,10 @@
 .page {
     &__get-social-container {
-        display: none;
+        margin-top: 0;
+
+        @media #{$medium-only} {
+            width: 50%;
+        }
     }
 
     .home-page {

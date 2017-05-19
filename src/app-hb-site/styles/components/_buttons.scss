@@ -9,13 +9,8 @@
     font: 600 12px $font-family-sans-serif-light;
     letter-spacing: 0.07em;
     min-height: 52px;
-    padding: 0 15px;
+    padding: 0 33px;
     text-transform: uppercase;
-
-    @media #{$large-up} {
-        padding-left: 33px;
-        padding-right: 33px;
-    }
 
     &:not(:disabled):not(.disabled) {
         &:hover,
@@ -101,7 +96,7 @@
     }
 
     &--link {
-        padding-top: 14px;
+        padding-top: 17px;
     }
 
     &--subscribe {

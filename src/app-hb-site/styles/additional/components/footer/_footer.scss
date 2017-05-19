@@ -139,6 +139,10 @@
 
     &__content {
         color: $color-grey;
+        font: 16px $font-family-serif-secondary;
+        @media #{$medium-up} {
+            font-size: 15px;
+        }
     }
 
     &__action {

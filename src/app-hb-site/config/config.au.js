@@ -1,3 +1,12 @@
+const socialUrls = {
+    facebook: 'https://www.facebook.com/HarpersBAZAARAustralia',
+    twitter: 'https://twitter.com/BAZAARAustralia',
+    instagram: 'http://instagram.com/bazaaraustralia',
+    pinterest: 'http://www.pinterest.com/bazaaraustralia/',
+    youtube: 'https://www.youtube.com/user/BAZAARaustralia'
+};
+const imageSize = { w: 275 };
+
 export default {
     urls: {
         footerUrls: {
@@ -6,12 +15,22 @@ export default {
             terms: 'http://www.bauer-media.com.au/terms/website-terms'
         },
 
-        socialUrls: {
-            facebook: 'https://www.facebook.com/HarpersBAZAARAustralia',
-            twitter: 'https://twitter.com/BAZAARAustralia',
-            pinterest: 'http://www.pinterest.com/bazaaraustralia/',
-            instagram: 'http://instagram.com/bazaaraustralia',
-            youtube: 'https://www.youtube.com/user/BAZAARaustralia'
+        socialUrls: socialUrls
+    },
+
+    // Used for the magazine image (not the one in the footer)
+    product: {
+        id: 'hb',
+        title: '',
+        magazineTitle: '',
+        socialLinks: socialUrls,
+        subscribeButtonText: 'Subscribe',
+        subscribeButtonUrl: 'subscribe-magazine',
+        imageSizes: {
+            s: imageSize,
+            m: imageSize,
+            l: imageSize,
+            xl: imageSize
         }
     },
 
