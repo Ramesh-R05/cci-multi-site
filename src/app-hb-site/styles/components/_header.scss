@@ -1,10 +1,17 @@
 .header-wrapper {
     overflow: auto;
     margin-bottom: 54px;
+    padding-bottom: 1px;
 
     @media #{$medium-up} {
         padding-bottom: 0;
         margin-bottom: 72px;
+    }
+
+    .page--home & {
+        @media #{$small-only} {
+            margin-bottom: 105px;
+        }
     }
 
     &.header-wrapper--expanded {
@@ -38,8 +45,18 @@
     color: $color-white;
     position: fixed;
 
+    @media #{$small-only} {
+        height: 54px;
+    }
+
     @media #{$medium-up} {
         border-width: 1px;
+    }
+
+    .page--home & {
+        @media #{$small-only} {
+            height: 105px;
+        }
     }
 
     .header__sections {
@@ -67,19 +84,25 @@
     }
 
     .header-logo__link-image {
-
-        // Try to keep the logo's aspect ratio
-        // logoWidth = logoHeight * $header-logo-aspect-ratio
-        // logoHeight = logoWidth / $header-logo-aspect-ratio;
-        width: 125px;
-        height: (125px / $header-logo-aspect-ratio);
-        background-repeat: no-repeat;
-        background-position: 0 0;
-        background-size: 100% 100%;
-        margin-top: -5px;
+        width: auto;
+        height: auto;
+        background-image: none;
 
         @media #{$medium-up} {
+            height: 31px;
+            width: (31px * $header-logo-aspect-ratio);
             margin-left: 0;
+        }
+
+        i {
+            color: #fff;
+            font-size: 31px;
+            line-height: 105px;
+
+            @media #{$medium-up} {
+                font-size: 31px;
+                line-height: 31px;
+            }
         }
 
         &:hover {
@@ -96,17 +119,20 @@
         }
 
         a {
-            background-position: 50%;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
+            background-image: none;
             height: 100px;
             vertical-align: top;
             width: 70%;
 
             @media #{$medium-up} {
-                margin: 11px 0;
+                margin: 8px 0;
                 height: 158px;
                 width: (158px * $header-logo-aspect-ratio);
+            }
+
+            i {
+                color: #fff;
+                font-size: 158px;
             }
         }
     }

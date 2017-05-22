@@ -53,3 +53,4 @@ app.plug(servicePlugin);
 app.plug(configsPlugin);
 
 export default app;
+

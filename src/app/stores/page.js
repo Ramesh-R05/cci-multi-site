@@ -27,6 +27,7 @@ export default createReducerStore({
         },
 
         getMagazineImageUrl(state) {
+            if (!state.magCover) return '';
             return state.magCover.moduleImageUrl;
         },
 

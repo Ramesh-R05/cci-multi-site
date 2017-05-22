@@ -50,7 +50,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             footer,
             magazineImageUrl: '',
             theme: '',
-            magCover: magCover
+            magCover
         };
     }
 
