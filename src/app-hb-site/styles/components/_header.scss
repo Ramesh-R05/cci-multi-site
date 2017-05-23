@@ -105,11 +105,16 @@
         i {
             color: #fff;
             font-size: 31px;
-            line-height: 105px;
+            line-height: 54px;
 
             @media #{$medium-up} {
-                font-size: 31px;
                 line-height: 31px;
+            }
+
+            .page--home & {
+                @media #{$small-only} {
+                    line-height: 105px;
+                }
             }
         }
 
