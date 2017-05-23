@@ -24,6 +24,19 @@
     }
 }
 
+.page--home .header {
+    position: absolute;
+    &--pinned {
+        position: fixed;
+    }
+}
+
+.error-page .header {
+    @media #{$medium-up} {
+        position: absolute;
+    }
+}
+
 // Header styles for all header types
 .header {
     border-width: 0;
@@ -31,6 +44,15 @@
     color: $color-black;
     box-shadow: 3px 1px 8px 0 rgba(0, 0, 0, 0.07);
     border-bottom: 1px solid #e6e6e6;
+    position: fixed;
+
+    &.header--hide {
+        @media #{$small-only} {
+            transition: all 1500ms ease;
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
 
     @media #{$small-only} {
         height: 54px;

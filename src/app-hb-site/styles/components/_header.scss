@@ -45,6 +45,14 @@
     color: $color-white;
     position: fixed;
 
+    &.header--hide {
+        @media #{$small-only} {
+            transition: all 1500ms ease;
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+  
     @media #{$small-only} {
         height: 54px;
     }

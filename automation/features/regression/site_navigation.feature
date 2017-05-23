@@ -77,4 +77,8 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         Then I should not see the site navigation links
         And I should see the hamburger menu
 
-
+    @BXMA-412 @med
+    Scenario: Mobile users menu will fade out as they scroll down the page
+        Given I switch to "mobile portrait" view
+        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
+        Then the menu fades out as I scroll down the page
