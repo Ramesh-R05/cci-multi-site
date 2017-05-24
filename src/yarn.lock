@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@bxm/ad@^10.6.1":
-  version "10.9.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fad/-/ad-10.9.0.tgz#492afd8282de663790a6278e059387d62334a313"
+"@bxm/ad@^10.9.1":
+  version "10.9.1"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fad/-/ad-10.9.1.tgz#d395a0fb5e5cb94e3dbfb0f2b42148c8b06cd5ef"
   dependencies:
     "@bxm/react-script-loader" "^2.0.0"
     classnames "^2.2.1"
@@ -14,8 +14,8 @@
     react-script-loader "0.0.1"
 
 "@bxm/article@^23.11.1":
-  version "23.11.1"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-23.11.1.tgz#2a2a92a93ff904cacf6d3d8bb25c9664557411f3"
+  version "23.12.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-23.12.0.tgz#14e2812d2384ef15269c52b228b07e98a9105ec5"
   dependencies:
     "@bxm/behaviour" "^1.1.0"
     "@bxm/image" "^2.0.0"
@@ -2409,8 +2409,8 @@ es-to-primitive@^1.1.1:
     is-symbol "^1.0.1"
 
 es5-ext@^0.10.14, es5-ext@^0.10.9, es5-ext@~0.10.14:
-  version "0.10.20"
-  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.20.tgz#72a9b4fd5832797ba1bb65dceb2e25c04241c492"
+  version "0.10.21"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.21.tgz#19a725f9e51d0300bbc1e8e821109fd9daf55925"
   dependencies:
     es6-iterator "2"
     es6-symbol "~3.1"
@@ -4553,8 +4553,8 @@ newrelic@^1.25.5:
     semver "^5.3.0"
 
 node-fetch@^1.0.1:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.0.tgz#3ff6c56544f9b7fb00682338bb55ee6f54a8a0ef"
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
