@@ -23,7 +23,11 @@ export default async function pageMiddleware(req, res, next) {
 
         req.data = req.data || {};
         req.data.entity = { ...pageData };
-        req.data.section = { id: pageData.sectionId, name: section }; // Initially used to set the ad slot within @bxm/ads + gtm in @bxm/server
+        req.data.section = {
+            id: pageData.sectionId,
+            name: section,
+            urlName: section
+        }; // Initially used to set the ad slot within @bxm/ads + gtm in @bxm/server
         next();
     } catch (error) {
         next(error);
