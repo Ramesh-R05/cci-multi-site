@@ -41,7 +41,8 @@ export default {
     },
     section: {
         id: "NOW-1206",
-        name: "Fashion"
+        name: "Fashion",
+        urlName: "fashion"
     },
     headerNavigation: navigation.getData(),
     magCover: {

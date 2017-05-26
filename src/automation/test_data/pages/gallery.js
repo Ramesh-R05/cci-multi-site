@@ -723,10 +723,12 @@ export default{
     ],
     section: {
         id: "NOW-1206",
-        name: "fashion"
+        name: "fashion",
+        urlName: "fashion"
     },
     subsection: {
-        name: "red-carpet"
+        name: "red-carpet",
+        urlName: "red-carpet"
     },
     magCover: {
         moduleImageUrl: 'http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/17/16588/0018975_elle-australia-magazine-subscription.png',

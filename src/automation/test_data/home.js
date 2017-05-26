@@ -460,6 +460,7 @@ export default {
     },
     "section": {
         "id": "NOW-1159",
-        "name": "Home"
+        "name": "Home",
+        "urlName": "home"
     }
 }
