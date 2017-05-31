@@ -157,10 +157,52 @@ jobs:
        - script: npm set registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=elle-site
-       - script: export URL=http://elle.test.bxm.net.au/
+       - script: export URL=http://multi-site.test.bxm.net.au/
        - script: npm run test:high || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+
+  # 4bELLE. Run smoke test on TEST environment ELLE
+  - name: elle-site-smoke-test
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    steps:
+    - IN: elle-site-sit-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "6.1.0"
+       - script: nvm use "6.1.0"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=elle-site
+       - script: export URL=http://elle-site-au.sit.bxm.net.au/
+       - script: npm run smoketest:elle
+
+  # 4bHB. Run smoke test on TEST environment HB
+  - name: hb-site-smoke-test
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    steps:
+    - IN: hb-site-sit-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "6.1.0"
+       - script: nvm use "6.1.0"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=hb-site
+       - script: export URL=http://hb-site-au.sit.bxm.net.au/
+       - script: npm run smoketest:hb
 
   # 5ELLE. Package release for production release
   - name: elle-release-master
