@@ -1,9 +1,17 @@
+# This resources are only used for MULTISITE
+
+####################################################################
+# Refer to http://docs.shippable.com/reference/resources-overview/ #
+####################################################################
+
+
 resources:
 
-#
-# Common setup for all sits sitting in the multi-site repo
-#
+###############
+# Common setup
+###############
 
+  # AWS Non Prod Cluster
   - name: multi-env-sit-ecs
     type: cluster
     integration: AWS-digital-nonprod
@@ -11,6 +19,7 @@ resources:
       sourceName : "app_ecs"
       region: "ap-southeast-2"
 
+  # Slack connection
   - name: multi-slack-notifications
     type: notification                          #required
     integration: slack-bauerxcelmedia
@@ -18,7 +27,7 @@ resources:
       recipients:
         - "#au-shippable"
 
-  # Github repo
+  # Multi Github repo
   - name: multi-site-repo
     type: gitRepo
     integration: production-github
@@ -26,81 +35,45 @@ resources:
       sourceName: bauerxcelmedia/multi-site
       branch: master
 
-
-    # TO BE UPDATED
+  # SIT Parameter
   - name: multi-site-params-sit
     type: params
     version:
       params:
-        NODE_ENV: "dev"  #change this to dev when we are ready
+        NODE_ENV: "production"
+        APP_ENV: "sit"
+        APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
 
+  # TEST Parameter
   - name: multi-site-params-test
     type: params
     version:
       params:
-        NODE_ENV: "automation"
+        NODE_ENV: "production"
+        APP_ENV: "automation"
+        APP_STUBBED: true
 
-  - name: multi-site-replicas-non-prod
-    type: replicas
-    version:
-      count: 2
+  # AWS TEST load Balancer - MULTI STUBBED - MASTER branch
+  - name: multi-site-alb-test
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/multi-site-test/14d814a6dae061c5"
+      method: application
 
+  # PROD parameters
   - name: multi-site-params-prod
     type: params
     version:
       params:
         NODE_ENV: "production"
+        APP_ENV: "production"
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
 
-    # Release version
-  - name: multi-site-version
-    type: version
-    seed:
-      versionName: "1.0.0"
+##############
+# ELLE
+##############
 
-###########################
-# This section is for ELLE
-###########################
-# Docker Image for the elle-site
-  - name: elle-site-img-master
-    type: image
-    integration: AWS-digital-services-ECR
-    pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/elle-site"
-    seed:
-      versionName: latest
-
-# Docker Image for the elle-site
-  - name: elle-site-img-branch
-    type: image
-    integration: AWS-digital-services-ECR
-    pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/elle-site"
-    seed:
-      versionName: latest
-
-#
-# SIT environment configuration
-#
-  - name: elle-site-alb-sit
-    type: loadBalancer
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/elle-site-sit-elle-au/4d1eb96993978e0f"
-      method: application
-
-  - name: elle-site-alb-sit-branch
-    type: loadBalancer
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-elle-site-sit-au/6b08a2d46009bd16"
-      method: application
-
-  - name: elle-site-alb-test
-    type: loadBalancer
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/elle-site-test/d582948cc527070d"
-      method: application
-
-# Docker Image Options
+  # Docker Image Options
   - name: elle-site-opts-sit
     type: dockerOptions
     version:
@@ -117,62 +90,44 @@ resources:
           awslogs-region: "ap-southeast-2"
           awslogs-stream-prefix: "app-elle-site"
 
-# PROD environment configuration
-  - name: elle-site-alb-prod
+  # ELLE Seed image version MASTER Docker Image
+  - name: elle-site-img-master
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/elle-site"
+    seed:
+      versionName: latest
+
+  # ELLE Seed image version Feature BRANCH Docker Image
+  - name: elle-site-img-branch
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/elle-site"
+    seed:
+      versionName: latest
+
+  # AWS SIT load Balancer - ELLE - MASTER branch
+  - name: elle-site-alb-sit
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/elle-site-prod-elle-au/b51274db4bd99d59"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/elle-site-au-sit/fba0016118605934"
       method: application
 
-  - name: elle-site-replicas-production
-    type: replicas
-    version:
-      count: 3
+  # AWS SIT:8080 load Balancer - ELLE - feature BRANCH
+  - name: elle-site-alb-sit-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/elle-site-au-branch-sit/2e01f4cab451a304"
+      method: application
+
 
 ###########################
 # This section is for HB
 ###########################
 
-# Docker Image for the hb-site
-  - name: hb-site-img-master
-    type: image
-    integration: AWS-digital-services-ECR
-    pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/hb-site"
-    seed:
-      versionName: latest
-
-# Docker Image for the hb-site
-  - name: hb-site-img-branch
-    type: image
-    integration: AWS-digital-services-ECR
-    pointer:
-      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/hb-site"
-    seed:
-      versionName: latest
-
-# Release version
-  - name: hb-site-version
-    type: version
-    seed:
-      versionName: "1.0.0"
-
-#
-# SIT environment configuration
-#
-  - name: hb-site-alb-sit
-    type: loadBalancer
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/hb-site-sit-hb-au/c7523340b0c28366"
-      method: application
-
-  - name: hb-site-alb-sit-branch
-    type: loadBalancer
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/branch-hb-site-sit-au/2a08525ca7743230"
-      method: application
-
-# Docker Image Options
+  # HB Docker Image Options
   - name: hb-site-opts-sit
     type: dockerOptions
     version:
@@ -189,19 +144,88 @@ resources:
           awslogs-region: "ap-southeast-2"
           awslogs-stream-prefix: "app-hb-site"
 
+  # HB Seed image version MASTER Docker Image
+  - name: hb-site-img-master
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/hb-site"
+    seed:
+      versionName: latest
+
+  # HB Seed image version feature BRANCH Docker Image
+  - name: hb-site-img-branch
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/hb-site"
+    seed:
+      versionName: latest
+
+  # AWS SIT load Balancer - HB - MASTER branch
+  - name: hb-site-alb-sit
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/hb-site-au-sit/1d5b3bbe8a3bdace"
+      method: application
+
+  # AWS SIT load Balancer - HB - feature BRANCH
+  - name: hb-site-alb-sit-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/hb-site-au-branch-sit/be93fcd0f1d50af7"
+      method: application
+
+####################################
 # PROD environment configuration
+# DO NOT DELETE
+# DO NOT DELETE
+# DO NOT DELETE
+####################################
+
+  # AWS Prod Cluster
+  - name: multi-env-prod-ecs
+    type: cluster
+    integration: AWS-digital-prod
+    pointer:
+      sourceName : "app_ecs"
+      region: "ap-southeast-2"
+
+#############
+# ELLE
+##############
+
+  # Seed Release version
+  # for Rollback refer to below URL
+  # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
+  - name: elle-site-version
+    type: version
+    seed:
+      versionName: "1.0.0" # This can be changed for Roll back
+
+  # AWS PROD load Balancer - ELLE PROD - MASTER branch
+  - name: elle-site-alb-prod
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/elle-site-au-prod/df1b52b88b813af7"
+      method: application
+
+
+#############
+# HB
+##############
+
+  # Seed Release version
+  # for Rollback refer to below URL
+  # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
+  - name: hb-site-version
+    type: version
+    seed:
+      versionName: "1.0.0"  # This can be changed for Roll back
+
+  # AWS PROD load Balancer - HB PROD - MASTER branch
   - name: hb-site-alb-prod
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/hb-site-prod-hb-au/5754953aba52d2bb"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/hb-site-au-prod/cda8065088748b29"
       method: application
-
-  - name: hb-site-replicas-production
-    type: replicas
-    version:
-      count: 3
-
-
-###########################
-# This section is for Cosmo
-###########################
