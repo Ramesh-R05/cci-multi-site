@@ -26,7 +26,7 @@ describe('Page middleware', () => {
     describe('when the path does not contain an ID number in the slug', () => {
         before(() => {
             req = {
-                app: { config },
+                app: { locals: { config } },
                 query: { section: validSection, page: validPage }
             };
             next = sinon.spy();
@@ -49,7 +49,7 @@ describe('Page middleware', () => {
     describe(`when the req already contains 'data.entity'`, () => {
         before(() => {
             req = {
-                app: { config },
+                app: { locals: { config } },
                 data: { entity: {} },
                 query: { section: validSection, page: validPage }
             };
@@ -73,7 +73,7 @@ describe('Page middleware', () => {
 
         before(() => {
             req = {
-                app: { config },
+                app: { locals: { config } },
                 query: { section: validSection, page : validPage }
             };
             rejectedResponse = {
@@ -97,7 +97,7 @@ describe('Page middleware', () => {
     describe(`when the req is a preview page`, () => {
         before(() => {
             req = {
-                app: { config },
+                app: { locals: { config } },
                 query: { section: validSection, page: validPage, preview: 'preview' }
             };
             next = sinon.spy();
@@ -119,7 +119,7 @@ describe('Page middleware', () => {
 
             beforeEach(() => {
                 req = {
-                    app: { config },
+                    app: { locals: { config } },
                     query: { section: validSection, page: validPage }
                 };
                 next = sinon.spy();
@@ -160,7 +160,7 @@ describe('Page middleware', () => {
 
             beforeEach(() => {
                 req = {
-                    app: { config },
+                    app: { locals: { config } },
                     query: {
                         section: validSection,
                         page: validPage
@@ -191,7 +191,7 @@ describe('Page middleware', () => {
         before(() => {
             req = {
                 data: { header: 'Test' },
-                app: { config },
+                app: { locals: { config } },
                 query: { section: validSection, page: validPage }
             };
             next = sinon.spy();

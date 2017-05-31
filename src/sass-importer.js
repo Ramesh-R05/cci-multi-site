@@ -1,6 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 
+if (!process.env.APP_KEY) throw new Error('APP_KEY environment variable not set');
+
 function fileExists(filePath) {
     try  {
         return fs.statSync(filePath).isFile();

@@ -11,7 +11,7 @@ export default async function gallery(req, res, next) {
         }
 
         const source = get(req, 'data.entity.source', '');
-        const adBrand = find(req.app.config.brands.uniheader, b => b.title === source);
+        const adBrand = find(req.app.locals.config.brands.uniheader, b => b.title === source);
         req.data.entity.adBrand = get(adBrand, 'id', 'ntl');
 
         req.data.moreGalleries = await getMoreGalleries();

@@ -8,7 +8,7 @@ describe('Error middleware', () => {
     });
 
     describe('when an unhandled exception occurs', () => {
-        const reqDataStub = { footer: { id: '1234' }, magCover: {} };
+        const reqDataStub = { footer: { id: '1234' } };
         let err = {};
         let res = {};
         let req = { data: reqDataStub };
@@ -28,12 +28,12 @@ describe('Error middleware', () => {
             });
         });
 
-        it('should set response status to `503`', () => {
+        it('should set response status to 500', () => {
             errorMiddleware(err, req, res, next);
-            expect(statusStub).to.be.calledWith(503);
+            expect(statusStub).to.be.calledWith(500);
         });
 
-        it('should set response status to `404`', () => {
+        it('should set response status to 404', () => {
             const err404 = {...err};
             err404.status = 404;
 

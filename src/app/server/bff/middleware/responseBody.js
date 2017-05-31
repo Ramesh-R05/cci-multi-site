@@ -39,7 +39,7 @@ export default function responseBody(req, res, next) {
         if (get(req, 'data.leftHandSide')) {
             const lhsData = req.data.leftHandSide.data.map((lhsTeaser) => {
                 const withDefaultImg = { ...lhsTeaser };
-                withDefaultImg.contentImageUrl = withDefaultImg.contentImageUrl || req.app.config.defaultImageUrl;
+                withDefaultImg.contentImageUrl = withDefaultImg.contentImageUrl || req.app.locals.config.defaultImageUrl;
                 return withDefaultImg;
             });
             res.body.leftHandSide = { items: parseEntities(lhsData) };

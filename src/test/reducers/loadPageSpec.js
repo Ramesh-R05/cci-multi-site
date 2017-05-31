@@ -21,7 +21,6 @@ describe(`loadPage Reducer`, () => {
                     summary: 'Summary'
                 },
                 footer: {},
-                trendingItems: [],
                 mustRead: [],
                 magCover: DEFAULT_MAGCOVER
             };

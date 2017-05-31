@@ -79,7 +79,7 @@ describe('Gallery middleware', () => {
         describe('when articleSource is Good Health', () => {
             before(() => {
                 reqBase = {
-                    app: { config },
+                    app: { locals: { config } },
                     query: {
                         section: validSection,
                         subsection: validSubsection,
@@ -110,7 +110,7 @@ describe('Gallery middleware', () => {
         describe('when articleSource is undefined', () => {
             before(() => {
                 reqBase = {
-                    app: { config },
+                    app: { locals: { config } },
                     query: {
                         section: validSection,
                         subsection: validSubsection,
@@ -142,7 +142,7 @@ describe('Gallery middleware', () => {
 
             before(() => {
                 reqBase = {
-                    app: { config },
+                    app: { locals: { config } },
                     query: {
                         section: validSection,
                         subsection: validSubsection,

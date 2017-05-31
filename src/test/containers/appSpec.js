@@ -4,21 +4,17 @@ const {React, ReactDOM, TestUtils} = Context;
 import proxyquire, {noCallThru} from 'proxyquire';
 noCallThru();
 const ErrorStub = Context.createStubComponent();
-const platformStub = {
-    set() {}
-};
+
 const App = proxyquire('../../app/containers/app', {
     'fluxible-router': { handleHistory: Component => Component },
     '@bxm/flux': { provideContext: Component => Component, connectToStores },
-    '../components/page/error': ErrorStub,
-    '@bxm/ui/lib/common/platform': platformStub
+    '../components/page/error': ErrorStub
 }).default;
 
 const Handler = Context.createStubComponent();
 
 describe('App Component', () => {
     const title = 'Title';
-    const siteName = 'Dolly';
     const nodeType = 'NodeType';
     const themeMock = {
         id: 'NOW-32655',
@@ -65,14 +61,9 @@ describe('App Component', () => {
 
     describe(`when error is not defined`, () => {
         beforeEach(() => {
-            platformStub.set = sinon.stub();
             reactModule = Context.mountComponent(App, {currentRoute});
             HandlerComponent = TestUtils.findRenderedComponentWithType(reactModule, Handler);
             ErrorComponent = TestUtils.scryRenderedComponentsWithType(reactModule, ErrorStub)
-        });
-
-        it(`should have called platform.set()`, () => {
-            platformStub.set.should.have.been.called;
         });
 
         it(`should pass appropriate props to the Handler Component`, () => {
