@@ -148,7 +148,9 @@ export default {
         }
     },
     outbrain: {
-        templateId: 'Harper\'sBazaarAU'
+        templateId: 'Harper\'sBazaarAU',
+        widgetId: 'AR_1',
+        scriptUrl: 'http://widgets.outbrain.com/outbrain.js'
     }
 
 };

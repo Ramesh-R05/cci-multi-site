@@ -145,7 +145,9 @@ export default {
         }
     },
     outbrain: {
-        templateId: 'Elle_1'
+        templateId: 'Elle_1',
+        widgetId: 'AR_1',
+        scriptUrl: 'http://widgets.outbrain.com/outbrain.js'
     }
 };
 
