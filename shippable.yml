@@ -12,6 +12,8 @@ env:
       APP_KEY=elle-site
     - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/hb-site
       APP_KEY=hb-site
+    - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/cosmo-site
+      APP_KEY=cosmo-site
 build:
   cache: true
   cache_dir_list:
