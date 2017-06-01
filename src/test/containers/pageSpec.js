@@ -59,6 +59,9 @@ describe('Page Container', () => {
         { name: 'Test 2', url: '/test-2' },
         { name: 'Test 3', url: '/test-3' },
         { name: 'Test 4', url: '/test-4' }];
+    const isHeaderPinned = false;
+    const isHeaderHidden = false;
+    const headerHeight = 0;
     let reactModule;
     let offCanvas;
     let uniHeaderStub;
@@ -77,6 +80,18 @@ describe('Page Container', () => {
 
         getHamburgerItems() {
             return hamburgerItems;
+        },
+
+        isHeaderPinned() {
+            return isHeaderPinned;
+        },
+
+        isHeaderHidden() {
+            return isHeaderHidden;
+        },
+
+        getHeaderHeight() {
+            return headerHeight;
         }
     });
 

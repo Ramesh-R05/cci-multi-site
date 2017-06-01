@@ -12,11 +12,15 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 import StandardPageAdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 
 function mapStateToProps(context) {
+    const NavigationStore = context.getStore('NavigationStore');
+    const articleStore = context.getStore('articleStore');
+    const PageStore = context.getStore('PageStore');
+
     return {
-        headerNavItems: context.getStore('NavigationStore').getHeaderItems(),
-        hamburgerNavItems: context.getStore('NavigationStore').getHamburgerItems(),
-        content: context.getStore('articleStore').getContent(),
-        magCover: context.getStore('PageStore').getModule('magCover')
+        headerNavItems: NavigationStore.getHeaderItems(),
+        hamburgerNavItems: NavigationStore.getHamburgerItems(),
+        content: articleStore.getContent(),
+        magCover: PageStore.getModule('magCover')
     };
 }
 

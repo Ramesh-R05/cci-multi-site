@@ -49,6 +49,7 @@ class BrandMagazine extends Component {
                     {renderSubscribeElements && <span className="brand--magazine-title">Subscribe to {magazineTitle || title}</span>}
                     <div className="brand--magazine-image">
                         <ResponsiveImage
+                          alt=""
                           url={magazineImageUrl}
                           sizes={sizes}
                           breakpoints={breakpoints}

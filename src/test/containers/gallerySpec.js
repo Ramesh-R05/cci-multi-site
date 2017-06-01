@@ -90,7 +90,10 @@ function addStores() {
 
     Context.addStore('NavigationStore', {
         getHeaderItems: () => {},
-        getHamburgerItems: () => [1, 2, 3, 4]
+        getHamburgerItems: () => [1, 2, 3, 4],
+        isHeaderPinned: () => false,
+        isHeaderHidden: () => false,
+        getHeaderHeight: () => 0
     });
 
     Context.addStore('AdStore', {
