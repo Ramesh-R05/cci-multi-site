@@ -70,6 +70,59 @@ resources:
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
 
 ##############
+# COSMO
+##############
+
+  # Docker Image Options
+  - name: cosmo-site-opts-sit
+    type: dockerOptions
+    version:
+      memory: 512
+      memoryReservation: 256
+      cpuShares: 128
+      portMappings:
+        - 0:3001
+      publishAllPorts : true
+      logConfig:
+        type: awslogs
+        options:
+          awslogs-group: "app_ecs"
+          awslogs-region: "ap-southeast-2"
+          awslogs-stream-prefix: "app-cosmo-site"
+
+  # COSMO Seed image version MASTER Docker Image
+  - name: cosmo-site-img-master
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/cosmo-site"
+    seed:
+      versionName: latest
+
+  # COSMO Seed image version Feature BRANCH Docker Image
+  - name: cosmo-site-img-branch
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/cosmo-site"
+    seed:
+      versionName: latest
+
+  # AWS SIT load Balancer - COSMO - MASTER branch
+  - name: cosmo-site-alb-sit
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/cosmo-site-au-sit/a3b55fa070484fe0"
+      method: application
+
+  # AWS SIT:8080 load Balancer - COSMO - feature BRANCH
+  - name: cosmo-site-alb-sit-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/cosmo-site-au-branch-sit/ab5442592721ec1e"
+      method: application
+
+##############
 # ELLE
 ##############
 
@@ -190,6 +243,25 @@ resources:
     pointer:
       sourceName : "app_ecs"
       region: "ap-southeast-2"
+
+#############
+# COSMO
+##############
+
+  # Seed Release version
+  # for Rollback refer to below URL
+  # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
+  - name: cosmo-site-version
+    type: version
+    seed:
+      versionName: "1.0.0" # This can be changed for Roll back
+
+  # AWS PROD load Balancer - COSMO PROD - MASTER branch
+  - name: cosmo-site-alb-prod
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/cosmo-site-au-prod/e52ec85c0832f173"
+      method: application
 
 #############
 # ELLE

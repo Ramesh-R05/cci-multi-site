@@ -12,12 +12,30 @@ jobs:
   - name: multi-site_runCI
     type: runCI
     steps:
+      - OUT: cosmo-site-img-master
+      - OUT: cosmo-site-img-branch
       - OUT: elle-site-img-master
       - OUT: elle-site-img-branch
       - OUT: hb-site-img-master
       - OUT: hb-site-img-branch
     flags:
       - multi-site
+
+  # 2branchCOSMO. Manifest for a BRANCH image
+  - name: cosmo-site-man-branch
+    type: manifest
+    steps:
+      - IN: cosmo-site-img-branch
+      - IN: cosmo-site-opts-sit
+      - TASK: managed
+
+  # 2COSMO. Manifest for MASTER image
+  - name: cosmo-site-man-master
+    type: manifest
+    steps:
+      - IN: cosmo-site-img-master
+      - IN: cosmo-site-opts-sit
+      - TASK: managed
 
   # 2branchELLE. Manifest for a BRANCH image
   - name: elle-site-man-branch
@@ -67,6 +85,42 @@ jobs:
       - TASK: managed
         deployMethod: replace
 
+  # 3BranchCOSMO. SIT deployment for feature BRANCH
+  - name: cosmo-site-sit-deploy-branch
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: cosmo-site-man-branch
+        switch: off
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: cosmo-site-alb-sit-branch
+        applyTo:
+          - manifest: cosmo-site-man-branch
+            image: cosmo-site-img-branch
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
+
+  # 3COSMO. SIT deployment for MASTER
+  - name: cosmo-site-sit-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: cosmo-site-man-master # for master - auto deploy to SIT
+        switch: on
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: cosmo-site-alb-sit
+        applyTo:
+          - manifest: cosmo-site-man-master
+            image: cosmo-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
+
   # 3BranchELLE. SIT deployment for feature BRANCH
   - name: elle-site-sit-deploy-branch
     type: deploy
@@ -85,7 +139,7 @@ jobs:
       - TASK: managed
         deployMethod: replace
 
-  # 3ELLE. SIT deployment for feature BRANCH
+  # 3ELLE. SIT deployment for MASTER
   - name: elle-site-sit-deploy-master
     type: deploy
     always:
@@ -101,7 +155,7 @@ jobs:
             image: elle-site-img-master
             port: 3001
       - TASK: managed
-        deployMethod: upgrade
+        deployMethod: replace
 
   # 3BranchHB. SIT deployment for feature BRANCH
   - name: hb-site-sit-deploy-branch
@@ -121,7 +175,7 @@ jobs:
       - TASK: managed
         deployMethod: replace
 
-  # 3HB. SIT deployment for feature BRANCH
+  # 3HB. SIT deployment for MASTER
   - name: hb-site-sit-deploy-master
     type: deploy
     always:
@@ -161,6 +215,27 @@ jobs:
        - script: npm run test:high || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+
+  # 4bCOSMO. Run smoke test on TEST environment COSMO
+  - name: cosmo-site-smoke-test
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    steps:
+    - IN: cosmo-site-sit-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "6.1.0"
+       - script: nvm use "6.1.0"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=cosmo-site
+       - script: export URL=http://cosmo-site-au.sit.bxm.net.au/
+       - script: npm run smoketest:cosmo
 
   # 4bELLE. Run smoke test on TEST environment ELLE
   - name: elle-site-smoke-test
@@ -204,6 +279,16 @@ jobs:
        - script: export URL=http://hb-site-au.sit.bxm.net.au/
        - script: npm run smoketest:hb
 
+  # 5COSMO. Package release for production release
+  - name: cosmo-release-master
+    type: release
+    steps:
+      - IN: multi-site-automation-test
+      - IN: cosmo-site-version
+      - IN: cosmo-site-man-master
+        switch: off
+      - TASK: managed
+
   # 5ELLE. Package release for production release
   - name: elle-release-master
     type: release
@@ -223,6 +308,24 @@ jobs:
       - IN: hb-site-man-master
         switch: off
       - TASK: managed
+
+  # 6COSMO. PROD deployment for MASTER COSMO
+  - name: cosmo-site-prod-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: cosmo-release-master
+        switch: off
+      - IN: multi-env-prod-ecs
+      - IN: multi-site-params-prod
+      - IN: cosmo-site-alb-prod
+        applyTo:
+          - manifest: cosmo-site-man-master
+            image: cosmo-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
 
   # 6ELLE. PROD deployment for MASTER ELLE
   - name: elle-site-prod-deploy-master
