@@ -1,0 +1,35 @@
+.brand--magazine {
+    &-container {
+        padding-top: 5px;
+
+        @media #{$medium-only} {
+            padding-top: 0;
+            width: 50%;
+        }
+
+        @media #{$large-only} {
+            margin-left: -5px;
+        }
+
+        .button--subscribe {
+            margin: 20px 0;
+        }
+    }
+    &-title {
+        display: none;
+    }
+    &-image {
+        @media #{$large-up} {
+            width: 225px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        & img {
+            max-height: 295px;
+
+            @media #{$large-up} {
+                max-height: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.page__top-container {
+    .get-social {
+        margin-left: -10px;
+
+        @media #{$large-up} {
+            margin-left: -13px;
+        }
+
+        .get-social-title {
+            width: 215px;
+            height: 90px;
+            margin: 0 auto;
+            position: relative;
+            background: url('../../../../assets/logos/get-more-cosmo-underline.svg') no-repeat 3px 0;
+
+            &:before {
+                display: none;
+            }
+        }
+        .get-social__links {
+            margin-top: -15px;
+        }
+    }
+}

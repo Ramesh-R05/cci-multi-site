@@ -1,0 +1,117 @@
+// Base button styles
+
+.button {
+    background-color: $color-accent;
+    border: 2px solid $color-accent;
+    border-radius: 0;
+    color: $color-white;
+    display: inline-block;
+    font: 600 15px $font-family-sans-serif-primary;
+    letter-spacing: 0.07em;
+    min-height: 52px;
+    padding: 0 15px;
+    text-transform: uppercase;
+
+    @media #{$large-up} {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    &:not(:disabled):not(.disabled) {
+        &:hover,
+        &:focus {
+            opacity: 0.8;
+            outline: none;
+            text-decoration: none;
+        }
+    }
+
+    &:active,
+    &.active {
+        .down-arrow svg {
+            fill: $color-white;
+        }
+    }
+
+    &:disabled,
+    &.disabled {
+        color: $color-red-light2;
+        cursor: default;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    &--category {
+        .icon-arrow {
+            display: inline-block;
+            fill: $color-primary;
+            margin-left: 10px;
+            position: relative;
+            top: 1px;
+        }
+
+        .arrow {
+            width: 10px;
+        }
+
+        &:active,
+        &.active {
+            .icon-arrow {
+                fill: $color-white;
+            }
+        }
+
+        &.active {
+            .icon-arrow {
+                top: -1px;
+                transform: rotate(180deg);
+            }
+        }
+
+        @media #{$large-up} {
+            .icon-arrow {
+                top: 0;
+            }
+
+            .arrow {
+                width: 12px;
+            }
+
+            &.active {
+                .icon-arrow {
+                    top: -2px;
+                }
+            }
+        }
+    }
+
+    &--load-more {
+        margin: 30px auto 0;
+
+        @media #{$medium-up} {
+            margin-bottom: 40px;
+        }
+    }
+
+    &.back-to-top {
+        background-color: $color-black-origin;
+    }
+
+    &--link {
+        padding-top: 14px;
+    }
+
+    &--subscribe {
+        transition: background $transition-duration ease-in-out, border-color $transition-duration ease-in-out;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            text-decoration: none;
+        }
+    }
+}
