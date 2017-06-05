@@ -31,8 +31,17 @@ export default {
             pageNo: 1
         },
         items: [
-            latestTeasers.slice(7)
-        ]
+            latestTeasers.slice(6)
+        ],
+        "previous": null,
+        "current": {
+            "path": "/",
+            "url": "http://multi-site.test.bxm.net.au/beauty"
+        },
+        "next": {
+            "path": "/?pageNo=2",
+            "url": "http://multi-site.test.bxm.net.au/beauty/?pageNo=2"
+        }
     },
     request: {
         queryString: {
