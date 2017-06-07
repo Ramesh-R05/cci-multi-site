@@ -68,6 +68,15 @@ resources:
         NODE_ENV: "production"
         APP_ENV: "production"
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
+        
+  #Schedule Run of automation
+  # This is using Shippable timezone
+  # CRON is (14 22 * * *") this is 09:15pm every day refer to https://en.wikipedia.org/wiki/Cron
+  # will run at 7:15am Sydney time
+  - name: multi-morning-trigger
+    type: time
+    seed:
+      interval: "14 22 * * *"        
 
 ##############
 # COSMO
