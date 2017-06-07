@@ -21,11 +21,16 @@ const configApi = {
     }
 };
 
+const env = {
+    APP_DEBUG: process.env.APP_DEBUG
+};
+
 const config = load('./config');
 
 const environmentConfig = load(`./environments/${environment}`);
 
 export default mergeWith(
+    env,
     configApi,
     config,
     environmentConfig,

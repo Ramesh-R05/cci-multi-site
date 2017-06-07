@@ -48,6 +48,15 @@ const GallerySection = proxyquire('../../app/containers/gallery', {
     '@bxm/nav/lib/components/hamburgerWrapper': (component) => component
 }).default;
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+}
+
 const gallery = {
     summary: 'Gallery Summary',
     title: 'Gallery Title',
@@ -177,9 +186,9 @@ describe('GallerySection', () => {
                     medium: 'leaderboard',
                     small: 'banner'
                 },
+                pageLocation: "outside",
                 targets: {
-                    keyword: ['Toronto', 'Nav Item'],
-                    position: 1
+                    keyword: ['Toronto', 'Nav Item']
                 }
             });
         });

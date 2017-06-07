@@ -23,6 +23,15 @@ const TeaserListView = proxyquire('../../../app/components/teaser/list', {
     './teaser': TeaserStub
 }).default;
 
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+}
+
 describe('TeaserListView', () => {
     const imageSizes = {
         s: { w: 323, h: 269 },
@@ -56,6 +65,7 @@ describe('TeaserListView', () => {
             });
 
             it(`should render the TeaserList component with relevant props`, () => {
+
                 expect(TeaserListViewComponent.props).to.deep.eq({
                     CustomisedTeaser: TeaserStub,
                     listClassName: "teaser-view-list",
@@ -65,12 +75,11 @@ describe('TeaserListView', () => {
                     showSubSection: true,
                     loadAgain: true,
                     adConfig: {
-                        className: "ad--teaser-list",
-                        displayFor: "small",
-                        sizes: "mrec",
-                        targets: {
-                            position: 1
-                        }
+                        className: 'ad--teaser-list',
+                        displayFor: 'small',
+                        sizes: 'mrec',
+                        targets: {},
+                        pageLocation: 'body'
                     },
                     nativeAdConfig: {},
                     adPosition: 4
@@ -85,7 +94,8 @@ describe('TeaserListView', () => {
                     className: 'ad--section-mrec',
                     displayFor: ['medium', 'large', 'xlarge'],
                     sizes: { medium: ['mrec', 'double-mrec'] },
-                    targets: { position: 1 }
+                    pageLocation: "rhs",
+                    targets: {}
                 });
             });
         });
@@ -103,7 +113,8 @@ describe('TeaserListView', () => {
                     className: 'ad--section-mrec',
                     displayFor: ['medium', 'large', 'xlarge'],
                     sizes: { medium: ['mrec', 'double-mrec'] },
-                    targets: {position: 1}
+                    pageLocation: "rhs",
+                    targets: {}
                 });
             });
         });
@@ -130,6 +141,7 @@ describe('TeaserListView', () => {
                 className: 'ad--section-mrec',
                 displayFor: ['medium', 'large', 'xlarge'],
                 sizes: { medium: ['mrec', 'double-mrec'] },
+                pageLocation: "rhs",
                 targets: reactModule.props.adTargets
             });
         })

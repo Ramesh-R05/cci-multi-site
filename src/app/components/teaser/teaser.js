@@ -145,6 +145,7 @@ export default class Teaser extends Component {
                       label={polar.label}
                       targets={polar.targets}
                       nativeAd
+                      pageLocation={Ad.pos.body}
                     />
                 )}
 

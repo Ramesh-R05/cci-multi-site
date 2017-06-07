@@ -64,6 +64,7 @@ export default class Home extends Component {
         const { config } = this.context;
         const brand = config.product;
         const polarLabels = config.polar.details;
+        const pageLocation = Ad.pos.outside;
         const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
         const { showBelowHero, showAboveBottomTeasers } = config.features.promoted;
         const {
@@ -106,7 +107,6 @@ export default class Home extends Component {
                                               className="news-feed top-news-feed"
                                               adPosition={8}
                                               adSizes={{ small: 'mrec', medium: ['mrec', 'double-mrec'] }}
-                                              adTargets={{ position: 2 }}
                                               nativeAdConfig={{
                                                   slotPositionIndex: polarLabels.homeTopFeed
                                               }}
@@ -125,7 +125,7 @@ export default class Home extends Component {
                                                       className="ad--section-mrec"
                                                       sizes="mrec"
                                                       displayFor="large"
-                                                      targets={{ position: 1 }}
+                                                      pageLocation={Ad.pos.aside}
                                                     />
                                                     { brand ? <BrandMagazine brand={brand} /> :
                                                     <div className="page__get-social-container">
@@ -149,7 +149,7 @@ export default class Home extends Component {
                           banner: 'banner',
                           leaderboard: 'leaderboard',
                           billboard: ['billboard', 'leaderboard'] }}
-                      targets={{ position: 2 }}
+                      pageLocation={pageLocation}
                     />
 
                     <Promoted show={showAboveBottomTeasers} />
@@ -160,10 +160,10 @@ export default class Home extends Component {
                       dataSource={list}
                       nextParams={listNextParams}
                       className="news-feed bottom-news-feed"
-                      adTargets={{ position: 3 }}
                       nativeAdConfig={{
                           slotPositionIndex: polarLabels.homeBottomFeed
                       }}
+                      pageLocation={pageLocation}
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}
@@ -175,6 +175,7 @@ export default class Home extends Component {
                           leaderboard: 'leaderboard',
                           billboard: ['billboard', 'leaderboard'] }}
                       targets={{ position: 3 }}
+                      pageLocation={Ad.pos.outside}
                     />
 
                 </div>

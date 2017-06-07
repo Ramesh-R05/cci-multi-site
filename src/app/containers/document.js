@@ -4,6 +4,7 @@ import Gallery from './gallery';
 import Page from './page';
 import Article from '@bxm/article/lib/article';
 import Teaser from '../components/teaser/teaser';
+import Ad from '@bxm/ad/lib/google/components/ad';
 
 function mapStateToProps(context) {
     return {
@@ -51,7 +52,7 @@ export default class Document extends Component {
         className: 'ad--beneath-hero',
         displayFor: 'small',
         sizes: 'mrec',
-        targets: { position: 1 }
+        targets: {}
     };
 
     render() {
@@ -74,6 +75,7 @@ export default class Document extends Component {
         const keyword = tags ? tags.map(tag => tag.fullName) : '';
 
         headerAd.config.targets.keyword = keyword;
+        headerAd.config.pageLocation = Ad.pos.body;
 
         const socialShare = {
             facebook: true,
