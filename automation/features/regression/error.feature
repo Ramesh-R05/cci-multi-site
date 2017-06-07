@@ -10,7 +10,6 @@ Feature: Error page
         When I am currently viewing "404"
         * I should see the site header logo clickable to open homepage
         * I should see the hamburger menu
-        * I should see the error title as "Oops, we don't have the page you're looking for."
         * I should see the error giphy image
         * I should see the text clickable to homepage with gtm "gtm-error-goback"
 
@@ -19,7 +18,6 @@ Feature: Error page
         When I am currently viewing "404"
         * I should see the large header banner clickable to open homepage
         * I should not see the hamburger menu
-        * I should see the error title as "Oops, we don't have the page you're looking for."
         * I should see the error giphy image
         * I should see the text clickable to homepage with gtm "gtm-error-goback"
         @low

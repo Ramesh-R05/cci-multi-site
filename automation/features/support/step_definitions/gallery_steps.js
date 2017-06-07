@@ -128,13 +128,16 @@ module.exports = function() {
     });
 
     this.When(/^I see the video ID "([^"]*)" on the gallery$/, function(videoId) {
+        wait(500);
         browser.click(gallery.galleryNextButton);
+        wait(500);
         browser.click(gallery.galleryNextButton);
+        browser.waitForVisible(gallery.videoWrapper, 5000);
         expect(browser.getAttribute(gallery.videoWrapper, gallery.videoId)).toEqual(videoId)
     });
 
     this.When(/^I can see the play button and click on it$/, function() {
-        browser.waitForVisible(gallery.playButton, 2000);
+        browser.waitForVisible(gallery.playButton, 5000);
         browser.click(gallery.playButton);
         expect(browser.isVisible(gallery.videoPlayWrap, gallery.videoAdPlay)).toBe(true);
         //verify video is playing the Ad
@@ -168,7 +171,7 @@ module.exports = function() {
     });
 
     this.When(/^I see the next gallery slide on the gallery as "([^"]*)"$/, function(nextGal) {
-        browser.waitForVisible(gallery.nextGallery, 2000);
+        browser.waitForVisible(gallery.nextGallery, 5000);
         var nextGallery = browser.getText(gallery.nextGallery);
         expect(nextGallery).toEqual(nextGal);
     });

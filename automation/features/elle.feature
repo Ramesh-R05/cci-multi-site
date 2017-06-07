@@ -32,6 +32,7 @@ Feature: Smoke test for ELLE
         Given I switch to "mobile" view
         When I am currently viewing "404"
         * I should see the site header logo "/assets/logos/elle.svg" clickable to open homepage and contain "gtm-navbar-elle" class name
+        * I should see the error title as "Oops, we don't have the page you're looking for."
 
     Scenario: I can see the site header logo in the desktop style
         Given I switch to "desktop" view

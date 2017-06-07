@@ -32,6 +32,7 @@ Feature: Smoke test for COSMO
         Given I switch to "mobile" view
         When I am currently viewing "404"
         * I should see the site header logo "/assets/logos/cosmo.svg" clickable to open homepage and contain "gtm-navbar-cosmo" class name
+        * I should see the error title as "*COUGH* I CAN'T LOAD UP, I'M SICK!"
 
     Scenario: I can see the site header logo in the desktop style
         Given I switch to "desktop" view

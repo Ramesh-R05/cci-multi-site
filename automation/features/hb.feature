@@ -32,6 +32,7 @@ Feature: Smoke test for HB
         Given I switch to "mobile" view
         When I am currently viewing "404"
         * I should see the site header logo "/assets/logos/hb.svg" clickable to open homepage and contain "gtm-navbar-harper's bazaar" class name
+        * I should see the error title as "Whoops! Looks like we don't have the page you’re looking for."
 
     Scenario: I can see the site header logo in the desktop style
         Given I switch to "desktop" view
