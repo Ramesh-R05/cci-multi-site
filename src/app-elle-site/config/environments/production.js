@@ -14,13 +14,12 @@ export default {
             'live'
         ],
         json: true,
-        level: 'info',
-        proxy: 'http://proxy.mgmt.local:3128'
+        level: 'info'
     },
     services: {
         remote: {
             entity: 'http://live.entities.services.bauer-media.internal/v1/elle',
-            listings: 'http://live.listings.services.bauer-media.internal/v1/elle',
+            listings: 'http://services.prod.bxm.internal/listing/v1/elle',
             module: 'http://live.modules.services.bauer-media.internal/v1/elle',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/elle',
             tag: 'http://live.tags.services.bauer-media.internal/v1/elle'

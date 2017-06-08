@@ -3,7 +3,7 @@ const playerId = 'VkuyApojl';
 
 export default {
     site: {
-        host: 'http://dev.elle-site.bauer-media.net.au'
+        host: 'http://elle-site-au.sit.bxm.net.au'
     },
     brightcove: {
         playerId,
@@ -17,8 +17,7 @@ export default {
             'dev'
         ],
         json: true,
-        level: 'info',
-        proxy: 'http://proxy.mgmt.local:3128'
+        level: 'info'
     },
     services: {
         faceBookAppID: '520578108132544'
