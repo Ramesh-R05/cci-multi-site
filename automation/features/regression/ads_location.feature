@@ -4,11 +4,9 @@ Feature: Ads Location
     I should see each ad slot containing correct class name which is a adLocation parameter in the ad call.
 
 #--Start testing in desktop view--
-
     Scenario: Ads slot elements should have proper class name on home page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing the homepage
-
         Then I should see each outside ad slot element containing proper class name
                 |ad                 |class-name        |
                 |Top Leaderboard    |home_outside_1    |
@@ -124,7 +122,6 @@ Feature: Ads Location
             |Wallpaper          |article_wallpaper_1 |
 
 #--Start testing in mobile view--#
-
     Scenario: Ads slot elements should have proper class name on home page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing the homepage

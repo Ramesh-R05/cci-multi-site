@@ -183,12 +183,11 @@ Feature: Ad
 
 
 # -------- Inskin Ads on desktop are High as this is an area with Commercial Value ---------------
-    @BXMA-156
+    @BXMA-156 @manual
     Scenario Outline: Out of page (Inskin) ad should appear on "<page>" page in the "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing "<url>"
         * I should "see" the out of page ad slot on "<page>"
-        @manual
         Examples:
             |device             |page       |url                                                    |
             |desktop            |section    |beauty                                                 |
