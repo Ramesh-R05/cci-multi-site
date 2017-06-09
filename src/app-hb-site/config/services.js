@@ -1,9 +1,9 @@
 export default {
     local: 'http://127.0.0.1',
     remote: {
-        entity: 'http://dev.entities.services.bauer-media.internal/v1/hb',
-        listings: 'http://dev.listings.services.bauer-media.internal/v1/hb',
-        module: 'http://dev.modules.services.bauer-media.internal/v1/hb',
+        entity: 'http://services.sit.bxm.internal/entity/v1/hb',
+        listings: 'http://services.sit.bxm.internal/listing/v1/hb',
+        module: 'http://services.sit.bxm.internal/module/v1/hb',
         sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/hb',
         trending: 'http://trending.bauer.mg/today?sites=harpersbazaar.com.au',
         tag: 'http://dev.tags.services.bauer-media.internal/v1/hb'

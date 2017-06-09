@@ -1,9 +1,9 @@
 export default {
     local: 'http://127.0.0.1',
     remote: {
-        entity: 'http://dev.entities.services.bauer-media.internal/v1/cosmo',
-        listings: 'http://dev.listings.services.bauer-media.internal/v1/cosmo',
-        module: 'http://dev.modules.services.bauer-media.internal/v1/cosmo',
+        entity: 'http://services.sit.bxm.internal/entity/v1/cosmo',
+        listings: 'http://services.sit.bxm.internal/listing/v1/cosmo',
+        module: 'http://services.sit.bxm.internal/module/v1/cosmo',
         sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/cosmo',
         trending: 'http://trending.bauer.mg/today?sites=cosmo.com.au',
         tag: 'http://dev.tags.services.bauer-media.internal/v1/cosmo'

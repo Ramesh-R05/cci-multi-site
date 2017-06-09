@@ -20,7 +20,7 @@ export default {
     services: {
         remote: {
             entity: 'http://live.entities.services.bauer-media.internal/v1/hb',
-            listings: 'http://live.listings.services.bauer-media.internal/v1/hb',
+            listings: 'http://services.prod.bxm.internal/listing/v1/hb',
             module: 'http://live.modules.services.bauer-media.internal/v1/hb',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/hb',
             tag: 'http://live.tags.services.bauer-media.internal/v1/hb'
