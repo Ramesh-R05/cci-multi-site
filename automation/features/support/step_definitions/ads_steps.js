@@ -1,6 +1,7 @@
 var wn_ads = require('../page_objects/ads_widget');
 var gallery = require('../page_objects/gallery_widget');
 var visibilityFunctions = require('../utils/visibilityFunctions');
+var wait = require('../utils/wait');
 
 module.exports = function() {
 
@@ -88,8 +89,18 @@ module.exports = function() {
 
     //BELOW ARE STEPS FOR ARTICLE
     this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
-        browser.moveToObject(wn_ads.ad_BottomLeaderboard,5000);
+        browser.moveToObject(wn_ads.ad_BottomLeaderboard);
+        wait(1500);
+        browser.moveToObject(wn_ads.ad_BottomLeaderboard); //move to the object again after the images on gallery are loaded from the first move.
         expect(browser.isVisible(wn_ads.ad_BottomLeaderboard)).toBe(true);
+    });
+
+    this.Then(/^I should see MREC ad between images$/, function () {
+        wait(2000);
+        browser.moveToObject(wn_ads.ad_MrecAfterSlide3);
+        expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide3,5000)).toBe(true);
+        browser.moveToObject(wn_ads.ad_MrecAfterSlide7);
+        expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true);
     });
 
     this.Then(/^I should see four MREC ads in the RHR feed$/, function () {

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
-import Gallery from './gallery';
+import VerticalGallery from '@bxm/article/lib/gallery';
 import Page from './page';
 import Article from '@bxm/article/lib/article';
 import Teaser from '../components/teaser/teaser';
@@ -58,14 +58,6 @@ export default class Document extends Component {
     render() {
         const { content, currentUrl, nodeType, theme } = this.props;
 
-        if (nodeType === 'Gallery') {
-            return (
-                <Gallery
-                  customisedTeaser={Teaser} currentUrl={currentUrl}theme={theme}
-                />
-            );
-        }
-
         const headerAd = {
             type: 'Ad',
             config: Document.headerAdConfig
@@ -81,6 +73,28 @@ export default class Document extends Component {
             facebook: true,
             pinterest: true
         };
+
+        if (nodeType === 'Gallery') {
+            return (
+                <Page
+                  currentUrl={currentUrl}
+                  headerExpanded={false}
+                  hideFooter={false}
+                  theme={theme}
+                >
+                    <VerticalGallery
+                      articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', 'Date', 'Author']}
+                      contentBodyConfig={Document.articleContentBodyConfig}
+                      enableTeads
+                      CustomisedTeaser={Teaser}
+                      showAdBeforeRecommendations
+                      showSocialShare
+                      socialShare={socialShare}
+                      theme={theme}
+                    />
+                </Page>
+            );
+        }
 
         return (
             <Page

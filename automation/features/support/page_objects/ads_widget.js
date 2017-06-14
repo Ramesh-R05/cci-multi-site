@@ -45,5 +45,8 @@ var ads_widget = {
     ad_LoadMoreMrecInBottomFeed: '.bottom-news-feed:nth-child(2) .teaser__list-item--ad [id^=gpt-slot-]', //mobile homepage, index, brand
     ad_MrecBeforeRecommendation: '.ad--article-before-recommendations [id^=gpt-slot-]', //mobile gallery
     ad_MrecUnderHeroImage: '.ad--beneath-hero [id^=gpt-slot-]', //mobile article
+
+    adMrecBetweenGalleryImages1: '.gallery__feed-item--ad:nth-child(4)', //vertical gallery,
+    adMrecBetweenGalleryImages2: '.gallery__feed-item--ad:nth-child(9)', //vertical gallery
 };
 module.exports = ads_widget;

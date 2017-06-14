@@ -6,6 +6,7 @@ noCallThru();
 
 const ArticleStub = Context.createStubComponent();
 const GalleryPageStub = Context.createStubComponent();
+const VerticalGalleryStub = Context.createStubComponent();
 const PageStub = Context.createStubComponentWithChildren();
 const CustomisedTeaserStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
@@ -14,6 +15,7 @@ const AdWrapperStub = Context.createStubComponentWithChildren();
 const Document = proxyquire('../../app/containers/document', {
     '@bxm/article/lib/article': ArticleStub,
     './gallery': GalleryPageStub,
+    '@bxm/article/lib/gallery': VerticalGalleryStub,
     './page': PageStub,
     '../components/teaser/teaser': CustomisedTeaserStub,
     '../components/article/footer': FooterStub
@@ -62,7 +64,6 @@ describe('Document Component', () => {
             });
         });
 
-    describe(`Page Component`, () => {
         it ('should pass the appropriate props', () => {
             const PageComponent = TestUtils.findRenderedComponentWithType(reactModule, PageStub);
             expect(PageComponent.props).to.deep.contain({
@@ -88,8 +89,7 @@ describe('Document Component', () => {
         });
 
         it(`should render the Gallery Component`, () => {
-            TestUtils.findRenderedComponentWithType(reactModule, GalleryPageStub);
+            TestUtils.findRenderedComponentWithType(reactModule, VerticalGalleryStub);
         });
     });
-  });
 });

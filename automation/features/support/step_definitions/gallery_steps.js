@@ -58,52 +58,15 @@ module.exports = function() {
         expect(galleryDescription).toContain(description);
     });
 
-    this.Given(/^I can see the right arrow on the gallery$/, function() {
-        expect(browser.isVisible(gallery.galleryNextButton)).toBe(true);
-    });
-
-    this.Given(/^I should not see the left arrow on the gallery$/, function() {
-        expect(browser.isVisible(gallery.galleryPrevButton)).toBe(false);
-    });
-
     this.Given(/^I can see the image number "([^"]*)" of total "([^"]*)" on the gallery$/, function(num, total) {
         var imageCount = browser.getText(gallery.imageCount);
-        expect(imageCount).toEqual(num + " / " + total);
+        expect(imageCount[0]).toEqual(num + " / " + total);
     });
 
     this.Given(/^I can see the image caption on the gallery containing "([^"]*)"$/, function(caption) {
         browser.waitForVisible(gallery.imgCaption);
         var imgCaption = browser.getText(gallery.imgCaption);
         expect(imgCaption).toMatch(caption);
-    });
-
-    this.Given(/^I can click MORE to see the full image caption on the gallery$/, function() {
-        browser.waitForVisible(gallery.toggleMore, 2000);
-        browser.click(gallery.toggleMore);
-        expect(browser.getAttribute(gallery.toggleLess, 'style')).toEqual("opacity: 1;");
-
-        wait(500); //1/2 second wait to enable transition
-    });
-
-    this.Given(/^I can click LESS to see the short image caption on the gallery$/, function() {
-        browser.waitForVisible(gallery.toggleLess, 2000);
-        browser.click(gallery.toggleLess);
-        expect(browser.waitForVisible(gallery.toggleMore, 2000)).toBe(true);
-
-        wait(500); //1/2 second wait to enable transition
-    });
-
-    this.Given(/^I can click the right arrow on the gallery to check the next image$/, function() {
-        var currentImgNum = browser.getText(gallery.currentImgNum);
-        wait(500);
-        browser.waitForEnabled(gallery.galleryNextButton, 2000);
-        browser.click(gallery.galleryNextButton);
-        var nextImgNum = browser.getText(gallery.currentImgNum);
-        expect(nextImgNum).toBeGreaterThan(currentImgNum);
-    });
-
-    this.Given(/^I should not see the gallery description on mobile for next image$/, function() {
-        expect(browser.isVisible(gallery.galleryDescription)).toBe(false);
     });
 
     this.When(/^I see the image no "([^"]*)" on the gallery$/, function(imgNum) {
@@ -128,11 +91,8 @@ module.exports = function() {
     });
 
     this.When(/^I see the video ID "([^"]*)" on the gallery$/, function(videoId) {
-        wait(500);
-        browser.click(gallery.galleryNextButton);
-        wait(500);
-        browser.click(gallery.galleryNextButton);
-        browser.waitForVisible(gallery.videoWrapper, 5000);
+        browser.waitForVisible(gallery.videoWrapper, 3000);
+        browser.moveToObject(gallery.videoWrapper);
         expect(browser.getAttribute(gallery.videoWrapper, gallery.videoId)).toEqual(videoId)
     });
 

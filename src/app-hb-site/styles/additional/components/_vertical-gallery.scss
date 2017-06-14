@@ -1,0 +1,15 @@
+.gallery-section {
+    .article__hero-container {
+        margin-top: 10px;
+    }
+
+    .article__title {
+        @media #{$small-only} {
+            margin-top: 18px;
+        }
+
+        @media #{$medium-up} {
+            margin-top: 25px;
+        }
+    }
+}

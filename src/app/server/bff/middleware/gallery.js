@@ -1,6 +1,8 @@
 import find from 'lodash/collection/find';
 import get from 'lodash/object/get';
-import { getMoreGalleries } from '../api/listing';
+import { getMoreGalleries, getLatestTeasers } from '../api/listing';
+
+const TOP = 20;
 
 export default async function gallery(req, res, next) {
     try {
@@ -15,6 +17,12 @@ export default async function gallery(req, res, next) {
         req.data.entity.adBrand = get(adBrand, 'id', 'ntl');
 
         req.data.moreGalleries = await getMoreGalleries();
+
+        const sectionId = req.data.entity.sectionId;
+        const listingQuery = `path eq %27${sectionId}%27`;
+        if (sectionId) {
+            req.data.leftHandSide = await getLatestTeasers(TOP, undefined, listingQuery);
+        }
 
         next();
     } catch (error) {
