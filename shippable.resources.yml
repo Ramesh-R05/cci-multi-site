@@ -43,6 +43,7 @@ resources:
         NODE_ENV: "production"
         APP_ENV: "sit"
         APM_KEY: "d182e4391d2b340c7ae190bcb7a24b754f148ec4"
+        APP_DEBUG: true
 
   # TEST Parameter
   - name: multi-site-params-test
@@ -52,6 +53,7 @@ resources:
         NODE_ENV: "automation"
         APP_ENV: "automation"
         APP_STUBBED: true
+        APP_DEBUG: true
 
   # AWS TEST load Balancer - MULTI STUBBED - MASTER branch
   - name: multi-site-alb-test
