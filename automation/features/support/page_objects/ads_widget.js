@@ -46,7 +46,8 @@ var ads_widget = {
     ad_MrecBeforeRecommendation: '.ad--article-before-recommendations [id^=gpt-slot-]', //mobile gallery
     ad_MrecUnderHeroImage: '.ad--beneath-hero [id^=gpt-slot-]', //mobile article
 
-    adMrecBetweenGalleryImages1: '.gallery__feed-item--ad:nth-child(4)', //vertical gallery,
-    adMrecBetweenGalleryImages2: '.gallery__feed-item--ad:nth-child(9)', //vertical gallery
+    //--Non-ad element
+    gallerySlide6: '.gallery__feed-item:nth-child(7)', //for 'I should see MREC ad between images'
+    gallerySlide7: '.gallery__feed-item:nth-child(8)', //for 'I should see MREC ad between images'
 };
 module.exports = ads_widget;

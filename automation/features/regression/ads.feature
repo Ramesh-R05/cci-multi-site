@@ -95,7 +95,7 @@ Feature: Ad
         * I should not see the bottom leaderboard ad above the footer
 
 # -------- Gallery Page Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
-    @gallery @BXMA-©32 @high
+    @gallery @BXMA-©32
     Scenario Outline: Ads on gallery page in the desktop view
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-gallery-13302"

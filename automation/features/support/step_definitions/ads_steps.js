@@ -100,7 +100,10 @@ module.exports = function() {
         browser.moveToObject(wn_ads.ad_MrecAfterSlide3);
         expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide3,5000)).toBe(true);
         browser.moveToObject(wn_ads.ad_MrecAfterSlide7);
-        expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true);
+        browser.waitForVisible(wn_ads.gallerySlide6,5000);
+        browser.waitForVisible(wn_ads.gallerySlide7,5000);
+        browser.moveToObject(wn_ads.ad_MrecAfterSlide7);
+        expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,7000)).toBe(true);
     });
 
     this.Then(/^I should see four MREC ads in the RHR feed$/, function () {
