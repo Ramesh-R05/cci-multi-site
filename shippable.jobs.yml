@@ -390,7 +390,8 @@ jobs:
         - script: npm set registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: export URL=http://multi-site.test.bxm.net.au/
-        - script: APP_KEY=elle-site npm run all:test || true
+        - script: export APP_KEY=elle-site
+        - script: npm run all:test || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     flags:
