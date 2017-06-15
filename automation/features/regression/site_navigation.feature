@@ -82,3 +82,27 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         Given I switch to "mobile portrait" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         Then the menu fades out as I scroll down the page
+
+    @low
+    Scenario Outline: Users are able to navigate back to the homepage
+        Given I switch to "<device>" view
+        When I am currently viewing the homepage
+        Then I should see the Big Banner logo that takes me back to the home page
+        When I scroll to the end of the page
+        Then I can see the smaller logo in the navigation bar that takes me back to the home page
+
+        Examples:
+            | device            |
+            | desktop           |
+            | tablet landscape  |
+            | tablet portrait   |
+
+    @low
+    Scenario Outline: Users are able to navigate back to the homepage with smaller breakpoints
+        Given I switch to "<device>" view
+        When I am currently viewing the homepage
+        Then I can see the smaller logo in the navigation bar that takes me back to the home page
+
+        Examples:
+            | device            |
+            | mobile portrait   |

@@ -24,20 +24,23 @@ Feature: Smoke test for COSMO
             |Food To Love               |http://foodtolove.com.au/          |gtm-hamburger-food         |
             |Harper's Bazaar            |http://harpersbazaar.com.au/       |gtm-hamburger-harpers      |
             |Gourmet Traveller          |http://gourmettraveller.com.au/    |gtm-hamburger-gt           |
-            |Cosmopolitan               |http://cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
+            |Elle                       |http://elle.com.au/                |gtm-hamburger-elle         |
             |Dolly                      |http://dolly.com.au/               |gtm-hamburger-dolly        |
             |Beauty Heaven              |http://beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
 
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
-        * I should see the site header logo "/assets/logos/cosmo.svg" clickable to open homepage and contain "gtm-navbar-cosmo" class name
         * I should see the error title as "*COUGH* I CAN'T LOAD UP, I'M SICK!"
+        * I should see the site header logo to open homepage and contain "gtm-navbar-cosmo" class name
+#        * I should see the Big Banner logo to open homepage and contain "gtm-navbar-cosmo" class name
 
     Scenario: I can see the site header logo in the desktop style
         Given I switch to "desktop" view
         When I am currently viewing the homepage
-        * I should see the site header logo "/assets/logos/cosmo.svg" clickable to open homepage and contain "gtm-navbar-cosmo" class name
+        * I should see the site header logo to open homepage and contain "gtm-navbar-cosmo" class name
+
+#### -> below GTM and GA tags need to change as this are from ELLE
 
     Scenario: I can see the GTM container with id "GTM-TXC6CF"
         When I am currently viewing the homepage

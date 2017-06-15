@@ -1,5 +1,10 @@
 var site_nav = require('../page_objects/site_navigation_widget');
 var wait = require('../utils/wait');
+//compose URL base on ENV variables
+var nconf = require('nconf');
+nconf.argv().env();
+var site_domain = nconf.get('URL');
+
 
 module.exports = function() {
     this.Then(/^I should see the site header banner$/, function () {
@@ -12,37 +17,45 @@ module.exports = function() {
         expect(headerBackground).toContain('background-image: url');
     });
 
-    this.Then(/^I should see the site header logo "([^"]*)" clickable to open homepage and contain "([^"]*)" class name$/, function (logo, gtm) {
-        browser.waitForExist(site_nav.siteNavHeaderLogo, 3000);
-        //Validate the existence of the logo
-        var headerLogo = browser.getCssProperty(site_nav.siteNavHeaderLogo, 'background-image').value;
-        expect(headerLogo).toMatch(logo);
+    this.Then(/^I should see the site header logo to open homepage and contain "([^"]*)" class name$/, function (gtm) {
+        browser.waitForExist(site_nav.smallIconlink, 3000);
         //Validate the logo is clickable to open homepage
-        var headerLogoLink = browser.getAttribute(site_nav.siteNavHeaderLogo,'href');
-        expect(headerLogoLink).not.toEqual('');
+        var headerLogoLink = browser.getAttribute(site_nav.smallIconlink,'href');
+        expect(headerLogoLink).toEqual(site_domain);
         //Validate GTM
-        var headerLogoClass = browser.getAttribute(site_nav.siteNavHeaderLogo,'class');
+        var headerLogoClass = browser.getAttribute(site_nav.smallIconlink,'class');
+        expect(headerLogoClass).toContain(gtm);
+    });
+
+    this.Then(/^I should see the Big Banner logo to open homepage and contain "([^"]*)" class name$/, function (gtm) {
+        browser.waitForExist(site_nav.bigIconlink, 3000);
+        //Validate the logo is clickable to open homepage
+        var headerLogoLink = browser.getAttribute(site_nav.bigIconlink,'href');
+        expect(headerLogoLink).toEqual(site_domain);
+        //Validate GTM
+        var headerLogoClass = browser.getAttribute(site_nav.bigIconlink,'class');
         expect(headerLogoClass).toContain(gtm);
     });
 
     this.Then(/^I should see the site header logo clickable to open homepage$/, function () {
         browser.waitForExist(site_nav.siteNavHeaderLogo, 3000);
         //Validate the logo is clickable to open homepage
-        var headerLogoLink = browser.getAttribute(site_nav.siteNavHeaderLogo,'href');
-        expect(headerLogoLink).not.toEqual('');
+        var headerLogoLink = browser.getAttribute(site_nav.smallIconlink,'href');
+        expect(headerLogoLink).toEqual(site_domain);
     });
 
     this.Then(/^I should see the site navigation links and "([^"]*)" class name in "([^"]*)"$/, function (gtm, position) {
+        var sectionDetail;
         //Identify the element
         switch(position) {
             case 'header':
                 browser.waitForVisible(site_nav.siteNavSectionDetail, 5000);
-                var sectionDetail = site_nav.siteNavSectionDetail
+                sectionDetail = site_nav.siteNavSectionDetail;
                 break;
             case 'hamburger':
                 browser.click(site_nav.siteHamburger);
                 browser.waitForVisible(site_nav.siteHamburgerDetail, 3000);
-                var sectionDetail = site_nav.siteHamburgerDetail
+                sectionDetail = site_nav.siteHamburgerDetail;
                 break;
         }
 
@@ -130,5 +143,22 @@ module.exports = function() {
         wait(500);
         expect(browser.getAttribute(site_nav.menuHeader,'class')).toContain('header--hide');
     });
-    
+
+    this.Then(/^I should see the Big Banner logo that takes me back to the home page$/, function () {
+        expect(browser.isVisible(site_nav.bigIcon)).toBe(true);
+        var menuhref = browser.getAttribute(site_nav.bigIconlink, 'href');
+        expect(menuhref).toEqual(site_domain);
+        console.log(browser.getCssProperty(site_nav.bigIcon, 'color'));
+    });
+
+    this.When(/^I scroll to the end of the page$/, function () {
+        browser.scroll(0,10000);
+    });
+
+    this.Then(/^I can see the smaller logo in the navigation bar that takes me back to the home page$/, function () {
+        expect(browser.isVisible(site_nav.smallIcon)).toBe(true);
+        var menuhref = browser.getAttribute(site_nav.smallIconlink, 'href');
+        expect(menuhref).toEqual(site_domain);
+        console.log(browser.getCssProperty(site_nav.smallIcon, 'color'));
+    });
 };

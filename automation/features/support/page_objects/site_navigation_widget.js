@@ -7,11 +7,14 @@ var site_navigation_widget = {
     siteNavActiveLink: ".header-nav__nav > a.nav-item.nav-item--active",
     siteNavHeaderBackground: "header.header",
     siteNavHeader: ".header__sections",
-    siteNavHeaderLogo: ".header__sections .header-logo a",
     siteHamburgerDetail: "nav.mobile-menu__nav a",
     siteHamburgerActiveLink: "nav.mobile-menu__nav > a.nav-item.nav-item--active",
     siteHamburgerClose: "button.close-btn",
     siteHeaderBanner: ".header-banner a",
+    bigIconlink: ".header-banner .header-banner-inner a",
+    bigIcon: ".header-banner .header-banner-inner a i.icon-logo",
+    smallIconlink: ".header__sections .header-logo a",
+    smallIcon: ".header__sections .header-logo a i.icon-logo"
 };
 
 module.exports = site_navigation_widget;
