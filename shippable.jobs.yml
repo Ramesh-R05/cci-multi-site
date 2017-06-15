@@ -198,6 +198,7 @@ jobs:
     type: runSh
     always:
     - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
     steps:
     - IN: multi-site-test-deploy-master
     - IN: multi-site-repo
@@ -221,6 +222,7 @@ jobs:
     type: runSh
     always:
     - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
     steps:
     - IN: cosmo-site-sit-deploy-master
     - IN: multi-site-repo
@@ -242,6 +244,7 @@ jobs:
     type: runSh
     always:
     - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
     steps:
     - IN: elle-site-sit-deploy-master
     - IN: multi-site-repo
@@ -263,6 +266,7 @@ jobs:
     type: runSh
     always:
     - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
     steps:
     - IN: hb-site-sit-deploy-master
     - IN: multi-site-repo
@@ -372,7 +376,7 @@ jobs:
   - name: FULL-multi-site-regression-test
     type: runSh
     always:
-      - NOTIFY: slack-notifications
+      - NOTIFY: multi-qa-team-notifications
     steps:
      - IN: multi-site-repo
        switch: off

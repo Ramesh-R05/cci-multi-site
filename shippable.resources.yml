@@ -27,6 +27,15 @@ resources:
       recipients:
         - "#au-shippable"
 
+  # Slack connection
+  - name: multi-qa-team-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#bxm_qa_notifications"
+
+
   # Multi Github repo
   - name: multi-site-repo
     type: gitRepo
