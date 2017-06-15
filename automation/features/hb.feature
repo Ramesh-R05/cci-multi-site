@@ -32,13 +32,13 @@ Feature: Smoke test for HB
         Given I switch to "mobile" view
         When I am currently viewing "404"
         * I should see the error title as "WHOOPS! LOOKS LIKE WE DON'T HAVE THE PAGE YOU’RE LOOKING FOR."
-        * I should see the site header logo to open homepage and contain "gtm-navbar-harpers" class name
+        * I should see the site header logo to open homepage and contain "gtm-navbar-harper" class name
 #        * I should see the Big Banner logo to open homepage and contain "gtm-navbar-harpers" class name
 
     Scenario: I can see the site header logo in the desktop style
         Given I switch to "desktop" view
         When I am currently viewing the homepage
-        * I should see the site header logo to open homepage and contain "gtm-navbar-harpers" class name
+        * I should see the site header logo to open homepage and contain "gtm-navbar-harper" class name
 
     Scenario: I can see the GTM container with id "GTM-NX2PKZ"
         When I am currently viewing the homepage
