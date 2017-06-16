@@ -38,7 +38,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the site header logo clickable to open homepage$/, function () {
-        browser.waitForExist(site_nav.siteNavHeaderLogo, 3000);
+        browser.waitForExist(site_nav.siteNavHeader, 3000);
         //Validate the logo is clickable to open homepage
         var headerLogoLink = browser.getAttribute(site_nav.smallIconlink,'href');
         expect(headerLogoLink).toEqual(site_domain);

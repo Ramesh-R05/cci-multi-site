@@ -45,14 +45,6 @@ module.exports = function() {
         expect(browser.isVisible(gallery.galleryLongTitle)).toBe(false);
     });
 
-    this.Given(/^I should see the long title on the gallery header on the next gallery slide$/, function() {
-        expect(browser.isVisible(gallery.galleryLongTitle)).toBe(true);
-    });
-
-    this.Given(/^I should not see the long title on the gallery header on the next gallery slide$/, function() {
-        expect(browser.isVisible(gallery.galleryLongTitle)).toBe(false);
-    });
-
     this.Given(/^I can see the gallery description of the gallery containing "([^"]*)"$/, function(description) {
         var galleryDescription = browser.getText(gallery.galleryDescription);
         expect(galleryDescription).toContain(description);
@@ -73,22 +65,6 @@ module.exports = function() {
         expect(browser.getText(gallery.currentImgNum)).toMatch(imgNum);
     });
 
-    this.When(/^I can see the left arrow on the gallery$/, function() {
-        expect(browser.isVisible(gallery.galleryPrevButton)).toBe(true);
-    });
-
-    this.When(/^I can click the left arrow to go back to a previous image on the gallery$/, function() {
-        var currentImgNum = browser.getText(gallery.currentImgNum);
-        browser.click(gallery.galleryPrevButton);
-        var prevImgNum = browser.getText(gallery.currentImgNum);
-
-        //Find a valid value in array
-        var currentImgNum = findValue(currentImgNum[0], currentImgNum[1]);
-        var prevImgNum = findValue(prevImgNum[0], prevImgNum[1]);
-
-        //Compare the value
-        expect(prevImgNum).toBeLessThan(currentImgNum);
-    });
 
     this.When(/^I see the video ID "([^"]*)" on the gallery$/, function(videoId) {
         browser.waitForVisible(gallery.videoWrapper, 3000);
@@ -103,56 +79,6 @@ module.exports = function() {
         //verify video is playing the Ad
     });
 
-    this.When(/^I see the last image on the gallery$/, function() {
-        //Find the current slide no and the last slide no.
-        var current_slide = browser.getText(gallery.currentImgNum);
-        var last_slide = browser.getText(gallery.lastImgNum);
-
-        //Find a valid value in array
-        var current_slide = findValue(current_slide[0], current_slide[1]);
-        var last_slide = findValue(last_slide[0], last_slide[1]);
-
-        //Click next until it is the last slide
-        while (current_slide != last_slide) {
-            wait(500);
-            browser.waitForEnabled(gallery.galleryNextButton, 2000);
-            browser.click(gallery.galleryNextButton);
-            //To handle ad between slides
-            if (browser.isExisting(gallery.currentImgNum) == true) {
-                var current_slide = browser.getText(gallery.currentImgNum);
-                var current_slide = findValue(current_slide[0], current_slide[1]);
-            }
-        }
-    });
-
-    this.When(/^I can click the right arrow on the gallery on the last slide$/, function() {
-        browser.waitForVisible(gallery.galleryNextButton, 2000);
-        browser.click(gallery.galleryNextButton);
-    });
-
-    this.When(/^I see the next gallery slide on the gallery as "([^"]*)"$/, function(nextGal) {
-        browser.waitForVisible(gallery.nextGallery, 5000);
-        var nextGallery = browser.getText(gallery.nextGallery);
-        expect(nextGallery).toEqual(nextGal);
-    });
-
-    this.When(/^I can see the next gallery name "([^"]*)"$/, function(name) {
-        expect(browser.getText(gallery.nextGalName)).toMatch(name);
-    });
-
-    this.When(/^I can see the right arrow on the next gallery slide$/, function() {
-        browser.isVisible(gallery.galleryLastSlide);
-    });
-
-    this.When(/^I see the next gallery slide on the gallery on mobile$/, function() {
-        browser.scroll(0, 1500);
-        expect(browser.isVisible(gallery.moreGalleries)).toBe(true);
-    });
-
-    this.When(/^I can see the next gallery name on mobile "([^"]*)"$/, function(teaserName) {
-        expect(browser.getText(gallery.nextGalTeaser)).toMatch(teaserName);
-    });
-
     this.When(/^I can slide to the first MREC ad$/, function() {
         //Go to the 4th slide which is the first MREC ad
         for (var i = 0; i < 3; i++) {
@@ -160,24 +86,6 @@ module.exports = function() {
             browser.waitForEnabled(gallery.galleryNextButton, 2000);
             browser.click(gallery.galleryNextButton);
         }
-    });
-
-    this.When(/^I cannot go to the next slide when the ad is not loaded$/, function() {
-        //Verify that the arrows have opacity style
-        var style_next = browser.getAttribute(gallery.galleryNextButton, 'style');
-        var style_prev = browser.getAttribute(gallery.galleryPrevButton, 'style');
-        expect(style_next).toContain("opacity");
-        expect(style_prev).toContain("opacity");
-    });
-
-    this.When(/^I can go to the next slide when the ad is loaded$/, function() {
-        //Wait to ensure it passes the timer to show the arrows.
-        wait(4500);
-        //Verify that the arrows don't have opacity style
-        var style_next = browser.getAttribute(gallery.galleryNextButton, 'style');
-        var style_prev = browser.getAttribute(gallery.galleryPrevButton, 'style');
-        expect(style_next).not.toContain("opacity");
-        expect(style_prev).not.toContain("opacity");
     });
 
     this.When(/^I can see the facebook share button on gallery page$/, function () {

@@ -21,7 +21,7 @@ var gallery_widget = {
     authorText: '.article-header-author__name',
     //Locators identified by Xpath
     imgCount: "//*[@id='app']/div/section/section[1]/section/footer/div[1]/span",
-    imgCountMobile: "//*[@id='app']/div/section/header/div/span",
+    imgCountMobile: "//*[@id='app']/div/section/header/div/span"
 
 };
 module.exports = gallery_widget;

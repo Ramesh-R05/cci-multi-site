@@ -37,7 +37,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the top leaderboard ad under navigation$/, function () {
-        expect(browser.isVisible(wn_ads.ad_TopLeaderboard)).toBe(true);
+        expect(browser.waitForVisible(wn_ads.ad_TopLeaderboard,5000)).toBe(true);
     });
 
     this.Then(/^I should see the middle leaderboard ad under the top news feed$/, function () {
