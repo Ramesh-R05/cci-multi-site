@@ -7,23 +7,31 @@ env:
   global:
     - XUNIT_FILE=$SHIPPABLE_BUILD_DIR/shippable/testresults/result.xml # location to store test results
     - BRANCH_NAME="$(sed 's/\//-/g' <<< $BRANCH).$BUILD_NUMBER" # need to replace '/' in the branch name with '-'
+    - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com
   matrix:
-    - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/elle-site
-      APP_KEY=elle-site
-    - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/hb-site
-      APP_KEY=hb-site
-    - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/cosmo-site
-      APP_KEY=cosmo-site
+    - APP_KEY=cosmo-site
+    - APP_KEY=elle-site
+    - APP_KEY=hb-site
+
+# Remove the comment -> # from the APP_KEY you want to exclude from running CI during development
+matrix:
+    exclude:
+#    - env: APP_KEY=cosmo-site
+#    - env: APP_KEY=elle-site
+#    - env: APP_KEY=hb-site
+
 build:
   cache: true
   cache_dir_list:
     - $SHIPPABLE_BUILD_DIR/src/node_modules
   ci:
+    - export IMAGE=$IMAGE/$APP_KEY
+    - echo $IMAGE
     - npm set registry http://npm.digital.bauer-media.net.au
     - node --version
     - mkdir -p ./shippable/testresults ./shippable/codecoverage ./shippable/buildoutput
     - cd src
-    - npm install
+    - yarn
     - echo "module.exports={buildNumber:'$BRANCH_NAME'};" > version.js
     - cat version.js
     - npm run test:ci
@@ -35,6 +43,8 @@ build:
     - if [ "$BRANCH" == "master" ] && [ $IS_PULL_REQUEST == false ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/$APP_KEY-img-master.env; fi
     - if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/$APP_KEY-img-branch.env; fi
   push:
+    - export IMAGE=$IMAGE/$APP_KEY
+    - echo $IMAGE
     - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:$BRANCH_NAME; fi
     - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:latest; fi
     - if [ $IS_PULL_REQUEST == false ]; then docker rmi $IMAGE:$BRANCH_NAME; fi # Clear all docker images after completion
