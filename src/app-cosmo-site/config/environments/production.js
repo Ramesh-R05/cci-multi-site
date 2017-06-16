@@ -19,8 +19,8 @@ export default {
     },
     services: {
         remote: {
-            entity: 'http://live.entities.services.bauer-media.internal/v1/cosmo',
-            listings: 'http://live.listings.services.bauer-media.internal/v1/cosmo',
+            entity: 'http://services.prod.bxm.internal/entity//v1/cosmo',
+            listings: 'http://services.prod.bxm.internal/listing/v1/cosmo',
             module: 'http://live.modules.services.bauer-media.internal/v1/cosmo',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/cosmo',
             tag: 'http://live.tags.services.bauer-media.internal/v1/cosmo'

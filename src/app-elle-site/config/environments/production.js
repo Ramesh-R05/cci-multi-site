@@ -18,7 +18,7 @@ export default {
     },
     services: {
         remote: {
-            entity: 'http://live.entities.services.bauer-media.internal/v1/elle',
+            entity: 'http://services.prod.bxm.internal/entity/v1/elle',
             listings: 'http://services.prod.bxm.internal/listing/v1/elle',
             module: 'http://live.modules.services.bauer-media.internal/v1/elle',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/elle',
