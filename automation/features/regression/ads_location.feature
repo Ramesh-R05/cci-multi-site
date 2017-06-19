@@ -73,32 +73,31 @@ Feature: Ads Location
             |ad                 |class-name    |
             |Load More MREC RHS |brand_rhs_3   |
 
-#-----As currently we haven't yet implemented vertical gallery on multi site, we may do auto test for this later
-#    Scenario: Ads slot elements should have proper class name on gallery page in desktop viewd
-#        Given I switch to "desktop" view
-#        When I am currently viewing "fashion/automation-test-gallery-13302"
-#        Then I should see each outside ad slot element containing proper class name
-#            |ad                 |class-name        |
-#            |Top Leaderboard    |gallery_outside_1 |
-#            |Teads              |gallery_outside_2 |
-#            |Bottom Leaderboard |gallery_outside_4 |
-#        And I should see each body ad slot element containing proper class name
-#            |ad                 |class-name     |
-#            |MREC After Slide 3 |gallery_body_1 |
-#            |MREC After Slide 7 |gallery_body_2 |
-#        And I should see each RHS ad slot element containing proper class name
-#            |ad              |class-name     |
-#            |MREC RHS 1      |gallery_rhs_6  |
-#            |MREC RHS 2      |gallery_rhs_7  |
-#            |MREC RHS 3      |gallery_rhs_8  |
-#            |MREC RHS 4      |gallery_rhs_9  |
-#            |Sticky MREC RHS |gallery_rhs_10 |
-#        And I should see each additional ad slot element containing proper class name
-#            |ad                 |class-name          |
-#            |Out Of Page        |gallery_outofpage_1 |
-#            |Left Side Panel    |gallery_panel_1     |
-#            |Right Side Panel   |gallery_panel_2     |
-#            |Wallpaper          |gallery_wallpaper_1 |
+    Scenario: Ads slot elements should have proper class name on gallery page in desktop view
+        Given I switch to "desktop" view
+        When I am currently viewing "fashion/automation-test-gallery-13302"
+        Then I should see each outside ad slot element containing proper class name
+            |ad                 |class-name        |
+            |Top Leaderboard    |gallery_outside_1 |
+            |Teads              |gallery_outside_2 |
+            |Bottom Leaderboard |gallery_outside_4 |
+        And I should see each body ad slot element containing proper class name
+            |ad                 |class-name     |
+            |MREC After Slide 3 |gallery_body_1 |
+            |MREC After Slide 7 |gallery_body_2 |
+        And I should see each RHS ad slot element containing proper class name
+            |ad              |class-name      |
+            |MREC RHS 1      |gallery_rhs_10  |
+            |MREC RHS 2      |gallery_rhs_11  |
+            |MREC RHS 3      |gallery_rhs_12  |
+            |MREC RHS 4      |gallery_rhs_13  |
+            |Sticky MREC RHS |gallery_rhs_14  |
+        And I should see each additional ad slot element containing proper class name
+            |ad                 |class-name          |
+            |Out Of Page        |gallery_outofpage_1 |
+            |Left Side Panel    |gallery_panel_1     |
+            |Right Side Panel   |gallery_panel_2     |
+            |Wallpaper          |gallery_wallpaper_1 |
 
     Scenario: Ads slot elements should have proper class name on article page in desktop view
         Given I switch to "desktop" view
@@ -114,6 +113,7 @@ Feature: Ads Location
             |MREC RHS 2      |article_rhs_5  |
             |MREC RHS 3      |article_rhs_7  |
             |MREC RHS 4      |article_rhs_9  |
+            |Sticky MREC RHS |article_rhs_10 |
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name          |
             |Out Of Page        |article_outofpage_1 |
@@ -179,23 +179,22 @@ Feature: Ads Location
             |ad                            |class-name    |
             |Load More MREC In Bottom Feed |brand_body_7  |
 
-#-----As currently we haven't yet implemented vertical gallery on multi site, we may do auto test for this later
-#    Scenario: Ads slot elements should have proper class name on gallery page in mobile view
-#        Given I switch to "mobile" view
-#        When I am currently viewing "fashion/red-carpet/automation-test-gallery-13302"
-#        Then I should see each outside ad slot element containing proper class name
-#            |ad                 |class-name        |
-#            |Top Leaderboard    |gallery_outside_1 |
-#            |Teads              |gallery_outside_2 |
-#            |Bottom Leaderboard |gallery_outside_3 |
-#        And I should see each body ad slot element containing proper class name
-#            |ad                         |class-name     |
-#            |MREC After Slide 3         |gallery_body_1 |
-#            |MREC After Slide 7         |gallery_body_2 |
-#            |MREC Before Recommendation |gallery_body_3 |
-#        And I should see each additional ad slot element containing proper class name
-#            |ad                 |class-name          |
-#            |Out Of Page        |gallery_outofpage_1 |
+    Scenario: Ads slot elements should have proper class name on gallery page in mobile view
+        Given I switch to "mobile" view
+        When I am currently viewing "fashion/automation-test-gallery-13302"
+        Then I should see each outside ad slot element containing proper class name
+            |ad                 |class-name        |
+            |Top Leaderboard    |gallery_outside_1 |
+            |Teads              |gallery_outside_2 |
+            |Bottom Leaderboard |gallery_outside_3 |
+        And I should see each body ad slot element containing proper class name
+            |ad                         |class-name     |
+            |MREC After Slide 3         |gallery_body_1 |
+            |MREC After Slide 7         |gallery_body_2 |
+            |MREC Before Recommendation |gallery_body_3 |
+        And I should see each additional ad slot element containing proper class name
+            |ad                 |class-name          |
+            |Out Of Page        |gallery_outofpage_1 |
 
     Scenario: Ads slot elements should have proper class name on article page in mobile view
         Given I switch to "mobile" view
