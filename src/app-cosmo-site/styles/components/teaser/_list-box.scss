@@ -86,7 +86,7 @@
             font-family: $font-family-sans-serif-primary;
 
             @media #{$small-only} {
-                margin-top: -4px;
+                margin-top: -8px;
                 padding-left: $column-gutter/4;
             }
 
@@ -108,22 +108,25 @@
         &__section-tag {
             margin-top: 0;
             margin-bottom: 7px;
-            font-size: 10px;
 
             @media #{$medium-up} {
                 margin-top: 2px;
+            }
+
+            span {
+                margin-bottom: 10px;
             }
         }
 
         &__title {
             @include type-bottom-teaser-title;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 18px;
 
             @media #{$medium-up} {
                 margin-bottom: 10px;
-                line-height: 27px;
-                font-size: 19px;
+                line-height: 26px;
+                font-size: 24px;
             }
 
             @media #{$xlarge-only} {
@@ -225,7 +228,7 @@
                 margin-top: 0;
                 margin-bottom: 8px;
                 line-height: 22px;
-                font-size: 14px;
+                font-size: 16px;
             }
 
             @media #{$xlarge-only} {

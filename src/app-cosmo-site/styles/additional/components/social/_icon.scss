@@ -9,23 +9,23 @@
         fill: $color-primary;
     }
 
-    &--facebook:hover svg path:first-child {
+    &--facebook svg path:first-child {
         fill: $facebook-blue;
     }
 
-    &--twitter:hover svg path:first-child {
+    &--twitter svg path:first-child {
         fill: $twitter-blue;
     }
 
-    &--instagram:hover svg path:first-child {
+    &--instagram svg path:first-child {
         fill: $instagram-pink;
     }
 
-    &--pinterest:hover svg path:first-child {
+    &--pinterest svg path:first-child {
         fill: $pinterest-red;
     }
 
-    &--youtube:hover svg path:first-child {
+    &--youtube svg path:first-child {
         fill: $youtube-red;
     }
 }

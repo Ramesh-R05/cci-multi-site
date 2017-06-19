@@ -4,10 +4,10 @@
     .teaser__title {
         text-transform: none;
         margin-bottom: 6px;
-        font: 400 20px/27px $font-family-sans-serif-primary;
+        font: 400 24px/27px $font-family-sans-serif-primary;
 
         @media #{$medium-up} {
-            font: 400 22px/28px $font-family-sans-serif-primary;
+            font: 400 24px/26px $font-family-sans-serif-primary;
         }
 
         a {
@@ -69,8 +69,8 @@
         }
 
         .teaser__summary {
-            line-height: 22px;
-            font-size: 14px;
+            line-height: 20px;
+            font-size: 16px;
         }
     }
 
@@ -90,12 +90,10 @@
     }
 
     .teaser__section-tag {
-        padding: 0 $column-gutter/2;
-        margin-top: 16px;
+        margin: 16px $column-gutter/2 0;
 
         @media #{$medium-up} {
-            padding: 0;
-            margin-bottom: 10px;
+            margin: 16px 0 10px;
         }
 
 
@@ -137,14 +135,16 @@
                 margin-bottom: 4px;
 
                 span {
-                    font-size: 11px;
                     line-height: 20px;
-
-                    @media #{$medium-up} {
-                        font-size: 10px;
-                    }
                 }
 
+            }
+
+            &__image {
+                img:hover {
+                    outline: 5px solid $color-yellow;
+                    outline-offset: -5px;
+                }
             }
 
             &__title {
@@ -156,12 +156,15 @@
                 display: block;
 
                 a {
-                    color: $color-primary;
+                    color: $color-white;
+                    background-color: $color-primary;
+                    box-shadow: 0.3em 0 0 $color-primary,-0.2em 0 0 $color-primary;
+                    padding-bottom: 1px;
                     font-weight: 400;
                     font-size: 13px;
                     letter-spacing: 0.4px;
                     line-height: 20px;
-                    text-transform: capitalize;
+                    text-transform: uppercase;
                 }
             }
 
@@ -185,7 +188,7 @@
         &:hover {
             .teaser__title {
                 a {
-                    color: #333;
+                    color: $color-white;
                 }
             }
         }
@@ -242,7 +245,7 @@
     margin: 30px 15px 5px 15px;
 
     @media #{$medium-up} {
-        border-width: 1px 4px 4px 1px;
+        border-width: 8px;
         border-style: solid;
         border-color: $color-primary;
         padding: 0 30px 10px 30px;
@@ -349,7 +352,7 @@
 
             a {
                 color: #000;
-                text-transform: capitalize;
+                text-transform: uppercase;
             }
         }
 
@@ -370,5 +373,3 @@
         }
     }
 }
-
-

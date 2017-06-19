@@ -1,17 +1,72 @@
-// The demo font that we made the decision on was TagusNormal-Light.
-// After purchasing this font, the supplied font files are terrible.
-// Have reverted back to using the demo OTF font, which looks a whole lot better than the other ones.
 @font-face {
-    font-family: 'TagusNormal-Light';
-    src: url('../../assets/fonts/TagusNormal-Light-Original.otf');
-    //src: url('../../assets/fonts/TagusNormal-Light.otf');
-    //src: url('../../assets/fonts/TagusNormal-Light.eot');                                       /* IE9 Compat Modes */
-    //src: url('../../assets/fonts/TagusNormal-Light.eot?#iefix') format('embedded-opentype'),    /* IE6-IE8 */
-    ////url('../../assets/fonts/TagusNormal-Light.woff2') format('woff2'),                        /* Super Modern Browsers */
-    //url('../../assets/fonts/TagusNormal-Light.woff') format('woff'),                            /* Pretty Modern Browsers */
-    //url('../../assets/fonts/TagusNormal-Light.ttf')  format('truetype'),                        /* Safari, Android, iOS */
-    //url('../../assets/fonts/TagusNormal-Light.svg#svgFontName') format('svg');                  /* Legacy iOS */
+    font-family: 'Baskerville';
+    src: url('../../assets/fonts/Baskerville-Regular-webfont.eot');
+    src: url('../../assets/fonts/Baskerville-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/Baskerville-Regular-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/Baskerville-Regular-webfont.woff') format('woff'),
+    url('../../assets/fonts/Baskerville-Regular-webfont.ttf') format('truetype'),
+    url('../../assets/fonts/Baskerville-Regular-webfont.svg#baskerville_fsregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Baskerville';
+    src: url('../../assets/fonts/Baskerville-Bold-webfont.eot');
+    src: url('../../assets/fonts/Baskerville-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/Baskerville-Bold-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/Baskerville-Bold-webfont.woff') format('woff'),
+    url('../../assets/fonts/Baskerville-Bold-webfont.ttf') format('truetype'),
+    url('../../assets/fonts/Baskerville-Bold-webfont.svg#baskerville_fsbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Baskerville';
+    src: url('../../assets/fonts/Baskerville-Italic-webfont.eot');
+    src: url('../../assets/fonts/Baskerville-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/Baskerville-Italic-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/Baskerville-Italic-webfont.woff') format('woff'),
+    url('../../assets/fonts/Baskerville-Italic-webfont.ttf') format('truetype'),
+    url('../../assets/fonts/Baskerville-Italic-webfont.svg#baskerville_fsitalic') format('svg');
     font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Amsi Pro Narrow';
+    src: url('../../assets/fonts/amsipronarw-bold-webfont.eot');
+    src: url('../../assets/fonts/amsipronarw-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/amsipronarw-bold-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/amsipronarw-bold-webfont.woff') format('woff'),
+    url('../../assets/fonts/amsipronarw-bold-webfont.ttf') format('truetype'),
+    url('../../assets/fonts/amsipronarw-bold-webfont.svg#amsi_pro_narwbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amsi Pro Narrow';
+    src: url('../../assets/fonts/amsipronarw-black-webfont.eot');
+    src: url('../../assets/fonts/amsipronarw-black-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/amsipronarw-black-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/amsipronarw-black-webfont.woff') format('woff'),
+    url('../../assets/fonts/amsipronarw-black-webfont.ttf') format('truetype'),
+    url('../../assets/fonts/amsipronarw-black-webfont.svg#amsi_pro_narwblack') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amsi Pro Narrow';
+    src: url('../../assets/fonts/amsipronarw-thin-webfont.eot');
+    src: url('../../assets/fonts/amsipronarw-thin-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../assets/fonts/amsipronarw-thin-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/amsipronarw-thin-webfont.woff') format('woff'),
+    url('../../assets/fonts/amsipronarw-thin-webfont.ttf') format('truetype'),
+    url('../../assets/fonts/amsipronarw-thin-webfont.svg#amsipronarw-thinuploaded_file') format('svg');
+    font-weight: 100;
     font-style: normal;
 }
 
@@ -45,9 +100,9 @@
     content: '\e900';
 }
 
-$font-family-sans-serif-primary: 'TagusNormal-Light', sans-serif;
+$font-family-sans-serif-primary: 'Amsi Pro Narrow', sans-serif;
 $small-text-font: $font-family-sans-serif-primary;
-$font-family-serif-primary: 'Georgia', serif;
+$font-family-serif-primary: 'Baskerville', serif;
 
 // ---------------------------------------------------- base elements
 
@@ -184,7 +239,7 @@ a {
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
     color: $color-black;
-    font: 20px / 26px $font-family-sans-serif-primary;
+    font: 24px / 26px $font-family-sans-serif-primary;
     font-weight: bold;
     letter-spacing: .01rem;
     text-transform: none;
@@ -201,7 +256,7 @@ a {
 
 @mixin type-teaser-summary {
     color: $color-grey;
-    font: 400 14px / 20px $font-family-serif-primary;
+    font: 400 16px / 20px $font-family-serif-primary;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
 }
@@ -349,7 +404,7 @@ a {
         position: relative;
 
         &:after {
-            border-bottom: solid 2px $color-aqua;
+            border-bottom: solid 2px $color-primary;
             content: '';
             display: block;
             position: absolute;
@@ -367,10 +422,6 @@ a {
 
     @media #{$medium-up} {
         font-size: 70px;
-    }
-
-    @media #{$xlarge-up} {
-        font-size: 80px;
     }
 }
 
@@ -451,7 +502,7 @@ a {
 // Top half teasers
 @mixin type-top-teaser-title {
     color: $color-black;
-    font: 20px / 26px $font-family-sans-serif-primary;
+    font: 24px / 26px $font-family-sans-serif-primary;
     text-transform: uppercase;
 
     @media #{$medium-up} {
@@ -510,15 +561,20 @@ a {
 }
 
 @mixin type-teaser-tag {
+    box-shadow: 0 5px 0 0 $color-yellow inset;
     text-decoration: none;
-    font-size: 11px;
-    display: block;
+    font-size: 7px;
 
     a, span {
-        color: $color-accent;
-        font: 600 11px / 12px $font-family-sans-serif-primary;
+        color: $color-black;
+        font: 12px / 12px $font-family-sans-serif-primary;
         letter-spacing: .1em;
         text-transform: uppercase;
+    }
+
+    span {
+        display: inline-block;
+        margin-bottom: 4px;
     }
 
     &:hover {

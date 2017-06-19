@@ -218,7 +218,6 @@ $hero-teaser-line-height: 25px;
 
     .teaser__body {
         position: relative;
-        margin-top: -3px;
         margin-left: 0;
         padding: 0 $column-gutter/2;
 
@@ -261,8 +260,8 @@ $hero-teaser-line-height: 25px;
             padding: 0;
             display: block;
             margin-bottom: 4px;
-            font-size: 30px;
-            line-height: 35px;
+            font-size: 34px;
+            line-height: 36px;
         }
 
         a {
@@ -282,6 +281,11 @@ $hero-teaser-line-height: 25px;
         @media #{$medium-up} {
             margin-bottom: 9px;
         }
+
+        span {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     }
 
     .teaser__summary {
@@ -297,7 +301,7 @@ $hero-teaser-line-height: 25px;
         @media #{$large-up} {
             margin-top: 12px;
             margin-bottom: 26px;
-            font-size: 14px;
+            font-size: 16px;
             line-height: 22px;
         }
     }
