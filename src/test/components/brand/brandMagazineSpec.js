@@ -6,9 +6,11 @@ noCallThru();
 
 const ResponsiveImageStub = Context.createStubComponent();
 const SocialContainerStub = Context.createStubComponent();
+const brandNewsletterStub = Context.createStubComponent();
 const BrandMagazine = proxyquire('../../../app/components/brand/brandMagazine', {
     '@bxm/ui/lib/common/ResponsiveImage': ResponsiveImageStub,
-    '../social/block': SocialContainerStub
+    '../social/block': SocialContainerStub,
+    './brandNewsletter': brandNewsletterStub
 }).default;
 
 const magImageUrlStub = 'http://stubbedimages.biz/content.jpg';

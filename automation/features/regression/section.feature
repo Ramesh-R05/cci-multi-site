@@ -3,6 +3,23 @@ Feature: Section Landing page
     As a user
     I should be able to see section landing page which has the same layout as homepage
 
+    @BXMA-502
+    Scenario Outline: Verify the sign-up URL on section landing page
+        Given I switch to "<device>" view
+        Given I am currently viewing "fashion"
+        Then I should see the sign up button containing "http://www.elle.com.au/elle-newsletter" url and "gtm-subs-homepage" gtm in "<device>" view
+    @high
+        Examples:
+            | device            |
+            | desktop           |
+            | mobile            |
+    @low
+        Examples:
+            | device            |
+            | tablet landscape  |
+            | tablet portrait   |
+
+
     @hero @BXMA-34
     Scenario Outline: Verify the hero teaser element is functional correctly in "<device>" view
         Given I am currently viewing "fashion"

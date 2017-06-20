@@ -79,6 +79,7 @@ export default {
             pinterest: 'https://au.pinterest.com/elleaus',
             youtube: 'https://www.youtube.com/elleaus'
         },
+        newsletterUrl: '//www.elle.com.au/elle-newsletter',
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: 'subscribe-magazine',
         imageSizes: {

@@ -260,4 +260,29 @@ module.exports = function(){
 
     });
 
+    this.Then(/^I should see the sign up button containing "([^"]*)" url and "([^"]*)" gtm in "([^"]*)" view$/, function (url, gtm, device) {
+        var signUpBtn, signUpBtnLink, signUpBtnClass;
+
+        switch(device) {
+            case 'mobile':
+            case 'tablet portrait':
+                signUpBtn = home.newsletterSignUpBtnMobile;
+                signUpBtnLink = browser.getAttribute(signUpBtn, 'href');
+                signUpBtnClass = browser.getAttribute(signUpBtn, 'class');
+                break;
+            case 'desktop':
+            case 'tablet landscape':
+                signUpBtn = home.newsletterSignUpBtnDesktop;
+                signUpBtnLink = browser.getAttribute(signUpBtn, 'href');
+                signUpBtnClass = browser.getAttribute(signUpBtn, 'class');
+                break;
+        }
+
+        browser.moveToObject(signUpBtn);
+        expect(browser.isVisible(signUpBtn)).toEqual(true);
+        expect(signUpBtnLink).toEqual(url);
+        expect(signUpBtnClass).toContain(gtm);
+    });
+
+
 };

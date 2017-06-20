@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 import ResponsiveImage from '@bxm/ui/lib/common/ResponsiveImage';
 import SocialContainer from '../social/block';
+import BrandNewsletter from './brandNewsletter';
 import get from 'lodash/object/get';
 import { connectToStores } from '@bxm/flux';
 
@@ -65,7 +66,8 @@ class BrandMagazine extends Component {
                         </a>
                     }
                 </div>
-                <div className="page__get-social-container">
+                <BrandNewsletter />
+                <div className="page__get-social-container  columns medium-6 large-12">
                     <SocialContainer socialUrls={socialLinks} />
                 </div>
             </div>
