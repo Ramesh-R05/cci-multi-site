@@ -73,14 +73,14 @@ jobs:
   - name: multi-site-test-deploy-master
     type: deploy
     steps:
-      - IN: hb-site-man-master
+      - IN: elle-site-man-master
         switch: on
       - IN: multi-env-sit-ecs
       - IN: multi-site-params-test
       - IN: multi-site-alb-test
         applyTo:
-          - manifest: hb-site-man-master
-            image: hb-site-img-master
+          - manifest: elle-site-man-master
+            image: elle-site-img-master
             port: 3001
       - TASK: managed
         deployMethod: replace
