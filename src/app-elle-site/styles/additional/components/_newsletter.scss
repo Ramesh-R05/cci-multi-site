@@ -21,7 +21,7 @@
         text-decoration: none;
         background: $color-accent;
 
-        @media #{medium-up} {
+        @media #{$large-up} {
             width: 151px;
             margin: 20px 6px 20px 0;
         }
