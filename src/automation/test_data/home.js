@@ -31,17 +31,16 @@ export default {
     "theme": {
         "id": "NOW-32655",
         "url": "/modules/hometheme",
-        "themeName": "Confetti",
         "moduleName": "hometheme",
-        "themeImage": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Now/2017/02/08/32655/recording-(3).gif",
-        "themeColour": "#31c7ce",
-        "themeAlignment": "center",
-        "pageDateCreated": "2017-02-07T01:27:43.00Z",
-        "themeTextColour": "#ffffff",
+        "pageDateCreated": "2017-05-10T04:29:42.00Z",
+        "headerLogoAlignment": "Left",
         "moduleManualContent": {
             "totalCount": 0,
             "data": []
-        }
+        },
+        "headerLargeBackground": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2017/06/19/13035/ELLE_Fiat_Masthead_Animated_Desktop.gif",
+        "headerSmallBackground": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2017/06/19/13035/ELLE_Fiat_Masthead_Animated_Small.gif",
+        "headerMediumBackground": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2017/06/19/13035/ELLE_Fiat_Masthead_Animated_Medium.gif"
     },
     magCover: {
         moduleImageUrl: 'http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/17/16588/0018975_elle-australia-magazine-subscription.png',

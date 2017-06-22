@@ -65,7 +65,8 @@ export default class Section extends Component {
         const firstTeaserList = teasers.slice(1, 7);
         const keyword = (nodeType === 'TagSection' && title) ? [title] : [];
         const pageLocation = Ad.pos.outside;
-        const brand = this.context.config.product;
+        const { config } = this.context;
+        const brand = config.product;
         const headerClassName = '';
         const pageTitle = (
             <h1 className="page-title">
@@ -75,13 +76,16 @@ export default class Section extends Component {
         );
         const polarLabels = this.context.config.polar.details;
 
+        const themeEnabled = !!theme && !!theme.headerSmallBackground && !!theme.headerMediumBackground && !!theme.headerLargeBackground;
+
         return (
             <Page
               currentUrl={currentUrl}
-              headerExpanded={false}
+              headerExpanded={config.features.headerExpanded && themeEnabled}
               pageTitle={pageTitle}
+              className="page--section"
               headerClassName={headerClassName}
-              theme={theme}
+              theme={themeEnabled ? theme : {}}
             >
                 <div className="section-page">
                     <div className="container">

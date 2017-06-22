@@ -33,5 +33,8 @@ var homepage_widget = {
     rhsSocialLink: '.page__social-wrapper .social-link a',
     newsletterSignUpBtnDesktop: '.page__social-wrapper .newsletter-subscribe__button a',
     newsletterSignUpBtnMobile: '.hero-wrapper .newsletter-subscribe__button a',
+    customMastHead: '.header .header-banner',
+    customMastHeadMobile: '.header-wrapper .header.header--expanded'
+
 };
 module.exports = homepage_widget;

@@ -21,6 +21,16 @@ const Document = proxyquire('../../app/containers/document', {
     '../components/article/footer': FooterStub
 }).default;
 
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        features: {
+            headerExpanded: true
+        }
+    }
+};
+
 describe('Document Component', () => {
     const headerPinPoints = {expanded: {}};
     const navItems = [];
@@ -38,7 +48,7 @@ describe('Document Component', () => {
         let reactModule;
 
         beforeEach(() => {
-            reactModule = Context.mountComponent(Document, {headerPinPoints, navItems, siteName, nodeType, currentUrl: '/url'});
+            reactModule = Context.mountComponent(Document, {headerPinPoints, navItems, siteName, nodeType, currentUrl: '/url'}, [contextConfigStub]);
         });
 
         it(`should render the Article Component passing down relevant props`, () => {
@@ -85,7 +95,7 @@ describe('Document Component', () => {
         let reactModule;
 
         before(() => {
-            reactModule = Context.mountComponent(Document, {headerPinPoints, navItems, siteName, nodeType});
+            reactModule = Context.mountComponent(Document, {headerPinPoints, navItems, siteName, nodeType}, [contextConfigStub]);
         });
 
         it(`should render the Gallery Component`, () => {

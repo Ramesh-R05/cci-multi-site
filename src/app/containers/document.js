@@ -27,6 +27,10 @@ export default class Document extends Component {
         theme: {}
     };
 
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
     static articleContentBodyConfig = {
         disableAds: true,
         inlineImage: {
@@ -57,6 +61,7 @@ export default class Document extends Component {
 
     render() {
         const { content, currentUrl, nodeType, theme } = this.props;
+        const { config } = this.context;
 
         const headerAd = {
             type: 'Ad',
@@ -74,13 +79,15 @@ export default class Document extends Component {
             pinterest: true
         };
 
+        const themeEnabled = !!theme && !!theme.headerSmallBackground && !!theme.headerMediumBackground && !!theme.headerLargeBackground;
+
         if (nodeType === 'Gallery') {
             return (
                 <Page
                   currentUrl={currentUrl}
-                  headerExpanded={false}
+                  headerExpanded={config.features.headerExpanded && themeEnabled}
                   hideFooter={false}
-                  theme={theme}
+                  theme={themeEnabled ? theme : {}}
                 >
                     <VerticalGallery
                       articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', 'Date', 'Author']}
@@ -99,9 +106,9 @@ export default class Document extends Component {
         return (
             <Page
               currentUrl={currentUrl}
-              headerExpanded={false}
+              headerExpanded={config.features.headerExpanded && themeEnabled}
               hideFooter={false}
-              theme={theme}
+              theme={themeEnabled ? theme : {}}
             >
                 <Article
                   articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}

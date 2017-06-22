@@ -59,6 +59,9 @@ const contextConfigStub = {
                 }
             }]
         },
+        features: {
+            headerExpanded: true
+        },
         polar: polarConfig.polarSetting
     }
 };

@@ -31,15 +31,15 @@ Feature: Homepage
             |3  |gtm-mustread3-homepage |
             |4  |gtm-mustread4-homepage |
 
-        @high
+    @high
         Examples:
             |device             | number |
             | mobile            | 2      |
-        @med
+    @med
         Examples:
             |device             | number |
             | desktop           | 4      |
-        @low
+    @low
         Examples:
             |device             | number |
             | tablet portrait   | 2      |
@@ -53,20 +53,20 @@ Feature: Homepage
         * I should see the main hero item containing its image and clickable to open its page
         * I should see the main hero item containing its title and clickable to open its page
         * I should see the main hero item containing source
-        @high
+    @high
         Examples:
             |device|
             |mobile|
             |desktop|
-        @low
+    @low
         Examples:
             |device|
             |tablet portrait |
             |tablet landscape|
 
 
-   @promoted @BXMA-205 @low
-   Scenario Outline: Verify the promoted module is functional correctly in "<device>" view
+    @promoted @BXMA-205 @low
+    Scenario Outline: Verify the promoted module is functional correctly in "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing the homepage
         * I should see promoted header as "WOMEN OF THE YEAR"
@@ -77,15 +77,15 @@ Feature: Homepage
             |2  |gtm-promo2-homepage |
             |3  |gtm-promo3-homepage |
             |4  |gtm-promo4-homepage |
-        @high
+    @high
         Examples:
             |device             | number |
             | mobile            | 2      |
-        @med
+    @med
         Examples:
             |device             | number |
             | desktop           | 4      |
-        @low
+    @low
         Examples:
             |device             | number |
             | tablet portrait   | 3      |
@@ -103,12 +103,12 @@ Feature: Homepage
 #       sometimes source is visible, other times date is visible.
 #       Wait until the relevant tickets have been completed to work out which item goes where
 #        * I should see each top feed item containing source and date
-        @med
+    @med
         Examples:
             |device|
             |mobile|
             |desktop|
-        @low
+    @low
         Examples:
             |device|
             |tablet portrait |
@@ -123,16 +123,39 @@ Feature: Homepage
         * I should see each bottom feed item containing its image and clickable to open its page
         * I should see each bottom feed item containing its title and clickable to open its page
 #        * I should see each bottom feed item containing source and date
-        @med
+    @med
         Examples:
             |device|
             |mobile|
             |desktop|
-        @low
+    @low
         Examples:
             |device|
             |tablet portrait |
             |tablet landscape|
+
+    @custommasthead
+    Scenario Outline: Verfiy that that the custom mastehead appear in "<device>" view
+        Given I am currently viewing the homepage
+        When I switch to "<device>" view
+        * I should see the custom masthead appearing on top of the homepage
+    @high
+        Examples:
+            |device     |
+            |desktop    |
+    @low
+        Examples:
+    |device             |
+    |tablet landscape   |
+    |tablet portrait    |
+
+    @custommastehead @high
+    Scenario: Verfiy that that the custom mastehead appear in mobile view
+        Given I am currently viewing the homepage
+        When I switch to "mobile" view
+        * I should see the custom masthead appearing on top of the homepage in mobile
+
+
 
 
 

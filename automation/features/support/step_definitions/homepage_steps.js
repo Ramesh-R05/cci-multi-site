@@ -284,5 +284,16 @@ module.exports = function(){
         expect(signUpBtnClass).toContain(gtm);
     });
 
+    this.Then(/^I should see the custom masthead appearing on top of the homepage$/, function () {
+        var customMastHead = browser.getAttribute(home.customMastHead, 'style');
+        console.log(customMastHead);
+        expect(customMastHead).toContain('background-image');
+    });
+
+    this.Then(/^I should see the custom masthead appearing on top of the homepage in mobile$/, function () {
+        var customMastHeadMobile = browser.getAttribute(home.customMastHeadMobile, 'style');
+        console.log(customMastHeadMobile);
+        expect(customMastHeadMobile).toContain('background-image');
+    });
 
 };
