@@ -65,6 +65,9 @@ var article_widget = {
     bottomSourceImg: '.article-header-source--bottom img',
     articleFacebook: '.article__footer .social-share-block .icon-facebook',
     articlePinterest: '.article__footer .social-share-block .icon-pinterest',
+    imageRevealer: '.content-body .image-revealer',
+    imageRevealerLeftImg: '.content-body .image-revealer__left img',
+    imageRevealerRightImg: '.content-body .image-revealer__right img'
 };
 
 module.exports = article_widget;
