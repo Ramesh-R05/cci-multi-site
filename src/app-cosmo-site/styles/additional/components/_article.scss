@@ -1,37 +1,41 @@
 .article {
     @include type-article-body();
+    margin-top: 20px;
 
     &__title {
-        font-family: $font-family-serif-primary;
+        font-family: $font-family-sans-serif-primary;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 26px;
+        margin-top: 10px;
+        text-transform: uppercase;
 
-        @media #{$small-only} {
-            font-size: 22px;
-            line-height: 32px;
-        }
-
-        @media #{$medium-up} {
-            line-height: 50px;
+        @media #{$large-up} {
+            font-size: 40px;
+            line-height: 44px;
         }
     }
 
     &__summary {
-        font-family: $font-family-sans-serif-primary;
+        font-family: $font-family-serif-primary;
+        font-size: 19px;
+        font-style: italic;
+        line-height: 25px;
+        margin-top: 15px;
 
-        @media #{$small-only} {
-            font-size: 16px;
-            line-height: 24px;
-        }
-
-        @media #{$medium-up} {
-            font-size: 16px;
+        @media #{$large-up} {
+            font-size: 20px;
+            line-height: 34px;
         }
     }
 
     &__date-created,
     &-header-author {
         color: $color-grey;
+        font-family: $font-family-sans-serif-primary;
         font-size: 12px;
         line-height: 20px;
+        letter-spacing: .5px;
 
         &__name {
             color: $color-accent;
@@ -40,6 +44,7 @@
 
     &-header-section {
         display: block;
+        line-height: 12px;
         margin-top: 10px;
         margin-bottom: 4px;
 
@@ -72,7 +77,7 @@
     }
 
     &__tags {
-        letter-spacing: .03em;
+        letter-spacing: .5px;
 
         .related-tags li a {
             text-decoration: none;
@@ -90,11 +95,20 @@
             .feed-item {
                 &__section-tag {
                     @include type-teaser-tag;
-                    display: block;
+                    display: inline-block;
+                    line-height: 0;
                 }
 
                 &__body-title {
+                    font-size: 15px;
+                    line-height: 18px;
                     margin-top: 0;
+                    text-transform: uppercase;
+
+                    @media #{$large-up} {
+                        font-size: 14px;
+                        line-height: 16px;
+                    }
                 }
 
             }

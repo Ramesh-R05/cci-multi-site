@@ -300,12 +300,12 @@ a {
 @mixin type-article-body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    color: $color-grey;
-    font: 400 17px / 27px $font-family-serif-primary;
+    color: $color-black;
+    font: 400 19px / 25px $font-family-serif-primary;
     letter-spacing: .01em;
 
     @media #{$medium-up} {
-        font-size: 18px;
+        font-size: 20px;
         line-height: 32px;
     }
 }

@@ -145,7 +145,8 @@ export default {
         }
     },
     outbrain: {
-        templateId: 'Cosmopolitan_2'
+        templateId: 'Cosmopolitan_2',
+        widgetId: 'AR_1',
+        scriptUrl: 'http://widgets.outbrain.com/outbrain.js'
     }
 };
-

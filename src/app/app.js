@@ -41,4 +41,3 @@ servicePlugin.registerService(listService);
 app.plug(servicePlugin);
 
 export default app;
-

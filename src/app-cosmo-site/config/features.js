@@ -35,5 +35,8 @@ export default {
         enabled: false
     },
     showTeaserBadgeLink: false,
-    headerExpanded: true
+    headerExpanded: true,
+    outbrain: {
+        enabled: true
+    },
 };

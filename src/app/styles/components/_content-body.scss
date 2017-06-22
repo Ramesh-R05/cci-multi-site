@@ -38,6 +38,11 @@
             color: #ccc;
             background-color: #222;
 
+            @media #{$small-only} {
+                margin-left: $column-gutter/2;
+                margin-right: $column-gutter/2;
+            }
+
             a {
                 color: $nl-color;
             }
