@@ -36,14 +36,14 @@ export default {
 
     error: {
         404: {
-            title: `*COUGH* I CAN'T LOAD UP, I'M SICK!`,
+            title: `*COUGH*<br>I CAN'T LOAD UP, I'M SICK!`,
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.gif',
-            returnHomeText: 'Try refreshing this page or join us back on the homepage'
+            returnHomeText: 'Try refreshing this page or join us back on the homepage!'
         },
         503: {
-            title: `*COUGH* I CAN'T LOAD UP, I'M SICK!`,
+            title: `*COUGH*<br>I CAN'T LOAD UP, I'M SICK!`,
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.gif',

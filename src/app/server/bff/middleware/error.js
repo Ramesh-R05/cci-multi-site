@@ -10,7 +10,8 @@ export default function errorMiddleware(err, req, res, next) {
 
     const errorResponse = {
         error: err,
-        footer: parseModule(get(req, 'data.footer', {}))
+        footer: parseModule(get(req, 'data.footer', {})),
+        magCover: parseModule(get(req, 'data.magcover', {}))
     };
 
     res.status(err.status).json(errorResponse);

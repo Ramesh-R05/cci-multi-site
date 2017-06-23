@@ -34,7 +34,8 @@ export default class Error extends Component {
                 <section className="error-page-container container">
                     <h1 className="page-title error-page-container__title">
                         {symbol ? <span className="page-title__symbol">{symbol}</span> : null }
-                        {title}
+                        {/* eslint-disable react/no-danger */}
+                        <span dangerouslySetInnerHTML={{ __html: title }} />
                     </h1>
                     <a href="/">
                         {content.map((item, i) => (

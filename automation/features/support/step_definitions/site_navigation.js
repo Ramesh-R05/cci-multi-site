@@ -41,7 +41,10 @@ module.exports = function() {
         browser.waitForExist(site_nav.siteNavHeader, 3000);
         //Validate the logo is clickable to open homepage
         var headerLogoLink = browser.getAttribute(site_nav.smallIconlink,'href');
-        expect(headerLogoLink).toEqual(site_domain);
+        var domain = site_domain;
+        headerLogoLink.endsWith('/') && (headerLogoLink = headerLogoLink.substr(0, headerLogoLink.length - 1));
+        domain.endsWith('/') && (domain = domain.substr(0, domain.length - 1));
+        expect(headerLogoLink).toEqual(domain);
     });
 
     this.Then(/^I should see the site navigation links and "([^"]*)" class name in "([^"]*)"$/, function (gtm, position) {
