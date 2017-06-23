@@ -89,10 +89,8 @@ module.exports = function() {
 
     //BELOW ARE STEPS FOR ARTICLE
     this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
-        browser.moveToObject(wn_ads.ad_BottomLeaderboard);
-        wait(1500);
-        browser.moveToObject(wn_ads.ad_BottomLeaderboard); //move to the object again after the images on gallery are loaded from the first move.
-        expect(browser.isVisible(wn_ads.ad_BottomLeaderboard)).toBe(true);
+          browser.moveToObject(wn_ads.ad_BottomLeaderboard);
+          expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard,5000)).toBe(true);
     });
 
     this.Then(/^I should see MREC ad between images$/, function () {

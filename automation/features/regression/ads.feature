@@ -3,12 +3,18 @@ Feature: Ad
     As a user
     I should be able to see the relevant Ads on the site
 
-    @DAW-1070 @high @must
-    Scenario: Add sticky mobile banner to bottom of the article
-        Given I switch to "mobile portrait" view
-        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        Then I can see the sticky ad when the top banner disappears from view
 
+    @DAW-1070 @BXMA-498 @high @must 
+    Scenario Outline: Add sticky mobile banner to bottom of the <page>
+        Given I switch to "mobile portrait" view
+        When I am currently viewing "<pageUrl>"
+        Then I can see the sticky ad when the top banner disappears from view
+        Examples:
+            |page              |pageUrl                                                                   | 
+            |article           |fashion/automation-test-article-with-hero-image-3663                      |
+            |gallery           |fashion/automation-test-gallery-13302                                     |
+            |section           |fashion                                                                   |
+            |homepage          |#                                                                         | 
 
 # -------- Homepage Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
     @homepage @BXMA-90 @high
@@ -50,7 +56,7 @@ Feature: Ad
         * I should see MREC ad under the hero teaser
         * I should see the middle leaderboard ad under the top news feed
         * I should see MREC ad in the bottom news feed
-        * I should not see the bottom leaderboard ad above the footer
+        * I should see the bottom leaderboard ad above the footer
 
 
 # -------- Section Page Ads on desktop and mobile are High as this are areas with Commercial Value ---------------
@@ -92,10 +98,10 @@ Feature: Ad
         * I should see MREC ad under the hero teaser
         * I should see the middle leaderboard ad under the top news feed
         * I should see MREC ad in the bottom news feed
-        * I should not see the bottom leaderboard ad above the footer
+        * I should see the bottom leaderboard ad above the footer
 
 # -------- Gallery Page Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
-    @gallery @BXMA-©32
+    @gallery @BXMA-©32 
     Scenario Outline: Ads on gallery page in the desktop view
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
@@ -136,7 +142,7 @@ Feature: Ad
 
 
 # -------- Article Page Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
-    @article @BXMA-326 @high
+    @article @BXMA-326 @high 
     Scenario Outline: Ads on article page in the desktop view
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"

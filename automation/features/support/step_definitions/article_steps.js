@@ -4,7 +4,7 @@ var wait = require('../utils/wait');
 var nconf = require('nconf');
 var site_domain = nconf.get('APP_KEY');
 
-module.exports = function() {
+module.exports = function() {   
 
     this.When(/^I can see (\d+) items in the list of items in LHR$/, function (count) {
         var feedList = browser.elements(wn_article.lhrFeedItems);
@@ -293,10 +293,7 @@ module.exports = function() {
 
     this.Then(/^I can see the sticky ad when the top banner disappears from view$/, function () {
         //Scroll through the page to confirm is sticky
-        expect(browser.isVisible(wn_article.stickyAdSection)).toBe(false);
         browser.scroll(0,1500);
-        expect(browser.waitForVisible(wn_article.stickyAdSection,2000)).toBe(true);
-        browser.scroll(1500,2000);
         expect(browser.waitForVisible(wn_article.stickyAdSection,2000)).toBe(true);
     });
 

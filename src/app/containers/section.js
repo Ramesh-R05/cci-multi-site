@@ -1,3 +1,4 @@
+
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
 import Page from './page';
@@ -11,6 +12,7 @@ import SocialContainer from '../components/social/block';
 import StickyAndDockAd from '../components/page/stickyAndDockAd';
 import BrandMagazine from '../components/brand/brandMagazine';
 import get from 'lodash/object/get';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');
@@ -77,6 +79,17 @@ export default class Section extends Component {
         const polarLabels = this.context.config.polar.details;
 
         const themeEnabled = !!theme && !!theme.headerSmallBackground && !!theme.headerMediumBackground && !!theme.headerLargeBackground;
+        
+        const adProps = {
+            className: 'ad--section-top-leaderboard',
+            displayFor: ['small', 'medium', 'large', 'xlarge'],
+            sizes: {
+                banner: 'banner',
+                leaderboard: 'leaderboard',
+                billboard: ['billboard', 'leaderboard'] },
+            pageLocation,
+            targets: keyword
+        };
 
         return (
             <Page
@@ -160,15 +173,10 @@ export default class Section extends Component {
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}
-                    { get(this.props.list, 'items[0].length') ? <Ad
-                      className="ad--section-top-leaderboard"
-                      displayFor={['medium', 'large', 'xlarge']}
-                      sizes={{
-                          banner: 'banner',
-                          leaderboard: 'leaderboard',
-                          billboard: ['billboard', 'leaderboard'] }}
-                      targets={{ keyword }}
-                      pageLocation={pageLocation}
+                    { get(this.props.list, 'items[0].length') ? <StickyAd
+                      adProps={adProps}
+                      minHeight={450}
+                      stickyAtViewPort="mediumRangeMax"
                     /> : null }
                 </div>
             </Page>

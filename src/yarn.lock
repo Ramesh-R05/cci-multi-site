@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@bxm/ad@^11.3.0":
+"@bxm/ad@^11.4.0":
   version "11.4.0"
   resolved "http://npm.digital.bauer-media.net.au/@bxm%2fad/-/ad-11.4.0.tgz#4fb9bd98ff4987c0c7047f27e2a3c732fa988893"
   dependencies:
