@@ -84,8 +84,7 @@ export default class Home extends Component {
                 banner: 'banner',
                 leaderboard: 'leaderboard',
                 billboard: ['billboard', 'leaderboard'] },
-            pageLocation: Ad.pos.outside,
-            targets: { position: 3 }
+            pageLocation
         };
 
         return (
@@ -184,7 +183,6 @@ export default class Home extends Component {
                       minHeight={450}
                       stickyAtViewPort="mediumRangeMax"
                     />
-
                 </div>
             </Page>
         );

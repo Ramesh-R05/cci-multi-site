@@ -79,7 +79,7 @@ export default class Section extends Component {
         const polarLabels = this.context.config.polar.details;
 
         const themeEnabled = !!theme && !!theme.headerSmallBackground && !!theme.headerMediumBackground && !!theme.headerLargeBackground;
-        
+
         const adProps = {
             className: 'ad--section-top-leaderboard',
             displayFor: ['small', 'medium', 'large', 'xlarge'],

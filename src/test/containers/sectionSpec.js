@@ -7,6 +7,7 @@ noCallThru();
 
 const PageStub = Context.createStubComponentWithChildren();
 const AdStub = Context.createStubComponent();
+const StickyAdStub = Context.createStubComponent();
 const HeroTeaserStub = Context.createStubComponent();
 const TeaserGridViewStub = Context.createStubComponent();
 const TeaserListViewStub = Context.createStubComponent();
@@ -15,7 +16,6 @@ const RepeatableStub = Context.createStubComponent();
 const SocialLinks = Context.createStubComponent();
 const StickyAndDockStub = Context.createStubComponent();
 const BrandTitleStub = Context.createStubComponent();
-const StickyAdStub = Context.createStubComponent();
 
 const SectionContainer = proxyquire('../../app/containers/section', {
     '@bxm/ad/lib/google/components/ad': AdStub,

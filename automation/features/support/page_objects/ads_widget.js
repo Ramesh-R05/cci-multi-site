@@ -47,6 +47,7 @@ var ads_widget = {
     ad_MrecUnderHeroImage: '.ad--beneath-hero [id^=gpt-slot-]', //mobile article
 
     //--Non-ad element
+    gallerySlide3: '.gallery__feed-item:nth-child(3)', //for 'I should see MREC ad between images'
     gallerySlide6: '.gallery__feed-item:nth-child(7)', //for 'I should see MREC ad between images'
     gallerySlide7: '.gallery__feed-item:nth-child(8)', //for 'I should see MREC ad between images'
 };
