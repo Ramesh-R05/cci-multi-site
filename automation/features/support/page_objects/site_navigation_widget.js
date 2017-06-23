@@ -5,7 +5,6 @@ var site_navigation_widget = {
     siteNavSection: "nav.header-nav__nav",
     siteNavSectionDetail: "nav.header-nav__nav a",
     siteNavActiveLink: ".header-nav__nav > a.nav-item.nav-item--active",
-    siteNavHeaderBackground: "header.header",
     siteNavHeader: ".header__sections",
     siteHamburgerDetail: "nav.mobile-menu__nav a",
     siteHamburgerActiveLink: "nav.mobile-menu__nav > a.nav-item.nav-item--active",
@@ -14,7 +13,9 @@ var site_navigation_widget = {
     bigIconlink: ".header-banner .header-banner-inner a",
     bigIcon: ".header-banner .header-banner-inner a i.icon-logo",
     smallIconlink: ".header__sections .header-logo a",
-    smallIcon: ".header__sections .header-logo a i.icon-logo"
+    smallIcon: ".header__sections .header-logo a i.icon-logo",
+    customMastHead: '.header .header-banner',
+    customMastHeadMobile: '.header-wrapper .header.header--expanded'
 };
 
 module.exports = site_navigation_widget;

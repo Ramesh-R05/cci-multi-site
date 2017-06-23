@@ -8,7 +8,6 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         Given I switch to "<device>" view
         When I am currently viewing the homepage
         Then I should see the site header banner
-        And I should see the theme nav background
         And I should see the site header logo clickable to open homepage
         And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "header"
         And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
@@ -28,7 +27,6 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         When I am currently viewing the homepage
         Then I should see the site header logo clickable to open homepage
         And I should not see the site navigation links
-        And I should see the theme nav background
         And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
 
     @med
@@ -106,3 +104,26 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         Examples:
             | device            |
             | mobile portrait   |
+
+
+    @custommasthead
+    Scenario Outline: Verify that the custom masthead appears on <page> in desktop view
+        Given I am currently viewing "<url>"
+        When I switch to "desktop" view
+        * I should see the custom masthead appearing on top of the page
+    @high
+        Examples:
+           |page          |url        |
+           |Home page     |           |
+           |Section Page  |fashion    |
+
+    @custommastehead
+    Scenario Outline: Verify that the custom masthead appears on <page> in mobile view
+        Given I am currently viewing "<url>"
+        When I switch to "mobile" view
+        * I should see the custom masthead appearing on top of the page in mobile
+    @high
+        Examples:
+            |Page          |url        |
+            |Home page     |           |
+            |Section Page  |fashion    |

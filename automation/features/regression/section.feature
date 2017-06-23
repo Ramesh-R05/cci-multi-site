@@ -77,3 +77,7 @@ Feature: Section Landing page
             |device|
             |tablet portrait |
             |tablet landscape|
+
+
+
+

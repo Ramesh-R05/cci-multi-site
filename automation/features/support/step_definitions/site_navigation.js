@@ -11,11 +11,6 @@ module.exports = function() {
         browser.waitForVisible(site_nav.siteNavHeader, 3000);
     });
 
-    this.Then(/^I should see the theme nav background$/, function () {
-        var headerBackground = browser.getAttribute(site_nav.siteNavHeaderBackground,'style');
-        expect(headerBackground).toContain('background-color');
-        expect(headerBackground).toContain('background-image: url');
-    });
 
     this.Then(/^I should see the site header logo to open homepage and contain "([^"]*)" class name$/, function (gtm) {
         browser.waitForExist(site_nav.smallIconlink, 3000);
@@ -164,4 +159,18 @@ module.exports = function() {
         expect(menuhref).toEqual(site_domain);
         console.log(browser.getCssProperty(site_nav.smallIcon, 'color'));
     });
+
+
+    this.Then(/^I should see the custom masthead appearing on top of the page$/, function () {
+        var customMastHead = browser.getAttribute(site_nav.customMastHead, 'style');
+        console.log(customMastHead);
+        expect(customMastHead).toContain('background-image');
+    });
+
+    this.Then(/^I should see the custom masthead appearing on top of the page in mobile$/, function () {
+        var customMastHeadMobile = browser.getAttribute(site_nav.customMastHeadMobile, 'style');
+        console.log(customMastHeadMobile);
+        expect(customMastHeadMobile).toContain('background-image');
+    });
+
 };

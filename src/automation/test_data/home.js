@@ -28,19 +28,21 @@ export default {
         "pageName": "Now",
         "title": "Now to Love | Celebrity, News, Parenting, Health, Beauty, Fashion, Lifestyle"
     },
-    "theme": {
-        "id": "NOW-32655",
-        "url": "/modules/hometheme",
-        "moduleName": "hometheme",
-        "pageDateCreated": "2017-05-10T04:29:42.00Z",
-        "headerLogoAlignment": "Left",
-        "moduleManualContent": {
-            "totalCount": 0,
-            "data": []
+    theme: {
+        id: "NOW-1206",
+        url: "/modules/hometheme",
+        moduleName: "hometheme",
+        pageDateCreated: "2017-06-21T01:32:56.00Z",
+        headerLogoColour: "purple",
+        headerLogoAlignment: "Center",
+        moduleManualContent: {
+            totalCount: 0,
+            data: []
         },
-        "headerLargeBackground": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2017/06/19/13035/ELLE_Fiat_Masthead_Animated_Desktop.gif",
-        "headerSmallBackground": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2017/06/19/13035/ELLE_Fiat_Masthead_Animated_Small.gif",
-        "headerMediumBackground": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2017/06/19/13035/ELLE_Fiat_Masthead_Animated_Medium.gif"
+        headerLargeBackground: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/06/16/11790/elle-gif-test.gif",
+        headerSmallBackground: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/05/12/11790/ELLE_Fiat_Masthead_Animated_Small.gif",
+        headerMediumBackground: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/06/16/11790/elle-gif-test.gif"
+
     },
     magCover: {
         moduleImageUrl: 'http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/17/16588/0018975_elle-australia-magazine-subscription.png',

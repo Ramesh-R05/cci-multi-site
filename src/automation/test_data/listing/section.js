@@ -16,6 +16,21 @@ export default {
         parentName: "Fashion",
         parentUrl: "/fashion"
     },
+    theme: {
+        id: "ELLE-11814",
+        url: "/modules/fashiontheme",
+        moduleName: "fashiontheme",
+        pageDateCreated: "2017-06-23T01:12:43.00Z",
+        headerLogoColour: "pink",
+        headerLogoAlignment: "Left",
+        moduleManualContent: {
+            totalCount: 0,
+            data: [ ]
+        },
+        headerLargeBackground: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/06/16/11790/elle-gif-test.gif",
+        headerSmallBackground: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/06/16/11790/elle-gif-test.gif",
+        headerMediumBackground: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/06/16/11790/elle-gif-test.gif"
+    },
     headerMetaData: {
         googleTagManagerEnvironment: "dev",
         googleTagManagerMasthead: "NOW",
