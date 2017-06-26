@@ -110,6 +110,12 @@ export default {
                 title: 'Food To Love'
             },
             {
+                id: 'elle',
+                imageUrl: '/assets/images/menulogos/elle-logo.svg',
+                url: 'http://elle.com.au/',
+                title: 'Elle'
+            },
+            {
                 id: 'harpers',
                 imageUrl: '/assets/images/menulogos/HB-logo.svg',
                 url: 'http://harpersbazaar.com.au/',
@@ -120,12 +126,6 @@ export default {
                 imageUrl: '/assets/images/menulogos/GT-logo.svg',
                 url: 'http://gourmettraveller.com.au/',
                 title: 'Gourmet Traveller'
-            },
-            {
-                id: 'cosmo',
-                imageUrl: '/assets/images/menulogos/COSMO-logo.svg',
-                url: 'http://cosmopolitan.com.au/',
-                title: 'Cosmopolitan'
             },
             {
                 id: 'dolly',

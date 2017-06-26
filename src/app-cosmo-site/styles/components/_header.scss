@@ -88,6 +88,7 @@
         @media #{$medium-up} {
             width: 125px;
             margin-left: -20px;
+            margin-top: -1px;
         }
     }
 
@@ -150,7 +151,7 @@
 
             i {
                 color: $color-primary;
-                font-size: 98px;
+                font-size: 100px;
             }
         }
     }
@@ -189,10 +190,10 @@
             @include menu-hover;
             display: inline-block;
             text-decoration: none;
-            padding: 0 6px;
+            padding: 0 8px;
             color: $color-white;
-            letter-spacing: 0.4pt;
-            font: 600 14px $font-family-sans-serif-primary;
+            letter-spacing: 0.5px;
+            font: 400 15px $font-family-sans-serif-primary;
 
             &:active,
             &:focus,
@@ -211,6 +212,9 @@
                 background-color: transparent;
             }
 
+            &::after {
+                background-color: transparent;
+            }
         }
     }
 
