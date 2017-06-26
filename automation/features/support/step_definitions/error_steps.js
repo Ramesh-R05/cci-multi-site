@@ -2,11 +2,13 @@ var error = require('../page_objects/error_widget');
 
 module.exports = function() {
 
-    this.Then(/^I should see the error title as "([^"]*)"$/, function (title) {
+
+    this.Then(/^I should see the error title as:$/, function (content) {
         browser.waitForVisible(error.errorTitle, 5000);
         var errorTitle = browser.getText(error.errorTitle);
-        expect(errorTitle).toEqual(title);
+        expect(errorTitle).toEqual(content);
     });
+
 
     this.Then(/^I should see the error giphy image$/, function () {
         var errorImage = browser.getAttribute(error.errorImage,'src');
