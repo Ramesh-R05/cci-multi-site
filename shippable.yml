@@ -17,8 +17,8 @@ env:
 matrix:
     exclude:
 #    - env: APP_KEY=cosmo-site
-    - env: APP_KEY=elle-site
-    - env: APP_KEY=hb-site
+#    - env: APP_KEY=elle-site
+#    - env: APP_KEY=hb-site
 
 build:
   cache: true
