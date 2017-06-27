@@ -65,7 +65,7 @@ export default{
         parentUrl: "/fashion/red-carpet",
         galleryItems: [
             {
-                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2015/06/11/68028/11116790_439600422865308_1787337382_n.jpg",
+                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/19/52893/benedict.jpg",
                 link: "http://www.testimagelink1.com.au",
                 open: false,
                 tags: [ ],
@@ -77,7 +77,7 @@ export default{
                 mediaType: "image"
             },
             {
-                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2015/06/11/68029/11334401_1407669102891124_804010271_n.jpg",
+                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/05/51410/resized.jpg",
                 link: "http://www.testimagelink2.com.au",
                 open: false,
                 tags: [ ],
@@ -98,7 +98,7 @@ export default{
                 brightcoveId: "3976804555001"
             },
             {
-                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2015/06/11/68030/allisCapture.jpg",
+                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/02/04/51358/blake-lively.jpg",
                 open: false,
                 tags: [ ],
                 title: "",
@@ -109,7 +109,7 @@ export default{
                 mediaType: "image"
             },
             {
-                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2015/06/11/68031/arianaCapture.jpg",
+                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2016/12/05/107325/gigi-kendall-victoria-s-secret.jpg",
                 open: false,
                 tags: [ ],
                 title: "",
@@ -120,7 +120,7 @@ export default{
                 mediaType: "image"
             },
             {
-                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2015/06/11/68032/blake.jpg",
+                url: "http://assets.cougar.nineentertainment.com.au/Assets/Elle/2014/03/21/30477/montana-lead.jpg",
                 open: false,
                 tags: [ ],
                 title: "",
@@ -131,7 +131,7 @@ export default{
                 mediaType: "image"
             },
             {
-                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2015/06/11/68033/cara-delevingne-selfie---Copy.jpg",
+                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/07/22/63561/taylor-swift-clothing-line.jpg",
                 open: false,
                 tags: [ ],
                 title: "",
@@ -142,7 +142,7 @@ export default{
                 mediaType: "image"
             },
             {
-                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2015/06/11/68042/Untitled.jpg",
+                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Elle/2015/07/15/63103/mainel0815_Brittany-06-070-FINAL.jpg",
                 open: true,
                 tags: [ ],
                 title: "",
