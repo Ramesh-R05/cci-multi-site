@@ -187,6 +187,70 @@ export default{
                 "content": "http://display.engagesciences.com/display/container/dc/5ea47964-3c4b-4b54-9155-ab753683ddc5/entry"
             },
             {
+                "type": "twitter",
+                "label": "Twitter",
+                "content": {
+                    "url": "https://twitter.com/dollymag/status/697199025729048577"
+                }
+            },
+            {
+                "type": "instagram",
+                "label": "Instagram",
+                "content": {
+                    "url": "https://www.instagram.com/p/BBda49yyr4J/",
+                    "includeCaption": true
+                }
+            },
+            {
+                "type": "instagram",
+                "label": "Instagram",
+                "content": {
+                    "url": "https://www.instagram.com/p/BA4NkZeSr_r/"
+                }
+            },
+            {
+                "type": "facebook",
+                "label": "Facebook",
+                "content": {
+                    "url": "https://www.facebook.com/Foodtoloveau/posts/823515874446034"
+                }
+            },
+            {
+                "type": "playbuzz",
+                "label": "Playbuzz",
+                "content": {
+                    "game": "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"
+                }
+            },
+            {
+                "type": "youtube",
+                "label": "Youtube",
+                "content": {
+                    "url": "https://www.youtube.com/embed/4GpnNxjy6m0"
+                }
+            },
+            {
+                "type": "vimeo",
+                "label": "Vimeo",
+                "content": {
+                    "url": "https://player.vimeo.com/video/181027959"
+                }
+            },
+            {
+                "type": "whooshka",
+                "label": "Whooshka",
+                "content": {
+                    "url": "https://player.whooshkaa.com/player/episode/id/90704?visual=true"
+                }
+            },
+            {
+                "type": "wirewax",
+                "label": "Wirewax",
+                "content": {
+                    "url": "http://embed.wirewax.com/8040968"
+                }
+            },
+            {
                 "type": "image-revealer",
                 "label": "image-revealer",
                 "content": {

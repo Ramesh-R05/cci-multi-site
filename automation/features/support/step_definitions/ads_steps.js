@@ -9,10 +9,10 @@ module.exports = function() {
         //Always scroll to the top first to allow this scenario can be reused for tablet landscape after testing desktop
         browser.scroll(0,0);
         //Verify the ad is appearing
-        expect(browser.isVisible(wn_ads.ad_TopMrecRhs)).toBe(true);
+        expect(browser.waitForVisible(wn_ads.ad_TopMrecRhs,3000)).toBe(true);
         //Verify the ad is a sticky ad after scrolling down
-        browser.scroll(0,1500);
-        expect(browser.isVisible(wn_ads.ad_TopMrecRhs)).toBe(true);
+        browser.scroll(wn_ads.topFeedItem6);
+        expect(browser.waitForVisible(wn_ads.ad_TopMrecRhs,3000)).toBe(true);
         expect(browser.getAttribute(wn_ads.adMrecNextToTopFeedSticky, 'style')).toContain("fixed");
     });
 
@@ -276,6 +276,63 @@ module.exports = function() {
             }
             var className = browser.getAttribute(adElement, 'class');
             expect(className).toEqual(row['class-name']);
+        }
+    });
+
+    this.Then(/^I can see last RHR ad is sticky$/, function () {
+        // Scrolling down to the last RHR feed with keeping ad in view
+        var x = browser.getLocation(wn_ads.ad_StickyMrecRhs, 'x') - 50;
+        var y = browser.getLocation(wn_ads.ad_StickyMrecRhs, 'y') - 50;
+
+        browser.scroll(x, y);
+
+        // ad will auto refresh once in view on the screen
+        browser.waitForVisible(wn_ads.ad_StickyMrecRhs, 2000);
+    });
+
+    this.Then(/^the "([^"]*)" will "([^"]*)" refresh every (\d+) seconds when is in View$/, function (ad, auto, seconds) {
+        // Find an element of the ad
+        var adElement;
+        switch(ad) {
+            case 'sticky MREC ad':
+                adElement = wn_ads.ad_StickyMrecRhs;
+                break;
+            case 'bottom leaderboard ad':
+            case 'mobile banner ad':
+                adElement = wn_ads.ad_BottomLeaderboard;
+                break;
+        }
+
+        // declare variables
+        var first_googleId;
+        var second_googleId;
+        var loopCount = 0;
+
+        // check the iframe ID before change and ensure the value is not NULL
+        do {
+            browser.scroll(adElement);
+            browser.waitForVisible(adElement, 5000);
+            first_googleId = browser.getAttribute(adElement, "data-google-query-id");
+            console.log(loopCount, first_googleId);
+            loopCount++;
+        }
+        while (first_googleId === null && loopCount < 6); // to exist the loop if it does more than 5 times.
+
+        // waiting for x seconds as it is a rule of ad auto refreshing.
+        // 1050 is a better number to ensure it has passed x seconds. E.g. 6 seconds is going to be 6.05 seconds.
+        wait(seconds*1050);
+
+        // check the iframe ID after change
+        second_googleId = browser.getAttribute(adElement,"data-google-query-id");
+
+        // verify if the ad is auto-refreshing
+        switch(auto) {
+            case 'auto':
+                expect(first_googleId).not.toEqual(second_googleId);
+                break;
+            case 'not auto':
+                expect(first_googleId).toEqual(second_googleId);
+                break;
         }
     });
 };
