@@ -90,7 +90,7 @@ export default class Document extends Component {
                   theme={themeEnabled ? theme : {}}
                 >
                     <VerticalGallery
-                      articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', 'Date', 'Author']}
+                      articleHeaderOrder={['Hero', 'Source', 'Title', 'Summary', 'Date', 'Author', 'NativeAd']}
                       contentBodyConfig={Document.articleContentBodyConfig}
                       enableTeads
                       CustomisedTeaser={Teaser}

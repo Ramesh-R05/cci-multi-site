@@ -121,6 +121,7 @@ Feature: Ad
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
         * I should see the top leaderboard ad under navigation
+        * I should see native ad below author
         * I should see the bottom leaderboard ad above the footer on article
         * I should see four MREC ads in the RHR feed
         * I should not see MREC ad under the hero image
@@ -140,6 +141,7 @@ Feature: Ad
         Given I switch to "tablet portrait" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
         * I should see the top leaderboard ad under navigation
+        * I should see native ad below author
         * I should see MREC ad above recommendation
         * I should see the bottom leaderboard ad above the footer on article
         * I should not see MREC ad under the hero image
@@ -150,6 +152,7 @@ Feature: Ad
         Given I switch to "mobile" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
         * I should see the top leaderboard ad under navigation
+        * I should see native ad below author
         * I should not see MREC ad under the hero image
         * I should see MREC ad above recommendation
         * I should see the bottom leaderboard ad above the footer on article
