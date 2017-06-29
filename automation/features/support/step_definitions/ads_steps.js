@@ -172,6 +172,9 @@ module.exports = function() {
                 case 'Teads':
                     adElement = wn_ads.ad_Teads;
                     break;
+                case 'Native':
+                    adElement = wn_ads.galleryNativeAdDfp;
+                    break;
                 case 'MREC Under Hero Teaser': //mobile
                     adElement = wn_ads.ad_MrecUnderHeroTeaser;
                     break;
