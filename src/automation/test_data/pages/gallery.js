@@ -14,7 +14,86 @@ export default{
                 type: "paragraph",
                 label: "Paragraph",
                 content: "Test the second paragraph [This is link](http://testonlylyl.com) Test the second paragraph Test the second paragraph Test the second paragraph \\n\\n**test bold text** Test *test Italic text* the ***bold and italic text*** second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph Test the second paragraph \\n\\n## Test heading\\n* test bullet 1\\n* test bullet 2"
-            }
+            },
+            {
+                "type": "related-content",
+                "label": "Related Content",
+                "content": [
+                    {
+                        "id": "NOW-25029",
+                        "url": "/celebrity/celeb-news/did-adele-marry-in-secret-25029",
+                        "name": "Did Adele marry in secret?",
+                        "level": 6,
+                        "title": "Did Adele marry in secret?",
+                        "source": "Woman's Day",
+                        "pathIds": [
+                            "NOW--1",
+                            "NOW-1159",
+                            "NOW-1168",
+                            "NOW-1169",
+                            "NOW-3543",
+                            "NOW-3620",
+                            "NOW-25029"
+                        ],
+                        "siteUrl": "http://dev.now-site.bauer-media.net.au",
+                        "urlName": "did-adele-marry-in-secret",
+                        "imageUrl": "http://cdn.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets/WomansDay/2013/11/14/10654/adele.jpg",
+                        "nodeType": "Article",
+                        "parentId": "NOW-3620",
+                        "siteCode": "8507aea9-5ac4-4831-90e5-f567f9a3c63a",
+                        "siteName": "now",
+                        "typeName": "TeaserDto",
+                        "parentUrl": "/celebrity/celeb-news",
+                        "sortOrder": 60,
+                        "parentName": "Celeb News",
+                        "dateIndexed": "2016-11-28T11:36:13",
+                        "imageAltText": "Did Adele marry in secret?",
+                        "nodeTypeAliasPath": [
+                            "Page",
+                            "Editorial",
+                            "Articles",
+                            "Article"
+                        ]
+                    },
+                    {
+                        "id": "NOW-9546",
+                        "url": "/celebrity/celeb-news/who-is-justin-bieber-9546",
+                        "name": "Who is Justin Bieber?",
+                        "level": 6,
+                        "title": "Who is Justin Bieber?",
+                        "source": "Australian Women's Weekly",
+                        "pathIds": [
+                            "NOW--1",
+                            "NOW-1159",
+                            "NOW-1168",
+                            "NOW-1169",
+                            "NOW-3451",
+                            "NOW-3481",
+                            "NOW-9546"
+                        ],
+                        "siteUrl": "http://dev.now-site.bauer-media.net.au",
+                        "urlName": "who-is-justin-bieber",
+                        "imageUrl": "http://cdn.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets/AWW/2013/09/18/20507/bieber.jpg",
+                        "nodeType": "Article",
+                        "parentId": "NOW-3481",
+                        "siteCode": "8507aea9-5ac4-4831-90e5-f567f9a3c63a",
+                        "siteName": "now",
+                        "typeName": "TeaserDto",
+                        "parentUrl": "/celebrity/celeb-news",
+                        "sortOrder": 15,
+                        "parentName": "Celeb News",
+                        "dateIndexed": "2016-11-28T11:18:33",
+                        "imageAltText": "Who is Justin Bieber?",
+                        "imageCaption": "Justin Bieber",
+                        "nodeTypeAliasPath": [
+                            "Page",
+                            "Editorial",
+                            "Articles",
+                            "Article"
+                        ]
+                    }
+                ]
+            },
         ],
         authorProfiles: [
             {
