@@ -217,7 +217,30 @@ jobs:
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
-  # 4bCOSMO. Run smoke test on TEST environment COSMO
+  # 4b. Run mobile regression test on TEST environment - Browser Stack
+  - name: mobile-multi-site-automation-test
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    steps:
+    - IN: multi-site-test-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "6.1.0"
+       - script: nvm use "6.1.0"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=elle-site
+       - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
+       - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
+       - script: export URL=http://multi-site.test.bxm.net.au/
+       - script: npm run test:mobile
+
+  # 4cCOSMO. Run smoke test on TEST environment COSMO
   - name: cosmo-site-smoke-test
     type: runSh
     always:
@@ -239,7 +262,7 @@ jobs:
        - script: export URL=http://cosmo-site-au.sit.bxm.net.au/
        - script: npm run smoketest:cosmo
 
-  # 4bELLE. Run smoke test on TEST environment ELLE
+  # 4cELLE. Run smoke test on TEST environment ELLE
   - name: elle-site-smoke-test
     type: runSh
     always:
@@ -261,7 +284,7 @@ jobs:
        - script: export URL=http://elle-site-au.sit.bxm.net.au/
        - script: npm run smoketest:elle
 
-  # 4bHB. Run smoke test on TEST environment HB
+  # 4cHB. Run smoke test on TEST environment HB
   - name: hb-site-smoke-test
     type: runSh
     always:
