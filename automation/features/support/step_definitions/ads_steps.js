@@ -132,11 +132,11 @@ module.exports = function() {
     });
 
     this.Then(/^I should see MREC ad above recommendation$/, function () {
+        browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
         expect(browser.isVisible(wn_ads.ad_MrecBeforeRecommendation)).toBe(true);
     });
 
     this.Then(/^I should not see MREC ad above recommendation$/, function () {
-        browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
         expect(browser.isVisible(wn_ads.ad_MrecBeforeRecommendation)).toBe(false);
     });
 
