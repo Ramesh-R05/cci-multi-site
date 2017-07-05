@@ -1,16 +1,17 @@
-var automation = require('@bxm/automation').default;
+'use strict';
 
-var hooks = function () {
-    var world = require('./world');
+module.exports = function hooks() {
+
+    this.setDefaultTimeout(120 * 1000);
+    console.log("Update timeout to 120000");
+
 
     var nconf = require('nconf');
     nconf.argv().env();
     var domainName = nconf.get('APP_KEY');
 
-        this.After(function (scenario) {
-            console.log('running on domain: ' + domainName);
-            browser.deleteCookie();
-        });
+    this.After(function (scenario) {
+        console.log('run on domain : ' + domainName);
+        browser.deleteCookie();
+    });
 };
-
-module.exports = hooks;

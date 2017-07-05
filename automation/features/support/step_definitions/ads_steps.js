@@ -37,7 +37,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the top leaderboard ad under navigation$/, function () {
-        expect(browser.waitForVisible(wn_ads.ad_TopLeaderboard,5000)).toBe(true);
+        expect(browser.waitForVisible(wn_ads.ad_TopLeaderboard,10000)).toBe(true);
     });
 
     this.Then(/^I should see native ad below author$/, function () {
@@ -136,6 +136,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should not see MREC ad above recommendation$/, function () {
+        browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
         expect(browser.isVisible(wn_ads.ad_MrecBeforeRecommendation)).toBe(false);
     });
 
