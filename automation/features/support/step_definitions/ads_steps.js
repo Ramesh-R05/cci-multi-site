@@ -379,14 +379,20 @@ module.exports = function() {
             console.log(loopCount, first_googleId);
             loopCount++;
         }
-        while (first_googleId === null && loopCount < 6); // to exist the loop if it does more than 5 times.
+        while (first_googleId === null && loopCount < 10); // to exist the loop if it does more than 10 times.
 
         // waiting for x seconds as it is a rule of ad auto refreshing.
         // 1050 is a better number to ensure it has passed x seconds. E.g. 6 seconds is going to be 6.05 seconds.
         wait(seconds*1050);
 
         // check the iframe ID after change
-        second_googleId = browser.getAttribute(adElement,"data-google-query-id");
+        second_googleId = browser.getAttribute(adElement, "data-google-query-id");
+        // There are a few times that the google ID hasn't changed. So we will wait one more second to get the ID again.
+        if (first_googleId == second_googleId){
+            wait(1000);
+            second_googleId = browser.getAttribute(adElement, "data-google-query-id");
+        }
+        console.log('SecondID: ' + second_googleId);
 
         // verify if the ad is auto-refreshing
         switch(auto) {
