@@ -17,4 +17,4 @@ Feature: Users can navigate the site using a mobile device
         * I should not see MREC ad under the hero image
         * I should see MREC ad above recommendation
         * I should see the bottom leaderboard ad above the footer on article
-      #  * I should see MREC ad between images   # This step will be enabled once we have a new solution for this step.
+        * I should see MREC ad between images

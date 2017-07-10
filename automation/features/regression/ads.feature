@@ -231,7 +231,7 @@ Feature: Ad
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
         Then I can see last RHR ad is sticky
-        And the "sticky MREC ad" will "auto" refresh every 6 seconds when is in View
+        And the "sticky MREC ad" will "auto" refresh every 6 seconds on "<page>" when is in View
        # And after 15 seconds the page will go idle and the add will no refresh anymore # This is tested manually
         Examples:
             |page     |pageUrl                                              |
@@ -242,7 +242,7 @@ Feature: Ad
     Scenario Outline: Mobile banner will autorefresh on <page> in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "<pageUrl>"
-        Then the "mobile banner ad" will "auto" refresh every 6 seconds when is in View
+        Then the "mobile banner ad" will "auto" refresh every 6 seconds on "<page>" when is in View
         Examples:
             |page     |pageUrl                                              |
             |article  |fashion/automation-test-article-with-hero-image-3663 |
@@ -252,7 +252,7 @@ Feature: Ad
     Scenario Outline: Bottom leaderboard ad will autorefresh on <page> in tablet portrait view
         Given I switch to "tablet portrait" view
         When I am currently viewing "<pageUrl>"
-        Then the "bottom leaderboard ad" will "auto" refresh every 6 seconds when is in View
+        Then the "sticky bottom leaderboard ad" will "auto" refresh every 6 seconds on "<page>" when is in View
         Examples:
             |page     |pageUrl                                              |
             |article  |fashion/automation-test-article-with-hero-image-3663 |
@@ -262,7 +262,7 @@ Feature: Ad
     Scenario Outline: Bottom leaderboard ad will not autorefresh on <page> in tablet landscape view
         Given I switch to "tablet landscape" view
         When I am currently viewing "<pageUrl>"
-        Then the "bottom leaderboard ad" will "not auto" refresh every 6 seconds when is in View
+        Then the "bottom leaderboard ad" will "not auto" refresh every 6 seconds on "<page>" when is in View
         Examples:
             |page     |pageUrl                                              |
             |article  |fashion/automation-test-article-with-hero-image-3663 |
@@ -272,7 +272,7 @@ Feature: Ad
     Scenario Outline: Bottom leaderboard ad will not autorefresh on <page> in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "<pageUrl>"
-        Then the "bottom leaderboard ad" will "not auto" refresh every 6 seconds when is in View
+        Then the "bottom leaderboard ad" will "not auto" refresh every 6 seconds on "<page>" when is in View
         Examples:
             |page     |pageUrl                                              |
             |article  |fashion/automation-test-article-with-hero-image-3663 |

@@ -2,6 +2,7 @@ var wn_ads = require('../page_objects/ads_widget');
 var gallery = require('../page_objects/gallery_widget');
 var visibilityFunctions = require('../utils/visibilityFunctions');
 var wait = require('../utils/wait');
+var loadAllElements = require('../utils/loadAllElements');
 
 module.exports = function() {
 
@@ -93,34 +94,28 @@ module.exports = function() {
 
     //BELOW ARE STEPS FOR ARTICLE
     this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
-          browser.moveToObject(wn_ads.ad_BottomLeaderboard);
+          browser.scroll(wn_ads.ad_BottomLeaderboard);
           expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard,5000)).toBe(true);
     });
 
     this.Then(/^I should see MREC ad between images$/, function () {
+        // To load all elements on the page before validating the bottom ads
+        loadAllElements('gallery');
+
         // Verify the mrec ad after slide no. 3
         browser.scroll(wn_ads.gallerySlide3); // Scroll to the slide no.3 to make sure the header will not overlap the MREC element. This has fixed the Browser Stack issue when running on iPhone 6 plus
         expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide3,5000)).toBe(true);
 
-        // Ensure last two images (before the mrec ad after slide no.7) are loaded before verifying the mrec ad.
-        // This is to ensure the mrec ad is in the view when being verified.
-        browser.scroll(wn_ads.ad_MrecAfterSlide7);
-        browser.waitForVisible(wn_ads.gallerySlide6,5000);
-        browser.waitForVisible(wn_ads.gallerySlide7,5000);
-        // Why do we have to wait for two images?
-        // When I waited for side 7 only, there were a few running rounds that the slide no.6 hadn't been loaded yet while slide 7 was loaded completely.
-        // So I have to check at least two image slides. Then it works well.
-
         // Verify the mrec ad after slide no. 7
-        browser.scroll(wn_ads.ad_MrecAfterSlide7);
+        browser.scroll(wn_ads.gallerySlide7);
         expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true);
     });
 
     this.Then(/^I should see four MREC ads in the RHR feed$/, function () {
-        browser.moveToObject(wn_ads.ad_MrecRhs1);
-        browser.moveToObject(wn_ads.ad_MrecRhs2);
-        browser.moveToObject(wn_ads.ad_MrecRhs3);
-        browser.moveToObject(wn_ads.ad_MrecRhs4);
+        browser.scroll(wn_ads.ad_MrecRhs1);
+        browser.scroll(wn_ads.ad_MrecRhs2);
+        browser.scroll(wn_ads.ad_MrecRhs3);
+        browser.scroll(wn_ads.ad_MrecRhs4);
     });
 
     this.Then(/^I should see MREC ad under the hero image$/, function () {
@@ -353,15 +348,21 @@ module.exports = function() {
         browser.waitForVisible(wn_ads.ad_StickyMrecRhs, 2000);
     });
 
-    this.Then(/^the "([^"]*)" will "([^"]*)" refresh every (\d+) seconds when is in View$/, function (ad, auto, seconds) {
+    this.Then(/^the "([^"]*)" will "([^"]*)" refresh every (\d+) seconds on "([^"]*)" when is in View$/, function (ad, auto, seconds, page) {
+
         // Find an element of the ad
         var adElement;
         switch(ad) {
-            case 'sticky MREC ad':
+            case 'sticky MREC ad': //desktop, tablet landscape
+                loadAllElements(page); // To load all elements on the page before validating the ad
                 adElement = wn_ads.ad_StickyMrecRhs;
                 break;
-            case 'bottom leaderboard ad':
-            case 'mobile banner ad':
+            case 'bottom leaderboard ad': //desktop, tablet landscape
+                loadAllElements(page); // To load all elements on the page before validating the ad
+                adElement = wn_ads.ad_BottomLeaderboard;
+                break;
+            case 'sticky bottom leaderboard ad': //mobile, tablet portrait
+            case 'mobile banner ad': //mobile, tablet portrait
                 adElement = wn_ads.ad_BottomLeaderboard;
                 break;
         }
