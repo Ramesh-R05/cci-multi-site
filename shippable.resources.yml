@@ -126,7 +126,7 @@ resources:
     pointer:
       sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/cosmo-site"
     seed:
-      versionName: latest
+      versionName: master.1013
 
   # AWS SIT load Balancer - COSMO - MASTER branch
   - name: cosmo-site-alb-sit
