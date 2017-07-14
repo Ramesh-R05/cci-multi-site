@@ -11,6 +11,7 @@ const SiteFooterStub = Context.createStubComponent();
 const NavigationStub = Context.createStubComponent();
 const LogosStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
+const StickyAdStub = Context.createStubComponent();
 const StandardPageAdsWrapperStub = Context.createStubComponentWithChildren();
 
 let reactModuleInstance;
@@ -32,6 +33,7 @@ const PageWrapper = proxyquire('../../app/containers/page', {
     '../components/page/logos': LogosStub,
     '@bxm/site-header/lib/components/navigation': NavigationStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
+    '@bxm/ad/lib/google/components/stickyAd': StickyAdStub,
     '@bxm/ad/lib/google/components/standardPageAdsWrapper': StandardPageAdsWrapperStub
 }).default;
 
@@ -81,6 +83,7 @@ describe('Page Container', () => {
     let closeButton;
     let currentInstance;
     let adStub;
+    let stickyAdStub;
 
     Context.addStore('NavigationStore', {
         getHeaderItems() {
@@ -155,6 +158,7 @@ describe('Page Container', () => {
             logosStub = TestUtils.findRenderedComponentWithType(reactModule, LogosStub);
             adStub = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             closeButton = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'button');
+            stickyAdStub = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
         });
 
         it(`should render`, () => {
@@ -230,8 +234,8 @@ describe('Page Container', () => {
         });
 
         it('should render a top ad banner', () => {
-            expect(adStub[0].props.className).to.be.equal('ad--section-top-leaderboard');
-            expect(adStub[0].props.targets).to.deep.eq({keyword: ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor']});
+            expect(stickyAdStub[0].props.adProps.className).to.be.equal('ad--section-top-leaderboard');
+            expect(stickyAdStub[0].props.adProps.targets).to.deep.eq({keyword: ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor']});
         });
 
         describe(`when the close button is clicked`, () => {

@@ -78,7 +78,7 @@ export default class Home extends Component {
         } = this.props;
 
         const adProps = {
-            className: 'ad--section-top-leaderboard',
+            className: 'ad--section-bottom-leaderboard',
             displayFor: ['small', 'medium', 'large', 'xlarge'],
             sizes: {
                 banner: 'banner',
@@ -182,6 +182,7 @@ export default class Home extends Component {
                       adProps={adProps}
                       minHeight={450}
                       stickyAtViewPort="mediumRangeMax"
+                      stickyDelay={5500}
                     />
                 </div>
             </Page>
