@@ -73,6 +73,12 @@
 }
 
 .sticky-block {
+    &.sticky-block--in-view {
+        .ad--section-bottom-leaderboard {
+            padding-top: 15px;
+        }
+    }
+
     &.sticky-block--at-top {
         bottom: auto;
         .ad {
