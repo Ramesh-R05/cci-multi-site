@@ -1,10 +1,8 @@
 if (!process.env.APP_KEY) throw new Error('APP_KEY environment variable not set');
 process.title = process.env.APP_KEY;
-if (process.env.APP_DEBUG === 'true') {
-    process.on('uncaughtException', function(e) {
-        throw e;
-    });
-}
+process.on('uncaughtException', function(e) {
+    throw e;
+});
 require('babel-polyfill');
 require('babel-register');
 var logger = require('./logger').default;
@@ -14,26 +12,26 @@ var requiredFile = './dist/manifest.json';
 var retryDelay = 5000;
 var attemptCount = 0;
 var maxAttempts = 12;
-
-if (process.platform === 'win32') {
-    logger.error(`Windows platform not supported`);
-}
+var timerId = null;
 
 function startWhenReady() {
     attemptCount++;
-    clearTimeout(startWhenReady);
+    if (timerId) {
+        clearTimeout(timerId);
+        timerId = null;
+    }
     if (fs.existsSync(requiredFile)) {
         logger.info(`${requiredFile} exists, ok to start`);
         require('./app/server/server');
     } else if (attemptCount <= maxAttempts) {
         logger.debug(`${requiredFile} in progress - waiting ${retryDelay / 1000} more seconds`);
-        setTimeout(startWhenReady, retryDelay);
+        timerId = setTimeout(startWhenReady, retryDelay);
     } else {
         throw new Error(`requiredFile not found within ${(maxAttempts * retryDelay) / 1000} seconds`);
     }
 }
 
-if (process.env.APP_DEBUG === 'true' || process.env.APP_DEBUG === 'silly') {
+if (process.env.APP_DEBUG === 'true') {
     try {
         startWhenReady();
     } catch (e) {
