@@ -38,5 +38,8 @@ export default {
     headerExpanded: true,
     outbrain: {
         enabled: true
+    },
+    sailthru: {
+        enabled: true
     }
 };
