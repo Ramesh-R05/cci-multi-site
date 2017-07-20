@@ -341,6 +341,7 @@ jobs:
     type: deploy
     always:
       - NOTIFY: multi-slack-notifications
+      - NOTIFY: cosmo-deployment-notifications
     steps:
       - IN: cosmo-release-master
         switch: off
@@ -359,6 +360,7 @@ jobs:
     type: deploy
     always:
       - NOTIFY: multi-slack-notifications
+      - NOTIFY: elle-deployment-notifications
     steps:
       - IN: elle-release-master
         switch: off
@@ -377,6 +379,7 @@ jobs:
     type: deploy
     always:
       - NOTIFY: multi-slack-notifications
+      - NOTIFY: hb-deployment-notifications
     steps:
       - IN: hb-release-master
         switch: off

@@ -34,6 +34,30 @@ resources:
     pointer:
       recipients:
         - "#bxm_qa_notifications"
+        
+   # Slack connection
+  - name: cosmo-deployment-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#survivors_outlast_au"       
+        
+  # Slack connection
+  - name: elle-deployment-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#survivors_outlast_au"     
+        
+  # Slack connection
+  - name: hb-deployment-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#survivors_outlast_au"           
 
 
   # Multi Github repo
