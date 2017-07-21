@@ -1,14 +1,12 @@
-import { load } from '@bxm/config';
 import makeRequest from '../../makeRequest';
-const config = load();
 
 export default async function sitemap(req, res, next) {
     const section = req.params.section;
-    const serviceUrl = config.services.remote.sitemap;
+    const serviceUrl = req.app.locals.config.services.remote.sitemap;
     const requestUrl = section ? `${serviceUrl}/${section}` : serviceUrl;
 
     try {
-        if (config.site.region === 'nz') {
+        if (req.app.locals.config.site.region === 'nz') {
             throw { status: 404, message: 'Page Not Found' };
         }
 
