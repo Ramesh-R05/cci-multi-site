@@ -1,8 +1,8 @@
 var wn_ads = require('../page_objects/ads_widget');
 var gallery = require('../page_objects/gallery_widget');
-var visibilityFunctions = require('../utils/visibilityFunctions');
-var wait = require('../utils/wait');
-var loadAllElements = require('../utils/loadAllElements');
+var visibilityFunctions = require('../../../node_modules/@bxm/automation/lib/utils/visibilityFunctions');
+var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
+var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/loadAllElements');
 
 module.exports = function() {
 
@@ -100,7 +100,7 @@ module.exports = function() {
 
     this.Then(/^I should see MREC ad between images$/, function () {
         // To load all elements on the page before validating the bottom ads
-        loadAllElements('gallery');
+        loadAllElements('gallery', browser);
 
         // Verify the mrec ad after slide no. 3
         browser.scroll(wn_ads.gallerySlide3); // Scroll to the slide no.3 to make sure the header will not overlap the MREC element. This has fixed the Browser Stack issue when running on iPhone 6 plus
@@ -137,16 +137,16 @@ module.exports = function() {
 
     //BELOW ARE THE STEPS TO TEST WALLPAPER, SIDE PANEL, OUT OF PAGE ADs
     this.Then(/^I should "([^"]*)" the wallpaper ad slot on "([^"]*)"$/, function (visibility, page) {
-        visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_Wallpaper);
+        visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_Wallpaper, browser);
     });
 
     this.Then(/^I should "([^"]*)" the left and right side ad slot on "([^"]*)"$/, function (visibility, page) {
-        visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_LeftSidePanel);
-        visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_RightSidePanel);
+        visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_LeftSidePanel, browser);
+        visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_RightSidePanel, browser);
     });
 
     this.Then(/^I should "([^"]*)" the out of page ad slot on "([^"]*)"$/, function (visibility, page) {
-        visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_OutOfPage);
+        visibilityFunctions.isAdVisible(page, visibility,wn_ads.ad_OutOfPage, browser);
     });
 
     //----------------------------------------
@@ -354,11 +354,11 @@ module.exports = function() {
         var adElement;
         switch(ad) {
             case 'sticky MREC ad': //desktop, tablet landscape
-                loadAllElements(page); // To load all elements on the page before validating the ad
+                loadAllElements(page, browser); // To load all elements on the page before validating the ad
                 adElement = wn_ads.ad_StickyMrecRhs;
                 break;
             case 'bottom leaderboard ad': //desktop, tablet landscape
-                loadAllElements(page); // To load all elements on the page before validating the ad
+                loadAllElements(page, browser); // To load all elements on the page before validating the ad
                 adElement = wn_ads.ad_BottomLeaderboard;
                 break;
             case 'sticky bottom leaderboard ad': //mobile, tablet portrait
@@ -408,7 +408,7 @@ module.exports = function() {
 
         this.Then(/^I should see sticky top leaderboard as I scroll down and "([^"]*)" sticky bottom leaderboard once top disappears$/, function (shouldSee) {
 
-        // verify before scrolling down    
+        // verify before scrolling down
         browser.scroll(0,0);
         expect(browser.isVisible(wn_ads.stickyTopBanner)).toBe(false);
         expect(browser.isVisible(wn_ads.stickyBottomBanner)).toBe(false);
@@ -418,7 +418,7 @@ module.exports = function() {
         expect(browser.waitForVisible(wn_ads.stickyTopBanner, 2000)).toBe(true);
 
         // verify the ad disappears after 5 seconds
-        wait(3500);//the top ad will be sticky for 3.5sec 
+        wait(3500);//the top ad will be sticky for 3.5sec
         expect(browser.isVisible(wn_ads.stickyTopBanner)).toBe(false);
         switch (shouldSee) {
             case 'see':
