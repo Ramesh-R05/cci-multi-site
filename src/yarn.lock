@@ -13,9 +13,9 @@
     q "^1.4.1"
     react-script-loader "0.0.1"
 
-"@bxm/article@^25.7.4":
-  version "25.7.4"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.7.4.tgz#aa9e7c567d7ef256f6c77f543376116412fe02c3"
+"@bxm/article@^25.9.1":
+  version "25.9.1"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2farticle/-/article-25.9.1.tgz#0d534ccb676403860a378f387bcdaec106869f4e"
   dependencies:
     "@bxm/behaviour" "^1.1.0"
     "@bxm/image" "^2.0.0"
@@ -175,9 +175,9 @@
     lodash "^3.10.1"
     matchmedia "^0.1.2"
 
-"@bxm/social@^1.0.0", "@bxm/social@^1.5.0":
-  version "1.5.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fsocial/-/social-1.5.0.tgz#7d524c7580397b14369ce155feee33a52d763c8d"
+"@bxm/social@^2.0.0":
+  version "2.0.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fsocial/-/social-2.0.0.tgz#00e46cc92550b3c049fdddb8f8d3485f0bc10cdc"
   dependencies:
     classnames "^2.2.5"
     keymirror "^0.1.1"
@@ -201,13 +201,13 @@
     moment "~2.8.3"
     moment-timezone "^0.5.0"
 
-"@bxm/ui@^15.0.1":
-  version "15.0.1"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fui/-/ui-15.0.1.tgz#9bfbd27e355e9b45f225b0a2259298af8d31e291"
+"@bxm/ui@^17.1.0":
+  version "17.1.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fui/-/ui-17.1.0.tgz#203ff9b52bc42d41beccc69f343e946707ce8eb0"
   dependencies:
     "@bxm/markdown" "^1.0.0"
     "@bxm/react-script-loader" "^2.0.0"
-    "@bxm/social" "^1.0.0"
+    "@bxm/social" "^2.0.0"
     axios "^0.4.1"
     classnames "2.1.1"
     html5-history-api "^4.2.0"
@@ -6529,11 +6529,7 @@ split@0.3:
   dependencies:
     through "2"
 
-sprintf-js@^1.0.3:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.1.tgz#36be78320afe5801f6cea3ee78b6e5aab940ea0c"
-
-sprintf-js@~1.0.2:
+sprintf-js@^1.0.3, sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 

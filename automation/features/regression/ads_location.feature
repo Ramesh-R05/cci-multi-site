@@ -81,12 +81,12 @@ Feature: Ads Location
             |MREC After Slide 3 |gallery_body_1 |
             |MREC After Slide 7 |gallery_body_2 |
         And I should see each RHS ad slot element containing proper class name
-            |ad              |class-name      |
-            |MREC RHS 1      |gallery_rhs_12  |
-            |MREC RHS 2      |gallery_rhs_13  |
-            |MREC RHS 3      |gallery_rhs_14  |
-            |MREC RHS 4      |gallery_rhs_15  |
-            |Sticky MREC RHS |gallery_rhs_16  |
+            |ad              |class-name     |
+            |MREC RHS 1      |gallery_rhs_4  |
+            |MREC RHS 2      |gallery_rhs_6  |
+            |MREC RHS 3      |gallery_rhs_8  |
+            |MREC RHS 4      |gallery_rhs_10  |
+            |Sticky MREC RHS |gallery_rhs_11 |
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name          |
             |Out Of Page        |gallery_outofpage_1 |
@@ -116,7 +116,7 @@ Feature: Ads Location
             |MREC RHS 2      |article_rhs_5  |
             |MREC RHS 3      |article_rhs_7  |
             |MREC RHS 4      |article_rhs_9  |
-            |Sticky MREC RHS |article_rhs_10 |
+            |Sticky MREC RHS |article_rhs_10  |
         And I should see each additional ad slot element containing proper class name
             |ad                 |class-name          |
             |Out Of Page        |article_outofpage_1 |
