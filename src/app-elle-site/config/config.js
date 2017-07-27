@@ -34,6 +34,8 @@ export default {
 
     cache,
 
+    headerBaseHeight: 215,
+
     error: {
         404: {
             title: 'Oops, we don\'t have the page you\'re looking for.',

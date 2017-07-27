@@ -101,7 +101,7 @@ export default {
             targets: {
                 kw: 'article_related_1'
             },
-            pos: "body"
+            pos: 'body'
         }
     }
 };

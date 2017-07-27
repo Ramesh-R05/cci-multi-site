@@ -34,6 +34,8 @@ export default {
 
     cache,
 
+    headerBaseHeight: 202,
+
     error: {
         404: {
             title: `*COUGH*<br>I CAN'T LOAD UP, I'M SICK!`,
