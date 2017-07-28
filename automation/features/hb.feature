@@ -3,6 +3,17 @@ Feature: Smoke test for HB
     As a user
     I should be able to see the HB site showing correct static data
 
+    @BXMA-502
+    Scenario Outline: Verify the sign-up URL on <page>
+        Given I switch to "mobile" view
+        When I am currently viewing "<pageURL>"
+        Then I should see the sign up button containing "//www.harpersbazaar.com.au/hb-newsletter" url and "gtm-subs-homepage" gtm in "mobile" view
+        Examples:
+        | page               | pageURL | 
+        | Homepage           |         | 
+        | Section Landing    | fashion | 
+   
+
     Scenario: Verify the footer in the "mobile" view
         Given I switch to "mobile" view
         When I am currently viewing the homepage

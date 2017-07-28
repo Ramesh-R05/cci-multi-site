@@ -1,15 +1,16 @@
 .page__top-container {
     .get-social {
         .get-social-title {
+            margin-top: 12px;
+            
             &:before {
                 color: $color-primary;
                 content: 'FOLLOW US';
             }
         }
 
-        .get-social__links > .row {
+        .get-social__links {
             position: relative;
-            left: -4px;
         }
     }
 }

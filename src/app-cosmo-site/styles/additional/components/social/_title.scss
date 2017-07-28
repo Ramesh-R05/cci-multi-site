@@ -1,18 +1,16 @@
 .page__top-container {
     .get-social {
-        margin-left: -10px;
-
-        @media #{$large-up} {
-            margin-left: -13px;
-        }
-
         .get-social-title {
+            margin-top: 12px;
+            
             &:before {
-                display: none;
+                color: #333;
+                content: 'FOLLOW US';
             }
         }
+
         .get-social__links {
-            margin-top: -15px;
+            position: relative;
         }
     }
 }

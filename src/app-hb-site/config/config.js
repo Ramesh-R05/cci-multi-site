@@ -83,6 +83,7 @@ export default {
             pinterest: 'http://www.pinterest.com/bazaaraustralia/',
             youtube: 'https://www.youtube.com/user/BAZAARaustralia'
         },
+        newsletterUrl: '//www.harpersbazaar.com.au/hb-newsletter',
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: 'subscribe-magazine',
         imageSizes: {

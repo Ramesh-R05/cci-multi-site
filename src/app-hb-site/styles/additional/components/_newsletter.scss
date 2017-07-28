@@ -5,7 +5,7 @@
     padding: 12px 0 4px 0;
 
     @media #{$large-up} {
-        border-width: 1px 0 1px 0;
+        border-width: 1px 0;
         border-style: solid;
     }
 
@@ -14,24 +14,21 @@
         @extend .button--subscribe;
         margin: 20px 0;
         line-height: 48px;
-        min-width: 122px;
-        
+        min-width: 147px;
         @media #{$large-up} {
             width: 151px;
             margin: 20px 6px 20px 0;
         }
     }
 
-}
+    &__text {
+        margin: 5px 0 -5px 0;
+    }
 
-
-.newsletter-subscribe__text {
-    margin: 5px 0 -5px 0;
-}
-
-.newsletter-subscribe__title {
-    text-transform: uppercase;
-    font-size: 20px;
-    color: #333;
-    font-weight: 500;
+    &__title {
+        text-transform: uppercase;
+        font-size: 20px;
+        color: #333;
+        font-weight: 500;
+    }
 }

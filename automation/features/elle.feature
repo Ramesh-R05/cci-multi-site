@@ -4,10 +4,14 @@ Feature: Smoke test for ELLE
     I should be able to see the ELLE site showing correct static data
 
     @BXMA-502
-    Scenario: Verify the sign-up URL on homepage
+    Scenario Outline: Verify the sign-up URL on <page>
         Given I switch to "mobile" view
-        When I am currently viewing the homepage
-        When I should see the sign up button containing "http://www.elle.com.au/elle-newsletter" url and "gtm-subs-homepage" gtm in "mobile" view
+        When I am currently viewing "<pageURL>"
+        * I should see the sign up button containing "//www.elle.com.au/elle-newsletter" url and "gtm-subs-homepage" gtm in "mobile" view
+        Examples:
+        | page               | pageURL | 
+        | Homepage           |         | 
+        | Section Landing    | fashion | 
 
     Scenario: Verify the footer in the "mobile" view
         Given I switch to "mobile" view
