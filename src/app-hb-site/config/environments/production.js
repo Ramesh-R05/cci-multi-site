@@ -23,7 +23,7 @@ export default {
             listings: 'http://services.prod.bxm.internal/listing/v1/hb',
             module: 'http://services.prod.bxm.internal/module/v1/hb',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/hb',
-            tag: 'http://live.tags.services.bauer-media.internal/v1/hb'
+            tag: 'http://services.prod.bxm.internal/tag/v1/hb'
         },
         redirect: {
             url: 'http://live.redirect.services.bauer-media.internal/v1/hb/301'

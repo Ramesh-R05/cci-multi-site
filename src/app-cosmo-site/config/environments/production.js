@@ -23,7 +23,7 @@ export default {
             listings: 'http://services.prod.bxm.internal/listing/v1/cosmo',
             module: 'http://services.prod.bxm.internal/module/v1/cosmo',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/cosmo',
-            tag: 'http://live.tags.services.bauer-media.internal/v1/cosmo'
+            tag: 'http://services.prod.bxm.internal/tag/v1/cosmo'
         },
         redirect: {
             url: 'http://live.redirect.services.bauer-media.internal/v1/cosmo/301'

@@ -6,7 +6,7 @@ export default {
         module: 'http://services.sit.bxm.internal/module/v1/hb',
         sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/hb',
         trending: 'http://trending.bauer.mg/today?sites=harpersbazaar.com.au',
-        tag: 'http://dev.tags.services.bauer-media.internal/v1/hb'
+        tag: 'http://services.sit.bxm.internal/tag/v1/hb'
     },
     endpoints: {
         page: '/api/getPageContent',

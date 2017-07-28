@@ -6,7 +6,7 @@ export default {
         module: 'http://services.sit.bxm.internal/module/v1/elle',
         sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/elle',
         trending: 'http://trending.bauer.mg/today?sites=elle.com.au',
-        tag: 'http://dev.tags.services.bauer-media.internal/v1/elle'
+        tag: 'http://services.sit.bxm.internal/tag/v1/elle'
     },
     endpoints: {
         page: '/api/getPageContent',

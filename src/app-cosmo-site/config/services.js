@@ -6,7 +6,7 @@ export default {
         module: 'http://services.sit.bxm.internal/module/v1/cosmo',
         sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/cosmo',
         trending: 'http://trending.bauer.mg/today?sites=cosmo.com.au',
-        tag: 'http://dev.tags.services.bauer-media.internal/v1/cosmo'
+        tag: 'http://services.sit.bxm.internal/tag/v1/cosmo'
     },
     endpoints: {
         page: '/api/getPageContent',
