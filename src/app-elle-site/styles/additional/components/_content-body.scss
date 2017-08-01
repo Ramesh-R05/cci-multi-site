@@ -106,16 +106,33 @@
     }
 
     &__tips {
-        -webkit-font-smoothing: auto;
-        border: none;
-        color: #000;
+        -webkit-font-smoothing: initial;
+        color: $color-secondary;
         margin: $column-gutter 0;
         padding: 0;
-        font-family: $font-family-sans-serif-primary;
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 24px;
-        text-transform: uppercase;
+
+        p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 32px;
+        }
+
+        h2 {
+            line-height: 22px;
+            margin: {
+                bottom: 12px;
+                top: 22px;
+            }
+
+            @media #{$medium-up} {
+                margin: {
+                    bottom: 2px;
+                    top: 17px;
+                }
+            }
+
+        }
 
         @media #{$medium-up} {
             @include content-body-width();
@@ -123,18 +140,11 @@
 
         @media #{$large-up} {
             width: 88%;
-            font-size: 26px;
             line-height: 34px;
         }
 
         .tips {
-            border-left: 7px solid #000;
-            padding-left: 20px;
-            padding-right: 20px;
-
-            p {
-                margin: 40px 0;
-            }
+            padding: 25px;
         }
     }
 }
