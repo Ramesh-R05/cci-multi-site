@@ -123,7 +123,7 @@ resources:
     version:
       memory: 512
       memoryReservation: 256
-      cpuShares: 128
+      cpuShares: 192
       portMappings:
         - 0:3001
       publishAllPorts : true
@@ -176,7 +176,7 @@ resources:
     version:
       memory: 512
       memoryReservation: 256
-      cpuShares: 128
+      cpuShares: 192
       portMappings:
         - 0:3001
       publishAllPorts : true
