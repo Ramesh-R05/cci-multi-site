@@ -422,3 +422,69 @@ jobs:
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     flags:
       - multi-site
+
+  # ii. Smoke Test in ELLE Dev CMS
+  - name: CMS-elle-smoke-test
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: multi-site-repo
+       switch: off
+     - IN: multi-morning-trigger
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "6.1.0"
+        - script: nvm use "6.1.0"
+        - script: cd ./IN/multi-site-repo/gitRepo/automation
+        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: export URL=http://cms.dev.elle.wn.bauer-media.net.au/cms/umbraco/
+        - script: APP_KEY=elle-site npm run test:cms
+    flags:
+      - multi-site
+
+  # iii. Smoke Test in HB Dev CMS
+  - name: CMS-hb-smoke-test
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: multi-site-repo
+       switch: off
+     - IN: multi-morning-trigger
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "6.1.0"
+        - script: nvm use "6.1.0"
+        - script: cd ./IN/multi-site-repo/gitRepo/automation
+        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: export URL=http://cms.dev.hb.wn.bauer-media.net.au/cms/umbraco/
+        - script: APP_KEY=hb-site npm run test:cms
+    flags:
+      - multi-site
+
+  # iv. Smoke Test in Cosmo Dev CMS
+  - name: CMS-cosmo-smoke-test
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: multi-site-repo
+       switch: off
+     - IN: multi-morning-trigger
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "6.1.0"
+        - script: nvm use "6.1.0"
+        - script: cd ./IN/multi-site-repo/gitRepo/automation
+        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: export URL=http://cms.dev.cosmo.wn.bauer-media.net.au/cms/umbraco/
+        - script: APP_KEY=cosmo-site npm run test:cms
+    flags:
+      - multi-site
