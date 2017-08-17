@@ -441,7 +441,8 @@ jobs:
         - script: npm set registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: export URL=http://cms.dev.elle.wn.bauer-media.net.au/cms/umbraco/
-        - script: APP_KEY=elle-site npm run test:cms || true
+        - script: export APP_KEY=elle-site
+        - script: npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     flags:
@@ -465,7 +466,8 @@ jobs:
         - script: npm set registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: export URL=http://cms.dev.hb.wn.bauer-media.net.au/cms/umbraco/
-        - script: APP_KEY=hb-site npm run test:cms || true
+        - script: export APP_KEY=hb-site
+        - script: npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     flags:
@@ -489,7 +491,8 @@ jobs:
         - script: npm set registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: export URL=http://cms.dev.cosmo.wn.bauer-media.net.au/cms/umbraco/
-        - script: APP_KEY=cosmo-site npm run test:cms || true
+        - script: export APP_KEY=cosmo-site
+        - script: npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     flags:
