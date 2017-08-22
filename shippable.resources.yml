@@ -75,7 +75,7 @@ resources:
       params:
         NODE_ENV: "production"
         APP_ENV: "sit"
-        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522b"
+        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
         APP_DEBUG: true
 
   # TEST Parameter
@@ -102,7 +102,7 @@ resources:
       params:
         NODE_ENV: "production"
         APP_ENV: "production"
-        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522b"
+        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
         
   #Schedule Run of automation
   # This is using Shippable timezone
