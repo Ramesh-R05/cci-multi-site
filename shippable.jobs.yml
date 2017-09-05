@@ -431,7 +431,7 @@ jobs:
     steps:
      - IN: multi-site-repo
        switch: off
-     - IN: multi-morning-trigger
+     - IN: elle-weekly-trigger
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
@@ -456,7 +456,7 @@ jobs:
     steps:
      - IN: multi-site-repo
        switch: off
-     - IN: multi-morning-trigger
+     - IN: hb-weekly-trigger
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
@@ -481,7 +481,7 @@ jobs:
     steps:
      - IN: multi-site-repo
        switch: off
-     - IN: multi-morning-trigger
+     - IN: cosmo-weekly-trigger
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh

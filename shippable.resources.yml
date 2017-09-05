@@ -111,7 +111,25 @@ resources:
   - name: multi-morning-trigger
     type: time
     seed:
-      interval: "14 22 * * *"        
+      interval: "14 22 * * *"
+
+  #"14 22 * * 0" is 10:14pm Sunday which is Monday morning in Sydney
+  - name: elle-weekly-trigger
+    type: time
+    seed:
+      interval: "14 22 * * 0"
+
+  #"14 22 * * 2" is 10:14pm Tuesday which is Wednesday morning in Sydney
+  - name: cosmo-weekly-trigger
+    type: time
+    seed:
+      interval: "14 22 * * 2"
+
+  #"14 22 * * 4" is 10:14pm Thursday which is Friday morning in Sydney
+  - name: hb-weekly-trigger
+    type: time
+    seed:
+      interval: "14 22 * * 4"
 
 ##############
 # COSMO
