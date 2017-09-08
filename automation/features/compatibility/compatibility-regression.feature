@@ -5,7 +5,6 @@ Feature: Users can navigate the site using a mobile device
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         Then I can see the long title "automation test article with hero image test title long title"
         * I should see the top leaderboard ad under navigation
-        * I should see MREC ad under the hero image
         * I should see MREC ad above recommendation
         * I should see the bottom leaderboard ad above the footer on article
         * I can see the sticky ad when the top banner disappears from view

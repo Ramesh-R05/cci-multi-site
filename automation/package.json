@@ -5,6 +5,7 @@
   "scripts": {
     "test:mobile": "bash -c \"APP_KEY=multi-mobile npm run mobile\"",
     "mobile": "bash -c \"node runner.js --pMode=mobile\"",
+    "test:browser": "bash -c \"APP_KEY=multi-browser npm run browsers\"",
     "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=@high\"",
     "test:med": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=@med\"",
     "test:low": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=@low\"",
@@ -22,7 +23,6 @@
     "debug": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --debug\"",
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --watch\"",
     "watch:phantom": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --watch\"",
-    "bs": "bash -c \"./node_modules/.bin/chimp chimp.bs.js\"",
     "features": "bash -c \"node runner.js --pMode=features\"",
     "browsers": "bash -c \"node runner.js\"",
     "elle:automation": "bash -c \"export URL= && export APP_KEY=elle-site && export APP_ENV=automation && npm run all:test\"",
@@ -34,7 +34,7 @@
     "shippable:test": "export APP_KEY=elle-site && npm run test:high"
   },
   "dependencies": {
-    "@bxm/automation": "^2.1.0",
+    "@bxm/automation": "3.0.0",
     "cucumber-html-report": "^0.2.8"
   }
 }
