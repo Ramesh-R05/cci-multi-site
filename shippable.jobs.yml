@@ -312,6 +312,7 @@ jobs:
     type: release
     steps:
       - IN: multi-site-automation-test
+      - IN: cosmo-site-smoke-test
       - IN: cosmo-site-version
       - IN: cosmo-site-man-master
         switch: off
@@ -322,6 +323,7 @@ jobs:
     type: release
     steps:
       - IN: multi-site-automation-test
+      - IN: elle-site-smoke-test
       - IN: elle-site-version
       - IN: elle-site-man-master
         switch: off
@@ -332,6 +334,7 @@ jobs:
     type: release
     steps:
       - IN: multi-site-automation-test
+      - IN: hb-site-smoke-test
       - IN: hb-site-version
       - IN: hb-site-man-master
         switch: off
