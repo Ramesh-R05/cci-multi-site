@@ -4,7 +4,7 @@ export default {
         entity: 'http://services.sit.bxm.internal/entity/v1/elle',
         listings: 'http://services.sit.bxm.internal/listing/v1/elle',
         module: 'http://services.sit.bxm.internal/module/v1/elle',
-        sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/elle',
+        sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/elle',
         trending: 'http://trending.bauer.mg/today?sites=elle.com.au',
         tag: 'http://services.sit.bxm.internal/tag/v1/elle'
     },

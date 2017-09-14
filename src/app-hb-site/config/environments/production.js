@@ -22,7 +22,7 @@ export default {
             entity: 'http://services.prod.bxm.internal/entity/v1/hb',
             listings: 'http://services.prod.bxm.internal/listing/v1/hb',
             module: 'http://services.prod.bxm.internal/module/v1/hb',
-            sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/hb',
+            sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/hb',
             tag: 'http://services.prod.bxm.internal/tag/v1/hb'
         },
         redirect: {

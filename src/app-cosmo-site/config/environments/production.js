@@ -22,7 +22,7 @@ export default {
             entity: 'http://services.prod.bxm.internal/entity//v1/cosmo',
             listings: 'http://services.prod.bxm.internal/listing/v1/cosmo',
             module: 'http://services.prod.bxm.internal/module/v1/cosmo',
-            sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/cosmo',
+            sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/cosmo',
             tag: 'http://services.prod.bxm.internal/tag/v1/cosmo'
         },
         redirect: {
