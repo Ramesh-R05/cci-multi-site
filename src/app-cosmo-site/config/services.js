@@ -16,7 +16,7 @@ export default {
         url: 'https://d38h2iiydertbj.cloudfront.net/header/prod/globalheader.json'
     },
     redirect: {
-        url: 'http://dev.redirect.services.bauer-media.internal/v1/cosmo/301'
+        url: 'http://services.sit.bxm.internal/redirect/v1/cosmo/301'
     },
     faceBookAppID: '1549758481945731'
 };
