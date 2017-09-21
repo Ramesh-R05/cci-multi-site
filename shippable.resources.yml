@@ -316,7 +316,7 @@ resources:
   - name: cosmo-site-version
     type: version
     seed:
-      versionName: "1.0.0" # This can be changed for Roll back
+      versionName: "1.78.0" # This can be changed for Roll back
 
   # AWS PROD load Balancer - COSMO PROD - MASTER branch
   - name: cosmo-site-alb-prod
