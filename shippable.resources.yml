@@ -159,7 +159,7 @@ resources:
     pointer:
       sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/cosmo-site"
     seed:
-      versionName: latest
+      versionName: "master.1251"  # This can be changed for Roll back
 
   # COSMO Seed image version Feature BRANCH Docker Image
   - name: cosmo-site-img-branch
