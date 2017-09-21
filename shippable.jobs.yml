@@ -216,6 +216,8 @@ jobs:
        - script: npm run test:high || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+    on_failure:
+      - NOTIFY: hb-deployment-notifications
 
   # 4b. Run compatibility regression test on TEST environment - Browser Stack
   - name: compatibility-multi-site-automation-test
@@ -262,6 +264,8 @@ jobs:
        - script: export APP_KEY=cosmo-site
        - script: export URL=http://cosmo-site-au.sit.bxm.net.au/
        - script: npm run smoketest:cosmo
+    on_failure:
+      - NOTIFY: cosmo-deployment-notifications
 
   # 4cELLE. Run smoke test on TEST environment ELLE
   - name: elle-site-smoke-test
@@ -284,6 +288,8 @@ jobs:
        - script: export APP_KEY=elle-site
        - script: export URL=http://elle-site-au.sit.bxm.net.au/
        - script: npm run smoketest:elle
+    on_failure:
+      - NOTIFY: elle-deployment-notifications
 
   # 4cHB. Run smoke test on TEST environment HB
   - name: hb-site-smoke-test
@@ -306,6 +312,8 @@ jobs:
        - script: export APP_KEY=hb-site
        - script: export URL=http://hb-site-au.sit.bxm.net.au/
        - script: npm run smoketest:hb
+    on_failure:
+      - NOTIFY: hb-deployment-notifications
 
   # 5COSMO. Package release for production release
   - name: cosmo-release-master
@@ -400,8 +408,8 @@ jobs:
   ##############################################
   # Schedule jobs - not attached to the pipeline
   ##############################################
-  
-  
+
+
   # i. Full regression in SIT Multi
   - name: FULL-multi-site-regression-test
     type: runSh
