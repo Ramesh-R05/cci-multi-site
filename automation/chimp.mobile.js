@@ -13,15 +13,15 @@ module.exports = {
     saveScreenshotsToReport: false,
 
     // - - - - SELENIUM  - - - -
-    name: 'Multi Repo',
     user: 'bxmdeveloper1',
     key: 'QmqNpg983H2ucStjNMu9',
     port: 80,
-    host: 'hub.browserstack.com',
+    host: 'hub-cloud.browserstack.com',
 
     webdriverio: {
         desiredCapabilities: {
-            device: run_device,
+            "project": 'Multi Repo',
+            "device": run_device,
             "realMobile": true,
             "browserstack.debug": true
         }

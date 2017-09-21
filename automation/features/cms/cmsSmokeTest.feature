@@ -1,4 +1,4 @@
-@cms @multi
+@cms
 Feature: CMS Smoke Test
     As an editor
     I should be able to use CMS to create and update content
