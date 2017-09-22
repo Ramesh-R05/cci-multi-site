@@ -263,7 +263,9 @@ jobs:
        - script: npm install
        - script: export APP_KEY=cosmo-site
        - script: export URL=http://cosmo-site-au.sit.bxm.net.au/
-       - script: npm run smoketest:cosmo
+       - script: npm run smoketest:cosmo || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     on_failure:
       - NOTIFY: cosmo-deployment-notifications
 
@@ -287,7 +289,9 @@ jobs:
        - script: npm install
        - script: export APP_KEY=elle-site
        - script: export URL=http://elle-site-au.sit.bxm.net.au/
-       - script: npm run smoketest:elle
+       - script: npm run smoketest:elle || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     on_failure:
       - NOTIFY: elle-deployment-notifications
 
@@ -311,7 +315,9 @@ jobs:
        - script: npm install
        - script: export APP_KEY=hb-site
        - script: export URL=http://hb-site-au.sit.bxm.net.au/
-       - script: npm run smoketest:hb
+       - script: npm run smoketest:hb || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     on_failure:
       - NOTIFY: hb-deployment-notifications
 
