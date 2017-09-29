@@ -18,8 +18,6 @@ jobs:
       - OUT: elle-site-img-branch
       - OUT: hb-site-img-master
       - OUT: hb-site-img-branch
-    flags:
-      - multi-site
 
   # 2branchCOSMO. Manifest for a BRANCH image
   - name: cosmo-site-man-branch
@@ -438,8 +436,6 @@ jobs:
         - script: npm run all:test || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    flags:
-      - multi-site
 
   # ii. Smoke Test in ELLE Dev CMS
   - name: CMS-elle-smoke-test
@@ -463,8 +459,6 @@ jobs:
         - script: npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    flags:
-      - multi-site
 
   # iii. Smoke Test in HB Dev CMS
   - name: CMS-hb-smoke-test
@@ -488,8 +482,6 @@ jobs:
         - script: npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    flags:
-      - multi-site
 
   # iv. Smoke Test in Cosmo Dev CMS
   - name: CMS-cosmo-smoke-test
@@ -513,5 +505,3 @@ jobs:
         - script: npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    flags:
-      - multi-site
