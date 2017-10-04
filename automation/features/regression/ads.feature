@@ -4,7 +4,7 @@ Feature: Ad
     I should be able to see the relevant Ads on the site
 
 # -------- Homepage Ads on desktop and mobile are High as this is an area with Commercial Value ---------------
-    @homepage @BXMA-90 @high
+    @homepage @BXMA-90
     Scenario Outline: Ads on homepage in the desktop view
         Given I switch to "<device>" view
         When I am currently viewing the homepage

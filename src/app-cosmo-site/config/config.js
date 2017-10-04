@@ -24,7 +24,20 @@ export default {
 
     global,
 
-    ads: { targets: { env: 'test' } },
+    ads: {
+        targets: { env: 'test' },
+        blocked: {
+            sections: [ 'sex' ],
+            tags: [
+                'common:topic:Sex stories',
+                'common:topic:Sex positions',
+                'common:topic:Oral sex',
+                'media_common:quotation_subject:Sex',
+                'medicine:disease:Sexually transmitted infection',
+                'media_common:quotation_subject:Sex scandal'
+            ]
+        }
+    },
 
     site,
 

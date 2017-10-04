@@ -66,6 +66,58 @@ export default class Page extends Component {
         this.props.toggleSideMenu('left');
     };
 
+    static allowAdExchange = (content, config) => {
+        const blocked = (config.ads && config.ads.blocked) || null;
+        let result = null;
+
+        if (blocked) {
+            result = true;
+
+            if (content && content.nodeType) {
+                const sections = blocked.sections || [];
+
+                switch (content.nodeType.toLowerCase()) {
+                case 'section':
+                case 'tagsection':
+                    if (content.title) {
+                        for (let i = 0, sectionsLength = sections.length; i < sectionsLength; i++) {
+                            if (content.title.toLowerCase().startsWith(sections[i].toLowerCase())) {
+                                result = false;
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    if (content.parentName) {
+                        for (let i = 0, sectionsLength = sections.length; i < sectionsLength; i++) {
+                            if (content.parentName.toLowerCase() === sections[i].toLowerCase()) {
+                                result = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (result) {
+                const tags = (content && content.tagsDetails) || [];
+                const blockedTags = blocked.tags || [];
+
+                for (let i = 0, blockedTagsLength = blockedTags.length; i < blockedTagsLength && result; i++) {
+                    for (let j = 0, tagsLength = tags.length; j < tagsLength; j++) {
+                        if (tags[j].name && blockedTags[i].toLowerCase() === tags[j].name.toLowerCase()) {
+                            result = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return result;
+    };
+
     render() {
         const {
             headerNavItems,
@@ -86,6 +138,8 @@ export default class Page extends Component {
         const { config } = this.context;
         const mobileNav = hamburgerNavItems ? hamburgerNavItems.slice() : headerNavItems.slice();
         const pageClassName = classnames('page', this.props.className);
+        const allowAdExchange = Page.allowAdExchange(content, config);
+        const customAdParams = {};
         let keyword;
 
         mobileNav.unshift({
@@ -96,6 +150,10 @@ export default class Page extends Component {
         if (content) {
             const tags = content.tagsDetails;
             keyword = tags ? tags.map(tag => tag.fullName) : '';
+        }
+
+        if (typeof allowAdExchange === 'boolean') {
+            customAdParams.allow_adx = allowAdExchange;
         }
 
         const stickyAdProps = {
@@ -109,7 +167,8 @@ export default class Page extends Component {
             targets: {
                 keyword
             },
-            pageLocation
+            pageLocation,
+            customParams: customAdParams
         };
 
         return (
@@ -139,7 +198,7 @@ export default class Page extends Component {
 
                     {pageTitle && <div className="page-title-container"> { pageTitle } </div>}
 
-                    <StandardPageAdsWrapper>
+                    <StandardPageAdsWrapper customParams={customAdParams}>
                         <div className="content-wrapper">
                             { this.props.children }
                             { !hideFooter && <Footer magCover={magCover} logoList={config.brands.uniheader} />}
@@ -151,7 +210,7 @@ export default class Page extends Component {
                             <button
                               className="close-btn"
                               onClick={this.toggleMenu}
-                    /* eslint-disable max-len, react/no-danger */
+                                /* eslint-disable max-len, react/no-danger */
                               dangerouslySetInnerHTML={{ __html: `
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="22" height="22" viewBox="0 0 22 22">
                             <path d="M12.757,10.979 C12.757,10.979 21.608,19.830 21.608,19.830 C22.099,20.321 22.099,21.117 21.608,21.607 C21.117,22.098 20.322,22.098 19.831,21.607 C19.831,21.607 10.980,12.756 10.980,12.756 C10.980,12.756 2.129,21.607 2.129,21.607 C1.639,22.098 0.843,22.098 0.352,21.607 C-0.138,21.117 -0.138,20.321 0.352,19.830 C0.352,19.830 9.203,10.979 9.203,10.979 C9.203,10.979 0.352,2.129 0.352,2.129 C-0.138,1.638 -0.138,0.843 0.352,0.351 C0.843,-0.139 1.639,-0.139 2.129,0.351 C2.129,0.351 10.980,9.202 10.980,9.202 C10.980,9.202 19.831,0.351 19.831,0.351 C20.322,-0.139 21.117,-0.139 21.608,0.351 C22.099,0.843 22.099,1.638 21.608,2.129 C21.608,2.129 12.757,10.979 12.757,10.979 Z" id="path-1" class="cls-2" fill-rule="evenodd"></path>
