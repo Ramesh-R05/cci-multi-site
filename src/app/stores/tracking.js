@@ -144,6 +144,14 @@ function trackLoadList(payload) {
     dataLayerPush(data);
 }
 
+function trackImageRevealerInteraction(payload) {
+    const data = {
+        event: 'Image Revealer',
+        eventInfo: { ...payload }
+    };
+    dataLayer.push(data);
+}
+
 // ---------------------------------------------------------------------------- store
 
 module.exports = createStore({
@@ -161,7 +169,8 @@ module.exports = createStore({
         GALLERY_COMPLETED: 'onGalleryCompleted',
         VERTICAL_GALLERY_COMPLETED: 'onVerticalGalleryCompleted',
         GALLERY_NEXT_GALLERY: 'onNextGallery',
-        LOAD_LIST: 'onLoadList'
+        LOAD_LIST: 'onLoadList',
+        IMAGE_REVEALER_INTERACTION: 'onImageRevealerInteraction'
     },
 
     onGalleryOpened: (payload) => {
@@ -198,5 +207,9 @@ module.exports = createStore({
 
     onLoadList: (payload) => {
         trackLoadList(payload);
+    },
+
+    onImageRevealerInteraction: (payload) => {
+        trackImageRevealerInteraction(payload);
     }
 });
