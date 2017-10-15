@@ -3,6 +3,7 @@ import home from './bff/middleware/home';
 import article from './bff/middleware/article';
 import gallery from './bff/middleware/gallery';
 import responseBody from './bff/middleware/responseBody';
+import https from './bff/middleware/https';
 import render from './bff/middleware/render';
 import error from './bff/middleware/error';
 import pageModules from './bff/middleware/pageModules';
@@ -14,14 +15,16 @@ import sitemap from './bff/middleware/sitemap';
 import list from './bff/middleware/list';
 import stubServer from '../../automation/test_data/contentApi';
 import logger from '../../logger';
+import assetProxy from './bff/middleware/assetProxy';
 
 export default function bff(server) {
+    server.get('/api/asset', assetProxy);
     if (process.env.APP_STUBBED === 'true') {
         stubServer(server, server.locals.config);
         logger.warn('stubbing does not exercise BFF code');
     } else {
         server.get('/sitemap/:section?', sitemap, error);
-        server.get(server.locals.config.services.endpoints.list, list, render, error);
+        server.get(server.locals.config.services.endpoints.list, list, https, render, error);
         server.get(
             server.locals.config.services.endpoints.page,
             pageModules,
@@ -33,6 +36,7 @@ export default function bff(server) {
             article,
             gallery,
             headerMeta,
+            https,
             responseBody,
             render,
             error

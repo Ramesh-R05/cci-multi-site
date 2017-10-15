@@ -11,11 +11,15 @@ var exportedObject = {
     saveScreenshotsToDisk: false,
     webdriverio: {
         desiredCapabilities: {
+            // go to https://peter.sh/experiments/chromium-command-line-switches/
             chromeOptions: {
-                args: ["--enable-automation"]
+                args: ["--enable-automation", "--allow-insecure-localhost"]
             }
         }
     },
+
+    phantom_ignoreSSLErrors: true,
+
     // - - - - SELENIUM-STANDALONE
     seleniumStandaloneOptions: {
         // check for more recent versions of selenium here:

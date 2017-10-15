@@ -10,7 +10,7 @@ export default {
 
     gtm: { masthead: 'NOW', id: 'GTM-MSL9XB' },
 
-    defaultImageUrl: 'http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/defaultimage.png',
+    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/defaultimage.png',
 
     brightcove,
 
@@ -237,7 +237,7 @@ export default {
     outbrain: {
         templateId: 'NowtoLove',
         widgetId: 'AR_1',
-        scriptUrl: 'http://widgets.outbrain.com/outbrain.js'
+        scriptUrl: '//widgets.outbrain.com/outbrain.js'
     }
 
 };

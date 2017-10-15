@@ -1,12 +1,13 @@
 var home = require('../page_objects/homepage_widget');
 var world = require('../world');
+var validateImageURL = require('../../../node_modules/@bxm/automation/lib/utils/validateImageURL');
 
 module.exports = function(){
 
     this.When(/^I should see the main hero item containing its image and clickable to open its page$/, function () {
         //Verify the hero image
         var heroImgUrl = browser.getAttribute(home.heroImgUrl, 'data-srcset');
-        expect(heroImgUrl).not.toBeUndefined();
+        validateImageURL(heroImgUrl);
         //Verify the hero image's link
         var heroImgLink = browser.getAttribute(home.heroImgLink, 'href');
         expect(heroImgLink).not.toBeUndefined();
@@ -42,7 +43,7 @@ module.exports = function(){
         var topFeedTeaserImgUrl = browser.getAttribute(home.topFeedTeaserImg,'data-srcset');
         var topFeedTeaserImgLink = browser.getAttribute(home.topFeedTeaserImgLink,'href');
         for (var i=0; i<topFeedTeaserImgUrl.length; i++){
-            expect(topFeedTeaserImgUrl[i]).not.toEqual('');
+            validateImageURL(topFeedTeaserImgUrl[i]);
             expect(topFeedTeaserImgLink[i]).not.toEqual('');
         }
     });
@@ -83,7 +84,7 @@ module.exports = function(){
         var bottomFeedTeaserImgUrl = browser.getAttribute(home.bottomFeedTeaserImg,'data-srcset');
         var bottomFeedTeaserImgLink = browser.getAttribute(home.bottomFeedTeaserImgLink,'href');
         for (var i=0; i<bottomFeedTeaserImgUrl.length; i++){
-            expect(bottomFeedTeaserImgUrl[i]).not.toEqual('');
+            validateImageURL(bottomFeedTeaserImgUrl[i]);
             expect(bottomFeedTeaserImgLink[i]).not.toEqual('');
         }
     });
@@ -129,7 +130,7 @@ module.exports = function(){
 
         //validate image and title and their links
         for (var i=0; i<number; i++){
-            expect(mustreadImage[i]).not.toEqual('');
+            validateImageURL(mustreadImage[i]);
             expect(mustreadImageLink[i]).not.toEqual('');
             expect(mustreadTitle[i]).not.toEqual('');
             expect(mustreadTitleLink[i]).toEqual(mustreadImageLink[i]);
@@ -173,7 +174,7 @@ module.exports = function(){
 
         //validate image and title and their links
         for (var i=0; i<number; i++){
-            expect(promotedImage[i]).not.toEqual('');
+            validateImageURL(promotedImage[i]);
             expect(promotedImageLink[i]).not.toEqual('');
             expect(promotedTitle[i]).not.toEqual('');
             expect(promotedImageSectionTag[i]).not.toEqual('');
@@ -282,6 +283,18 @@ module.exports = function(){
         expect(browser.isVisible(signUpBtn)).toEqual(true);
         expect(signUpBtnLink).toContain(url);
         expect(signUpBtnClass).toContain(gtm);
+    });
+
+    this.When(/^I should see each load more feed item containing its image and clickable to open its page$/, function () {
+        //verify images of all teasers
+        console.log(browser.elements(home.loadMoreFeedTeaserImg).value.length);
+        var loadMoreFeedTeaserImgUrl = browser.getAttribute(home.loadMoreFeedTeaserImg,'data-srcset');
+        var loadMoreFeedTeaserImgLink = browser.getAttribute(home.loadMoreFeedTeaserImgLink,'href');
+        for (var i=0; i<loadMoreFeedTeaserImgUrl.length; i++){
+            console.log( i + ":" + loadMoreFeedTeaserImgUrl[i] + " => " + loadMoreFeedTeaserImgLink[i]);
+            validateImageURL(loadMoreFeedTeaserImgUrl[i]);
+            expect(loadMoreFeedTeaserImgLink[i]).not.toEqual('');
+        }
     });
 
 };

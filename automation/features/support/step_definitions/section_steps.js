@@ -9,4 +9,11 @@ module.exports = function(){
         expect(sectionTitle).not.toContain("now");
     });
 
+    //Load More content
+    this.Then(/^I should see extra (\d+) teasers after loading more$/, function (teaserCount) {
+        var extraTeasers = browser.elements(section.sectionRepeatableSectionTeaserAfterLoadMore).value.length;
+
+        expect(extraTeasers).toEqual(parseInt(teaserCount),10);
+    });
+
 };

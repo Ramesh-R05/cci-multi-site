@@ -45,7 +45,7 @@ export default {
             "type": "image",
             "label": "Image",
             "content": {
-                "url": "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/dolly/2016/01/22/1453416439523_cat.gif",
+                "url": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/2017/10/11/1507684400469_1453416439523cat.gif",
                 "tags": [],
                 "valid": true,
                 "source": "",
@@ -73,7 +73,7 @@ export default {
         "id": "DOLLY-3640",
         "imageAltText": "Test Image Alt Text",
         "imageCaption": "Test Image Caption",
-        "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2016/01/13/72089/kendallllllzzz-(1).jpg",
+        "imageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/Dolly/2016/01/13/72089/kendallllllzzz-(1).jpg",
         "nodeType": "Article",
         "summary": "If it gets us lookin' like Kendall then sure!",
         "tags": ["food:Renovating:Trims and fittings", "food:Topic:Feature garden"],
@@ -123,7 +123,7 @@ export default {
     },
     headerNavigation: navigation.getData(),
     magCover: {
-        moduleImageUrl: 'http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/17/16588/0018975_elle-australia-magazine-subscription.png',
+        moduleImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/2017/10/11/1507683961181_0018975elle-australia-magazine-subscription.png',
         moduleTitle: 'Subscribe Now'
     }
 };

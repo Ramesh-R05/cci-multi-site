@@ -10,7 +10,7 @@ export default {
 
     gtm: { masthead: 'COSMO', id: 'GTM-K774C2' },
 
-    defaultImageUrl: 'http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/cosmo/defaultimage.png',
+    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/cosmo/defaultimage.png',
 
     brightcove,
 
@@ -163,6 +163,6 @@ export default {
     outbrain: {
         templateId: 'Cosmopolitan_2',
         widgetId: 'AR_1',
-        scriptUrl: 'http://widgets.outbrain.com/outbrain.js'
+        scriptUrl: '//widgets.outbrain.com/outbrain.js'
     }
 };

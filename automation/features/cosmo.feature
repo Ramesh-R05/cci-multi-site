@@ -1,19 +1,47 @@
 @smoketestcosmo
 Feature: Smoke test for COSMO
     As a user
-    I should be able to see the COSMO site showing correct static data
-    
-    @BXMA-502
-    Scenario Outline: Verify the sign-up URL on <page>
+    I should be able to see the COSMO site showing correct static data and all pages are working correctly
+
+    Scenario: Verify the homepage
         Given I switch to "mobile" view
-        When I am currently viewing "<pageURL>"
-        * I should see the sign up button containing "//www.cosmopolitan.com.au/cosmo-newsletter" url and "gtm-subs-homepage" gtm in "mobile" view
-        Examples:
-        | page               | pageURL | 
-        | Homepage           |         | 
-        | Section Landing    | fashion | 
-   
-   
+        When I am currently viewing the homepage
+        Then I should see the sign up button containing "https://www.cosmopolitan.com.au/cosmo-newsletter" url and "gtm-subs-homepage" gtm in "mobile" view
+        And I should see 2 must read images and titles which are clickable to open their page
+        And I should see the main hero item containing its image and clickable to open its page
+        And I should see 2 promoted images and titles which are clickable to open their page
+        And I should see each top feed item containing its image and clickable to open its page
+        And I should see each bottom feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 14 teasers after loading more
+        And I should see each load more feed item containing its image and clickable to open its page
+
+    Scenario: Verify the section landing page
+        Given I switch to "mobile" view
+        When I am currently viewing "fashion"
+        Then I should see the sign up button containing "https://www.cosmopolitan.com.au/cosmo-newsletter" url and "gtm-subs-homepage" gtm in "mobile" view
+        Then I should see the main hero item containing its image and clickable to open its page
+        And I should see each top feed item containing its image and clickable to open its page
+        And I should see each bottom feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 14 teasers after loading more
+        And I should see each load more feed item containing its image and clickable to open its page
+
+    Scenario: Verify the article page
+        Given Emily just published the "article" doc type item in "cosmo"
+        When I navigate to the "celebrity/test-article" page
+        Then our readers can enjoy the latest content
+
+    Scenario: Verify the gallery page
+        Given Emily just published the "gallery" doc type item in "cosmo"
+        When I navigate to the "bachelor/test-gallery" page
+        Then our readers can enjoy the latest content
+
+    Scenario: Verify the tag landing page
+        Given I switch to "mobile" view
+        When I am currently viewing "tags/reality-television"
+        Then I should see the main hero item containing its image and clickable to open its page
+
     Scenario: Verify the footer in the "mobile" view
         Given I switch to "mobile" view
         When I am currently viewing the homepage

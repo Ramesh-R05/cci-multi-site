@@ -7,7 +7,7 @@ Feature: Homepage
     Scenario Outline: Verify the sign-up URL on homepage
         Given I switch to "<device>" view
         When I am currently viewing the homepage
-        Then I should see the sign up button containing "http://www.elle.com.au/elle-newsletter" url and "gtm-subs-homepage" gtm in "<device>" view
+        Then I should see the sign up button containing "https://www.elle.com.au/elle-newsletter" url and "gtm-subs-homepage" gtm in "<device>" view
     @high
         Examples:
             | device            |
