@@ -260,7 +260,7 @@ jobs:
        - script: npm set registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=cosmo-site
-       - script: export URL=http://cosmo-site-au.sit.bxm.net.au/
+       - script: export URL=https://www.sit.cosmopolitan.com.au/
        - script: npm run smoketest:cosmo || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
@@ -286,7 +286,7 @@ jobs:
        - script: npm set registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=elle-site
-       - script: export URL=http://elle-site-au.sit.bxm.net.au/
+       - script: export URL=https://www.sit.elle.com.au/
        - script: npm run smoketest:elle || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
@@ -312,7 +312,7 @@ jobs:
        - script: npm set registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=hb-site
-       - script: export URL=http://hb-site-au.sit.bxm.net.au/
+       - script: export URL=https://www.sit.harpersbazaar.com.au/
        - script: npm run smoketest:hb || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
