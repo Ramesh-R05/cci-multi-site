@@ -7,7 +7,7 @@ Feature: Section Landing page
     Scenario Outline: Verify the sign-up URL on section landing page
         Given I switch to "<device>" view
         Given I am currently viewing "fashion"
-        Then I should see the sign up button containing "https://www.elle.com.au/elle-newsletter" url and "gtm-subs-homepage" gtm in "<device>" view
+        Then I should see the sign up button containing "//www.elle.com.au/elle-newsletter" url and "gtm-subs-homepage" gtm in "<device>" view
     @high
         Examples:
             | device            |
