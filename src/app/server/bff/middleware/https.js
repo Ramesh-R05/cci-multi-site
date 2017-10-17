@@ -1,7 +1,7 @@
 import get from 'lodash.get';
 import set from 'lodash.set';
 
-const httpsSet = (obj, path) => {
+export const httpsSet = (obj, path) => {
     let url = get(obj, path);
     if (typeof url !== 'string' || url.startsWith('https') || url.startsWith('/api/asset?url=')) return;
     url = url.replace('http://d3lp4xedbqa8a5.cloudfront.net', 'https://d3lp4xedbqa8a5.cloudfront.net');
@@ -25,7 +25,6 @@ const imageUrls = [
     'data.entity.contentImageUrl',
     'data.hero.contentImageUrl',
     'data.magcover.moduleImageUrl',
-    'data.magCover.moduleImageUrl',
     'data.theme.themeImage',
     'data.theme.headerSmallBackground',
     'data.theme.headerMediumBackground',
