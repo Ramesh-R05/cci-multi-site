@@ -154,6 +154,7 @@ module.exports = function() {
     });
 
     this.Then(/^I can see the smaller logo in the navigation bar that takes me back to the home page$/, function () {
+        browser.waitForVisible(site_nav.smallIcon, 5000);
         expect(browser.isVisible(site_nav.smallIcon)).toBe(true);
         var menuhref = browser.getAttribute(site_nav.smallIconlink, 'href');
         expect(menuhref).toEqual(site_domain);

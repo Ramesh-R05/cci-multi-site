@@ -25,6 +25,7 @@ const imageUrls = [
     'data.entity.contentImageUrl',
     'data.hero.contentImageUrl',
     'data.magcover.moduleImageUrl',
+    'data.magCover.moduleImageUrl',
     'data.theme.themeImage',
     'data.theme.headerSmallBackground',
     'data.theme.headerMediumBackground',

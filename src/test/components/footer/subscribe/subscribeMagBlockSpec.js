@@ -1,53 +1,45 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
-import proxyquire, {noCallThru} from 'proxyquire';
+const { React, ReactDOM, TestUtils } = Context;
+import { shallow } from 'enzyme';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
-var SubscribeMagBlock = proxyquire('../../../../app/components/footer/subscribe/subscribeMagBlock', {}).default;
+const ResponsiveImageStub = Context.createStubComponent();
 
-//These tests added after infinite scroll. Older tests are in a separate describe block below.
-describe('SubscribeMagBlock', function() {
-    const magCoverUrl = 'path/of/image';
-    let reactModule;
-    let subscribeImage;
+const SubscribeMagBlock = proxyquire('../../../../app/components/footer/subscribe/subscribeMagBlock', {
+    '@bxm/ui/lib/common/ResponsiveImage': ResponsiveImageStub
+}).default;
 
-    afterEach(Context.cleanup);
 
-    beforeEach(function() {
-        reactModule = Context.mountComponent(SubscribeMagBlock, { magCoverUrl });
-    });
+describe('SubscribeMagBlock', () => {
+    const magCoverUrlStub = 'path/of/image';
 
-    it('should exist', function () {
-        should.exist(ReactDOM.findDOMNode(reactModule));
-    });
+    const context = {
+        config: {
+            global:  {
+                breakpoints: ''
+            }
+        }
+    };
 
-    const expectedTarget = '_blank';
-    it('should set the target to be _blank', function () {
-        ReactDOM.findDOMNode(reactModule).querySelector('.subscription__image--mag').getAttribute('target').should.equal(expectedTarget);
-    });
+    describe('when inSideNav is false', () => {
+        const wrapper = shallow(<SubscribeMagBlock
+            magCoverUrl={magCoverUrlStub}
+            inSideNav={false} />, { context });
 
-    it('should have the images', function() {
-        var images = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'img');
-
-        expect(images.length).to.equal(2);
-
-        images.forEach(function(image) {
-            expect(ReactDOM.findDOMNode(image).src).to.equal(magCoverUrl);
+        it('should contain responsive image', () => {
+            expect(wrapper.find(ResponsiveImageStub).length).to.be.equal(2);
         });
     });
 
-    describe('Given the Subscribe component appears in the side navigation', () => {
-        before( () => {
-            reactModule = Context.mountComponent(SubscribeMagBlock, {
-                inSideNav: true
-            });
-        });
+    describe('when inSideNav is true', () => {
+        const wrapper = shallow(<SubscribeMagBlock
+        magCoverUrl={magCoverUrlStub}
+        inSideNav />, { context });
 
-        it('should not render the magazine image', () => {
-            subscribeImage = ReactDOM.findDOMNode(reactModule).querySelector('.subscribe img');
-            expect(subscribeImage).to.not.exist;
+        it('should not contain responsive image', () => {
+            expect(wrapper.find(ResponsiveImageStub).length).to.be.equal(0);
         });
     });
-
 });
