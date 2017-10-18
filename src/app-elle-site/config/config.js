@@ -8,6 +8,8 @@ import polar from './polar';
 
 export default {
 
+    ga: { id: 'UA-42966291-1' },
+
     gtm: { masthead: 'ELLE', id: 'GTM-TXC6CF' },
 
     defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/defaultimage.png',

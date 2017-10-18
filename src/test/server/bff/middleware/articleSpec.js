@@ -12,30 +12,6 @@ const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/arti
 }).default;
 
 describe('Article middleware', () => {
-    const config = {
-        brands: {
-            uniheader: [
-                {
-                    "id": "aww",
-                    "imageUrl": "/assets/images/headerlogos/AWW-logo.svg",
-                    "url": "/aww",
-                    "title": "Australian Women's Weekly"
-                },
-                {
-                    "id": "wd",
-                    "imageUrl": "/assets/images/headerlogos/WD-logo.svg",
-                    "url": "/womansday",
-                    "title": "Woman's Day"
-                },
-                {
-                    "id": "gh",
-                    "imageUrl": "/assets/images/headerlogos/GH-logo.svg",
-                    "url": "/good-health",
-                    "title": "Good Health"
-                }
-            ]
-        }
-    };
     const res = {};
     const validNodeType = article.nodeTypeAlias;
     const validSectionId = article.sectionId;
@@ -99,7 +75,6 @@ describe('Article middleware', () => {
         describe('when articleSource is Good Health', () => {
             before(() => {
                 reqBase = {
-                    app: { locals: { config } },
                     query: {
                         section: validSection,
                         subsection: validSubsection,
@@ -118,19 +93,11 @@ describe('Article middleware', () => {
                 next = sinon.spy();
                 getLatestTeasersStub = sinon.stub().resolves(listing);
             });
-
-            it('should set adBrand as gh', (done) => {
-                articleMiddleware(req, res, next).then(() => {
-                    expect(req.data.entity.adBrand).to.equal('gh');
-                    done();
-                }).catch(done);
-            });
         });
 
         describe('when articleSource is undefined', () => {
             before(() => {
                 reqBase = {
-                    app: { locals: { config } },
                     query: {
                         section: validSection,
                         subsection: validSubsection,
@@ -148,21 +115,12 @@ describe('Article middleware', () => {
                 next = sinon.spy();
                 getLatestTeasersStub = sinon.stub().resolves(listing);
             });
-
-            it('should set adBrand as ntl', (done) => {
-                articleMiddleware(req, res, next).then(() => {
-                    expect(req.data.entity.adBrand).to.equal('ntl');
-                    done();
-                }).catch(done);
-
-            });
         });
 
         describe('when sectionId has a value', () => {
 
             before(() => {
                 reqBase = {
-                    app: { locals: { config } },
                     query: {
                         section: validSection,
                         subsection: validSubsection,

@@ -5,5 +5,6 @@ export default {
     name: 'ELLE',
     shortName: 'Elle',
     prefix: 'ELLE',
-    network: 'wn'
+    network: 'wn',
+    adTaggingId: 'Elle'
 };

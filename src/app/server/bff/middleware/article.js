@@ -1,4 +1,3 @@
-import find from 'lodash/collection/find';
 import get from 'lodash/object/get';
 import { getLatestTeasers } from '../api/listing';
 
@@ -11,10 +10,6 @@ export default async function article(req, res, next) {
             next();
             return;
         }
-
-        const source = get(req, 'data.entity.articleSource', '');
-        const adBrand = find(req.app.locals.config.brands.uniheader, b => b.title === source);
-        req.data.entity.adBrand = get(adBrand, 'id', 'ntl');
 
         const sectionId = req.data.entity.sectionId;
         const listingQuery = `path eq %27${sectionId}%27`;

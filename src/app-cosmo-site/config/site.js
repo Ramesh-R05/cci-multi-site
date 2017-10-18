@@ -5,5 +5,6 @@ export default {
     name: 'Cosmopolitan',
     shortName: 'Cosmo',
     prefix: 'COSMO',
-    network: 'wn'
+    network: 'wn',
+    adTaggingId: 'Cosmopolitan'
 };

@@ -5,5 +5,6 @@ export default {
     name: "Harper's BAZAAR",
     shortName: "Harper's",
     prefix: 'HB',
-    network: 'wn'
+    network: 'wn',
+    adTaggingId: 'harpersbazaar'
 };
