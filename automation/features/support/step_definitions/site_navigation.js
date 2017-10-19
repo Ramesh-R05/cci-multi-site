@@ -138,7 +138,7 @@ module.exports = function() {
     this.Then(/^the menu fades out as I scroll down the page$/, function () {
         expect(browser.isVisible(site_nav.menuHeader)).toBe(true);
         browser.scroll(0,1000);
-        wait(500);
+        wait(1000);
         expect(browser.getAttribute(site_nav.menuHeader,'class')).toContain('header--hide');
     });
 
@@ -163,6 +163,7 @@ module.exports = function() {
 
 
     this.Then(/^I should see the custom masthead appearing on top of the page$/, function () {
+        wait(2000); //static wait as the background image is loaded after some time
         var customMastHead = browser.getAttribute(site_nav.customMastHead, 'style');
         console.log(customMastHead);
         expect(customMastHead).toContain('background-image');
