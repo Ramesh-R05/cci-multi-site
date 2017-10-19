@@ -4,7 +4,6 @@ export const initialState = {
     nodeType: '',
     title: '',
     magazineImageUrl: '',
-    trendingItems: [],
     magCover: {}
 };
 
@@ -15,7 +14,6 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
 
     case 'LOAD_CONTENT': {
         const entity = payload.body.entity;
-        const trendingItems = payload.body.trendingItems || [];
         const footer = payload.body.footer || {};
 
         if (!entity) return state;
@@ -26,7 +24,6 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             title: entity.title,
             shortTitle: entity.shortTitle,
             summary: entity.summary,
-            trendingItems,
             footer,
             magazineImageUrl: entity.imageUrl,
             theme: payload.body.theme,
@@ -46,7 +43,6 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             error: response,
             nodeType: '',
             title: '',
-            trendingItems: [],
             footer,
             magazineImageUrl: '',
             theme: '',

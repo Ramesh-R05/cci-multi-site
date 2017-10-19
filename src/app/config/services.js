@@ -5,7 +5,6 @@ export default {
         listings: 'http://dev.listings.services.bauer-media.internal/v1/now',
         module: 'http://dev.modules.services.bauer-media.internal/v1/now',
         sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/now',
-        trending: 'http://trending.bauer.mg/today?sites=nowtolove.com.au',
         tag: 'http://dev.tags.services.bauer-media.internal/v1/now'
     },
     endpoints: {

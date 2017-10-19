@@ -39,7 +39,6 @@ describe(`loadPage Reducer`, () => {
                     title: payload.body.entity.title,
                     shortTitle: payload.body.entity.shortTitle,
                     summary: payload.body.entity.summary,
-                    trendingItems: payload.body.trendingItems,
                     magazineImageUrl: payload.body.entity.imageUrl,
                     magCover: payload.body.magCover
                 });
@@ -53,7 +52,6 @@ describe(`loadPage Reducer`, () => {
                     title: payload.body.entity.title,
                     shortTitle: payload.body.entity.shortTitle,
                     summary: payload.body.entity.summary,
-                    trendingItems: payload.body.trendingItems,
                     magazineImageUrl: payload.body.entity.imageUrl,
                     magCover: payload.body.magCover
                 });
@@ -97,7 +95,6 @@ describe(`loadPage Reducer`, () => {
                 footer: {},
                 nodeType: '',
                 title: '',
-                trendingItems: [],
                 magazineImageUrl: '',
                 theme: '',
                 magCover: DEFAULT_MAGCOVER
@@ -114,7 +111,6 @@ describe(`loadPage Reducer`, () => {
                 footer: {},
                 nodeType: '',
                 title: '',
-                trendingItems: [],
                 magazineImageUrl: '',
                 theme: '',
                 magCover: DEFAULT_MAGCOVER

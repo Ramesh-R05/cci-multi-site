@@ -31,10 +31,6 @@ export default createReducerStore({
             return state.magCover.moduleImageUrl;
         },
 
-        getTrendingItems(state) {
-            return state.trendingItems;
-        },
-
         getFooter(state) {
             return state.footer;
         },
