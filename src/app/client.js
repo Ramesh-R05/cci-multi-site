@@ -12,10 +12,11 @@ window.React = React; // For chrome dev tool support
 app.plug(fluxibleConfigPlugin());
 app.plug(batchedUpdatePlugin());
 
+adConfig.init();
+
 app.rehydrate(window.App, (err, context) => {
     if (err) throw err;
     const mountNode = document.getElementById('app');
     const userAgent = window.navigator.userAgent;
-    adConfig.init(context.getComponentContext().config.site.adTaggingId);
     ReactDOM.render(createElementWithContext(context, { userAgent }), mountNode, () => {});
 });
