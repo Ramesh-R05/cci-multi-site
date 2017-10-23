@@ -138,9 +138,9 @@
   version "4.1.0"
   resolved "http://npm.digital.bauer-media.net.au/@bxm%2frecommendations/-/recommendations-4.1.0.tgz#d876ea5d5126943e9fbd252d7395f3c4405f6c22"
 
-"@bxm/server@^22.10.0":
-  version "22.10.0"
-  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fserver/-/server-22.10.0.tgz#ef2ec850a0dde5133cc8b8262937e582bb44b160"
+"@bxm/server@^22.12.0":
+  version "22.12.0"
+  resolved "http://npm.digital.bauer-media.net.au/@bxm%2fserver/-/server-22.12.0.tgz#4af8e07c4393413b9cd99b7196301a1b53513a81"
   dependencies:
     "@bxm/datetime" "^3.0.0"
     "@bxm/flux" "^4.4.1"
