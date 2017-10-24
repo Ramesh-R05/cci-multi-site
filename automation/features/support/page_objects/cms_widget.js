@@ -23,7 +23,20 @@ var cms_widget = {
     searchResult: '.ac_results',
     menuDelete: '.menuSpr.sprDelete',
     unpublishButton: '[value="Unpublish"]',
-    propertiesCreatedAt: '.tabpageContent div:nth-child(9) .umbDateTimePicker input'
+    propertiesCreatedAt: '.tabpageContent div:nth-child(9) .umbDateTimePicker input',
+    editorialUseVideo: 'video-uploader div > div:nth-child(n) > div >div.bordered-group > input',
+    editorialVideoAddButton: 'video-uploader > div div:nth-child(n) > div > div.bordered-group div button',
+    editorialVideoId: '.tw-bs.module.video .panel [ng-show="data.videoId"] td.ng-binding',
+    editorialAddVideoButton: 'search-videos > div > div.top-five-latest-videos.bordered-group > div:nth-child(1) > div.video-info > div.button-group > button',
+    editorialVideoThumbnail: 'div.propertyItem > div > div > div > div.preview.ng-scope > div:nth-child(2) > img',
+    editorialSecondVideoThumbnail: 'video-uploader > div > div > div.preview.ng-scope > div:nth-child(2) > img',
+    editorialSearchVideo: 'div > div:nth-child(2) > input.form-control.one-half.ng-pristine.ng-valid',
+    editorialSearchButton: 'div > div:nth-child(2) > input.btn.btn-primary',
+    editorialBodyVideoOption: 'option[value="5"]',
+    pageContentTags: 'tag-picker [ng-model="item.tagName"]',
+    pageContentTagsFirstTag: 'a.ng-scope.ng-binding > strong',
+    pageContentTagsDropDown: 'ul#typeahead-01Y-9026.dropdown-menu.ng-scope'
+
 
 };
 
