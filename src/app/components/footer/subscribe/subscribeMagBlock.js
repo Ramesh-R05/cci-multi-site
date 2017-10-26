@@ -26,10 +26,10 @@ export default class SubscribeMagBlock extends Component {
         const { inSideNav, magCoverUrl, responsiveConfig } = this.props;
         const breakpoints = this.context.config.global.breakpoints;
         const imageSizes = {
-            s: { w: 175 },
-            m: { w: 175 },
-            l: { w: 175 },
-            xl: { w: 175 }
+            s: { w: 248 },
+            m: { w: 248 },
+            l: { w: 248 },
+            xl: { w: 248 }
         };
 
         return inSideNav ? null : (
