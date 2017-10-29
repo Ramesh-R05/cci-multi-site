@@ -414,7 +414,7 @@ jobs:
   ##############################################
 
 
-  # i. Full regression in SIT Multi
+  # i. Full regression in TEST Multi
   - name: FULL-multi-site-regression-test
     type: runSh
     always:
@@ -433,7 +433,8 @@ jobs:
         - script: npm install
         - script: export URL=http://multi-site.test.bxm.net.au/
         - script: export APP_KEY=elle-site
-        - script: npm run all:test || true
+        - script: npm run test:phantom || true
+        - script: node rerun.combine.js
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
