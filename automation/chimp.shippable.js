@@ -2,7 +2,7 @@ module.exports = {
 
     featurePath: './features/regression',
     //Generic config
-    tags: '@multi, ~@manual',
+    tags: '@elle, ~@manual',
     screenshotsOnError: false,
     captureAllStepScreenshots: false,
     saveScreenshotsToReport: false,

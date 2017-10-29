@@ -12,6 +12,7 @@
     "test:rerun": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION @rerun.txt --browser=phantomjs --jsonOutput=reports/regression.json\"",
     "secure:rerun": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=chrome @rerun.txt\"",
     "all:test": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=~@cms --tags=~@manual\"",
+    "test:phantom": "bash -c \"URL=http://multi-site.test.bxm.net.au/ APP_KEY=elle-site npm run features\"",
     "all:test:verbose": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --debug --debugCucumber --debug-brk `which chimp` --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle\"",
     "all:test:phantom:verbose": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --debug --debugCucumber --debug-brk `which chimp` --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle\"",
     "test:secure": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@elle --tags=~@cms --tags=~@manual\"",
@@ -37,7 +38,7 @@
     "shippable:test": "export APP_KEY=elle-site && npm run test:high"
   },
   "dependencies": {
-    "@bxm/automation": "^4.1.0",
+    "@bxm/automation": "^4.2.0",
     "cucumber-html-report": "^0.2.8"
   }
 }
