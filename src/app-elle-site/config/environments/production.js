@@ -4,7 +4,8 @@ export default {
     },
     gigya: { apiKey: '3_gzVo_oseZLARo4_VUUqJBB2Y9zC2eDqp8Puo28P_UsBV1lHkIe8V8WX5-sKKdp56' },
     site: {
-        host: 'http://www.elle.com.au'
+        host: 'http://www.elle.com.au',
+        protocol: 'https'
     },
     loggly: {
         inputToken: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
