@@ -8,7 +8,7 @@ import polar from './polar';
 
 export default {
 
-    ga: { id: 'UA-57795117-6' },
+    ga: { id: 'UA-8689462-1' },
 
     gtm: { masthead: 'COSMO', id: 'GTM-K774C2' },
 
