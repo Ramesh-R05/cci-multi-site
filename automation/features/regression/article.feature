@@ -4,8 +4,7 @@ Feature: Article
     I should be able to see the article page
 
 # -------- Hero Image and its description on mobile is High priority  ---------------#
-    @DDO-46 @DAW-1125
-    Scenario Outline: Verify an article page which contains a hero image on mobile
+    Scenario Outline: Verify an article page which contains a hero image in <device> view
         When I switch to "<device>" view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I can see the long title "automation test article with hero image test title long title"
@@ -32,7 +31,7 @@ Feature: Article
 
 
 # -------- Hero video and its description on tablet portrait is low priority  ---------------#
-    @DAW-1125 @low
+    @low
     Scenario: Verify an article page which contains a hero video on tablet portrait
         When I switch to "tablet portrait" view
         Given I am currently viewing "beauty/automation-test-article-with-hero-video-3664"
@@ -52,10 +51,8 @@ Feature: Article
         * I can see the body competition
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
 
-
 # -------- Verifying LHR on different screen sizes is low priority  ---------------#
-    @DDO-160 @DDO-48
-    Scenario Outline: Verify LHR on different screen sizes "<device>"
+    Scenario Outline: Verify LHR in <device> view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "<device>" view
         * I can see the LHR
@@ -69,7 +66,7 @@ Feature: Article
             |tablet landscape  |
 
 # -------- LHR are High as this Helps recirculate users ---------------#
-    @BXMA-174 @high
+    @high
     Scenario: Verify the LHR on an article page
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "desktop" view
@@ -80,9 +77,8 @@ Feature: Article
         * Long title in LHR is clickable to open its page
         * I can see each item in LHR containing source and date
 
-
 # -------- Social embed is Medium and low ---------------#
-    Scenario Outline: Editorial team can add social feeds to the article body
+    Scenario Outline: Editorial team can add social feeds to the article body and see them in <device> view
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-article-with-social-embed-3663"
         Then I can see the body Twitter embed "697199025729048577"
@@ -94,31 +90,27 @@ Feature: Article
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
         * I can see the body Whooshka embed "https://player.whooshkaa.com/player/episode/id/90704?visual=true"
         * I can see the body Wirewax embed "http://embed.wirewax.com/8040968"
-    @med
+        @med
         Examples:
             | device            |
             | mobile            |
             | desktop           |
-    @low
+        @low
         Examples:
             | device            |
             | tablet portrait   |
             | tablet landscape  |
 
-
-    Scenario Outline: Users can see the Image Revealer component on the article page
+    Scenario Outline: Users can see the Image Revealer component on the article page in <device> view
         When I switch to "<device>" view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I can see the Image Revealer component
-    @high
+        @med
         Examples:
             | device            |
             | mobile            |
-    @med
-        Examples:
-            | device            |
             | desktop           |
-    @low
+        @low
         Examples:
             | device            |
             | tablet portrait   |

@@ -1,4 +1,4 @@
-@gallery @BXMA-33 @BXMA-132 @BXMA-133 @elle
+@gallery @elle
 Feature: Gallery
     As a user
     I should be able to see the gallery page

@@ -1,9 +1,7 @@
 @navigation @elle
 Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to be used across all devices
 
-# Re-enable below tests after navigation/header layout has been changed.
-
-    @BXMA-117 @BXMA-172
+    @homepage
     Scenario Outline: I can see the navigation widget on the homepage "<device>"
         Given I switch to "<device>" view
         When I am currently viewing the homepage
@@ -21,7 +19,7 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
             | tablet portrait   |
             | tablet landscape  |
 
-    @BXMA-117 @med
+    @med @homepage
     Scenario: I can see the navigation widget on the homepage mobile
         Given I switch to "mobile" view
         When I am currently viewing the homepage
@@ -29,7 +27,7 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         And I should not see the site navigation links
         And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
 
-    @med
+    @med @homepage
     Scenario: I can see the sticky navigation on the homepage
         Given I switch to "desktop" view
         When I am currently viewing the homepage
@@ -38,7 +36,7 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "header"
         And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
 
-    @med
+    @med @section
     Scenario: I can see the navigation widget on the section page
         Given I switch to "desktop" view
         When I am currently viewing "fashion"
@@ -48,7 +46,7 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         And I can see the link "FASHION" is highlighted on the navigation links
         And I can see the link "FASHION" is highlighted on the hamburger navigation links
 
-    @low
+    @low @article
     Scenario: I can see the navigation widget on the article page
         Given I switch to "tablet portrait" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
@@ -58,7 +56,7 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         And I can see the link "FASHION" is highlighted on the navigation links
         And I can see the link "FASHION" is highlighted on the hamburger navigation links
 
-    @low
+    @low @gallery
     Scenario: I can see the navigation widget on the gallery page
         Given I switch to "tablet landscape" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
@@ -68,21 +66,21 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
         And I can see the link "FASHION" is highlighted on the navigation links
         And I can see the link "FASHION" is highlighted on the hamburger navigation links
 
-    @med
+    @med @gallery
     Scenario: I can see the navigation widget on the gallery page on mobile view
         Given I switch to "mobile" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
         Then I should not see the site navigation links
         And I should see the hamburger menu
 
-    @BXMA-412 @med
+    @med @article
     Scenario: Mobile users menu will fade out as they scroll down the page
         Given I switch to "mobile portrait" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         Then the menu fades out as I scroll down the page
 
-    @low
-    Scenario Outline: Users are able to navigate back to the homepage
+    @low @homepage
+    Scenario Outline: Users are able to navigate back to the homepage in <device> view
         Given I switch to "<device>" view
         When I am currently viewing the homepage
         Then I should see the Big Banner logo that takes me back to the home page
@@ -95,35 +93,36 @@ Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to b
             | tablet landscape  |
             | tablet portrait   |
 
-    @low
-    Scenario Outline: Users are able to navigate back to the homepage with smaller breakpoints
-        Given I switch to "<device>" view
+    @low @homepage
+    Scenario: Users are able to navigate back to the homepage with smaller breakpoints
+        Given I switch to "mobile portrait" view
         When I am currently viewing the homepage
         Then I can see the smaller logo in the navigation bar that takes me back to the home page
 
-        Examples:
-            | device            |
-            | mobile portrait   |
-
-
-    @custommasthead
+    @med
     Scenario Outline: Verify that the custom masthead appears on <page> in desktop view
         Given I am currently viewing "<url>"
         When I switch to "desktop" view
         * I should see the custom masthead appearing on top of the page
-    @high
+        @homepage
         Examples:
-           |page          |url        |
-           |Home page     |           |
-           |Section Page  |fashion    |
+            |page         |url        |
+            |Homepage     |           |
+        @section
+        Examples:
+            |page          |url        |
+            |Section       |fashion    |
 
-    @custommastehead
+    @med
     Scenario Outline: Verify that the custom masthead appears on <page> in mobile view
         Given I am currently viewing "<url>"
         When I switch to "mobile" view
         * I should see the custom masthead appearing on top of the page in mobile
-    @high
+        @homepage
         Examples:
-            |Page          |url        |
-            |Home page     |           |
-            |Section Page  |fashion    |
+            |page         |url        |
+            |Homepage     |           |
+        @section
+        Examples:
+            |page          |url        |
+            |Section       |fashion    |

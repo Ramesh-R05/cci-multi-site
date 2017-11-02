@@ -1,10 +1,10 @@
-@error @BXMA-139 @elle
+@404 @BXMA-139 @elle @low
 Feature: Error page
     As a user
     I should be able to see the error page
 
 # -------- Error page is low priority in terms of Impact  ---------------#
-    @low
+
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
@@ -20,12 +20,8 @@ Feature: Error page
         * I should not see the hamburger menu
         * I should see the error giphy image
         * I should see the text clickable to homepage with gtm "gtm-error-goback"
-        @low
         Examples:
             | device            |
             | desktop           |
-        @low
-        Examples:
-            | device            |
             | tablet portrait   |
             | tablet landscape  |

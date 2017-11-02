@@ -1,9 +1,10 @@
-@ad @elle @BXMA-469 @high
+@ad @elle @BXMA-469 @med
 Feature: Ads Location
     As a user
     I should see each ad slot containing correct class name which is a adLocation parameter in the ad call.
 
 #--Start testing in desktop view--
+    @homepage
     Scenario: Ads slot elements should have proper class name on home page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing the homepage
@@ -36,6 +37,7 @@ Feature: Ads Location
             |Polar in Load More 2|home_body_7  |
             |Polar in Load More 6|home_body_9  |
 
+    @section
     Scenario: Ads slot elements should have proper class name on index page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "fashion"
@@ -67,6 +69,7 @@ Feature: Ads Location
             |Polar in Load More 2|index_body_6  |
             |Polar in Load More 6|index_body_8  |
 
+    @gallery
     Scenario: Ads slot elements should have proper class name on gallery page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
@@ -102,6 +105,7 @@ Feature: Ads Location
             |Polar in RHS 9                         |gallery_rhs_5 |
             |Polar in RHS 14                        |gallery_rhs_7 |
 
+    @article
     Scenario: Ads slot elements should have proper class name on article page in desktop view
         Given I switch to "desktop" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
@@ -132,6 +136,7 @@ Feature: Ads Location
             |Polar in RHS 14                  |article_rhs_7 |
 
 #--Start testing in mobile view--#
+    @homepage
     Scenario: Ads slot elements should have proper class name on home page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing the homepage
@@ -160,6 +165,7 @@ Feature: Ads Location
             |Polar in Load More 2          |home_body_7  |
             |Polar in Load More 6          |home_body_9  |
 
+    @section
     Scenario: Ads slot elements should have proper class name on index page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "fashion"
@@ -187,6 +193,7 @@ Feature: Ads Location
             |Polar in Load More 2          |index_body_6  |
             |Polar in Load More 6          |index_body_8  |
 
+    @gallery
     Scenario: Ads slot elements should have proper class name on gallery page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
@@ -208,6 +215,7 @@ Feature: Ads Location
             |ad                               |class-name    |
             |Polar in Related Content In Body |gallery_body_1 |
 
+    @article
     Scenario: Ads slot elements should have proper class name on article page in mobile view
         Given I switch to "mobile" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"

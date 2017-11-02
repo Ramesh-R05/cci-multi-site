@@ -1,9 +1,10 @@
-@footer @BXMA-145 @elle
+@footer @elle
 Feature: Footer
     As a user
     I should be able to see the Footer
 
 # -------- Footer page is med and low priority in terms of Impact  ---------------#
+    @homepage
     Scenario Outline: Verify the footer in the "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing the homepage
@@ -27,20 +28,30 @@ Feature: Footer
             |tablet portrait   |
             |tablet landscape  |
 
-    @high @must
+    @med
     Scenario Outline: Verify the footer appearing on the "<page>" page
         Given I switch to "desktop" view
         When I am currently viewing "<url>"
         * 	I can see all main elements in the footer
+        @section
         Examples:
             |page               |url                                                                |
-            |section landing    |fashion                                                            |
+            |section            |fashion                                                            |
+        @article
+        Examples:
+            |page               |url                                                                |
             |article            |fashion/automation-test-article-with-hero-image-3663               |
+        @gallery
+        Examples:
+            |page               |url                                                                |
             |gallery            |fashion/automation-test-gallery-13302                              |
+        @404
+        Examples:
+            |page               |url                                                                |
             |404                |404                                                                |
 
-    @must
-    Scenario Outline: Verify the subscription cover and button on the homepage
+    @homepage
+    Scenario Outline: Verify the subscription cover and button on the homepage in <device> view
         Given I switch to "<device>" view
         When I am currently viewing the homepage
         * I can see the subscription magazine and digital cover

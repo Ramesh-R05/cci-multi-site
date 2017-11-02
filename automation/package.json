@@ -6,6 +6,7 @@
     "test:mobile": "bash -c \"APP_KEY=multi-mobile npm run mobile\"",
     "mobile": "bash -c \"node runner.js --tags=@mobile --pMode=mobile\"",
     "test:browser": "bash -c \"APP_KEY=multi-browser npm run browser\"",
+    "test:tags": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=$0\"",
     "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=@high\"",
     "test:med": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=@med\"",
     "test:low": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=@low\"",
