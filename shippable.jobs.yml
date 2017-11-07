@@ -506,3 +506,36 @@ jobs:
         - script: npm run test:cms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+
+  # v. Import Elle live data to dev via migrate service
+  - name: elle-import-live-data-to-dev
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: elle-weekly-trigger
+     - TASK:
+        - script: >
+            curl -H "Content-Type: application/json" -X POST -d '[{"fromEnv":"live", "fromSite":"elle", "number":"10", "toSite":"elle"}]' http://dev.migrate.services.bauer-media.internal/migrate
+
+  # vi. Import HB live data to dev via migrate service
+  - name: hb-import-live-data-to-dev
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: hb-weekly-trigger
+     - TASK:
+        - script: >
+            curl -H "Content-Type: application/json" -X POST -d '[{"fromEnv":"live", "fromSite":"hb", "number":"10", "toSite":"hb"}]' http://dev.migrate.services.bauer-media.internal/migrate
+
+  # vii. Import Cosmo live data to dev via migrate service
+  - name: cosmo-import-live-data-to-dev
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: cosmo-weekly-trigger
+     - TASK:
+        - script: >
+            curl -H "Content-Type: application/json" -X POST -d '[{"fromEnv":"live", "fromSite":"cosmo", "number":"10", "toSite":"cosmo"}]' http://dev.migrate.services.bauer-media.internal/migrate
