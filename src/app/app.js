@@ -1,7 +1,5 @@
-import { Flux, servicesPlugin } from '@bxm/flux';
+import { Flux } from '@bxm/flux';
 import AppComponent from './containers/app';
-import pageService from './services/page';
-import listService from './services/list';
 import AdStore from '@bxm/ad/lib/google/stores/ad';
 import ArticleStore from '@bxm/article/lib/stores/articleStore';
 import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
@@ -15,7 +13,7 @@ import RouteStore from './stores/route';
 import TeaserStore from './stores/teaser';
 import TrackingStore from './stores/tracking';
 
-const app = new Flux({
+export default new Flux({
     component: AppComponent,
     stores: [
         AdStore,
@@ -32,10 +30,3 @@ const app = new Flux({
         TrackingStore
     ]
 });
-
-const servicePlugin = servicesPlugin();
-servicePlugin.registerService(pageService);
-servicePlugin.registerService(listService);
-app.plug(servicePlugin);
-
-export default app;

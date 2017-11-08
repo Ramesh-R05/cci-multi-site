@@ -27,8 +27,7 @@ build:
   ci:
     - export IMAGE=$IMAGE/$APP_KEY
     - echo $IMAGE
-    - npm set registry http://npm.digital.bauer-media.net.au
-    - node --version
+    - npm set @bxm:registry http://npm.digital.bauer-media.net.au
     - mkdir -p ./shippable/testresults ./shippable/codecoverage ./shippable/buildoutput
     - cd src
     - yarn
