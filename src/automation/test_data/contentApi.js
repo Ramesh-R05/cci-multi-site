@@ -114,7 +114,7 @@ export default function stubServer(siteServer, siteConfig) {
                     res.body = ampArticle;
                     break;
                 case '3663':
-                    ampArticle = require('../../automation/test_data/pages/article_social_embeds').default;
+                    ampArticle = require('../../automation/test_data/pages/amp_article_social_embeds').default;
                     res.body = ampArticle;
                     break;
             }
