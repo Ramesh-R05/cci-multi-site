@@ -73,9 +73,9 @@ Feature: Article
         * I can see 20 items in the list of items in LHR
         * I can see the 20 images of each item in LHR
         * Image in LHR is clickable to open its page
-        * I can see the long title of each item in LHR
+        * I can see the long title of an item in LHR
         * Long title in LHR is clickable to open its page
-        * I can see each item in LHR containing source and date
+        * I can see an item in LHR containing source and date
 
 # -------- Social embed is Medium and low ---------------#
     Scenario Outline: Editorial team can add social feeds to the article body and see them in <device> view

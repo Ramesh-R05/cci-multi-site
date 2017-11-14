@@ -94,23 +94,22 @@ module.exports = function() {
         browser.click(site_nav.siteHamburgerClose);
     });
 
-    this.Then(/^I can navigate to all sites in the hamburger navigation menu/, function(dataTable){
+    this.Then(/^I can navigate to all (\d+) sites in the hamburger navigation menu/, function(number, dataTable){
+        var menuTitle, menuhref, menuGTM, i, row;
         browser.click(site_nav.siteHamburger);
-        browser.waitForVisible(site_nav.siteHamburgerDetail, 3000);
+        browser.waitForVisible(site_nav.siteHamburgerOneDetail, 3000);
         wait(500); // ensure it waits for transition effect to complete
         var rows = dataTable.hashes();
+        for (i = 1; i <= number; ++i) {
+            menuTitle = browser.getAttribute('.mobile-menu-list li:nth-child(' + i +') a', 'title');
+            menuhref = browser.getAttribute('.mobile-menu-list li:nth-child(' + i +') a', 'href');
+            menuGTM = browser.getAttribute('.mobile-menu-list li:nth-child(' + i +') a', 'class');
 
-        var menuTitle = browser.getAttribute(site_nav.siteNavLogos, 'title');
-        var menuhref = browser.getAttribute(site_nav.siteNavLogos, 'href');
-        var menuGTM = browser.getAttribute(site_nav.siteNavLogos, 'class');
-        //end
-
-        for (var i = 0; i < rows.length; ++i) {
-            var row = rows[i];
+            row = rows[i-1];
             //validates position of menu base on Index
-            expect(menuTitle[i]).toEqual(row['title']);
-            expect(menuhref[i]).toMatch(row['url']);
-            expect(menuGTM[i]).toEqual(row['gtm']);
+            expect(menuTitle).toEqual(row['title']);
+            expect(menuhref).toMatch(row['url']);
+            expect(menuGTM).toEqual(row['gtm']);
         }
         browser.click(site_nav.siteHamburgerClose);
     });
@@ -136,6 +135,7 @@ module.exports = function() {
     });
 
     this.Then(/^the menu fades out as I scroll down the page$/, function () {
+        browser.waitForVisible(site_nav.menuHeader, 10000);
         expect(browser.isVisible(site_nav.menuHeader)).toBe(true);
         browser.scroll(0,1000);
         wait(1000);

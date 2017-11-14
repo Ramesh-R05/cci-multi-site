@@ -17,44 +17,31 @@ module.exports = function() {
     });
 
     this.When(/^Image in LHR is clickable to open its page$/, function () {
-        var feedImagesUrls = browser.getAttribute(wn_article.lhrFeedImgs, 'href');
-        for (var i = 0; i < feedImagesUrls.length; ++i) {
-            var indFeedImgUrl = feedImagesUrls[i];
-            expect(indFeedImgUrl === '').toBe(false);
-        }
+        var feedImageUrl = browser.getAttribute(wn_article.lhrFeedOneImg, 'href');
+        expect(feedImageUrl === '').toBe(false);
     });
 
-    this.When(/^I can see the long title of each item in LHR$/, function () {
-        var feedTitles = browser.getText(wn_article.lhrFeedTitles);
-        for (var i = 0; i < feedTitles.length; ++i) {
-            var title = feedTitles[i];
-            expect(title === '').toBe(false);
-        }
+    this.When(/^I can see the long title of an item in LHR$/, function () {
+        var feedTitle = browser.getText(wn_article.lhrFeedOneTitle);
+        expect(feedTitle === '').toBe(false);
     });
 
     this.When(/^Long title in LHR is clickable to open its page$/, function () {
-        var feedTitlesUrls = browser.getAttribute(wn_article.lhrFeedTitles, 'href');
-        for (var i = 0; i < feedTitlesUrls.length; ++i) {
-            var titleUrl = feedTitlesUrls[i];
-            expect(titleUrl === '').toBe(false);
-            expect(titleUrl === null).toBe(false);
-        }
+        var feedTitleUrl = browser.getAttribute(wn_article.lhrFeedOneTitle, 'href');
+        expect(feedTitleUrl === '').toBe(false);
+        expect(feedTitleUrl === null).toBe(false);
+
     });
 
-    this.When(/^I can see each item in LHR containing source and date$/, function () {
-        //verify sources/dates of all LHR items
-        var feedSource = browser.getText(wn_article.lhrFeedSource);
-        var feedDate = browser.getText(wn_article.lhrFeedDate);
-        for (var i=0; i<feedSource.length; i++){
-            //validate the source
-            expect(feedSource[i]).not.toEqual('');
-            if (i != 1 && i != 4 && i != 8 && i != 13){ //Skip the polar ad spot as no date is required
-                //validate the date
-                expect(feedDate[i]).not.toEqual('');
-                expect(feedDate[i]).not.toMatch('ago');
-                expect(feedDate[i]).toEqual(feedDate[i].toUpperCase());
-            }
-        }
+    this.When(/^I can see an item in LHR containing source and date$/, function () {
+        //verify sources/dates of one LHR items
+        var feedSource = browser.getText(wn_article.lhrFeedOneSource);
+        var feedDate = browser.getText(wn_article.lhrFeedOneDate);
+        //validate the source
+        expect(feedSource).not.toEqual('');
+        //validate the date
+        expect(feedDate).not.toEqual('');
+        expect(feedDate).toEqual(feedDate.toUpperCase());
     });
 
     this.When(/^I can see the hero image$/, function () {
@@ -120,8 +107,8 @@ module.exports = function() {
     });
 
     this.Given(/^I can see the body heading "([^"]*)"$/, function (articleBodyHeading) {
-    var bodyHeading = browser.getText(wn_article.bodyHeading);
-       expect(bodyHeading).toContain(articleBodyHeading);
+        var bodyHeading = browser.getText(wn_article.bodyHeading);
+        expect(bodyHeading).toContain(articleBodyHeading);
     });
 
     this.Given(/^I can see the body related content$/, function () {
@@ -165,11 +152,11 @@ module.exports = function() {
         expect(bodyImgCaption).toContain(ImgCaption);
     });
     this.Given(/^I can see the body gallery$/, function () {
-       var bodyGallery = browser.getAttribute(wn_article.bodyGallery, 'href');
-       for(var i=0; i<bodyGallery.length; i++){
-           var galleryItems = bodyGallery[i];
-           expect(galleryItems == '').toBe(false);
-         }
+        var bodyGallery = browser.getAttribute(wn_article.bodyGallery, 'href');
+        for(var i=0; i<bodyGallery.length; i++){
+            var galleryItems = bodyGallery[i];
+            expect(galleryItems == '').toBe(false);
+        }
     });
     this.Given(/^I can see the body video$/, function () {
         var bodyVideo = browser.isVisible(wn_article.bodyVideo);
@@ -184,9 +171,9 @@ module.exports = function() {
         expect(competiton).toMatch("engagesciences");
     });
     this.Given(/^I can see the body Twitter embed "([^"]*)"$/, function (twitterId) {
-       var twitEmbed = browser.getAttribute(wn_article.twitterEmb1, 'data-tweet-id');
+        var twitEmbed = browser.getAttribute(wn_article.twitterEmb1, 'data-tweet-id');
         expect(twitEmbed).toEqual(twitterId);
-       });
+    });
     this.Given(/^I can see the body Instagram embed with caption "([^"]*)"$/, function (instagramSrc) {
         var instagramEmbed = browser.getAttribute(wn_article.instagramEmb1, 'src');
         expect(instagramEmbed[0]).toMatch(instagramSrc);
@@ -229,12 +216,12 @@ module.exports = function() {
     });
     this.Given(/^I can see the related tags "([^"]*)" "([^"]*)"$/, function (rTag1, rTag2) {
         var relatedTags = browser.getText(wn_article.relatedTags, 'href');
-            expect(relatedTags[0]).toEqual(rTag1);
-            expect(relatedTags[1]).toEqual(rTag2);
+        expect(relatedTags[0]).toEqual(rTag1);
+        expect(relatedTags[1]).toEqual(rTag2);
     });
     this.Given(/^I can see the author "([^"]*)"$/, function (authorName) {
         var author = browser.getText(wn_article.authorText);
-            expect(author).toEqual(authorName);
+        expect(author).toEqual(authorName);
     });
 
     this.Given(/^I can see the "([^"]*)" source appearing with gtm "([^"]*)"$/, function (position,gtm) {
@@ -458,4 +445,3 @@ module.exports = function() {
         expect(rightImageSrc).not.toBeUndefined();
     });
 };
-

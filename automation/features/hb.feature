@@ -14,7 +14,7 @@ Feature: Smoke test for HB
         And I should see each bottom feed item containing its image and clickable to open its page
         When I click on the Load More button
         Then I should see extra 14 teasers after loading more
-        And I should see each load more feed item containing its image and clickable to open its page
+        And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario: Verify the section landing page
         Given I switch to "mobile" view
@@ -25,7 +25,7 @@ Feature: Smoke test for HB
         And I should see each bottom feed item containing its image and clickable to open its page
         When I click on the Load More button
         Then I should see extra 14 teasers after loading more
-        And I should see each load more feed item containing its image and clickable to open its page
+        And I should see a load more feed item containing its image and clickable to open its page
 
     Scenario: Verify the article page
         Given Emily just published the "article" doc type item in "hb"
@@ -56,7 +56,7 @@ Feature: Smoke test for HB
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        * I can navigate to all sites in the hamburger navigation menu
+        * I can navigate to all 8 sites in the hamburger navigation menu
             |title                      |url                                |gtm                        |
             |Now To Love                |http://nowtolove.com.au/           |gtm-hamburger-now          |
             |Homes To Love              |http://homestolove.com.au/         |gtm-hamburger-homes        |

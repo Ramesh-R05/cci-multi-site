@@ -7,6 +7,7 @@ var site_navigation_widget = {
     siteNavActiveLink: ".header-nav__nav > a.nav-item.nav-item--active",
     siteNavHeader: ".header__sections",
     siteHamburgerDetail: "nav.mobile-menu__nav a",
+    siteHamburgerOneDetail: "nav.mobile-menu__nav a:nth-child(1)",
     siteHamburgerActiveLink: "nav.mobile-menu__nav > a.nav-item.nav-item--active",
     siteHamburgerClose: "button.close-btn",
     siteHeaderBanner: ".header-banner a",
