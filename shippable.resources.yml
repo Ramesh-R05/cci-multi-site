@@ -113,23 +113,23 @@ resources:
     seed:
       interval: "0 19 * * *"
 
-  #"0 19 * * 0" is 7:00pm Sunday which is Monday morning in Sydney
+  #"30 22 * * 0" is 10:30pm Sunday which is Monday morning 9:30am daylight saving or 8:30am standard time in Sydney
   - name: elle-weekly-trigger
     type: time
     seed:
-      interval: "0 19 * * 0"
+      interval: "30 22 * * 0"
 
-  #"0 19 * * 2" is 7:00pm Tuesday which is Wednesday morning in Sydney
+  #"30 22 * * 2" is 10:30pm Tuesday which is Wednesday morning 9:30am daylight saving or 8:30am standard time in Sydney
   - name: cosmo-weekly-trigger
     type: time
     seed:
-      interval: "0 19 * * 2"
+      interval: "30 22 * * 2"
 
-  #"0 19 * * 4" is 7:00pm Thursday which is Friday morning in Sydney
+  #"30 22 * * 4" is 10:30pm Thursday which is Friday morning 9:30am daylight saving or 8:30am standard time in Sydney
   - name: hb-weekly-trigger
     type: time
     seed:
-      interval: "0 19 * * 4"
+      interval: "30 22 * * 4"
 
 ##############
 # COSMO
