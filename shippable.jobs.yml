@@ -207,7 +207,7 @@ jobs:
        - script: nvm install "6.1.0"
        - script: nvm use "6.1.0"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=elle-site
        - script: export URL=http://multi-site.test.bxm.net.au/
@@ -232,7 +232,7 @@ jobs:
        - script: nvm install "6.1.0"
        - script: nvm use "6.1.0"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=elle-site
        - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
@@ -257,7 +257,7 @@ jobs:
        - script: nvm install "6.1.0"
        - script: nvm use "6.1.0"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=cosmo-site
        - script: export URL=https://www.sit.cosmopolitan.com.au/
@@ -283,7 +283,7 @@ jobs:
        - script: nvm install "6.1.0"
        - script: nvm use "6.1.0"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=elle-site
        - script: export URL=https://www.sit.elle.com.au/
@@ -309,7 +309,7 @@ jobs:
        - script: nvm install "6.1.0"
        - script: nvm use "6.1.0"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set registry http://npm.digital.bauer-media.net.au
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=hb-site
        - script: export URL=https://www.sit.harpersbazaar.com.au/
@@ -429,7 +429,7 @@ jobs:
         - script: nvm install "6.1.0"
         - script: nvm use "6.1.0"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
-        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: export URL=http://multi-site.test.bxm.net.au/
         - script: export APP_KEY=elle-site
@@ -453,7 +453,7 @@ jobs:
         - script: nvm install "6.1.0"
         - script: nvm use "6.1.0"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
-        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: export URL=http://cms.dev.elle.wn.bauer-media.net.au/cms/umbraco/
         - script: export APP_KEY=elle-site
@@ -476,7 +476,7 @@ jobs:
         - script: nvm install "6.1.0"
         - script: nvm use "6.1.0"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
-        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: export URL=http://cms.dev.hb.wn.bauer-media.net.au/cms/umbraco/
         - script: export APP_KEY=hb-site
@@ -499,7 +499,7 @@ jobs:
         - script: nvm install "6.1.0"
         - script: nvm use "6.1.0"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
-        - script: npm set registry http://npm.digital.bauer-media.net.au
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
         - script: export URL=http://cms.dev.cosmo.wn.bauer-media.net.au/cms/umbraco/
         - script: export APP_KEY=cosmo-site
