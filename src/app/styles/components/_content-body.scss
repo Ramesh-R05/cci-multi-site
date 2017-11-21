@@ -335,4 +335,18 @@
             };
         }
     }
+
+    &__competition {
+        margin: {
+            left: -$column-gutter/2;
+            right: -$column-gutter/2;
+        }
+
+        @media #{$medium-up} {
+            margin: {
+                left: 0;
+                right: 0;
+            }
+        }
+    }
 }
