@@ -13,7 +13,7 @@ Feature: Gallery
         * I can see an image appearing on the gallery
         * I can see the created date on the gallery "DEC 15, 2016"
         * I can see the gallery description of the gallery containing "Test the second paragraph"
-        * I can see the image number "1" of total "8" on the gallery
+        * I can see the image number "1" on the gallery
         * I can see the image caption on the gallery containing "Fresh-faced beauty"
         When I see the video ID "3976804555001" on the gallery
         * I can see the play button and click on it
@@ -28,7 +28,7 @@ Feature: Gallery
         * I can see an image appearing on the gallery
         * I can see the created date on the gallery "DEC 15, 2016"
         * I can see the gallery description of the gallery containing "Test the second paragraph"
-        * I can see the image number "1" of total "8" on the gallery
+        * I can see the image number "1" on the gallery
         * I can see the image caption on the gallery containing "Fresh-faced beauty"
         When I see the video ID "3976804555001" on the gallery
         * I can see the play button and click on it
