@@ -12,7 +12,8 @@ var amp_widget = {
     ampTwitterEmb: 'amp-twitter',
     ampFacebookEmb: 'amp-facebook',
     ampYoutubeEmb: 'amp-youtube > iframe',
-    ampVimeoEmb: 'amp-vimeo > iframe'
+    ampVimeoEmb: 'amp-vimeo > iframe',
+    ampOutBrain: 'amp-embed[type=outbrain] iframe'
 
 };
 

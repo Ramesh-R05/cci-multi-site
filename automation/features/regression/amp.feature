@@ -20,6 +20,7 @@ Feature: Verify AMP page
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
         * I can see the facebook share button on amp article page
         * I can see the pinterest share button on amp article page
+        * I can see the outbrain on amp article page
 
     @med
     Scenario: Verify the social embeds on AMP article page
