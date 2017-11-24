@@ -11,7 +11,7 @@ var propertiesTabElement = {}; //Global variable for the element of the properti
 var idElement; //Global variable for the element of a selected item in LHR
 var page; //Global variable for the page name
 var previewUrl; //Global variable for the preview URL
-var liveUrl; //Global variable for the live URL
+var liveUrl = {}; //Global variable for the live URL e.g. liveUrl['Article']
 var videoId; //global variable for video id
 var tabElement; //To ensure we find an element under that tab
 
@@ -173,6 +173,10 @@ module.exports = function() {
                     var valuePropertiesCreatedAt = '2017-01-02 08:00';
                     browser.setValue(tabElement + cms.propertiesCreatedAt, valuePropertiesCreatedAt);
                     break;
+                case 'Enable AMP':
+                    browser.waitForVisible(tabElement + cms.ampEnablebox, 1000);
+                    browser.click(tabElement + cms.ampEnablebox);
+                    break;
                 case 'Video':
                     var valueSearchVideo = 'Football';
                     browser.setValue(tabElement + cms.editorialSearchVideo, valueSearchVideo);
@@ -208,6 +212,19 @@ module.exports = function() {
                     break;
             }
         }
+
+    });
+
+    this.Then(/^I should be able to visit the live URL$/, function () {
+        console.log(liveUrl[docType]);
+        browser.url(liveUrl[docType]);
+
+    });
+
+    this.Then(/^I should be able to check if the amp page is active$/, function () {
+        var enableamphtml = browser.getAttribute(cms.ampHtml, 'href');
+        console.log(enableamphtml);
+        expect(enableamphtml).toContain('/amp/');
 
     });
 
@@ -257,10 +274,10 @@ module.exports = function() {
                 expect(previewUrl).toContain(nodeId[docType]);
                 break;
             case 'live':
-                liveUrl = browser.getAttribute('.document-link .propertyItem:nth-child(2) .propertyItemContent a', 'href');
-                console.log(liveUrl);
-                expect(liveUrl).not.toContain('/preview/');
-                expect(liveUrl).toContain(nodeId[docType]);
+                liveUrl[docType] = browser.getAttribute('.document-link .propertyItem:nth-child(2) .propertyItemContent a', 'href');
+                console.log(liveUrl[docType]);
+                expect(liveUrl[docType]).not.toContain('/preview/');
+                expect(liveUrl[docType]).toContain(nodeId[docType]);
                 break;
         }
     });

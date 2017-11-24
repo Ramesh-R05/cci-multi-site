@@ -21,12 +21,15 @@ Feature: CMS Smoke Test
             | Body Heading  | Editorial         |
             | Page Title    | Search and Social |
             | Created at    | Properties        |
+            | Enable AMP    | Search and Social |
             | Video         | Editorial         |
             | Body Video    | Editorial         |
             | Content Tags  | Page              |
         * I should be able to publish the item
         * I should be able to see the "preview" URL
         * I should be able to see the "live" URL
+        * I should be able to visit the live URL
+        * I should be able to check if the amp page is active
 
 
     Scenario: Create the <doctype> item
