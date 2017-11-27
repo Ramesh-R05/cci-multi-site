@@ -207,8 +207,12 @@ module.exports = function() {
         expect(whooshkaEmbed).toEqual(whooshkaUrl);
     });
     this.Given(/^I can see the body Wirewax embed "([^"]*)"$/, function (wirewaxUrl) {
-        var wirewaxEmbed = browser.getAttribute(wn_article.wirewaxEmb1, 'src');
+        var wirewaxEmbed  = browser.getAttribute(wn_article.wirewaxEmb1, 'src');
         expect(wirewaxEmbed).toEqual(wirewaxUrl);
+    });
+    this.Given(/^I can see the body Giphy embed "([^"]*)"$/, function (giphyId) {
+        var giphyEmb = browser.getAttribute(wn_article.giphyEmb, 'src');
+        expect(giphyEmb).toContain(giphyId);
     });
     this.Given(/^I can see the related tags "([^"]*)"$/, function (rTag1) {
         var relatedTags = browser.getText(wn_article.relatedTags, 'href');
