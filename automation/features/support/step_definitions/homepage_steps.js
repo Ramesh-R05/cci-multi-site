@@ -10,7 +10,7 @@ module.exports = function(){
         validateImageURL(heroImgUrl);
         //Verify the hero image's link
         var heroImgLink = browser.getAttribute(home.heroImgLink, 'href');
-        expect(heroImgLink).not.toBeUndefined();
+        expect(heroImgLink).not.toBedefined();
     });
 
     this.When(/^I should see the main hero item containing its title and clickable to open its page$/, function () {
