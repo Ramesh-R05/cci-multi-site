@@ -291,7 +291,7 @@ module.exports = function(){
         var loadMoreFeedTeaserImgLink = browser.getAttribute(home.loadMoreFeedTeaserImgLink,'href');
         console.log(loadMoreFeedTeaserImgUrl + " => " + loadMoreFeedTeaserImgLink);
         validateImageURL(loadMoreFeedTeaserImgUrl);
-        expect(loadMoreFeedTeaserImgLink).toEqual('');
+        expect(loadMoreFeedTeaserImgLink).not.toEqual('');
     });
 
 };
