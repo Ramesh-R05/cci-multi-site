@@ -104,13 +104,17 @@ export default function stubServer(siteServer, siteConfig) {
         return res.json(data);
     });
 
-    server.get('/amp/:section/:subsection/:page', (req, res, next) => {
+    server.get('/amp/:section/:page', (req, res, next) => {
         const pageId = req.url.match(/\d{3,}/)[0];
         var ampArticle;
         try {
             switch (pageId){
                 case '41699':
                     ampArticle = require('../../automation/test_data/pages/article_hero_image').default;
+                    res.body = ampArticle;
+                    break;
+                case '41200':
+                    ampArticle = require('../../automation/test_data/pages/amp_article_multiple_paragraphs').default;
                     res.body = ampArticle;
                     break;
                 case '3663':
