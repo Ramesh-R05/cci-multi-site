@@ -113,7 +113,8 @@ Feature: Ads Location
             |ad                 |class-name        |
             |Top Leaderboard    |article_outside_1 |
             |Teads              |article_outside_2 |
-            |Bottom Leaderboard |article_outside_4 |
+            |Native             |article_outside_3 |
+            |Bottom Leaderboard |article_outside_5 |
         And I should see each RHS ad slot element containing proper class name
             |ad              |class-name     |
             |MREC RHS 1      |article_rhs_2  |
@@ -223,7 +224,8 @@ Feature: Ads Location
             |ad                 |class-name        |
             |Top Leaderboard    |article_outside_1 |
             |Teads              |article_outside_2 |
-            |Bottom Leaderboard |article_outside_3 |
+            |Native             |article_outside_3 |
+            |Bottom Leaderboard |article_outside_4 |
         And I should see each body ad slot element containing proper class name
             |ad                         |class-name     |
             |MREC Under Hero Image      |article_body_1 |
