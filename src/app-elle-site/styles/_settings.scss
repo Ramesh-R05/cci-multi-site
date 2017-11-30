@@ -28,15 +28,18 @@ $global-header-height-desktop: $to-love-global-header-height-desktop;
 
 $header-logo-aspect-ratio: 2.5;
 $header-height: 54px;
-$header-height-desktop: 58px;
+$header-height-desktop: 59px;
 $header-banner-logo-height: 173px;
 $header-logo-width-desktop: 332px;
 $header-logo-container-width-desktop: $header-logo-width-desktop;
-
 $header-logo-path: '/assets/logos/header-logo.svg';
-
 $header-banner-background-path: '/assets/backgrounds/header.png';
 $header-transition-duration: 200ms;
+
+$ad-wallpaper-top-mobile: $header-height;
+$ad-wallpaper-top-pinned: $header-height-desktop;
+$ad-wallpaper-top-unpinned-90: -160px;  // top leaderBoard has 90 height
+$ad-wallpaper-top-unpinned-250: -320px; // top leaderBoard has 250 height
 
 $offcanvas-background-color: $color-black-origin;
 $color-header-menu-button: $color-primary;
