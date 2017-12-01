@@ -6,34 +6,34 @@ var site_domain = nconf.get('APP_KEY');
 
 module.exports = function() {
 
-    this.When(/^I can see (\d+) items in the list of items in LHR$/, function (count) {
+    this.When(/^I can see (\d+) items in the list of items in RHR$/, function (count) {
         var feedList = browser.elements(wn_article.lhrFeedItems);
         expect((feedList.value.length).toString()).toEqual(count);
     });
 
-    this.When(/^I can see the (\d+) images of each item in LHR$/, function (count) {
+    this.When(/^I can see the (\d+) images of each item in RHR$/, function (count) {
         var feedImages = browser.elements(wn_article.lhrFeedImgs);
         expect((feedImages.value.length).toString()).toEqual(count);
     });
 
-    this.When(/^Image in LHR is clickable to open its page$/, function () {
+    this.When(/^Image in RHR is clickable to open its page$/, function () {
         var feedImageUrl = browser.getAttribute(wn_article.lhrFeedOneImg, 'href');
         expect(feedImageUrl === '').toBe(false);
     });
 
-    this.When(/^I can see the long title of an item in LHR$/, function () {
+    this.When(/^I can see the long title of an item in RHR/, function () {
         var feedTitle = browser.getText(wn_article.lhrFeedOneTitle);
         expect(feedTitle === '').toBe(false);
     });
 
-    this.When(/^Long title in LHR is clickable to open its page$/, function () {
+    this.When(/^Long title in RHR is clickable to open its page$/, function () {
         var feedTitleUrl = browser.getAttribute(wn_article.lhrFeedOneTitle, 'href');
         expect(feedTitleUrl === '').toBe(false);
         expect(feedTitleUrl === null).toBe(false);
 
     });
 
-    this.When(/^I can see an item in LHR containing source and date$/, function () {
+    this.When(/^I can see an item in RHR containing source and date$/, function () {
         //verify sources/dates of one LHR items
         var feedSource = browser.getText(wn_article.lhrFeedOneSource);
         var feedDate = browser.getText(wn_article.lhrFeedOneDate);
@@ -66,7 +66,7 @@ module.exports = function() {
         var heroImgCaption = browser.getText(wn_article.heroImgCaption);
         expect(heroImgCaption).toContain(ImgCaption);
     });
-    this.When(/^I can see the LHR$/, function () {
+    this.When(/^I can see the RHR$/, function () {
         var lhrFeed = browser.isVisible(wn_article.lhrFeed);
         expect(lhrFeed).toBe(true);
     });
@@ -209,6 +209,11 @@ module.exports = function() {
     this.Given(/^I can see the body Wirewax embed "([^"]*)"$/, function (wirewaxUrl) {
         var wirewaxEmbed  = browser.getAttribute(wn_article.wirewaxEmb1, 'src');
         expect(wirewaxEmbed).toEqual(wirewaxUrl);
+    });
+    this.Given(/^I can see the body Linklay embed "([^"]*)"$/, function (linklayUrl) {
+        browser.waitForVisible(wn_article.linklayEmb, 3000);
+        var linklayEmb = browser.getAttribute(wn_article.linklayEmb, 'src');
+        expect(linklayEmb).toEqual(linklayUrl);
     });
     this.Given(/^I can see the body Giphy embed "([^"]*)"$/, function (giphyId) {
         var giphyEmb = browser.getAttribute(wn_article.giphyEmb, 'src');

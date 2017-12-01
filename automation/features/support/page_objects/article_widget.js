@@ -51,6 +51,7 @@ var article_widget = {
     playbuzzEmb1: '.content-body__embed--playbuzz .pb_feed_rendered',
     whooshkaEmb1: '.content-body__embed-whooshka iframe',
     wirewaxEmb1: '.content-body__embed-wirewax iframe',
+    linklayEmb: '.content-body__embed-linklay iframe',
     giphyEmb: '.content-body__embed.content-body__embed--giphy img',
     videoEmbArry: '.content-body__embed-video-container iframe',
     stickyAdSection: 'div.sticky-block.sticky-block--at-bottom.sticky-block--out-of-view',

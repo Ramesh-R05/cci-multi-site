@@ -3,10 +3,10 @@ Feature: Article
     As a user
     I should be able to see the article page
 
-# -------- Hero Image and its description on mobile is High priority  ---------------#
+# -------- Article page on mobile and desktop  ---------------#
     Scenario Outline: Verify an article page which contains a hero image in <device> view
-        When I switch to "<device>" view
-        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
+        Given I switch to "<device>" view
+        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I can see the long title "automation test article with hero image test title long title"
         * I can see the created date "FEB 12, 2016"
         * I can see the author "EMILY KERR"
@@ -22,62 +22,54 @@ Feature: Article
         * I can see the body video
         * I can see the body tips "body tips body tips eom"
         * I can see the body competition
+        * I can see the Image Revealer component
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
         @high
         Examples:
             |device             |
             |desktop            |
             |mobile             |
+# -------- Article page on mobile and desktop end ---------------#
 
-
-# -------- Hero video and its description on tablet portrait is low priority  ---------------#
+# -------- Hero Video   ---------------#
     @low
-    Scenario: Verify an article page which contains a hero video on tablet portrait
-        When I switch to "tablet portrait" view
-        Given I am currently viewing "beauty/automation-test-article-with-hero-video-3664"
-        * I can see the long title "automation test article with hero image test title long title"
-        * I can see the created date "FEB 12, 2016"
-        * I can see the author "EMILY KERR"
+    Scenario Outline: Editorial team can create content with hero video
+        Given I switch to "<device>" view
+        When I am currently viewing "beauty/automation-test-article-with-hero-video-3664"
         * I can see the hero video instead of the main image
         * I should not see the hero image caption
-        * I can see the short teaser "Short Teaser EOM"
-        * I can see the body paragraph "Test body paragraph"
-        * I can see the body related content
-        * I can see the body image
-        * I can see the body image caption "PHOTOGRAPHY BY"
-        * I can see the body gallery
-        * I can see the body video
-        * I can see the body tips "body tips body tips eom"
-        * I can see the body competition
-        * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
 
-# -------- Verifying LHR on different screen sizes is low priority  ---------------#
-    Scenario Outline: Verify LHR in <device> view
+        Examples:
+            | device            |
+            | mobile            |
+            | desktop           |
+            | tablet portrait   |
+            | tablet landscape  |
+# -------- Hero Video end   ---------------#
+
+# -------- RHR ---------------#
+    @high
+    Scenario: Verify the RHR on an article page in desktop view
+        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
+        When I switch to "desktop" view
+        * I can see 20 items in the list of items in RHR
+        * I can see the 20 images of each item in RHR
+        * Image in RHR is clickable to open its page
+        * I can see the long title of an item in RHR
+        * Long title in RHR is clickable to open its page
+        * I can see an item in RHR containing source and date
+
+    Scenario Outline: Verify RHR in <device> view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "<device>" view
-        * I can see the LHR
-        @med
-        Examples:
-            |device            |
-            |desktop           |
-        @low
+        * I can see the RHR
+    @low
         Examples:
             |device            |
             |tablet landscape  |
+# -------- RHR end ---------------#
 
-# -------- LHR are High as this Helps recirculate users ---------------#
-    @high
-    Scenario: Verify the LHR on an article page
-        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        When I switch to "desktop" view
-        * I can see 20 items in the list of items in LHR
-        * I can see the 20 images of each item in LHR
-        * Image in LHR is clickable to open its page
-        * I can see the long title of an item in LHR
-        * Long title in LHR is clickable to open its page
-        * I can see an item in LHR containing source and date
-
-# -------- Social embed is Medium and low ---------------#
+# -------- Social embed ---------------#
     Scenario Outline: Editorial team can add social feeds to the article body and see them in <device> view
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-article-with-social-embed-3663"
@@ -90,29 +82,30 @@ Feature: Article
         * I can see the body Vimeo embed "https://player.vimeo.com/video/181027959"
         * I can see the body Whooshka embed "https://player.whooshkaa.com/player/episode/id/90704?visual=true"
         * I can see the body Wirewax embed "http://embed.wirewax.com/8040968"
+        * I can see the body Linklay embed "http://www.linklay.com/app/linklay/embed/linklay59151f750e2a94.81058944"
         * I can see the body Giphy embed "https://i.giphy.com/sLs8Ll8Qx51xm.gif"
         @med
         Examples:
             | device            |
             | mobile            |
             | desktop           |
-        @low
-        Examples:
-            | device            |
-            | tablet portrait   |
-            | tablet landscape  |
+# -------- Social embed end ---------------#
 
-    Scenario Outline: Users can see the Image Revealer component on the article page in <device> view
-        When I switch to "<device>" view
-        Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        * I can see the Image Revealer component
-        @med
-        Examples:
-            | device            |
-            | mobile            |
-            | desktop           |
-        @low
+# -------- Article page on tablet landscape and tablet portrait ---------------#
+    Scenario Outline: Editorial team can add social feeds to the article body and see them in <device> view
+        Given I switch to "<device>" view
+        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
+        * I can see the long title "automation test article with hero image test title long title"
+        * I can see the hero image
+        * I can see the short teaser "Short Teaser EOM"
+        * I can see the body paragraph "Test body paragraph"
+        * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
+        When I am currently viewing "fashion/automation-test-article-with-social-embed-3663"
+        Then I can see the body Twitter embed "697199025729048577"
+
+    @low
         Examples:
             | device            |
             | tablet portrait   |
             | tablet landscape  |
+# -------- Article page on tablet landscape and tablet portrait end ---------------#
