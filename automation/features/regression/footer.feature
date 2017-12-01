@@ -3,11 +3,13 @@ Feature: Footer
     As a user
     I should be able to see the Footer
 
-# -------- Footer page is med and low priority in terms of Impact  ---------------#
     @homepage
     Scenario Outline: Verify the footer in the "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing the homepage
+        * I can see the subscription magazine and digital cover
+        * I can click both the images
+        * I can see the subscription button
         * I can see the social heading in the footer
         * I can navigate to all standard pages in the footer
             |page           |url                                                            |
@@ -22,6 +24,12 @@ Feature: Footer
             |device            |
             |mobile            |
             |desktop           |
+
+    @homepage
+    Scenario Outline: Verify the footer in the tablet view (Test in <device> view)
+        Given I switch to "<device>" view
+        When I am currently viewing the homepage
+        * 	I can see all main elements in the footer
         @low
         Examples:
             |device            |
@@ -50,20 +58,4 @@ Feature: Footer
             |page               |url                                                                |
             |404                |404                                                                |
 
-    @homepage
-    Scenario Outline: Verify the subscription cover and button on the homepage in <device> view
-        Given I switch to "<device>" view
-        When I am currently viewing the homepage
-        * I can see the subscription magazine and digital cover
-        * I can click both the images
-        * I can see the subscription button
-        @med
-        Examples:
-            |device            |
-            |mobile            |
-            |desktop           |
-        @low
-        Examples:
-            |device            |
-            |tablet portrait   |
-            |tablet landscape  |
+
