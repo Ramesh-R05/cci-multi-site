@@ -16,15 +16,6 @@ module.exports = function() {
         expect(logoLink).toEqual(world.Urls.home_page);
     });
 
-    this.Given(/^I can see an image appearing on the gallery$/, function() {
-        // To load all elements on the page before validating
-        loadAllElements('gallery', browser);
-
-        var img = browser.getAttribute(gallery.galleryImg, 'srcset');
-        console.log("IMAGE SRC =" + " " + img[0]);
-        validateImageURL(img[0]);
-    });
-
     this.Given(/^I can see the source appearing on the gallery with gtm "([^"]*)"$/, function (gtm) {
         //Get values
         var sourceHref = browser.getAttribute(gallery.gallerySource, 'href');
@@ -51,14 +42,8 @@ module.exports = function() {
         expect(browser.isVisible(gallery.galleryLongTitle)).toBe(false);
     });
 
-    this.Given(/^I can see the gallery description of the gallery containing "([^"]*)"$/, function(description) {
-        var galleryDescription = browser.getText(gallery.galleryDescription);
-        expect(galleryDescription).toContain(description);
-    });
-
     this.Given(/^I can see the image number "([^"]*)" on the gallery$/, function(num) {
         var imageCountIndex = browser.getText('.gallery__feed-item:nth-child(' + num +') .gallery__item-index');
-        console.log(imageCountIndex);
         expect(imageCountIndex).toEqual(num);
     });
 
