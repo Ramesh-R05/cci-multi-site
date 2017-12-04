@@ -11,7 +11,6 @@ module.exports = function() {
         browser.waitForVisible(site_nav.siteNavHeader, 3000);
     });
 
-
     this.Then(/^I should see the site header logo to open homepage and contain "([^"]*)" class name$/, function (gtm) {
         browser.waitForExist(site_nav.smallIconlink, 3000);
         //Validate the logo is clickable to open homepage
@@ -42,38 +41,14 @@ module.exports = function() {
         expect(headerLogoLink).toEqual(domain);
     });
 
-    this.Then(/^I should see the site navigation links and "([^"]*)" class name in "([^"]*)"$/, function (gtm, position) {
-        var sectionDetail;
-        //Identify the element
-        switch(position) {
-            case 'header':
-                browser.waitForVisible(site_nav.siteNavSectionDetail, 5000);
-                sectionDetail = site_nav.siteNavSectionDetail;
-                break;
-            case 'hamburger':
-                browser.click(site_nav.siteHamburger);
-                browser.waitForVisible(site_nav.siteHamburgerDetail, 3000);
-                sectionDetail = site_nav.siteHamburgerDetail;
-                break;
-        }
+    this.Then(/^I should see the site navigation in hamburger menu$/, function () {
+        browser.waitForVisible(site_nav.siteHamburger, 1000);
+        browser.click(site_nav.siteHamburger);
+        browser.waitForVisible(site_nav.siteHamburgerDetail, 3000);
 
-        //Get values of class, href, and name
-        var navClass = browser.getAttribute(sectionDetail,'class');
-        var navLink = browser.getAttribute(sectionDetail,'href');
-        var navName = browser.getAttribute(sectionDetail, 'textContent');
+        wait(500); // ensure it waits for transition effect to complete
+        browser.click(site_nav.siteHamburgerClose);
 
-        //Validate the values
-        for (var i=0; i<navName.length; i++){
-            expect(navClass[i]).toContain(gtm);
-            expect(navLink[i]).not.toEqual('');
-            expect(navName[i]).not.toEqual('');
-        }
-
-        //Close the hamburger menu
-        if (position == 'hamburger') {
-            wait(500); // ensure it waits for transition effect to complete
-            browser.click(site_nav.siteHamburgerClose);
-        }
     });
 
     this.Then(/^I should not see the site navigation links$/, function () {
@@ -114,7 +89,7 @@ module.exports = function() {
         browser.click(site_nav.siteHamburgerClose);
     });
 
-    this.Then(/^when I scroll down in the page$/, function () {
+    this.Then(/^I scroll down in the page$/, function () {
         browser.scroll(0, 1000);
     });
 
@@ -146,7 +121,6 @@ module.exports = function() {
         expect(browser.isVisible(site_nav.bigIcon)).toBe(true);
         var menuhref = browser.getAttribute(site_nav.bigIconlink, 'href');
         expect(menuhref).toEqual(site_domain);
-        console.log(browser.getCssProperty(site_nav.bigIcon, 'color'));
     });
 
     this.When(/^I scroll to the end of the page$/, function () {
@@ -158,20 +132,17 @@ module.exports = function() {
         expect(browser.isVisible(site_nav.smallIcon)).toBe(true);
         var menuhref = browser.getAttribute(site_nav.smallIconlink, 'href');
         expect(menuhref).toEqual(site_domain);
-        console.log(browser.getCssProperty(site_nav.smallIcon, 'color'));
     });
 
 
     this.Then(/^I should see the custom masthead appearing on top of the page$/, function () {
         wait(2000); //static wait as the background image is loaded after some time
         var customMastHead = browser.getAttribute(site_nav.customMastHead, 'style');
-        console.log(customMastHead);
         expect(customMastHead).toContain('background-image');
     });
 
     this.Then(/^I should see the custom masthead appearing on top of the page in mobile$/, function () {
         var customMastHeadMobile = browser.getAttribute(site_nav.customMastHeadMobile, 'style');
-        console.log(customMastHeadMobile);
         expect(customMastHeadMobile).toContain('background-image');
     });
 

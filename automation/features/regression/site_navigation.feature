@@ -1,128 +1,93 @@
 @navigation @elle
-Feature: Build and Style the Header, Top Site Navigation and Hamburger Menu to be used across all devices
+Feature: Site Navigation
+    As a user
+    I should be able to see site navigation in different devices
 
-    @homepage
-    Scenario Outline: I can see the navigation widget on the homepage "<device>"
-        Given I switch to "<device>" view
+#----- Navigation widget on different pages and devices -----#
+    @med @homepage
+    Scenario: I can see the navigation widget on the homepage desktop
+        Given I switch to "desktop" view
         When I am currently viewing the homepage
         Then I should see the site header banner
-        And I should see the site header logo clickable to open homepage
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "header"
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
-        @med
-        Examples:
-            | device            |
-            | desktop           |
-        @low
-        Examples:
-            | device            |
-            | tablet portrait   |
-            | tablet landscape  |
+        And I should see the site navigation in hamburger menu
 
     @med @homepage
     Scenario: I can see the navigation widget on the homepage mobile
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        Then I should see the site header logo clickable to open homepage
+        Then I should see the site header banner
         And I should not see the site navigation links
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
+        And I should see the site navigation in hamburger menu
 
-    @med @homepage
-    Scenario: I can see the sticky navigation on the homepage
-        Given I switch to "desktop" view
-        When I am currently viewing the homepage
-        And when I scroll down in the page
-        Then I should see the site header logo clickable to open homepage
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "header"
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
-
+    Scenario Outline: I can see the navigation widget on the <page> page in <device> view
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageURL>"
+        Then I can see the link "FASHION" is highlighted on the navigation links
+        And I can see the link "FASHION" is highlighted on the hamburger navigation links
     @med @section
-    Scenario: I can see the navigation widget on the section page
-        Given I switch to "desktop" view
-        When I am currently viewing "fashion"
-        Then I should see the site header logo clickable to open homepage
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "header"
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
-        And I can see the link "FASHION" is highlighted on the navigation links
-        And I can see the link "FASHION" is highlighted on the hamburger navigation links
-
+        Examples:
+            | device    | page      | pageURL   |
+            | desktop   | section   | fashion   |
     @low @article
-    Scenario: I can see the navigation widget on the article page
-        Given I switch to "tablet portrait" view
-        When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        Then I should see the site header logo clickable to open homepage
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "header"
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
-        And I can see the link "FASHION" is highlighted on the navigation links
-        And I can see the link "FASHION" is highlighted on the hamburger navigation links
-
+        Examples:
+            | device            | page      | pageURL                                               |
+            | tablet portrait   | article   | fashion/automation-test-article-with-hero-image-3663  |
     @low @gallery
-    Scenario: I can see the navigation widget on the gallery page
-        Given I switch to "tablet landscape" view
-        When I am currently viewing "fashion/automation-test-gallery-13302"
-        Then I should see the site header logo clickable to open homepage
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "header"
-        And I should see the site navigation links and "gtm-navigation-section nav-item" class name in "hamburger"
-        And I can see the link "FASHION" is highlighted on the navigation links
-        And I can see the link "FASHION" is highlighted on the hamburger navigation links
+        Examples:
+            | device            | page      | pageURL                                   |
+            | tablet landscape  | gallery   | fashion/automation-test-gallery-13302     |
 
     @med @gallery
     Scenario: I can see the navigation widget on the gallery page on mobile view
         Given I switch to "mobile" view
         When I am currently viewing "fashion/automation-test-gallery-13302"
         Then I should not see the site navigation links
-        And I should see the hamburger menu
+        And I can see the link "FASHION" is highlighted on the hamburger navigation links
+#----- Navigation widget on different pages and devices end -----#
 
+#----- Behaviour of navigation when scrolling down -----#
     @med @article
     Scenario: Mobile users menu will fade out as they scroll down the page
         Given I switch to "mobile portrait" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         Then the menu fades out as I scroll down the page
 
-    @low @homepage
-    Scenario Outline: Users are able to navigate back to the homepage in <device> view
+    @med @homepage
+    Scenario: Desktop users menu will see sticky navigation when they scroll down the page
+        Given I switch to "desktop" view
+        When I am currently viewing the homepage
+        And I scroll down in the page
+        Then I should see the site header logo clickable to open homepage
+        And I should see the site navigation in hamburger menu
+#----- Behaviour of navigation when scrolling down end -----#
+
+#----- Logo and masthead -----#
+    @low
+    Scenario Outline: Verify the logo and the custom masthead in <device> view (Test on <page>)
         Given I switch to "<device>" view
         When I am currently viewing the homepage
         Then I should see the Big Banner logo that takes me back to the home page
+        And I should see the custom masthead appearing on top of the page
         When I scroll to the end of the page
         Then I can see the smaller logo in the navigation bar that takes me back to the home page
-
+    @homepage
         Examples:
-            | device            |
-            | desktop           |
-            | tablet landscape  |
-            | tablet portrait   |
+            | device            | page      | pageURL                                              |
+            | desktop           | homepage  |                                                      |
+    @article
+        Examples:
+            | device            | page      | pageURL                                              |
+            | tablet landscape  | article   | fashion/automation-test-article-with-hero-image-3663 |
+    @gallery
+        Examples:
+            | device            | page      | pageURL                                              |
+            | tablet portrait   | gallery   | fashion/automation-test-gallery-13302                |
 
-    @low @homepage
-    Scenario: Users are able to navigate back to the homepage with smaller breakpoints
+    @low @section
+    Scenario: Verify the logo and the custom masthead in mobile view
         Given I switch to "mobile portrait" view
-        When I am currently viewing the homepage
+        When I am currently viewing "fashion"
         Then I can see the smaller logo in the navigation bar that takes me back to the home page
+        And I should see the custom masthead appearing on top of the page in mobile
+#----- Logo and masthead end-----#
 
-    @med
-    Scenario Outline: Verify that the custom masthead appears on <page> in desktop view
-        Given I am currently viewing "<url>"
-        When I switch to "desktop" view
-        * I should see the custom masthead appearing on top of the page
-        @homepage
-        Examples:
-            |page         |url        |
-            |Homepage     |           |
-        @section
-        Examples:
-            |page          |url        |
-            |Section       |fashion    |
-
-    @med
-    Scenario Outline: Verify that the custom masthead appears on <page> in mobile view
-        Given I am currently viewing "<url>"
-        When I switch to "mobile" view
-        * I should see the custom masthead appearing on top of the page in mobile
-        @homepage
-        Examples:
-            |page         |url        |
-            |Homepage     |           |
-        @section
-        Examples:
-            |page          |url        |
-            |Section       |fashion    |
