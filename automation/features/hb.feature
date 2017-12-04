@@ -6,12 +6,12 @@ Feature: Smoke test for HB
     Scenario: Verify the homepage
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        Then I should see the sign up button containing "https://www.harpersbazaar.com.au/hb-newsletter" url and "gtm-subs-homepage" gtm in "mobile" view
+        Then I should see the sign up button containing "https://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
         And I should see 2 must read images and titles which are clickable to open their page
         And I should see the main hero item containing its image and clickable to open its page
         And I should see 2 promoted images and titles which are clickable to open their page
-        And I should see each top feed item containing its image and clickable to open its page
-        And I should see each bottom feed item containing its image and clickable to open its page
+        And I should see a "top" feed item containing its image and clickable to open its page
+        And I should see a "bottom" feed item containing its image and clickable to open its page
         When I click on the Load More button
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
@@ -19,10 +19,10 @@ Feature: Smoke test for HB
     Scenario: Verify the section landing page
         Given I switch to "mobile" view
         When I am currently viewing "fashion"
-        Then I should see the sign up button containing "https://www.harpersbazaar.com.au/hb-newsletter" url and "gtm-subs-homepage" gtm in "mobile" view
+        Then I should see the sign up button containing "https://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
         Then I should see the main hero item containing its image and clickable to open its page
-        And I should see each top feed item containing its image and clickable to open its page
-        And I should see each bottom feed item containing its image and clickable to open its page
+        And I should see a "top" feed item containing its image and clickable to open its page
+        And I should see a "bottom" feed item containing its image and clickable to open its page
         When I click on the Load More button
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page

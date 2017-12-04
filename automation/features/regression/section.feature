@@ -6,7 +6,7 @@ Feature: Section Landing page
     Scenario Outline: Verify the sign-up URL on section landing page in <device> view
         Given I switch to "<device>" view
         When I am currently viewing "fashion"
-        Then I should see the sign up button containing "//www.elle.com.au/elle-newsletter" url and "gtm-subs-homepage" gtm in "<device>" view
+        Then I should see the sign up button containing "//www.elle.com.au/elle-newsletter" url in "<device>" view
         @med
         Examples:
             | device            |
@@ -38,9 +38,9 @@ Feature: Section Landing page
     Scenario Outline: Verify the top news feed is functional correctly in "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing "fashion"
-        * I should see 6 top half feed
-        * I should see each top feed item containing its image and clickable to open its page
-        * I should see each top feed item containing its title and clickable to open its page
+        * I should see 6 "top" half feed
+        * I should see a "top" feed item containing its image and clickable to open its page
+        * I should see a "top" feed item containing its title and clickable to open its page
         @med
         Examples:
             |device|
@@ -55,9 +55,9 @@ Feature: Section Landing page
     Scenario Outline: Verify the bottom news feed is functional correctly in "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing "fashion"
-        * I should see 7 bottom half feed
-        * I should see each bottom feed item containing its image and clickable to open its page
-        * I should see each bottom feed item containing its title and clickable to open its page
+        * I should see 7 "bottom" half feed
+        * I should see a "bottom" feed item containing its image and clickable to open its page
+        * I should see a "bottom" feed item containing its title and clickable to open its page
         @med
         Examples:
             |device |
