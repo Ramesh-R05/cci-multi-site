@@ -43,8 +43,6 @@ Feature: Article
             | device            |
             | mobile            |
             | desktop           |
-            | tablet portrait   |
-            | tablet landscape  |
 # -------- Hero Video end   ---------------#
 
 # -------- RHR ---------------#
@@ -59,14 +57,10 @@ Feature: Article
         * Long title in RHR is clickable to open its page
         * I can see an item in RHR containing source and date
 
-    Scenario Outline: Verify RHR in <device> view
+    Scenario: Verify the RHR on an article page in tablet landscape view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
-        When I switch to "<device>" view
+        When I switch to "tablet landscape" view
         * I can see the RHR
-    @low
-        Examples:
-            |device            |
-            |tablet landscape  |
 # -------- RHR end ---------------#
 
 # -------- Social embed ---------------#
@@ -92,7 +86,7 @@ Feature: Article
 # -------- Social embed end ---------------#
 
 # -------- Article page on tablet landscape and tablet portrait ---------------#
-    Scenario Outline: Editorial team can add social feeds to the article body and see them in <device> view
+    Scenario Outline: Verify an article page in tablet view (Test in <device>)
         Given I switch to "<device>" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I can see the long title "automation test article with hero image test title long title"
@@ -102,7 +96,8 @@ Feature: Article
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
         When I am currently viewing "fashion/automation-test-article-with-social-embed-3663"
         Then I can see the body Twitter embed "697199025729048577"
-
+        When I am currently viewing "beauty/automation-test-article-with-hero-video-3664"
+        Then I can see the hero video instead of the main image
     @low
         Examples:
             | device            |
