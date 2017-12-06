@@ -57,9 +57,9 @@ describe('Article middleware', () => {
             req.data.entity.sectionId = validSectionId;
         });
 
-        it('should not set leftHandSide on `req.data` object', (done) => {
+        it('should set leftHandSide on `req.data` object', (done) => {
             articleMiddleware(req, res, next).then(() => {
-                expect(req.data).to.not.include.keys('leftHandSide');
+                expect(req.data).to.include.keys('leftHandSide');
                 expect(next).to.be.called;
                 done();
             }).catch(done);

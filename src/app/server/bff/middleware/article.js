@@ -11,11 +11,8 @@ export default async function article(req, res, next) {
             return;
         }
 
-        const sectionId = req.data.entity.sectionId;
-        const listingQuery = `path eq %27${sectionId}%27`;
-        if (sectionId) {
-            req.data.leftHandSide = await getLatestTeasers(TOP, undefined, listingQuery);
-        }
+        const listingQuery = `nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery'`;
+        req.data.leftHandSide = await getLatestTeasers(TOP, undefined, listingQuery);
 
         next();
     } catch (error) {

@@ -6,5 +6,7 @@ export default {
     shortName: 'Elle',
     prefix: 'ELLE',
     network: 'wn',
-    adTaggingId: 'Elle'
+    adTaggingId: 'Elle',
+    feedTitle: 'Read More',
+    useFeedTitlePrefix: false
 };

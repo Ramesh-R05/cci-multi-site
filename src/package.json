@@ -12,6 +12,7 @@
     "prepush": "run-p lint test",
     "start": "NODE_ENV=production node ./start.js",
     "test": "babel-node ./node_modules/babel-istanbul/lib/cli cover --root ./ --include-all-sources --report cobertura --report html ./node_modules/mocha/bin/_mocha -- --require ./test/setup.js --recursive --check-leaks",
+    "test:debug": "babel-node $NODE_DEBUG_OPTION ./node_modules/babel-istanbul/lib/cli cover --root ./ --include-all-sources --report cobertura --report html ./node_modules/mocha/bin/_mocha -- --require ./test/setup.js --recursive --check-leaks",
     "test:ci": "npm run test -- --reporter=xunit --reporter-options output=./../shippable/testresults/result.xml",
     "test:unit": "mocha --require babel-polyfill --require babel-register --require test/setup.js --reporter min --recursive --check-leaks",
     "test:tdd": "npm run test:unit -- --watch",
@@ -35,7 +36,7 @@
   "homepage": "https://github.com/bauerxcelmedia/multi-site#readme",
   "dependencies": {
     "@bxm/ad": "^12.3.0",
-    "@bxm/article": "^25.16.2",
+    "@bxm/article": "^25.19.0",
     "@bxm/behaviour": "^1.4.0",
     "@bxm/config": "^4.1.1",
     "@bxm/datetime": "^3.0.0",

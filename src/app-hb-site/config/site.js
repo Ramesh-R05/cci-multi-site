@@ -6,5 +6,7 @@ export default {
     shortName: "Harper's",
     prefix: 'HB',
     network: 'wn',
-    adTaggingId: 'harpersbazaar'
+    adTaggingId: 'harpersbazaar',
+    feedTitle: 'Read More',
+    useFeedTitlePrefix: false
 };

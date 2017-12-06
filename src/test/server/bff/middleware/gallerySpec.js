@@ -69,9 +69,9 @@ describe('Gallery middleware', () => {
             req.data.entity.sectionId = validSectionId;
         });
 
-        it('should not set leftHandSide on `req.data` object', (done) => {
+        it('should set leftHandSide on `req.data` object', (done) => {
             galleryMiddleware(req, res, next).then(() => {
-                expect(req.data).to.not.include.keys('leftHandSide');
+                expect(req.data).to.include.keys('leftHandSide');
                 expect(next).to.be.called;
                 done();
             }).catch(done);

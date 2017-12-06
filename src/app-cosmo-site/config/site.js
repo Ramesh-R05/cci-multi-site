@@ -6,5 +6,7 @@ export default {
     shortName: 'Cosmo',
     prefix: 'COSMO',
     network: 'wn',
-    adTaggingId: 'Cosmopolitan'
+    adTaggingId: 'Cosmopolitan',
+    feedTitle: 'Read More',
+    useFeedTitlePrefix: false
 };
