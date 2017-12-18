@@ -1,0 +1,709 @@
+@font-face {
+    font-family: 'Questa-grande-light';
+    src: url('/assets/fonts/questa_grande_light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('/assets/fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('/assets/fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:  url('/assets/fonts/icomoon.eot?h93sp2');
+    src:  url('/assets/fonts/icomoon.eot?h93sp2#iefix') format('embedded-opentype'),
+    url('/assets/fonts/icomoon.ttf?h93sp2') format('truetype'),
+    url('/assets/fonts/icomoon.woff?h93sp2') format('woff'),
+    url('/assets/fonts/icomoon.svg?h93sp2#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^='icon-'], [class*=' icon-'] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-logo:before {
+    content: '\e900';
+}
+
+
+$font-family-serif-primary: 'Questa-grande-light', serif;
+$font-family-serif-secondary: 'Times New Roman', 'Georgia', serif;
+$font-family-sans-serif-primary: 'Montserrat-Regular', sans-serif;
+$small-text-font: $font-family-sans-serif-primary;
+$font-family-sans-serif-light: 'Montserrat-Light', sans-serif;
+
+// ---------------------------------------------------- base elements
+
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    color: $color-grey-light;
+    font-family: $font-family-serif-primary;
+    font-size: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $color-black;
+    font-family: $font-family-sans-serif-primary;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 44px;
+    line-height: 46px;
+}
+
+h2 {
+    font-size: 40px;
+    line-height: 42px;
+}
+
+h3 {
+    font-size: 34px;
+    line-height: 36px;
+}
+
+h4 {
+    font-size: 28px;
+    line-height: 30px;
+}
+
+h5 {
+    font-size: 24px;
+    line-height: 26px;
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 18px;
+}
+
+a {
+    color: $color-tertiary;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+// ---------------------------------------------------- typography mixins & classes
+
+@mixin type-header {
+    color: $color-grey;
+    font: 600 15px / 1.4 $font-family-sans-serif-primary;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.type-header {
+    @include type-header;
+}
+
+@mixin type-side-menu-link {
+    color: $color-white;
+    font: 500 20px / 1.5 $font-family-sans-serif-primary;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.type-side-menu-link {
+    @include type-side-menu-link;
+}
+
+// Must Read headline
+@mixin type-teaser-headline-title {
+    color: $color-white;
+    font: 500 15px / 1.4 $font-family-sans-serif-primary;
+    letter-spacing: .04em;
+    line-height: 1.55;
+    text-transform: uppercase;
+
+    @media #{$xlarge-up} {
+        font-size: 20px;
+    }
+}
+
+.type-teaser-headline-title {
+    @include type-teaser-headline-title;
+
+    a {
+        background-color: $color-primary;
+        box-shadow: 4px 0 0 $color-primary, -4px 0 0 $color-primary;
+        box-decoration-break: clone; // for Firefox
+        color: $color-white;
+
+        &:hover {
+            background-color: $color-primary-light;
+            box-shadow: 4px 0 0 $color-primary-light, -4px 0 0 $color-primary-light;
+            box-decoration-break: clone; // for Firefox
+            color: $color-white;
+            text-decoration: none;
+        }
+    }
+}
+
+
+// Hero (e.g. on homepage)
+@mixin type-hero-title {
+    color: $color-black;
+    font: 33px / 26px $font-family-serif-primary;
+    letter-spacing: 2px;
+    word-spacing: 0.02em;
+    text-transform: none;
+
+    @media #{$medium-up} {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}
+
+.type-hero-title {
+    @include type-hero-title;
+}
+
+@mixin type-teaser-summary {
+    color: $color-grey;
+    font: 400 14px / 20px $font-family-sans-serif-primary;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.type-hero-summary {
+    @include type-teaser-summary;
+}
+
+
+// Article
+@mixin type-article-title {
+    color: $color-black;
+    font: 24px / 26px $font-family-sans-serif-primary;
+    font-weight: 400;
+
+    @media #{$medium-up} {
+        font-size: 38px;
+        line-height: 46px;
+    }
+}
+
+.type-article-title {
+    @include type-article-title;
+}
+
+@mixin type-article-summary {
+    color: $color-grey;
+    font: normal 400 19px / 25px $font-family-serif-primary;
+    letter-spacing: .01em;
+
+    @media #{$medium-up} {
+        font-size: 20px;
+        line-height: 34px;
+    }
+}
+
+.type-article-summary {
+    @include type-article-summary;
+}
+
+@mixin type-article-body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    color: $color-grey;
+    font: 400 18px / 27px $font-family-serif-secondary;
+    letter-spacing: .01em;
+
+    @media #{$medium-up} {
+        font-size: 18px;
+        line-height: 32px;
+    }
+}
+
+.type-article-body {
+    @include type-article-body;
+}
+
+@mixin type-article-heading {
+    color: $color-black;
+    font: 400 20px / 30px $font-family-sans-serif-primary;
+    text-transform: uppercase;
+}
+
+.type-article-heading {
+    @include type-article-heading;
+}
+
+@mixin type-related-teaser-title {
+    color: $color-black;
+    font: 13px/20px $font-family-sans-serif-primary;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.type-related-teaser-title {
+    @include type-related-teaser-title;
+}
+
+@mixin type-article-recommendation-title {
+    color: $color-black;
+    font: 16px/18px $font-family-sans-serif-primary;
+
+    @media #{$medium-up} {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 22px;
+    }
+}
+
+.type-article-recommendation-title {
+    @include type-article-recommendation-title;
+}
+
+// XSmall teaser (e.g. article page left hand side rail)
+@mixin type-xsmall-teaser-title {
+    color: $color-black;
+    font: 400 13px / 20px $font-family-sans-serif-primary;
+    margin-bottom: 10px;
+}
+
+.type-xsmall-teaser-title {
+    @include type-xsmall-teaser-title;
+}
+
+@mixin type-article-quote {
+    color: $color-black;
+    font: italic 400 26px / 1.731 $font-family-serif-primary;
+    letter-spacing: .01em;
+
+    @media #{$xlarge-up} {
+        font-size: 36px;
+        line-height: 1.667;
+    }
+}
+
+.type-article-quote {
+    @include type-article-quote;
+}
+
+@mixin type-inline-gallery-heading {
+    font: 400 18px / 20px $font-family-sans-serif-light;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+
+    @media #{$medium-up} {
+        font-size: 20px;
+        line-height: 22px;
+    }
+}
+
+.type-inline-gallery-heading {
+    @include type-inline-gallery-heading;
+}
+
+// Section
+@mixin type-section-title {
+    color: $color-black;
+    font: 100 30px / 1em $font-family-sans-serif-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    span {
+        position: relative;
+
+        &:after {
+            border-bottom: solid 2px $color-aqua;
+            content: '';
+            display: block;
+            position: absolute;
+            height: 0;
+            top: 88%;
+            left: 0;
+            right: 0;
+
+            @media #{$xlarge-up} {
+                left: 4px;
+            }
+        }
+    }
+
+
+    @media #{$medium-up} {
+        font-size: 70px;
+    }
+
+    @media #{$xlarge-up} {
+        font-size: 80px;
+    }
+}
+
+.type-section-title {
+    @include type-section-title;
+}
+
+// Inline gallery
+@mixin type-inline-gallery-header {
+    color: $color-white;
+    font: 500 15px / 1.467 $font-family-sans-serif-primary;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+
+    @media #{$medium-only} {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    @media #{$xlarge-up} {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+}
+
+.type-inline-gallery-header {
+    @include type-inline-gallery-header;
+}
+
+@mixin type-inline-gallery-title {
+    color: $color-primary;
+    font: 400 15px / 1.2 $font-family-serif-primary;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+
+    @media #{$medium-only} {
+        font-size: 20px;
+    }
+
+    @media #{$xlarge-up} {
+        font-size: 20px;
+    }
+}
+
+.type-inline-gallery-title {
+    @include type-inline-gallery-title;
+}
+
+@mixin type-gallery-header {
+    color: $color-black;
+    font: 500 17px / 1.765 $font-family-serif-primary;
+
+    @media #{$xlarge-up} {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+}
+
+.type-gallery-header {
+    @include type-gallery-header;
+}
+
+// Tags
+@mixin type-tags($color: $color-grey) {
+    color: $color;
+    font: 500 11px / 1.5 $font-family-sans-serif-primary;
+    letter-spacing: .04em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.type-tags {
+    @include type-tags;
+}
+
+// Teasers
+
+// Top half teasers
+@mixin type-top-teaser-title {
+    color: $color-black;
+    font: 20px / 26px $font-family-sans-serif-primary;
+    text-transform: uppercase;
+
+    @media #{$medium-up} {
+        font-size: 28px;
+        line-height: 30px;
+    }
+}
+
+.type-top-teaser-title {
+    @include type-top-teaser-title;
+}
+
+.type-teaser-summary {
+    @include type-teaser-summary;
+}
+
+
+// Small Teaser - ie, just below the hero on home page, above Gallery of Galleries
+// Second half teasers
+@mixin type-bottom-teaser-title {
+    color: $color-black;
+    font: 15px / 20px $font-family-serif-primary;
+    margin-bottom: 0;
+    text-transform: none;
+
+    @media #{$medium-up} {
+        font-size: 22px;
+        line-height: 30px;
+    }
+}
+
+.type-bottom-teaser-title {
+    @include type-bottom-teaser-title;
+}
+
+// Colourful block over teaser image
+@mixin type-teaser-color-block {
+    color: $color-white;
+    font: 400 11px / 22px $font-family-sans-serif-primary;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @media #{$medium-up} {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    @media #{$xlarge-up} {
+        font-size: 16px;
+        line-height: 28px;
+    }
+}
+
+.type-teaser-color-block {
+    @include type-teaser-color-block;
+}
+
+@mixin type-teaser-tag {
+    text-decoration: none;
+    font-size: 11px;
+    display: block;
+
+    a, span {
+        color: $color-tertiary;
+        font: 600 11px/12px $font-family-sans-serif-light;
+        letter-spacing: .03em;
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        text-decoration: none !important; //Chrome underlines all links in user agent stylesheet, this prevents that
+    }
+}
+
+.type-teaser-tag {
+    @include type-teaser-tag();
+}
+
+
+
+// Navigation
+@mixin type-navigation {
+    color: $color-grey;
+    font: 500 15px / 1.467 $font-family-sans-serif-primary;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.type-navigation {
+    @include type-navigation;
+}
+
+// Composite text
+@mixin type-composite($color: $color-grey, $boldcolor: $color-grey) {
+    color: $color;
+    font: 300 36px / .889 $font-family-sans-serif-primary;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    strong,
+    b,
+    .bold {
+        color: $boldcolor;
+        font: 400 39px / .842 $font-family-serif-primary;
+    }
+}
+
+.type-composite {
+    @include type-composite;
+}
+
+@mixin type-section-heading {
+    @include type-composite;
+    letter-spacing: .1em;
+    text-align: center;
+
+    @media #{$medium-up} {
+        font-size: 48px;
+
+        b,
+        .bold {
+            font-size: 52px;
+        }
+    }
+
+    @media #{$large-up} {
+        font-size: 60px;
+
+        b,
+        .bold {
+            font-size: 64px;
+        }
+    }
+}
+
+.type-section-heading {
+    @include type-section-heading;
+}
+
+@mixin type-underlined($border-color: $color-section-separator, $border-size: 2px) {
+    text-align: center;
+
+    &:after {
+        border-bottom: $border-size solid $border-color;
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: -30px;
+        width: 100%;
+    }
+}
+
+.type-underlined {
+    @include type-underlined;
+}
+
+@mixin type-network-info {
+    color: $color-grey-light;
+    font-family: $font-family-sans-serif-primary;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+
+    @media #{$medium-up} {
+        font-weight: 500;
+        margin-bottom: -10px;
+    }
+}
+
+.type-network-info {
+    @include type-network-info;
+}
+
+@mixin type-subscribe-heading {
+    color: $color-white;
+    font-family: $font-family-sans-serif-primary;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+
+    @media #{$medium-up} {
+        font-size: 24px;
+    }
+}
+
+.type-subscribe-heading {
+    @include type-subscribe-heading;
+}
+
+.black-bg {
+    background-color: $color-black;
+}
+
+@mixin type-subscribe-content() {
+    color: $color-grey-light;
+    font-family: $font-family-serif-primary;
+    font-size: 15px;
+    letter-spacing: .020em;
+    line-height: 24px;
+}
+
+.type-subscribe-content {
+    @include type-subscribe-content;
+}
+
+@mixin type-social-link-label() {
+    color: $color-white;
+    font-family: $font-family-sans-serif-primary;
+    font-size: 11px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.type-social-link-label {
+    @include type-social-link-label;
+}
+
+
+
+// Error page
+@mixin type-error-page {
+    color: $color-black;
+    font: 400 14px / 2 $font-family-serif-primary;
+
+    @media #{$medium-up} {
+        font-size: 18px;
+    }
+
+    @media #{$large-up} {
+        font-size: 22px;
+    }
+}
+
+.type-error-page {
+    @include type-error-page;
+}
+
+// ---------------------------------------------------- reset mixins
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+    }
+}

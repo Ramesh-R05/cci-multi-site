@@ -1,0 +1,49 @@
+.page-title {
+    @include type-section-title();
+    margin-bottom: 0;
+    padding: 20px $column-gutter/2 10px;
+    text-align: center;
+
+
+    span:nth-of-type(2) {
+        font-family: $font-family-serif-primary;
+        color: $color-primary;
+        font-size: 22px;
+        letter-spacing: 3px;
+        -webkit-font-smoothing: antialiased;
+
+        @media #{$medium-up} {
+            font-size: 60px;
+        }
+
+    }
+
+    @media #{$medium-only} {
+        padding: 10px $column-gutter/2 55px;
+    }
+
+    @media #{$large-up} {
+        padding: 10px $column-gutter/2 55px;
+    }
+
+    span {
+        color: $color-black-origin;
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.page-title__symbol {
+    color: $color-primary;
+    letter-spacing: -5px;
+
+    &:before {
+        content: '';
+    }
+
+    @media #{$medium-up} {
+        letter-spacing: -8px;
+    }
+}

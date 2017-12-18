@@ -1,0 +1,47 @@
+.off-canvas-content-wrapper svg {
+    fill: $color-tertiary;
+}
+
+.mobile-menu__nav {
+
+    a:hover {
+        color: $color-accent;
+    }
+
+    &::after {
+        border-top-color: $color-tertiary;
+    }
+
+    .nav-item {
+        text-transform: capitalize;
+        letter-spacing: 0.02em;
+        padding: 8px 0;
+        font-size: 16px;
+
+        @media #{$medium-up} {
+            font-size: 20px;
+        }
+
+        &--active {
+            color: $color-accent;
+        }
+    }
+}
+
+.mobile-menu-list {
+
+    li:nth-child(5) {
+
+        margin-left: -3px;
+
+        @media #{$medium-up} {
+            margin-left: -6px;
+        }
+
+    }
+
+}
+
+.off-canvas {
+    background-color: $offcanvas-background-color;
+}
