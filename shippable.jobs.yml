@@ -18,6 +18,8 @@ jobs:
       - OUT: elle-site-img-branch
       - OUT: hb-site-img-master
       - OUT: hb-site-img-branch
+      - OUT: gt-site-img-master
+      - OUT: gt-site-img-branch
 
   # 2branchCOSMO. Manifest for a BRANCH image
   - name: cosmo-site-man-branch
@@ -65,6 +67,22 @@ jobs:
     steps:
       - IN: hb-site-img-master
       - IN: hb-site-opts-sit
+      - TASK: managed
+
+  # 2branchGT. Manifest for a BRANCH image
+  - name: gt-site-man-branch
+    type: manifest
+    steps:
+      - IN: gt-site-img-branch
+      - IN: gt-site-opts-sit
+      - TASK: managed
+
+  # 2GT. Manifest for MASTER image
+  - name: gt-site-man-master
+    type: manifest
+    steps:
+      - IN: gt-site-img-master
+      - IN: gt-site-opts-sit
       - TASK: managed
 
   # 3a. TEST deployment for MASTER - stubbed and hb config
@@ -187,6 +205,42 @@ jobs:
         applyTo:
           - manifest: hb-site-man-master
             image: hb-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
+
+  # 3BranchGT. SIT deployment for feature BRANCH
+  - name: gt-site-sit-deploy-branch
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: gt-site-man-branch # for non-master, don't auto deploy.
+        switch: off
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: gt-site-alb-sit-branch
+        applyTo:
+          - manifest: gt-site-man-branch
+            image: gt-site-img-branch
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
+
+  # 3GT. SIT deployment for MASTER
+  - name: gt-site-sit-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: gt-site-man-master # for master - auto deploy to SIT
+        switch: on
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: gt-site-alb-sit
+        applyTo:
+          - manifest: gt-site-man-master
+            image: gt-site-img-master
             port: 3001
       - TASK: managed
         deployMethod: replace
@@ -319,6 +373,32 @@ jobs:
     on_failure:
       - NOTIFY: hb-deployment-notifications
 
+  # 4cGT. Run smoke test on TEST environment GT
+  - name: gt-site-smoke-test
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: gt-site-sit-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "6.1.0"
+       - script: nvm use "6.1.0"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=gt-site
+       - script: export URL=https://www.sit.gourmettraveller.com.au/
+       - script: npm run smoketest:gt || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+    on_failure:
+      - NOTIFY: gt-deployment-notifications
+
   # 5COSMO. Package release for production release
   - name: cosmo-release-master
     type: release
@@ -349,6 +429,17 @@ jobs:
       - IN: hb-site-smoke-test
       - IN: hb-site-version
       - IN: hb-site-man-master
+        switch: off
+      - TASK: managed
+
+  # 5GT. Package release for production release
+  - name: gt-release-master
+    type: release
+    steps:
+      - IN: multi-site-automation-test
+      - IN: gt-site-smoke-test
+      - IN: gt-site-version
+      - IN: gt-site-man-master
         switch: off
       - TASK: managed
 
@@ -405,6 +496,25 @@ jobs:
         applyTo:
           - manifest: hb-site-man-master
             image: hb-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
+
+  # 6GT. PROD deployment for MASTER GT
+  - name: gt-site-prod-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+      - NOTIFY: gt-deployment-notifications
+    steps:
+      - IN: gt-release-master
+        switch: off
+      - IN: multi-env-prod-ecs
+      - IN: multi-site-params-prod
+      - IN: gt-site-alb-prod
+        applyTo:
+          - manifest: gt-site-man-master
+            image: gt-site-img-master
             port: 3001
       - TASK: managed
         deployMethod: upgrade
@@ -507,7 +617,30 @@ jobs:
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
-  # v. Import Elle live data to dev via migrate service
+  # v. Smoke Test in GT Dev CMS
+  - name: CMS-gt-smoke-test
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: multi-site-repo
+       switch: off
+     - IN: gt-weekly-trigger
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "6.1.0"
+        - script: nvm use "6.1.0"
+        - script: cd ./IN/multi-site-repo/gitRepo/automation
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: export URL=http://cms.dev.gt.wn.bauer-media.net.au/cms/umbraco/
+        - script: export APP_KEY=gt-site
+        - script: npm run test:cms || true
+        - script: actualsize=$(wc -c <"@rerun.txt")
+        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+
+  # vi. Import Elle live data to dev via migrate service
   - name: elle-import-live-data-to-dev
     type: runSh
     always:
@@ -518,7 +651,7 @@ jobs:
         - script: >
             curl -H "Content-Type: application/json" -X POST -d '[{"fromEnv":"live", "fromSite":"elle", "number":"10", "toSite":"elle"}]' http://dev.migrate.services.bauer-media.internal/migrate
 
-  # vi. Import HB live data to dev via migrate service
+  # vii. Import HB live data to dev via migrate service
   - name: hb-import-live-data-to-dev
     type: runSh
     always:
