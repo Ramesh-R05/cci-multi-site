@@ -8,5 +8,6 @@ export default {
     network: 'wn',
     adTaggingId: 'Cosmopolitan',
     feedTitle: 'Read More',
-    useFeedTitlePrefix: false
+    useFeedTitlePrefix: false,
+    titleSuffix: ' Australia'
 };

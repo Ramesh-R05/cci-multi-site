@@ -8,5 +8,6 @@ export default {
     network: 'wn',
     adTaggingId: 'Elle',
     feedTitle: 'Read More',
-    useFeedTitlePrefix: false
+    useFeedTitlePrefix: false,
+    titleSuffix: ' Australia'
 };

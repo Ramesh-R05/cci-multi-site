@@ -8,5 +8,6 @@ export default {
     network: 'wn',
     adTaggingId: 'harpersbazaar',
     feedTitle: 'Read More',
-    useFeedTitlePrefix: false
+    useFeedTitlePrefix: false,
+    titleSuffix: ' Australia'
 };
