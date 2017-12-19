@@ -6,7 +6,7 @@ Feature: Smoke test for GT
     Scenario: Verify the homepage
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        Then I should see the sign up button containing "https://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
+        Then I should see the sign up button containing "http://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
         And I should see 2 must read images and titles which are clickable to open their page
         And I should see the main hero item containing its image and clickable to open its page
         And I should see 2 promoted images and titles which are clickable to open their page
@@ -19,7 +19,7 @@ Feature: Smoke test for GT
     Scenario: Verify the section landing page
         Given I switch to "mobile" view
         When I am currently viewing "fashion"
-        Then I should see the sign up button containing "https://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
+        Then I should see the sign up button containing "http://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
         Then I should see the main hero item containing its image and clickable to open its page
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its image and clickable to open its page
