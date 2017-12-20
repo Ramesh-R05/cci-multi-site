@@ -1,12 +1,12 @@
 export default {
     dateTimeFormat: 'MMM DD, YYYY h:mma',
-    host: 'http://dev.hb-site.bauer-media.net.au',
-    prodDomain: 'www.harpersbazaar.com.au',
-    name: "Harper's BAZAAR",
+    host: 'http://dev.gt-site.bauer-media.net.au',
+    prodDomain: 'www.gourmettraveller.com.au',
+    name: "Gourmet Traveller",
     shortName: "Harper's",
-    prefix: 'HB',
+    prefix: 'GT',
     network: 'wn',
-    adTaggingId: 'harpersbazaar',
+    adTaggingId: 'gourmettraveller',
     feedTitle: 'Read More',
     useFeedTitlePrefix: false
 };

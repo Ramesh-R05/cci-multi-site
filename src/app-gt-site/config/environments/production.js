@@ -4,14 +4,14 @@ export default {
     },
     gigya: { apiKey: '' },
     site: {
-        host: 'http://www.harpersbazaar.com.au',
+        host: 'http://www.gourmettraveller.com.au',
         protocol: 'https'
     },
     loggly: {
         inputToken: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
         subdomain: 'bauerdigital',
         tags: [
-            'hb',
+            'gt',
             'live'
         ],
         json: true,
@@ -20,14 +20,14 @@ export default {
     },
     services: {
         remote: {
-            entity: 'http://services.prod.bxm.internal/entity/v1/hb',
-            listings: 'http://services.prod.bxm.internal/listing/v1/hb',
-            module: 'http://services.prod.bxm.internal/module/v1/hb',
-            sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/hb',
-            tag: 'http://services.prod.bxm.internal/tag/v1/hb'
+            entity: 'http://services.prod.bxm.internal/entity/v1/gt',
+            listings: 'http://services.prod.bxm.internal/listing/v1/gt',
+            module: 'http://services.prod.bxm.internal/module/v1/gt',
+            sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/gt',
+            tag: 'http://services.prod.bxm.internal/tag/v1/gt'
         },
         redirect: {
-            url: 'http://services.prod.bxm.internal/redirect/v1/hb/301'
+            url: 'http://services.prod.bxm.internal/redirect/v1/gt/301'
         }
     },
     polar: {
