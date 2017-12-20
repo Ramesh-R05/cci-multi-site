@@ -30,6 +30,10 @@ module.exports = function() {
                         content_json = 'test-article-on-sit-hb.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/hb/documents/13260
                         documentPath = '-1,1159,4723,5367,13259,'; //Parent nodes in dev CMS
                         break;
+                    case 'gt':
+                        content_json = 'test-article-on-sit-gt.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1192
+                        documentPath = '-1,1159,1169,1171,1172,'; //Parent nodes in dev CMS
+                        break;
                 }
                 break;
             case 'gallery':
@@ -45,6 +49,10 @@ module.exports = function() {
                     case 'hb':
                         content_json = 'test-gallery-on-sit-hb.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/hb/documents/13258
                         documentPath = '-1,1159,1172,3857,13250,'; //Parent nodes in dev CMS
+                        break;
+                    case 'gt':
+                        content_json = 'test-gallery-on-sit-gt.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1170
+                        documentPath = '-1,1159,1169,1171,1172,'; //Parent nodes in dev CMS
                         break;
                 }
                 break;
