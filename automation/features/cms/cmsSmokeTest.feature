@@ -3,8 +3,7 @@ Feature: CMS Smoke Test
     As an editor
     I should be able to use CMS to create and update content
 
-
-    Scenario: Create the <doctype> item
+    Scenario: Create the Article item
         Given I am logging in CMS
         When I am currently viewing the create form
         * I should be able to select "Article" doc type
@@ -31,8 +30,7 @@ Feature: CMS Smoke Test
         * I should be able to visit the live URL
         * I should be able to check if the amp page is active
 
-
-    Scenario: Create the <doctype> item
+    Scenario: Create the Gallery item
         Given I am logging in CMS
         When I am currently viewing the create form
         * I should be able to select "Gallery" doc type

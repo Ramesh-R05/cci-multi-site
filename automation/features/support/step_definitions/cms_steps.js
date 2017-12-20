@@ -22,7 +22,7 @@ module.exports = function() {
         //To ensure this smoke test won't be run on live url
         expect(world.Urls.home_page).not.toContain('live');
 
-        browser.url(world.Urls.home_page);
+        browser.url(world.Urls.home_page + 'Login.aspx');
         browser.setValue(cms.loginUsername, 'admin');
         browser.setValue(cms.loginPassword, 'ACPd3vPASS!');
         browser.click(cms.loginButton);
@@ -63,6 +63,9 @@ module.exports = function() {
                 break;
             case 'cosmo-site':
                 cmsSectionID = '1167'; //Sex
+                break;
+            case 'gt-site':
+                cmsSectionID = '1169'; //Travel
                 break;
             default:
                 cmsSectionID = '1175'; //Those three sites have this ID as a section.
