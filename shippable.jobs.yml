@@ -258,8 +258,8 @@ jobs:
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
-       - script: nvm install "6.1.0"
-       - script: nvm use "6.1.0"
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
@@ -283,8 +283,8 @@ jobs:
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
-       - script: nvm install "6.1.0"
-       - script: nvm use "6.1.0"
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
@@ -308,8 +308,8 @@ jobs:
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
-       - script: nvm install "6.1.0"
-       - script: nvm use "6.1.0"
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
@@ -334,8 +334,8 @@ jobs:
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
-       - script: nvm install "6.1.0"
-       - script: nvm use "6.1.0"
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
@@ -360,8 +360,8 @@ jobs:
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
-       - script: nvm install "6.1.0"
-       - script: nvm use "6.1.0"
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
@@ -386,8 +386,8 @@ jobs:
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
-       - script: nvm install "6.1.0"
-       - script: nvm use "6.1.0"
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
        - script: cd ./IN/multi-site-repo/gitRepo/automation
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
@@ -536,8 +536,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -560,8 +560,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -583,8 +583,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -606,8 +606,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -629,8 +629,8 @@ jobs:
      - TASK:
         - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
         - script: source ~/.nvm/nvm.sh
-        - script: nvm install "6.1.0"
-        - script: nvm use "6.1.0"
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
         - script: cd ./IN/multi-site-repo/gitRepo/automation
         - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
         - script: npm install
@@ -673,25 +673,3 @@ jobs:
         - script: >
             curl -H "Content-Type: application/json" -X POST -d '[{"fromEnv":"live", "fromSite":"cosmo", "number":"10", "toSite":"cosmo"}]' http://dev.migrate.services.bauer-media.internal/migrate
 
-  # viii. SPIKE JOB TO PROVE node 8.9.1 (Copided from Smoke Test in ELLE Dev CMS)
-  - name: Spike-CMS-elle-smoke-test
-    type: runSh
-    always:
-      - NOTIFY: multi-qa-team-notifications
-    steps:
-     - IN: multi-site-repo-spike
-       switch: off
-     - IN: elle-weekly-trigger
-     - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-        - script: source ~/.nvm/nvm.sh
-        - script: nvm install "8.9.1"
-        - script: nvm use "8.9.1"
-        - script: cd ./IN/multi-site-repo-spike/gitRepo/automation
-        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install
-        - script: export URL=http://cms.dev.elle.wn.bauer-media.net.au/cms/umbraco/
-        - script: export APP_KEY=elle-site
-        - script: npm run test:cms || true
-        - script: actualsize=$(wc -c <"@rerun.txt")
-        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
