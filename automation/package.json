@@ -40,7 +40,6 @@
     "shippable:test": "export APP_KEY=elle-site && npm run test:high"
   },
   "dependencies": {
-    "@bxm/automation": "^4.2.0",
-    "cucumber-html-report": "^0.2.8"
+    "@bxm/automation": "^5.1.0"
   }
 }

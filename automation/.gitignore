@@ -6,6 +6,7 @@ reports/*.html
 rerun/*.*
 cucumber.json
 @rerun.txt
+package-lock.json
 
 #Include
 !reports/template.html
