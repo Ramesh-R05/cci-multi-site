@@ -75,6 +75,14 @@ resources:
       sourceName: bauerxcelmedia/multi-site
       branch: master
 
+  # Multi Github repo
+  - name: multi-site-repo-spike
+    type: gitRepo
+    integration: production-github
+    pointer:
+      sourceName: bauerxcelmedia/multi-site
+      branch: fix/node-8-for-automation
+
   # SIT Parameter
   - name: multi-site-params-sit
     type: params
