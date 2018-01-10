@@ -40,6 +40,6 @@
     "shippable:test": "export APP_KEY=elle-site && npm run test:high"
   },
   "dependencies": {
-    "@bxm/automation": "^5.1.0"
+    "@bxm/automation": "^6.0.0"
   }
 }

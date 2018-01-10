@@ -5,5 +5,6 @@
     "chimpPath": "./node_modules/.bin/chimp",
     "rerunPath": "./rerun",
     "chimpConfig": "chimp.shippable.js",
-    "offline": false
+    "offline": false,
+    "tags": ["@elle","~@manual"]
 }
