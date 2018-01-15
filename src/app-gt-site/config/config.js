@@ -19,7 +19,7 @@ export default {
     gigya: { apiKey: '' },
 
     subscribe: {
-        subscribeHeading: 'GET THE MAGAZINE'
+        subscribeHeading: 'Get The Magazine'
     },
 
     features,
@@ -65,25 +65,23 @@ export default {
         },
 
         socialUrls: {
-            facebook: 'https://www.facebook.com/HarpersBAZAARAustralia',
-            twitter: 'https://twitter.com/BAZAARAustralia',
-            instagram: 'http://instagram.com/bazaaraustralia',
-            pinterest: 'http://www.pinterest.com/bazaaraustralia/',
-            youtube: 'https://www.youtube.com/user/BAZAARaustralia'
+            facebook: 'https://www.facebook.com/gourmettraveller',
+            twitter: 'https://www.pinterest.com.au/gourmetpins/',
+            instagram: 'https://www.instagram.com/gourmettraveller/',
+            pinterest: 'https://twitter.com/GourmetTweets'
         }
     },
 
     // Used for the magazine image (not the one in the footer)
     product: {
-        id: 'hb',
+        id: 'gt',
         title: '',
         magazineTitle: '',
         socialLinks: {
-            facebook: 'https://www.facebook.com/HarpersBAZAARAustralia',
-            twitter: 'https://twitter.com/BAZAARAustralia',
-            instagram: 'http://instagram.com/bazaaraustralia',
-            pinterest: 'http://www.pinterest.com/bazaaraustralia/',
-            youtube: 'https://www.youtube.com/user/BAZAARaustralia'
+            facebook: 'https://www.facebook.com/gourmettraveller',
+            twitter: 'https://twitter.com/GourmetTweets',
+            instagram: 'https://www.instagram.com/gourmettraveller/',
+            pinterest: 'https://www.pinterest.com.au/gourmetpins/'
         },
         newsletterUrl: '//www.harpersbazaar.com.au/hb-newsletter',
         subscribeButtonText: 'Subscribe',

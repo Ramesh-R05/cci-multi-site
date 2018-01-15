@@ -46,12 +46,11 @@ Feature: Smoke test for GT
         Given I switch to "mobile" view
         When I am currently viewing the homepage
         * I can see the social icons clickable to open its page in the footer
-            |social     |url                                                    |
-            |Facebook   |https://www.facebook.com/HarpersBAZAARAustralia        |
-            |Twitter    |https://twitter.com/BAZAARAustralia                    |
-            |Instagram  |http://instagram.com/bazaaraustralia                   |
-            |Pinterest  |http://www.pinterest.com/bazaaraustralia/              |
-            |YouTube    |https://www.youtube.com/user/BAZAARaustralia           |
+            |social     |url                                          |
+            |Facebook   |https://www.facebook.com/gourmettraveller    |
+            |Twitter    |https://www.pinterest.com.au/gourmetpins/    |
+            |Instagram  |https://www.instagram.com/gourmettraveller/  |
+            |Pinterest  |https://twitter.com/GourmetTweets            |
 
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view

@@ -1,8 +1,8 @@
 // Base button styles
 
 .button {
-    background-color: $color-primary;
-    border: 2px solid $color-primary;
+    background-color: $color-button;
+    border: 2px solid $color-button;
     border-radius: 0;
     color: $color-white;
     display: inline-block;
@@ -15,7 +15,8 @@
     &:not(:disabled):not(.disabled) {
         &:hover,
         &:focus {
-            opacity: 0.8;
+            background-color: $color-button-hover;
+            border-color: $color-button-hover;
             outline: none;
             text-decoration: none;
         }
