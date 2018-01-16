@@ -3,7 +3,7 @@
 .teaser-view-grid {
     .teaser__title {
         margin-bottom: 6px;
-        letter-spacing: 0.005em;
+        letter-spacing: 0.02em;
 
         a {
             text-decoration: none;
@@ -115,6 +115,11 @@
 
 .mustread-teaser-view-grid {
 
+    img {
+        // Hack to ensure images take up the whole width in tablet view
+        width: 100%;
+    }
+
     .home-page__teasers-title {
         font: 400 23px/27px $font-family-sans-serif-primary;
         text-transform: uppercase;
@@ -135,7 +140,7 @@
         margin: 0 0 10px;
 
         @media #{$medium-up} {
-            margin: 0 0 30px;
+            margin: 0 0 20px;
         }
     }
 
@@ -145,18 +150,7 @@
         .teaser {
 
             &__section-tag {
-                margin-top: 10px;
-                margin-bottom: 4px;
-
-                span {
-                    font-size: 11px;
-                    line-height: 20px;
-
-                    @media #{$medium-up} {
-                        font-size: 10px;
-                    }
-                }
-
+                display: none;
             }
 
             &__title {
@@ -168,11 +162,8 @@
                 display: block;
 
                 a {
-                    color: $color-primary;
+                    @include type-top-teaser-title;
                     font-weight: 400;
-                    font-size: 11px;
-                    letter-spacing: 0.4px;
-                    line-height: 16px;
                 }
             }
 
@@ -181,6 +172,7 @@
             }
 
             &__body {
+                margin-top: 15px;
                 margin-bottom: 0;
             }
 
@@ -191,14 +183,6 @@
         .teaser.teaser--gallery:after {
             width: 25px;
             height: 25px;
-        }
-
-        &:hover {
-            .teaser__title {
-                a {
-                    color: #333;
-                }
-            }
         }
 
         &:nth-child(-n+6) {
