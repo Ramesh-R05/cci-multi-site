@@ -27,15 +27,15 @@ Feature: Smoke test for ELLE
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
 
-    Scenario: Verify the article page
-        Given Emily just published the "article" doc type item in "elle"
-        When I navigate to the "fashion/test-article" page
-        Then our readers can enjoy the latest content
+#    Scenario: Verify the article page
+#        Given Emily just published the "article" doc type item in "elle"
+#        When I navigate to the "fashion/test-article" page
+#        Then our readers can enjoy the latest content
 
-    Scenario: Verify the gallery page
-        Given Emily just published the "gallery" doc type item in "elle"
-        When I navigate to the "fashion/test-gallery" page
-        Then our readers can enjoy the latest content
+#    Scenario: Verify the gallery page
+#        Given Emily just published the "gallery" doc type item in "elle"
+#        When I navigate to the "fashion/test-gallery" page
+#        Then our readers can enjoy the latest content
 
     Scenario: Verify the tag landing page
         Given I switch to "mobile" view
