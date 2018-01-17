@@ -5,27 +5,27 @@
         display: none;
     }
 
-    svg path:first-child {
+    svg path {
         fill: $color-primary;
     }
 
-    &--facebook:hover svg path:first-child {
+    &--facebook:hover svg path {
         fill: $facebook-blue;
     }
 
-    &--twitter:hover svg path:first-child {
+    &--twitter:hover svg path {
         fill: $twitter-blue;
     }
 
-    &--instagram:hover svg path:first-child {
+    &--instagram:hover svg path {
         fill: $instagram-pink;
     }
 
-    &--pinterest:hover svg path:first-child {
+    &--pinterest:hover svg path {
         fill: $pinterest-red;
     }
 
-    &--youtube:hover svg path:first-child {
+    &--youtube:hover svg path {
         fill: $youtube-red;
     }
 }

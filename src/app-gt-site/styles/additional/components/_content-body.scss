@@ -1,54 +1,70 @@
 .content-body {
     &-container {
-        margin-top: 35px;
-
-        @media #{$medium-up} {
-            margin-top: 19px;
-        }
+        margin-top: $article-gap;
     }
 
     a {
-        color: $color-accent;
+        @include type-link;
+        text-decoration: underline;
     }
 
     p {
-        margin-top: 10px;
+        margin-top: $article-gap/4;
+        margin-bottom: $article-gap/2;
     }
 
     &__heading {
         h2 {
-            font-family: $font-family-sans-serif-light;
-            -webkit-font-smoothing: auto;
-            font-weight: 600;
+            @include type-article-heading;
+            margin-top: $article-gap;
+            margin-bottom: 0;
             padding-top: 0;
         }
     }
 
     &__inline-image {
+        margin-top: $article-gap;
+        margin-bottom: 0;
+
         figure figcaption {
+            @include caption {
+                color: $color-gt-grey-2;;
+            }
+            display: block;
+            position: relative;
             background-color: transparent;
-            color: $color-grey;
-            letter-spacing: .03em;
-            text-transform: uppercase;
             padding-left: 0;
             padding-right: 0;
+            padding-top: $article-gap/3;
+            padding-bottom: calc(#{$article-gap/3} + 8px);
+
+            &:after {
+                content: '';
+                position: absolute;
+                background-color: $color-gt-black-1;
+                display: block;
+                width: 24px;
+                height: 8px;
+                bottom: 0;
+                left: 0;
+            }
 
             a {
-                color: $color-tertiary;
+                @include type-link;
+                text-decoration: underline;
             }
+        }
 
-            @media #{$medium-up} {
-                font-size: 12px;
-                line-height: 26px;
-            }
+        @media #{$medium-up} {
+            width: 100%;
         }
     }
 
     &__related-content {
-        border: 0px solid $related-content-border-color;
+        border: 0px solid $line-color;
         border-top-width: 1px;
         border-bottom-width: 1px;
-        margin: 40px 0 $column-gutter;
+        margin: $article-gap 0 0;
         margin-left: -($column-gutter/2);
         width: calc(100% + #{$column-gutter});
         text-align: left;
@@ -64,7 +80,7 @@
         }
 
         .related-content-wrapper {
-            padding-top: 7px;
+            padding-top: 15px;
             padding-left: $column-gutter/2;
             padding-right: $column-gutter/2;
         }
@@ -87,7 +103,15 @@
                     text-align: center;
                 }
             }
+            .feed-item__body-title {
+                text-transform: capitalize;
+            }
         }
+    }
+
+    &__gallery-link {
+        margin-top: $article-gap;
+        margin-bottom: 0;
     }
 
     &__gallery-link-caption {
@@ -108,47 +132,31 @@
     &__gallery-link-title {
         color: $color-grey-light;
         font-size: 12px;
-        font-weight: 600;
+        font-weight: 400;
         line-height: 16px;
         padding-top: 3px;
     }
 
     &__tips {
-        -webkit-font-smoothing: initial;
-        color: $color-secondary;
-        margin: $column-gutter 0;
+        margin-top: $article-gap;
+        margin-bottom: 0;
+        font-family: $font-text;
+        background-color: $color-gt-black-1;
+        color: $color-gt-white;
         padding: 0;
-        font-family: $font-family-serif-secondary;
-        line-height: 12px;
 
         p {
-            margin: 0;
-            line-height: 32px;
-        }
-
-        h2 {
-            line-height: 22px;
-            margin: {
-                bottom: 12px;
-                top: 22px;
-            }
-
-            @media #{$medium-up} {
-                margin: {
-                    bottom: 2px;
-                    top: 17px;
-                }
-            }
-
+            margin: 0px;
         }
 
         @media #{$medium-up} {
             @include content-body-width();
+            margin-top: $article-gap;
+            margin-bottom: 0;
         }
 
         @media #{$large-up} {
-            width: 88%;
-            line-height: 34px;
+            width: 100%;
         }
 
         .tips {

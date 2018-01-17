@@ -58,6 +58,8 @@ $font-header-secondary: 'Montserrat-Regular', sans-serif;
 $font-header-light: 'Montserrat-Light', sans-serif;
 $font-text: 'Montserrat-Regular', sans-serif;
 $font-text-light: 'Montserrat-Light', sans-serif;
+$font-link: 'Montserrat-Regular', sans-serif;
+
 
 
 $font-family-serif-primary: $font-header;
@@ -70,19 +72,20 @@ $font-family-sans-serif-light: $font-text-light;
 
 @mixin type-header {
     color: $color-text;
+    -webkit-font-smoothing: auto;
     font-family: $font-header;
-    letter-spacing: .04em;
 }
 
 @mixin type-header-secondary {
     color: $color-text;
     font-family: $font-header-secondary;
-    letter-spacing: .04em;
+    -webkit-font-smoothing: auto;
 }
 
 @mixin type-header-light {
     color: $color-text;
     font-family: $font-header-light;
+    -webkit-font-smoothing: auto;
     letter-spacing: .04em;
 }
 
@@ -91,7 +94,7 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 .type-header-secondary {
-    @include type-header;
+    @include type-header-secondary;
 }
 
 .type-header-light {
@@ -99,14 +102,14 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-text {
-    font-family: $font-text;
-    font-size: 16px;
+    font-family: $font-text-light;
+    font-size: 15px;
     line-height: 28px;
 }
 
 @mixin type-text-light {
     font-family: $font-text-light;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 20px;
 }
 
@@ -116,6 +119,36 @@ $font-family-sans-serif-light: $font-text-light;
 
 .type-text-light {
     @include type-text-light;
+}
+
+@mixin caption {
+    font-family: $font-text-light;
+    font-size: 13px;
+    line-height: 20px;
+
+    @media #{$medium-up} {
+        font-style: italic;
+        font-size: 15px;
+        line-height: 28px;
+    }
+
+    @content;
+}
+
+@mixin type-link {
+    
+    @include caption {
+        color: $color-text;
+        font-family: $font-link;
+    }
+    &:hover,
+    &:active {
+        color: $color-gt-grey-2;
+    }
+}
+
+.type-link {
+    @include type-link;
 }
 
 @mixin type-side-menu-link {
@@ -194,13 +227,15 @@ $font-family-sans-serif-light: $font-text-light;
 
 // Article
 @mixin type-article-title {
-    color: $color-black;
-    font: 24px / 26px $font-family-sans-serif-primary;
-    font-weight: 400;
+    @extend .type-header;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: bold;
+    text-transform: capitalize;
 
     @media #{$medium-up} {
-        font-size: 38px;
-        line-height: 46px;
+        font-size: 36px;
+        line-height: 42px;
     }
 }
 
@@ -209,14 +244,8 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-article-summary {
-    color: $color-grey;
-    font: normal 400 19px / 25px $font-family-serif-primary;
+    @extend .type-text-light;
     letter-spacing: .01em;
-
-    @media #{$medium-up} {
-        font-size: 20px;
-        line-height: 34px;
-    }
 }
 
 .type-article-summary {
@@ -224,16 +253,10 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-article-body {
+    @include type-text;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    color: $color-grey;
-    font: 400 18px / 27px $font-family-serif-secondary;
     letter-spacing: .01em;
-
-    @media #{$medium-up} {
-        font-size: 18px;
-        line-height: 32px;
-    }
 }
 
 .type-article-body {
@@ -241,9 +264,16 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-article-heading {
-    color: $color-black;
-    font: 400 20px / 30px $font-family-sans-serif-primary;
-    text-transform: uppercase;
+
+    @include type-header-secondary;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+
+    @media #{$medium-up} {
+        font-size: 18px;
+        line-height: 30px;
+    }
 }
 
 .type-article-heading {
@@ -747,11 +777,7 @@ h6 {
 }
 
 a {
-    @extend .type-text;
-    text-decoration: none;
 
-    &:hover,
-    &:focus {
-        text-decoration: none;
-    }
+    @extend .type-link;
+    text-decoration: none;
 }

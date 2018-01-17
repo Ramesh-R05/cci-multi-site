@@ -15,6 +15,32 @@
         }
     }
 
+    &__feed {
+
+        &-item--image {
+            margin-bottom: $article-gap;
+        }
+    }
+
+    &__item {
+
+        &-count {
+            margin-bottom: 15px;
+            display: inline-block;
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        &-index,
+        &-total {
+            @include type-header;
+            font-size: 20px;
+        }
+    }
+
     &__main {
         .gallery {
 
@@ -140,7 +166,7 @@
 
                 &::before,
                 &::after {
-                    background: $color-tertiary;
+                    background: $color-text;
                     top: 9px;
                     opacity: 0.7;
                 }
@@ -218,5 +244,4 @@
     .social-share-block {
         display: none;
     }
-
 }

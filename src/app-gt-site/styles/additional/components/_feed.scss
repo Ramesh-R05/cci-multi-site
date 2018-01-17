@@ -1,0 +1,54 @@
+.feed {
+    @media #{$large-up} {
+        margin: 0 0 0 30px;
+        width: 325px;
+    }
+
+    &-carousel-content {
+        border-top-color: transparent;
+
+        .feed-item {
+            background-color: $color-gt-black-1;
+            margin: 0 15px 0;
+
+            &__body {
+                padding-top: 10px;
+            }
+
+            &__body-title {
+                color: $color-gt-white;
+            }
+
+            &__section-tag {
+                span {
+                    color: $color-gt-white;
+                    display: inline-block;
+                    border-bottom: 1px $color-gt-white dashed;
+                    text-transform: uppercase;
+                    margin-bottom: 5px;
+                    font-size: 12px;   
+                }
+            }
+
+            .teaser__image {
+                overflow: hidden;
+                width: calc(100% + 30px);
+            }
+        }
+    }
+}
+
+.feed__container {
+    .feed--pinned & {
+        margin-top: 30px;
+    }
+}
+
+.feed-header {
+    width: 300px;
+    margin: 0 0 $feed-item-gap/2;
+
+    span {
+        @include type-header-secondary;
+    }
+}

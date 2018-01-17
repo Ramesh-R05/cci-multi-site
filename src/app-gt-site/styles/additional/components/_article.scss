@@ -1,15 +1,18 @@
 .article {
-    @include type-article-body();
+    @include type-article-body;
     margin: 15px 0 0 0;
 
     &__date-created,
     &-header-author {
-        color: $color-tertiary;
+        font-family: $font-text-light;
         font-size: 12px;
         line-height: 20px;
+        color: $color-text;
+        margin-top: $article-gap/2;
+        margin-bottom: 0;
 
         &__name {
-            color: $color-accent;
+            color: $color-text-lighter;
         }
     }
 
@@ -29,42 +32,24 @@
     }
 
     &__hero {
+        
         &-container {
-            margin-top: 28px;
+            margin-top: $article-gap;
+            margin-bottom: 0;
          }
     }
 
 
     &__title {
-        font-family: $font-family-serif-primary;
-        text-transform: uppercase;
-
-        @media #{$small-only} {
-            margin-top: 0;
-            margin-bottom: 9px;
-            font-size: 22px;
-            line-height: 26px;
-        }
-
-        @media #{$medium-up} {
-            line-height: 42px;
-            margin-bottom: 8px;
-            font-size: 41px;
-        }
+        @extend .type-article-title;
+        margin-top: 0;
+        margin-bottom: 0
     }
 
     &__summary {
-        font-family: $font-family-serif-secondary;
-        font-style: italic;
-
-        @media #{$small-only} {
-            font-size: 16px;
-            line-height: 24px;
-        }
-
-        @media #{$medium-up} {
-            font-size: 17px;
-        }
+        @extend .type-article-summary;
+        margin-top: $article-gap/2;
+        margin-bottom: 0;
     }
 
     .article-header-author {
@@ -73,37 +58,62 @@
         }
     }
 
-    .content-body {
-        &__inline-image-caption {
-            color: $color-tertiary;
-            font-size: 12px;
-            line-height: 18px;
-
-            @media #{$small-only} {
-                padding: 10px 15px 6px 15px;
-            }
-
-        }
-    }
-
     &__footer {
-        font-family: $font-family-sans-serif-primary;
-        font-size: 12px;
-        font-style: normal;
-        line-height: 16px;
-        text-transform: uppercase;
+        margin-top: $article-gap;
+        margin-bottom: $article-gap;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $line-color;
+        border-top: 1px solid $line-color;
 
-        .social-share-block {
-            display: none;
+        a.fb-share-link,
+        a.pinterest-share-link {
+            background-color: $color-button;
+            &:hover {
+                background-color: $color-button-hover;
+            }
         }
     }
 
     &__tags {
-        letter-spacing: .03em;
+        width: 100%;
+        display: table;
+        padding: {
+            left: 15px;
+            right: 15px;
+        }
 
-        .related-tags li a {
-            color: $color-accent;
-            text-decoration: none;
+        .tags__title {
+            display: table-cell;
+            font-family: $font-text-light;
+            font-weight: 400;
+            white-space: nowrap;
+            display: inline-block;
+            font-style: normal;
+            font-size: 11px;
+            padding-right: 10px;
+        }
+
+        .related-tags {
+            display: table-cell;
+            li a {
+                @include type-link;
+                font-family: $font-text-light;
+                color: $color-text;
+                text-transform: uppercase;
+                font-style: normal;
+                white-space: nowrap;
+                text-decoration: underline;
+                font-size: 11px;
+                @media #{$medium-up} {
+                    font-size: 11px;
+                }
+            }
+        }
+
+        @media #{$medium-up} {
+            width: 50%;
         }
     }
 
@@ -129,6 +139,50 @@
         }
     }
 
+    &__main-hero-image {
+        .article_image-caption {
+
+            @include caption {
+                color: $color-gt-grey-2;
+            }
+            display: block;
+            position: relative;
+            background-color: transparent;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: $article-gap/3;
+            padding-bottom: calc(#{$article-gap/3} + 8px);
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: $color-gt-white;
+            text-align: left;
+
+            @media #{$medium-up} {
+                font-style: italic;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                background-color: $color-gt-black-1;
+                display: block;
+                width: 24px;
+                height: 8px;
+                bottom: 0;
+                left: 15px;
+                @media #{$medium-up} {
+                    left: 0px;
+                }
+            }
+
+            a {
+                @include type-link;
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .feed__container .feed-item.feed-item--gallery::after {

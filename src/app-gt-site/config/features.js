@@ -44,5 +44,8 @@ export default {
     },
     outbrainAmp: {
         enabled: true
+    },
+    feedCarousel: {
+        enabled: true
     }
 };
