@@ -45,7 +45,7 @@ $hero-teaser-line-height: 25px;
     }
 
     &__social-logo {
-        background: url('/assets/logos/NowToLove.svg') no-repeat;
+        background: url('/assets/logos/header-logo.svg') no-repeat;
         background-size: 230px;
         width: 230px;
         display: inline-block;
@@ -126,8 +126,9 @@ $hero-teaser-line-height: 25px;
         padding: 0 $column-gutter/2;
 
         @media #{$medium-only} {
-            @include grid-column(4, false, false);
-            padding-left: 15px;
+            float: left;
+            padding: 0 15px;
+            width: 41.67%; // 100% - 58.33%
         }
 
         @media #{$large-up} {
@@ -154,56 +155,26 @@ $hero-teaser-line-height: 25px;
 
     .teaser__title {
         @include type-hero-title();
-        font-size: 23px;
-        line-height: 24px;
-        letter-spacing: 1px;
         margin: {
-            bottom: 12px;
-            top: 0;
-        }
-
-        @media #{$large-up} {
-            padding: 0;
-            display: block;
-            margin-bottom: 4px;
-            font-size: 33px;
-            line-height: 36px;
+            top: 5px;
+            bottom: 0;
         }
 
         a {
+            @include type-hero-title();
             text-decoration: none;
-            font-weight: 600;
         }
     }
 
     .teaser__section-tag {
-        margin-top: 20px;
-        margin-bottom: 13px;
-
-        @media #{$medium-only} {
-            margin-top: 0;
-        }
-
-        @media #{$medium-up} {
-            margin-bottom: 9px;
+        margin: {
+            top: 12px;
+            bottom: 0;
         }
     }
 
     .teaser__summary {
         @include type-teaser-summary();
-        margin-top: 0;
-        margin-bottom: 4px;
-        line-height: 22px;
-
-        @media #{$medium-up} {
-            margin: 10px 0 25px;
-        }
-
-        @media #{$large-up} {
-            margin-top: 10px;
-            margin-bottom: 26px;
-            font-size: 14px;
-            line-height: 22px;
-        }
+        margin: 15px 0;
     }
 }

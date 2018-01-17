@@ -164,14 +164,14 @@ $font-family-sans-serif-light: $font-text-light;
 
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
-    color: $color-black;
-    font: 33px / 26px $font-header-secondary;
-    letter-spacing: 2px;
-    word-spacing: 0.02em;
+    color: $color-gt-black-2;
+    font: 22px / 26px $font-family-serif-primary;
+    letter-spacing: 0.006em;
     text-transform: none;
+    -webkit-font-smoothing: antialiased;
 
     @media #{$medium-up} {
-        font-size: 32px;
+        font-size: 36px;
         line-height: 38px;
     }
 }
@@ -181,9 +181,9 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-teaser-summary {
-    color: $color-grey;
-    font: 400 14px / 20px $font-family-sans-serif-primary;
-    letter-spacing: 0.01em;
+    color: $color-gt-black-2;
+    font: 400 14px / 21px $font-text-light;
+    letter-spacing: 0.02em;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -490,17 +490,17 @@ $font-family-sans-serif-light: $font-text-light;
 
 @mixin type-teaser-tag {
     text-decoration: none;
-    font-size: 11px;
+    font-size: 12px;
     display: block;
 
     a, span {
-        color: $color-tertiary;
-        font: 600 11px/12px $font-family-sans-serif-light;
-        letter-spacing: .03em;
+        color: $color-gt-grey-2;
+        font: 400 12px/14px $font-family-sans-serif-primary;
         text-transform: uppercase;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         text-decoration: none !important; //Chrome underlines all links in user agent stylesheet, this prevents that
     }
 }
