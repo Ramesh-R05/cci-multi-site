@@ -1,0 +1,32 @@
+{
+    "site":"hb",
+    "status":"published",
+    "document":{
+        "id": "------ THIS IS UPDATED RANDOMLY ------",
+        "parentID": "1159",
+        "level": "2",
+        "creatorID": "0",
+        "sortOrder": "2",
+        "createDate": "2017-04-12T13:19:54",
+        "updateDate": "2018-01-19T10:08:05",
+        "nodeName": "------ THIS IS UPDATED RANDOMLY ------",
+        "urlName": "------ THIS IS UPDATED RANDOMLY ------",
+        "path": "------ THIS IS UPDATED RANDOMLY ------",
+        "isDoc": "",
+        "nodeType": "1138",
+        "creatorName": "admin",
+        "writerName": "admin",
+        "writerID": "0",
+        "template": "1101",
+        "nodeTypeAlias": "Section",
+        "status": "published",
+        "contentAccessLevels": "-1",
+        "pageExcludeFromSitemap": "0",
+        "pageExcludeDescendantsFromSitemap": "0",
+        "contentTitle": "------ THIS IS UPDATED RANDOMLY ------",
+        "contentVideo": "{\"videoId\":null}",
+        "navIsHidden": "0",
+        "navRedirect": "{\"Title\":\"\",\"Mode\":2,\"NodeId\":null,\"Url\":null,\"NewWindow\":false}",
+        "contentFacebookImageUrl": "{\"source\":\"\",\"tags\":[],\"credits\":[]}"
+    }
+}

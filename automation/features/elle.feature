@@ -27,16 +27,6 @@ Feature: Smoke test for ELLE
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
 
-#    Scenario: Verify the article page
-#        Given Emily just published the "article" doc type item in "elle"
-#        When I navigate to the "fashion/test-article" page
-#        Then our readers can enjoy the latest content
-
-#    Scenario: Verify the gallery page
-#        Given Emily just published the "gallery" doc type item in "elle"
-#        When I navigate to the "fashion/test-gallery" page
-#        Then our readers can enjoy the latest content
-
     Scenario: Verify the tag landing page
         Given I switch to "mobile" view
         When I am currently viewing "tags/street-style"
@@ -94,3 +84,20 @@ Feature: Smoke test for ELLE
     Scenario: I can see the GA container with id "UA-42966291-1"
         When I am currently viewing the homepage
         Then I should see the GA container id "UA-42966291-1" on the DOM
+
+
+    Scenario: Verify all the doc type items
+        Given I switch to "mobile" view
+        Given Emily just published the "section" doc type item in "elle"
+        When I navigate to the "section" page in "elle"
+        Then our readers can enjoy the created "section" page
+        Given Emily just published the "article" doc type item in "elle"
+        When I navigate to the "article" page in "elle"
+        Then our readers can enjoy the created "article" page
+        Given Emily just published the "gallery" doc type item in "elle"
+        When I navigate to the "gallery" page in "elle"
+        Then our readers can enjoy the created "gallery" page
+        When I navigate to the "amp article" page in "elle"
+        Then our readers can enjoy the created "amp article" page
+
+

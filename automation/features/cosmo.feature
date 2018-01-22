@@ -27,16 +27,6 @@ Feature: Smoke test for COSMO
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
 
-#    Scenario: Verify the article page
-#        Given Emily just published the "article" doc type item in "cosmo"
-#        When I navigate to the "celebrity/test-article" page
-#        Then our readers can enjoy the latest content
-
-#    Scenario: Verify the gallery page
-#        Given Emily just published the "gallery" doc type item in "cosmo"
-#        When I navigate to the "bachelor/test-gallery" page
-#        Then our readers can enjoy the latest content
-
     Scenario: Verify the tag landing page
         Given I switch to "mobile" view
         When I am currently viewing "tags/reality-television"
@@ -90,3 +80,18 @@ Feature: Smoke test for COSMO
     Scenario: I can see the GA container with id "UA-8689462-1"
         When I am currently viewing the homepage
         Then I should see the GA container id "UA-8689462-1" on the DOM
+
+
+    Scenario: Verify all the doc type items
+        Given I switch to "mobile" view
+        Given Emily just published the "section" doc type item in "cosmo"
+        When I navigate to the "section" page in "cosmo"
+        Then our readers can enjoy the created "section" page
+        Given Emily just published the "article" doc type item in "cosmo"
+        When I navigate to the "article" page in "cosmo"
+        Then our readers can enjoy the created "article" page
+        Given Emily just published the "gallery" doc type item in "cosmo"
+        When I navigate to the "gallery" page in "cosmo"
+        Then our readers can enjoy the created "gallery" page
+        When I navigate to the "amp article" page in "cosmo"
+        Then our readers can enjoy the created "amp article" page
