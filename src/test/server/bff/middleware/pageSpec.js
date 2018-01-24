@@ -16,6 +16,7 @@ describe('Page middleware', () => {
     };
     const res = {};
     const validSection = 'fashion';
+    const validSubsection = 'models';
     const validPageName = 'kendall-jenners-skin-doctor-tells-us-what-mistake';
     const validPageId = 3640;
     const validPage = `${validPageName}-${validPageId}`;
@@ -26,7 +27,7 @@ describe('Page middleware', () => {
         before(() => {
             req = {
                 app: { locals: { config } },
-                query: { section: validSection, page: validPage }
+                query: { section: validSection, subsection: validSubsection, page: validPage }
             };
             next = sinon.spy();
             getPageIDStub = sinon.stub().returns(undefined);
@@ -119,7 +120,7 @@ describe('Page middleware', () => {
             beforeEach(() => {
                 req = {
                     app: { locals: { config } },
-                    query: { section: validSection, page: validPage }
+                    query: { section: validSection, subsection: validSubsection, page: validPage }
                 };
                 next = sinon.spy();
                 makeRequestStub = sinon.stub().resolves(entity);
@@ -136,9 +137,10 @@ describe('Page middleware', () => {
 
             it('should return an error when section does not match remote', (done) => {
                 req.query.section = 'anotherSection';
+                req.query.subsection = 'anotherSubsection';
                 pageMiddleware(req, res, next).then(() => {
                     expect(next).to.be.calledWith(sinon.match((err) => {
-                        return err.message === `Path /anotherSection/${validPage} does not match page`;
+                        return err.message === `Path /anotherSection/anotherSubsection/${validPage} does not match page`;
                     }));
                     done();
                 }).catch(done);
@@ -148,7 +150,7 @@ describe('Page middleware', () => {
                 req.query.page = `another-page-${validPageId}`;
                 pageMiddleware(req, res, next).then(() => {
                     expect(next).to.be.calledWith(sinon.match((err) => {
-                        return err.message === `Path /${validSection}/another-page-${validPageId} does not match page`;
+                        return err.message === `Path /${validSection}/${validSubsection}/another-page-${validPageId} does not match page`;
                     }));
                     done();
                 }).catch(done);
@@ -162,6 +164,7 @@ describe('Page middleware', () => {
                     app: { locals: { config } },
                     query: {
                         section: validSection,
+                        subsection: validSubsection,
                         page: validPage
                     }
                 };
@@ -180,6 +183,7 @@ describe('Page middleware', () => {
             it('should store the section in `req.data`', (done) => {
                 pageMiddleware(req, res, next).then(() => {
                     expect(req.data.section).to.deep.equal({ id: entity.sectionId, name: 'fashion', urlName: 'fashion' });
+                    expect(req.data.subsection).to.deep.equal({ name: 'models', urlName: 'models' });
                     done();
                 }).catch(done);
             });

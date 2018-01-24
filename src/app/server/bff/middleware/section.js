@@ -8,11 +8,11 @@ const listCount = 14;
 export default async function sectionMiddleware(req, res, next) {
     try {
         let pageNo = 1;
-        const { page, section } = req.query;
+        const { page, section, subsection } = req.query;
         pageNo = parseInt(req.query.pageNo || pageNo, 10);
 
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
-        if ((nodeTypeAlias !== 'Section' && nodeTypeAlias !== 'Brand') || !section || page) {
+        if ((nodeTypeAlias !== 'Section' && nodeTypeAlias !== 'Subsection' && nodeTypeAlias !== 'Brand') || !section || page) {
             next();
             return;
         }
@@ -20,9 +20,11 @@ export default async function sectionMiddleware(req, res, next) {
         let listingQuery;
         let teaserQuery;
         let teaserFilter;
+        let sectionQuery;
 
-        if (nodeTypeAlias === 'Section') {
-            teaserQuery = `/${section}`;
+        if (nodeTypeAlias === 'Section' || nodeTypeAlias === 'Subsection') {
+            teaserQuery = `/${section}${subsection ? `/${subsection}` : ''}`;
+            sectionQuery = `/${section}${subsection ? `/${subsection}` : ''}`;
             teaserFilter = 'parentUrl';
             listingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
         }
@@ -46,7 +48,7 @@ export default async function sectionMiddleware(req, res, next) {
 
         let previousPage = null;
         if (pageNo > 1) {
-            const path = pageNo === 2 ? `/${section}` : `/${section}?pageNo=${pageNo - 1}`;
+            const path = pageNo === 2 ? `${sectionQuery}` : `/${sectionQuery}?pageNo=${pageNo - 1}`;
             previousPage = {
                 path,
                 url: `${req.app.locals.config.site.host}${path}`
@@ -55,14 +57,14 @@ export default async function sectionMiddleware(req, res, next) {
 
         let nextPage = null;
         if (skip + latestTeasers.data.length < latestTeasers.totalCount) {
-            const path = `/${section}?pageNo=${pageNo + 1}`;
+            const path = `${sectionQuery}?pageNo=${pageNo + 1}`;
             nextPage = {
                 path,
                 url: `${req.app.locals.config.site.host}${path}`
             };
         }
 
-        const path = pageNo > 1 ? `/${section}?pageNo=${pageNo}` : `/${section}`;
+        const path = pageNo > 1 ? `${sectionQuery}?pageNo=${pageNo}` : `${sectionQuery}`;
         const currentPage = {
             path,
             url: `${req.app.locals.config.site.host}${path}`
@@ -74,7 +76,8 @@ export default async function sectionMiddleware(req, res, next) {
             params: {
                 pageNo,
                 section: teaserQuery,
-                filter: teaserFilter
+                filter: teaserFilter,
+                sectionFormatted: section
             },
             items: [
                 parseEntities(latestTeasers.data.slice(latestTeaserCount))

@@ -10,15 +10,15 @@ export default async function pageMiddleware(req, res, next) {
         }
 
         const query = 'page' in req.query ? req.query : req.params;
-        const { page, preview, section } = query;
+        const { page, preview, section, subsection } = query;
 
         const pageID = getPageID(page);
         if (!pageID) throw { status: 404, message: 'Invalid page ID', section, page };
 
         const saved = `?saved=${!!preview}`;
         const pageData = await makeRequest(`${req.app.locals.config.services.remote.entity}/${pageID}${saved}`);
-
-        const path = `/${section}/${page}`;
+        
+        const path = subsection ? `/${section}/${subsection}/${page}` : `/${section}/${page}`;
         if (!pageData.url || pageData.url !== path) {
             throw { status: 404, message: `Path ${path} does not match page` };
         }
@@ -30,6 +30,7 @@ export default async function pageMiddleware(req, res, next) {
             name: section,
             urlName: section
         }; // Initially used to set the ad slot within @bxm/ads + gtm in @bxm/server
+        req.data.subsection = { name: subsection, urlName: subsection };
         next();
     } catch (error) {
         next(error);

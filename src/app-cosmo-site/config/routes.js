@@ -1,10 +1,10 @@
-import loadPageContent from '../actions/loadPageContent';
-import pageNotFound from '../actions/pageNotFound';
+import loadPageContent from '../../app/actions/loadPageContent';
+import pageNotFound from '../../app/actions/pageNotFound';
 
-import HomePage from '../containers/home';
-import SectionPage from '../containers/section';
-import SinglePage from '../containers/document';
-import ErrorPage from '../components/page/error';
+import HomePage from '../../app/containers/home';
+import SectionPage from '../../app/containers/section';
+import SinglePage from '../../app/containers/document';
+import ErrorPage from '../../app/components/page/error';
 
 export default {
     home: {

@@ -134,6 +134,22 @@ describe('Section middleware', () => {
         });
     });
 
+    describe('when there is a page query param and nodeTypeAlias equal to Subsection', () => {
+        before(() => {
+            req = { data: { entity: { nodeTypeAlias: 'Subsection' } }, query: { page: 'page' } };
+            next = sinon.stub();
+            getLatestTeasersStub = sinon.stub();
+        });
+
+        it(`should call next without making a request`, (done) => {
+            sectionMiddleware(req, res, next).then(() => {
+                expect(next).to.have.been.called;
+                expect(getLatestTeasersStub).to.not.have.been.called;
+                done();
+            }).catch(done);
+        });
+    });
+
     describe('when there is a page and section query param along with a nodeTypeAlias equal to Section', () => {
         before(() => {
             req = { data: { entity: { nodeTypeAlias: 'Section' } }, query: { page: 'page', section: 'section' } };

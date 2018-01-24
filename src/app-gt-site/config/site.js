@@ -3,7 +3,7 @@ export default {
     host: 'http://dev.gt-site.bauer-media.net.au',
     prodDomain: 'www.gourmettraveller.com.au',
     name: "Gourmet Traveller",
-    shortName: "Harper's",
+    shortName: "Gourmet Traveller",
     prefix: 'GT',
     network: 'wn',
     adTaggingId: 'gourmettraveller',

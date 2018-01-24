@@ -63,7 +63,10 @@ var config = {
     },
     plugins: [
         new ExtractTextPlugin(`[name]${production ? '-[chunkhash]' : ''}.css`),
-        new ManifestPlugin()
+        new ManifestPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.APP_KEY': JSON.stringify(process.env.APP_KEY)
+        })
     ]
 };
 
@@ -87,5 +90,6 @@ if (production) {
         })
     );
 }
+
 
 module.exports = config;
