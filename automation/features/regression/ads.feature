@@ -91,13 +91,13 @@ Feature: Ad
         Then I should not see MREC ad under the hero image
         And I should see MREC ad between images
     @high
-        Examples:
-            |device     |
-            |mobile     |
-    @med
-        Examples:
-            |device     |
-            |desktop    |
+    Examples:
+        |device         |
+        |mobile         |
+    @low
+    Examples:
+        |device         |
+        |tablet portrait|
 #--------Article/Gallery page ads end--------#
 
 # -------- Wall Paper Ads are High and Medium as this is an area with Commercial Value ---------------
@@ -223,13 +223,13 @@ Feature: Ad
             |page              |pageUrl      |
             |section           |fashion      |
 
-    @med
-    Scenario Outline: Verify the autorefreshing bottom leaderboard in desktop view (Test on <page>)
-        Given I switch to "desktop" view
-        When I am currently viewing "<pageUrl>"
-        * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
-    @gallery
-        Examples:
-            |page              |pageUrl                                 |
-            |gallery           |fashion/automation-test-gallery-13302   |
+    #@med
+    #Scenario Outline: Verify the autorefreshing bottom leaderboard in desktop view (Test on <page>)
+    #    Given I switch to "desktop" view
+    #    When I am currently viewing "<pageUrl>"
+    #    * the "bottom leaderboard ad" will "not auto" refresh every 30 seconds on "<page>" when is in View
+    #@gallery
+    #    Examples:
+    #        |page              |pageUrl                                 |
+    #        |gallery           |fashion/automation-test-gallery-13302   |
 #--------Auto-refreshing mobile banner and bottom leaderboard ad end--------#
