@@ -78,17 +78,19 @@ Feature: Smoke test for GT
         When I am currently viewing the homepage
         Then I should see the GA container id "UA-8689567-1" on the DOM
 
-
     Scenario: Verify all the doc type items
         Given I switch to "mobile" view
         Given Emily just published the "section" doc type item in "gt"
         When I navigate to the "section" page in "gt"
         Then our readers can enjoy the created "section" page
+        Given Emily just published the "subsection" doc type item in "gt"
+        When I navigate to the "subsection" page in "gt"
+        Then our readers can enjoy the created "subsection" page
         Given Emily just published the "article" doc type item in "gt"
         When I navigate to the "article" page in "gt"
         Then our readers can enjoy the created "article" page
         Given Emily just published the "gallery" doc type item in "gt"
         When I navigate to the "gallery" page in "gt"
         Then our readers can enjoy the created "gallery" page
-        When I navigate to the "amp article" page in "gt"
-        Then our readers can enjoy the created "amp article" page
+#        When I navigate to the "amp article" page in "gt"   #We will enable once https://bauer-media.atlassian.net/browse/BXMA-1020 is done
+#        Then our readers can enjoy the created "amp article" page

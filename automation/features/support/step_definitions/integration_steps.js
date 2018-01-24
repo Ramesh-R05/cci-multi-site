@@ -3,6 +3,7 @@ var world = require('../world');
 var fs = require("fs");
 var request = require('request');
 var sectionName;
+var subsectionName;
 var contentName = {}; //Global Hash variable to collect the value of content name from different doc type e.g. contentName['article'] = 'article-test-xxxx'
 var docTypeID = {}; //Global Hash variable to collect the value of random ID from different doc type e.g. docTypeID['article'] = 'xxxx'
 var docType;
@@ -18,11 +19,10 @@ module.exports = function() {
         var content_json;
         var documentPath;
         docType=page;
-
         //Specify json file and path
         switch(page) {
             case 'article':
-                switch(site) {
+                switch (site) {
                     case 'elle':
                         randomId = randomId + 2;
                         content_json = 'test-article-on-sit-elle.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/elle/documents/2757
@@ -46,7 +46,7 @@ module.exports = function() {
                 }
                 break;
             case 'gallery':
-                switch(site) {
+                switch (site) {
                     case 'elle':
                         randomId = randomId + 3;
                         content_json = 'test-gallery-on-sit-elle.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/elle/documents/9256
@@ -70,7 +70,7 @@ module.exports = function() {
                 }
                 break;
             case 'section':
-                switch(site) {
+                switch (site) {
                     case 'elle':
                         randomId = randomId;
                         content_json = 'test-section-on-sit-elle.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
@@ -93,6 +93,15 @@ module.exports = function() {
                         break;
                 }
                 break;
+            case 'subsection':
+                switch (site) {
+                    case 'gt':
+                        randomId = randomId + 1;
+                        content_json = 'test-subsection-on-sit-gt.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1528
+                        documentPath = '-1,1159,';  //Parent node in dev CMS
+                        break;
+                }
+                break;
         }
 
         //Read Json File and update Title and ID
@@ -100,13 +109,29 @@ module.exports = function() {
         switch(page) {
             case 'article':
             case 'gallery':
-                body_content['document']['nodeName'] = docType + " Test"; //e.g. Article Test
-                body_content['document']['urlName'] = docType + "-test-" + randomId; //e.g. article-test-xxxx
-                body_content['document']['contentTitle'] = docType + " Test " + randomId; //e.g. Article Test xxxx
-                body_content['document']['id'] = randomId;
-                body_content['document']['path'] = documentPath + docTypeID['section'] + ',' + randomId;
-                contentName[page] = body_content['document']['urlName']; //e.g. article-test-xxxx
-                docTypeID[page] = randomId;
+                switch(site) {
+                    case 'cosmo':
+                    case 'elle':
+                    case 'hb':
+                        body_content['document']['nodeName'] = docType + " Test"; //e.g. Article Test
+                        body_content['document']['urlName'] = docType + "-test-" + randomId; //e.g. article-test-xxxx
+                        body_content['document']['contentTitle'] = docType + " Test " + randomId; //e.g. Article Test xxxx
+                        body_content['document']['id'] = randomId;
+                        body_content['document']['path'] = documentPath + docTypeID['section'] + ',' + randomId;
+                        contentName[page] = body_content['document']['urlName']; //e.g. article-test-xxxx
+                        docTypeID[page] = randomId;
+                        break;
+                    case 'gt':
+                        body_content['document']['nodeName'] = docType + " Test"; //e.g. Article Test
+                        body_content['document']['urlName'] = docType + "-test-"  + randomId; //e.g. article-test-xxxx
+                        body_content['document']['contentTitle'] = docType + " Test " + randomId; //e.g. Article Test xxxx
+                        body_content['document']['id'] = randomId;
+                        body_content['document']['path'] = documentPath + docTypeID['section'] + ',' + docTypeID['subsection'] + ',' + randomId;
+                        body_content['document']['parentID'] = docTypeID['subsection'];
+                        contentName[page] = body_content['document']['urlName']; //e.g. article-test-xxxx
+                        docTypeID[page] = randomId;
+                        break;
+                }
                 break;
             case 'section':
                 body_content['document']['nodeName'] = "SectionTest-" + randomId;
@@ -116,30 +141,39 @@ module.exports = function() {
                 body_content['document']['path'] = documentPath + randomId;
                 docTypeID[page] = randomId;
                 sectionName = body_content['document']['urlName'];
-                console.log("Section random ID is " + docTypeID[page]);
+                break;
+            case 'subsection':
+                body_content['document']['nodeName'] = "SubsectionTest-"  + randomId;
+                body_content['document']['urlName'] = "subsectiontest-"  + randomId;
+                body_content['document']['contentTitle'] = body_content['document']['nodeName'];
+                body_content['document']['id'] = randomId;
+                body_content['document']['path'] = documentPath + docTypeID['section'] + ',' + randomId;
+                body_content['document']['parentID'] = docTypeID['section'];
+                subsectionName = body_content['document']['urlName'];
+                docTypeID[page] = randomId;
                 break;
         }
-                // Post File to PUBLISHING BR0KER
-                var options = { method: 'POST',
-                    url: 'http://services.sit.bxm.internal/publishing-broker/',
-                    json: true,
-                    headers: {
-                        'postman-token': '98215063-b20d-eb89-4865-35af75c73e11',
-                        'content-type': 'application/json'
-                    },
-                    body: body_content
-                };
-                request(options, function (error, response, body) {
-                    if (error) throw new Error(error);
-                    console.log(body);
-                });
+
+        // Post File to PUBLISHING BR0KER
+        var options = { method: 'POST',
+            url: 'http://services.sit.bxm.internal/publishing-broker/',
+            json: true,
+            headers: {
+                'postman-token': '98215063-b20d-eb89-4865-35af75c73e11',
+                'content-type': 'application/json'
+            },
+            body: body_content
+        };
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            console.log(body);
+        });
 
     });
 
     this.When(/^I navigate to the "([^"]*)" page in "([^"]*)"$/, function (docType, site) {
         var elementOnPage;
         var pageURL;
-
         switch (docType) {
             case 'article':
             case 'gallery':
@@ -162,7 +196,7 @@ module.exports = function() {
                     case 'gt':
                         var sitUrl = "http://gt-site-au.sit.bxm.net.au/";
                         elementOnPage = ".article__title";
-                        pageURL = sitUrl + sectionName + '/' + contentName[docType];
+                        pageURL = sitUrl + sectionName + '/' + subsectionName + '/' + contentName[docType];
                         break;
                 }
                 break;
@@ -188,6 +222,15 @@ module.exports = function() {
                         var sitUrl = "http://gt-site-au.sit.bxm.net.au/";
                         elementOnPage = ".page-title-container .page-title";
                         pageURL = sitUrl + sectionName;
+                        break;
+                }
+                break;
+
+            case 'subsection':
+                switch (site) {
+                    case 'gt':
+                        elementOnPage = ".page-title-container .page-title";
+                        pageURL = sitUrl + sectionName + '/' + subsectionName ;
                         break;
                 }
                 break;
@@ -215,7 +258,7 @@ module.exports = function() {
                     case 'gt':
                         var sitUrl = "http://gt-site-au.sit.bxm.net.au/";
                         elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['article'];
+                        pageURL = sitUrl + 'amp/' + sectionName + '/' + subsectionName + '/' + contentName['article'];
                         docTypeID[docType] = docTypeID["article"];
                         break;
                 }
@@ -251,8 +294,11 @@ module.exports = function() {
                 break;
             case 'section':
                 browser.waitForExist("h1.page-title", 30000);
-                console.log("section " + ID);
                 expect(browser.getText("h1.page-title")).toEqual("SECTIONTEST-" + ID);
+                break;
+            case 'subsection':
+                browser.waitForExist("h1.page-title", 30000);
+                expect(browser.getText("h1.page-title")).toContain("SECTIONTEST-"); //This is a temporary expected result. Once the subsection is styled correctly, it should be .toEqual("SUBSECTIONTEST-" + ID);
                 break;
         }
     });
