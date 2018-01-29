@@ -17,7 +17,7 @@ export default async function pageMiddleware(req, res, next) {
 
         const saved = `?saved=${!!preview}`;
         const pageData = await makeRequest(`${req.app.locals.config.services.remote.entity}/${pageID}${saved}`);
-        
+
         const path = subsection ? `/${section}/${subsection}/${page}` : `/${section}/${page}`;
         if (!pageData.url || pageData.url !== path) {
             throw { status: 404, message: `Path ${path} does not match page` };

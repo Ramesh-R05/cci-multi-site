@@ -30,7 +30,8 @@
     }
 
     &__date-created,
-    &-header-author {
+    &-header-author,
+    &__image-count {
         color: $color-grey;
         font-family: $font-family-sans-serif-primary;
         font-size: 12px;

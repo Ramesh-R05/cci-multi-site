@@ -3,7 +3,8 @@
     margin: 15px 0 0 0;
 
     &__date-created,
-    &-header-author {
+    &-header-author,
+    &__image-count {
         font-family: $font-text-light;
         font-size: 12px;
         line-height: 20px;
@@ -32,7 +33,7 @@
     }
 
     &__hero {
-        
+
         &-container {
             margin-top: $article-gap;
             margin-bottom: 0;

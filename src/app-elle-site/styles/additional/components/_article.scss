@@ -28,7 +28,8 @@
     }
 
     &__date-created,
-    &-header-author {
+    &-header-author,
+    &__image-count {
         color: $color-grey;
         font-size: 12px;
         line-height: 20px;

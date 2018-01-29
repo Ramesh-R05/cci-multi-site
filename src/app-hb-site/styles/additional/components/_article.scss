@@ -3,7 +3,8 @@
     margin: 15px 0 0 0;
 
     &__date-created,
-    &-header-author {
+    &-header-author,
+    &__image-count {
         color: $color-tertiary;
         font-size: 12px;
         line-height: 20px;
