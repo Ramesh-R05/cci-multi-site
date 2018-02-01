@@ -16,7 +16,6 @@
         padding-bottom: $feed-item-gap;
 
         &:last-child {
-            margin-bottom: $feed-item-gap;
             border-bottom: 1px solid $line-color;
         }
 
@@ -48,5 +47,9 @@
         padding-top: $feed-item-gap;
         padding-bottom: $feed-item-gap;
         margin-bottom: $feed-item-gap;
+    }
+
+    & + .rhs-ads .carriage {
+        padding-top: $feed-item-gap;
     }
 }

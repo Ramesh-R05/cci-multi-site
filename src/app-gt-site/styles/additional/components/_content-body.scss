@@ -1,4 +1,9 @@
 .content-body {
+
+    li {
+        margin-bottom: 5px;
+    }
+
     &-container {
         margin-top: $article-gap;
     }

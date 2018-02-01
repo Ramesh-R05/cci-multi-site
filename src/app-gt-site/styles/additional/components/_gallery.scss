@@ -1,4 +1,15 @@
 .gallery {
+    &__ad {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    &__caption {
+        display: block;
+        position: relative;
+        padding-left: 0;
+        margin-left: 0;
+    }
 
     &__aside {
 
@@ -16,7 +27,7 @@
     }
 
     &__feed {
-
+        &-item--ad,
         &-item--image {
             margin-bottom: $article-gap;
         }
