@@ -29,6 +29,7 @@ const entityPropertyMap = {
     siteName: 'siteName',
     siteUrl: 'siteUrl',
     tagsDetails: 'tagsDetails',
+    subsections: 'subsections',
     enableAmp: 'enableAmp'
 };
 

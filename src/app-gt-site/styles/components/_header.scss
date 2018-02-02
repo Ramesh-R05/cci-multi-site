@@ -1,3 +1,7 @@
+$head-content-width-large: 1024px;
+$head-content-width-medium: 1024px;
+
+
 .header-wrapper {
     overflow: auto;
     margin-bottom: 54px;
@@ -39,8 +43,8 @@
 // Header styles for all header types
 .header {
     border-width: 0;
-    background-color: $color-primary;
-    color: $color-white;
+    background-color: $color-white;
+    color: $color-text;
     position: fixed;
 
     &.header--hide {
@@ -67,9 +71,15 @@
 
     .header__sections {
         background: none;
-
+        max-width: none;
+        border-top: 1px solid $color-gt-black-1;
+        border-bottom: 1px solid $color-gt-black-1;
         .nav-item--active {
             color: $color-tertiary;
+        }
+
+        @media #{$medium-up} {
+            padding-left: calc( 50% - #{$head-content-width-large/2} );
         }
     }
 
@@ -97,7 +107,7 @@
         .header-logo__link-image {
             i {
                 @media #{$small-only} {
-                    font-size: 50px;
+                    font-size: 47px;
                     line-height: 105px;
                 }
             }
@@ -109,20 +119,20 @@
         height: auto;
         background-image: none;
 
-        @media #{$medium-up} {
-            height: 31px;
-            width: (31px * $header-logo-aspect-ratio);
-            margin-left: 0;
-        }
-
         i {
-            color: #fff;
+            color: $color-text;
             font-size: 31px;
             line-height: 54px;
 
             @media #{$medium-up} {
                 line-height: 31px;
             }
+        }
+
+        @media #{$medium-up} {
+            height: 31px;
+            width: (31px * $header-logo-aspect-ratio);
+            margin-left: 0;
         }
 
         &:hover {
@@ -151,29 +161,31 @@
             }
 
             i {
-                color: #fff;
-                font-size: 158px;
+                color: $color-text;
+                font-size: 115px;
+                line-height: 174px;
             }
         }
     }
 
     .header-menu {
         &__button-menu {
-
+            line-height: 105px;
             padding: 0 $column-gutter / 2;
 
             @media #{$medium-up} {
+                line-height: 60px;
                 padding: 0 $column-gutter 0 38px;
             }
 
             svg,
             svg path {
-                fill: $color-white;
+                fill: $color-text;
             }
 
             &:hover svg,
             &:hover svg path {
-                fill: $color-accent;
+                fill: $color-button-hover;
                 opacity: $hover-opacity;
                 transition: opacity 0.3s;
                 transition-timing-function: ease-in-out;
@@ -193,23 +205,23 @@
             @include menu-hover;
             display: inline-block;
             text-decoration: none;
-            padding: 0 6px;
-            color: $color-white;
+            padding: 0 15px;
+            color: $color-text;
             letter-spacing: 0.4pt;
-            font: 13px $font-family-sans-serif-light;
-            text-transform: capitalize;
+            font: 13px $font-text;
+            text-transform: uppercase;
 
             &:active,
             &:focus,
             &:hover,
             &.nav-item--active {
-                color: $color-accent;
+                color: $color-button-hover;
+                text-decoration: underline;
             }
 
             @media #{$xlarge-up} {
                 font-size: 20px;
             }
-            @include menu-hover;
 
             &::before {
                 background-color: transparent;
@@ -222,7 +234,7 @@
         filter: blur(0);
         height: 35px;
         line-height: 2em;
-        margin-top: 14px;
+        margin-top: 16px;
         vertical-align: top;
         white-space: normal;
         width: 100%;
@@ -239,6 +251,7 @@
     }
 
     .header__sections {
+
         > div {
             @media #{$medium-up} {
                 float: left;
@@ -249,7 +262,7 @@
     }
 
     .header-banner {
-        background-color: $color-primary;
+        background-color: $color-white;
 
         @media #{$xlarge-up} {
             line-height: $header-banner-logo-height;
@@ -260,7 +273,11 @@
         @media #{$medium-up} {
             display: block;
             overflow: hidden;
-            width: calc(100% - 160px);
+            width: calc( 100% - 160px );
+        }
+
+        @media #{$large-up} {
+            width: $head-content-width-large - 160px;
         }
 
         &:before {
@@ -269,7 +286,7 @@
 
         nav {
             display: block;
-            height: 28px;
+            height: 26px;
             line-height: 1.5em;
             margin-left: 0;
             overflow: hidden;
@@ -292,9 +309,9 @@
     }
 
     .header-nav__nav {
-        @media #{$large-up} {
+        @media #{$medium-up} {
             line-height: 1em;
-            margin-top: 16px;
+            margin-top: 20px;
             vertical-align: top;
         }
     }
