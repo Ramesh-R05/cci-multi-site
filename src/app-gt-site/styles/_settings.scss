@@ -79,7 +79,7 @@ $play-icon: '/assets/icons/play-icon.svg';
 $gallery-icon: '/assets/icons/gallery-icon.svg';
 
 // promoted component
-$promoted-teaser-title-size: 14px;
+$promoted-teaser-title-size: 13px;
 $promoted-teaser-title-lineheight: 20px;
 $promoted-teaser-gutter: 20px;
 
@@ -87,6 +87,10 @@ $promoted-teaser-gutter: 20px;
 $must-teaser-title-size: 13px;
 $must-teaser-title-lineheight: 8px;
 $must-teaser-gutter: 20px;
+
+// teaser summary component
+$teaser-summary-font-size: 14px;
+$teaser-summary-line-height: 1.5; // ems
 
 // menu hover
 $menu-hover-border-thickness: 1px;

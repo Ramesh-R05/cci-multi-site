@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import TeaserList from '@bxm/teaser/lib/components/teaserList';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import Teaser from './teaser';
-import get from 'lodash/object/get';
+import Teaser from '../../../app/components/teaser/teaser';
 
 export default class TeaserListView extends Component {
 
@@ -23,7 +22,10 @@ export default class TeaserListView extends Component {
         }),
         showDate: PropTypes.bool,
         loadAgain: PropTypes.bool,
-        showAd: PropTypes.bool
+        showAd: PropTypes.bool,
+        showImageBadge: PropTypes.bool,
+        tagsToShow: PropTypes.number,
+        linesToShow: PropTypes.number
     };
 
     static defaultProps = {
@@ -33,16 +35,26 @@ export default class TeaserListView extends Component {
         adTargets: {},
         nativeAdConfig: {},
         loadAgain: true,
-        showAd: true
-    };
-
-    static contextTypes = {
-        config: PropTypes.object
+        showAd: true,
+        showImageBadge: false,
+        tagsToShow: 0,
+        linesToShow: 0
     };
 
     render() {
-        const { config } = this.context;
-        const { className, items, adTargets, index, nativeAdConfig, showDate, loadAgain, showAd } = this.props;
+        const {
+            className,
+            items,
+            adTargets,
+            index,
+            nativeAdConfig,
+            showDate,
+            loadAgain,
+            showAd,
+            showImageBadge,
+            tagsToShow,
+            linesToShow
+        } = this.props;
         const adProps = {
             className: 'ad--section-mrec',
             displayFor: ['medium', 'large', 'xlarge'],
@@ -52,12 +64,6 @@ export default class TeaserListView extends Component {
             },
             pageLocation: Ad.pos.aside
         };
-        const sizes = get(config, 'features.teaserImageSizes', {
-            s: { w: 323, h: 269 },
-            m: { w: 452, h: 254 },
-            l: { w: 409, h: 230 },
-            xl: { w: 1010, h: 478 }
-        });
 
         if (index) adProps.targets.position += index;
 
@@ -67,9 +73,9 @@ export default class TeaserListView extends Component {
 
         if (showAd) {
             ad = items.length > 1 ?
-                (<StickyBlock carriageYPosition={95} breakpoints={['medium', 'large', 'xlarge']}>
+                <StickyBlock carriageYPosition={95} breakpoints={['medium', 'large', 'xlarge']}>
                     <Ad {...adProps} />
-                </StickyBlock>) : <Ad {...adProps} />;
+                </StickyBlock> : <Ad {...adProps} />;
         }
 
         return (
@@ -82,7 +88,12 @@ export default class TeaserListView extends Component {
                           showDate={showDate}
                           articles={items}
                           showSubSection
-                          imageSizes={sizes}
+                          imageSizes={{
+                              s: { w: 323, h: 242 },
+                              m: { w: 452, h: 339 },
+                              l: { w: 409, h: 307 },
+                              xl: { w: 1010, h: 756 }
+                          }}
                           adPosition={4}
                           adConfig={{
                               className: 'ad--teaser-list',
@@ -93,6 +104,9 @@ export default class TeaserListView extends Component {
                           }}
                           nativeAdConfig={nativeAdConfig}
                           loadAgain={loadAgain}
+                          showImageBadge={showImageBadge}
+                          tagsToShow={tagsToShow}
+                          linesToShow={linesToShow}
                         />
                     </div>
                     { ad }

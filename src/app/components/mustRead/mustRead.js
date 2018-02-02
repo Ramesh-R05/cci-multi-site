@@ -5,6 +5,8 @@ import Teaser from '../teaser/teaser';
 
 class MustRead extends Component {
 
+    static displayName = 'MustRead';
+
     static propTypes = {
         mustRead: PropTypes.array.isRequired,
         show: PropTypes.bool.isRequired
@@ -24,32 +26,34 @@ class MustRead extends Component {
     };
 
     render() {
-        let { mustRead } = this.props;
-        const { show } = this.props;
-        const { desktopCount, tabletCount } = this.context.config.features.mustRead;
+        const { mustRead, show } = this.props;
+        const { config } = this.context;
+        const {
+            desktopCount,
+            tabletCount,
+            imageSizes = MustRead.imageSizes
+        } = config.features.mustRead;
 
-        if (!show) {
+        if (!show || !mustRead || mustRead.length < desktopCount) {
             return null;
         }
 
-        if (!mustRead || mustRead.length < desktopCount) {
-            return null;
-        }
-
-        mustRead = mustRead.slice(0, desktopCount);
         const listClassName = `small-block-grid-2 medium-block-grid-${tabletCount} large-block-grid-${desktopCount}`;
-        const shortenedNameList = this.context.config.brands.shortSources || {};
+        const shortenedNameList = config.brands.shortSources || {};
 
         // Add gtm class name,
         // mustReadItem.id prop will pass into teaser component and be attached as a gtm class
-        const newMustRead = mustRead.map((item, index) => {
-            const mustReadItem = { ...item };
-            mustReadItem.id = `mustread${index + 1}-homepage`;
-            mustReadItem.source = shortenedNameList[mustReadItem.source] || mustReadItem.source;
-            return mustReadItem;
-        });
+        const newMustRead = mustRead
+            .slice(0, desktopCount)
+            .map((item, index) => {
+                const mustReadItem = { ...item };
+                mustReadItem.id = `mustread${index + 1}-homepage`;
+                mustReadItem.source = shortenedNameList[mustReadItem.source] || mustReadItem.source;
+                return mustReadItem;
+            }
+        );
 
-        const polarLabels = this.context.config.polar.details;
+        const polarLabels = config.polar.details;
 
         return (
             <div className="mustread-teaser-view-grid">
@@ -59,7 +63,7 @@ class MustRead extends Component {
                 <div className="columns xlarge-10">
                     <TeaserList
                       listClassName={listClassName}
-                      imageSizes={MustRead.imageSizes}
+                      imageSizes={imageSizes}
                       articles={newMustRead}
                       CustomisedTeaser={Teaser}
                       showDate={false}

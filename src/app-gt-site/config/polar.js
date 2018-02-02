@@ -19,7 +19,7 @@ export default {
         ],
         homeTopFeed: [
             {
-                index: 0,
+                index: 1,
                 label: 'home_top_feed_1',
                 targets: { kw: 'home_top_feed_1' }
             },

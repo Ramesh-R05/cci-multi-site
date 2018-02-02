@@ -8,8 +8,11 @@ import teaserContentOverride from '@bxm/teaser/lib/teaserContentOverride';
 import has from 'lodash/object/has';
 import get from 'lodash/object/get';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import imageResize from '@bxm/ui/lib/common/ImageResize';
 
 export default class Teaser extends Component {
+
+    static displayName = 'Teaser';
 
     static propTypes = {
         article: PropTypes.object.isRequired,
@@ -28,7 +31,10 @@ export default class Teaser extends Component {
                 label: PropTypes.string
             }),
             PropTypes.bool
-        ])
+        ]),
+        showImageBadge: PropTypes.bool,
+        tagsToShow: PropTypes.bool,
+        linesToShow: PropTypes.number
     };
 
     static contextTypes = {
@@ -58,7 +64,10 @@ export default class Teaser extends Component {
         },
         onClick: function onClick() {},
         sourceDefault: '',
-        polar: false
+        polar: false,
+        showImageBadge: false,
+        tagsToShow: 0,
+        linesToShow: 0
     };
 
     getGTMClass = () => {
@@ -72,6 +81,7 @@ export default class Teaser extends Component {
         const { config } = this.context;
         const defaultImageUrl = config.defaultImageUrl;
         const breakpoints = config.global.breakpoints;
+        const imageAnchor = get(config, 'features.teaserImageAnchorType', imageResize.anchor.TC);
 
         return (
             <TeaserImage
@@ -84,13 +94,18 @@ export default class Teaser extends Component {
               breakpoints={breakpoints}
               showResponsiveImage={this.props.showResponsiveImage}
               className={this.getGTMClass()}
+              responsiveConfig={{
+                  scale: imageResize.scale.BOTH,
+                  anchor: imageAnchor,
+                  mode: ''
+              }}
             />
         );
     };
 
     render() {
         const { config } = this.context;
-        const { className, sourceClassName, showDate, sourceDefault, polar } = this.props;
+        const { className, sourceClassName, showDate, sourceDefault, polar, showImageBadge, tagsToShow, linesToShow } = this.props;
         let { article } = this.props;
 
         if (!article) return null;
@@ -112,12 +127,37 @@ export default class Teaser extends Component {
         }
 
         const sourceName = article.source || 'Now to love';
+        let tagsBlock = null;
+
+        if (tagsToShow > 0 && article.tagsDetails && article.tagsDetails.length > 0) {
+            const tags = article.tagsDetails
+                .slice(0, tagsToShow)
+                .map((tag, i) => (
+                    <li key={`${article.id}-tag`}>
+                        {!!i && <span>, </span>}
+                        <a className={`gtm-taglink ${tag.urlName}`} href={`tags/${tag.urlName}`} title={tag.displayName}>{tag.displayName}</a>
+                    </li>
+                    ));
+            tagsBlock = (
+                <section className="article__tags">
+                    <span className="tags__title">Related: </span>
+                    <ul className="related-tags">{tags}</ul>
+                </section>
+            );
+        }
 
         return (
             <article className={containerClassNames} onClick={this.props.onClick}>
                 <div className="teaser__inner">
 
-                    {this.renderImage()}
+                    {
+                        showImageBadge && article.nodeType.toLowerCase() !== 'article' ?
+                            <div>
+                                <div className="teaser__image-caption"><span>{article.nodeType}</span></div>
+                                {this.renderImage()}
+                            </div> :
+                            this.renderImage()
+                    }
 
                     <div className="teaser__body">
 
@@ -125,7 +165,7 @@ export default class Teaser extends Component {
 
                         <TeaserTitle title={articleTitle} url={article.url} gtmClass={this.getGTMClass()} />
 
-                        <TeaserSummary summary={article.summary} className="teaser__summary" />
+                        <TeaserSummary summary={article.summary} className="teaser__summary" linesToShow={linesToShow} />
 
                         <p className={articleSourceClassName}>
                             {sourceDefault || `${sourceName}`}
@@ -136,6 +176,7 @@ export default class Teaser extends Component {
                             }
 
                         </p>
+                        {tagsBlock}
                     </div>
                 </div>
 

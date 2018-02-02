@@ -80,6 +80,31 @@
                     right: 15px;
                 }
             }
+
+            &-caption {
+                background-color: transparent;
+                color: $color-gt-black-2;
+                font: 400 12px / 14px $font-family-sans-serif-light;
+                position: absolute;
+                text-align: center;
+                text-transform: uppercase;
+                padding: 0 15px;
+                float: left;
+                z-index: 9999;
+                pointer-events: none;
+
+                @media #{$medium-up} {
+                    font: 400 14px / 20px $font-family-sans-serif-light;
+                }
+
+                span {
+                    background-color: $color-gt-white;
+                    width: 60%;
+                    display: inline-block;
+                    padding: 6px 0;
+                }
+            }
+
         }
 
         &__body {
@@ -95,7 +120,6 @@
             }
 
             @media #{$medium-up} {
-                margin-top: 14px;
                 padding-left: 0;
                 padding-right: 10px;
             }
@@ -107,33 +131,24 @@
 
         &__section-tag {
             margin-top: 1px;
-            margin-bottom: 9px;
+            margin-bottom: 0;
             font-size: 10px;
 
             @media #{$medium-up} {
                 margin-top: 4px;
-                margin-bottom: 16px;
+                margin-bottom: 3px;
             }
         }
 
         &__title {
             @include type-bottom-teaser-title;
-            font-size: 14px;
-            line-height: 16px;
 
             @media #{$medium-up} {
-                margin-bottom: 8px;
-                line-height: 22px;
-                font-size: 21px;
-            }
-
-            @media #{$xlarge-only} {
-                margin-bottom: 8px;
-                margin-top: 0;
-                padding: 7px 20px 0;
+                margin-bottom: 12px;
             }
 
             a {
+                @include type-bottom-teaser-title;
                 text-decoration: none;
             }
         }
@@ -215,18 +230,14 @@
             }
         }
 
-        &__summary-wrap {
-            @extend .hide-for-small-only;
-        }
-
         &__summary {
-            line-height: 18px;
+            line-height: $teaser-summary-line-height;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: $teaser-summary-font-size;
 
             @media #{$medium-up} {
                 margin-top: 0;
-                margin-bottom: 8px;
-                line-height: 22px;
-                font-size: 14px;
             }
 
             @media #{$xlarge-only} {

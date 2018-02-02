@@ -1,18 +1,26 @@
+import imageResize from '@bxm/ui/lib/common/ImageResize';
+
 export default {
     mustRead: {
         desktopCount: 4,
         tabletCount: 2,
         showOutsideContainer: false,
-        showInsideContainer: true
+        showInsideContainer: true,
+        imageSizes: {
+            s: { w: 300, h: 225 },
+            m: { w: 300, h: 225 },
+            l: { w: 300, h: 225 },
+            xl: { w: 230, h: 173 }
+        }
     },
     promoted: {
         showBelowHero: false,
         showAboveBottomTeasers: true,
         imageSizes: {
-            s: { w: 300, h: 170 },
-            m: { w: 300, h: 170 },
-            l: { w: 300, h: 170 },
-            xl: { w: 230, h: 130 }
+            s: { w: 300, h: 225 },
+            m: { w: 300, h: 225 },
+            l: { w: 300, h: 225 },
+            xl: { w: 230, h: 173 }
         }
     },
     galleryOfGalleries: {
@@ -47,5 +55,20 @@ export default {
     },
     feedCarousel: {
         enabled: true
+    },
+    teaserImageAnchorType: imageResize.anchor.MC,
+    teaserImageSizes: {
+        s: { w: 323, h: 242 },
+        m: { w: 452, h: 339 },
+        l: { w: 409, h: 307 },
+        xl: { w: 1010, h: 756 }
+    },
+    homePage: {
+        topNewsFeedListType: 'list',
+        newsFeed: {
+            showImageBadge: true,
+            tagsToShow: 2,
+            linesToShow: 3
+        }
     }
 };

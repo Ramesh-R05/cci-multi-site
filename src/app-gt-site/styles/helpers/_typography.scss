@@ -52,15 +52,12 @@
     content: '\e900';
 }
 
-
 $font-header: 'PlayfairDisplay-Bold';
 $font-header-secondary: 'Montserrat-Regular', sans-serif;
 $font-header-light: 'Montserrat-Light', sans-serif;
 $font-text: 'Montserrat-Regular', sans-serif;
 $font-text-light: 'Montserrat-Light', sans-serif;
 $font-link: 'Montserrat-Regular', sans-serif;
-
-
 
 $font-family-serif-primary: $font-header;
 $font-family-serif-secondary: $font-text;
@@ -69,6 +66,47 @@ $small-text-font: $font-family-sans-serif-primary;
 $font-family-sans-serif-light: $font-text-light;
 
 // ---------------------------------------------------- typography mixins & classes
+
+@mixin type-truncate(
+    $lines-to-show,
+    $font-size: 14px,  // must be px
+    $line-height: 1.5, // must be ems
+    $max-width: 100%,
+    $show-ellipsis: true
+) {
+    display: block;    // fallback for non webkit
+    display: -webkit-box;
+    max-width: $max-width;
+    max-height: $font-size * $line-height * $lines-to-show;
+    margin: 0 auto;
+    font-size: $font-size;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @if $show-ellipsis {
+        text-overflow: ellipsis;
+    }
+
+    @content;
+}
+
+.type-truncate-2 {
+    @include type-truncate(2, $teaser-summary-font-size, $teaser-summary-line-height);
+}
+
+.type-truncate-3 {
+    @include type-truncate(3, $teaser-summary-font-size, $teaser-summary-line-height);
+}
+
+.type-truncate-4 {
+    @include type-truncate(4, $teaser-summary-font-size, $teaser-summary-line-height);
+}
+
+.type-truncate-5 {
+    @include type-truncate(5, $teaser-summary-font-size, $teaser-summary-line-height);
+}
 
 @mixin type-header {
     color: $color-text;
@@ -136,7 +174,7 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-link {
-    
+
     @include caption {
         color: $color-text;
         font-family: $font-link;
@@ -481,14 +519,14 @@ $font-family-sans-serif-light: $font-text-light;
 // Small Teaser - ie, just below the hero on home page, above Gallery of Galleries
 // Second half teasers
 @mixin type-bottom-teaser-title {
-    color: $color-black;
-    font: 15px / 20px $font-family-serif-primary;
+    color: $color-gt-black-2;
+    font: 22px / 26px $font-family-serif-primary;
     margin-bottom: 0;
     text-transform: none;
 
     @media #{$medium-up} {
-        font-size: 22px;
-        line-height: 30px;
+        font-size: 24px;
+        line-height: 28px;
     }
 }
 

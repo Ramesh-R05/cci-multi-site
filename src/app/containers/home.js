@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
+import get from 'lodash/object/get';
 import { connectToStores } from '@bxm/flux';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import SocialContainer from '../components/social/block';
@@ -87,6 +88,11 @@ export default class Home extends Component {
             pageLocation
         };
 
+        const topListType = get(config, 'features.homePage.topNewsFeedListType', 'grid');
+        const showImageBadge = get(config, 'features.homePage.newsFeed.showImageBadge', false);
+        const tagsToShow = get(config, 'features.homePage.newsFeed.tagsToShow', 0);
+        const linesToShow = get(config, 'features.homePage.newsFeed.linesToShow', 0);
+
         return (
             <Page
               currentUrl={currentUrl}
@@ -113,15 +119,35 @@ export default class Home extends Component {
                                             <div className="home-page__teasers-title">
                                                 <span>what&apos;s happening now</span>
                                             </div>
-                                            <TeaserGridView
-                                              teasers={teasers.slice(0, 6)}
-                                              className="news-feed top-news-feed"
-                                              adPosition={8}
-                                              adSizes={{ small: 'mrec', medium: ['mrec', 'double-mrec'] }}
-                                              nativeAdConfig={{
-                                                  slotPositionIndex: polarLabels.homeTopFeed
-                                              }}
-                                            />
+                                            {
+                                                topListType === 'grid' &&
+                                                <TeaserGridView
+                                                  teasers={teasers.slice(0, 6)}
+                                                  className="news-feed top-news-feed"
+                                                  adPosition={8}
+                                                  adSizes={{ small: 'mrec', medium: ['mrec', 'double-mrec'] }}
+                                                  nativeAdConfig={{
+                                                      slotPositionIndex: polarLabels.homeTopFeed
+                                                  }}
+                                                />
+                                            }
+                                            {
+                                                topListType === 'list' &&
+                                                <TeaserListView
+                                                  index={null}
+                                                  items={teasers.slice(0, 6)}
+                                                  className={'news-feed top-news-feed'}
+                                                  nativeAdConfig={{
+                                                      slotPositionIndex: polarLabels.homeTopFeed
+                                                  }}
+                                                  showDate={false}
+                                                  loadAgain={false}
+                                                  showAd={false}
+                                                  tagsToShow={tagsToShow}
+                                                  showImageBadge={showImageBadge}
+                                                  linesToShow={linesToShow}
+                                                />
+                                            }
                                         </div>
                                         <div className="page__social-wrapper columns large-4 xlarge-3">
                                             <div className="columns medium-6 large-12">
@@ -175,6 +201,9 @@ export default class Home extends Component {
                           slotPositionIndex: polarLabels.homeBottomFeed
                       }}
                       pageLocation={pageLocation}
+                      showImageBadge={showImageBadge}
+                      tagsToShow={tagsToShow}
+                      linesToShow={linesToShow}
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}

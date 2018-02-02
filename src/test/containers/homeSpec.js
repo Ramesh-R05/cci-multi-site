@@ -39,7 +39,7 @@ AdStub.pos = {
     wallpaper: 'wallpaper',
     inskin: 'inskin',
     panel: 'panel'
-}
+};
 
 describe('Home Container', () => {
 
@@ -102,6 +102,10 @@ describe('Home Container', () => {
         },
 
         getListNextParams() {
+            return {};
+        },
+
+        getPromoted() {
             return {};
         }
     });

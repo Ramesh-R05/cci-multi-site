@@ -3,9 +3,9 @@ import { connectToStores } from '@bxm/flux';
 import TeaserList from '@bxm/teaser/lib/components/teaserList';
 import Teaser from '../teaser/teaser';
 
-
 class Promoted extends Component {
 
+    static displayName = 'Promoted';
 
     static propTypes = {
         promoted: PropTypes.object.isRequired,
@@ -31,20 +31,21 @@ class Promoted extends Component {
 
         if (!promotedItems || promotedItems.length === 0 || promotedItems.length < 4) return null;
 
-        promotedItems = promotedItems.slice(0, 4);
-
         const shortenedNameList = this.context.config.brands.shortSources || {};
         const imageSizes = this.context.config.features.promoted.imageSizes || {};
         const promotedTitle = promoted.title || 'WOMEN OF THE YEAR';
 
         // Add gtm class name,
         // promotedItem.id prop will pass into teaser component and be attached as a gtm class
-        promotedItems = promotedItems.map((promotedItem, index) => {
-            const item = { ...promotedItem };
-            item.id = `promo${(index + 1)}-homepage`;
-            item.source = shortenedNameList[item.source] || item.source;
-            return item;
-        });
+        promotedItems = promotedItems
+            .slice(0, 4)
+            .map((promotedItem, index) => {
+                const item = { ...promotedItem };
+                item.id = `promo${(index + 1)}-homepage`;
+                item.source = shortenedNameList[item.source] || item.source;
+                return item;
+            }
+        );
 
         return (
             <div className="promoted-teaser-view-grid">
