@@ -21,7 +21,7 @@ Feature: Smoke test for GT
         When I am currently viewing "travel"
         Then I should see the sign up button containing "http://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
         Then I should see the main hero item containing its image and clickable to open its page
-        And I should see a "top" feed item containing its image and clickable to open its page
+        #And I should see a "top" feed item containing its image and clickable to open its page #We will enable this once the top feed is changed to the list style as the homepage
         And I should see a "bottom" feed item containing its image and clickable to open its page
         When I click on the Load More button
         Then I should see extra 14 teasers after loading more

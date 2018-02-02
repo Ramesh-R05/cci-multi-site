@@ -32,10 +32,14 @@ module.exports = function(){
 
         switch(part) {
             case 'top':
-                feedItems_element = home.topFeedNumber;
+                if (world.Urls.site == 'gt-site') {
+                    feedItems_element = home.topFeedListNumber;
+                } else {
+                    feedItems_element = home.topFeedGridNumber;
+                }
                 break;
             case 'bottom':
-                feedItems_element = home.bottomFeedNumber;
+                feedItems_element = home.bottomFeedListNumber;
                 break;
         }
         var feedItems = browser.elements(feedItems_element).value.length;
@@ -47,13 +51,18 @@ module.exports = function(){
 
         switch(part) {
             case 'top':
-                feedTeaserImg_element = home.topFeedTeaserImg;
-                feedTeaserImgLink_element = home.topFeedTeaserImgLink;
+                if (world.Urls.site == 'gt-site') {
+                    feedTeaserImg_element = home.topFeedListTeaserImg;
+                    feedTeaserImgLink_element = home.topFeedListTeaserImgLink;
+                } else {
+                    feedTeaserImg_element = home.topFeedGridTeaserImg;
+                    feedTeaserImgLink_element = home.topFeedGridTeaserImgLink;
+                }
                 i = 4; //Test the 5th item which is array no.4
                 break;
             case 'bottom':
-                feedTeaserImg_element = home.bottomFeedTeaserImg;
-                feedTeaserImgLink_element = home.bottomFeedTeaserImgLink;
+                feedTeaserImg_element = home.bottomFeedListTeaserImg;
+                feedTeaserImgLink_element = home.bottomFeedListTeaserImgLink;
                 i = 6; //Test the 7th item which is array no.6
                 break;
         }
@@ -70,11 +79,15 @@ module.exports = function(){
 
         switch(part) {
             case 'top':
-                feedTeaserTitle_element = home.topFeedTeaserTitle;
+                if (world.Urls.site == 'gt-site') {
+                    feedTeaserTitle_element = home.topFeedListTeaserTitle;
+                } else {
+                    feedTeaserTitle_element = home.topFeedTeaserTitle;
+                }
                 i = 4; //Test the 5th item which is array no.4
                 break;
             case 'bottom':
-                feedTeaserTitle_element = home.bottomFeedTeaserTitle;
+                feedTeaserTitle_element = home.bottomFeedListTeaserTitle;
                 i = 6; //Test the 7th item which is array no.6
                 break;
         }
@@ -87,7 +100,7 @@ module.exports = function(){
     });
 
     this.When(/^I should see (\d+) bottom half feed$/, function (number) {
-        var bottomFeedItems = browser.elements(home.bottomFeedNumber).value.length;
+        var bottomFeedItems = browser.elements(home.bottomFeedListNumber).value.length;
         expect(bottomFeedItems).toEqual(parseInt(number,10));
     });
 
