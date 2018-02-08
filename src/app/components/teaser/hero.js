@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Teaser from './teaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import SocialContainer from '../social/block';
 import Promoted from '../promoted/promoted';
-import BrandMagazine from '../brand/brandMagazine';
+import SideBlock from '../sideBlock/sideBlock';
 
 export default class HeroTeaser extends Component {
     static propTypes = {
@@ -30,6 +29,7 @@ export default class HeroTeaser extends Component {
         if (!this.props.article) return null;
         const { article, imageSizes, showPromoted, brand, showDate } = this.props;
         const pageLocation = Ad.pos.outside;
+        const isBrandDefined = Object.prototype.toString.call(brand).indexOf('Object') !== -1;
 
         return (
             <div className="hero-wrapper">
@@ -50,11 +50,12 @@ export default class HeroTeaser extends Component {
 
                 { showPromoted && <Promoted show /> }
 
-                { brand ? <div className="hide-for-large-up"><BrandMagazine brand={brand} /> </div> :
-                <div className="hero-wrapper__get-social-container">
-                    <span className="hero-wrapper__social-logo">Now To Love</span>
-                    <SocialContainer />
-                </div> }
+                <SideBlock
+                  showBrandMagazine={isBrandDefined}
+                  showBrandNewsletter={isBrandDefined}
+                  brand={brand}
+                  isHero
+                />
             </div>
         );
     }

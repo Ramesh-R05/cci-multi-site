@@ -33,7 +33,7 @@ export default class Teaser extends Component {
             PropTypes.bool
         ]),
         showImageBadge: PropTypes.bool,
-        tagsToShow: PropTypes.bool,
+        tagsToShow: PropTypes.number,
         linesToShow: PropTypes.number
     };
 
@@ -133,7 +133,7 @@ export default class Teaser extends Component {
             const tags = article.tagsDetails
                 .slice(0, tagsToShow)
                 .map((tag, i) => (
-                    <li key={`${article.id}-tag`}>
+                    <li key={`${article.id}-tag-${i + 1}`}>
                         {!!i && <span>, </span>}
                         <a className={`gtm-taglink ${tag.urlName}`} href={`tags/${tag.urlName}`} title={tag.displayName}>{tag.displayName}</a>
                     </li>

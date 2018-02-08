@@ -48,7 +48,7 @@
             .teaser__image-caption {
                 width: 100%;
 
-                @media #{$medium-up} {
+                @media #{$large-up} {
                     width: 50%;
                 }
             }

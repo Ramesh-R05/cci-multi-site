@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react';
 import get from 'lodash/object/get';
 import { connectToStores } from '@bxm/flux';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import SocialContainer from '../components/social/block';
 import HeroTeaser from '../components/teaser/hero';
 import TeaserGridView from '../components/teaser/grid';
 import TeaserListView from '../components/teaser/list';
@@ -13,8 +12,8 @@ import loadList from '../actions/loadList';
 import StickyAndDockAd from '../components/page/stickyAndDockAd';
 import MustRead from '../components/mustRead/mustRead';
 import Promoted from '../components/promoted/promoted';
-import BrandMagazine from '../components/brand/brandMagazine';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
+import SideBlock from '../components/sideBlock/sideBlock';
 
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');
@@ -67,6 +66,7 @@ export default class Home extends Component {
         const brand = config.product;
         const polarLabels = config.polar.details;
         const pageLocation = Ad.pos.outside;
+        const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
         const { showBelowHero, showAboveBottomTeasers } = config.features.promoted;
         const {
@@ -92,6 +92,7 @@ export default class Home extends Component {
         const showImageBadge = get(config, 'features.homePage.newsFeed.showImageBadge', false);
         const tagsToShow = get(config, 'features.homePage.newsFeed.tagsToShow', 0);
         const linesToShow = get(config, 'features.homePage.newsFeed.linesToShow', 0);
+        const isBrandDefined = typeof brand !== 'undefined';
 
         return (
             <Page
@@ -164,11 +165,12 @@ export default class Home extends Component {
                                                       displayFor="large"
                                                       pageLocation={Ad.pos.aside}
                                                     />
-                                                    { brand ? <BrandMagazine brand={brand} /> :
-                                                    <div className="page__get-social-container">
-                                                        <span className="page__social-logo">Now To Love</span>
-                                                        <SocialContainer socialUrls={config.urls.socialUrls} />
-                                                    </div> }
+                                                    <SideBlock
+                                                      showBrandMagazine={isBrandDefined}
+                                                      showBrandNewsletter={isBrandDefined}
+                                                      showGiftCard={giftCardEnabled}
+                                                      brand={brand}
+                                                    />
                                                 </StickyAndDockAd>
                                             </div>
                                         </div>

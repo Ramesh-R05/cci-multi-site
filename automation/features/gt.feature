@@ -6,7 +6,7 @@ Feature: Smoke test for GT
     Scenario: Verify the homepage
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        Then I should see the sign up button containing "http://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
+        Then I should see the sign up button containing "//www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
         And I should see 2 must read images and titles which are clickable to open their page
         And I should see the main hero item containing its image and clickable to open its page
         And I should see 2 promoted images and titles which are clickable to open their page
@@ -19,7 +19,7 @@ Feature: Smoke test for GT
     Scenario: Verify the section landing page
         Given I switch to "mobile" view
         When I am currently viewing "travel"
-        Then I should see the sign up button containing "http://www.harpersbazaar.com.au/hb-newsletter" url in "mobile" view
+        Then I should see the sign up button containing "//www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
         Then I should see the main hero item containing its image and clickable to open its page
         #And I should see a "top" feed item containing its image and clickable to open its page #We will enable this once the top feed is changed to the list style as the homepage
         And I should see a "bottom" feed item containing its image and clickable to open its page
@@ -38,9 +38,10 @@ Feature: Smoke test for GT
         * I can see the social icons clickable to open its page in the footer
             |social     |url                                          |
             |Facebook   |https://www.facebook.com/gourmettraveller    |
-            |Twitter    |https://www.pinterest.com.au/gourmetpins/    |
+            |Twitter    |https://twitter.com/GourmetTweets            |
             |Instagram  |https://www.instagram.com/gourmettraveller/  |
-            |Pinterest  |https://twitter.com/GourmetTweets            |
+            |Pinterest  |https://www.pinterest.com.au/gourmetpins/    |
+            |GiftCard   |/gift-card                                   |
 
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view

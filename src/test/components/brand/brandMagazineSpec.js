@@ -1,16 +1,12 @@
 import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const { React, ReactDOM, TestUtils } = Context;
+const { React, TestUtils } = Context;
 import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const ResponsiveImageStub = Context.createStubComponent();
-const SocialContainerStub = Context.createStubComponent();
-const brandNewsletterStub = Context.createStubComponent();
 const BrandMagazine = proxyquire('../../../app/components/brand/brandMagazine', {
-    '@bxm/ui/lib/common/ResponsiveImage': ResponsiveImageStub,
-    '../social/block': SocialContainerStub,
-    './brandNewsletter': brandNewsletterStub
+    '@bxm/ui/lib/common/ResponsiveImage': ResponsiveImageStub
 }).default;
 
 const magImageUrlStub = 'http://stubbedimages.biz/content.jpg';
@@ -20,10 +16,8 @@ Context.addStore('PageStore', {
     }
 });
 
-
 describe(`BrandMagazine`, () => {
     let reactModule;
-    let socialContainerStub;
     let responsiveImageStub;
 
     const brandPropStub = {
@@ -53,15 +47,8 @@ describe(`BrandMagazine`, () => {
     describe('when passing in /aww as the brand prop', () => {
 			before(() => {
 		        reactModule = Context.mountComponent(BrandMagazine, {brand: brandPropStub}, [contextConfigStub]);
-                socialContainerStub = TestUtils.findRenderedComponentWithType(reactModule, SocialContainerStub);
                 responsiveImageStub = TestUtils.findRenderedComponentWithType(reactModule, ResponsiveImageStub);
 		    });
-
-            it('should render the SocialContainer component with the AWW social link props', () => {
-                expect(socialContainerStub.props).to.deep.eq({
-                    socialUrls: brandPropStub.socialLinks
-                })
-            });
 
             it('should render the ResponsiveImage component with the url it receives from the store', () => {
                 expect(responsiveImageStub.props.url).to.eq(magImageUrlStub)

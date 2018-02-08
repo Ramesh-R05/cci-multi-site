@@ -5,6 +5,11 @@
         display: none;
     }
 
+    .social-link__icon svg {
+        height: 34px;
+        width: 34px;
+    }
+
     svg path {
         fill: $color-primary;
     }
@@ -27,5 +32,9 @@
 
     &--youtube:hover svg path {
         fill: $youtube-red;
+    }
+
+    &--gift-card:hover svg path {
+        fill: $gift-card-purple;
     }
 }

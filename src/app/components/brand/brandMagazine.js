@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 import ResponsiveImage from '@bxm/ui/lib/common/ResponsiveImage';
-import SocialContainer from '../social/block';
-import BrandNewsletter from './brandNewsletter';
 import get from 'lodash/object/get';
 import { connectToStores } from '@bxm/flux';
 
@@ -38,38 +36,32 @@ class BrandMagazine extends Component {
     render() {
         const { imageSizes, responsiveConfig, magazineImageUrl, brand } = this.props;
         const breakpoints = this.context.config.global.breakpoints;
-        const { socialLinks, id, title, magazineTitle } = brand;
+        const { id, title, magazineTitle } = brand;
         const renderSubscribeElements = get(brand, 'renderSubscribeElements', true);
         const buttonText = get(brand, 'subscribeButtonText', BrandMagazine.DEFAULT_SUBSCRIBE_TEXT);
         const buttonUrl = get(brand, 'subscribeButtonUrl', BrandMagazine.DEFAULT_SUBSCRIBE_URL);
         const sizes = get(brand, 'imageSizes', imageSizes);
 
         return (
-            <div>
-                <div className="brand--magazine-container">
-                    {renderSubscribeElements && <span className="brand--magazine-title">Subscribe to {magazineTitle || title}</span>}
-                    <div className="brand--magazine-image">
-                        <ResponsiveImage
-                          alt=""
-                          url={magazineImageUrl}
-                          sizes={sizes}
-                          breakpoints={breakpoints}
-                          scale={responsiveConfig.scale}
-                          mode={responsiveConfig.mode}
-                          anchor={responsiveConfig.anchor}
-                          quality={80}
-                        />
-                    </div>
-                    {renderSubscribeElements &&
-                        <a target="_blank" className={`gtm-subscribe-${id}`} href={buttonUrl}>
-                            <span className="button button--link button--subscribe">{buttonText}</span>
-                        </a>
-                    }
+            <div className="brand--magazine-container">
+                {renderSubscribeElements && <span className="brand--magazine-title">Subscribe to {magazineTitle || title}</span>}
+                <div className="brand--magazine-image">
+                    <ResponsiveImage
+                      alt=""
+                      url={magazineImageUrl}
+                      sizes={sizes}
+                      breakpoints={breakpoints}
+                      scale={responsiveConfig.scale}
+                      mode={responsiveConfig.mode}
+                      anchor={responsiveConfig.anchor}
+                      quality={80}
+                    />
                 </div>
-                <BrandNewsletter />
-                <div className="page__get-social-container  columns medium-6 large-12">
-                    <SocialContainer socialUrls={socialLinks} />
-                </div>
+                {renderSubscribeElements &&
+                <a target="_blank" className={`gtm-subscribe-${id}`} href={buttonUrl}>
+                    <span className="button button--link button--subscribe">{buttonText}</span>
+                </a>
+                }
             </div>
         );
     }

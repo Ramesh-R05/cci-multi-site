@@ -1,6 +1,12 @@
 .brand--magazine {
     &-container {
-        padding-top: 5px;
+        padding-top: 25px;
+        padding-bottom: 5px;
+
+        @media #{$medium-up} {
+            border-top: 1px solid $color-gt-black-1;
+            padding-bottom: 13px;
+        }
 
         @media #{$medium-only} {
             padding-top: 0;
@@ -19,6 +25,7 @@
         display: none;
     }
     &-image {
+        margin-bottom: 15px;
         @media #{$large-up} {
             width: 225px;
             margin-left: auto;

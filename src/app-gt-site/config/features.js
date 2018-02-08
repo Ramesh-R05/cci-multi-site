@@ -70,5 +70,8 @@ export default {
             tagsToShow: 2,
             linesToShow: 3
         }
+    },
+    giftCard: {
+        enabled: true
     }
 };

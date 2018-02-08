@@ -22,7 +22,23 @@ AdStub.pos = {
     wallpaper: 'wallpaper',
     inskin: 'inskin',
     panel: 'panel'
-}
+};
+
+const contextConfigStub = {
+    key: 'config',
+    type: '',
+    value: {
+        urls: {
+            socialUrls: {
+                facebook: 'https://www.facebook.com/gourmettraveller',
+                twitter: 'https://twitter.com/GourmetTweets',
+                instagram: 'https://www.instagram.com/gourmettraveller/',
+                pinterest: 'https://www.pinterest.com.au/gourmetpins/',
+                'gift-card': 'gift-card',
+            }
+        }
+    }
+};
 
 describe('Hero Teaser Component', () => {
     const article = {id: 'HERO-TEASER', title: 'title', source: 'Australian women\'s weekly'};
@@ -50,7 +66,7 @@ describe('Hero Teaser Component', () => {
 
     describe('when passing an article', () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(HeroTeaser, {article});
+            reactModule = Context.mountComponent(HeroTeaser, {article}, [contextConfigStub]);
             TeaserComponent = TestUtils.findRenderedComponentWithType(reactModule, TeaserStub);
         });
 
@@ -78,7 +94,7 @@ describe('Hero Teaser Component', () => {
 
     describe('when passing both article, imageSizes and showDate prop', () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(HeroTeaser, {article, imageSizes, showDate: false});
+            reactModule = Context.mountComponent(HeroTeaser, {article, imageSizes, showDate: false}, [contextConfigStub]);
             TeaserComponent = TestUtils.findRenderedComponentWithType(reactModule, TeaserStub);
         });
 
@@ -88,6 +104,6 @@ describe('Hero Teaser Component', () => {
 
         it(`should pass the showDate to the Teaser component`, () => {
             expect(TeaserComponent.props.showDate).to.eq(false);
-        });         
+        });
     });
 });

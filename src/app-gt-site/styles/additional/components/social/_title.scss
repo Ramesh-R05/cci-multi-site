@@ -2,10 +2,12 @@
     .get-social {
         .get-social-title {
             margin-top: 12px;
-            
+
             &:before {
                 color: $color-primary;
-                content: 'FOLLOW US';
+                content: 'GET MORE GOURMET';
+                font: 400 17px/21px $font-family-sans-serif-light;
+                letter-spacing: normal;
             }
         }
 

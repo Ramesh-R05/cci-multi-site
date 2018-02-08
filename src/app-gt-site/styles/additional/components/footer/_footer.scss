@@ -1,6 +1,5 @@
 $footer-section-gap: 35px;
 
-
 .home-page__social-logo {
     display: block;
     width: auto;
@@ -14,10 +13,10 @@ $footer-section-gap: 35px;
 
     &::before {
         @extend .type-text-light;
-        content: 'FOLLOW US';
+        content: 'GET MORE GOURMET';
         display: block;
         font-size: 18px;
-        letter-spacing: 1px;
+        letter-spacing: normal;
         margin-right: 0;
 
         @media #{$medium-up} {
@@ -51,14 +50,15 @@ $footer-section-gap: 35px;
 }
 
 .subscribe {
+    margin-bottom: 10px;
 
     &__subscribe {
-        margin: 30px auto;
+        margin: 20px auto 10px;
         max-width: 350px;
         padding: 0 15px;
 
         @media #{$medium-up} {
-            margin-top: 20px;
+            margin: 20px auto 30px;
         }
 
         @media #{$large-up} {
@@ -69,9 +69,14 @@ $footer-section-gap: 35px;
 
     &__heading {
         @extend .type-subscribe-heading;
-        letter-spacing: 0.06em;
+        letter-spacing: normal;
         margin-bottom: 20px;
-        font-size: 30px;
+        font-size: 24px;
+
+        @media #{$medium-up} {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
 
         &::before {
             display: none;
@@ -81,6 +86,11 @@ $footer-section-gap: 35px;
 
     &__content {
         @extend .type-subscribe-content;
+        margin-bottom: 15px;
+
+        @media #{$medium-up} {
+            margin-bottom: 35px;
+        }
     }
 
     &__action {
@@ -139,11 +149,10 @@ $footer-section-gap: 35px;
 
     .get-social {
         margin-top: 10px;
-        width: auto;
         line-height: 0;
         width: 100%;
         @media #{$medium-up} {
-            margin-top: 0px;
+            margin-top: 0;
             width: auto;
         }
 
@@ -172,21 +181,21 @@ $footer-section-gap: 35px;
 
     &::before,
     &__navigation {
-        margin-left: 15px; 
+        margin-left: 15px;
         margin-right: 15px;
 
         @media #{$medium-up} {
-            margin-left: 20px; 
+            margin-left: 20px;
             margin-right: 20px;
         }
 
         @media #{$large-up} {
-            margin-left: 30px; 
+            margin-left: 30px;
             margin-right: 30px;
         }
     }
 
-    &::before, 
+    &::before,
     &__navigation::before {
         border-bottom: 1px solid $color-gt-black-1;
         content: '';

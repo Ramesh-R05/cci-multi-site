@@ -66,9 +66,10 @@ export default {
 
         socialUrls: {
             facebook: 'https://www.facebook.com/gourmettraveller',
-            twitter: 'https://www.pinterest.com.au/gourmetpins/',
+            twitter: 'https://twitter.com/GourmetTweets',
             instagram: 'https://www.instagram.com/gourmettraveller/',
-            pinterest: 'https://twitter.com/GourmetTweets'
+            pinterest: 'https://www.pinterest.com.au/gourmetpins/',
+            'gift-card': 'gift-card',
         }
     },
 
@@ -81,9 +82,11 @@ export default {
             facebook: 'https://www.facebook.com/gourmettraveller',
             twitter: 'https://twitter.com/GourmetTweets',
             instagram: 'https://www.instagram.com/gourmettraveller/',
-            pinterest: 'https://www.pinterest.com.au/gourmetpins/'
+            pinterest: 'https://www.pinterest.com.au/gourmetpins/',
+            'gift-card': 'gift-card'
         },
-        newsletterUrl: '//www.harpersbazaar.com.au/hb-newsletter',
+        newsletterText: 'Receive offers straight to your inbox',
+        newsletterUrl: '//www.gourmettraveller.com.au/gt-newsletter',
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: 'subscribe-magazine',
         imageSizes: {
