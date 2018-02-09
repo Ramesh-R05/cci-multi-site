@@ -9,6 +9,7 @@ Feature: Site Navigation
         Given I switch to "desktop" view
         When I am currently viewing the homepage
         Then I should see the site header banner
+        And I should see the theme nav background
         And I should see the site navigation in hamburger menu
 
     @med @homepage
@@ -56,6 +57,7 @@ Feature: Site Navigation
     Scenario: Desktop users menu will see sticky navigation when they scroll down the page
         Given I switch to "desktop" view
         When I am currently viewing the homepage
+        And I should see the theme nav background
         And I scroll down in the page
         Then I should see the site header logo clickable to open homepage
         And I should see the site navigation in hamburger menu

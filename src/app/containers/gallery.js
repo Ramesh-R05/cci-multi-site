@@ -3,7 +3,7 @@ import Header from '@bxm/site-header';
 import GalleryDetailMain from '@bxm/gallery/lib/components/page/main';
 import GalleryDetailAside from '@bxm/gallery/lib/components/page/aside';
 import MobileOffCanvas from '@bxm/nav/lib/components/offcanvas/content';
-import Navigation from '@bxm/site-header/lib/components/navigation';
+import HamburgerNav from '@bxm/site-header/lib/components/hamburgerNav';
 import GalleryActions from '@bxm/gallery/lib/actions/gallery';
 import { connectToStores } from '@bxm/flux';
 import resizeViewport from '@bxm/behaviour/lib/components/resizeViewport';
@@ -147,7 +147,7 @@ class GallerySection extends Component {
     };
 
     render() {
-        const { gallery, hamburgerNavItems, headerNavItems, customisedTeaser, theme, magCover } = this.props;
+        const { gallery, hamburgerNavItems, headerNavItems, customisedTeaser, theme, magCover, currentUrl } = this.props;
         const pageLocation = Ad.pos.outside;
         if (!gallery) return null;
 
@@ -223,7 +223,7 @@ class GallerySection extends Component {
                         </svg>
                     ` }}
                             />
-                            <Navigation className="mobile-menu" items={mobileNav} currentUrl={this.props.currentUrl} />
+                            <HamburgerNav className="mobile-menu" items={mobileNav} currentUrl={currentUrl} />
                             <Logos className="mobile-menu-list" openInNewTab logoList={this.context.config.brands.hamburgers} />
                         </div>
                     </MobileOffCanvas>

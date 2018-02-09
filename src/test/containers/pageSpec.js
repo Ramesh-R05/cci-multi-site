@@ -31,7 +31,7 @@ const PageWrapper = proxyquire('../../app/containers/page', {
     '../components/footer': SiteFooterStub,
     '../components/uniheader': UniHeaderStub,
     '../components/page/logos': LogosStub,
-    '@bxm/site-header/lib/components/navigation': NavigationStub,
+    '@bxm/site-header/lib/components/hamburgerNav': NavigationStub,
     '@bxm/ad/lib/google/components/ad': AdStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub,
     '@bxm/ad/lib/google/components/standardPageAdsWrapper': StandardPageAdsWrapperStub

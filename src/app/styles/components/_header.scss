@@ -135,7 +135,7 @@
         @media #{$medium-up} {
 
             &:before {
-                border-left: 1px solid #79dbdf;
+                border-left: 1px solid $color-white;
                 height: 22px;
                 right: 10px;
                 top: 8px;
@@ -149,34 +149,44 @@
             display: inline-block;
             font-size: 15px;
             letter-spacing: 1.2px;
-            padding: 0 15px 0 15px;
+            padding: 0 15px;
             text-decoration: none;
 
             &:active,
             &:focus,
             &:hover,
             &.nav-item--active {
-                @include menu-hover--hover;
                 color: $color-white;
             }
 
             @media #{$xlarge-up} {
                 font-size: 20px;
             }
-            @include menu-hover;
+        }
+
+        &__nav {
+            > a,
+            .header-sub-nav > a {
+                &:active,
+                &:focus,
+                &:hover,
+                &.nav-item--active {
+                    @include menu-hover--hover;
+                }
+            }
+
+            .header-sub-nav > ul > li > a {
+                &:active,
+                &:focus,
+                &:hover,
+                &.nav-item--active {
+                    @include sub-menu-hover--hover;
+                }
+            }
         }
     }
 
-    .header-nav__nav {
-        filter: blur(0);
-        height: 35px;
-        line-height: 2em;
-        margin-top: 14px;
-        vertical-align: top;
-        white-space: normal;
-        width: 100%;
-        overflow: hidden;
-    }
+
 }
 
 // When header is expanded i.e home page and when it has not been fixed to the top
@@ -219,7 +229,6 @@
             height: 28px;
             line-height: 1.5em;
             margin-left: 0;
-            overflow: hidden;
             text-align: center;
             transform: translate(0);
             white-space: normal;
@@ -241,14 +250,6 @@
                     top: 7px;
                 }
             }
-        }
-    }
-
-    .header-nav__nav {
-        @media #{$large-up} {
-            line-height: 1em;
-            margin-top: 16px;
-            vertical-align: top;
         }
     }
 

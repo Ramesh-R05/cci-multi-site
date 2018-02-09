@@ -11,6 +11,12 @@ module.exports = function() {
         browser.waitForVisible(site_nav.siteNavHeader, 3000);
     });
 
+    this.Then(/^I should see the theme nav background$/, function () {
+        var headerBackground = browser.getAttribute(site_nav.siteNavHeaderBackground,'style');
+        expect(headerBackground).toContain('background-color');
+        expect(headerBackground).toContain('background-image: url');
+    });
+
     this.Then(/^I should see the site header logo to open homepage and contain "([^"]*)" class name$/, function (gtm) {
         browser.waitForExist(site_nav.smallIconlink, 3000);
         //Validate the logo is clickable to open homepage
