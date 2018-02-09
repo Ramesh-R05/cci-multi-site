@@ -65,7 +65,7 @@ module.exports = function() {
                 cmsSectionID = '1167'; //Sex
                 break;
             case 'gt-site':
-                cmsSectionID = '1169'; //Travel
+                cmsSectionID = '1201'; //Travel > Destination
                 break;
             default:
                 cmsSectionID = '1175'; //Those three sites have this ID as a section.
