@@ -29,21 +29,24 @@ export default {
         "pageName": "Now",
         "title": "Now to Love | Celebrity, News, Parenting, Health, Beauty, Fashion, Lifestyle"
     },
-    theme: {
-        id: "NOW-1206",
-        url: "/modules/hometheme",
-        moduleName: "hometheme",
-        pageDateCreated: "2017-06-21T01:32:56.00Z",
-        headerLogoColour: "purple",
-        headerLogoAlignment: "Center",
-        moduleManualContent: {
-            totalCount: 0,
-            data: []
+    "theme": {
+        "id": "ELLE-11790",
+        "url": "/modules/hometheme",
+        "themeName": "Confetti",
+        "moduleName": "hometheme",
+        "themeImage": "/api/asset?url=http%3A%2F%2Fdev.assets.cougar.bauer-media.net.au%2Fs3%2Fdigital-cougar-assets-dev%2FElle%2F2018%2F02%2F09%2F11790%2Frecording-(3).gif",
+        "themeColour": "#cccccc",
+        "themeAlignment": "center",
+        "pageDateCreated": "2017-05-02T00:42:59.00Z",
+        "themeTextColour": "#000000",
+        "headerLogoColour": "black",
+        "moduleManualContent": {
+            "totalCount": 0,
+            "data": []
         },
-        headerLargeBackground: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/2017/10/11/1507683862029_elle-gif-test.gif",
-        headerSmallBackground: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/2017/10/11/1507683902141_ELLEFiatMastheadAnimatedSmall.gif",
-        headerMediumBackground: "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/2017/10/11/1507683933530_elle-gif-test1.gif"
-
+        "headerLargeBackground": "/api/asset?url=http%3A%2F%2Fdev.assets.cougar.bauer-media.net.au%2Fs3%2Fdigital-cougar-assets-dev%2FElle%2F%2F2017%2F11%2F15%2F11790%2FELLE_Custom_Masthead_Desktop-(1).jpg",
+        "headerSmallBackground": "/api/asset?url=http%3A%2F%2Fdev.assets.cougar.bauer-media.net.au%2Fs3%2Fdigital-cougar-assets-dev%2FElle%2F2017%2F10%2F05%2F11790%2F414x105.jpg",
+        "headerMediumBackground": "/api/asset?url=http%3A%2F%2Fdev.assets.cougar.bauer-media.net.au%2Fs3%2Fdigital-cougar-assets-dev%2FElle%2F2017%2F10%2F05%2F11790%2F1023x174.jpg"
     },
     magCover: {
         moduleImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/2017/10/11/1507683961181_0018975elle-australia-magazine-subscription.png',

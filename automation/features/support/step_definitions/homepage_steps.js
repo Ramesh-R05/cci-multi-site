@@ -82,7 +82,7 @@ module.exports = function(){
                 if (world.Urls.site == 'gt-site') {
                     feedTeaserTitle_element = home.topFeedListTeaserTitle;
                 } else {
-                    feedTeaserTitle_element = home.topFeedTeaserTitle;
+                    feedTeaserTitle_element = home.topFeedGridTeaserTitle;
                 }
                 i = 4; //Test the 5th item which is array no.4
                 break;
