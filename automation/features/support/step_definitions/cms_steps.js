@@ -244,15 +244,9 @@ module.exports = function() {
     });
 
     this.Then(/^I should be able to check if the amp page is active$/, function () {
-        if ((world.Urls.home_page).includes('gt') == true) {
-            expect(browser.isExisting(cms.ampHtml)).toBe(false);
-            console.log('AMP is not enabled for GT'); // we added this step to skip checking amp page for gt, we will remove this once the front end for gt is ready
-        } else {
-            var enableamphtml = browser.getAttribute(cms.ampHtml, 'href');
-            console.log(enableamphtml);
-            expect(enableamphtml).toContain('/amp/');
-        }
-
+        var enableamphtml = browser.getAttribute(cms.ampHtml, 'href');
+        console.log(enableamphtml);
+        expect(enableamphtml).toContain('/amp/');
     });
 
     this.Then(/^I should be able to publish the item$/, function () {
