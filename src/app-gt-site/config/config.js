@@ -125,10 +125,10 @@ export default {
                 title: "Elle"
             },
             {
-                id: 'gt',
-                imageUrl: '/assets/images/menulogos/GT-logo.svg',
-                url: 'http://gourmettraveller.com.au/',
-                title: 'Gourmet Traveller'
+                id: 'harpers',
+                imageUrl: '/assets/images/menulogos/HB-logo.svg',
+                url: 'http://harpersbazaar.com.au/',
+                title: "Harper's Bazaar"
             },
             {
                 id: 'cosmo',
