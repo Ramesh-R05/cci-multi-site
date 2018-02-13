@@ -52,7 +52,7 @@ Feature: Smoke test for GT
             |Homes To Love              |http://homestolove.com.au/         |gtm-hamburger-homes        |
             |Food To Love               |http://foodtolove.com.au/          |gtm-hamburger-food         |
             |Elle                       |http://elle.com.au/                |gtm-hamburger-elle         |
-            |Gourmet Traveller          |http://gourmettraveller.com.au/    |gtm-hamburger-gt           |
+            |Harper's Bazaar            |http://harpersbazaar.com.au/       |gtm-hamburger-harpers      |
             |Cosmopolitan               |http://cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
             |Dolly                      |http://dolly.com.au/               |gtm-hamburger-dolly        |
             |Beauty Heaven              |http://beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
