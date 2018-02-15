@@ -26,6 +26,10 @@ export default createReducerStore({
             return state.nodeType;
         },
 
+        getSubsections(state) {
+            return state.subsections;
+        },
+
         getMagazineImageUrl(state) {
             if (!state.magCover) return '';
             return state.magCover.moduleImageUrl;
@@ -45,4 +49,3 @@ export default createReducerStore({
         }
     }
 });
-

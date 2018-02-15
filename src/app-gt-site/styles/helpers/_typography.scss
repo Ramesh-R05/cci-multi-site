@@ -387,9 +387,9 @@ $font-family-sans-serif-light: $font-text-light;
 
 // Section
 @mixin type-section-title {
-    color: $color-black;
-    font: 100 30px / 1em $font-family-sans-serif-primary;
-    letter-spacing: 0.1em;
+    font: 100 18px / 40px $font-family-sans-serif-light;
+    letter-spacing: 0;
+    text-align: center;
     text-transform: uppercase;
     text-decoration: none;
 
@@ -412,13 +412,8 @@ $font-family-sans-serif-light: $font-text-light;
         }
     }
 
-
     @media #{$medium-up} {
-        font-size: 70px;
-    }
-
-    @media #{$xlarge-up} {
-        font-size: 80px;
+        font-size: 22px;
     }
 }
 

@@ -15,6 +15,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
     case 'LOAD_CONTENT': {
         const entity = payload.body.entity;
         const footer = payload.body.footer || {};
+        const subsections = payload.body.subsectionList;
 
         if (!entity) return state;
 
@@ -27,7 +28,8 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             footer,
             magazineImageUrl: entity.imageUrl,
             theme: payload.body.theme,
-            magCover: payload.body.magCover
+            magCover: payload.body.magCover,
+            subsections
         };
     }
 

@@ -11,6 +11,7 @@ import StickyAndDockAd from '../components/page/stickyAndDockAd';
 import get from 'lodash/object/get';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import SideBlock from '../components/sideBlock/sideBlock';
+import SubsectionList from '../components/subsectionList';
 
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');
@@ -20,7 +21,8 @@ function mapStateToProps(context) {
         teasers: teaserStore.getLatestTeasers(),
         list: teaserStore.getList(),
         listNextParams: teaserStore.getListNextParams(),
-        magazineImageUrl: pageStore.getMagazineImageUrl()
+        magazineImageUrl: pageStore.getMagazineImageUrl(),
+        subsections: pageStore.getSubsections()
     };
 }
 
@@ -35,12 +37,14 @@ export default class Section extends Component {
         teasers: PropTypes.array.isRequired,
         title: PropTypes.array.isRequired,
         currentUrl: PropTypes.string.isRequired,
-        theme: PropTypes.object
+        theme: PropTypes.object,
+        subsections: PropTypes.object
     };
 
     static defaultProps = {
         teasers: [],
-        theme: {}
+        theme: {},
+        subsections: { data: [], totalCount: 0 }
     };
 
     static contextTypes = {
@@ -62,7 +66,7 @@ export default class Section extends Component {
     render() {
         const { config } = this.context;
         const brand = config.product;
-        const { nodeType, teasers, title, currentUrl, theme } = this.props;
+        const { nodeType, teasers, title, currentUrl, theme, subsections } = this.props;
         const heroTeaser = teasers[0];
         const firstTeaserList = teasers.slice(1, 7);
         const keyword = (nodeType === 'TagSection' && title) ? [title] : [];
@@ -109,6 +113,12 @@ export default class Section extends Component {
                                       className="columns large-8 xlarge-9 section-page__teasers-container"
                                       ref={(c) => { this.top = c; }}
                                     >
+                                        {subsections.totalCount > 1 && <SubsectionList
+                                          subsections={subsections.data}
+                                          currentUrl={currentUrl}
+                                        />
+                                        }
+
                                         <HeroTeaser showDate article={heroTeaser} brand={brand} />
 
                                         <TeaserGridView

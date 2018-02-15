@@ -3,6 +3,8 @@ import { connectToStores, provideContext } from '@bxm/flux';
 import { handleHistory } from 'fluxible-router';
 import ErrorPage from '../components/page/error';
 import { canUseDOM } from 'exenv';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 function mapStateToProps(context) {
     return {
@@ -84,15 +86,21 @@ class Application extends Component {
 
         const Handler = this.props.currentRoute.handler;
 
+        const muiTheme = getMuiTheme({
+            fontFamily: '"Montserrat-Regular", sans-serif'
+        });
+
         const className = canUseDOM ? '' : 'no-js';
         return (
-            <div className={className}>
-                <Handler
-                  currentUrl={this.props.currentRoute.url}
-                  nodeType={this.props.nodeType}
-                  theme={this.props.theme}
-                />
-            </div>
+            <MuiThemeProvider muiTheme={muiTheme}>
+                <div className={className}>
+                    <Handler
+                      currentUrl={this.props.currentRoute.url}
+                      nodeType={this.props.nodeType}
+                      theme={this.props.theme}
+                    />
+                </div>
+            </MuiThemeProvider>
         );
     }
 }

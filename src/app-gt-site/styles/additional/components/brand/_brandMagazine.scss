@@ -4,11 +4,11 @@
         padding-bottom: 5px;
 
         @media #{$medium-up} {
-            border-top: 1px solid $color-gt-black-1;
             padding-bottom: 13px;
         }
 
         @media #{$medium-only} {
+            border-top: 1px solid $color-gt-black-1;
             padding-top: 0;
             width: 50%;
         }

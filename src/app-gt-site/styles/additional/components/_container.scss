@@ -1,5 +1,14 @@
 .page {
 
+    &__top-container {
+        padding-top: 0;
+    }
+
+    &-title-container {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
     .gift-card {
         &-container {
             margin: 30px 0 20px;

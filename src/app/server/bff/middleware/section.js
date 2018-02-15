@@ -2,6 +2,7 @@ import find from 'lodash/collection/find';
 import get from 'lodash/object/get';
 import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
+import makeRequest from '../../makeRequest';
 const latestTeaserCount = 7;
 const listCount = 14;
 
@@ -27,6 +28,7 @@ export default async function sectionMiddleware(req, res, next) {
             sectionQuery = `/${section}${subsection ? `/${subsection}` : ''}`;
             teaserFilter = 'parentUrl';
             listingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
+            req.data.subsectionList = await makeRequest(`${req.app.locals.config.services.remote.module}/sections/${section}`);
         }
         if (nodeTypeAlias === 'Brand') {
             const source = get(req, 'data.entity.source', '');

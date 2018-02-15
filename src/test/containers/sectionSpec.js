@@ -16,6 +16,7 @@ const RepeatableStub = Context.createStubComponent();
 const SocialLinks = Context.createStubComponent();
 const StickyAndDockStub = Context.createStubComponent();
 const BrandTitleStub = Context.createStubComponent();
+const SubsectionsListStub = Context.createStubComponent();
 
 const SectionContainer = proxyquire('../../app/containers/section', {
     '@bxm/ad/lib/google/components/ad': AdStub,
@@ -27,7 +28,8 @@ const SectionContainer = proxyquire('../../app/containers/section', {
     '../components/teaser/hero': HeroTeaserStub,
     '../components/social/block': SocialLinks,
     '../components/page/stickyAndDockAd': StickyAndDockStub,
-    '../components/brand/brandTitle': BrandTitleStub
+    '../components/brand/brandTitle': BrandTitleStub,
+    '../components/subsectionList': SubsectionsListStub
 }).default;
 
 AdStub.pos = {
@@ -82,6 +84,9 @@ describe('Section Container', () => {
         },
         getMagazineImageUrl() {
             return 'http://stubbedimages.biz/content.jpg';
+        },
+        getSubsections() {
+            return {}
         }
     });
 
@@ -145,4 +150,3 @@ describe('Section Container', () => {
         expect(PageStubComponent.props.pageTitle.type).to.eq('h1');
     });
 });
-

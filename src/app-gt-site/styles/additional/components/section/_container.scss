@@ -1,0 +1,16 @@
+.page--section {
+    .page-title-container {
+        max-width: 1025px;
+        margin: 0 auto 10px;
+    }
+
+    .page-title {
+        margin-left: 0;
+        margin-right: 0;
+
+        @media #{$medium-up} {
+            margin: 0 30px;
+            width: auto;
+        }
+    }
+}

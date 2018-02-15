@@ -81,6 +81,7 @@
     "lodash.mergewith": "^4.6.0",
     "lodash.set": "^4.3.2",
     "lru-cache": "^4.0.1",
+    "material-ui": "^0.20.0",
     "newrelic": "^1.39.1",
     "picturefill": "^3.0.1",
     "promise": "^7.1.1",
