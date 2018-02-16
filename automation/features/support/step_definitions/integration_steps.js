@@ -262,7 +262,36 @@ module.exports = function() {
                         docTypeID[docType] = docTypeID["article"];
                         break;
                 }
+                break;
 
+            case 'amp gallery':
+                switch (site) {
+                    case 'elle':
+                        var sitUrl = "http://elle-site-au.sit.bxm.net.au/";
+                        elementOnPage = ".article__title";
+                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['gallery'];
+                        docTypeID[docType] = docTypeID["gallery"];
+                        break;
+                    case 'cosmo':
+                        var sitUrl = "http://cosmo-site-au.sit.bxm.net.au/";
+                        elementOnPage = ".article__title";
+                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['gallery'];
+                        docTypeID[docType] = docTypeID["gallery"];
+                        break;
+                    case 'hb':
+                        var sitUrl = "http://hb-site-au.sit.bxm.net.au/";
+                        elementOnPage = ".article__title";
+                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['gallery'];
+                        docTypeID[docType] = docTypeID["gallery"];
+                        break;
+                    case 'gt':
+                        var sitUrl = "http://gt-site-au.sit.bxm.net.au/";
+                        elementOnPage = ".article__title";
+                        pageURL = sitUrl + 'amp/' + sectionName + '/' + subsectionName + '/' + contentName['gallery'];
+                        docTypeID[docType] = docTypeID["gallery"];
+                        break;
+                }
+                break;
         }
 
         for(var i = 0; i < 20; i++) {
@@ -270,7 +299,7 @@ module.exports = function() {
             browser.refresh();
             browser.url(pageURL);
             if(browser.isExisting(elementOnPage) == true){
-                console.log("Page Loaded Successfully : ID-" + docTypeID[docType]);
+                console.log("Page Loaded Successfully : ID-" + docTypeID[docType] + ": " + pageURL);
                 break;
             } else {
                 var page_url = browser.getUrl();
@@ -285,10 +314,12 @@ module.exports = function() {
         var ID = docTypeID[docType];
         switch(docType) {
             case 'article':
+            case 'amp article':
                 browser.waitForExist(".article__title", 30000);
                 expect(browser.getText(".article__title").toUpperCase()).toEqual("ARTICLE TEST " + ID);
                 break;
             case 'gallery':
+            case 'amp gallery':
                 browser.waitForExist(".article__title", 30000);
                 expect(browser.getText(".article__title").toUpperCase()).toEqual("GALLERY TEST " + ID);
                 break;

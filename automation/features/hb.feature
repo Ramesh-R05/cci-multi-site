@@ -81,7 +81,6 @@ Feature: Smoke test for HB
         When I am currently viewing the homepage
         Then I should see the GA container id "UA-8689567-1" on the DOM
 
-
     Scenario: Verify all the doc type items
         Given I switch to "mobile" view
         Given Emily just published the "section" doc type item in "hb"
@@ -95,3 +94,5 @@ Feature: Smoke test for HB
         Then our readers can enjoy the created "gallery" page
         When I navigate to the "amp article" page in "hb"
         Then our readers can enjoy the created "amp article" page
+        When I navigate to the "amp gallery" page in "hb"
+        Then our readers can enjoy the created "amp gallery" page

@@ -6,7 +6,7 @@ Feature: Smoke test for GT
     Scenario: Verify the homepage
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        Then I should see the sign up button containing "//www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
+        Then I should see the sign up button containing "https://www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
         And I should see 2 must read images and titles which are clickable to open their page
         And I should see the main hero item containing its image and clickable to open its page
         And I should see 2 promoted images and titles which are clickable to open their page
@@ -19,7 +19,7 @@ Feature: Smoke test for GT
     Scenario: Verify the section landing page
         Given I switch to "mobile" view
         When I am currently viewing "travel"
-        Then I should see the sign up button containing "//www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
+        Then I should see the sign up button containing "https://www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
         Then I should see the main hero item containing its image and clickable to open its page
         #And I should see a "top" feed item containing its image and clickable to open its page #We will enable this once the top feed is changed to the list style as the homepage
         And I should see a "bottom" feed item containing its image and clickable to open its page
@@ -95,3 +95,5 @@ Feature: Smoke test for GT
         Then our readers can enjoy the created "gallery" page
 #        When I navigate to the "amp article" page in "gt"   #We will enable once https://bauer-media.atlassian.net/browse/BXMA-1020 is done
 #        Then our readers can enjoy the created "amp article" page
+#        When I navigate to the "amp gallery" page in "gt"
+#        Then our readers can enjoy the created "amp gallery" page
