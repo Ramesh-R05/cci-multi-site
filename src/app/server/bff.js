@@ -1,6 +1,7 @@
 import page from './bff/middleware/page';
 import home from './bff/middleware/home';
 import article from './bff/middleware/article';
+import recipe from './bff/middleware/recipe';
 import gallery from './bff/middleware/gallery';
 import responseBody from './bff/middleware/responseBody';
 import https from './bff/middleware/https';
@@ -36,6 +37,7 @@ export default function bff(server) {
             section,
             page,
             article,
+            recipe,
             gallery,
             headerMeta,
             https,

@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
 import VerticalGallery from '@bxm/article/lib/gallery';
-import Page from './page';
 import Article from '@bxm/article/lib/article';
+import RecipeSection from '../components/recipe/section';
+import Page from './page';
 import Teaser from '../components/teaser/teaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
 
@@ -98,6 +99,27 @@ export default class Document extends Component {
                       showSocialShare
                       socialShare={socialShare}
                       theme={theme}
+                    />
+                </Page>
+            );
+        } else if (nodeType === 'Recipe') {
+            return (
+                <Page
+                  currentUrl={currentUrl}
+                  headerExpanded={config.features.headerExpanded && themeEnabled}
+                  hideFooter={false}
+                  theme={themeEnabled ? theme : {}}
+                >
+                    <RecipeSection
+                      articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
+                      contentBodyConfig={Document.articleContentBodyConfig}
+                      enableTeads
+                      CustomisedTeaser={Teaser}
+                      showAdBeforeRecommendations
+                      showSocialShare
+                      socialShare={socialShare}
+                      theme={theme}
+                      adSpacing={6}
                     />
                 </Page>
             );

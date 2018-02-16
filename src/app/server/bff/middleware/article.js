@@ -11,7 +11,7 @@ export default async function article(req, res, next) {
             return;
         }
 
-        const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery'";
+        const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe'";
         req.data.leftHandSide = await getLatestTeasers(TOP, undefined, listingQuery);
 
         next();
