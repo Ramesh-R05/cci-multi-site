@@ -98,6 +98,9 @@ export default function stubServer(siteServer, siteConfig) {
             case 'automation-test-gallery-inskin-13303':
                 data = require('../test_data/pages/gallery_inskin').default;
                 break;
+            case 'automation-test-recipe-2127':
+                data = require('../test_data/pages/recipe').default;
+                break;
             default:
                 return next({body: "Could not find the article page", err: null, status: 404});
         }

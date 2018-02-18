@@ -57,6 +57,7 @@ Feature: Article
         * Long title in RHR is clickable to open its page
         * I can see an item in RHR containing source and date
 
+    @low
     Scenario: Verify the RHR on an article page in tablet landscape view
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         When I switch to "tablet landscape" view
