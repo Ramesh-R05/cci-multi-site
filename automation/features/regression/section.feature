@@ -21,7 +21,6 @@ Feature: Section Landing page
     Scenario Outline: Verify the hero teaser element is functional correctly in "<device>" view
         Given I switch to "<device>" view
         When I am currently viewing "fashion"
-        * I should not see the section title containing the default word as now
         * I should see the main hero item containing its image and clickable to open its page
         * I should see the main hero item containing its title and clickable to open its page
         @med

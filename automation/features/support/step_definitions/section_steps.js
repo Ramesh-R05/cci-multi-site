@@ -3,17 +3,22 @@ var world = require('../world');
 
 module.exports = function(){
 
-    this.When(/^I should not see the section title containing the default word as now$/, function () {
-        //Verify the section title
-        var sectionTitle = browser.getText(section.sectionTitle);
-        expect(sectionTitle).not.toContain("now");
-    });
-
     //Load More content
     this.Then(/^I should see extra (\d+) teasers after loading more$/, function (teaserCount) {
         var extraTeasers = browser.elements(section.sectionRepeatableSectionTeaserAfterLoadMore).value.length;
 
         expect(extraTeasers).toEqual(parseInt(teaserCount),10);
     });
+
+    this.Then(/^I should see "([^"]*)" title$/, function (sectionName) {
+        var sectionTitle = browser.getText(section.sectionTitle);
+        expect(sectionTitle).toEqual(sectionName);
+    });
+
+    this.Then(/^I should see "([^"]*)" selected as a default in the list$/, function (subSectionName) {
+        var subSectionList = browser.getText(section.subSectionList);
+        expect(subSectionList).toEqual(subSectionName);
+    });
+
 
 };
