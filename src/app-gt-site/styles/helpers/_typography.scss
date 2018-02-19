@@ -178,7 +178,13 @@ $font-family-sans-serif-light: $font-text-light;
     @include caption {
         color: $color-text;
         font-family: $font-link;
+        font-style: inherit;
     }
+
+    @media #{$medium-up} {
+        font-style: inherit;
+    }
+
     &:hover,
     &:active {
         color: $color-gt-grey-2;
@@ -269,7 +275,6 @@ $font-family-sans-serif-light: $font-text-light;
     font-size: 22px;
     line-height: 28px;
     font-weight: bold;
-    text-transform: capitalize;
 
     @media #{$medium-up} {
         font-size: 36px;
@@ -813,4 +818,7 @@ a {
 
     @extend .type-link;
     text-decoration: none;
+    article & {
+        text-decoration: underline;
+    }
 }

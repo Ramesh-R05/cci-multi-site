@@ -108,9 +108,6 @@
                     text-align: center;
                 }
             }
-            .feed-item__body-title {
-                text-transform: capitalize;
-            }
         }
     }
 
@@ -146,8 +143,7 @@
         margin-top: $article-gap;
         margin-bottom: 0;
         font-family: $font-text;
-        background-color: $color-gt-black-1;
-        color: $color-gt-white;
+        border: 1px solid $color-gt-black-1;
         padding: 0;
 
         p {

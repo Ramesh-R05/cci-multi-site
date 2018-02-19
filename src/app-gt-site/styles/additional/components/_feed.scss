@@ -7,6 +7,19 @@
     &-carousel-content {
         border-top-color: transparent;
 
+        > h2 {
+            font-size: 0;
+            color: $color-gt-white;
+            line-height: 1;
+            
+            &:before {
+                @include type-header-secondary;
+                content: 'READ MORE';
+                font-size: 18px;
+                line-height: 26px;
+            }
+        }
+
         .feed-item {
             background-color: $color-gt-black-1;
             margin: 0 15px 0;

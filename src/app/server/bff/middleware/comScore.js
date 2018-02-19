@@ -1,7 +1,6 @@
 import request from 'request';
 
 export default function comScore(req, res, next) {
-
     const pageUrl = encodeURIComponent(`https://${req.app.locals.config.site.prodDomain}${req.query.url}`);
     const options = {
         url: `http://api-us-east.zqtk.net/bauermedia-1h5kv7?url=${pageUrl}`,
@@ -9,9 +8,7 @@ export default function comScore(req, res, next) {
     };
 
     request.get(options, (err, response, body) => {
-
         if (!err && response.statusCode === 200) {
-
             /*
             * Example responses:
             * var pxSegmentIDs = "300003,210000,110000,110006";
@@ -43,11 +40,8 @@ export default function comScore(req, res, next) {
                 req.data = req.data || {};
                 req.data.comScoreSegmentIds = segmentIds.join(',');
             }
-
         }
 
         next();
-
     });
-
 }
