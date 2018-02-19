@@ -636,7 +636,7 @@ jobs:
         - script: npm install
         - script: export URL=http://cms.dev.gt.wn.bauer-media.net.au/cms/umbraco/
         - script: export APP_KEY=gt-site
-        - script: npm run test:cms || true
+        - script: npm run test:gtcms || true
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
