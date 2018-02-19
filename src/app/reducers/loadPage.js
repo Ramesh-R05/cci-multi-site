@@ -4,7 +4,8 @@ export const initialState = {
     nodeType: '',
     title: '',
     magazineImageUrl: '',
-    magCover: {}
+    magCover: {},
+    comScoreSegmentIds: []
 };
 
 export function reducer(state = initialState, payload = {}, eventName = '') {
@@ -16,6 +17,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
         const entity = payload.body.entity;
         const footer = payload.body.footer || {};
         const subsections = payload.body.subsectionList;
+        const comScoreSegmentIds = payload.body.comScoreSegmentIds;
 
         if (!entity) return state;
 
@@ -29,7 +31,8 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             magazineImageUrl: entity.imageUrl,
             theme: payload.body.theme,
             magCover: payload.body.magCover,
-            subsections
+            subsections,
+            comScoreSegmentIds
         };
     }
 
@@ -48,7 +51,8 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             footer,
             magazineImageUrl: '',
             theme: '',
-            magCover
+            magCover,
+            comScoreSegmentIds: []
         };
     }
 

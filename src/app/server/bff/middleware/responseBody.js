@@ -90,6 +90,10 @@ export default function responseBody(req, res, next) {
             res.body.magCover = req.data.magcover;
         }
 
+        if (get(req, 'data.comScoreSegmentIds')) {
+            res.body.comScoreSegmentIds = req.data.comScoreSegmentIds;
+        }
+
         next();
     } catch (error) {
         next(error);

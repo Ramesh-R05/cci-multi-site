@@ -46,6 +46,10 @@ export default createReducerStore({
         getModule: (state, module) => {
             if (!module) return [];
             return state[module] || [];
+        },
+
+        getComScoreSegmentIds(state) {
+            return state.comScoreSegmentIds;
         }
     }
 });

@@ -97,7 +97,8 @@ describe(`loadPage Reducer`, () => {
                 title: '',
                 magazineImageUrl: '',
                 theme: '',
-                magCover: DEFAULT_MAGCOVER
+                magCover: DEFAULT_MAGCOVER,
+                comScoreSegmentIds: []
             });
         });
 
@@ -113,7 +114,8 @@ describe(`loadPage Reducer`, () => {
                 title: '',
                 magazineImageUrl: '',
                 theme: '',
-                magCover: DEFAULT_MAGCOVER
+                magCover: DEFAULT_MAGCOVER,
+                comScoreSegmentIds: []
             });
         });
     });

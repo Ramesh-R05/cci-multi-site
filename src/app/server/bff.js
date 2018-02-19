@@ -18,6 +18,7 @@ import amp from '@bxm/server/lib/middleware/amp';
 import stubServer from '../../automation/test_data/contentApi';
 import logger from '../../logger';
 import assetProxy from './bff/middleware/assetProxy';
+import comScore from './bff/middleware/comScore';
 
 export default function bff(server) {
     server.get('/api/asset', assetProxy);
@@ -31,6 +32,7 @@ export default function bff(server) {
         server.get(
             server.locals.config.services.endpoints.page,
             pageModules,
+            comScore,
             home,
             listing,
             tag,
