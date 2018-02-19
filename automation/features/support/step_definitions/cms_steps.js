@@ -213,6 +213,60 @@ module.exports = function() {
                     expect(browser.waitForVisible(cms.pageContentTagsFirstTag,5000)).toBe(true);
                     browser.click(tabElement + cms.pageContentTagsFirstTag);
                     break;
+                case 'Recipe Servings':
+                    browser.waitForVisible(tabElement + cms.recipeRecipeServings,2000);
+                    browser.setValue(tabElement + cms.recipeRecipeServingsMin, '10');
+                    browser.setValue(tabElement + cms.recipeRecipeServingsMax, '20');
+                    browser.setValue(tabElement + cms.recipeRecipeServingsQuantity, '2');
+                    browser.setValue(tabElement + cms.recipeRecipeServingsMeasure, 'g');
+                    break;
+                case 'Cooking Time':
+                    browser.waitForVisible(tabElement + cms.recipeCookingTime,2000);
+                    browser.setValue(tabElement + cms.recipeCookingTimePreparationTime, '15');
+                    browser.setValue(tabElement + cms.recipeCookingTimePreparationTimeLabel, 'label of preparation time');
+                    browser.setValue(tabElement + cms.recipeCookingTimeCookingTime, '25');
+                    browser.setValue(tabElement + cms.recipeCookingTimeCookingTimeLabel, 'label of cooking time');
+                    browser.setValue(tabElement + cms.recipeCookingTimeMarinatingTime, '20');
+                    browser.setValue(tabElement + cms.recipeCookingTimeMarinatingTimeLabel, 'label of marinating time');
+                    break;
+                case 'Ingredients':
+                    browser.waitForVisible(tabElement + cms.recipeIngredients,2000);
+                    browser.setValue(tabElement + cms.recipeIngredientsQuantity1, '1/2');
+                    browser.setValue(tabElement + cms.recipeIngredientsMeasure1, 'tsp');
+                    browser.setValue(tabElement + cms.recipeIngredientsIngredient1, 'cornflour');
+                    browser.setValue(tabElement + cms.recipeIngredientsQuantity2, '80');
+                    browser.setValue(tabElement + cms.recipeIngredientsMeasure2, 'ml');
+                    browser.setValue(tabElement + cms.recipeIngredientsIngredient2, 'vegetable oil (1/3 cup)');
+                    break;
+                case 'Cooking Method':
+                    browser.waitForVisible(tabElement + cms.recipeCookingMethod,2000);
+                    browser.setValue(tabElement + cms.recipeCookingMethodHeading, 'Cooking method heading');
+                    browser.setValue(tabElement + cms.recipeCookingMethodText, 'Process chilli and onion in a ***food processor*** until a paste forms and set aside.');
+                    break;
+                case 'Recipe Tips':
+                    browser.waitForVisible(tabElement + cms.recipeRecipeTips,2000);
+                    browser.setValue(tabElement + cms.recipeRecipeTipsText, 'Remember to clean the crab before cooking.');
+                    break;
+                case 'Magazine Issue':
+                    browser.waitForVisible(tabElement + cms.editorialMagazineIssue,2000);
+                    browser.setValue(tabElement + cms.editorialMagazineIssue, '2018/1');
+                    break;
+                case 'Styling':
+                    browser.waitForVisible(tabElement + cms.editorialStyling,2000);
+                    browser.setValue(tabElement + cms.editorialStyling, 'European');
+                    break;
+                case 'Address':
+                    browser.waitForVisible(tabElement + cms.editorialAddress,2000);
+                    browser.setValue(tabElement + cms.editorialAddress, '29 Jardine St Kingston, Canberra, ACT');
+                    break;
+                case 'Hours':
+                    browser.waitForVisible(tabElement + cms.editorialHours,2000);
+                    browser.setValue(tabElement + cms.editorialHours, '12PM-9PM');
+                    break;
+                case 'Prices':
+                    browser.waitForVisible(tabElement + cms.editorialPrices,2000);
+                    browser.setValue(tabElement + cms.editorialPrices, 'E $16-$19T');
+                    break;
             }
         }
 

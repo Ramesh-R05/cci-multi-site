@@ -77,6 +77,72 @@ Feature: CMS Smoke Test
         * I should be able to visit the live URL
         * I should be able to check if the amp page is active
 
+    @gtcms
+    Scenario: Create the Recipe item
+        Given I am logging in CMS
+        When I am currently viewing the create form
+        * I should be able to select "Recipe" doc type
+        * I should be able to add the name
+        * I should be able to click the create button
+        * I should see the item is created
+        When I am currently viewing "editContent.aspx?id=" of "Recipe"
+        * I should be able to add content in the item
+            | field             | tab               |
+            | Long Title        | Editorial         |
+            | Short Teaser      | Editorial         |
+            | Image             | Editorial         |
+            | Body Paragraph    | Editorial         |
+            | Body Heading      | Editorial         |
+            | Page Title        | Search and Social |
+            | Created at        | Properties        |
+            | Enable AMP        | Search and Social |
+            | Video             | Editorial         |
+            | Body Video        | Editorial         |
+            | Recipe Servings   | Recipe            |
+            | Cooking Time      | Recipe            |
+            | Ingredients       | Recipe            |
+            | Cooking Method    | Recipe            |
+            | Recipe Tips       | Recipe            |
+            | Content Tags      | Page              |
+        * I should be able to publish the item
+        * I should be able to see the "preview" URL
+        * I should be able to see the "live" URL
+       # * I should be able to visit the live URL #enable when we have AMP page for recipe
+       # * I should be able to check if the amp page is active #enable when we have AMP page for recipe
+
+    @gtcms
+    Scenario: Create the Review item
+        Given I am logging in CMS
+        When I am currently viewing the create form
+        * I should be able to select "Review" doc type
+        * I should be able to add the name
+        * I should be able to click the create button
+        * I should see the item is created
+        When I am currently viewing "editContent.aspx?id=" of "Review"
+        * I should be able to add content in the item
+            | field             | tab               |
+            | Long Title        | Editorial         |
+            | Short Teaser      | Editorial         |
+            | Image             | Editorial         |
+            | Body Paragraph    | Editorial         |
+            | Body Heading      | Editorial         |
+            | Page Title        | Search and Social |
+            | Created at        | Properties        |
+            | Enable AMP        | Search and Social |
+            | Video             | Editorial         |
+            | Body Video        | Editorial         |
+            | Magazine Issue    | Editorial         |
+            | Styling           | Editorial         |
+            | Address           | Editorial         |
+            | Hours             | Editorial         |
+            | Prices            | Editorial         |
+            | Content Tags      | Page              |
+        * I should be able to publish the item
+        * I should be able to see the "preview" URL
+        * I should be able to see the "live" URL
+        * I should be able to visit the live URL
+        * I should be able to check if the amp page is active
+
     #This scenario won't be run in phantomjs because we haven't found a solution to work with the alert popup
     @manual
     Scenario Outline: Unpublish the <doctype> item
