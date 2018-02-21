@@ -65,6 +65,7 @@ jobs:
   - name: hb-site-man-master
     type: manifest
     steps:
+      - IN: multi-site_runCI  #Workaround https://github.com/Shippable/support/issues/4140
       - IN: hb-site-img-master
       - IN: hb-site-opts-sit
       - TASK: managed
