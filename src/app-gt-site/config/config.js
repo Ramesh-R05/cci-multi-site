@@ -12,7 +12,7 @@ export default {
 
     gtm: { masthead: 'HB', id: 'GTM-NX2PKZ' },
 
-    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/HarpersBazaar/defaultimage.png',
+    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/GourmetTraveller/defaultimage.png',
 
     brightcove,
 
