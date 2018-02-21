@@ -86,13 +86,13 @@ Feature: Smoke test for GT
         When I am currently viewing the homepage
         * I should see the site header logo to open homepage and contain "gtm-navbar-gourmet" class name
 
-    Scenario: I can see the GTM container with id "GTM-NX2PKZ"
+    Scenario: I can see the GTM container with id "GTM-P8JPLN"
         When I am currently viewing the homepage
-        Then I should see the GTM container id "GTM-NX2PKZ" on the DOM
+        Then I should see the GTM container id "GTM-P8JPLN" on the DOM
 
-    Scenario: I can see the GA container with id "UA-8689567-1"
+    Scenario: I can see the GA container with id "UA-8689488-1"
         When I am currently viewing the homepage
-        Then I should see the GA container id "UA-8689567-1" on the DOM
+        Then I should see the GA container id "UA-8689488-1" on the DOM
 
     Scenario: Verify all the doc type items
         Given I switch to "mobile" view

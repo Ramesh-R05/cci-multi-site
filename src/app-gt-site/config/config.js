@@ -8,9 +8,9 @@ import polar from './polar';
 
 export default {
 
-    ga: { id: 'UA-8689567-1' },
+    ga: { id: 'UA-8689488-1' },
 
-    gtm: { masthead: 'HB', id: 'GTM-NX2PKZ' },
+    gtm: { masthead: 'GT', id: 'GTM-P8JPLN' },
 
     defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/GourmetTraveller/defaultimage.png',
 

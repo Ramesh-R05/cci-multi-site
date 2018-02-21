@@ -1,6 +1,6 @@
 export default {
     url: '//plugin.mediavoice.com/plugin.js',
-    propertyId: 'NA-HARPSBAZACONTPROM-11238618',
+    propertyId: 'NA-GOURTRAVCONTPROM-11238617',
     targets: { env: 'test' },
     adSize: '2x2',
     server: 'dfp',

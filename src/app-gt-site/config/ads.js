@@ -10,7 +10,7 @@ export default {
             pageTypes: {
                 Brand: 'index'
             },
-            siteId: 'harpersbazaar',
+            siteId: 'gourmettraveller',
             tagsObject: 'tags',
             sizes: {
                 native: [250, 30],
