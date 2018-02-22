@@ -12,6 +12,7 @@ import BrandLogo from '@bxm/article/lib/components/article/brandLogo';
 import Outbrain from '@bxm/article/lib/components/article/outbrain';
 import RevContent from '@bxm/article/lib/components/article/revContent';
 import FeedCarousel from '@bxm/article/lib/components/article/feedCarousel';
+import RecipeAtGlance from './recipeAtGlance';
 
 export default class Recipe extends Component {
 
@@ -38,7 +39,9 @@ export default class Recipe extends Component {
         showAdBeforeRecommendations: PropTypes.bool,
         totalGalleryItems: PropTypes.number,
         feedItems: PropTypes.array.isRequired,
-        siteName: PropTypes.string.isRequired
+        siteName: PropTypes.string.isRequired,
+        recipeServings: PropTypes.object.isRequired,
+        recipeCookingTime: PropTypes.object.isRequired
     };
 
     static defaultProps = {
@@ -132,23 +135,35 @@ export default class Recipe extends Component {
         );
     }
 
+    addToHeaderBefore(exisitingComponent, toAddComponent) {
+        const { articleHeaderOrder } = this.props;
+        if (!articleHeaderOrder) return null;
+        const indexOfExisting = articleHeaderOrder.indexOf(exisitingComponent);
+        if (indexOfExisting === -1) return articleHeaderOrder;
+        const recipeHeaderOrder = articleHeaderOrder.slice();
+        recipeHeaderOrder.splice(indexOfExisting, 0, toAddComponent);
+        return recipeHeaderOrder;
+    }
+
     render() {
-        const { className, showAd, dateCreated, articleHeaderOrder, pageId, url, siteUrl, heroItem,
+        const { className, showAd, dateCreated, pageId, url, siteUrl, heroItem,
             summary, title, source, parentName, authorProfiles, contentBody, contentBodyConfig,
-            showAdBeforeRecommendations, nodeType, totalGalleryItems, siteName, feedItems } = this.props;
+            showAdBeforeRecommendations, nodeType, totalGalleryItems, siteName, feedItems, recipeServings, recipeCookingTime } = this.props;
         const { config } = this.context;
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showRevContent = config.isFeatureEnabled('revContent');
         const showFeedCarousel = config.isFeatureEnabled('feedCarousel');
+        const recipeAtGlance = { recipeServings, recipeCookingTime };
+        const recipeHeaderOrder = this.addToHeaderBefore('Hero', <RecipeAtGlance recipeAtGlance={recipeAtGlance} />);
 
         return (
-            <article className={classNames('article', className)}>
+            <article className={classNames('article', 'recipe', className)}>
 
                 { showAd && this.renderAds('ad--article-top') }
 
                 <Header
                   dateCreated={dateCreated}
-                  articleHeaderOrder={articleHeaderOrder}
+                  articleHeaderOrder={recipeHeaderOrder}
                   pageId={pageId}
                   url={url}
                   heroItem={heroItem}

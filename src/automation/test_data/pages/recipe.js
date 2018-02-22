@@ -54,7 +54,100 @@ export default{
                 "fullName": "food_Main_ingredient_Vegetables_Potato",
                 "displayName": "Potato"
             }
-        ]
+        ],
+        "recipeCookingTime": {
+            "times": [
+                {
+                    "id": "preparation",
+                    "label": "label of preparation time",
+                    "minutes": 10,
+                    "quantity": "10"
+                },
+                {
+                    "id": "cooking",
+                    "label": "label of cooking time",
+                    "minutes": 20,
+                    "quantity": "20"
+                },
+                {
+                    "id": "marinating",
+                    "label": "label of marinating time",
+                    "minutes": 10,
+                    "quantity": "10"
+                }
+            ],
+            "total": 30
+        },
+        "recipeCookingMethod": [
+            {
+                "heading": "",
+                "methods": [
+                    {
+                        "method": "For dill cucumbers, toss cucumbers and 2 tsp fine salt in a bowl to coat evenly and transfer to a colander to drain (15 minutes). Rinse, then pat dry with paper towels. Stir vinegar and sugar until sugar dissolves, add to cucumbers along with dill and season to taste with freshly ground pepper. Pack cucumbers into a sterile jar or container, pour in vinegar mixture to cover completely and refrigerate for at least a day before using. Cucumbers will keep refrigerated for 2 weeks."
+                    }
+                ]
+            },
+            {
+                "heading": "",
+                "methods": [
+                    {
+                        "method": "For potato salad, cover potatoes with cold salted water in a saucepan, bring to the boil and cook until starting to crumble on the edges (15-20 minutes). Drain, return to pan, then add remaining ingredients, season generously and combine well. Cover and stand at room temperature if using on the same day, or refrigerate in an airtight container for up to a day (bring to room temperature before serving)."
+                    }
+                ]
+            },
+            {
+                "heading": "",
+                "methods": [
+                    {
+                        "method": "Bring tuna to room temperature (30 minutes). Heat oil in a saucepan over high heat, add tuna and sear each side until browned (1-1½ minutes each side). Remove from heat, pat dry with paper towels, then brush with mustard. Scatter herb mixture and rind on a tray, then roll tuna in herb mixture to coat evenly. Slice and serve tuna with potato salad and dill cucumbers, and scatter with extra chopped herbs."
+                    }
+                ]
+            }
+        ],
+        "recipeIngredients": [
+            {
+                "heading": "",
+                "ingredients": [
+                    {
+                        "measure": "tbsp",
+                        "quantity": "1",
+                        "ingredient": "olive oil"
+                    },
+                    {
+                        "measure": "kg",
+                        "quantity": "1.5",
+                        "ingredient": "piece of sashimi-quality tuna, skin off, bloodline trimmed"
+                    },
+                    {
+                        "measure": "cup",
+                        "quantity": "1",
+                        "ingredient": "finely chopped mixed soft herbs (such as chervil, chives, dill and flat-leaf parsley), plus extra to serve"
+                    }
+                ]
+            },
+            {
+                "heading": "Dill cucumbers",
+                "ingredients": [
+                    {
+                        "measure": "ml",
+                        "quantity": "100",
+                        "ingredient": "brown rice vinegar"
+                    },
+                    {
+                        "measure": "gm",
+                        "quantity": "30",
+                        "ingredient": "caster sugar"
+                    }
+                ]
+            }
+        ],
+        "recipeServings": {
+            "serveMax": "20",
+            "serveMin": "10",
+            "yieldMeasure": "g",
+            "yieldQuantity": "2"
+        },
+        "recipeTips": "This is recipe tips"
     },
     "headerMetaData": {
         "googleTagManagerEnvironment": "sit",

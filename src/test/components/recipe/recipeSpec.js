@@ -17,6 +17,7 @@ const RecommendationsStub = Context.createStubComponent();
 const RelatedContentComponentStub = Context.createStubComponent();
 const OutbrainStub = Context.createStubComponent();
 const FeedCarouselStub = Context.createStubComponent();
+const RecipeAtGlanceStub = Context.createStubComponent();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
 const keywords = ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor'];
 const kingtag = 'Outdoor';
@@ -51,6 +52,7 @@ const Recipe = proxyquire('../../../app/components/recipe/recipe', {
     '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub,
     '@bxm/article/lib/components/article/relatedContent': RelatedContentComponentStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub,
+    './recipeAtGlance': RecipeAtGlanceStub,
     '@bxm/tags/lib/utils': {
         getFirstTagNameForCategory: () => kingtag
     }
@@ -235,6 +237,20 @@ describe(`Recipe Component`, () => {
             });
         });
 
+        describe(`when articleHeaderOrder prop contains "Hero"`, () => {
+            before(() => {
+                reactModule = Context.mountComponent(Recipe, {
+                    articleHeaderOrder: [...articleHeaderOrder, "Hero"],
+                    heroItem
+                }, [contextConfigStub]);
+            });
+
+            it(`should present RecipeAtGlanceStub as an array element in the articleHeaderOrder prop of Header Component `, () => {
+                headerSub = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
+                const indexOfHero = headerSub.props.articleHeaderOrder.indexOf('Hero')
+                expect(headerSub.props.articleHeaderOrder[indexOfHero - 1].type).to.equal(RecipeAtGlanceStub);
+            })
+        })
         // TODO - Cleanup ad tests
         // describe(`Top ad sub-component`, () => {
         //     const className = 'ad--article-top';

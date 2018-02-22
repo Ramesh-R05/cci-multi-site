@@ -12,6 +12,7 @@ Feature: Recipe
         * I can see the hero image
         * I can see the short teaser "Automation Test Recipe Short Teaser"
         * I can see the body paragraph "Automation Test Recipe Body Paragraph 1"
+        * I can see the At A Glance
         @high
         Examples:
             |device             |
@@ -46,6 +47,7 @@ Feature: Recipe
         * I can see the hero image
         * I can see the short teaser "Automation Test Recipe Short Teaser"
         * I can see the body paragraph "Automation Test Recipe Body Paragraph 1"
+        * I can see the At A Glance
     @low
         Examples:
             | device            |
