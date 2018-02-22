@@ -86,7 +86,7 @@ export default {
             'gift-card': 'gift-card'
         },
         newsletterText: 'Receive offers straight to your inbox',
-        newsletterUrl: '//www.gourmettraveller.com.au/gt-newsletter',
+        newsletterUrl: 'https://www.gourmettraveller.com.au/gt-newsletter',
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: 'subscribe-magazine',
         imageSizes: {
