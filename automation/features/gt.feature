@@ -77,7 +77,7 @@ Feature: Smoke test for GT
         When I am currently viewing "404"
         * I should see the error title as:
         """
-        WHOOPS! LOOKS LIKE WE DON'T HAVE THE PAGE YOU’RE LOOKING FOR.
+        Oops - we're not sure why you ended up here. But at least there's a view.
         """
         * I should see the site header logo to open homepage and contain "gtm-navbar-gourmet" class name
 

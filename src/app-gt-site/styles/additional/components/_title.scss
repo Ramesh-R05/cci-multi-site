@@ -1,16 +1,22 @@
 .page-title {
     @include type-section-title();
-    background: $color-black-origin;
-    color: $color-white;
     margin: 22px 30px 10px;
     padding: 0 $column-gutter/2;
+    text-transform: none;
 
     @media #{$medium-up} {
         padding: 10px $column-gutter/2;
     }
 
     span {
-        color: $color-white;
+        color: $color-primary;
+        font-size: 22px;
+        line-height: 28px;
+
+        @media #{$medium-up} {
+            font-size: 36px;
+            line-height: 40px;
+        }
 
         &:after {
             display: none;
