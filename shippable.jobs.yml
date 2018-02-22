@@ -12,14 +12,14 @@ jobs:
   - name: multi-site_runCI
     type: runCI
     steps:
+      - OUT: gt-site-img-master
+      - OUT: gt-site-img-branch
       - OUT: cosmo-site-img-master
       - OUT: cosmo-site-img-branch
       - OUT: elle-site-img-master
       - OUT: elle-site-img-branch
       - OUT: hb-site-img-master
       - OUT: hb-site-img-branch
-      - OUT: gt-site-img-master
-      - OUT: gt-site-img-branch
 
   # 2branchCOSMO. Manifest for a BRANCH image
   - name: cosmo-site-man-branch
@@ -65,7 +65,6 @@ jobs:
   - name: hb-site-man-master
     type: manifest
     steps:
-      - IN: multi-site_runCI  #Workaround https://github.com/Shippable/support/issues/4140
       - IN: hb-site-img-master
       - IN: hb-site-opts-sit
       - TASK: managed
