@@ -9,18 +9,18 @@ env:
     - BRANCH_NAME="$(sed 's/\//-/g' <<< $BRANCH).$BUILD_NUMBER" # need to replace '/' in the branch name with '-'
     - IMAGE=317367993082.dkr.ecr.ap-southeast-2.amazonaws.com
   matrix:
+    - APP_KEY=gt-site
     - APP_KEY=cosmo-site
     - APP_KEY=elle-site
     - APP_KEY=hb-site
-    - APP_KEY=gt-site
 
 # Remove the comment -> # from the APP_KEY you want to exclude from running CI during development
 matrix:
     exclude:
+#    - env: APP_KEY=gt-site
 #    - env: APP_KEY=cosmo-site
 #    - env: APP_KEY=elle-site
 #    - env: APP_KEY=hb-site
-#    - env: APP_KEY=gt-site
 
 build:
   cache: true
