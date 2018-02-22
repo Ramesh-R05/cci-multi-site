@@ -21,6 +21,22 @@ jobs:
       - OUT: hb-site-img-master
       - OUT: hb-site-img-branch
 
+  # 2branchGT. Manifest for a BRANCH image
+  - name: gt-site-man-branch
+    type: manifest
+    steps:
+      - IN: gt-site-img-branch
+      - IN: gt-site-opts-sit
+      - TASK: managed
+
+  # 2GT. Manifest for MASTER image
+  - name: gt-site-man-master
+    type: manifest
+    steps:
+      - IN: gt-site-img-master
+      - IN: gt-site-opts-sit
+      - TASK: managed
+
   # 2branchCOSMO. Manifest for a BRANCH image
   - name: cosmo-site-man-branch
     type: manifest
@@ -67,22 +83,6 @@ jobs:
     steps:
       - IN: hb-site-img-master
       - IN: hb-site-opts-sit
-      - TASK: managed
-
-  # 2branchGT. Manifest for a BRANCH image
-  - name: gt-site-man-branch
-    type: manifest
-    steps:
-      - IN: gt-site-img-branch
-      - IN: gt-site-opts-sit
-      - TASK: managed
-
-  # 2GT. Manifest for MASTER image
-  - name: gt-site-man-master
-    type: manifest
-    steps:
-      - IN: gt-site-img-master
-      - IN: gt-site-opts-sit
       - TASK: managed
 
   # 3a. TEST deployment for MASTER - stubbed and hb config
