@@ -18,6 +18,9 @@ const RelatedContentComponentStub = Context.createStubComponent();
 const OutbrainStub = Context.createStubComponent();
 const FeedCarouselStub = Context.createStubComponent();
 const RecipeAtGlanceStub = Context.createStubComponent();
+const RecipeIngredientsStub = Context.createStubComponent();
+const RecipeMethodStub = Context.createStubComponent();
+const RecipeNotesStub = Context.createStubComponent();
 const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
 const keywords = ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor'];
 const kingtag = 'Outdoor';
@@ -53,6 +56,9 @@ const Recipe = proxyquire('../../../app/components/recipe/recipe', {
     '@bxm/article/lib/components/article/relatedContent': RelatedContentComponentStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub,
     './recipeAtGlance': RecipeAtGlanceStub,
+    './recipeIngredients': RecipeIngredientsStub,
+    './recipeMethod': RecipeMethodStub,
+    './recipeNotes': RecipeNotesStub,
     '@bxm/tags/lib/utils': {
         getFirstTagNameForCategory: () => kingtag
     }
@@ -108,6 +114,9 @@ describe(`Recipe Component`, () => {
         let recommendationsStub;
         let outbrainStub;
         let feedCarouselStub;
+        let recipeIngredientsStub;
+        let recipeMethodStub;
+        let recipeNotesStub;
 
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(Recipe, {
@@ -144,6 +153,9 @@ describe(`Recipe Component`, () => {
             recommendationsStub = TestUtils.findRenderedComponentWithType(reactModule, RecommendationsStub);
             outbrainStub = TestUtils.findRenderedComponentWithType(reactModule, OutbrainStub);
             feedCarouselStub = TestUtils.findRenderedComponentWithType(reactModule, FeedCarouselStub);
+            recipeIngredientsStub = TestUtils.findRenderedComponentWithType(reactModule, RecipeIngredientsStub);
+            recipeMethodStub = TestUtils.findRenderedComponentWithType(reactModule, RecipeMethodStub);
+            recipeNotesStub = TestUtils.findRenderedComponentWithType(reactModule, RecipeNotesStub);
         });
 
         it(`should render the component with class "${articleClassName}"`, () => {
@@ -156,10 +168,16 @@ describe(`Recipe Component`, () => {
             expect(classNames).to.contain(className);
         });
 
-        it(`should render the key article sub-components on the page`, () => {
+        it(`should render the key recipe sub-components on the page`, () => {
             expect(headerSub).to.exist;
             expect(contentBodySub).to.exist;
             expect(recommendationsStub).to.exist;
+        });
+
+        it(`should render the recipe details components on the page`, () => {
+            expect(recipeIngredientsStub).to.exist;
+            expect(recipeMethodStub).to.exist;
+            expect(recipeNotesStub).to.exist;
         });
 
         describe(`Header sub-component`, () => {

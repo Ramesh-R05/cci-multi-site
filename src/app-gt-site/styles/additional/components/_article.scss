@@ -67,6 +67,7 @@
     }
 
     &__footer {
+        clear: both;
         margin-top: $article-gap;
         margin-bottom: $article-gap;
         width: 100%;

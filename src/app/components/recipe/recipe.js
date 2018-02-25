@@ -13,6 +13,9 @@ import Outbrain from '@bxm/article/lib/components/article/outbrain';
 import RevContent from '@bxm/article/lib/components/article/revContent';
 import FeedCarousel from '@bxm/article/lib/components/article/feedCarousel';
 import RecipeAtGlance from './recipeAtGlance';
+import RecipeIngredients from './recipeIngredients';
+import RecipeMethod from './recipeMethod';
+import RecipeNotes from './recipeNotes';
 
 export default class Recipe extends Component {
 
@@ -41,7 +44,10 @@ export default class Recipe extends Component {
         feedItems: PropTypes.array.isRequired,
         siteName: PropTypes.string.isRequired,
         recipeServings: PropTypes.object.isRequired,
-        recipeCookingTime: PropTypes.object.isRequired
+        recipeCookingTime: PropTypes.object.isRequired,
+        recipeIngredients: PropTypes.array,
+        recipeCookingMethod: PropTypes.array,
+        recipeTips: PropTypes.string
     };
 
     static defaultProps = {
@@ -53,7 +59,16 @@ export default class Recipe extends Component {
         parentName: null,
         showAd: false,
         showAdBeforeRecommendations: false,
-        totalGalleryItems: null
+        totalGalleryItems: null,
+        recipeIngredients: [{
+            heading: null,
+            ingredients: []
+        }],
+        recipeCookingMethod: [{
+            heading: null,
+            methods: []
+        }],
+        recipeTips: ''
     };
 
     static contextTypes = {
@@ -148,7 +163,8 @@ export default class Recipe extends Component {
     render() {
         const { className, showAd, dateCreated, pageId, url, siteUrl, heroItem,
             summary, title, source, parentName, authorProfiles, contentBody, contentBodyConfig,
-            showAdBeforeRecommendations, nodeType, totalGalleryItems, siteName, feedItems, recipeServings, recipeCookingTime } = this.props;
+            showAdBeforeRecommendations, nodeType, totalGalleryItems, siteName, feedItems,
+            recipeServings, recipeCookingTime, recipeIngredients, recipeCookingMethod, recipeTips } = this.props;
         const { config } = this.context;
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showRevContent = config.isFeatureEnabled('revContent');
@@ -185,7 +201,11 @@ export default class Recipe extends Component {
                   adTargets={this.getAdTargets()}
                 />
 
-                <div>Recipe content</div>
+                <section className="recipe-details">
+                    <RecipeIngredients recipeIngredients={recipeIngredients} />
+                    <RecipeMethod recipeMethod={recipeCookingMethod} />
+                    <RecipeNotes recipeNotes={recipeTips} />
+                </section>
 
                 <Footer {...this.props} />
 

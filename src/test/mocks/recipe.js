@@ -1,496 +1,468 @@
 export default {
-    "campaign": [],
-    "tags": [
-        "homes:Topic:Garden planner",
-        "homes:Homes navigation:Outdoor"
-    ],
-    "tagsDetails": [
+    "id":"GT-2128",
+    "url":"/recipes/healthy-recipes/chilli-crab-2128",
+    "path":[
+    "GT--1",
+    "GT-1159",
+    "GT-1184",
+    "GT-1187",
+    "GT-1447",
+    "GT-1448",
+    "GT-2128"
+],
+    "level":6,
+    "nodeId":"GT-2128",
+    "siteUrl":"http://gt-site-au.sit.bxm.net.au",
+    "urlName":"chilli-crab",
+    "nodeName":"Chilli crab",
+    "parentID":"GT-1448",
+    "siteCode":"75937f58-91b0-4fb8-9409-70e9554d13c7",
+    "siteName":"gt",
+    "enableAmp":false,
+    "parentUrl":"/recipes/healthy-recipes",
+    "sectionId":"GT-1184",
+    "sortOrder":6,
+    "parentName":"Healthy Recipes",
+    "recipeTips":"Remember to clean the crab before cooking.",
+    "contentBody":[
+    {
+        "type":"paragraph",
+        "label":"Paragraph",
+        "content":"One of the most satisfying - and surely the most famous - of all crab dishes, Singapore chilli crab has a relatively short history. The dish consists of crab in its shell, stir-fried and heavily coated in a rich, sweet red sauce made with bottled tomato sauce (ketchup), soy sauce and ginger, among other ingredients, thickened with egg and cornflour. Mud crab, with its generous amount of flaky sweet flesh, is traditionally the crustacean of choice for chilli crab.\n\nSingaporean Cher Yam Tian created the original version of chilli crab for her husband in 1950, and began selling it shortly afterwards from a humble street cart. The acclaim her invention garnered was so great that in 1956 she and her husband opened a restaurant, Palm Beach Seafood, which is still cooking up this famous dish today.\n\nMadame Cher's version was sweeter and less rich than the one that many of us are now familiar with. The later additions of egg and sambal have been attributed to chef Hooi Kok Wai of Singapore's Dragon Phoenix Restaurant, which also serves its version of the recipe to this day.\n\nSingaporeans aren't the only people proud to call chilli crab their own, however. The Malaysian tourism minister caused a mini media storm back in 2009 when she suggested that Malaysia's chilli crab had been \"hijacked\" by other countries. Indeed, excellent variations of the dish can be found in many unassuming Malaysian restaurants in Australia.\n\nDespite the name, there's not a lot of spicy heat in traditional chilli crab. In our recipe, the long chillies add only a subtle heat; feel free to add more chilli to taste. If you prefer less sweetness than is customary, fresh tomatoes would be a fine addition.\n\nEating chilli crab is a messy business and requires you to leave decorum at the door. Popular accompaniments include crusty bread and mantou, Chinese steamed buns, which are great for mopping up all the wonderful sauce. Of course steamed rice does the trick too. Arm yourself and your guests with the necessary tools - crab crackers, crab pick, finger bowl, bib and napkin - and dig in."
+    },
+    {
+        "type":"paragraph",
+        "label":"Paragraph",
+        "content":"*This Singaporean classic is a messy business, writes Lisa Featherby, but worth it. Dig out the finger bowls and dig in.*"
+    }
+],
+    "contentTags":[
+    "food:Cuisine:Modern Asian",
+    "food:Season:Spring",
+    "food:Meal:Main",
+    "food:Main ingredient:Other:Chilli",
+    "food:Main ingredient:Vegetables:Tomato",
+    "food:Main ingredient:Fish and seafood:Crab",
+    "food:Main ingredient:Other:Ginger"
+],
+    "contentYear":2018,
+    "navIsHidden":0,
+    "navRedirect":{
+    "Url":null,
+        "Mode":2,
+        "Title":"",
+        "NodeId":null,
+        "NewWindow":false
+},
+    "tagsDetails":[
+    {
+        "name":"food:Meal:Main",
+        "urlName":"main",
+        "fullName":"food_Meal_Main",
+        "displayName":"Main"
+    },
+    {
+        "name":"food:Season:Spring",
+        "urlName":"spring",
+        "fullName":"food_Season_Spring",
+        "displayName":"Spring"
+    },
+    {
+        "name":"food:Cuisine:Modern Asian",
+        "urlName":"modern-asian",
+        "fullName":"food_Cuisine_Modern_Asian",
+        "displayName":"Modern Asian"
+    },
+    {
+        "name":"food:Main ingredient:Fish and seafood:Crab",
+        "urlName":"crab",
+        "fullName":"food_Main_ingredient_Fish_and_seafood_Crab",
+        "displayName":"Crab"
+    },
+    {
+        "name":"food:Main ingredient:Vegetables:Tomato",
+        "urlName":"tomato",
+        "fullName":"food_Main_ingredient_Vegetables_Tomato",
+        "displayName":"Tomato"
+    },
+    {
+        "name":"food:Main ingredient:Other:Chilli",
+        "urlName":"chilli",
+        "fullName":"food_Main_ingredient_Other_Chilli",
+        "displayName":"Chilli"
+    },
+    {
+        "name":"food:Main ingredient:Other:Ginger",
+        "urlName":"ginger",
+        "fullName":"food_Main_ingredient_Other_Ginger",
+        "displayName":"Ginger"
+    }
+],
+    "contentMonth":2,
+    "contentTitle":"Chilli crab",
+    "contentVideo":"",
+    "contentAuthor":[
+    "GT-2129"
+],
+    "nodeTypeAlias":"Recipe",
+    "contentAuthors":[
+    "GT-2129"
+],
+    "contentStyling":"Geraldine Munoz",
+    "contentSummary":"Throw some chopped fresh chilli into the dressing for a little more spice.",
+    "moduleParentId":"GT-2128",
+    "pageSearchTags":[
+    "Modern Asian",
+    "Modern-Asian",
+    "modern-asian",
+    "modern asian",
+    "Spring",
+    "spring",
+    "Main",
+    "main",
+    "Chilli",
+    "chilli",
+    "Tomato",
+    "tomato",
+    "Crab",
+    "crab",
+    "Ginger",
+    "ginger"
+],
+    "recipeServings":{
+    "serveMax":"8",
+        "serveMin":"",
+        "yieldMeasure":"",
+        "yieldQuantity":""
+},
+    "contentCampaign":[
+
+],
+    "contentHasVideo":false,
+    "contentImageUrl":"http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/GourmetTraveller/2013/05/07/4229/1112GT-classic-chilli-crab-628.jpg",
+    "contentProfiles":[
+    {
+        "id":"GT-2129",
+        "url":"/profiles/alice-storey",
+        "name":"Alice Storey",
+        "level":3,
+        "title":"Alice Storey",
+        "pathIds":[
+            "GT--1",
+            "GT-1159",
+            "GT-1166",
+            "GT-2129"
+        ],
+        "siteUrl":"http://gt-site-au.sit.bxm.net.au",
+        "urlName":"alice-storey",
+        "nodeType":"Profile",
+        "parentId":"GT-1166",
+        "redirect":{
+            "mode":2
+        },
+        "siteCode":"75937f58-91b0-4fb8-9409-70e9554d13c7",
+        "siteName":"gt",
+        "typeName":"TeaserDto",
+        "sortOrder":1,
+        "dateIndexed":"2018-02-16T06:02:29",
+        "nodeTypeAliasPath":[
+            "Page",
+            "Profiles",
+            "Profile"
+        ]
+    }
+],
+    "nodeDateIndexed":"2018-02-22T04:11:33.41Z",
+    "pageDateCreated":"2018-02-16T05:48:49.00Z",
+    "nodeTypeAliasPath":[
+    "Page",
+    "Editorial",
+    "Recipe"
+],
+    "recipeCookingTime":{
+    "times":[
         {
-            name: "homes:Topic:Garden planner",
-            fullName: "homes_Topic_Garden_planner"
+            "id":"preparation",
+            "label":"",
+            "minutes":15,
+            "quantity":"15"
         },
         {
-            name: "homes:Homes navigation:Outdoor",
-            fullName: "homes_Homes_navigation_Outdoor" 
+            "id":"cooking",
+            "label":"plus resting",
+            "minutes":25,
+            "quantity":"25"
+        },
+        {
+            "id":"marinating",
+            "label":"",
+            "minutes":180,
+            "quantity":"180"
         }
     ],
-    "source": "Australian House and Garden",
-    "body": [
-        {
-            "type": 'paragraph',
-            "content": 'This is a **test** <strong>body</strong>'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'This is the *second* test body'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'This is [an example](http://example.com/) inline link.'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'This is [an example](http://example.com/|target="_blank") inline link.'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'This is on \n\nmultiple \n\nlines.'
-        },
-        {
-            "type": 'heading',
-            "content": 'This is a heading'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'Another paragraph'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'Another paragraph'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'Another paragraph'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'Another paragraph'
-        },
-        {
-            "type": 'paragraph',
-            "content": 'Another paragraph'
-        },
-        {
-            "type": 'related-content',
-            "content": [
-                {
-                    "url": "http://example.com/item1",
-                    "title": "Title 1",
-                    "imageUrl": "http://example.com/image1.jpg"
-                },
-                {
-                    "url": "http://example.com/item2",
-                    "title": "Title 2",
-                    "imageUrl": "http://example.com/image2.jpg"
-                }
-            ]
-        },
-        {
-            "content": {
-                "caption": "I am a caption",
-                "url": "http://lorempixel.com/output/city-q-g-970-702-2.jpg",
-                "valid": true
+        "total":40
+},
+    "recipeIngredients":[
+    {
+        "heading":"Heading",
+        "ingredients":[
+            {
+                "measure":"tsp",
+                "quantity":"1/2",
+                "ingredient":"cornflour"
             },
-            "label": 'This is a label',
-            "type": 'image'
-        },
-        {
-            "type": "video",
-            "label": "Video",
-            "content": {
-                "id": "VIDEO-2123",
-                "name": "Wildlife2.wmv (1)",
-                "type": "VideoItem",
-                "properties": {
-                    "videoConfiguration": {
-                        "videoId": "VIDEO-2123",
-                        "uniqueFileName": "26246026-Wildlife2wmv",
-                        "status": "Video upload is complete",
-                        "brightcoveId": "4164308846001",
-                        "s3Identifier": "26246026-Wildlife2wmv",
-                        "fileName": "Wildlife2.wmv",
-                        "siteName": "aww",
-                        "fileSize": "26246026",
-                        "title": "Geoffs awesome video",
-                        "statusCode": 200
-                    }
-                }
-            }
-        },
-        {
-            "content": {
-                "url": "http://lorempixel.com/output/city-q-g-970-702-2.jpg",
-                "valid": true
+            {
+                "measure":"",
+                "quantity":"10",
+                "ingredient":"long red chillies, finely chopped"
             },
-            "label": 'This is a label',
-            "type": 'image'
-        },
-        {
-            "type": "video",
-            "label": "Video",
-            "content": {
-                "id": "VIDEO-2123b",
-                "name": "Wildlife2.wmv (1)",
-                "type": "VideoItem",
-                "properties": {
-                    "videoConfiguration": {
-                        "videoId": "VIDEO-2123b",
-                        "uniqueFileName": "26246026-Wildlife2wmv",
-                        "status": "Video upload is complete",
-                        "brightcoveId": "4164308846001",
-                        "s3Identifier": "26246026-Wildlife2wmv",
-                        "fileName": "Wildlife2.wmv",
-                        "siteName": "aww",
-                        "fileSize": "26246026",
-                        "title": "Geoffs awesome video",
-                        "statusCode": 200
-                    }
-                }
+            {
+                "measure":"",
+                "quantity":"1",
+                "ingredient":"onion, finely chopped"
+            },
+            {
+                "measure":"ml",
+                "quantity":"80",
+                "ingredient":"vegetable oil (1/3 cup)"
+            },
+            {
+                "measure":"",
+                "quantity":"2",
+                "ingredient":"live mud crabs (about 1kg each), killed humanely, scrubbed and quartered"
+            },
+            {
+                "measure":"gm",
+                "quantity":"35",
+                "ingredient":"ginger, finely chopped (7cm piece)"
+            },
+            {
+                "measure":"",
+                "quantity":"3",
+                "ingredient":"garlic cloves, finely chopped"
+            },
+            {
+                "measure":"tbsp",
+                "quantity":"1",
+                "ingredient":"tomato paste"
+            },
+            {
+                "measure":"ml",
+                "quantity":"200",
+                "ingredient":"tomato purée"
+            },
+            {
+                "measure":"tbsp",
+                "quantity":"2",
+                "ingredient":"tomato sauce (ketchup)"
+            },
+            {
+                "measure":"",
+                "quantity":"1",
+                "ingredient":"egg, lightly beaten"
+            },
+            {
+                "measure":"tbsp",
+                "quantity":"2",
+                "ingredient":"light soy sauce, or to taste"
+            },
+            {
+                "measure":"tbsp",
+                "quantity":"1",
+                "ingredient":"sugar, or to taste"
+            },
+            {
+                "measure":"",
+                "quantity":"",
+                "ingredient":"coriander, thinly sliced sprint onions, and crusty bread, steamed buns or steamed rice, to serve"
             }
-        },
-        {
-            type: "portrait-image",
-            label: "Portrait Image",
-            content: {
-                url: "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/2017/09/26/1506388956075_1434691288213200708313101483780.jpg",
-                valid: true,
-                title: "Kangaroo paw ‘Yellow Gem’ (Anigozanthos) (portrait)",
-                caption: "Kangaroo paw ‘Yellow Gem’ (*Anigozanthos*) (portrait)"
+        ]
+    }
+],
+    "contentPhotoCredit":"William Meppem",
+    "contentAccessLevels":-1,
+    "recipeCookingMethod":[
+    {
+        "heading":"Heading",
+        "methods":[
+            {
+                "method":"Whisk [cornflour](https://www.nowtolove.com.au|target=\"_blank\") and 200ml water in a small bowl to combine and set aside."
+            },
+            {
+                "method":"Process chilli and onion in a ***food processor*** until a paste forms and set aside."
+            },
+            {
+                "method":"Heat oil in a large wok over medium heat. Add crab and stir-fry until starting to colour (3-4 minutes). Remove crab with a slotted spoon and set aside."
+            },
+            {
+                "method":"Add chilli paste and stir until tender (7-10 minutes). Add ginger and garlic, stir until fragrant (2-3 minutes). Add tomato paste and stir until mixture darkens in colour (1-2 minutes). Add tomato purée and ketchup, bring to the simmer, add cornflour mixture, stir to combine, then add crab and cook, stirring occasionally, until orange and cooked through (10-12 minutes). Drizzle with egg, stir to coat, season to taste with soy sauce, sugar and salt and serve hot topped with coriander and spring onion, with bread or steamed rice."
             }
-        },
-        {
-            "type": "tips",
-            "label": "tips",
-            "content": "This is the test tip"
-        },
-        {
-            type: "instagram",
-            label: "Instagram",
-            content: {
-                url: "https://www.instagram.com/p/BBK8KMnv_YW/?taken-by=deadpoolmovie",
-                includeCaption: true
+        ]
+    },
+    {
+        "heading":"Heading",
+        "methods":[
+            {
+                "method":"Add chilli paste and stir until tender (7-10 minutes). Add ginger and garlic, stir until fragrant (2-3 minutes). Add tomato paste and stir until mixture darkens in colour (1-2 minutes)."
             }
-        },
-        {
-            type: "playbuzz",
-            label: "Playbuzz",
-            content: {
-                game: "/cosmopolitanmagazine10/which-harry-styles-is-your-boyfriend"
-            }
-        },
-        {
-            type: "twitter",
-            label: "Twitter",
-            content: {
-                url: "https://twitter.com/BBCR1/status/694082199256219648"
-            }
-        },
-        {
-            "type": "related-content",
-            "label": "Related Content",
-            "content": [
-                {
-                    "title": "Test Article - 22 - How to care for fine china",
-                    "summaryTitle": "How to care for fine china",
-                    "summary": "There’s something special about using fine china so it’s worth looking after.",
-                    "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/2017/09/26/1506389008534_diy-2163.jpg",
-                    "imageAltText": "Fine china",
-                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
-                    "video": {
-                        "id": "VIDEO-2265",
-                        "name": "4141553739001",
-                        "type": "VideoItem",
-                        "properties": {
-                            "videoConfiguration": {
-                                "videoId": "VIDEO-2265",
-                                "status": "Video upload is complete",
-                                "brightcoveId": "4141553739001",
-                                "statusCode": 200
-                            }
-                        }
-                    },
-                    "tags": [
-                        "food:Topic:Readers' home",
-                        "food:Homes navigation:Renovate",
-                        "food:Products, Furniture and Fittings:Furniture and fittings by room:Bathroom furniture and fittings:Bathroom basins",
-                        "food:Homes navigation:Outdoor",
-                        "food:Homes navigation:Home Tours"
-                    ],
-                    "source": "Belle",
-                    "redirect": {
-                        "mode": 2
-                    },
-                    "typeName": "TeaserDto",
-                    "id": "HOMES-1419",
-                    "parentId": "HOMES-1319",
-                    "level": 5,
-                    "sortOrder": 21,
-                    "name": "Test Article - 22",
-                    "dateIndexed": "2015-08-14T10:02:23",
-                    "pathIds": [
-                        "HOMES--1",
-                        "HOMES-1158",
-                        "HOMES-1161",
-                        "HOMES-1257",
-                        "HOMES-1319",
-                        "HOMES-1419"
-                    ],
-                    "urlName": "test-article-22",
-                    "url": "/test-article-22-1419",
-                    "nodeType": "HomesArticle",
-                    "template": "Index",
-                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
-                    "siteName": "Homes",
-                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
-                    "nodeTypeAliasPath": [
-                        "Page",
-                        "Editorial",
-                        "Articles",
-                        "HomesArticle"
-                    ]
-                },
-                {
-                    "title": "Test Article - 21 - How to care for fine china",
-                    "summaryTitle": "How to care for fine china",
-                    "summary": "There’s something special about using fine china so it’s worth looking after.",
-                    "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/2017/09/26/1506389037589_chinamans3.jpg",
-                    "imageAltText": "Fine china",
-                    "imageCaption": "The Wedgwood ‘Arris’ range of fine bone china.",
-                    "video": {
-                        "id": "VIDEO-2265",
-                        "name": "4141553739001",
-                        "type": "VideoItem",
-                        "properties": {
-                            "videoConfiguration": {
-                                "videoId": "VIDEO-2265",
-                                "status": "Video upload is complete",
-                                "brightcoveId": "4141553739001",
-                                "statusCode": 200
-                            }
-                        }
-                    },
-                    "tags": [
-                        "food:Decorating:Colour:Natural",
-                        "food:Topic:Creative home",
-                        "food:Homes navigation:Renovate",
-                        "food:Homes navigation:Outdoor",
-                        "food:Homes navigation:Home Tours"
-                    ],
-                    "source": "Australian House and Garden",
-                    "redirect": {
-                        "mode": 2
-                    },
-                    "typeName": "TeaserDto",
-                    "id": "HOMES-1417",
-                    "parentId": "HOMES-1319",
-                    "level": 5,
-                    "sortOrder": 20,
-                    "name": "Test Article - 21",
-                    "dateIndexed": "2015-08-14T10:02:17",
-                    "pathIds": [
-                        "HOMES--1",
-                        "HOMES-1158",
-                        "HOMES-1161",
-                        "HOMES-1257",
-                        "HOMES-1319",
-                        "HOMES-1417"
-                    ],
-                    "urlName": "test-article-21",
-                    "url": "/test-article-21-1417",
-                    "nodeType": "HomesArticle",
-                    "template": "Index",
-                    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
-                    "siteName": "Homes",
-                    "siteUrl": "http://dev.homes-api.wn.bauer-media.net.au",
-                    "nodeTypeAliasPath": [
-                        "Page",
-                        "Editorial",
-                        "Articles",
-                        "HomesArticle"
-                    ]
-                }
-            ]
-        }
+        ]
+    }
+],
+    "contentMagazineIssue":"Nov 2012",
+    "pageExcludeFromSitemap":0,
+    "contentFacebookImageUrl":{
+    "tags":[
+
     ],
-    "author": [],
+        "source":"",
+        "credits":[
+
+    ]
+},
+    "pageExcludeDescendantsFromSitemap":0,
+    "updated_at":"2018-02-22T04:11:33.746Z",
+"author": [],
     "authorProfiles": [
-        {
-            "name": "Renovation Expert Alpha",
-            "profileType": "renovation_expert"
-        },
-        {
-            "name": "UnknownB Alpha",
-            "profileType": "unknownb"
-        },
-        {
-            "name": "Unknown Alpha",
-            "profileType": "unknown"
-        },
-        {
-            "profileType": "writer",
-            "redirect": {
-                "mode": 2
-            },
-            "dateIndexed": "2015-07-21T01:06:54",
-            "siteUrl": "http://homes.local",
-            "nodeType": "HomesProfile",
-            "name": "Writer Alpha",
-            "siteName": "Homes",
-            "level": 3,
-            "url": "/sandbox-contributors/test-writer",
-            "title": "Test writer",
-            "pathIds": [
-                "HOMES--1",
-                "HOMES-1158",
-                "HOMES-1468",
-                "HOMES-1235"
-            ],
-            "typeName": "TeaserDto",
-            "sortOrder": 1,
-            "template": "Index",
-            "parentId": "HOMES-1468",
-            "urlName": "test-writer",
-            "nodeTypeAliasPath": [
-                "Page",
-                "Profiles",
-                "HomesProfile"
-            ],
-            "id": "HOMES-1235",
-            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
-        },
-        {
-            "profileType": "photographer",
-            "redirect": {
-                "mode": 2
-            },
-            "dateIndexed": "2015-07-21T01:07:05",
-            "siteUrl": "http://homes.local",
-            "nodeType": "HomesProfile",
-            "name": "Photog Alpha",
-            "siteName": "Homes",
-            "level": 3,
-            "url": "/sandbox-contributors/test-cook",
-            "title": "Photog Alpha",
-            "pathIds": [
-                "HOMES--1",
-                "HOMES-1158",
-                "HOMES-1468",
-                "HOMES-1236"
-            ],
-            "typeName": "TeaserDto",
-            "sortOrder": 2,
-            "template": "Index",
-            "parentId": "HOMES-1468",
-            "urlName": "test-cook",
-            "nodeTypeAliasPath": [
-                "Page",
-                "Profiles",
-                "HomesProfile"
-            ],
-            "id": "HOMES-1236",
-            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
-        },
-        {
-            "profileType": "stylist",
-            "redirect": {
-                "mode": 2
-            },
-            "dateIndexed": "2015-07-21T01:07:04",
-            "siteUrl": "http://homes.local",
-            "nodeType": "HomesProfile",
-            "name": "Stylist Alpha",
-            "siteName": "Homes",
-            "level": 3,
-            "url": "/sandbox-contributors/janicetest-re-expert01",
-            "title": "JaniceTest - Re-Expert_01 - Long Title",
-            "pathIds": [
-                "HOMES--1",
-                "HOMES-1158",
-                "HOMES-1468",
-                "HOMES-1435"
-            ],
-            "typeName": "TeaserDto",
-            "sortOrder": 3,
-            "template": "Index",
-            "parentId": "HOMES-1468",
-            "urlName": "janicetest-re-expert01",
-            "nodeTypeAliasPath": [
-                "Page",
-                "Profiles",
-                "HomesProfile"
-            ],
-            "id": "HOMES-1435",
-            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
-        },
-        {
-            "profileType": "photographer",
-            "redirect": {
-                "mode": 2
-            },
-            "dateIndexed": "2015-07-21T01:07:28",
-            "siteUrl": "http://homes.local",
-            "nodeType": "HomesProfile",
-            "name": "Photog Bravo",
-            "siteName": "Homes",
-            "level": 3,
-            "url": "/sandbox-contributors/janicetest-re-expert02",
-            "title": "JaniceTest - Re-Expert_02 - Long Title",
-            "pathIds": [
-                "HOMES--1",
-                "HOMES-1158",
-                "HOMES-1468",
-                "HOMES-1436"
-            ],
-            "typeName": "TeaserDto",
-            "sortOrder": 4,
-            "template": "Index",
-            "parentId": "HOMES-1468",
-            "urlName": "janicetest-re-expert02",
-            "nodeTypeAliasPath": [
-                "Page",
-                "Profiles",
-                "HomesProfile"
-            ],
-            "id": "HOMES-1436",
-            "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
-        }
-    ],
-    "title": "Renting shouldn’t mean sacrificing personality",
-    "summaryTitle": "Short Title",
-    "summary": "Dani Somerville-Kimlin and husband Jamahl Wilsonfour’s four-bedroom home in Noosa brilliantly proves that just because you are renting",
-    "imageUrl": "http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/2017/09/26/1506389094354_1432621846851Jellyfish.jpg",
-    "imageAltText": "Alt Text",
-    "imageCaption": "This is a Jelly Fish. You do not want to touch this because it will sting like CRAY-CRAY!",
-    "redirect": {
-        "mode": 2
+    {
+        "name": "Renovation Expert Alpha",
+        "profileType": "renovation_expert"
     },
-    "imageFacebookUrl": {},
-    "accessLevels": [
-        "-1"
-    ],
-    "dateCreated": "2015-05-26T10:57:28",
-    "tracking": {
-        "dateIndexed": "2015-06-01T19:57:34"
+    {
+        "name": "UnknownB Alpha",
+        "profileType": "unknownb"
     },
-    "month": 5,
-    "year": 2015,
-    "id": "HOMES-1169",
-    "parentId": "HOMES-1161",
-    "level": 3,
-    "sortOrder": 4,
-    "name": "Article Test",
-    "dateIndexed": "2015-06-01T19:57:34",
-    "pathIds": [
-        "HOMES--1",
-        "HOMES-1158",
-        "HOMES-1161",
-        "HOMES-1169"
-    ],
-    "urlName": "article-test",
-    "url": "/sandbox/article-test",
-    "nodeType": "HomesArticle",
-    "template": "Index",
-    "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4",
-    "siteName": "Homes",
-    "siteUrl": "http://localhost/",
-    "nodeTypeAliasPath": [
-        "Page",
-        "Editorial",
-        "Articles",
-        "HomesArticle"
-    ],
-    writer: 'Writer',
-    photographer: 'Photographer',
-    stylist: 'Stylist',
-    experter: 'Experter'
+    {
+        "name": "Unknown Alpha",
+        "profileType": "unknown"
+    },
+    {
+        "profileType": "writer",
+        "redirect": {
+            "mode": 2
+        },
+        "dateIndexed": "2015-07-21T01:06:54",
+        "siteUrl": "http://homes.local",
+        "nodeType": "HomesProfile",
+        "name": "Writer Alpha",
+        "siteName": "Homes",
+        "level": 3,
+        "url": "/sandbox-contributors/test-writer",
+        "title": "Test writer",
+        "pathIds": [
+            "HOMES--1",
+            "HOMES-1158",
+            "HOMES-1468",
+            "HOMES-1235"
+        ],
+        "typeName": "TeaserDto",
+        "sortOrder": 1,
+        "template": "Index",
+        "parentId": "HOMES-1468",
+        "urlName": "test-writer",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Profiles",
+            "HomesProfile"
+        ],
+        "id": "HOMES-1235",
+        "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
+    },
+    {
+        "profileType": "photographer",
+        "redirect": {
+            "mode": 2
+        },
+        "dateIndexed": "2015-07-21T01:07:05",
+        "siteUrl": "http://homes.local",
+        "nodeType": "HomesProfile",
+        "name": "Photog Alpha",
+        "siteName": "Homes",
+        "level": 3,
+        "url": "/sandbox-contributors/test-cook",
+        "title": "Photog Alpha",
+        "pathIds": [
+            "HOMES--1",
+            "HOMES-1158",
+            "HOMES-1468",
+            "HOMES-1236"
+        ],
+        "typeName": "TeaserDto",
+        "sortOrder": 2,
+        "template": "Index",
+        "parentId": "HOMES-1468",
+        "urlName": "test-cook",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Profiles",
+            "HomesProfile"
+        ],
+        "id": "HOMES-1236",
+        "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
+    },
+    {
+        "profileType": "stylist",
+        "redirect": {
+            "mode": 2
+        },
+        "dateIndexed": "2015-07-21T01:07:04",
+        "siteUrl": "http://homes.local",
+        "nodeType": "HomesProfile",
+        "name": "Stylist Alpha",
+        "siteName": "Homes",
+        "level": 3,
+        "url": "/sandbox-contributors/janicetest-re-expert01",
+        "title": "JaniceTest - Re-Expert_01 - Long Title",
+        "pathIds": [
+            "HOMES--1",
+            "HOMES-1158",
+            "HOMES-1468",
+            "HOMES-1435"
+        ],
+        "typeName": "TeaserDto",
+        "sortOrder": 3,
+        "template": "Index",
+        "parentId": "HOMES-1468",
+        "urlName": "janicetest-re-expert01",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Profiles",
+            "HomesProfile"
+        ],
+        "id": "HOMES-1435",
+        "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
+    },
+    {
+        "profileType": "photographer",
+        "redirect": {
+            "mode": 2
+        },
+        "dateIndexed": "2015-07-21T01:07:28",
+        "siteUrl": "http://homes.local",
+        "nodeType": "HomesProfile",
+        "name": "Photog Bravo",
+        "siteName": "Homes",
+        "level": 3,
+        "url": "/sandbox-contributors/janicetest-re-expert02",
+        "title": "JaniceTest - Re-Expert_02 - Long Title",
+        "pathIds": [
+            "HOMES--1",
+            "HOMES-1158",
+            "HOMES-1468",
+            "HOMES-1436"
+        ],
+        "typeName": "TeaserDto",
+        "sortOrder": 4,
+        "template": "Index",
+        "parentId": "HOMES-1468",
+        "urlName": "janicetest-re-expert02",
+        "nodeTypeAliasPath": [
+            "Page",
+            "Profiles",
+            "HomesProfile"
+        ],
+        "id": "HOMES-1436",
+        "siteCode": "56421e16-b4ab-417c-9645-a6a89644d4b4"
+    }
+],
+    "summary": "Dani Somerville-Kimlin and husband Jamahl Wilsonfour’s four-bedroom home in Noosa brilliantly proves that just because you are renting"
 };

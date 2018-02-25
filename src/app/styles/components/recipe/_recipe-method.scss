@@ -1,0 +1,41 @@
+.recipe-method {
+
+    &__list {
+
+        &--item {
+            display: table;
+
+            div {
+                display: table-cell;
+
+                span {
+                    background-color: #000;
+                    width: 32px;
+                    height: 32px;
+                    display: block;
+                    border-radius: 16px;
+                    text-align: center;
+                    line-height: 32px;
+                    color: $color-white;
+                }
+            }
+
+            &-left {
+                top: 10px;
+                position: relative;
+            }
+
+            &-right {
+                padding-left: 15px;
+                line-height: 20px;
+            }
+
+        }
+    }
+
+    &__heading {
+        font-family: 'PlayfairDisplay-Bold', sans-serif;
+        color: $color-text-light;
+        font-size: 18px;
+    }
+}

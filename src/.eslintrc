@@ -48,6 +48,8 @@
             2,
             "single",
             "avoid-escape"
-        ]
+        ],
+        "react/no-danger": 0,
+        "no-return-assign": 0
     }
 }

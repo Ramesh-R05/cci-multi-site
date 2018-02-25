@@ -73,6 +73,12 @@
 @import 'components/feed';
 @import 'components/feedItem';
 
+// Recipe
+@import 'components/recipe/recipe-details';
+@import 'components/recipe/recipe-ingredients';
+@import 'components/recipe/recipe-method';
+@import 'components/recipe/recipe-notes';
+
 // Footer
 @import 'components/footer/footer';
 @import 'components/footer/navigation';
