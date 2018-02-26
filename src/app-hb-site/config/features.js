@@ -44,5 +44,12 @@ export default {
     },
     outbrainAmp: {
         enabled: true
+    },
+    royMorgan: {
+        enabled: true,
+        pixels: {
+            20002303: 'qv7034ra', // Luxury pixel
+            20002304: '30tp4z58'  // Women's sites pixel
+        }
     }
 };
