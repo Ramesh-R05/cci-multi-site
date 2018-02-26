@@ -51,5 +51,8 @@ export default {
             20002303: 'qv7034ra', // Luxury pixel
             20002304: '30tp4z58'  // Women's sites pixel
         }
+    },
+    oriel: {
+        enabled: true
     }
 };

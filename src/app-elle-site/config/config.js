@@ -26,7 +26,7 @@ export default {
 
     global,
 
-    ads: { 
+    ads: {
         targets: { env: 'test' },
         disabledGalleryChangeRefresh: true
     },
@@ -156,6 +156,9 @@ export default {
         templateId: 'Elle_1',
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
-    }
+    },
+    oriel: {
+        scriptUrl: '//n74s9.com/fise4rdvhmpg3lqob8dsu1fj.js'
+    },
 };
 
