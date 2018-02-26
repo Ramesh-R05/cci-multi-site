@@ -38,7 +38,10 @@ const entityPropertyMap = {
     recipeCookingMethod: 'recipeCookingMethod',
     recipeIngredients: 'recipeIngredients',
     recipeServings: 'recipeServings',
-    recipeTips: 'recipeTips'
+    recipeTips: 'recipeTips',
+    contentAddress: 'address',
+    contentHours: 'hours',
+    contentPrices: 'prices'
 };
 
 export function parseEntity(data, propertyMapOverride = {}) {

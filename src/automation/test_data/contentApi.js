@@ -101,6 +101,9 @@ export default function stubServer(siteServer, siteConfig) {
             case 'automation-test-recipe-2127':
                 data = require('../test_data/pages/recipe').default;
                 break;
+            case 'bar-rochford-restaurant-review-1713':
+                data = require('../test_data/pages/review').default;
+                break;
             default:
                 return next({body: "Could not find the article page", err: null, status: 404});
         }
