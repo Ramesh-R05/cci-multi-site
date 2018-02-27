@@ -57,8 +57,7 @@ export default {
                 "content": "**Gourmet Traveller Restaurant Guide**\nWine: ★\n*Gourmet Traveller's star-ratings, which range from zero to three stars, reflect reviewers' first-hand experiences. The best-rated restaurants form our national Top 100. Our wine ratings, from zero to three stars, are made by wine editor Max Allen on the strength of the quality of the restaurant's wine list. View our rating key [here](https://www.gourmettraveller.com.au/GTRG-Rating-Key|target=\"_blank\").*"
             }
         ],
-        "dateCreated": "2017-10-10T23:02:00.00Z",
-        "dateModified": "2018-02-16T02:09:03.375Z",
+        "dateCreated": "2017-10-11T05:00:00.00Z",
         "googleNewsKeywords": "Bar Rochford review, Canberra restaurant, modern Australian restaurants Canberra, best restaurants Canberra, Civic restaurants",
         "imageAltText": "Bar Rochford",
         "imageFacebookUrl": {

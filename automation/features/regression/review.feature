@@ -8,7 +8,7 @@ Feature: Review
         Given I switch to "<device>" view
         When I am currently viewing "restaurant-reviews/bar-rochford-restaurant-review-1713"
         * I can see the long title "bar rochford: restaurant review"
-        * I can see the created date "OCT 11, 2017 10:02AM"
+        * I can see the created date "OCT 11, 2017"
         * I can see the hero image
         * I can see the short teaser "Canberra - Modern Australian cuisine"
         * I can see the body paragraph "You Am I is on the stereo"
@@ -45,7 +45,7 @@ Feature: Review
         Given I switch to "<device>" view
         When I am currently viewing "restaurant-reviews/bar-rochford-restaurant-review-1713"
         * I can see the long title "bar rochford: restaurant review"
-        * I can see the created date "OCT 11, 2017 10:02AM"
+        * I can see the created date "OCT 11, 2017"
         * I can see the hero image
         * I can see the short teaser "Canberra - Modern Australian cuisine"
         * I can see the body paragraph "You Am I is on the stereo"
