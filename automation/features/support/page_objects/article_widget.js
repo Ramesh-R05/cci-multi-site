@@ -48,7 +48,7 @@ var article_widget = {
     twitterEmb1: '#twitter-widget-0',
     instagramEmb1: '.instagram-media',
     facebookEmb1: '.fb_iframe_widget',
-    playbuzzEmb1: '.content-body__embed--playbuzz .pb_feed_rendered',
+    playbuzzEmb1: '.content-body__embed--playbuzz > div',
     whooshkaEmb1: '.content-body__embed-whooshka iframe',
     wirewaxEmb1: '.content-body__embed-wirewax iframe',
     linklayEmb: '.content-body__embed-linklay iframe',
