@@ -30,9 +30,9 @@ export default class RecipeAtGlance extends Component {
 
     static getRecipeCookingTime(recipeCookingTime) {
         const labelAlias = {
-            preparation: 'prep',
-            cooking: 'cook',
-            marinating: 'marinate'
+            preparation: 'preparation',
+            cooking: 'cooking',
+            marinating: 'marinating'
         };
 
         const recipeCookingTimeFiltered = ((recipeCookingTime && recipeCookingTime.times) || []).filter(time => parseInt(time.minutes, 10));
@@ -41,8 +41,8 @@ export default class RecipeAtGlance extends Component {
             const minInt = parseInt(time.minutes, 10) || 0;
             const hours = Math.floor(minInt / 60);
             const mins = minInt % 60;
-            const hourFormated = hours ? `${hours} hr ` : '';
-            const minFormated = mins ? `${mins} min` : '';
+            const hourFormated = hours ? `${hours} ${hours > 1 ? `hrs` : `hr`} ` : '';
+            const minFormated = mins ? `${mins} ${mins > 1 ? `mins` : `min`}` : '';
             const timeFormated = `${hourFormated}${minFormated}`;
             return `${timeFormated} ${labelAlias[time.id]}${time.label ? ` ${time.label}` : ''}`;
         });

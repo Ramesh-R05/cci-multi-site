@@ -96,7 +96,7 @@ describe(`RecipeAtAGlance Component`, () => {
                     ]
             }
             wrapper = mount(<RecipeAtGlance recipeAtGlance={recipeAtGlance} />)
-            expect(wrapper.html()).contain("2 hr 8 min prep wash fish and cut vegs")
+            expect(wrapper.html()).contain("2 hrs 8 mins preparation wash fish and cut vegs")
         })
     })
 
