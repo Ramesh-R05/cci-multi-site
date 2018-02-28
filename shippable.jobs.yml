@@ -269,7 +269,7 @@ jobs:
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     on_failure:
-      - NOTIFY: hb-deployment-notifications
+      - NOTIFY: elle-deployment-notifications
 
   # 4b. Run compatibility regression test on TEST environment - Browser Stack
   - name: compatibility-multi-site-automation-test
@@ -294,6 +294,8 @@ jobs:
        - script: export URL=http://multi-site.test.bxm.net.au/
        - script: npm run test:mobile
        - script: npm run test:browser
+    on_failure:
+      - NOTIFY: elle-deployment-notifications
 
   # 4cCOSMO. Run smoke test on TEST environment COSMO
   - name: cosmo-site-smoke-test
@@ -405,6 +407,7 @@ jobs:
     steps:
       - IN: multi-site-automation-test
       - IN: cosmo-site-smoke-test
+      - IN: compatibility-multi-site-automation-test
       - IN: cosmo-site-version
       - IN: cosmo-site-man-master
         switch: off
@@ -416,6 +419,7 @@ jobs:
     steps:
       - IN: multi-site-automation-test
       - IN: elle-site-smoke-test
+      - IN: compatibility-multi-site-automation-test
       - IN: elle-site-version
       - IN: elle-site-man-master
         switch: off
@@ -427,6 +431,7 @@ jobs:
     steps:
       - IN: multi-site-automation-test
       - IN: hb-site-smoke-test
+      - IN: compatibility-multi-site-automation-test
       - IN: hb-site-version
       - IN: hb-site-man-master
         switch: off
@@ -438,6 +443,7 @@ jobs:
     steps:
       - IN: multi-site-automation-test
       - IN: gt-site-smoke-test
+      - IN: compatibility-multi-site-automation-test
       - IN: gt-site-version
       - IN: gt-site-man-master
         switch: off
