@@ -18,6 +18,7 @@ function mapStateToProps(context) {
     const teaserStore = context.getStore('TeaserStore');
     return {
         title: pageStore.getTitle(),
+        heroTeaser: teaserStore.getHeroTeaser(),
         teasers: teaserStore.getLatestTeasers(),
         list: teaserStore.getList(),
         listNextParams: teaserStore.getListNextParams(),
@@ -34,6 +35,7 @@ export default class Section extends Component {
         nodeType: PropTypes.array.isRequired,
         list: PropTypes.array.isRequired,
         listNextParams: PropTypes.object.isRequired,
+        heroTeaser: PropTypes.object.isRequired,
         teasers: PropTypes.array.isRequired,
         title: PropTypes.array.isRequired,
         currentUrl: PropTypes.string.isRequired,
@@ -66,8 +68,7 @@ export default class Section extends Component {
     render() {
         const { config } = this.context;
         const brand = config.product;
-        const { nodeType, teasers, title, currentUrl, theme, subsections } = this.props;
-        const heroTeaser = teasers[0];
+        const { nodeType, teasers, title, currentUrl, theme, subsections, heroTeaser } = this.props;
         const firstTeaserList = teasers.slice(1, 7);
         const keyword = (nodeType === 'TagSection' && title) ? [title] : [];
         const pageLocation = Ad.pos.outside;
@@ -95,6 +96,11 @@ export default class Section extends Component {
             targets: keyword
         };
 
+        const topListType = get(config, 'features.sectionPage.topNewsFeedListType', 'grid');
+        const showImageBadge = get(config, 'features.sectionPage.newsFeed.showImageBadge', false);
+        const tagsToShow = get(config, 'features.sectionPage.newsFeed.tagsToShow', 0);
+        const linesToShow = get(config, 'features.sectionPage.newsFeed.linesToShow', 0);
+
         return (
             <Page
               currentUrl={currentUrl}
@@ -121,14 +127,34 @@ export default class Section extends Component {
 
                                         <HeroTeaser showDate article={heroTeaser} brand={brand} />
 
-                                        <TeaserGridView
-                                          teasers={firstTeaserList}
-                                          showDate
-                                          className="news-feed top-news-feed"
-                                          adPosition={8}
-                                          adTargets={{ keyword }}
-                                          nativeAdConfig={{ slotPositionIndex: polarLabels.sectionTopFeed }}
-                                        />
+                                        {
+                                            topListType === 'grid' &&
+                                            <TeaserGridView
+                                              teasers={firstTeaserList}
+                                              showDate
+                                              className="news-feed top-news-feed"
+                                              adPosition={8}
+                                              adTargets={{ keyword }}
+                                              nativeAdConfig={{ slotPositionIndex: polarLabels.sectionTopFeed }}
+                                            />
+                                        }
+                                        {
+                                            topListType === 'list' &&
+                                            <TeaserListView
+                                              index={null}
+                                              items={teasers.slice(0, 6)}
+                                              className={'news-feed top-news-feed'}
+                                              nativeAdConfig={{
+                                                  slotPositionIndex: polarLabels.homeTopFeed
+                                              }}
+                                              showDate={false}
+                                              loadAgain={false}
+                                              showAd={false}
+                                              tagsToShow={tagsToShow}
+                                              showImageBadge={showImageBadge}
+                                              linesToShow={linesToShow}
+                                            />
+                                        }
                                     </div>
                                     <div className="page__social-wrapper columns large-4 xlarge-3">
                                         <div className="columns medium-6 large-12">

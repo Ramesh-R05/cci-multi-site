@@ -64,9 +64,17 @@ export default {
         xl: { w: 1010, h: 756 }
     },
     homePage: {
-        topNewsFeedListType: 'list',
+        topNewsFeedListType: 'grid',
         newsFeed: {
-            showImageBadge: true,
+            showImageBadge: false,
+            tagsToShow: 2,
+            linesToShow: 3
+        }
+    },
+    sectionPage: {
+        topNewsFeedListType: 'grid',
+        newsFeed: {
+            showImageBadge: false,
             tagsToShow: 2,
             linesToShow: 3
         }

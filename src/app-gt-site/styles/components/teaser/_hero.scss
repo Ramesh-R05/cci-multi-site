@@ -9,10 +9,9 @@ $hero-teaser-line-height: 25px;
 
     @media #{$medium-up} {
         margin: 0;
-        padding-bottom: 20px;
+        padding-bottom: 0;
 
         .home-page & {
-            padding-bottom: 0;
             position: relative;
 
             .promoted-teaser-view-grid + .hero-wrapper__get-social-container {
