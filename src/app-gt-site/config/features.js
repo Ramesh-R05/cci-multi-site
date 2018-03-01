@@ -56,6 +56,7 @@ export default {
     feedCarousel: {
         enabled: true
     },
+    galleryItemCountSeparator: '/',
     teaserImageAnchorType: imageResize.anchor.MC,
     teaserImageSizes: {
         s: { w: 323, h: 242 },

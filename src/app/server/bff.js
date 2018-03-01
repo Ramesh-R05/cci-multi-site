@@ -29,6 +29,7 @@ export default function bff(server) {
     } else {
         server.get('/sitemap/:section?', sitemap, error);
         server.get('/amp/:section/:page', pageModules, section, page, article, gallery, headerMeta, responseBody, amp);
+        server.get('/amp/:section/:subsection/:page', pageModules, section, page, article, gallery, headerMeta, responseBody, amp);
         server.get(server.locals.config.services.endpoints.list, list, https, render, error);
         server.get(
             server.locals.config.services.endpoints.page,

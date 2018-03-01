@@ -18,7 +18,7 @@ export default class GiftCard extends Component {
         const { brand } = this.props;
         const url = get(brand, 'giftCard.url', GiftCard.DEFAULT_URL);
         const buttonText = get(brand, 'giftCard.buttonText', GiftCard.DEFAULT_BUTTON_TEXT);
-        const imageUrl = 'assets/images/gift-card.png';
+        const imageUrl = '/assets/images/gift-card.png';
 
         return (
             <div className="gift-card-container column medium-6 large-12">
