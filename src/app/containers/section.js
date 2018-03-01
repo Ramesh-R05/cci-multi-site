@@ -35,7 +35,6 @@ export default class Section extends Component {
         nodeType: PropTypes.array.isRequired,
         list: PropTypes.array.isRequired,
         listNextParams: PropTypes.object.isRequired,
-        heroTeaser: PropTypes.object.isRequired,
         teasers: PropTypes.array.isRequired,
         title: PropTypes.array.isRequired,
         currentUrl: PropTypes.string.isRequired,
@@ -68,7 +67,9 @@ export default class Section extends Component {
     render() {
         const { config } = this.context;
         const brand = config.product;
-        const { nodeType, teasers, title, currentUrl, theme, subsections, heroTeaser } = this.props;
+        const { nodeType, teasers, title, currentUrl, theme, subsections } = this.props;
+        // Using first teaser for each section because modules aren't setup for each one in the CMS
+        const heroTeaser = teasers[0];
         const firstTeaserList = teasers.slice(1, 7);
         const keyword = (nodeType === 'TagSection' && title) ? [title] : [];
         const pageLocation = Ad.pos.outside;
