@@ -88,6 +88,8 @@ jobs:
   # 3a. TEST deployment for MASTER - stubbed and hb config
   - name: multi-site-test-deploy-master
     type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
     steps:
       - IN: elle-site-man-master
         switch: on
@@ -276,6 +278,7 @@ jobs:
     type: runSh
     always:
     - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
     steps:
     - IN: multi-site-test-deploy-master
     - IN: multi-site-repo
@@ -404,6 +407,8 @@ jobs:
   # 5COSMO. Package release for production release
   - name: cosmo-release-master
     type: release
+    always:
+    - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
       - IN: cosmo-site-smoke-test
@@ -412,10 +417,14 @@ jobs:
       - IN: cosmo-site-man-master
         switch: off
       - TASK: managed
+    on_success:
+      - NOTIFY: cosmo-deployment-notifications
 
   # 5ELLE. Package release for production release
   - name: elle-release-master
     type: release
+    always:
+    - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
       - IN: elle-site-smoke-test
@@ -424,10 +433,14 @@ jobs:
       - IN: elle-site-man-master
         switch: off
       - TASK: managed
+    on_success:
+      - NOTIFY: elle-deployment-notifications
 
   # 5HB. Package release for production release
   - name: hb-release-master
     type: release
+    always:
+    - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
       - IN: hb-site-smoke-test
@@ -436,10 +449,14 @@ jobs:
       - IN: hb-site-man-master
         switch: off
       - TASK: managed
+    on_success:
+      - NOTIFY: hb-deployment-notifications
 
   # 5GT. Package release for production release
   - name: gt-release-master
     type: release
+    always:
+    - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
       - IN: gt-site-smoke-test
@@ -448,6 +465,8 @@ jobs:
       - IN: gt-site-man-master
         switch: off
       - TASK: managed
+    on_success:
+      - NOTIFY: gt-deployment-notifications
 
   # 6COSMO. PROD deployment for MASTER COSMO
   - name: cosmo-site-prod-deploy-master
