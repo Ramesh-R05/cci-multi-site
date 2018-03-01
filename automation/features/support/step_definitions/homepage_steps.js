@@ -32,11 +32,7 @@ module.exports = function(){
 
         switch(part) {
             case 'top':
-                if (world.Urls.site == 'gt-site') {
-                    feedItems_element = home.topFeedListNumber;
-                } else {
-                    feedItems_element = home.topFeedGridNumber;
-                }
+                feedItems_element = home.topFeedGridNumber;
                 break;
             case 'bottom':
                 feedItems_element = home.bottomFeedListNumber;
@@ -51,13 +47,8 @@ module.exports = function(){
 
         switch(part) {
             case 'top':
-                if (world.Urls.site == 'gt-site') {
-                    feedTeaserImg_element = home.topFeedListTeaserImg;
-                    feedTeaserImgLink_element = home.topFeedListTeaserImgLink;
-                } else {
-                    feedTeaserImg_element = home.topFeedGridTeaserImg;
-                    feedTeaserImgLink_element = home.topFeedGridTeaserImgLink;
-                }
+                feedTeaserImg_element = home.topFeedGridTeaserImg;
+                feedTeaserImgLink_element = home.topFeedGridTeaserImgLink;
                 i = 4; //Test the 5th item which is array no.4
                 break;
             case 'bottom':
@@ -79,11 +70,7 @@ module.exports = function(){
 
         switch(part) {
             case 'top':
-                if (world.Urls.site == 'gt-site') {
-                    feedTeaserTitle_element = home.topFeedListTeaserTitle;
-                } else {
-                    feedTeaserTitle_element = home.topFeedGridTeaserTitle;
-                }
+                feedTeaserTitle_element = home.topFeedGridTeaserTitle;
                 i = 4; //Test the 5th item which is array no.4
                 break;
             case 'bottom':
