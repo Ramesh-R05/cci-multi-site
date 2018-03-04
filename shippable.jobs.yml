@@ -407,6 +407,7 @@ jobs:
   # 5COSMO. Package release for production release
   - name: cosmo-release-master
     type: release
+    dependencyMode: strict
     always:
     - NOTIFY: multi-slack-notifications
     steps:
@@ -423,6 +424,7 @@ jobs:
   # 5ELLE. Package release for production release
   - name: elle-release-master
     type: release
+    dependencyMode: strict
     always:
     - NOTIFY: multi-slack-notifications
     steps:
@@ -439,6 +441,7 @@ jobs:
   # 5HB. Package release for production release
   - name: hb-release-master
     type: release
+    dependencyMode: strict
     always:
     - NOTIFY: multi-slack-notifications
     steps:
@@ -455,6 +458,7 @@ jobs:
   # 5GT. Package release for production release
   - name: gt-release-master
     type: release
+    dependencyMode: strict
     always:
     - NOTIFY: multi-slack-notifications
     steps:
