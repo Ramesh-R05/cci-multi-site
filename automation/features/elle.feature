@@ -41,12 +41,12 @@ Feature: Smoke test for ELLE
         Given I switch to "mobile" view
         When I am currently viewing the homepage
         * I can see the social icons clickable to open its page in the footer
-            |social     |url                                    |
-            |Facebook   |https://www.facebook.com/ELLEaus       |
-            |Twitter    |https://twitter.com/ELLEaus            |
-            |Instagram  |https://www.instagram.com/elleaus      |
-            |Pinterest  |https://au.pinterest.com/elleaus       |
-            |YouTube    |https://www.youtube.com/elleaus        |
+            |social     |url                                                |
+            |Facebook   |https://www.facebook.com/ELLEaus                   |
+            |Twitter    |https://twitter.com/ELLEaus                        |
+            |Instagram  |https://www.instagram.com/elleaus                  |
+            |Pinterest  |https://www.pinterest.com.au/elle_australia        |
+            |YouTube    |https://www.youtube.com/elleaus                    |
 
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view

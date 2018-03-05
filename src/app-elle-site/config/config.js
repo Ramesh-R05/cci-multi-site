@@ -70,7 +70,7 @@ export default {
             facebook: 'https://www.facebook.com/ELLEaus',
             twitter: 'https://twitter.com/ELLEaus',
             instagram: 'https://www.instagram.com/elleaus',
-            pinterest: 'https://au.pinterest.com/elleaus',
+            pinterest: 'https://www.pinterest.com.au/elle_australia',
             youtube: 'https://www.youtube.com/elleaus'
         }
     },
@@ -83,7 +83,7 @@ export default {
             facebook: 'https://www.facebook.com/ELLEaus',
             twitter: 'https://twitter.com/ELLEaus',
             instagram: 'https://www.instagram.com/elleaus',
-            pinterest: 'https://au.pinterest.com/elleaus',
+            pinterest: 'https://www.pinterest.com.au/elle_australia',
             youtube: 'https://www.youtube.com/elleaus'
         },
         newsletterUrl: '//www.elle.com.au/elle-newsletter',
