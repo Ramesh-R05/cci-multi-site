@@ -1,12 +1,20 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import parse from '@bxm/markdown/lib/parse';
 
-const RecipeNotes = ({ recipeNotes }) => (
-    <div className="recipe-notes columns small-12">
-        <h3>Notes</h3>
-        <p key="test_key" className="recipe-notes__content" dangerouslySetInnerHTML={{ __html: parse(recipeNotes) }} />
-    </div>
-);
+
+class RecipeNotes extends Component {
+    render() {
+        const { recipeNotes } = this.props;
+        if (!recipeNotes) return null;
+
+        return (
+            <div className="recipe-notes columns small-12">
+                <h3>Notes</h3>
+                <p className="recipe-notes__content" dangerouslySetInnerHTML={{ __html: parse(recipeNotes) }} />
+            </div>
+        );
+    }
+}
 
 RecipeNotes.propTypes = {
     recipeNotes: PropTypes.string.isRequired

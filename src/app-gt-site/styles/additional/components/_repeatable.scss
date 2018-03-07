@@ -1,0 +1,14 @@
+.repeatable-component {
+    
+    .button--load-more {
+        margin-bottom: 0;
+    }
+
+    .container {
+        
+        &:last-child {
+            margin-bottom: 30px;
+        }
+    }
+}
+

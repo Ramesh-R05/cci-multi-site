@@ -201,7 +201,7 @@ export default class Recipe extends Component {
                   adTargets={this.getAdTargets()}
                 />
 
-                <section className="recipe-details">
+                <section className="recipe-details row medium-collapse large-collapse">
                     <RecipeIngredients recipeIngredients={recipeIngredients} />
                     <RecipeMethod recipeMethod={recipeCookingMethod} />
                     <RecipeNotes recipeNotes={recipeTips} />
