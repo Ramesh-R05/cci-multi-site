@@ -1,7 +1,9 @@
 .page--section {
     .page-title-container {
         max-width: 1025px;
-        margin: 0 auto 10px;
+        overflow: auto;
+        background: #fff;
+        margin: 0 auto -30px;
     }
 
     .page-title {
@@ -9,7 +11,7 @@
         margin-right: 0;
 
         @media #{$medium-up} {
-            margin: 0 30px;
+            margin: 30px;
             width: auto;
         }
     }
