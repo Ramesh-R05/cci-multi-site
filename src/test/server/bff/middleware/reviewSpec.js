@@ -2,6 +2,14 @@ import proxyquire, { noCallThru } from 'proxyquire';
 import review from '../../../mocks/review';
 noCallThru();
 
+const config = {
+    features: {
+        reviewPage: {
+            titleSuffix: ': Restaurant review'
+        }
+    }
+};
+
 let getLatestTeasersStub = () => {};
 
 const reviewMiddleware = proxyquire('../../../../app/server/bff/middleware/review', {
@@ -45,7 +53,12 @@ describe('Review middleware', () => {
 
         beforeEach(()=>{
             req = {
-                data: { entity: { ...review } }
+                data: { entity: { ...review } },
+                app: {
+                    locals: {
+                        config
+                    }
+                }
             };
         });
 
@@ -60,8 +73,8 @@ describe('Review middleware', () => {
 
         it('should update the title', (done) => {
             reviewMiddleware(req, res, next).then(() => {
-                expect(req.data.entity.pageTitle).to.equal(review.pageTitle + ': Restaurant review');
-                expect(req.data.entity.contentTitle).to.equal(review.contentTitle + ': Restaurant review');
+                expect(req.data.entity.pageTitle).to.equal(review.pageTitle + config.features.reviewPage.titleSuffix);
+                expect(req.data.entity.contentTitle).to.equal(review.contentTitle + config.features.reviewPage.titleSuffix);
                 expect(next).to.be.called;
                 done();
             }).catch(done);

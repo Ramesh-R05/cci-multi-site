@@ -7,6 +7,12 @@ var subsectionName;
 var contentName = {}; //Global Hash variable to collect the value of content name from different doc type e.g. contentName['article'] = 'article-test-xxxx'
 var docTypeID = {}; //Global Hash variable to collect the value of random ID from different doc type e.g. docTypeID['article'] = 'xxxx'
 var docType;
+var sitUrls = {
+    'cosmo': 'http://cosmo-site-au.sit.bxm.net.au/',
+    'elle': 'http://elle-site-au.sit.bxm.net.au/',
+    'gt': 'http://gt-site-au.sit.bxm.net.au/',
+    'hb': 'http://hb-site-au.sit.bxm.net.au/'
+};
 
 function randomValue() {
     return Math.floor(Math.random() * 60000) + 50000
@@ -16,89 +22,76 @@ var randomId = randomValue();
 module.exports = function() {
 
     this.Given(/^Emily just published the "([^"]*)" doc type item in "([^"]*)"$/, function (page, site) {
+
         var content_json;
-        var documentPath;
-        docType=page;
+        var documentPath = '-1,1159,'; //Parent nodes in dev CMS
+        docType = page;
+
         //Specify json file and path
-        switch(page) {
+        switch (page) {
             case 'article':
+                randomId += 2;
                 switch (site) {
                     case 'elle':
-                        randomId = randomId + 2;
-                        content_json = 'test-article-on-sit-elle.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/elle/documents/2757
-                        documentPath = '-1,1159,'; //Parent nodes in dev CMS
+                        content_json = 'test-article-on-sit-elle.json'; // http://dev.umbraco.services.bauer-media.internal/v1/elle/documents/2757
                         break;
                     case 'cosmo':
-                        randomId = randomId + 2;
-                        content_json = 'test-article-on-sit-cosmo.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/cosmo/documents/17766
-                        documentPath = '-1,1159,'; //Parent nodes in dev CMS
+                        content_json = 'test-article-on-sit-cosmo.json'; // http://dev.umbraco.services.bauer-media.internal/v1/cosmo/documents/17766
                         break;
                     case 'hb':
-                        randomId = randomId + 2;
-                        content_json = 'test-article-on-sit-hb.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/hb/documents/13260
-                        documentPath = '-1,1159,'; //Parent nodes in dev CMS
+                        content_json = 'test-article-on-sit-hb.json'; // http://dev.umbraco.services.bauer-media.internal/v1/hb/documents/13260
                         break;
                     case 'gt':
-                        randomId = randomId + 2;
-                        content_json = 'test-article-on-sit-gt.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1192
-                        documentPath = '-1,1159,'; //Parent nodes in dev CMS
+                        content_json = 'test-article-on-sit-gt.json'; // http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1192
                         break;
                 }
                 break;
             case 'gallery':
+                randomId += 3;
                 switch (site) {
                     case 'elle':
-                        randomId = randomId + 3;
-                        content_json = 'test-gallery-on-sit-elle.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/elle/documents/9256
-                        documentPath = '-1,1159,'; //Parent nodes in dev CMS
+                        content_json = 'test-gallery-on-sit-elle.json'; // http://dev.umbraco.services.bauer-media.internal/v1/elle/documents/9256
                         break;
                     case 'cosmo':
-                        randomId = randomId + 3;
-                        content_json = 'test-gallery-on-sit-cosmo.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/cosmo/documents/17630
-                        documentPath = '-1,1159,'; //Parent nodes in dev CMS
+                        content_json = 'test-gallery-on-sit-cosmo.json'; // http://dev.umbraco.services.bauer-media.internal/v1/cosmo/documents/17630
                         break;
                     case 'hb':
-                        randomId = randomId + 3;
-                        content_json = 'test-gallery-on-sit-hb.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/hb/documents/13258
-                        documentPath = '-1,1159,'; //Parent nodes in dev CMS
+                        content_json = 'test-gallery-on-sit-hb.json'; // http://dev.umbraco.services.bauer-media.internal/v1/hb/documents/13258
                         break;
                     case 'gt':
-                        randomId = randomId + 3;
-                        content_json = 'test-gallery-on-sit-gt.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1170
-                        documentPath = '-1,1159,'; //Parent nodes in dev CMS
+                        content_json = 'test-gallery-on-sit-gt.json'; // http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1170
                         break;
                 }
                 break;
             case 'section':
                 switch (site) {
                     case 'elle':
-                        randomId = randomId;
-                        content_json = 'test-section-on-sit-elle.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
-                        documentPath = '-1,1159,';  //Parent node in dev CMS
+                        content_json = 'test-section-on-sit-elle.json'; // http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
                         break;
                     case 'cosmo':
-                        randomId = randomId;
-                        content_json = 'test-section-on-sit-cosmo.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
-                        documentPath = '-1,1159,';  //Parent node in dev CMS
+                        content_json = 'test-section-on-sit-cosmo.json'; // http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
                         break;
                     case 'hb':
-                        randomId = randomId;
-                        content_json = 'test-section-on-sit-hb.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
-                        documentPath = '-1,1159,';  //Parent node in dev CMS
+                        content_json = 'test-section-on-sit-hb.json'; // http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
                         break;
                     case 'gt':
-                        randomId = randomId;
-                        content_json = 'test-section-on-sit-gt.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
-                        documentPath = '-1,1159,';  //Parent node in dev CMS
+                        content_json = 'test-section-on-sit-gt.json'; // http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
                         break;
                 }
                 break;
             case 'subsection':
+                randomId += 1;
                 switch (site) {
                     case 'gt':
-                        randomId = randomId + 1;
-                        content_json = 'test-subsection-on-sit-gt.json'; //The data in this json file is from http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1528
-                        documentPath = '-1,1159,';  //Parent node in dev CMS
+                        content_json = 'test-subsection-on-sit-gt.json'; // http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/1528
+                        break;
+                }
+                break;
+            case 'review':
+                randomId += 4;
+                switch (site) {
+                    case 'gt':
+                        content_json = 'test-review-on-sit-gt.json'; // http://dev.umbraco.services.bauer-media.internal/v1/gt/documents/6564
                         break;
                 }
                 break;
@@ -106,10 +99,12 @@ module.exports = function() {
 
         //Read Json File and update Title and ID
         var body_content = JSON.parse(fs.readFileSync('../automation/features/support/files/' + content_json , 'utf8'));
-        switch(page) {
+
+        switch (page) {
             case 'article':
             case 'gallery':
-                switch(site) {
+            case 'review':
+                switch (site) {
                     case 'cosmo':
                     case 'elle':
                     case 'hb':
@@ -172,138 +167,64 @@ module.exports = function() {
     });
 
     this.When(/^I navigate to the "([^"]*)" page in "([^"]*)"$/, function (docType, site) {
+
         var elementOnPage;
         var pageURL;
+
         switch (docType) {
             case 'article':
             case 'gallery':
-                switch (site) {
-                    case 'elle':
-                        var sitUrl = "http://elle-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + sectionName + '/' + contentName[docType];
-                        break;
-                    case 'cosmo':
-                        var sitUrl = "http://cosmo-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + sectionName + '/' + contentName[docType];
-                        break;
-                    case 'hb':
-                        var sitUrl = "http://hb-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + sectionName + '/' + contentName[docType];
-                        break;
-                    case 'gt':
-                        var sitUrl = "http://gt-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + sectionName + '/' + subsectionName + '/' + contentName[docType];
-                        break;
-                }
+            case 'review':
+                elementOnPage = '.article__title';
+                pageURL = sitUrls[site] + sectionName + '/' + (site === 'gt' ? subsectionName + '/' : '') + contentName[docType];
                 break;
 
             case 'section':
-                switch (site) {
-                    case 'elle':
-                        var sitUrl = "http://elle-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".page-title-container .page-title";
-                        pageURL = sitUrl + sectionName;
-                        break;
-                    case 'cosmo':
-                        var sitUrl = "http://cosmo-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".page-title-container .page-title";
-                        pageURL = sitUrl + sectionName;
-                        break;
-                    case 'hb':
-                        var sitUrl = "http://hb-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".page-title-container .page-title";
-                        pageURL = sitUrl + sectionName;
-                        break;
-                    case 'gt':
-                        var sitUrl = "http://gt-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".page-title-container .page-title";
-                        pageURL = sitUrl + sectionName;
-                        break;
-                }
+                elementOnPage = '.page-title-container .page-title';
+                pageURL = sitUrls[site] + sectionName;
                 break;
 
             case 'subsection':
                 switch (site) {
                     case 'gt':
                         elementOnPage = ".page-title-container .page-title";
-                        pageURL = sitUrl + sectionName + '/' + subsectionName ;
+                        pageURL = sitUrls[site] + sectionName + '/' + subsectionName ;
                         break;
                 }
                 break;
 
             case 'amp article':
-                switch (site) {
-                    case 'elle':
-                        var sitUrl = "http://elle-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['article'];
-                        docTypeID[docType] = docTypeID["article"];
-                        break;
-                    case 'cosmo':
-                        var sitUrl = "http://cosmo-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['article'];
-                        docTypeID[docType] = docTypeID["article"];
-                        break;
-                    case 'hb':
-                        var sitUrl = "http://hb-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['article'];
-                        docTypeID[docType] = docTypeID["article"];
-                        break;
-                    case 'gt':
-                        var sitUrl = "http://gt-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + subsectionName + '/' + contentName['article'];
-                        docTypeID[docType] = docTypeID["article"];
-                        break;
-                }
+                elementOnPage = ".article__title";
+                pageURL = sitUrls[site] + 'amp/' + sectionName + '/' + (site === 'gt' ? subsectionName + '/' : '') + contentName['article'];
+                docTypeID[docType] = docTypeID["article"];
                 break;
 
             case 'amp gallery':
+                elementOnPage = ".article__title";
+                pageURL = sitUrls[site] + 'amp/' + sectionName + '/' + (site === 'gt' ? subsectionName + '/' : '') + contentName['gallery'];
+                docTypeID[docType] = docTypeID["gallery"];
+                break;
+
+            case 'amp review':
                 switch (site) {
-                    case 'elle':
-                        var sitUrl = "http://elle-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['gallery'];
-                        docTypeID[docType] = docTypeID["gallery"];
-                        break;
-                    case 'cosmo':
-                        var sitUrl = "http://cosmo-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['gallery'];
-                        docTypeID[docType] = docTypeID["gallery"];
-                        break;
-                    case 'hb':
-                        var sitUrl = "http://hb-site-au.sit.bxm.net.au/";
-                        elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + contentName['gallery'];
-                        docTypeID[docType] = docTypeID["gallery"];
-                        break;
                     case 'gt':
-                        var sitUrl = "http://gt-site-au.sit.bxm.net.au/";
                         elementOnPage = ".article__title";
-                        pageURL = sitUrl + 'amp/' + sectionName + '/' + subsectionName + '/' + contentName['gallery'];
-                        docTypeID[docType] = docTypeID["gallery"];
+                        pageURL = sitUrls[site] + 'amp/' + sectionName + '/' + subsectionName + '/' + contentName['review'];
+                        docTypeID[docType] = docTypeID["review"];
                         break;
                 }
                 break;
         }
 
-        for(var i = 0; i < 20; i++) {
+        for (var i = 0; i < 20; i++) {
             wait(1000); //add 1 sec wait for every loop to let the document publish
             browser.refresh();
             browser.url(pageURL);
-            if(browser.isExisting(elementOnPage) == true){
-                console.log("Page Loaded Successfully : ID-" + docTypeID[docType] + ": " + pageURL);
+            if (browser.isExisting(elementOnPage) == true){
+                console.log("Page Loaded Successfully: ID-" + docTypeID[docType] + ": " + pageURL);
                 break;
             } else {
-                var page_url = browser.getUrl();
-                console.log("Page not created yet, current page url is : " + page_url);
+                console.log("Page not created yet, current page url is: " + browser.getUrl());
                 wait(2000);
             }
         }
@@ -329,7 +250,12 @@ module.exports = function() {
                 break;
             case 'subsection':
                 browser.waitForExist("h1.page-title", 30000);
-                expect(browser.getText("h1.page-title")).toContain("SECTIONTEST-"); //This is a temporary expected result. Once the subsection is styled correctly, it should be .toEqual("SUBSECTIONTEST-" + ID);
+                expect(browser.getText("h1.page-title")).toEqual("SUBSECTIONTEST-" + ID);
+                break;
+            case 'review':
+            case 'amp review':
+                browser.waitForExist(".article__title", 30000);
+                expect(browser.getText(".article__title").toUpperCase()).toEqual("REVIEW TEST " + ID + ": RESTAURANT REVIEW");
                 break;
         }
     });
