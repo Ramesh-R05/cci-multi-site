@@ -36,7 +36,7 @@
   "homepage": "https://github.com/bauerxcelmedia/multi-site#readme",
   "dependencies": {
     "@bxm/ad": "^13.3.0",
-    "@bxm/article": "^25.25.0",
+    "@bxm/article": "^25.26.0",
     "@bxm/behaviour": "^1.4.0",
     "@bxm/config": "^4.1.1",
     "@bxm/datetime": "^3.1.0",
@@ -50,7 +50,7 @@
     "@bxm/node-apm": "^1.0.1",
     "@bxm/react-script-loader": "^2.1.0",
     "@bxm/recommendations": "^4.1.0",
-    "@bxm/server": "^23.17.1",
+    "@bxm/server": "^23.18.0",
     "@bxm/services-stubs": "^2.3.1",
     "@bxm/site-header": "^7.1.0",
     "@bxm/social": "^2.0.0",
