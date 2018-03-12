@@ -38,7 +38,7 @@ const suffixContext = {
             breakpoints: ''
         },
         features: {
-            suffix: {
+            reviewTitleSuffix: {
                 enabled: true,
                 titleSuffix: suffix
             } 

@@ -105,9 +105,9 @@ export default class Teaser extends Component {
 
     getReviewSuffix(title, nodeType) {
         const { config } = this.context;
-        const ifReviewSuffixEnabled = get(config, 'features.suffix.enabled', false);
+        const ifReviewSuffixEnabled = get(config, 'features.reviewTitleSuffix.enabled', false);
         if (!ifReviewSuffixEnabled || nodeType !== 'Review') return title;
-        const reviewSuffix = get(config, 'features.suffix.titleSuffix', '');
+        const reviewSuffix = get(config, 'features.reviewTitleSuffix.titleSuffix', '');
         return `${title}${reviewSuffix}`;
     }
 

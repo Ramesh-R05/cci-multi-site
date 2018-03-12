@@ -4,7 +4,8 @@ noCallThru();
 
 const config = {
     features: {
-        reviewPage: {
+        reviewTitleSuffix: {
+            enabled: true,
             titleSuffix: ': Restaurant review'
         }
     }
@@ -73,8 +74,8 @@ describe('Review middleware', () => {
 
         it('should update the title', (done) => {
             reviewMiddleware(req, res, next).then(() => {
-                expect(req.data.entity.pageTitle).to.equal(review.pageTitle + config.features.reviewPage.titleSuffix);
-                expect(req.data.entity.contentTitle).to.equal(review.contentTitle + config.features.reviewPage.titleSuffix);
+                expect(req.data.entity.pageTitle).to.equal(review.pageTitle + config.features.reviewTitleSuffix.titleSuffix);
+                expect(req.data.entity.contentTitle).to.equal(review.contentTitle + config.features.reviewTitleSuffix.titleSuffix);
                 expect(next).to.be.called;
                 done();
             }).catch(done);

@@ -93,7 +93,7 @@ export default {
             20002304: '30tp4z58'  // Women's sites pixel
         }
     },
-    suffix: {
+    reviewTitleSuffix: {
         enabled: true,
         titleSuffix: ': Restaurant review'
     }
