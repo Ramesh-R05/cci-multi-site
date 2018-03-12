@@ -55,6 +55,46 @@ export default {
                 "type": "tips",
                 "label": "Tips",
                 "content": "**Gourmet Traveller Restaurant Guide**\nWine: ★\n*Gourmet Traveller's star-ratings, which range from zero to three stars, reflect reviewers' first-hand experiences. The best-rated restaurants form our national Top 100. Our wine ratings, from zero to three stars, are made by wine editor Max Allen on the strength of the quality of the restaurant's wine list. View our rating key [here](https://www.gourmettraveller.com.au/GTRG-Rating-Key|target=\"_blank\").*"
+            },
+            {
+                "type": "related-content",
+                "label": "Related Content",
+                "content": [
+                    {
+                        "id": "GT-6916",
+                        "url": "/dining-out/restaurant-reviews/the-tamarind-6916",
+                        "name": "The Tamarind",
+                        "level": 6,
+                        "title": "The Tamarind",
+                        "pathIds": [
+                            "GT--1",
+                            "GT-1159",
+                            "GT-1198",
+                            "GT-1199",
+                            "GT-4375",
+                            "GT-4410",
+                            "GT-6916"
+                        ],
+                        "siteUrl": "http://gt-site-au.sit.bxm.net.au",
+                        "urlName": "the-tamarind",
+                        "imageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/GourmetTraveller/2017/11/14/37915/TheTamarind-SPICERS_FOOD_0063.jpg",
+                        "nodeType": "Review",
+                        "parentId": "GT-4410",
+                        "siteCode": "75937f58-91b0-4fb8-9409-70e9554d13c7",
+                        "siteName": "gt",
+                        "typeName": "TeaserDto",
+                        "parentUrl": "/dining-out/restaurant-reviews",
+                        "sortOrder": 4,
+                        "parentName": "Restaurant Reviews",
+                        "dateIndexed": "2018-03-08T17:36:05",
+                        "imageAltText": "The Tamarind",
+                        "nodeTypeAliasPath": [
+                            "Page",
+                            "Editorial",
+                            "Review"
+                        ]
+                    }
+                ]             
             }
         ],
         "dateCreated": "2017-10-11T05:00:00.00Z",

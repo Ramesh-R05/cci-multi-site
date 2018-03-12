@@ -30,6 +30,21 @@ const contextNZ = {
         }
     }
 };
+const suffix = 'suffix';
+const suffixContext = {
+    config: {
+        defaultImageUrl: '',
+        global: {
+            breakpoints: ''
+        },
+        features: {
+            suffix: {
+                enabled: true,
+                titleSuffix: suffix
+            } 
+        }
+    }
+}
 const proxyquire = require('proxyquire').noCallThru();
 const Teaser = proxyquire('../../../app/components/teaser/teaser', {
     "react": React,
@@ -74,7 +89,7 @@ describe('Component', () => {
 
         describe('when there is source field in the article', () => {
             const wrapper = shallow(<Teaser
-                article={{...teaserMock, source: 'Australian women\'s weekly' }}
+                article={{...teaserMock.stores.homepageHeroItems.items[0], source: 'Australian women\'s weekly' }}
                 sourceClassName="hero-teaser__source"
                 className="hero-teaser" />, { context });
 
@@ -93,5 +108,71 @@ describe('Component', () => {
                 expect(wrapper.prop('className')).to.equal("teaser teaser--nz");
             })
         })
+
+        describe('when teaser suffix enabled', () => {
+            
+            describe("when shortTitle is present", () => {
+                const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
+                reviewTeaserMock.nodeType = "Review";
+                const shortTitle = reviewTeaserMock.shortTitle;
+
+                const wrapper = shallow(<Teaser
+                    article={{...reviewTeaserMock }}
+                />, { context: suffixContext })
+
+                it('should append suffix to teaser short title', () => {
+                    expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal(`${shortTitle}${suffix}`);
+                })
+            })
+
+            describe("when shortTitle is not present", () => {
+                const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
+                reviewTeaserMock.nodeType = "Review";
+                reviewTeaserMock.shortTitle = '';
+                const longTitle = reviewTeaserMock.title;
+
+                const wrapper = shallow(<Teaser
+                    article={{...reviewTeaserMock }}
+                />, { context: suffixContext })
+
+                it('should append suffix to teaser long title', () => {
+                    expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal(`${longTitle}${suffix}`);
+                })
+            })
+
+            describe("when it is mustread or promo component", () => {
+                const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
+                reviewTeaserMock.nodeType = "Review";
+                reviewTeaserMock.id = "mustreadhome-123";
+                const shortTitle = reviewTeaserMock.shortTitle;
+
+                const wrapper = shallow(<Teaser
+                    article={{...reviewTeaserMock }}
+                />, { context: suffixContext })
+
+                describe("if shortTitle present", () => {
+                    it('should not append suffix to teaser short title', () => {
+                        expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal(shortTitle);
+                    })
+                })
+
+                describe("if shortTitle not present", () => {
+                    const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
+                    reviewTeaserMock.nodeType = "Review";
+                    reviewTeaserMock.id = "mustreadhome-123"
+                    reviewTeaserMock.shortTitle = '';
+
+                    const longTitle = reviewTeaserMock.title;
+                    const wrapper = shallow(<Teaser
+                        article={{...reviewTeaserMock }}
+                    />, { context: suffixContext })
+
+                    it('should append suffix to teaser long title', () => {
+                        expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal(`${longTitle}${suffix}`);
+                    })
+                })
+            })
+        })
+            
     });
 });

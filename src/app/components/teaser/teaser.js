@@ -103,6 +103,14 @@ export default class Teaser extends Component {
         );
     };
 
+    getReviewSuffix(title, nodeType) {
+        const { config } = this.context;
+        const ifReviewSuffixEnabled = get(config, 'features.suffix.enabled', false);
+        if (!ifReviewSuffixEnabled || nodeType !== 'Review') return title;
+        const reviewSuffix = get(config, 'features.suffix.titleSuffix', '');
+        return `${title}${reviewSuffix}`;
+    }
+
     render() {
         const { config } = this.context;
         const { className, sourceClassName, showDate, sourceDefault, polar, showImageBadge, tagsToShow, linesToShow } = this.props;
@@ -111,8 +119,11 @@ export default class Teaser extends Component {
         if (!article) return null;
 
         article = teaserContentOverride(article);
+        const { title, shortTitle, summaryTitle, nodeType, id } = article;
 
-        const articleTitle = article.shortTitle || article.summaryTitle || article.title;
+        const articleTitle = (id.includes('mustread') || id.includes('promo')) ?
+                                (shortTitle || summaryTitle || this.getReviewSuffix(title, nodeType)) :
+                                (this.getReviewSuffix(shortTitle || summaryTitle || title, nodeType));
 
         const siteRegionSuffix = get(config, 'site.region', '');
         const siteRegionClass = siteRegionSuffix && `teaser--${siteRegionSuffix.toLowerCase()}`;
