@@ -147,6 +147,8 @@ export default{
             "yieldMeasure": "g",
             "yieldQuantity": "2"
         },
+        "recipeCourse": "Main",
+        "recipeCuisine": "Modern Australian",
         "recipeTips": "This is recipe tips"
     },
     "headerMetaData": {

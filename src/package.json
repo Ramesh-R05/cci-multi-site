@@ -36,7 +36,7 @@
   "homepage": "https://github.com/bauerxcelmedia/multi-site#readme",
   "dependencies": {
     "@bxm/ad": "^13.3.0",
-    "@bxm/article": "^25.27.1",
+    "@bxm/article": "^25.28.0",
     "@bxm/behaviour": "^1.4.0",
     "@bxm/config": "^4.1.1",
     "@bxm/datetime": "^3.1.0",

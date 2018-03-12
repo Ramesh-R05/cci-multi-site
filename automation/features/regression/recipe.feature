@@ -14,6 +14,7 @@ Feature: Recipe
         * I can see the body paragraph "Automation Test Recipe Body Paragraph 1"
         * I can see the At A Glance
         * I can see the recipe details
+        * I can see the course and cuisine
         @high
         Examples:
             |device             |
@@ -50,6 +51,7 @@ Feature: Recipe
         * I can see the body paragraph "Automation Test Recipe Body Paragraph 1"
         * I can see the At A Glance
         * I can see the recipe details
+        * I can see the course and cuisine
     @low
         Examples:
             | device            |

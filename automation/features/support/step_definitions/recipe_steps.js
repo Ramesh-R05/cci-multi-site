@@ -10,4 +10,8 @@ module.exports = function() {
         expect(browser.isVisible(recipe.atGlance)).toBe(true);
     });
 
+    this.Then(/^I can see the course and cuisine$/, function () {
+        expect(browser.isVisible(recipe.course)).toBe(true);
+        expect(browser.isVisible(recipe.cuisine)).toBe(true);
+    });
 };
