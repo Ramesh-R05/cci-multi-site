@@ -3,6 +3,38 @@
         margin: 0 0 0 30px;
         width: 325px;
     }
+
+    &-carousel-content {
+
+        h2 {
+            width: 50%;
+        }
+
+        .feed-item {
+
+            margin: 0 15px 0;
+
+            &__body {
+                padding-top: 10px;
+            }
+
+            &__section-tag {
+
+                display: inline-block;
+                span {
+                    display: inline-block;
+                    text-transform: uppercase;
+                    font-size: 12px;   
+                }
+            }
+
+            .teaser__image {
+                overflow: hidden;
+                width: calc(100% + 30px);
+            }
+        }
+    }
+
 }
 
 .feed__container {

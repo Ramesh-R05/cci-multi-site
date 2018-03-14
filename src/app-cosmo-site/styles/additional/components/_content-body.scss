@@ -146,4 +146,17 @@
             }
         }
     }
-}
+
+    &__feed-carousel-content {
+        .feed-item__section-tag {
+            display: inline-block;
+            span {
+                color: #222;
+                font-size: 12px;
+                font-family: $font-family-sans-serif-primary;
+                box-shadow: 0 10px 0 0 #ffff5c inset;
+                line-height: 1;
+            }
+        }
+    }
+} 

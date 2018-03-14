@@ -26,7 +26,10 @@ export default {
 
     global,
 
-    ads: { targets: { env: 'test' } },
+    ads: { 
+        targets: { env: 'test' },
+        disabledGalleryChangeRefresh: true
+    },
 
     site,
 

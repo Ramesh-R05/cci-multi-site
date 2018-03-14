@@ -50,5 +50,8 @@ export default {
         pixels: {
             20002304: '30tp4z58'  // Women's sites pixel
         }
+    },
+    feedCarousel: {
+        enabled: true
     }
 };

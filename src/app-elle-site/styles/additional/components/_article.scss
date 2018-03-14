@@ -102,6 +102,20 @@
         }
     }
 
+    .feed-carousel-content {
+        h2 {
+            font-weight: bold;
+        }
+
+        .feed-item__section-tag {
+            @include type-teaser-tag;
+            display: block;
+            span {
+                font-family: $font-family-sans-serif-primary;
+            }
+        }
+    }
+
 }
 
 .feed__container .feed-item.feed-item--gallery::after {

@@ -54,5 +54,8 @@ export default {
     },
     oriel: {
         enabled: true
+    },
+    feedCarousel: {
+        enabled: true
     }
 };

@@ -74,6 +74,7 @@
             font-size: 17px;
             letter-spacing: 0.05em;
             font-weight: 600;
+            margin-top: -55px;
         }
 
         .feed-item {
@@ -153,6 +154,17 @@
 
         .tips {
             padding: 20px;
+        }
+
+
+    }
+
+    &__feed-carousel-content {
+        .feed-item__section-tag {
+            display: inline-block;
+            span {
+                font-family: $font-family-sans-serif-primary;
+            }
         }
     }
 }
