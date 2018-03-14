@@ -453,4 +453,9 @@ module.exports = function() {
         expect(leftImageSrc).not.toBeUndefined();
         expect(rightImageSrc).not.toBeUndefined();
     });
+
+    this.Given(/^I can see readmore carousel$/, function() {
+       var feedCarousel = browser.elements(wn_article.feedCoursel);
+       expect(feedCarousel.value.length).toBe(1);
+    });
 };

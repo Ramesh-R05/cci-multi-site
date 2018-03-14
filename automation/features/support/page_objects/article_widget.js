@@ -73,7 +73,8 @@ var article_widget = {
     articlePinterest: '.article__footer .social-share-block .icon-pinterest',
     imageRevealer: '.content-body .image-revealer',
     imageRevealerLeftImg: '.content-body .image-revealer__left img',
-    imageRevealerRightImg: '.content-body .image-revealer__right img'
+    imageRevealerRightImg: '.content-body .image-revealer__right img',
+    feedCoursel: '.content-body__feed-carousel-content'
 };
 
 module.exports = article_widget;
