@@ -99,7 +99,7 @@ export default {
         },
         newsletterUrl: '//www.cosmopolitan.com.au/cosmo-newsletter',
         subscribeButtonText: 'Subscribe',
-        subscribeButtonUrl: 'subscribe-magazine',
+        subscribeButtonUrl: '/subscribe-magazine',
         imageSizes: {
             s: { w: 275 },
             m: { w: 275 },

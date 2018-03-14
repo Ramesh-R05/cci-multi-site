@@ -26,7 +26,7 @@ export default {
 
     global,
 
-    ads: { 
+    ads: {
         targets: { env: 'test' },
         disabledGalleryChangeRefresh: true
     },
@@ -91,7 +91,7 @@ export default {
         newsletterText: 'Receive offers straight to your inbox',
         newsletterUrl: 'https://www.gourmettraveller.com.au/gt-newsletter',
         subscribeButtonText: 'Subscribe',
-        subscribeButtonUrl: 'subscribe-magazine',
+        subscribeButtonUrl: '/subscribe-magazine',
         imageSizes: {
             s: { w: 275 },
             m: { w: 275 },

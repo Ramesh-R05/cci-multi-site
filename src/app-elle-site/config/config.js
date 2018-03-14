@@ -88,7 +88,7 @@ export default {
         },
         newsletterUrl: '//www.elle.com.au/elle-newsletter',
         subscribeButtonText: 'Subscribe',
-        subscribeButtonUrl: 'subscribe-magazine',
+        subscribeButtonUrl: '/subscribe-magazine',
         imageSizes: {
             s: { w: 275 },
             m: { w: 275 },

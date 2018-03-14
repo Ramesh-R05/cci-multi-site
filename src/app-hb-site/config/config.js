@@ -26,7 +26,7 @@ export default {
 
     global,
 
-    ads: { 
+    ads: {
         targets: { env: 'test' },
         disabledGalleryChangeRefresh: true
     },
@@ -90,7 +90,7 @@ export default {
         },
         newsletterUrl: '//www.harpersbazaar.com.au/hb-newsletter',
         subscribeButtonText: 'Subscribe',
-        subscribeButtonUrl: 'subscribe-magazine',
+        subscribeButtonUrl: '/subscribe-magazine',
         imageSizes: {
             s: { w: 275 },
             m: { w: 275 },
