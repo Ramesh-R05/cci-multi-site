@@ -167,5 +167,6 @@ export default {
         templateId: 'Cosmopolitan_2',
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
-    }
+    },
+    nielsen: 'CD3E57F1-952F-472D-946A-F58654E3904B'
 };

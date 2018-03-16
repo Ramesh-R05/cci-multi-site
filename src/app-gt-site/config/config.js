@@ -160,7 +160,8 @@ export default {
         templateId: 'Harper\'sBazaarAU',
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
-    }
+    },
+    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708'
 
 };
 
