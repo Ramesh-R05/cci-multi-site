@@ -413,7 +413,6 @@ jobs:
     steps:
       - IN: multi-site-automation-test
       - IN: cosmo-site-smoke-test
-      - IN: compatibility-multi-site-automation-test
       - IN: cosmo-site-version
       - IN: cosmo-site-man-master
         switch: off
@@ -430,7 +429,6 @@ jobs:
     steps:
       - IN: multi-site-automation-test
       - IN: elle-site-smoke-test
-      - IN: compatibility-multi-site-automation-test
       - IN: elle-site-version
       - IN: elle-site-man-master
         switch: off
@@ -447,7 +445,6 @@ jobs:
     steps:
       - IN: multi-site-automation-test
       - IN: hb-site-smoke-test
-      - IN: compatibility-multi-site-automation-test
       - IN: hb-site-version
       - IN: hb-site-man-master
         switch: off
@@ -464,7 +461,6 @@ jobs:
     steps:
       - IN: multi-site-automation-test
       - IN: gt-site-smoke-test
-      - IN: compatibility-multi-site-automation-test
       - IN: gt-site-version
       - IN: gt-site-man-master
         switch: off
