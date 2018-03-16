@@ -307,6 +307,9 @@ module.exports = function() {
                 case 'Polar in Related Content After Slide 7':
                     adElement = wn_ads.ad_PolarRelatedContentAfterSlide7;
                     break;
+                case 'Polar in Carousel Feed':
+                    adElement = wn_ads.ad_PolarCarouselFeed;
+                    break;
             }
             var className = browser.getAttribute(adElement,'class');
             expect(className).toEqual(row['class-name']);
@@ -372,7 +375,7 @@ module.exports = function() {
         var second_googleId;
         var loopCount = 0;
         adElement = `${adElement} > div`;
-        
+
         // check the iframe ID before change and ensure the value is not NULL
         do {
             browser.scroll(adElement);
