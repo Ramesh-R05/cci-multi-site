@@ -19,8 +19,6 @@ import amp from '@bxm/server/lib/middleware/amp';
 import stubServer from '../../automation/test_data/contentApi';
 import logger from '../../logger';
 import assetProxy from './bff/middleware/assetProxy';
-import rss from './rss';
-import rssInfo from './rss/info';
 // import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
 
@@ -30,9 +28,6 @@ export default function bff(server) {
         stubServer(server, server.locals.config);
         logger.warn('stubbing does not exercise BFF code');
     } else {
-        server.get('/rss/info', rssInfo);
-        server.get('/rss/summary/:section?', rss);
-        server.get('/rss/:section?', rss);
         server.get('/sitemap/:section?', sitemap, error);
         server.get('/amp/:section/:page', pageModules, section, page, article, gallery, headerMeta, responseBody, amp);
         server.get('/amp/:section/:subsection/:page', pageModules, section, page, article, gallery, headerMeta, responseBody, amp);
