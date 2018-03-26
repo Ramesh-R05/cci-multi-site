@@ -60,8 +60,8 @@ export default function bff(server) {
             server.locals.config.services.endpoints.search,
             pageModules,
             headerMeta,
-            https,
             search,
+            https,
             render,
             error
         );
