@@ -2,11 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 import ResponsiveImage from '@bxm/ui/lib/common/ResponsiveImage';
 import get from 'lodash/object/get';
-import { connectToStores } from '@bxm/flux';
 
-class BrandMagazine extends Component {
+export default class BrandMagazine extends Component {
+
     static propTypes = {
-        magazineImageUrl: PropTypes.string.isRequired,
+        magazineImageUrl: PropTypes.string,
         brand: PropTypes.object.isRequired,
         imageSizes: PropTypes.object,
         responsiveConfig: PropTypes.object
@@ -27,7 +27,8 @@ class BrandMagazine extends Component {
             m: { w: 175 },
             l: { w: 175 },
             xl: { w: 175 }
-        }
+        },
+        magazineImageUrl: ''
     };
 
     static DEFAULT_SUBSCRIBE_URL = 'subscribe-magazine';
@@ -66,7 +67,3 @@ class BrandMagazine extends Component {
         );
     }
 }
-
-export default connectToStores(BrandMagazine, ['PageStore'], context => ({
-    magazineImageUrl: context.getStore('PageStore').getMagazineImageUrl()
-}));

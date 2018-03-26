@@ -1,6 +1,5 @@
 import teaserMock from '../../mocks/teaser';
 import { betterMockComponentContext } from '@bxm/flux';
-import merge from 'lodash/object/merge';
 import { shallow } from 'enzyme';
 
 const Context = betterMockComponentContext();
@@ -41,7 +40,7 @@ const suffixContext = {
             reviewTitleSuffix: {
                 enabled: true,
                 titleSuffix: suffix
-            } 
+            }
         }
     }
 }
@@ -60,8 +59,6 @@ describe('Component', () => {
             article={teaserMock.stores.homepageHeroItems.items[0]}
             sourceClassName="hero-teaser__source"
             className="hero-teaser" />, { context });
-
-
 
         it('it should contain source detail', () => {
             expect(wrapper.find('p.hero-teaser__source').length).to.be.equal(1);
@@ -110,7 +107,7 @@ describe('Component', () => {
         })
 
         describe('when teaser suffix enabled', () => {
-            
+
             describe("when shortTitle is present", () => {
                 const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
                 reviewTeaserMock.nodeType = "Review";
@@ -173,6 +170,6 @@ describe('Component', () => {
                 })
             })
         })
-            
+
     });
 });

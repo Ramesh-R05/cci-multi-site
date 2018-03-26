@@ -24,7 +24,8 @@ export default {
             listings: 'http://services.prod.bxm.internal/listing/v1/cosmo',
             module: 'http://services.prod.bxm.internal/module/v1/cosmo',
             sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/cosmo',
-            tag: 'http://services.prod.bxm.internal/tag/v1/cosmo'
+            tag: 'http://services.prod.bxm.internal/tag/v1/cosmo',
+            search: ''
         },
         redirect: {
             url: 'http://services.prod.bxm.internal/redirect/v1/cosmo/301'

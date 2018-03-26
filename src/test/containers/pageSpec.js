@@ -70,6 +70,7 @@ describe('Page Container', () => {
         { name: 'Test 2', url: '/test-2' },
         { name: 'Test 3', url: '/test-3' },
         { name: 'Test 4', url: '/test-4' }];
+    const magCover = {};
     const isHeaderPinned = false;
     const isHeaderHidden = false;
     const headerHeight = 0;
@@ -104,6 +105,14 @@ describe('Page Container', () => {
 
         getHeaderHeight() {
             return headerHeight;
+        },
+
+        getMagCover() {
+            return magCover;
+        },
+
+        isSearchPage() {
+            return false;
         }
     });
 

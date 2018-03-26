@@ -64,6 +64,7 @@
 @import 'components/social-share';
 @import 'components/ads';
 @import 'components/brandpage';
+@import 'components/search/search-bar';
 
 // Pages
 @import 'components/page/error';
@@ -86,6 +87,9 @@
 @import 'components/footer/subscribe';
 @import 'components/footer/back-to-top';
 @import 'components/footer/logos';
+
+// Search
+@import '/components/search';
 
 // Home Page
 @import 'components/home/container';

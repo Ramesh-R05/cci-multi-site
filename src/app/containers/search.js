@@ -2,51 +2,47 @@ import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
 import Page from './page';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import HeroTeaser from '../components/teaser/hero';
-import TeaserGridView from '../components/teaser/grid';
 import TeaserListView from '../components/teaser/list';
 import Repeatable from '../components/repeatable';
-import loadList from '../actions/loadList';
+import loadSearch from '../actions/loadSearch';
 import StickyAndDockAd from '../components/page/stickyAndDockAd';
 import get from 'lodash/object/get';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import SideBlock from '../components/sideBlock/sideBlock';
-import SubsectionList from '../components/subsectionList';
+import SearchBar from '../components/search/searchBar';
 
 function mapStateToProps(context) {
-    const pageStore = context.getStore('PageStore');
-    const teaserStore = context.getStore('TeaserStore');
+    const SearchStore = context.getStore('SearchStore');
+
     return {
-        title: pageStore.getTitle(),
-        heroTeaser: teaserStore.getHeroTeaser(),
-        teasers: teaserStore.getLatestTeasers(),
-        list: teaserStore.getList(),
-        listNextParams: teaserStore.getListNextParams(),
-        magazineImageUrl: pageStore.getMagazineImageUrl(),
-        subsections: pageStore.getSubsections()
+        title: SearchStore.getTitle(),
+        listNextParams: SearchStore.getSearchListNextParams(),
+        magazineImageUrl: SearchStore.getMagazineImageUrl(),
+        searchTotal: SearchStore.getSearchTotal(),
+        teasers: SearchStore.getInitialSearchResults(),
+        list: SearchStore.getSearchResultsList()
     };
 }
 
-@connectToStores(['PageStore', 'TeaserStore'], mapStateToProps)
-export default class Section extends Component {
-    static displayName = 'Section';
+@connectToStores(['SearchStore'], mapStateToProps)
+export default class Search extends Component {
+    static displayName = 'Search';
 
     static propTypes = {
         nodeType: PropTypes.array.isRequired,
-        list: PropTypes.array.isRequired,
         listNextParams: PropTypes.object.isRequired,
-        teasers: PropTypes.array.isRequired,
-        title: PropTypes.array.isRequired,
+        title: PropTypes.string.isRequired,
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
-        subsections: PropTypes.object,
+        searchTotal: PropTypes.number.isRequired,
+        teasers: PropTypes.array.isRequired,
+        list: PropTypes.object.isRequired,
         magazineImageUrl: PropTypes.string
     };
 
     static defaultProps = {
         teasers: [],
         theme: {},
-        subsections: { data: [], totalCount: 0 },
         magazineImageUrl: ''
     };
 
@@ -69,10 +65,8 @@ export default class Section extends Component {
     render() {
         const { config } = this.context;
         const brand = config.product;
-        const { nodeType, teasers, title, currentUrl, theme, subsections, magazineImageUrl } = this.props;
-        // Using first teaser for each section because modules aren't setup for each one in the CMS
-        const heroTeaser = teasers[0];
-        const firstTeaserList = teasers.slice(1, 7);
+        const { nodeType, teasers, title, currentUrl, theme, searchTotal, list, listNextParams,
+            magazineImageUrl } = this.props;
         const keyword = (nodeType === 'TagSection' && title) ? [title] : [];
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
@@ -81,10 +75,9 @@ export default class Section extends Component {
         const pageTitle = (
             <h1 className="page-title">
                 <span className="page-title__symbol" />
-                {title}
+                {`${searchTotal} ${title} results`}
             </h1>
         );
-        const polarLabels = this.context.config.polar.details;
 
         const themeEnabled = !!theme && !!theme.headerSmallBackground && !!theme.headerMediumBackground && !!theme.headerLargeBackground;
 
@@ -99,10 +92,9 @@ export default class Section extends Component {
             targets: keyword
         };
 
-        const topListType = get(config, 'features.sectionPage.topNewsFeedListType', 'grid');
-        const showImageBadge = get(config, 'features.sectionPage.newsFeed.showImageBadge', false);
-        const tagsToShow = get(config, 'features.sectionPage.newsFeed.tagsToShow', 0);
-        const linesToShow = get(config, 'features.sectionPage.newsFeed.linesToShow', 0);
+        const showImageBadge = get(config, 'features.homePage.newsFeed.showImageBadge', false);
+        const tagsToShow = get(config, 'features.homePage.newsFeed.tagsToShow', 0);
+        const linesToShow = get(config, 'features.homePage.newsFeed.linesToShow', 0);
 
         return (
             <Page
@@ -113,7 +105,7 @@ export default class Section extends Component {
               headerClassName={headerClassName}
               theme={themeEnabled ? theme : {}}
             >
-                <div className="section-page">
+                <div className="section-page search-page">
                     <div className="container">
                         <div className="row">
                             <div className="page__top-container columns">
@@ -122,42 +114,20 @@ export default class Section extends Component {
                                       className="columns large-8 xlarge-9 section-page__teasers-container"
                                       ref={(c) => { this.top = c; }}
                                     >
-                                        {subsections.totalCount > 1 && <SubsectionList
-                                          subsections={subsections.data}
-                                          currentUrl={currentUrl}
+                                        <SearchBar />
+
+                                        <TeaserListView
+                                          index={null}
+                                          items={teasers.slice(0, 6)}
+                                          className={'news-feed top-news-feed'}
+                                          showDate={false}
+                                          loadAgain={false}
+                                          showAd={false}
+                                          tagsToShow={tagsToShow}
+                                          showImageBadge={showImageBadge}
+                                          linesToShow={linesToShow}
+                                          adTargets={{ keyword }}
                                         />
-                                        }
-
-                                        <HeroTeaser showDate article={heroTeaser} brand={brand} magazineImageUrl={magazineImageUrl} />
-
-                                        {
-                                            topListType === 'grid' &&
-                                            <TeaserGridView
-                                              teasers={firstTeaserList}
-                                              showDate
-                                              className="news-feed top-news-feed"
-                                              adPosition={8}
-                                              adTargets={{ keyword }}
-                                              nativeAdConfig={{ slotPositionIndex: polarLabels.sectionTopFeed }}
-                                            />
-                                        }
-                                        {
-                                            topListType === 'list' &&
-                                            <TeaserListView
-                                              index={null}
-                                              items={teasers.slice(0, 6)}
-                                              className={'news-feed top-news-feed'}
-                                              nativeAdConfig={{
-                                                  slotPositionIndex: polarLabels.homeTopFeed
-                                              }}
-                                              showDate={false}
-                                              loadAgain={false}
-                                              showAd={false}
-                                              tagsToShow={tagsToShow}
-                                              showImageBadge={showImageBadge}
-                                              linesToShow={linesToShow}
-                                            />
-                                        }
                                     </div>
                                     <div className="page__social-wrapper columns large-4 xlarge-3">
                                         <div className="columns medium-6 large-12">
@@ -204,17 +174,19 @@ export default class Section extends Component {
 
                     <Repeatable
                       component={TeaserListView}
-                      action={loadList}
-                      showDate
-                      dataSource={this.props.list}
-                      nextParams={this.props.listNextParams}
+                      action={loadSearch}
+                      dataSource={list}
+                      nextParams={listNextParams}
                       className="news-feed bottom-news-feed"
+                      pageLocation={pageLocation}
+                      showImageBadge={showImageBadge}
+                      tagsToShow={tagsToShow}
+                      linesToShow={linesToShow}
                       adTargets={{ keyword }}
-                      nativeAdConfig={{ slotPositionIndex: polarLabels.sectionBottomFeed }}
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}
-                    { get(this.props.list, 'items[0].length') ? <StickyAd
+                    { get(list, 'items[0].length') ? <StickyAd
                       adProps={adProps}
                       minHeight={450}
                       stickyAtViewPort="mediumRangeMax"

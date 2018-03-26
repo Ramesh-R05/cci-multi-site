@@ -130,27 +130,15 @@ describe('Section Container', () => {
         expect(AdComponents.length).to.eq(1);
     });
 
-    it('should render a teaser grid', () => {
+    it('should render a hero teaser', () => {
         const reactModule = Context.mountComponent(SectionContainer,{},[contextConfigStub]);
         const HeroTeaserComponent = TestUtils.scryRenderedComponentsWithType(reactModule, HeroTeaserStub);
         expect(HeroTeaserComponent.length).to.eq(1);
     });
 
-    it('should render a hero teaser', () => {
+    it('should render a teaser grid', () => {
         const reactModule = Context.mountComponent(SectionContainer,{},[contextConfigStub]);
         const TeaserGridViewComponent = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserGridViewStub);
         expect(TeaserGridViewComponent.length).to.eq(1);
-    });
-
-    it('should give the headerClassName a value of empty string', () => {
-        const reactModule = Context.mountComponent(SectionContainer,{},[contextConfigStub]);
-        const PageStubComponent = TestUtils.findRenderedComponentWithType(reactModule, PageStub);
-        expect(PageStubComponent.props.headerClassName).to.eq('');
-    });
-
-    it('should give the pageTitle a value of empty string', () => {
-        const reactModule = Context.mountComponent(SectionContainer,{},[contextConfigStub]);
-        const PageStubComponent = TestUtils.findRenderedComponentWithType(reactModule, PageStub);
-        expect(PageStubComponent.props.pageTitle.type).to.eq('h1');
     });
 });

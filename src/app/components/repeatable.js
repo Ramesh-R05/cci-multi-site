@@ -6,7 +6,7 @@ export default class Repeatable extends Component {
     static propTypes = {
         component: PropTypes.instanceOf(Component).isRequired,
         action: PropTypes.func.isRequired,
-        dataSource: PropTypes.array.isRequired,
+        dataSource: PropTypes.object.isRequired,
         nextParams: PropTypes.object.isRequired
     };
 

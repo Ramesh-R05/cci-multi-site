@@ -5,11 +5,13 @@ export default {
         listings: 'http://services.sit.bxm.internal/listing/v1/elle',
         module: 'http://services.sit.bxm.internal/module/v1/elle',
         sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/elle',
-        tag: 'http://services.sit.bxm.internal/tag/v1/elle'
+        tag: 'http://services.sit.bxm.internal/tag/v1/elle',
+        search: ''
     },
     endpoints: {
         page: '/api/getPageContent',
-        list: '/api/list'
+        list: '/api/list',
+        search: '/api/search'
     },
     header: {
         url: 'https://d38h2iiydertbj.cloudfront.net/header/prod/globalheader.json'

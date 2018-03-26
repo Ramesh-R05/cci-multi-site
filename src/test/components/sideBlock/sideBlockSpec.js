@@ -50,6 +50,7 @@ describe(`SideBlock`, () => {
     let reactModule;
     let giftCardStub;
     let socialContainerStub;
+    let brandMagazineStub;
 
     describe('when passing in /aww as the brand prop', () => {
         before(() => {
@@ -71,8 +72,18 @@ describe(`SideBlock`, () => {
         });
 
         it(`should render the GiftCard component`, () => {
-            expect(ReactDOM.findDOMNode(reactModule)).to.exist;
+            expect(ReactDOM.findDOMNode(giftCardStub)).to.exist;
+        });
+    });
 
+    describe(`when passing in showBrandMagazine prop as true`, () => {
+        before(() => {
+            reactModule = Context.mountComponent(SideBlock, {showBrandMagazine: true, brand: brandPropStub}, [contextConfigStub]);
+            brandMagazineStub = TestUtils.findRenderedComponentWithType(reactModule, BrandMagazineStub);
+        });
+
+        it(`should render the GiftCard component`, () => {
+            expect(ReactDOM.findDOMNode(brandMagazineStub)).to.exist;
         });
     });
 });

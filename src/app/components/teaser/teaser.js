@@ -51,7 +51,8 @@ export default class Teaser extends Component {
             summaryTitle: null,
             title: null,
             imageUrl: null,
-            altText: null
+            altText: null,
+            id: null
         },
         showDate: true,
         showResponsiveImage: true,
@@ -80,7 +81,7 @@ export default class Teaser extends Component {
         const imageAltText = article.imageAltText || article.summaryTitle || article.title;
         const { config } = this.context;
         const defaultImageUrl = config.defaultImageUrl;
-        const breakpoints = config.global.breakpoints;
+        const breakpoints = get(config, 'global.breakpoints', '');
         const imageAnchor = get(config, 'features.teaserImageAnchorType', imageResize.anchor.TC);
 
         return (
@@ -121,7 +122,7 @@ export default class Teaser extends Component {
         article = teaserContentOverride(article);
         const { title, shortTitle, summaryTitle, nodeType, id } = article;
 
-        const articleTitle = (id.includes('mustread') || id.includes('promo')) ?
+        const articleTitle = ((id && id.includes('mustread')) || (id && id.includes('promo'))) ?
                                 (shortTitle || summaryTitle || this.getReviewSuffix(title, nodeType)) :
                                 (this.getReviewSuffix(shortTitle || summaryTitle || title, nodeType));
 

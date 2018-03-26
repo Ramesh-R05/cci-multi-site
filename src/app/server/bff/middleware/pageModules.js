@@ -1,7 +1,6 @@
 import logger from '../../../../logger';
 import getModules from '../api/module';
 
-
 export default async function pageModules(req, res, next) {
     try {
         req.data = {};

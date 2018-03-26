@@ -21,7 +21,9 @@ function mapStateToProps(context) {
         headerNavItems: NavigationStore.getHeaderItems(),
         hamburgerNavItems: NavigationStore.getHamburgerItems(),
         content: articleStore.getContent(),
-        magCover: PageStore.getModule('magCover')
+        magCover: PageStore.getModule('magCover'),
+        searchMagCover: NavigationStore.getMagCover(),
+        isSearchPage: NavigationStore.isSearchPage()
     };
 }
 
@@ -48,7 +50,9 @@ export default class Page extends Component {
         pageTitle: PropTypes.string.isRequired,
         headerClassName: PropTypes.string,
         theme: PropTypes.object,
-        magCover: PropTypes.object
+        magCover: PropTypes.object,
+        searchMagCover: PropTypes.object,
+        isSearchPage: PropTypes.bool
     };
 
     static contextTypes = {
@@ -59,7 +63,9 @@ export default class Page extends Component {
         hideLeaderboard: false,
         headerClassName: '',
         theme: {},
-        magCover: {}
+        magCover: {},
+        searchMagCover: {},
+        isSearchPage: false
     };
 
     toggleMenu = () => {
@@ -132,11 +138,15 @@ export default class Page extends Component {
             content,
             theme,
             menuClasses,
-            magCover
+            magCover,
+            searchMagCover,
+            isSearchPage
         } = this.props;
+
         const pageLocation = Ad.pos.outside;
         const { config } = this.context;
         const mobileNav = hamburgerNavItems ? hamburgerNavItems.slice() : headerNavItems.slice();
+        const footerMagCover = isSearchPage ? searchMagCover : magCover;
         const pageClassName = classnames('page', this.props.className);
         const allowAdExchange = Page.allowAdExchange(content, config);
         const customAdParams = {};
@@ -201,7 +211,7 @@ export default class Page extends Component {
                     <StandardPageAdsWrapper customParams={customAdParams}>
                         <div className="content-wrapper">
                             { this.props.children }
-                            { !hideFooter && <Footer magCover={magCover} logoList={config.brands.uniheader} />}
+                            { !hideFooter && <Footer magCover={footerMagCover} logoList={config.brands.uniheader} />}
                         </div>
                     </StandardPageAdsWrapper>
 

@@ -37,12 +37,14 @@ export default class Home extends Component {
         listNextParams: PropTypes.object.isRequired,
         teasers: PropTypes.array.isRequired,
         currentUrl: PropTypes.string.isRequired,
-        theme: PropTypes.object
+        theme: PropTypes.object,
+        magazineImageUrl: PropTypes.string
     };
 
     static defaultProps = {
         teasers: [],
-        theme: {}
+        theme: {},
+        magazineImageUrl: ''
     };
 
     static contextTypes = {
@@ -75,7 +77,8 @@ export default class Home extends Component {
             heroTeaser,
             teasers,
             list,
-            listNextParams
+            listNextParams,
+            magazineImageUrl
         } = this.props;
 
         const adProps = {
@@ -116,7 +119,10 @@ export default class Home extends Component {
                                             <div className="row">
                                                 <MustRead show={showInsideContainer} />
                                             </div>
-                                            <HeroTeaser article={heroTeaser} showPromoted={showBelowHero} brand={brand} />
+                                            <HeroTeaser
+                                              article={heroTeaser} showPromoted={showBelowHero} brand={brand}
+                                              magazineImageUrl={magazineImageUrl}
+                                            />
                                             <div className="home-page__teasers-title">
                                                 <span>what&apos;s happening now</span>
                                             </div>
@@ -170,6 +176,7 @@ export default class Home extends Component {
                                                       showBrandNewsletter={isBrandDefined}
                                                       showGiftCard={giftCardEnabled}
                                                       brand={brand}
+                                                      magazineImageUrl={magazineImageUrl}
                                                     />
                                                 </StickyAndDockAd>
                                             </div>

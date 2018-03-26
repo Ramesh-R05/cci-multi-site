@@ -45,6 +45,7 @@ export default async function home(req, res, next) {
         }
 
         let nextPage = null;
+
         if (skip + latestTeasers.data.length < latestTeasers.totalCount) {
             const path = `/?pageNo=${pageNo + 1}`;
             nextPage = {

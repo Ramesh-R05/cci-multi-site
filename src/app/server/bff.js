@@ -22,6 +22,7 @@ import assetProxy from './bff/middleware/assetProxy';
 import rss from './rss';
 import rssInfo from './rss/info';
 // import comScore from './bff/middleware/comScore';
+import search from './bff/middleware/search';
 
 export default function bff(server) {
     server.get('/api/asset', assetProxy);
@@ -52,6 +53,15 @@ export default function bff(server) {
             headerMeta,
             https,
             responseBody,
+            render,
+            error
+        );
+        server.get(
+            server.locals.config.services.endpoints.search,
+            pageModules,
+            headerMeta,
+            https,
+            search,
             render,
             error
         );

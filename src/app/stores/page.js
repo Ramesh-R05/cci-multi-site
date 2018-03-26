@@ -51,5 +51,7 @@ export default createReducerStore({
         getComScoreSegmentIds(state) {
             return state.comScoreSegmentIds;
         }
+
+
     }
 });

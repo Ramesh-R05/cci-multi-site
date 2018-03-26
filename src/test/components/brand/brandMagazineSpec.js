@@ -9,13 +9,6 @@ const BrandMagazine = proxyquire('../../../app/components/brand/brandMagazine', 
     '@bxm/ui/lib/common/ResponsiveImage': ResponsiveImageStub
 }).default;
 
-const magImageUrlStub = 'http://stubbedimages.biz/content.jpg';
-Context.addStore('PageStore', {
-    getMagazineImageUrl() {
-        return magImageUrlStub;
-    }
-});
-
 describe(`BrandMagazine`, () => {
     let reactModule;
     let responsiveImageStub;
@@ -33,6 +26,7 @@ describe(`BrandMagazine`, () => {
         }
     };
     const brandPropRenderSubFalseStub = {"renderSubscribeElements": false, ...brandPropStub};
+    const magImageUrlStub = 'http://stubbedimages.biz/content.jpg';
 
     const contextConfigStub = {
         key: 'config',
@@ -50,10 +44,6 @@ describe(`BrandMagazine`, () => {
                 responsiveImageStub = TestUtils.findRenderedComponentWithType(reactModule, ResponsiveImageStub);
 		    });
 
-            it('should render the ResponsiveImage component with the url it receives from the store', () => {
-                expect(responsiveImageStub.props.url).to.eq(magImageUrlStub)
-            });
-
             it('should render the first span and apply the correct title from the config', () => {
                 const spans = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'span');
                 const firstSpan = spans[0];
@@ -66,6 +56,17 @@ describe(`BrandMagazine`, () => {
                 const correctClass = 'button button--link button--subscribe';
                 expect(secondSpanClass).to.equal(correctClass);
             });
+    });
+
+    describe('when passing in magazineImageUrl as a prop', () => {
+        before(() => {
+            reactModule = Context.mountComponent(BrandMagazine, {brand: brandPropStub, magazineImageUrl: magImageUrlStub}, [contextConfigStub]);
+            responsiveImageStub = TestUtils.findRenderedComponentWithType(reactModule, ResponsiveImageStub);
+        });
+
+        it('should render the ResponsiveImage component with the url it receives from the store', () => {
+            expect(responsiveImageStub.props.url).to.eq(magImageUrlStub)
+        });
     });
 
     describe('when passing in a prop that sets renderSubscribeElements to false', () => {

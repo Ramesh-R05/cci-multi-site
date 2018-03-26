@@ -1,9 +1,11 @@
 import loadPageContent from '../../app/actions/loadPageContent';
+import loadSearch from '../../app/actions/loadSearch';
 import pageNotFound from '../../app/actions/pageNotFound';
 
 import HomePage from '../../app/containers/home';
 import SectionPage from '../../app/containers/section';
 import SinglePage from '../../app/containers/document';
+import SearchPage from '../../app/containers/search';
 import ErrorPage from '../../app/components/page/error';
 
 export default {
@@ -12,6 +14,12 @@ export default {
         method: 'get',
         handler: HomePage,
         action: loadPageContent
+    },
+    search: {
+        path: '/search/:query',
+        method: 'get',
+        handler: SearchPage,
+        action: loadSearch
     },
     section: {
         path: '/:section',
