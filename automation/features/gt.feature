@@ -122,3 +122,18 @@ Feature: Smoke test for GT
         Then our readers can enjoy the created "review" page
         When I navigate to the "amp review" page in "gt"
         Then our readers can enjoy the created "amp review" page
+
+    Scenario: Verify the RSS feed
+        Given I am currently viewing "rss"
+        Then I should see "link" tag containing "http://gt-site-au.sit.bxm.net.au" value
+        * I should see "dc:creator" tag containing "Gourmet Traveller" in CDATA
+        * I should see "title" tag containing a value
+        * I should see "dc:creator" tag containing a value
+        * I should see "content:encoded" tag containing a value
+        When I am currently viewing "rss/summary"
+        * I should see "title" tag containing a value
+        * I should not see "content:encoded" tag
+        When I am currently viewing "rss/summary/gt"
+        * I should see "title" tag containing a value
+        When I am currently viewing "rss/info"
+        * I should see "rss/summary/gt" in json
