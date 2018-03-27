@@ -96,5 +96,8 @@ export default {
     reviewTitleSuffix: {
         enabled: true,
         titleSuffix: ': Restaurant review'
+    },
+    search: {
+        enabled: true
     }
 };
