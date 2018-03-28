@@ -41,5 +41,8 @@ export default {
     },
     sailthru: {
         enabled: true
+    },
+    polar: {
+        enabled: true
     }
 };
