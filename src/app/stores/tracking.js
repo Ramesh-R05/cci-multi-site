@@ -3,12 +3,16 @@ import { canUseDOM } from 'exenv';
 import { createStore } from '@bxm/flux';
 import get from 'lodash/object/get';
 
-const dataLayer = canUseDOM && !isUndefined(window.dataLayer) ? window.dataLayer : [];
+/*
+* To see the dataLayer in the browser, use these extensions/add-ons:
+*
+* Chrome: https://chrome.google.com/webstore/detail/dataslayer/ikbablmmjldhamhcldjjigniffkkjgpo
+* Firefox: https://addons.mozilla.org/en-US/firefox/addon/gtm-datalayer-watcher/
+*
+* or just view window.dataLayer with the console.
+* */
 
-function dataLayerPush(data) {
-    // Use dataslaayer to view data: https://chrome.google.com/webstore/detail/dataslayer/ikbablmmjldhamhcldjjigniffkkjgpo
-    dataLayer.push(data);
-}
+const dataLayer = canUseDOM && !isUndefined(window.dataLayer) ? window.dataLayer : [];
 
 function getNumAds(items) {
     const adItems = items.filter(item => !isUndefined(item.ad));
@@ -34,7 +38,7 @@ function trackGalleryOpen(action) {
             isAd: !!activeItem.ad
         }
     };
-    dataLayerPush(data);
+    dataLayer.push(data);
 }
 
 // https://jira.bauermedia.net.au/confluence/display/DACRM/Galleries
@@ -66,7 +70,7 @@ function trackGalleryItemChanged(action) {
             isAd: !!newItem.ad
         }
     };
-    dataLayerPush(data);
+    dataLayer.push(data);
 }
 
 function trackVerticalGalleryItemChanged(action) {
@@ -87,7 +91,7 @@ function trackVerticalGalleryItemChanged(action) {
             isAd: action.isAd
         }
     };
-    dataLayerPush(data);
+    dataLayer.push(data);
 }
 
 function trackGalleryComplete(action) {
@@ -104,7 +108,7 @@ function trackGalleryComplete(action) {
             isAd: false
         }
     };
-    dataLayerPush(data);
+    dataLayer.push(data);
 }
 
 function trackVerticalGalleryComplete(action) {
@@ -116,7 +120,7 @@ function trackVerticalGalleryComplete(action) {
             numAds: action.numAds
         }
     };
-    dataLayerPush(data);
+    dataLayer.push(data);
 }
 
 function trackFollowOnClick(source) {
@@ -126,7 +130,7 @@ function trackFollowOnClick(source) {
             followOnSource: source
         }
     };
-    dataLayerPush(data);
+    dataLayer.push(data);
 }
 
 function trackGalleryChanged() {
@@ -141,7 +145,7 @@ function trackLoadList(payload) {
             pageNo: get(payload, 'body.list.params.pageNo')
         }
     };
-    dataLayerPush(data);
+    dataLayer.push(data);
 }
 
 function trackImageRevealerInteraction(payload) {
@@ -173,43 +177,43 @@ module.exports = createStore({
         IMAGE_REVEALER_INTERACTION: 'onImageRevealerInteraction'
     },
 
-    onGalleryOpened: (payload) => {
+    onGalleryOpened: payload => {
         trackGalleryOpen(payload);
     },
 
-    onGalleryNextItem: (payload) => {
+    onGalleryNextItem: payload => {
         trackGalleryItemChanged(payload);
     },
 
-    onGalleryPreviousItem: (payload) => {
+    onGalleryPreviousItem: payload => {
         trackGalleryItemChanged(payload);
     },
 
-    onVerticalGalleryNextItemTrack: (payload) => {
+    onVerticalGalleryNextItemTrack: payload => {
         trackVerticalGalleryItemChanged(payload);
     },
 
-    onVerticalGalleryPreviousItemTrack: (payload) => {
+    onVerticalGalleryPreviousItemTrack: payload => {
         trackVerticalGalleryItemChanged(payload);
     },
 
-    onGalleryCompleted: (payload) => {
+    onGalleryCompleted: payload => {
         trackGalleryComplete(payload);
     },
 
-    onVerticalGalleryCompleted: (payload) => {
+    onVerticalGalleryCompleted: payload => {
         trackVerticalGalleryComplete(payload);
     },
 
-    onNextGallery: (payload) => {
+    onNextGallery: payload => {
         trackGalleryChanged(payload);
     },
 
-    onLoadList: (payload) => {
+    onLoadList: payload => {
         trackLoadList(payload);
     },
 
-    onImageRevealerInteraction: (payload) => {
+    onImageRevealerInteraction: payload => {
         trackImageRevealerInteraction(payload);
     }
 });

@@ -34,6 +34,8 @@ export default class SearchBar extends Component {
         }
     }
 
+    shouldComponentUpdate = (nextProps, nextState) => this.state.searchTerm !== nextState.searchTerm;
+
     render() {
         return (
             <div className="search-bar">
