@@ -145,7 +145,7 @@ Feature: Smoke test for GT
         When I am currently viewing "<pageUrl>"
         * I should see the search icon in the navigation bar
         * I should see the search box after clicking the icon
-        #* I should still see the search box after scrolling the page down #Will enable once BXMA-1165 is fixed
+        * I should still see the search box after scrolling the page down
         * I should be able to search a keyword "beef" on "navigation bar" and see the result page
         * I should not see the search bar on the search result page in mobile version
         Examples:
