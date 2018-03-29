@@ -19,6 +19,12 @@ module.exports = function() {
         wait(2000);
         var searchBox = browser.isVisible(search.searchNavBox);
         expect(searchBox).toBe(true);
+
+        //Check if the box is hidden after clicking the icon again
+        browser.click(search.searchNavIcon);
+        wait(1000);
+        var searchBox = browser.isVisible(search.searchNavBox);
+        expect(searchBox).toBe(false);
     });
 
     this.Then(/^I should be able to search a keyword "([^"]*)" on "([^"]*)" and see the result page$/, function (keyword, position) {
@@ -29,6 +35,10 @@ module.exports = function() {
             case 'navigation bar' :
                 searchBox = search.searchNavBox;
                 searchSubmit = search.searchNavSubmit;
+                if (browser.isVisible(search.searchNavBox) === false) {
+                    browser.click(search.searchNavIcon);
+                    browser.waitForVisible(searchBox,5000);
+                }
                 break;
             case 'search result page' :
                 searchBox = search.searchResultPageBox;
@@ -40,18 +50,19 @@ module.exports = function() {
         browser.click(searchSubmit);
         wait(1000);
 
+        //Check the search result title
         browser.waitForVisible(search.searchResultPageTitle, 5000);
         var searchTitle = browser.getText(search.searchResultPageTitle);
         expect(searchTitle).toContain(keyword.toUpperCase() + ' RESULT');
 
+        //Check the first teaser containing the keyword in the teaser title
         var searchTeaserTitle = browser.getText(search.searchResultPageTeaserTitle);
-        expect(searchTeaserTitle[0].toLowerCase()).toContain(keyword);
+        expect(searchTeaserTitle.toLowerCase()).toContain(keyword);
     });
 
     this.Then(/^I should not see the search bar on the search result page in mobile version$/, function () {
         var searchBox = browser.isVisible(search.searchResultPageBox);
         expect(searchBox).toBe(false);
     });
-
 
 };

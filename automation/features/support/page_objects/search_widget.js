@@ -5,7 +5,7 @@ var search_widget = {
     searchResultPageBox: '.search-bar--input input[name="searchTerm"]',
     searchResultPageSubmit: '.search-bar--input input[name="submit"]',
     searchResultPageTitle: '.page-title-container',
-    searchResultPageTeaserTitle: 'h2.teaser__title',
+    searchResultPageTeaserTitle: '.top-news-feed .teaser__list-item:nth-child(1) h2.teaser__title',
 };
 
 module.exports = search_widget;

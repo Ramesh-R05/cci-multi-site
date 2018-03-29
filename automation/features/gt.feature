@@ -140,29 +140,42 @@ Feature: Smoke test for GT
 
 #The following two scenarios are for the search feature which is enabled on GT only.Scenario:
 #If we roll out to the other sites, we can move them to regression test instead of smoke test
-    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
-        Given I switch to "<device>" view
-        When I am currently viewing "<pageUrl>"
-        * I should see the search icon in the navigation bar
-        * I should see the search box after clicking the icon
-        * I should still see the search box after scrolling the page down
-      #  * I should be able to search a keyword "beef" on "navigation bar" and see the result page
-      #  * I should be able to search a keyword "chicken" on "search result page" and see the result page
-        Examples:
-            |device             |page       |pageUrl                                            |
-            |desktop            |homepage   |                                                   |
-            |tablet landscape   |section    |recipes                                            |
-            |tablet portrait    |recipe     |recipes/chefs-recipes/smashed-cucumber-salad-31442 |
-
     Scenario Outline: Verify the search feature on <page> in <device> (Mobile style)
         Given I switch to "<device>" view
         When I am currently viewing "<pageUrl>"
         * I should see the search icon in the navigation bar
         * I should see the search box after clicking the icon
         #* I should still see the search box after scrolling the page down #Will enable once BXMA-1165 is fixed
-      #  * I should be able to search a keyword "beef" on "navigation bar" and see the result page
-      #  * I should not see the search bar on the search result page in mobile version
+        * I should be able to search a keyword "beef" on "navigation bar" and see the result page
+        * I should not see the search bar on the search result page in mobile version
         Examples:
             |device             |page       |pageUrl                                            |
             |mobile             |homepage   |                                                   |
 
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should see the search icon in the navigation bar
+        * I should see the search box after clicking the icon
+        * I should still see the search box after scrolling the page down
+        * I should be able to search a keyword "beef" on "navigation bar" and see the result page
+        * I should be able to search a keyword "chicken" on "search result page" and see the result page
+        Examples:
+            |device             |page       |pageUrl                                            |
+            |desktop            |homepage   |                                                   |
+
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should be able to search a keyword "beef" on "navigation bar" and see the result page
+        Examples:
+            |device             |page       |pageUrl                                            |
+            |tablet landscape   |section    |recipes                                            |
+
+    Scenario Outline: Verify the search feature on <page> in <device> (Desktop style)
+        Given I switch to "<device>" view
+        When I am currently viewing "<pageUrl>"
+        * I should be able to search a keyword "beef" on "navigation bar" and see the result page
+        Examples:
+            |device             |page       |pageUrl                                            |
+            |tablet portrait    |recipe     |recipes/chefs-recipes/smashed-cucumber-salad-31442 |
