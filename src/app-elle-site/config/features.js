@@ -45,12 +45,15 @@ export default {
     outbrainAmp: {
         enabled: true
     },
-    royMorgan: {
+    royMorganAmp: {
         enabled: true,
-        pixels: {
-            20002303: 'qv7034ra', // Luxury pixel
-            20002304: '30tp4z58'  // Women's sites pixel
-        }
+        id: 'm8frgflsxh',
+        pixels: [
+            { ca: '10034217', a: 'yp0d3p0a' }, // Elle pixel
+            { ca: '20001092', a: 'jmtr1l0t' }, // Rollup pixel
+            { ca: '20002303', a: 'qv7034ra' }, // Luxury pixel
+            { ca: '20002304', a: '30tp4z58' }  // Women's sites pixel
+        ]
     },
     oriel: {
         enabled: true

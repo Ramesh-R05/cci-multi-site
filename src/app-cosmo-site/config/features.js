@@ -45,11 +45,14 @@ export default {
     outbrainAmp: {
         enabled: true
     },
-    royMorgan: {
+    royMorganAmp: {
         enabled: true,
-        pixels: {
-            20002304: '30tp4z58'  // Women's sites pixel
-        }
+        id: 'm8frgflsxh',
+        pixels: [
+            { ca: '10034215', a: 'yp0d3p0a' }, // Cosmo pixel
+            { ca: '20001092', a: 'jmtr1l0t' }, // Rollup pixel
+            { ca: '20002304', a: '30tp4z58' }  // Women's sites pixel
+        ]
     },
     feedCarousel: {
         enabled: true
