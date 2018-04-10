@@ -88,7 +88,8 @@ export default {
             pinterest: 'https://www.pinterest.com.au/gourmetpins/',
             'gift-card': 'gift-card'
         },
-        newsletterText: 'Receive offers straight to your inbox',
+        newsletterTitle: 'Get the newsletter',
+        newsletterText: 'The latest news, restaurant reviews, recipes and travel inspiration, straight to your inbox',
         newsletterUrl: 'https://www.gourmettraveller.com.au/gt-newsletter',
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: '/subscribe-magazine',
