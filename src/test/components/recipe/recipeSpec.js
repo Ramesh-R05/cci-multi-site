@@ -36,6 +36,17 @@ const contextConfigStub = {
         },
         site: {
             name: 'Site Name'
+        },
+        urls: {
+            newsletterSignupInBodyCopy: 'http://cb.sailthru.com/for-site'
+        },
+        features: {
+            newsletterSignupInBodyCopy: {
+                enabled: true
+            }
+        },
+        brands: {
+            uniheader: []
         }
     }
 };

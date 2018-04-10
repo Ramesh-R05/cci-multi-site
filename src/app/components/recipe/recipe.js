@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import ContentBody from '@bxm/article/lib/components/contentBody/contentBody';
+import NewsletterSignup from '@bxm/article/lib/components/article/newsletterSignup';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import Header from '@bxm/article/lib/components/article/header';
 import Footer from '@bxm/article/lib/components/article/footer';
@@ -206,6 +207,8 @@ export default class Recipe extends Component {
                     <RecipeMethod recipeMethod={recipeCookingMethod} />
                     <RecipeNotes recipeNotes={recipeTips} />
                 </section>
+
+                <NewsletterSignup dateCreated={dateCreated} />
 
                 <Footer {...this.props} />
 

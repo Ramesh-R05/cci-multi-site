@@ -6,6 +6,10 @@
 
     &-container {
         margin-top: $article-gap;
+
+        & + .newsletter-signup-wrapper {
+            margin-top: $article-gap;
+        }
     }
 
     a {
