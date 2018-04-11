@@ -75,7 +75,7 @@ export default {
             'gift-card': 'gift-card',
         },
 
-        newsletterSignupInBodyCopy: 'http://cb.sailthru.com/join/5kf/signup-gourmettraveller-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kf/signup-gourmettraveller-article-iframe-bottom'
     },
 
     // Used for the magazine image (not the one in the footer)

@@ -38,7 +38,7 @@ const contextConfigStub = {
             name: 'Site Name'
         },
         urls: {
-            newsletterSignupInBodyCopy: 'http://cb.sailthru.com/for-site'
+            newsletterSignupInBodyCopy: 'https://cb.sailthru.com/for-site'
         },
         features: {
             newsletterSignupInBodyCopy: {

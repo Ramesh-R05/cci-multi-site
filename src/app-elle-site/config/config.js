@@ -73,7 +73,7 @@ export default {
             pinterest: 'https://www.pinterest.com.au/elle_australia',
             youtube: 'https://www.youtube.com/elleaus'
         },
-        newsletterSignupInBodyCopy: 'http://cb.sailthru.com/join/5kg/signup-elle-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kg/signup-elle-article-iframe-bottom'
     },
     // Used for the magazine Image (not the one in the footer)
     product: {

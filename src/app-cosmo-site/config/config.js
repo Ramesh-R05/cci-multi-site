@@ -84,7 +84,7 @@ export default {
             pinterest: 'https://au.pinterest.com/cosmoaustralia',
             youtube: 'https://www.youtube.com/cosmoaustralia'
         },
-        newsletterSignupInBodyCopy: 'http://cb.sailthru.com/join/5kd/signup-cosmopolitan-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kd/signup-cosmopolitan-article-iframe-bottom'
     },
     // Used for the magazine Image (not the one in the footer)
     product: {

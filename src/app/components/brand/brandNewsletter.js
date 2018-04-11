@@ -23,7 +23,7 @@ export default class Newsletter extends Component {
                 <div className="newsletter-subscribe__title">{ title }</div>
                 <p className="newsletter-subscribe__text">{ text }</p>
                 <div className="newsletter-subscribe__button">
-                    <a href={ url } className="gtm-subs-homepage" target="_blank">
+                    <a href={url} className="gtm-subs-homepage" target="_blank">
                         { buttonText }
                     </a>
                 </div>
