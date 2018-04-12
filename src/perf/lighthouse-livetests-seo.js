@@ -6,32 +6,32 @@ const testLinks = [
     {
         title: 'homepage',
         url: 'https://www.gourmettraveller.com.au/',
-        expectedScore: 28
+        expectedScore: 100
     },
     {
         title: 'section',
         url: 'https://www.gourmettraveller.com.au/recipes/',
-        expectedScore: 29
+        expectedScore: 100
     },
     {
         title: 'article',
         url: 'https://www.gourmettraveller.com.au/news/food-news/josh-niland-danielle-alvarez-and-more-join-ozharvests-2018-ceo-cook-off-15582/',
-        expectedScore: 23
+        expectedScore: 100
     },
     {
         title: 'gallery',
         url: 'https://www.gourmettraveller.com.au/recipes/recipe-collections/fried-rice-15062/',
-        expectedScore: 28
+        expectedScore: 100
     },
     {
         title: 'recipe',
         url: 'https://www.gourmettraveller.com.au/recipes/browse-all/prawn-and-pineapple-tom-yum-with-rice-noodles-11890/',
-        expectedScore: 23
+        expectedScore: 100
     },
     {
         title: 'review',
         url: 'https://www.gourmettraveller.com.au/dining-out/restaurant-reviews/grossi-florentino-6820/',
-        expectedScore: 21
+        expectedScore: 90
     }
 ];
 
@@ -46,17 +46,17 @@ function lighthouseInit(url, flags = {}, config = null) {
 }
 
 function lighthouseTests(testObject) {
-    const lighthouseOptions = {
+    const lighthouseseoOptions = {
         chromeFlags: ["--headless", "--disable-gpu", "--enable-logging", "--no-sandbox"]
     };
     const { title, url, expectedScore } = testObject;
-    describe(`Multi site (GT) performance testing for ${title} : ${url}`, function loopedTests() {
-        this.retries(3);
+    describe(`Multi site (GT) SEO testing for ${title} : ${url}`, function loopedTests() {
+        this.retries(1);
         this.timeout(120000);
         let result;
 
         beforeEach('Run Lighthouse base test', (done) => {
-            lighthouseInit(url, lighthouseOptions, auditConfig)
+            lighthouseInit(url, lighthouseseoOptions, auditConfig)
                 .then(res => res.reportCategories)
                 .then((res) => {
                     result = res;
@@ -66,8 +66,8 @@ function lighthouseTests(testObject) {
                     console.log(err);
                 });
         });
-        it(`should have a performance score >= ${expectedScore}`, () => {
-            const actualScore = result.find(data => data.id === 'performance').score;
+        it(`should have a SEO score >= ${expectedScore}`, () => {
+            const actualScore = result.find(data => data.id === 'seo').score;
             console.log(`current score is => ${Math.round(actualScore)}`);
             assert.isAtLeast(Math.round(actualScore), expectedScore);
         });
