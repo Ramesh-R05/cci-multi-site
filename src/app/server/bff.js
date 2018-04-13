@@ -29,8 +29,10 @@ export default function bff(server) {
         logger.warn('stubbing does not exercise BFF code');
     } else {
         server.get('/sitemap/:section?', sitemap, error);
-        server.get('/amp/:section/:page', pageModules, section, page, article, gallery, headerMeta, responseBody, amp);
-        server.get('/amp/:section/:subsection/:page', pageModules, section, page, article, gallery, headerMeta, responseBody, amp);
+        server.get('(/:preview(preview))?/amp/:section/:page',
+            pageModules, section, page, article, gallery, headerMeta, responseBody, amp);
+        server.get('(/:preview(preview))?/amp/:section/:subsection/:page',
+            pageModules, section, page, article, gallery, headerMeta, responseBody, amp);
         server.get(server.locals.config.services.endpoints.list, list, https, render, error);
         server.get(
             server.locals.config.services.endpoints.page,
