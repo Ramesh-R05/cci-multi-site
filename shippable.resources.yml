@@ -144,6 +144,12 @@ resources:
     seed:
       interval: "30 22 * * 0,3"
 
+  # This is for homes-site performance test and SEO test only (Workaround)
+  #"30 23 * * 0,3" is 11:30pm Sunday & Wednesday which are Monday morning and Thursday morning 10:30am daylight saving or 9:30am standard time in Sydney
+  - name: homes-weekly-trigger-workaround
+    type: time
+    seed:
+      interval: "30 23 * * 0,3"
 
 ##############
 # COSMO

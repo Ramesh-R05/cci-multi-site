@@ -736,3 +736,79 @@ jobs:
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
         - script: npm run test:seolive
+
+##################################################################################
+#This is a workaround for homes-site performance test and seo test via lighthouse#
+#We will move to homes-site once the lighthouse works on homes-site repository   #
+##################################################################################
+  # viii. Run Performance Test on test environment (homes-site)
+  - name: homes-site-performance-test-workaround
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: multi-site-repo
+       switch: off
+     - IN: homes-weekly-trigger-workaround
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
+        - script: cd ./IN/multi-site-repo/gitRepo/src
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        - script: sudo apt-get update
+        - script: sudo apt-get install google-chrome-stable
+        - script: google-chrome --product-version
+        - script: npm run test:homeslive
+
+  # ix. Run Performance Test on live environment (homes-site)
+  - name: homes-site-performance-test-live-workaround
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: multi-site-repo
+       switch: off
+     - IN: homes-weekly-trigger-workaround
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
+        - script: cd ./IN/multi-site-repo/gitRepo/src
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        - script: sudo apt-get update
+        - script: sudo apt-get install google-chrome-stable
+        - script: google-chrome --product-version
+        - script: npm run test:homesperflive
+
+  # x. Run SEO Test on live environment (homes-site)
+  - name: homes-site-seo-test-live-workaround
+    type: runSh
+    always:
+      - NOTIFY: multi-qa-team-notifications
+    steps:
+     - IN: multi-site-repo
+       switch: off
+     - IN: homes-weekly-trigger-workaround
+     - TASK:
+        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+        - script: source ~/.nvm/nvm.sh
+        - script: nvm install "8.9.1"
+        - script: nvm use "8.9.1"
+        - script: cd ./IN/multi-site-repo/gitRepo/src
+        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+        - script: npm install
+        - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        - script: sudo apt-get update
+        - script: sudo apt-get install google-chrome-stable
+        - script: google-chrome --product-version
+        - script: npm run test:homesseolive
