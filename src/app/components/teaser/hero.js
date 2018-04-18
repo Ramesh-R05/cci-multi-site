@@ -10,7 +10,8 @@ export default class HeroTeaser extends Component {
         imageSizes: PropTypes.object,
         showPromoted: PropTypes.bool,
         brand: PropTypes.object,
-        showDate: PropTypes.bool
+        showDate: PropTypes.bool,
+        magazineImageUrl: PropTypes.string
     };
 
     static defaultProps = {
@@ -22,12 +23,13 @@ export default class HeroTeaser extends Component {
             xl: { w: 619, h: 515 }
         },
         showPromoted: false,
-        brand: null
+        brand: null,
+        magazineImageUrl: ''
     };
 
     render() {
         if (!this.props.article) return null;
-        const { article, imageSizes, showPromoted, brand, showDate } = this.props;
+        const { article, imageSizes, showPromoted, brand, showDate, magazineImageUrl } = this.props;
         const pageLocation = Ad.pos.outside;
         const isBrandDefined = Object.prototype.toString.call(brand).indexOf('Object') !== -1;
 
@@ -55,6 +57,7 @@ export default class HeroTeaser extends Component {
                   showBrandNewsletter={isBrandDefined}
                   brand={brand}
                   isHero
+                  magazineImageUrl={magazineImageUrl}
                 />
             </div>
         );
