@@ -763,7 +763,7 @@ jobs:
         - script: sudo apt-get update
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
-        - script: npm run test:homeslive
+        - script: npm run test:homesperf
 
   # ix. Run Performance Test on live environment (homes-site)
   - name: homes-site-performance-test-live-workaround
