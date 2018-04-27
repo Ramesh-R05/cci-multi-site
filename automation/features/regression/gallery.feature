@@ -13,7 +13,7 @@ Feature: Gallery
         * I can see the created date on the gallery "DEC 15, 2016"
         * I can see the image number "1" on the gallery
         * I can see the image caption on the gallery containing "Fresh-faced beauty"
-        When I see the video ID "3976804555001" on the gallery
+        When I see the video item on the gallery
         * I can see the play button and click on it
 
     @med
@@ -26,7 +26,7 @@ Feature: Gallery
         * I can see the created date on the gallery "DEC 15, 2016"
         * I can see the image number "1" on the gallery
         * I can see the image caption on the gallery containing "Fresh-faced beauty"
-        When I see the video ID "3976804555001" on the gallery
+        When I see the video item on the gallery
         * I can see the play button and click on it
 
     @low

@@ -8,6 +8,7 @@ var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/l
 module.exports = function() {
 
     this.Given(/^I can see the logo on the gallery header$/, function() {
+        browser.scroll(0,0);
         expect(browser.isVisible(gallery.headerLogo)).toBe(true);
     });
 
@@ -58,14 +59,14 @@ module.exports = function() {
     });
 
 
-    this.When(/^I see the video ID "([^"]*)" on the gallery$/, function(videoId) {
-        browser.waitForVisible(gallery.videoWrapper, 3000);
-        browser.scroll(gallery.videoWrapper);
-        expect(browser.getAttribute(gallery.videoWrapper, gallery.videoId)).toEqual(videoId)
+    this.When(/^I see the video item on the gallery$/, function() {
+        expect(browser.waitForVisible(gallery.videoWrapper, 5000)).toEqual(true);
     });
 
     this.When(/^I can see the play button and click on it$/, function() {
+        browser.scroll(gallery.videoWrapper);
         browser.waitForVisible(gallery.playButton, 5000);
+        wait(10000);
         browser.click(gallery.playButton);
         expect(browser.isVisible(gallery.videoPlayWrap, gallery.videoAdPlay)).toBe(true);
         //verify video is playing the Ad
