@@ -40,7 +40,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             magazineImageUrl: payload.body.magCover.moduleImageUrl,
             theme: payload.body.theme,
             magCover: payload.body.magCover,
-            latestTeasers: payload.body.latestTeasers,
+            latestTeasers: payload.body.list.params.pageNo === 1 ? payload.body.latestTeasers : state.latestTeasers,
             list: {
                 ...payload.body.list,
                 items: [

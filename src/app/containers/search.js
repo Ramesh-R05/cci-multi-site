@@ -29,7 +29,7 @@ export default class Search extends Component {
     static displayName = 'Search';
 
     static propTypes = {
-        nodeType: PropTypes.array.isRequired,
+        nodeType: PropTypes.string.isRequired,
         listNextParams: PropTypes.object.isRequired,
         title: PropTypes.string.isRequired,
         currentUrl: PropTypes.string.isRequired,
@@ -119,7 +119,7 @@ export default class Search extends Component {
                                         <TeaserListView
                                           index={null}
                                           items={teasers.slice(0, 6)}
-                                          className={'news-feed top-news-feed'}
+                                          className="news-feed top-news-feed"
                                           showDate={false}
                                           loadAgain={false}
                                           showAd={false}

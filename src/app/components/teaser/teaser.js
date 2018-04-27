@@ -147,7 +147,7 @@ export default class Teaser extends Component {
                 .map((tag, i) => (
                     <li key={`${article.id}-tag-${i + 1}`}>
                         {!!i && <span>, </span>}
-                        <a className={`gtm-taglink ${tag.urlName}`} href={`tags/${tag.urlName}`} title={tag.displayName}>{tag.displayName}</a>
+                        <a className={`gtm-taglink ${tag.urlName}`} href={`/tags/${tag.urlName}`} title={tag.displayName}>{tag.displayName}</a>
                     </li>
                     ));
             tagsBlock = (

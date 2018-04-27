@@ -1,6 +1,5 @@
 import { initialState, reducer } from '../../app/reducers/loadSearch';
 
-
 describe(`loadSearch Reducer`, () => {
 
     const DEFAULT_MAGCOVER = {
@@ -23,7 +22,10 @@ describe(`loadSearch Reducer`, () => {
                 list: {
                     items: [
                         [5, 6, 7, 8]
-                    ]
+                    ],
+                    params: {
+                        pageNo: 1
+                    }
                 },
                 headerMetaData: {
                     title: 'Title'

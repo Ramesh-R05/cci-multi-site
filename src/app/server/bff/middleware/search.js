@@ -69,7 +69,7 @@ export default async function searchMiddleware(req, res, next) {
                 total: searchDataResp.total
             },
             headerMetaData: parseHeaderMetaData(req.data.entity, get(req, 'data.headerMetaData', {})),
-            latestTeasers: parseEntities(searchDataResp.results.slice(0, searchResultTeaserCount)),
+            latestTeasers: pageNo > 1 ? [] : parseEntities(searchDataResp.results.slice(0, searchResultTeaserCount)),
             list: {
                 listName: 'search',
                 params: {
@@ -79,7 +79,7 @@ export default async function searchMiddleware(req, res, next) {
                     pageNo
                 },
                 items: [
-                    parseEntities(searchDataResp.results.slice(searchResultTeaserCount))
+                    pageNo > 1 ? parseEntities(searchDataResp.results) : parseEntities(searchDataResp.results.slice(searchResultTeaserCount))
                 ],
                 previous: previousPage,
                 current: currentPage,
