@@ -20,6 +20,10 @@ jobs:
       - OUT: elle-site-img-branch
       - OUT: hb-site-img-master
       - OUT: hb-site-img-branch
+      - OUT: awwfood-site-img-master
+      - OUT: awwfood-site-img-branch
+      - OUT: foodnz-site-img-master
+      - OUT: foodnz-site-img-branch
 
   # 2branchGT. Manifest for a BRANCH image
   - name: gt-site-man-branch

@@ -357,6 +357,41 @@ resources:
       sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/gt-site-au-branch-sit/b0a7e7dbe4b3fb92"
       method: application
 
+###########################
+# This section is for AWWFood & FoodNZ
+###########################
+
+  # AWWFOOD Seed image version MASTER Docker Image
+  - name: awwfood-site-img-master
+    type: image
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/awwfood-site"
+    seed:
+      versionName: latest
+
+  # AWWFOOD Seed image version feature BRANCH Docker Image
+  - name: awwfood-site-img-branch
+    type: image
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/awwfood-site"
+    seed:
+      versionName: latest
+
+  # FOODNZ Seed image version MASTER Docker Image
+  - name: foodnz-site-img-master
+    type: image
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/foodnz-site"
+    seed:
+      versionName: latest
+
+  # FOODNZ Seed image version feature BRANCH Docker Image
+  - name: foodnz-site-img-branch
+    type: image
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/foodnz-site"
+    seed:
+      versionName: latest
 
 ####################################
 # PROD environment configuration
