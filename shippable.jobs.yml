@@ -532,7 +532,7 @@ jobs:
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=awwfood-site
-       - script: export URL=http://awwfood-site-au.bxm.net.au/
+       - script: export URL=http://awwfood-site-au.sit.bxm.net.au/
        - script: npm run smoketest:awwfood || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
@@ -558,7 +558,7 @@ jobs:
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=foodnz-site
-       - script: export URL=http://foodnz-site-nz.bxm.net.au/
+       - script: export URL=http://foodnz-site-nz.sit.bxm.net.au/
        - script: npm run smoketest:foodnz || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
