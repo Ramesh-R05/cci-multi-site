@@ -20,10 +20,42 @@ jobs:
       - OUT: elle-site-img-branch
       - OUT: hb-site-img-master
       - OUT: hb-site-img-branch
-#      - OUT: awwfood-site-img-master
-#      - OUT: awwfood-site-img-branch
-#      - OUT: foodnz-site-img-master
-#      - OUT: foodnz-site-img-branch
+      - OUT: awwfood-site-img-master
+      - OUT: awwfood-site-img-branch
+      - OUT: foodnz-site-img-master
+      - OUT: foodnz-site-img-branch
+
+  # 2branchAWWFOOD. Manifest for a BRANCH image
+  - name: awwfood-site-man-branch
+    type: manifest
+    steps:
+      - IN: awwfood-site-img-branch
+      - IN: awwfood-site-opts-sit
+      - TASK: managed
+
+  # 2AWWFOOD. Manifest for MASTER image
+  - name: awwfood-site-man-master
+    type: manifest
+    steps:
+      - IN: awwfood-site-img-master
+      - IN: awwfood-site-opts-sit
+      - TASK: managed
+
+  # 2branchFOODNZ. Manifest for a BRANCH image
+  - name: foodnz-site-man-branch
+    type: manifest
+    steps:
+      - IN: foodnz-site-img-branch
+      - IN: foodnz-site-opts-sit
+      - TASK: managed
+
+  # 2FOODNZ. Manifest for MASTER image
+  - name: foodnz-site-man-master
+    type: manifest
+    steps:
+      - IN: foodnz-site-img-master
+      - IN: foodnz-site-opts-sit
+      - TASK: managed
 
   # 2branchGT. Manifest for a BRANCH image
   - name: gt-site-man-branch
@@ -251,6 +283,79 @@ jobs:
       - TASK: managed
         deployMethod: replace
 
+  # 3BranchAWWFOOD. SIT deployment for feature BRANCH
+  - name: awwfood-site-sit-deploy-branch
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: awwfood-site-man-branch # for non-master, don't auto deploy.
+        switch: off
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: awwfood-site-alb-sit-branch
+        applyTo:
+          - manifest: awwfood-site-man-branch
+            image: awwfood-site-img-branch
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
+
+  # 3AWWFOOD. SIT deployment for MASTER
+  - name: awwfood-site-sit-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: awwfood-site-man-master # for master - auto deploy to SIT
+        switch: on
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: awwfood-site-alb-sit
+        applyTo:
+          - manifest: awwfood-site-man-master
+            image: awwfood-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
+
+  # 3BranchFOODNZ. SIT deployment for feature BRANCH
+  - name: foodnz-site-sit-deploy-branch
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: foodnz-site-man-branch # for non-master, don't auto deploy.
+        switch: off
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: foodnz-site-alb-sit-branch
+        applyTo:
+          - manifest: foodnz-site-man-branch
+            image: foodnz-site-img-branch
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
+
+  # 3FOODNZ. SIT deployment for MASTER
+  - name: foodnz-site-sit-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: foodnz-site-man-master # for master - auto deploy to SIT
+        switch: on
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: foodnz-site-alb-sit
+        applyTo:
+          - manifest: foodnz-site-man-master
+            image: foodnz-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
+
+
   # 4a. Run regression test on TEST environment
   - name: multi-site-automation-test
     type: runSh
@@ -304,7 +409,7 @@ jobs:
     on_failure:
       - NOTIFY: elle-deployment-notifications
 
-  # 4cCOSMO. Run smoke test on TEST environment COSMO
+  # 4cCOSMO. Run smoke test on SIT environment COSMO
   - name: cosmo-site-smoke-test
     type: runSh
     always:
@@ -330,7 +435,7 @@ jobs:
     on_failure:
       - NOTIFY: cosmo-deployment-notifications
 
-  # 4cELLE. Run smoke test on TEST environment ELLE
+  # 4cELLE. Run smoke test on SIT environment ELLE
   - name: elle-site-smoke-test
     type: runSh
     always:
@@ -356,7 +461,7 @@ jobs:
     on_failure:
       - NOTIFY: elle-deployment-notifications
 
-  # 4cHB. Run smoke test on TEST environment HB
+  # 4cHB. Run smoke test on SIT environment HB
   - name: hb-site-smoke-test
     type: runSh
     always:
@@ -382,7 +487,7 @@ jobs:
     on_failure:
       - NOTIFY: hb-deployment-notifications
 
-  # 4cGT. Run smoke test on TEST environment GT
+  # 4cGT. Run smoke test on SIT environment GT
   - name: gt-site-smoke-test
     type: runSh
     always:
@@ -407,6 +512,58 @@ jobs:
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     on_failure:
       - NOTIFY: gt-deployment-notifications
+
+  # 4cAWWFOOD. Run smoke test on SIT environment AWWFOOD
+  - name: awwfood-site-smoke-test
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: awwfood-site-sit-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=awwfood-site
+       - script: export URL=http://awwfood-site-au.bxm.net.au/
+       - script: npm run smoketest:awwfood || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+    on_failure:
+      - NOTIFY: awwfood-deployment-notifications
+
+  # 4cFOODNZ. Run smoke test on SIT environment FOODNZ
+  - name: foodnz-site-smoke-test
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: foodnz-site-sit-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=foodnz-site
+       - script: export URL=http://foodnz-site-nz.bxm.net.au/
+       - script: npm run smoketest:foodnz || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+    on_failure:
+      - NOTIFY: foodnz-deployment-notifications
 
   # 4d. Run performance test on test environment
   - name: multi-site-performance-test
@@ -496,6 +653,38 @@ jobs:
     on_success:
       - NOTIFY: gt-deployment-notifications
 
+  # 5AWWFOOD. Package release for production release
+  - name: awwfood-release-master
+    type: release
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: multi-site-automation-test
+      - IN: awwfood-site-smoke-test
+      - IN: awwfood-site-version
+      - IN: awwfood-site-man-master
+        switch: off
+      - TASK: managed
+    on_success:
+      - NOTIFY: awwfood-deployment-notifications
+
+  # 5FOODNZ. Package release for production release
+  - name: foodnz-release-master
+    type: release
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: multi-site-automation-test
+      - IN: foodnz-site-smoke-test
+      - IN: foodnz-site-version
+      - IN: foodnz-site-man-master
+        switch: off
+      - TASK: managed
+    on_success:
+      - NOTIFY: foodnz-deployment-notifications
+
   # 6COSMO. PROD deployment for MASTER COSMO
   - name: cosmo-site-prod-deploy-master
     type: deploy
@@ -572,10 +761,47 @@ jobs:
       - TASK: managed
         deployMethod: upgrade
 
+  # 6AWWFOOD. PROD deployment for MASTER AWWFOOD
+  - name: awwfood-site-prod-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+      - NOTIFY: awwfood-deployment-notifications
+    steps:
+      - IN: awwfood-release-master
+        switch: off
+      - IN: multi-env-prod-ecs
+      - IN: multi-site-params-prod
+      - IN: awwfood-site-alb-prod
+        applyTo:
+          - manifest: awwfood-site-man-master
+            image: awwfood-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
+
+  # 6FOODNZ. PROD deployment for MASTER FOODNZ
+  - name: foodnz-site-prod-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+      - NOTIFY: foodnz-deployment-notifications
+    steps:
+      - IN: foodnz-release-master
+        switch: off
+      - IN: multi-env-prod-ecs
+      - IN: multi-site-params-prod
+      - IN: foodnz-site-alb-prod
+        applyTo:
+          - manifest: foodnz-site-man-master
+            image: foodnz-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
+
   ##############################################
   # Schedule jobs - not attached to the pipeline
   ##############################################
-
 
   # i. Full regression in TEST Multi
   - name: FULL-multi-site-regression-test
