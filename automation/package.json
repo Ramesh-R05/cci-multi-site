@@ -24,6 +24,8 @@
     "smoketest:elle": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestelle\"",
     "smoketest:hb": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketesthb\"",
     "smoketest:gt": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestgt\"",
+    "smoketest:awwfood": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestawwfood\"",
+    "smoketest:foodnz": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestfoodnz\"",
     "single": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --jsonOutput=reports/regression.json\"",
     "once": "npm run single",
     "html_report": "bash -c \"node generate_html.js\"",

@@ -1,0 +1,18 @@
+.page--section {
+    .page-title-container {
+        max-width: 1025px;
+        overflow: auto;
+        background: #fff;
+        margin: 0 auto -30px;
+    }
+
+    .page-title {
+        margin-left: 0;
+        margin-right: 0;
+
+        @media #{$medium-up} {
+            margin: 30px;
+            width: auto;
+        }
+    }
+}

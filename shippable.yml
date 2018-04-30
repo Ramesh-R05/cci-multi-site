@@ -13,6 +13,8 @@ env:
     - APP_KEY=cosmo-site
     - APP_KEY=elle-site
     - APP_KEY=hb-site
+    - APP_KEY=awwfood-site
+    - APP_KEY=foodnz-site
 
 # Remove the comment -> # from the APP_KEY you want to exclude from running CI during development
 matrix:
@@ -21,6 +23,8 @@ matrix:
 #    - env: APP_KEY=cosmo-site
 #    - env: APP_KEY=elle-site
 #    - env: APP_KEY=hb-site
+#    - env: APP_KEY=awwfood-site
+#    - env: APP_KEY=foodnz-site
 
 build:
   cache: true

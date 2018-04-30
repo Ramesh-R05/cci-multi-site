@@ -1,0 +1,18 @@
+.page__top-container {
+    .get-social {
+        .get-social-title {
+            margin-top: 12px;
+
+            &:before {
+                color: $color-primary;
+                content: 'GET MORE GOURMET';
+                font: 400 17px/21px $font-family-sans-serif-light;
+                letter-spacing: normal;
+            }
+        }
+
+        .get-social__links {
+            position: relative;
+        }
+    }
+}

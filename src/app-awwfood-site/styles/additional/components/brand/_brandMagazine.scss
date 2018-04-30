@@ -1,0 +1,42 @@
+.brand--magazine {
+    &-container {
+        padding-top: 25px;
+        padding-bottom: 5px;
+
+        @media #{$medium-up} {
+            padding-bottom: 13px;
+        }
+
+        @media #{$medium-only} {
+            border-top: 1px solid $color-gt-black-1;
+            padding-top: 0;
+            width: 50%;
+        }
+
+        @media #{$large-only} {
+            margin-left: -5px;
+        }
+
+        .button--subscribe {
+            margin: 20px 0;
+        }
+    }
+    &-title {
+        display: none;
+    }
+    &-image {
+        margin-bottom: 15px;
+        @media #{$large-up} {
+            width: 225px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        & img {
+            max-height: 295px;
+
+            @media #{$large-up} {
+                max-height: none;
+            }
+        }
+    }
+}

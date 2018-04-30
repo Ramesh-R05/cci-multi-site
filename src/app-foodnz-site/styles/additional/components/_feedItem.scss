@@ -1,0 +1,55 @@
+.feed-item__section-tag {
+    display: block;
+}
+
+.feed__container {
+
+    .feed__items {
+        margin-bottom: 0;
+    }
+
+    .feed-item {
+        border-top-color: transparent;
+        min-height: 130px;
+        overflow: hidden;
+        padding-top: 0;
+        padding-bottom: $feed-item-gap;
+
+        &:last-child {
+            border-bottom: 1px solid $line-color;
+        }
+
+        &__body-title {
+            @include type-text-light;
+        }
+
+        &__section-tag {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-family: $font-text;
+            line-height: 30px;
+            color: $color-gt-grey-2;
+        }
+
+        .article__date-created {
+            display: none;
+            font-family: $font-text-light;
+            line-height: 1;
+            font-size: 12px;
+            letter-spacing: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .feed-ad {
+        border-bottom: 1px solid $line-color;
+        padding-top: $feed-item-gap;
+        padding-bottom: $feed-item-gap;
+        margin-bottom: $feed-item-gap;
+    }
+
+    & + .rhs-ads .carriage {
+        padding-top: $feed-item-gap;
+    }
+}

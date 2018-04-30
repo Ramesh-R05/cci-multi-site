@@ -1,0 +1,15 @@
+.page__top-container {
+    .get-social {
+        .get-social__links {
+            .social-link {
+                .social-link__icon {
+                    img, svg {
+                        height: 34px;
+                        width: 34px;
+                        margin-bottom: 1px;
+                    }
+                }
+            }
+        }
+    }
+}

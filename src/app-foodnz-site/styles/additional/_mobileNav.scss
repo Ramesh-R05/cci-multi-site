@@ -1,0 +1,83 @@
+.mobile-menu__nav {
+    font-size: 20px;
+
+    a:hover {
+        color: $color-white;
+        font-weight: bold;
+    }
+
+    &::after {
+        width: 70px;
+        border-top: 1px solid $color-white;
+        display: block;
+    }
+
+    .nav-item {
+        color: $color-white;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        padding: 8px 0;
+        font-size: 16px;
+        font-style: normal;
+
+        @media #{$medium-up} {
+            font-size: 20px;
+        }
+
+        &--active {
+            color: $color-white;
+            font-weight: bold;
+        }
+    }
+
+    span {
+
+        ul {
+
+            li {
+                max-width: 90%;
+                padding-bottom: 8px;
+                border-bottom: 1px solid white;
+
+                @media #{$medium-up} {
+                    max-width: 220px;
+                }
+
+                a {
+                    font-style: normal;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+.mobile-menu-list {
+
+    &:before {
+        content: 'More from the To Love Network';
+        font-family: 'PlayfairDisplay-Bold', sans-serif;
+        color: $color-white;
+        font-size: 16px;
+    }
+
+    li:nth-child(5) {
+
+        margin-left: -3px;
+
+        @media #{$medium-up} {
+            margin-left: -6px;
+        }
+    }
+}
+
+.off-canvas {
+    background-color: $color-black-origin;
+}
+
+.off-canvas-content-wrapper {
+
+    svg {
+        fill: $color-white;
+    }
+}

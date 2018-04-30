@@ -1,0 +1,19 @@
+.gallery__mobile-ad {
+    margin-top: 0;
+    padding: 0 0 15px;
+}
+
+.ad--section-top-leaderboard {
+    @media #{$large-up} {
+        position: relative;
+        z-index: 1;
+        max-width: 1024px;
+        margin: 10px auto;
+    }
+}
+
+.site-wrapper {
+    .content-wrapper {
+        padding-top: 30px;
+    }
+}
