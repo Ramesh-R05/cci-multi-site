@@ -8,11 +8,11 @@ import polar from './polar';
 
 export default {
 
-    ga: { id: 'UA-8689488-1' },
+    ga: { id: 'UA-57795117-12' },
 
-    gtm: { masthead: 'GT', id: 'GTM-P8JPLN' },
+    gtm: { masthead: 'AWWFOOD', id: 'GTM-MHX78ZT' }, // TODO: Check that the masthead is correct
 
-    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/GourmetTraveller/defaultimage.png',
+    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/GourmetTraveller/defaultimage.png', // TODO: update this URL
 
     brightcove,
 
@@ -75,9 +75,10 @@ export default {
             'gift-card': 'gift-card',
         },
 
-        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kf/signup-gourmettraveller-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kf/signup-gourmettraveller-article-iframe-bottom' // TODO: update this URL
     },
 
+    // TODO: update below for awwfood
     // Used for the magazine image (not the one in the footer)
     product: {
         id: 'gt',
@@ -159,12 +160,12 @@ export default {
             "Australian Women's Weekly": 'AWW'
         }
     },
-    outbrain: {
+    outbrain: { // TODO: change this for awwfood
         templateId: 'Harper\'sBazaarAU',
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
-    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708'
+    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708' // TODO: change this ID
 
 };
 
