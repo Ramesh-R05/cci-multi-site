@@ -33,14 +33,14 @@ export default {
         handler: SectionPage,
         action: loadPageContent
     },
-    page: {
-        path: '/:section/:page*',
+    previewPage: {
+        path: '/:preview(preview)/:section/:page',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
     },
-    previewPage: {
-        path: '/:preview(preview)/:section/:page',
+    page: {
+        path: '/:section/:page*',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent

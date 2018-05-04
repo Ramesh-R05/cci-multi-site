@@ -39,14 +39,14 @@ export default {
         handler: SectionPage,
         action: loadPageContent
     },
-    page: {
-        path: '/:section/:subsection/:page*',
+    previewPage: {
+        path: '/:preview(preview)/:section/:subsection/:page',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
     },
-    previewPage: {
-        path: '/:preview(preview)/:section/:subsection/:page',
+    page: {
+        path: '/:section/:subsection/:page*',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
