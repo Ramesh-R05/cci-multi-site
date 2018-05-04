@@ -71,6 +71,32 @@
         .nav-item--active {
             color: $color-tertiary;
         }
+
+        .header-search__open {
+            overflow: visible !important;
+        }
+
+        .header-search--icon path {
+            fill: #ffffff;
+        }
+
+        .header-search__open .header-search--icon path {
+            fill: #aaaaaa;
+        }
+
+        .header-search__open .header-search--icon-container {
+            background-color: #242424;
+        }
+
+        .header-search--input {
+            input {
+                &[type='text'] {
+                    color: #000000;
+                    font-family: 'Montserrat-Light';
+                    text-transform: capitalize;
+                }
+            }
+        }
     }
 
     &.header--expanded.header--pinned .header-logo {

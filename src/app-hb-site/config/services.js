@@ -6,7 +6,7 @@ export default {
         module: 'http://services.sit.bxm.internal/module/v1/hb',
         sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/hb',
         tag: 'http://services.sit.bxm.internal/tag/v1/hb',
-        search: ''
+        search: 'http://services.sit.bxm.internal/es-search/v1/hb'
     },
     endpoints: {
         page: '/api/getPageContent',

@@ -6,7 +6,7 @@ export default {
         module: 'http://services.sit.bxm.internal/module/v1/cosmo',
         sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/cosmo',
         tag: 'http://services.sit.bxm.internal/tag/v1/cosmo',
-        search: ''
+        search: 'http://services.sit.bxm.internal/es-search/v1/cosmo'
     },
     endpoints: {
         page: '/api/getPageContent',

@@ -56,5 +56,8 @@ export default {
     },
     feedCarousel: {
         enabled: true
+    },
+    search: {
+        enabled: true
     }
 };

@@ -13,4 +13,14 @@
             padding-top: 20px;
         }
     }
+
+    .search-bar--input {
+        input {
+            &[type='text'] {
+                color: #000000;
+                font-family: 'TagusNormal-Light';
+                text-transform: uppercase;
+            }
+        }
+    }
 }

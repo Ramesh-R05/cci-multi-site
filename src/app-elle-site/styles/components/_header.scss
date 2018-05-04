@@ -66,6 +66,20 @@
         .nav-item--active {
             color: $color-accent;
         }
+
+        .header-search__open {
+            overflow: visible !important;
+        }
+
+        .header-search--input {
+            input {
+                &[type='text'] {
+                    color: #000000;
+                    font-family: 'TagusNormal-Light';
+                    text-transform: uppercase;
+                }
+            }
+        }
     }
 
     &.header--expanded.header--pinned .header-logo {

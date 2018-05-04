@@ -25,7 +25,7 @@ export default {
             module: 'http://services.prod.bxm.internal/module/v1/hb',
             sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/hb',
             tag: 'http://services.prod.bxm.internal/tag/v1/hb',
-            search: ''
+            search: 'http://services.prod.bxm.internal/es-search/v1/hb'
         },
         redirect: {
             url: 'http://services.prod.bxm.internal/redirect/v1/hb/301'

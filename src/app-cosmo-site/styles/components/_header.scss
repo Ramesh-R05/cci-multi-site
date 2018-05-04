@@ -65,6 +65,31 @@
         .nav-item--active {
             color: $color-accent;
         }
+
+        .header-search__open {
+            overflow: visible !important;
+        }
+        .header-search--icon path {
+            fill: #ec008c;
+        }
+
+        .header-search__open .header-search--icon path {
+            fill: #000;
+        }
+
+        .header-search__open .header-search--icon-container {
+            background-color: #ec008c;
+        }
+
+        .header-search--input {
+            input {
+                &[type='text'] {
+                    color: #000000;
+                    font-family: 'Amsi Pro Narrow';
+                    text-transform: uppercase;
+                }
+            }
+        }
     }
 
     &.header--expanded.header--pinned .header-logo {
