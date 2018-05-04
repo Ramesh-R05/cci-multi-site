@@ -40,7 +40,7 @@ export default {
         action: loadPageContent
     },
     page: {
-        path: '/:section/:subsection/:page',
+        path: '/:section/:subsection/:page*',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent

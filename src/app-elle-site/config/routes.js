@@ -26,7 +26,7 @@ export default {
         action: loadPageContent
     },
     page: {
-        path: '/:section/:page',
+        path: '/:section/:page*',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
