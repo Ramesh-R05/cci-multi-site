@@ -6,12 +6,12 @@ const testLinks = [
     {
         title: 'homepage',
         url: 'https://www.gourmettraveller.com.au/',
-        expectedScore: 28
+        expectedScore: 27
     },
     {
         title: 'section',
         url: 'https://www.gourmettraveller.com.au/recipes/',
-        expectedScore: 29
+        expectedScore: 28
     },
     {
         title: 'article',
@@ -21,7 +21,7 @@ const testLinks = [
     {
         title: 'gallery',
         url: 'https://www.gourmettraveller.com.au/recipes/recipe-collections/fried-rice-15062/',
-        expectedScore: 28
+        expectedScore: 24
     },
     {
         title: 'recipe',
@@ -31,7 +31,7 @@ const testLinks = [
     {
         title: 'review',
         url: 'https://www.gourmettraveller.com.au/dining-out/restaurant-reviews/grossi-florentino-6820/',
-        expectedScore: 21
+        expectedScore: 24
     }
 ];
 

@@ -11,7 +11,7 @@ const testLinks = [
     {
         title: 'section',
         url: 'http://homes-site.test.bxm.net.au/real-homes/',
-        expectedScore: 28
+        expectedScore: 29
     },
     {
         title: 'tags landing page',
@@ -21,12 +21,12 @@ const testLinks = [
     {
         title: 'article',
         url: 'http://homes-site.test.bxm.net.au/automation-test-article-with-hero-image-3193/',
-        expectedScore: 18
+        expectedScore: 19
     },
     {
         title: 'gallery',
         url: 'http://homes-site.test.bxm.net.au/automation-test-gallery-3201/',
-        expectedScore: 23
+        expectedScore: 22
     }
 ];
 

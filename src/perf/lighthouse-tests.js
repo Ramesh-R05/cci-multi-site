@@ -6,22 +6,22 @@ const testLinks = [
     {
         title: 'homepage',
         url: 'http://multi-site.test.bxm.net.au/',
-        expectedScore: 35
+        expectedScore: 38
     },
     {
         title: 'section',
         url: 'http://multi-site.test.bxm.net.au/fashion/',
-        expectedScore: 40
+        expectedScore: 43
     },
     {
         title: 'article',
         url: 'http://multi-site.test.bxm.net.au/fashion/automation-test-article-with-hero-image-3663/',
-        expectedScore: 30
+        expectedScore: 32
     },
     {
         title: 'gallery',
         url: 'http://multi-site.test.bxm.net.au/fashion/automation-test-gallery-13302/',
-        expectedScore: 35
+        expectedScore: 34
     },
     {
         title: 'recipe',
@@ -31,7 +31,7 @@ const testLinks = [
     {
         title: 'review',
         url: 'http://multi-site.test.bxm.net.au/restaurant-reviews/bar-rochford-restaurant-review-1713/',
-        expectedScore: 25
+        expectedScore: 29
     }
 ];
 
