@@ -129,55 +129,81 @@ resources:
         
   #Schedule Run of automation
   # This is using Shippable timezone
-  # CRON is (0 19 * * *") this is 7:00pm every day refer to https://en.wikipedia.org/wiki/Cron
-  # will run at 6:00am daylight saving or 5:00am standard time in Sydney
+  # CRON is (30 21 * * *") this is 9:30pm every day refer to https://en.wikipedia.org/wiki/Cron
+  # will run at 8:30am daylight saving or 7:30am standard time in Sydney
   - name: multi-morning-trigger
     type: time
     seed:
-      interval: "0 19 * * *"
+      interval: "30 21 * * *"
+
+  #"0 22 * * 0" is 10:00pm Sunday which is Monday morning 9:00am daylight saving or 8:00am standard time in Sydney
+  - name: elle-weekly-trigger
+    type: time
+    seed:
+      interval: "0 22 * * 0"
+
+  #"0 22 * * 2" is 10:00pm Tuesday which is Wednesday morning 9:00am daylight saving or 8:00am standard time in Sydney
+  - name: cosmo-weekly-trigger
+    type: time
+    seed:
+      interval: "0 22 * * 2"
+
+  #"0 22 * * 4" is 10:00pm Thursday which is Friday morning 9:00am daylight saving or 8:00am standard time in Sydney
+  - name: hb-weekly-trigger
+    type: time
+    seed:
+      interval: "0 22 * * 4"
+
+  #"0 22 * * 1" is 10:00pm Monday which is Tuesday morning 9:00am daylight saving or 8:00am standard time in Sydney
+  - name: gt-weekly-trigger
+    type: time
+    seed:
+      interval: "0 22 * * 1"
+
+  #"0 22 * * 0" is 10:00pm Sunday which is Monday morning 9:00am daylight saving or 8:00am standard time in Sydney
+  - name: awwfood-weekly-trigger
+    type: time
+    seed:
+      interval: "0 22 * * 0"
+
+  #"0 22 * * 3" is 10:00pm Wednesday which is Thursday morning 9:00am daylight saving or 8:00am standard time in Sydney
+  - name: foodnz-weekly-trigger
+    type: time
+    seed:
+      interval: "0 22 * * 3"
+
+  #"30 22 * * 0,3" is 10:30pm Sunday & Wednesday which are Monday morning and Thursday morning 9:30am daylight saving or 8:30am standard time in Sydney
+  - name: gt-perf-live-trigger
+    type: time
+    seed:
+      interval: "30 22 * * 0,3"
 
   #"30 22 * * 0" is 10:30pm Sunday which is Monday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: elle-weekly-trigger
+  - name: gt-seo-live-trigger
     type: time
     seed:
       interval: "30 22 * * 0"
 
+  # This is for homes-site performance test and SEO test only (Workaround)
+  #"30 22 * * 2,4" is 10:30pm Tuesday & Thursday which are Wednesday morning and Friday morning 9:30am daylight saving or 8:30am standard time in Sydney
+  - name: homes-perf-live-trigger-workaround
+    type: time
+    seed:
+      interval: "30 22 * * 2,4"
+
   #"30 22 * * 2" is 10:30pm Tuesday which is Wednesday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: cosmo-weekly-trigger
+  - name: homes-perf-test-trigger-workaround
     type: time
     seed:
       interval: "30 22 * * 2"
 
-  #"30 22 * * 4" is 10:30pm Thursday which is Friday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: hb-weekly-trigger
+  #"30 22 * * 3" is 10:30pm Wednesday which is Thursday morning 9:30am daylight saving or 8:30am standard time in Sydney
+  - name: homes-seo-live-trigger-workaround
     type: time
     seed:
-      interval: "30 22 * * 4"
+      interval: "30 22 * * 3"
 
-  #"30 22 * * 0,3" is 10:30pm Sunday which is Monday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: gt-weekly-trigger
-    type: time
-    seed:
-      interval: "30 22 * * 0"
 
-  #"30 22 * * 0,3" is 10:30pm Sunday & Wednesday which are Monday morning and Thursday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: awwfood-weekly-trigger
-    type: time
-    seed:
-      interval: "30 22 * * 0,3"
-
-  #"30 22 * * 0,3" is 10:30pm Sunday & Wednesday which are Monday morning and Thursday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: foodnz-weekly-trigger
-    type: time
-    seed:
-      interval: "30 22 * * 0,3"
-
-  # This is for homes-site performance test and SEO test only (Workaround)
-  #"30 23 * * 0,3" is 11:30pm Sunday & Wednesday which are Monday morning and Thursday morning 10:30am daylight saving or 9:30am standard time in Sydney
-  - name: homes-weekly-trigger-workaround
-    type: time
-    seed:
-      interval: "30 23 * * 0,3"
 
 ##############
 # COSMO
