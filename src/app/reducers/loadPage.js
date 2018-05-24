@@ -5,7 +5,7 @@ export const initialState = {
     title: '',
     magazineImageUrl: '',
     magCover: {},
-    comScoreSegmentIds: []
+    comScoreSegmentIds: ''
 };
 
 export function reducer(state = initialState, payload = {}, eventName = '') {
@@ -52,7 +52,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             magazineImageUrl: '',
             theme: '',
             magCover,
-            comScoreSegmentIds: []
+            comScoreSegmentIds: initialState.comScoreSegmentIds
         };
     }
 

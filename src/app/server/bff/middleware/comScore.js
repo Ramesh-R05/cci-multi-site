@@ -1,9 +1,31 @@
+/* eslint-disable consistent-return, no-console */
 import request from 'request';
 
+const debug = process.env.APP_DEBUG || false;
+const map = new Map();
+
 export default function comScore(req, res, next) {
+    req.data = req.data || {};
+
+    const start = Date.now();
+    let segmentIds = map.get(req.query.url) || [];
+
+    if (segmentIds.length > 0) {
+        if (debug) {
+            console.log(`comscore: using segments from cache for ${req.query.url} in ${Date.now() - start}ms`);
+        }
+        req.data.comScoreSegmentIds = segmentIds.join(',');
+        return next();
+    }
+
+    if (debug) {
+        console.log(`comscore: requesting segments from remote ${req.query.url}`);
+    }
+
     const pageUrl = encodeURIComponent(`https://${req.app.locals.config.site.prodDomain}${req.query.url}`);
     const options = {
-        url: `http://api-us-east.zqtk.net/bauermedia-1h5kv7?url=${pageUrl}`,
+        // eslint-disable-next-line max-len
+        url: `http://api-ap-southeast.proximic.com:9100/sources.json?dkey=oh07IxT_3bk0gtkudfAWP8ikhrshRI6A9mtpGTplKWY9l_VxhfUVmf9J_5Uqkasy&url=${pageUrl}`,
         timeout: 1000
     };
 
@@ -20,7 +42,6 @@ export default function comScore(req, res, next) {
             * */
 
             const isJson = body.startsWith('{');
-            let segmentIds = [];
 
             if (isJson) {
                 try {
@@ -37,11 +58,16 @@ export default function comScore(req, res, next) {
             }
 
             if (segmentIds.length > 0) {
-                req.data = req.data || {};
+                map.set(req.query.url, segmentIds);
                 req.data.comScoreSegmentIds = segmentIds.join(',');
             }
+            if (debug) {
+                console.log(`comscore: received segments from remote for ${req.query.url} in ${Date.now() - start}ms`);
+                console.log(`comscore: segments: ${req.data.comScoreSegmentIds}`);
+            }
+            next();
+        } else {
+            next(err);
         }
-
-        next();
     });
 }

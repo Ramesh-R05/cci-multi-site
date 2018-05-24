@@ -9,7 +9,7 @@ export const initialState = {
     headerMetaData: {
         title: ''
     },
-    comScoreSegmentIds: [],
+    comScoreSegmentIds: '',
     search: {
         total: 0,
         initialResults: [],
