@@ -406,8 +406,8 @@ jobs:
        - script: export URL=http://multi-site.test.bxm.net.au/
        - script: npm run test:mobile
        - script: npm run test:browser
-    on_failure:
-      - NOTIFY: elle-deployment-notifications
+#    on_failure:
+#      - NOTIFY: elle-deployment-notifications
 
   # 4cCOSMO. Run smoke test on SIT environment COSMO
   - name: cosmo-site-smoke-test
