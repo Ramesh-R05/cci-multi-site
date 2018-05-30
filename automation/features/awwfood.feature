@@ -95,49 +95,51 @@ Feature: Smoke test for AWW FOOD
 #        When I am currently viewing the homepage
 #        Then I should see the GA container id "UA-57795117-12" on the DOM
 
-    Scenario: Verify all the doc type items
-        Given I switch to "mobile" view
-        # -----------------------
-        Given Emily just published the "section" doc type item in "gt"
-        When I navigate to the "section" page in "gt"
-        Then our readers can enjoy the created "section" page
-        # -----------------------
-        Given Emily just published the "subsection" doc type item in "gt"
-        When I navigate to the "subsection" page in "gt"
-        Then our readers can enjoy the created "subsection" page
-        # -----------------------
-        Given Emily just published the "article" doc type item in "gt"
-        When I navigate to the "article" page in "gt"
-        Then our readers can enjoy the created "article" page
-        When I navigate to the "amp article" page in "gt"
-        Then our readers can enjoy the created "amp article" page
-        # -----------------------
-        Given Emily just published the "gallery" doc type item in "gt"
-        When I navigate to the "gallery" page in "gt"
-        Then our readers can enjoy the created "gallery" page
-        When I navigate to the "amp gallery" page in "gt"
-        Then our readers can enjoy the created "amp gallery" page
-        # -----------------------
-        Given Emily just published the "review" doc type item in "gt"
-        When I navigate to the "review" page in "gt"
-        Then our readers can enjoy the created "review" page
-        When I navigate to the "amp review" page in "gt"
-        Then our readers can enjoy the created "amp review" page
+# We will enable this scenario once it is ready to create items in AWWFOOD CMS
+#    Scenario: Verify all the doc type items
+#        Given I switch to "mobile" view
+#        # -----------------------
+#        Given Emily just published the "section" doc type item in "gt"
+#        When I navigate to the "section" page in "gt"
+#        Then our readers can enjoy the created "section" page
+#        # -----------------------
+#        Given Emily just published the "subsection" doc type item in "gt"
+#        When I navigate to the "subsection" page in "gt"
+#        Then our readers can enjoy the created "subsection" page
+#        # -----------------------
+#        Given Emily just published the "article" doc type item in "gt"
+#        When I navigate to the "article" page in "gt"
+#        Then our readers can enjoy the created "article" page
+#        When I navigate to the "amp article" page in "gt"
+#        Then our readers can enjoy the created "amp article" page
+#        # -----------------------
+#        Given Emily just published the "gallery" doc type item in "gt"
+#        When I navigate to the "gallery" page in "gt"
+#        Then our readers can enjoy the created "gallery" page
+#        When I navigate to the "amp gallery" page in "gt"
+#        Then our readers can enjoy the created "amp gallery" page
+#        # -----------------------
+#        Given Emily just published the "review" doc type item in "gt"
+#        When I navigate to the "review" page in "gt"
+#        Then our readers can enjoy the created "review" page
+#        When I navigate to the "amp review" page in "gt"
+#        Then our readers can enjoy the created "amp review" page
 
-    Scenario: Verify the RSS feed
-        Given I am currently viewing "rss"
-        Then I should see "link" tag containing "http://gt-site-au.sit.bxm.net.au" value
-        * I should see "dc:creator" tag containing "Gourmet Traveller" in CDATA
-        * I should see "title" tag containing a value
-        * I should see "dc:creator" tag containing a value
-        * I should see "content:encoded" tag containing a value
-        When I am currently viewing "rss/summary"
-        * I should see "title" tag containing a value
-        * I should not see "content:encoded" tag
-        When I am currently viewing "rss/summary/gt"
-        * I should see "title" tag containing a value
-        When I am currently viewing "rss/info"
-        * I should see "rss/summary/gt" in json
+#We will enable this scenario once we use the DEV AWWFOOD CMS
+#    Scenario: Verify the RSS feed
+#        Given I am currently viewing "rss"
+#        Then I should see "link" tag containing "http://gt-site-au.sit.bxm.net.au" value
+#        * I should see "dc:creator" tag containing "Gourmet Traveller" in CDATA
+#        * I should see "title" tag containing a value
+#        * I should see "dc:creator" tag containing a value
+#        * I should see "content:encoded" tag containing a value
+#        When I am currently viewing "rss/summary"
+#        * I should see "title" tag containing a value
+#        * I should not see "content:encoded" tag
+#        When I am currently viewing "rss/summary/gt"
+#        * I should see "title" tag containing a value
+#        When I am currently viewing "rss/info"
+#        * I should see "rss/summary/gt" in json
 
 #The following two scenarios are for the search feature which is enabled on GT only.Scenario:
 #If we roll out to the other sites, we can move them to regression test instead of smoke test
