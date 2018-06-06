@@ -41,7 +41,7 @@
     "license": "",
     "homepage": "https://github.com/bauerxcelmedia/multi-site#readme",
     "dependencies": {
-        "@bxm/ad": "^13.4.0",
+        "@bxm/ad": "^14.0.0",
         "@bxm/article": "^26.5.2",
         "@bxm/behaviour": "^1.4.0",
         "@bxm/datetime": "^3.1.0",
@@ -50,7 +50,7 @@
         "@bxm/markdown": "^1.2.0",
         "@bxm/nav": "^3.1.1",
         "@bxm/recommendations": "^4.1.0",
-        "@bxm/server": "^24.3.1",
+        "@bxm/server": "^24.4.0",
         "@bxm/site-header": "^7.4.0",
         "@bxm/tags": "^3.0.0",
         "@bxm/teaser": "^6.3.0",
