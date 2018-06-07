@@ -21,17 +21,17 @@ const testLinks = [
     {
         title: 'gallery',
         url: 'http://multi-site.test.bxm.net.au/fashion/automation-test-gallery-13302/',
-        expectedScore: 34
+        expectedScore: 36
     },
     {
         title: 'recipe',
         url: 'http://multi-site.test.bxm.net.au/recipes/automation-test-recipe-2127/',
-        expectedScore: 40
+        expectedScore: 41
     },
     {
         title: 'review',
         url: 'http://multi-site.test.bxm.net.au/restaurant-reviews/bar-rochford-restaurant-review-1713/',
-        expectedScore: 29
+        expectedScore: 37
     }
 ];
 

@@ -12,7 +12,7 @@ const testLinks = [
     {
         title: 'section',
         url: 'https://www.homestolove.com.au/real-homes/',
-        expectedScore: 28
+        expectedScore: 30
     },
     {
         title: 'tags landing page',
@@ -22,12 +22,12 @@ const testLinks = [
     {
         title: 'article',
         url: 'https://www.homestolove.com.au/6-free-design-apps-you-should-know-about-4174',
-        expectedScore: 24
+        expectedScore: 28
     },
     {
         title: 'gallery',
         url: 'https://www.homestolove.com.au/12-smart-home-offices-3309',
-        expectedScore: 25
+        expectedScore: 26
     }
 ];
 
