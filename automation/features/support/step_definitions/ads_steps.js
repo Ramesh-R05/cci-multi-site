@@ -128,6 +128,8 @@ module.exports = function() {
 
     this.Then(/^I should see MREC ad above recommendation$/, function () {
         browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
+        wait(1000);
+        browser.scroll(wn_ads.ad_MrecBeforeRecommendation); //Double scroll to ensure the ad element is still on the page after the ad loading.
         expect(browser.isVisible(wn_ads.ad_MrecBeforeRecommendation)).toBe(true);
     });
 
