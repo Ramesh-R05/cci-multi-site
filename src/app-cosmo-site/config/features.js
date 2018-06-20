@@ -59,5 +59,8 @@ export default {
     },
     search: {
         enabled: true
+    },
+    pubmatic: {
+        enabled: false
     }
 };
