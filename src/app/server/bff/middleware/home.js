@@ -18,12 +18,14 @@ export default async function home(req, res, next) {
 
             pageNo = parseInt(req.query.pageNo || pageNo, 10);
         }
-
+        const videoQuery = req.data.excludeCommercialTagQuery ?
+                            `video eq %27$contentTags%27 and ${req.data.excludeCommercialTagQuery}` :
+                            'video eq %27$contentTags%27';
         const skip = ((pageNo - 1) * listCount);
         const [pageData, latestTeasersResp, videoGalleryTeasers] = await Promise.all([
             makeRequest(`${req.app.locals.config.services.remote.entity}/homepage`),
-            getLatestTeasers(listCount, skip),
-            getLatestTeasers(videoGalleryTeaserCount, undefined, 'video eq %27$contentTags%27').catch(() => ({ data: [] }))
+            getLatestTeasers(listCount, skip, req.data.excludeCommercialTagQuery),
+            getLatestTeasers(videoGalleryTeaserCount, undefined, videoQuery).catch(() => ({ data: [] }))
         ]);
         videoGalleryTeasers.data = videoGalleryTeasers.data.map((gallery) => {
             gallery.contentImageUrl = get(gallery, 'contentVideo.properties.videoConfiguration.videoStillUrl', gallery.contentImageUrl);

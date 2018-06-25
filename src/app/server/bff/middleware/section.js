@@ -3,6 +3,7 @@ import get from 'lodash/object/get';
 import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
 import makeRequest from '../../makeRequest';
+import tagsToQuery from '../helper/tagsToQuery';
 const latestTeaserCount = 7;
 const listCount = 14;
 
@@ -10,10 +11,13 @@ export default async function sectionMiddleware(req, res, next) {
     try {
         let pageNo = 1;
         const { page, section, subsection } = req.query;
+        const { commercialTag, excludeCommercialTagQuery } = req.data;
         pageNo = parseInt(req.query.pageNo || pageNo, 10);
-
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
-        if ((nodeTypeAlias !== 'Section' && nodeTypeAlias !== 'Subsection' && nodeTypeAlias !== 'Brand') || !section || page) {
+        if ((nodeTypeAlias !== 'Section' &&
+             nodeTypeAlias !== 'Subsection' &&
+             nodeTypeAlias !== 'Brand' &&
+             nodeTypeAlias !== 'CommercialTagSection') || !section || page) {
             next();
             return;
         }
@@ -23,13 +27,29 @@ export default async function sectionMiddleware(req, res, next) {
         let teaserFilter;
         let sectionQuery;
 
+        if (nodeTypeAlias === 'CommercialTagSection') {
+            if (!excludeCommercialTagQuery) {
+                req.data.latestTeasers = [];
+                next();
+                return;
+            }
+
+            teaserQuery = `/${section}${subsection ? `/${subsection}` : ''}`;
+            sectionQuery = `/${section}${subsection ? `/${subsection}` : ''}`;
+            listingQuery = tagsToQuery(commercialTag, 'eq');
+        }
+
         if (nodeTypeAlias === 'Section' || nodeTypeAlias === 'Subsection') {
             teaserQuery = `/${section}${subsection ? `/${subsection}` : ''}`;
             sectionQuery = `/${section}${subsection ? `/${subsection}` : ''}`;
             teaserFilter = 'parentUrl';
-            listingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
+            const sectionListingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
+            listingQuery = excludeCommercialTagQuery ?
+                            `${sectionListingQuery} and ${excludeCommercialTagQuery}` :
+                            sectionListingQuery;
             req.data.subsectionList = await makeRequest(`${req.app.locals.config.services.remote.module}/sections/${section}`);
         }
+
         if (nodeTypeAlias === 'Brand') {
             const source = get(req, 'data.entity.source', '');
             const adBrand = find(req.app.locals.config.brands.uniheader, b => b.title === source);
@@ -37,7 +57,10 @@ export default async function sectionMiddleware(req, res, next) {
 
             teaserQuery = source.replace(/'/g, "''");
             teaserFilter = 'source';
-            listingQuery = `${teaserFilter} eq %27${teaserQuery}%27 and nodeTypeAlias ne %27Brand%27`;
+            const brandListingQuery = `${teaserFilter} eq %27${teaserQuery}%27 and nodeTypeAlias ne %27Brand%27`;
+            listingQuery = excludeCommercialTagQuery ?
+                            `${brandListingQuery} and ${excludeCommercialTagQuery}` :
+                            brandListingQuery;
         }
 
         const skip = ((pageNo - 1) * listCount);

@@ -21,6 +21,18 @@ export default {
         handler: SearchPage,
         action: loadSearch
     },
+    recipes: {
+        path: '/recipes/:page(.*-):id([0-9]+)',
+        method: 'get',
+        handler: SinglePage,
+        action: loadPageContent
+    },
+    page: {
+        path: '/:page(.*-):id([0-9]+)',
+        method: 'get',
+        handler: SinglePage,
+        action: loadPageContent
+    },
     section: {
         path: '/:section',
         method: 'get',
@@ -31,24 +43,6 @@ export default {
         path: '/tags/:tag',
         method: 'get',
         handler: SectionPage,
-        action: loadPageContent
-    },
-    subsection: {
-        path: '/:section/:subsection',
-        method: 'get',
-        handler: SectionPage,
-        action: loadPageContent
-    },
-    previewPage: {
-        path: '/:preview(preview)/:section/:subsection/:page',
-        method: 'get',
-        handler: SinglePage,
-        action: loadPageContent
-    },
-    page: {
-        path: '/:section/:subsection/:page*',
-        method: 'get',
-        handler: SinglePage,
         action: loadPageContent
     },
     all: {

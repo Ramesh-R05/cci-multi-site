@@ -9,20 +9,22 @@ export default async function pageMiddleware(req, res, next) {
             return;
         }
 
+        const { id } = req.query;
         const query = 'page' in req.query ? req.query : req.params;
         const { page, preview, section, subsection } = query;
+        const pageID = id ? getPageID(`${page}${id}`) : getPageID(page);
 
-        const pageID = getPageID(page);
         if (!pageID) throw { status: 404, message: 'Invalid page ID', section, page };
 
         const saved = `?saved=${!!preview}`;
         const pageData = await makeRequest(`${req.app.locals.config.services.remote.entity}/${pageID}${saved}`);
 
-        const path = subsection ? `/${section}/${subsection}/${page}` : `/${section}/${page}`;
-        if (!pageData.url || pageData.url !== path) {
-            throw { status: 404, message: `Path ${path} does not match page` };
+        if (!id) {
+            const path = subsection ? `/${section}/${subsection}/${page}` : `/${section}/${page}`;
+            if (!pageData.url || pageData.url !== path) {
+                throw { status: 404, message: `Path ${path} does not match page` };
+            }
         }
-
         req.data = req.data || {};
         req.data.entity = { ...pageData };
         req.data.section = {

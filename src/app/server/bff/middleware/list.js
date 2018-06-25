@@ -4,9 +4,19 @@ const listCount = 14;
 
 export default async function list(req, res, next) {
     try {
+        const { excludeCommercialTagQuery } = req.data;
         const pageNo = parseInt(req.query.pageNo, 10);
-        const { section, filter } = req.query;
-        const listingQuery = (section && filter) ? `${filter} eq %27${section}%27` : undefined;
+        const { section, filter, tagSectionQuery } = req.query;
+
+        let listingQuery;
+        if (tagSectionQuery) {
+            listingQuery = tagSectionQuery;
+        } else {
+            const query = (section && filter) ? `${filter} eq %27${section}%27` : undefined;
+            const queryWithCommercialTag = query ? `${query} and ${excludeCommercialTagQuery}` : excludeCommercialTagQuery;
+            listingQuery = excludeCommercialTagQuery ? queryWithCommercialTag : query;
+        }
+
         const top = listCount;
         const skip = (pageNo - 1) * listCount;
         const listResp = await getLatestTeasers(top, skip, listingQuery);

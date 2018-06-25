@@ -20,15 +20,15 @@ export default {
     },
     services: {
         remote: {
-            entity: 'http://services.prod.bxm.internal/entity/v1/gt',
-            listings: 'http://services.prod.bxm.internal/listing/v1/gt',
-            module: 'http://services.prod.bxm.internal/module/v1/gt',
-            sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/gt',
-            tag: 'http://services.prod.bxm.internal/tag/v1/gt',
-            search: 'http://services.prod.bxm.internal/es-search/v1/gt'
+            entity: 'http://services.prod.bxm.internal/entity/v1/awwfood',
+            listings: 'http://services.prod.bxm.internal/listing/v1/awwfood',
+            module: 'http://services.prod.bxm.internal/module/v1/awwfood',
+            sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/awwfood',
+            tag: 'http://services.prod.bxm.internal/tag/v1/awwfood',
+            search: 'http://services.prod.bxm.internal/es-search/v1/awwfood'
         },
         redirect: {
-            url: 'http://services.prod.bxm.internal/redirect/v1/gt/301'
+            url: 'http://services.prod.bxm.internal/redirect/v1/awwfood/301'
         }
     },
     polar: {

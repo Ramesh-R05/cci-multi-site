@@ -4,7 +4,7 @@ export default {
     prodDomain: 'www.gourmettraveller.com.au',
     name: "Gourmet Traveller",
     shortName: "Gourmet Traveller",
-    prefix: 'GT',
+    prefix: 'AwwFood',
     network: 'wn',
     adTaggingId: 'gourmettraveller',
     feedTitle: 'Read More',

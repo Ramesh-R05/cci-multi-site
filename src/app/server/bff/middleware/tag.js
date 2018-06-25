@@ -4,6 +4,7 @@ import getTagName from '@bxm/tags/lib/utils/getTagName';
 import makeRequest from '../../makeRequest';
 import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
+import tagsToQuery from '../helper/tagsToQuery';
 
 const latestTeaserCount = 7;
 const listCount = 14;
@@ -19,7 +20,8 @@ export default async function tagMiddleware(req, res, next) {
         pageNo = parseInt(query.pageNo || pageNo, 10);
         const tag = query ? query.tag || query.section : null;
         const entity = get(req, 'data.entity');
-
+        const tagsDetails = get(req, 'data.entity.tagsDetails', []);
+        const { excludeCommercialTagQuery } = req.data;
         if (!tag || query.page || (entity && entity.nodeTypeAlias !== 'TagSection')) {
             next();
             return;
@@ -38,7 +40,6 @@ export default async function tagMiddleware(req, res, next) {
                 return listingData.nodeTypeAlias !== 'TagSection' ? defaultTagUrl : listingData.url || defaultTagUrl;
             }).catch(() => `/tags/${tag}`);
 
-
         const tagData = await makeRequest(`${tagService}/tags/${title}`)
             .then(({ data }) => {
                 if (!data.length) return {};
@@ -54,7 +55,13 @@ export default async function tagMiddleware(req, res, next) {
 
         const skip = ((pageNo - 1) * listCount);
         const loweredCaseTag = tag.toLowerCase().replace('%20', '-');
-        const listingQuery = `tagsDetails/urlName eq %27${loweredCaseTag}%27`;
+
+        const tagListingQuery = tagsDetails.length ?
+                                tagsToQuery(tagsDetails.map(singleTag => singleTag.fullName), 'eq') :
+                                `tagsDetails/urlName eq %27${loweredCaseTag}%27`;
+
+        const listingQuery = excludeCommercialTagQuery ?
+                            `${tagListingQuery} and ${excludeCommercialTagQuery}` : tagListingQuery;
         const latestTeasersResp = await getLatestTeasers(listCount, skip, listingQuery);
 
         // TODO: need to handle `data` in resp better
@@ -100,7 +107,8 @@ export default async function tagMiddleware(req, res, next) {
             params: {
                 pageNo,
                 section: title,
-                filter: 'contentTags'
+                filter: 'contentTags',
+                tagSectionQuery: listingQuery
             },
             items: [
                 parseEntities(latestTeasers.data.slice(latestTeaserCount))

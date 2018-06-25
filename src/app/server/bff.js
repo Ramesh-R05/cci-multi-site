@@ -21,6 +21,7 @@ import logger from '../../logger';
 import assetProxy from './bff/middleware/assetProxy';
 import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
+import commercialTag from './bff/middleware/commercialTag';
 
 export default function bff(server) {
     server.get('/api/asset', assetProxy);
@@ -31,16 +32,17 @@ export default function bff(server) {
         server.get('/sitemap/:section?', sitemap, error);
         server.get(
             '(/:preview(preview))?/amp/:section/:page',
-            pageModules, section, page, article, gallery, headerMeta, responseBody, amp
+            pageModules, commercialTag, section, page, article, gallery, headerMeta, responseBody, amp
         );
         server.get(
             '(/:preview(preview))?/amp/:section/:subsection/:page',
-            pageModules, section, page, article, gallery, headerMeta, responseBody, amp
+            pageModules, commercialTag, section, page, article, gallery, headerMeta, responseBody, amp
         );
-        server.get(server.locals.config.services.endpoints.list, list, https, render, error);
+        server.get(server.locals.config.services.endpoints.list, commercialTag, list, https, render, error);
         server.get(
             server.locals.config.services.endpoints.page,
             pageModules,
+            commercialTag,
             comScore,
             home,
             listing,
@@ -60,6 +62,7 @@ export default function bff(server) {
         server.get(
             server.locals.config.services.endpoints.search,
             pageModules,
+            commercialTag,
             comScore,
             headerMeta,
             search,
