@@ -10,6 +10,14 @@ module.exports = function(){
         expect(extraTeasers).toEqual(parseInt(teaserCount),10);
     });
 
+    this.Then(/^I should see at least one teaser$/, function () {
+        expect(browser.isExisting(section.heroComponent)).toEqual(true);
+    });
+
+    this.Then(/^I should not see any teaser$/, function () {
+        expect(browser.isExisting(section.heroComponent)).toEqual(false);
+    });
+
     this.Then(/^I should see "([^"]*)" title$/, function (sectionName) {
         var sectionTitle = browser.getText(section.sectionTitle);
         expect(sectionTitle).toEqual(sectionName);
