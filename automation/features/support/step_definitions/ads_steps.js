@@ -3,6 +3,9 @@ var gallery = require('../page_objects/gallery_widget');
 var visibilityFunctions = require('../../../node_modules/@bxm/automation/lib/utils/visibilityFunctions');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/loadAllElements');
+var world = require('../world');
+var isBrowserStack = world.Urls.isBrowserStack;
+var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 
 module.exports = function() {
 
@@ -38,7 +41,10 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the top leaderboard ad under navigation$/, function () {
-        expect(browser.waitForVisible(wn_ads.ad_TopLeaderboard,10000)).toBe(true);
+        if (isBrowserStack == false) {
+            browser.scroll(0,0);
+        }
+        expect(browser.isExisting(wn_ads.ad_TopLeaderboard)).toBe(true);
     });
 
     this.Then(/^I should see native ad below author$/, function () {
@@ -94,8 +100,10 @@ module.exports = function() {
 
     //BELOW ARE STEPS FOR ARTICLE
     this.Then(/^I should see the bottom leaderboard ad above the footer on article$/, function () {
-          browser.scroll(wn_ads.ad_BottomLeaderboard);
-          expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard,5000)).toBe(true);
+        scrolling(browser,wn_ads.ad_BottomLeaderboard,isBrowserStack);
+        wait(1500);
+        scrolling(browser,wn_ads.ad_BottomLeaderboard,isBrowserStack); //move to the object again after the images on gallery are loaded from the first move.
+        expect(browser.waitForVisible(wn_ads.ad_BottomLeaderboard,5000)).toBe(true);
     });
 
     this.Then(/^I should see MREC ad between images$/, function () {
@@ -127,10 +135,10 @@ module.exports = function() {
     });
 
     this.Then(/^I should see MREC ad above recommendation$/, function () {
-        browser.scroll(wn_ads.ad_MrecBeforeRecommendation);
+        scrolling(browser,wn_ads.ad_MrecBeforeRecommendation,isBrowserStack);
         wait(1000);
-        browser.scroll(wn_ads.ad_MrecBeforeRecommendation); //Double scroll to ensure the ad element is still on the page after the ad loading.
-        expect(browser.isVisible(wn_ads.ad_MrecBeforeRecommendation)).toBe(true);
+        scrolling(browser,wn_ads.ad_MrecBeforeRecommendation,isBrowserStack); //Double scroll to ensure the ad element is still on the page after the ad loading.
+        expect(browser.waitForVisible(wn_ads.ad_MrecBeforeRecommendation,5000)).toBe(true);
     });
 
     this.Then(/^I should not see MREC ad above recommendation$/, function () {

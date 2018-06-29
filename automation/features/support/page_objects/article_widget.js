@@ -69,6 +69,7 @@ var article_widget = {
     headerSourceImg: 'header.article__header .article-header-source img',
     bottomSource: '.article-header-source--bottom a',
     bottomSourceImg: '.article-header-source--bottom img',
+    articleFooter: '.article__footer',
     articleFacebook: '.article__footer .social-share-block .icon-facebook',
     articlePinterest: '.article__footer .social-share-block .icon-pinterest',
     imageRevealer: '.content-body .image-revealer',
