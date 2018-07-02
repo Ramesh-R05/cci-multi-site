@@ -19,7 +19,7 @@ export default {
     gigya: { apiKey: '' },
 
     subscribe: {
-        subscribeHeading: 'Get The Magazine'
+        subscribeHeading: 'Love our recipes?'
     },
 
     features,
@@ -81,7 +81,7 @@ export default {
     // TODO: update below for awwfood
     // Used for the magazine image (not the one in the footer)
     product: {
-        id: 'gt',
+        id: 'awwfood',
         title: '',
         magazineTitle: '',
         socialLinks: {

@@ -46,7 +46,7 @@ export default class BrandMagazine extends Component {
         return (
             <div className="brand--magazine-container">
                 {renderSubscribeElements && <span className="brand--magazine-title">Subscribe to {magazineTitle || title}</span>}
-                <div className="brand--magazine-image">
+                {magazineImageUrl && <div className="brand--magazine-image">
                     <ResponsiveImage
                       alt=""
                       url={magazineImageUrl}
@@ -57,7 +57,7 @@ export default class BrandMagazine extends Component {
                       anchor={responsiveConfig.anchor}
                       quality={80}
                     />
-                </div>
+                </div>}
                 {renderSubscribeElements &&
                 <a target="_blank" className={`gtm-subscribe-${id}`} href={buttonUrl}>
                     <span className="button button--link button--subscribe">{buttonText}</span>

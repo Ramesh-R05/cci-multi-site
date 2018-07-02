@@ -5,15 +5,20 @@
     }
 
     &-carousel-content {
+        @include mobile-padding-collapse;
+        background-color: $color-white;
+        padding-left: 0;
+        padding-right: 0;
         border-top-color: transparent;
 
         > h2 {
             font-size: 0;
-            color: $color-gt-white;
-            line-height: 1;
-            
+            margin-top: -40px;
+            @include content-body-section-heading-style;
+
             &:before {
                 @include type-header-secondary;
+                color: $color-text;
                 content: 'READ MORE';
                 font-size: 18px;
                 line-height: 26px;
@@ -21,7 +26,6 @@
         }
 
         .feed-item {
-            background-color: $color-gt-black-1;
             margin: 0 15px 0;
 
             &__body {
@@ -29,25 +33,29 @@
             }
 
             &__body-title {
-                color: $color-gt-white;
+                @include type-text-light;
             }
 
             &__section-tag {
                 span {
-                    color: $color-gt-white;
+                    color: $color-text-gold;
                     display: inline-block;
-                    border-bottom: 1px $color-gt-white dashed;
+                    border-bottom: 1px $color-awwfood-white dashed;
                     text-transform: uppercase;
                     margin-bottom: 5px;
-                    font-size: 12px;   
+                    font-size: 13px;   
                 }
             }
 
             .teaser__image {
                 overflow: hidden;
-                width: calc(100% + 30px);
+                width: calc(100% + #{ 2 * $article-padding });
             }
         }
+    }
+
+    .feed-ad {
+        border-top: none;
     }
 }
 
@@ -59,9 +67,21 @@
 
 .feed-header {
     width: 300px;
-    margin: 0 0 $feed-item-gap/2;
+    background-color: $color-awwfood-black;
+    border-top-left-radius: $feed-item-gap / 2;
+    border-top-right-radius: $feed-item-gap / 2;
+    padding-top: $feed-item-gap / 2;
+    padding-bottom: $feed-item-gap / 2;
+
+    &:before {
+        content: none;
+    }
 
     span {
-        @include type-header-secondary;
+        font-family: $font-header-secondary;
+        -webkit-font-smoothing: auto;
+        background: transparent;
+        color: $color-white;
+        font-size: 14px;
     }
 }

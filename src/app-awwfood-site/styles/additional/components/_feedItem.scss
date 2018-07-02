@@ -10,14 +10,16 @@
 
     .feed-item {
         border-top-color: transparent;
-        min-height: 130px;
+        min-height: auto;
         overflow: hidden;
         padding-top: 0;
         padding-bottom: $feed-item-gap;
+        padding-left: $feed-item-gap;
+        padding-right: $feed-item-gap;
 
-        &:last-child {
-            border-bottom: 1px solid $line-color;
-        }
+        &:first-child {
+            padding-top: $feed-item-gap;
+        } 
 
         &__body-title {
             @include type-text-light;
@@ -29,7 +31,7 @@
             text-transform: uppercase;
             font-family: $font-text;
             line-height: 30px;
-            color: $color-gt-grey-2;
+            color: $color-awwfood-gold;
         }
 
         .article__date-created {
@@ -43,13 +45,18 @@
     }
 
     .feed-ad {
-        border-bottom: 1px solid $line-color;
-        padding-top: $feed-item-gap;
-        padding-bottom: $feed-item-gap;
-        margin-bottom: $feed-item-gap;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 1.5 * $feed-item-gap;
+        margin-top: 1.5 * $feed-item-gap;
+        background: transparent; 
+
+        & + .feed-item {
+            padding-top: $feed-item-gap;
+        }
     }
 
     & + .rhs-ads .carriage {
-        padding-top: $feed-item-gap;
+        margin-top: 1.5 * $feed-item-gap;
     }
 }

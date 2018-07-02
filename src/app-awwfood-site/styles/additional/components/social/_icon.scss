@@ -11,6 +11,10 @@
     }
 
     svg path {
+        .footer & {
+            fill: $color-white;
+        }
+
         fill: $color-primary;
     }
 

@@ -16,18 +16,18 @@ Feature: Smoke test for AWW FOOD
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
 
-    Scenario: Verify the section landing page
-        Given I switch to "mobile" view
-        When I am currently viewing "in-the-test-kitchen"
-        Then I should see "IN THE TEST KITCHEN" title
-        Then I should see "SELECT A SUB-SECTION..." selected as a default in the list
-        Then I should see the sign up button containing "https://www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
-        Then I should see the main hero item containing its image and clickable to open its page
-        And I should see a "top" feed item containing its image and clickable to open its page
-        And I should see a "bottom" feed item containing its image and clickable to open its page
-        When I click on the Load More button
-        Then I should see extra 14 teasers after loading more
-        And I should see a load more feed item containing its image and clickable to open its page
+    # Scenario: Verify the section landing page
+        # Given I switch to "mobile" view
+        # When I am currently viewing "in-the-test-kitchen"
+        # Then I should see "IN THE TEST KITCHEN" title
+        # Then I should see "SELECT A SUB-SECTION..." selected as a default in the list
+        # Then I should see the sign up button containing "https://www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
+        # Then I should see the main hero item containing its image and clickable to open its page
+        # And I should see a "top" feed item containing its image and clickable to open its page
+        # And I should see a "bottom" feed item containing its image and clickable to open its page
+        # When I click on the Load More button
+        # Then I should see extra 14 teasers after loading more
+        # And I should see a load more feed item containing its image and clickable to open its page
 
     #Scenario: Verify the subsection landing page
     #    Given I switch to "mobile" view
@@ -185,7 +185,7 @@ Feature: Smoke test for AWW FOOD
     
     Scenario: Verify the commercialtag section
         Given I switch to "mobile" view
-        When I am currently viewing "yoghurt"
+        When I am currently viewing "myer"
         Then I should see at least one teaser
-        When I am currently viewing "tags/Chia"
+        When I am currently viewing "tags/cupcake"
         Then I should not see any teaser

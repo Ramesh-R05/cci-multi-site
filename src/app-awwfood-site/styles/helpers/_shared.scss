@@ -1,0 +1,91 @@
+@mixin content-body-component($paddingH: $article-padding, $paddingV: $article-padding) {
+    margin-top: $article-gap;
+    background-color: $color-white;
+    padding-left: $paddingH;
+    padding-right: $paddingH;
+    padding-top: $paddingV;
+    padding-bottom: $paddingV;
+    margin-bottom: 0;
+}
+
+@mixin head-content-details-style($paddingTop: $article-padding) {
+    background-color: $color-white;
+    padding-top: $paddingTop;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: block;
+}
+
+@mixin full-width {
+    width: 100%;
+
+    @media #{$medium-up} {
+        width: 100%;
+    }
+
+    @media #{$large-up} {
+        width: 100%;
+    }
+}
+
+@mixin mobile-padding-collapse($largeScreenWidth: 100%) {
+    margin-left: -1 * $article-padding;
+    margin-right: -1 * $article-padding;
+    width: calc(100% + #{2 * $article-padding});
+
+    @media #{$medium-up} {
+        margin-left: 0;
+        margin-right: 0;
+        width: $largeScreenWidth;
+    }
+}
+
+@mixin img-caption-style() {
+    @include caption {
+        color: $color-text;
+    }
+
+    display: block;
+    position: relative;
+    background-color: $color-awwfood-light;
+    padding-top: $article-padding / 2;
+    padding-left: $article-padding;
+    padding-right: $article-padding;
+    padding-bottom: $article-padding / 2;
+    text-align: left;
+
+    @media #{$medium-up} {
+        border-bottom-right-radius: $article-padding;
+        border-bottom-left-radius: $article-padding;
+    }
+
+    a {
+        @include type-link;
+        text-decoration: underline;
+        font-size: inherit;
+        line-height: inherit;
+
+        @media #{$medium-up} {
+            font-size: inherit;
+            line-height: inherit;
+        }
+    }
+}
+
+@mixin content-body-section-heading-style {
+    @include type-header-secondary;
+    background-color: $color-awwfood-light;
+    padding-top: $article-padding / 2;
+    padding-bottom: $article-padding / 2;
+    line-height: 1;
+    display: block;
+    width: 100%;
+    color: $color-text;
+    font-size: 18px;
+    line-height: 26px;
+
+    @media #{$medium-up} {
+        border-top-left-radius: $article-padding / 2;
+        border-top-right-radius: $article-padding / 2;
+    }
+}

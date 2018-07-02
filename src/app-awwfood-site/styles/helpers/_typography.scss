@@ -1,9 +1,41 @@
+
 @font-face {
-    font-family: 'PlayfairDisplay-Bold';
-    src: url('/assets/fonts/playfair/PlayfairDisplay-Bold.eot');
-    src: url('/assets/fonts/playfair/PlayfairDisplay-Bold.woff') format('woff'),
-    url('/assets/fonts/playfair/PlayfairDisplay-Bold.ttf') format('truetype'),
-    url('/assets/fonts/playfair/PlayfairDisplay-Bold.svg') format('svg');
+    font-family: 'AbrilFatface-Regular';
+    src: url('/assets/fonts/AbrilFatface-Regular/AbrilFatface-Regular.eot');
+    src: url('/assets/fonts/AbrilFatface-Regular/AbrilFatface-Regular.woff') format('woff'),
+    url('/assets/fonts/AbrilFatface-Regular/AbrilFatface-Regular.ttf') format('truetype'),
+    url('/assets/fonts/AbrilFatface-Regular/AbrilFatface-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito-SemiBold';
+    src: url('/assets/fonts/Nunito-SemiBold/Nunito-SemiBold.eot');
+    src: url('/assets/fonts/Nunito-SemiBold/Nunito-SemiBold.woff') format('woff'),
+    url('/assets/fonts/Nunito-SemiBold/Nunito-SemiBold.ttf') format('truetype'),
+    url('/assets/fonts/Nunito-SemiBold/Nunito-SemiBold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Nunito-Regular';
+    src: url('/assets/fonts/Nunito-Regular/Nunito-Regular.eot');
+    src: url('/assets/fonts/Nunito-Regular/Nunito-Regular.woff') format('woff'),
+    url('/assets/fonts/Nunito-Regular/Nunito-Regular.ttf') format('truetype'),
+    url('/assets/fonts/Nunito-Regular/Nunito-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito-Light';
+    src: url('/assets/fonts/Nunito-Light/Nunito-Light.eot');
+    src: url('/assets/fonts/Nunito-Light/Nunito-Light.woff') format('woff'),
+    url('/assets/fonts/Nunito-Light/Nunito-Light.ttf') format('truetype'),
+    url('/assets/fonts/Nunito-Light/Nunito-Light.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -36,7 +68,6 @@
 [class^='icon-'], [class*=' icon-'] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -48,20 +79,32 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-logo:before {
-    content: '\e900';
+.icon-logo {
+    position: relative;
+    display: inline-block;
+    &:before {
+        content: '\e900';
+    }
+    &:after {
+        content: '\e901';
+        display: inline-block;
+        position: absolute;
+        bottom: auto;
+        left: 0;
+        color: #000;
+    }
 }
 
-$font-header: 'PlayfairDisplay-Bold';
-$font-header-secondary: 'Montserrat-Regular', sans-serif;
+$font-header: 'AbrilFatface-Regular';
+$font-header-secondary: 'Nunito-SemiBold';
 $font-header-light: 'Montserrat-Light', sans-serif;
-$font-text: 'Montserrat-Regular', sans-serif;
-$font-text-light: 'Montserrat-Light', sans-serif;
-$font-link: 'Montserrat-Regular', sans-serif;
+$font-text: 'Nunito-Regular';
+$font-text-light: 'Nunito-Regular';
+$font-link: 'Nunito-Regular';
 
 $font-family-serif-primary: $font-header;
 $font-family-serif-secondary: $font-text;
-$font-family-sans-serif-primary: 'Montserrat-Regular', sans-serif;
+$font-family-sans-serif-primary: $font-header-light;
 $small-text-font: $font-family-sans-serif-primary;
 $font-family-sans-serif-light: $font-text-light;
 
@@ -115,7 +158,7 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-header-secondary {
-    color: $color-text;
+    color: $color-text-gold;
     font-family: $font-header-secondary;
     -webkit-font-smoothing: auto;
 }
@@ -159,35 +202,35 @@ $font-family-sans-serif-light: $font-text-light;
     @include type-text-light;
 }
 
-@mixin caption {
+@mixin caption($nonMobileTextSize: 11px, $nonMobileLineHeight: 20px) {
     font-family: $font-text-light;
     font-size: 13px;
     line-height: 20px;
+    font-style: italic;
 
     @media #{$medium-up} {
-        font-style: italic;
-        font-size: 15px;
-        line-height: 28px;
+        font-size: $nonMobileTextSize;
+        line-height: $nonMobileLineHeight;
     }
 
     @content;
 }
 
 @mixin type-link {
-
-    @include caption {
-        color: $color-text;
-        font-family: $font-link;
-        font-style: inherit;
-    }
-
+    font-family: $font-link;
+    font-size: 13px;
+    line-height: 20px;
+    font-style: inherit;
+    color: $color-text;
     @media #{$medium-up} {
+        font-size: 15px;
+        line-height: 28px;
         font-style: inherit;
     }
 
     &:hover,
     &:active {
-        color: $color-gt-grey-2;
+        color: $color-awwfood-gold;
     }
 }
 
@@ -241,7 +284,7 @@ $font-family-sans-serif-light: $font-text-light;
 
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
-    color: $color-gt-black-2;
+    color: $color-awwfood-black;
     font: 22px / 26px $font-family-serif-primary;
     letter-spacing: 0.006em;
     text-transform: none;
@@ -258,7 +301,7 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-teaser-summary {
-    color: $color-gt-black-2;
+    color: $color-awwfood-black;
     font: 400 14px / 21px $font-text-light;
     letter-spacing: 0.02em;
     -webkit-font-smoothing: antialiased;
@@ -274,7 +317,7 @@ $font-family-sans-serif-light: $font-text-light;
     @extend .type-header;
     font-size: 22px;
     line-height: 28px;
-    font-weight: bold;
+    font-weight: 400;
 
     @media #{$medium-up} {
         font-size: 36px;
@@ -311,7 +354,6 @@ $font-family-sans-serif-light: $font-text-light;
     @include type-header-secondary;
     font-size: 16px;
     line-height: 22px;
-    font-weight: 600;
 
     @media #{$medium-up} {
         font-size: 18px;
@@ -339,7 +381,6 @@ $font-family-sans-serif-light: $font-text-light;
     font: 16px/18px $font-family-sans-serif-primary;
 
     @media #{$medium-up} {
-        font-weight: bold;
         font-size: 20px;
         line-height: 22px;
     }
@@ -498,7 +539,7 @@ $font-family-sans-serif-light: $font-text-light;
 
 // Top half teasers
 @mixin type-top-teaser-title {
-    color: $color-gt-black-2;
+    color: $color-awwfood-black;
     font: 12px / 18px $font-family-sans-serif-light;
 
     @media #{$medium-up} {
@@ -519,7 +560,7 @@ $font-family-sans-serif-light: $font-text-light;
 // Small Teaser - ie, just below the hero on home page, above Gallery of Galleries
 // Second half teasers
 @mixin type-bottom-teaser-title {
-    color: $color-gt-black-2;
+    color: $color-awwfood-black;
     font: 22px / 26px $font-family-serif-primary;
     margin-bottom: 0;
     text-transform: none;
@@ -562,7 +603,7 @@ $font-family-sans-serif-light: $font-text-light;
     display: block;
 
     a, span {
-        color: $color-gt-grey-2;
+        color: $color-awwfood-gold;
         font: 400 12px/14px $font-family-sans-serif-primary;
         text-transform: uppercase;
     }
@@ -664,7 +705,7 @@ $font-family-sans-serif-light: $font-text-light;
     text-transform: uppercase;
 
     @media #{$medium-up} {
-        font-weight: 500;
+        font-weight: 400;
         margin-bottom: -10px;
     }
 }
@@ -678,6 +719,7 @@ $font-family-sans-serif-light: $font-text-light;
     font-size: 20px;
     letter-spacing: .05em;
     text-transform: capitalize;
+    font-weight: 400;
 
     @media #{$medium-up} {
         font-size: 24px;

@@ -40,7 +40,7 @@ describe(`BrandMagazine`, () => {
 
     describe('when passing in /aww as the brand prop', () => {
 			before(() => {
-		        reactModule = Context.mountComponent(BrandMagazine, {brand: brandPropStub}, [contextConfigStub]);
+		        reactModule = Context.mountComponent(BrandMagazine, {brand: brandPropStub, magazineImageUrl: magImageUrlStub}, [contextConfigStub]);
                 responsiveImageStub = TestUtils.findRenderedComponentWithType(reactModule, ResponsiveImageStub);
 		    });
 

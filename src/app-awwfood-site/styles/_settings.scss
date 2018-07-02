@@ -11,7 +11,7 @@ $large-range: ($large-range-min, $large-range-max);
 $xlarge-range: ($xlarge-range-min, $xlarge-range-max);
 
 // Base
-$body-bg-color: #fff;
+$body-bg-color: $color-awwfood-white;
 
 // Homepage and section landings
 $fixed-column-width: 300px;
@@ -115,5 +115,6 @@ $polar-in-related-feed-height: 56.5%;
 
 
 // vertical space between feed item and ads
-$feed-item-gap: 30px;
+$feed-item-gap: 15px;
+$article-padding: 15px;
 $article-gap: 30px;
