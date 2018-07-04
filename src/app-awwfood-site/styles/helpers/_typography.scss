@@ -151,10 +151,29 @@ $font-family-sans-serif-light: $font-text-light;
     @include type-truncate(5, $teaser-summary-font-size, $teaser-summary-line-height);
 }
 
+
+@mixin type-number($width: 15px, $height: 30px, $color: $color-text) {
+    font-family: $font-header;
+    font-size: 16px;
+    background-color: transparent;
+    text-align: center;
+    display: inline-block;
+    width: $width;
+    height: $height;
+    border-bottom: 3px solid $color-awwfood-gold;
+    border-radius: 0;
+    color: $color;
+}
+
+.type-number {
+    @include type-number;
+}
+
 @mixin type-header {
     color: $color-text;
     -webkit-font-smoothing: auto;
     font-family: $font-header;
+    font-weight: 400;
 }
 
 @mixin type-header-secondary {

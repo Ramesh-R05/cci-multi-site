@@ -8,7 +8,10 @@
     }
 
     li {
-        margin-bottom: 5px;
+        padding-bottom: 15px;
+        color: $color-text;
+        margin-bottom: 0;
+        @include type-text;
     }
 
     &-container {
@@ -114,7 +117,6 @@
 
         .related-content__heading {
             @include content-body-section-heading-style;
-            
             margin-top: 0;
             margin-bottom: -1 * $article-gap;
         }
@@ -141,8 +143,8 @@
 
     &__gallery-link-caption {
         -webkit-font-smoothing: auto;
-        background-color: #000;
-        color: $color-grey-light;
+        background-color: $color-grey-light;
+        color: $color-text;
         position: static;
         margin-left: 0;
         margin-right: 0;
@@ -155,7 +157,7 @@
     }
 
     &__gallery-link-title {
-        background-color: $color-white;
+        background-color: $color-text;
         color: $color-grey-light;
         font-size: 12px;
         font-weight: 400;

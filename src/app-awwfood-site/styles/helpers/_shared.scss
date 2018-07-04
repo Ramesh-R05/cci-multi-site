@@ -8,6 +8,19 @@
     margin-bottom: 0;
 }
 
+@mixin inline-img-style {
+    margin-top: $article-gap;
+    background-color: $color-white;    
+    margin-bottom: 0;
+    padding-bottom: $article-padding;
+    padding-top: 0;
+    @media #{$medium-up} {
+        padding-top: $article-padding;
+        padding-left: $article-padding;
+        padding-right: $article-padding;
+    }
+}
+
 @mixin head-content-details-style($paddingTop: $article-padding) {
     background-color: $color-white;
     padding-top: $paddingTop;
@@ -47,7 +60,8 @@
 
     display: block;
     position: relative;
-    background-color: $color-awwfood-light;
+    background-color: $color-heading-bg;
+    color: $color-white;
     padding-top: $article-padding / 2;
     padding-left: $article-padding;
     padding-right: $article-padding;
@@ -61,6 +75,7 @@
 
     a {
         @include type-link;
+        color: inherit;
         text-decoration: underline;
         font-size: inherit;
         line-height: inherit;
@@ -72,17 +87,17 @@
     }
 }
 
-@mixin content-body-section-heading-style {
+@mixin content-body-section-heading-style($fontSize: 18px, $lineHeight: 26px) {
     @include type-header-secondary;
-    background-color: $color-awwfood-light;
+    background-color: $color-heading-bg;
     padding-top: $article-padding / 2;
     padding-bottom: $article-padding / 2;
     line-height: 1;
     display: block;
     width: 100%;
-    color: $color-text;
-    font-size: 18px;
-    line-height: 26px;
+    color: $color-white;
+    font-size: $fontSize;
+    line-height: $lineHeight;
 
     @media #{$medium-up} {
         border-top-left-radius: $article-padding / 2;

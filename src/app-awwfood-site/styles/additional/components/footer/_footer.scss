@@ -125,7 +125,7 @@ $footer-section-gap: 35px;
     padding: 0 0 $footer-section-gap;
     
     .home-page__get-social-container {
-        background-color: $color-awwfood-black;
+        background-color: $color-heading-bg;
         padding-top: $footer-section-gap / 2;
         padding-bottom: $footer-section-gap / 2;
         margin-bottom: $footer-section-gap;
@@ -170,7 +170,7 @@ $footer-section-gap: 35px;
                 color: $color-text;
                 &:hover {
                     text-decoration: underline;
-                    color: $color-text-lighter;
+                    color: $color-text-gold;
                 }
             }
 

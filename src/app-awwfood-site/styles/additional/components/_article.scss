@@ -13,13 +13,12 @@
     &__date-created,
     &-header-author,
     &__image-count {
-        @include full-width;
         @include head-content-details-style;
-        @include mobile-padding-collapse;
         font-family: $font-header-light;
         font-size: 12px;
         line-height: 20px;
         color: $color-text-gold;
+        display: inline-block;
         
         &__name {
             color: $color-text-gold;
@@ -27,11 +26,12 @@
     }
 
     &__header {
+        @include mobile-padding-collapse;
         margin-top: 0;
+        background-color: $color-white;
     }
 
     &-header-section {
-        @include mobile-padding-collapse;
         background-color: $color-white;
         padding-top: $article-gap;
         border-top-left-radius: $article-padding;
@@ -73,7 +73,6 @@
     &__title {
         @include full-width;
         @include head-content-details-style($article-gap);
-        @include mobile-padding-collapse;
         @extend .type-article-title;
     }
 
@@ -81,7 +80,6 @@
         @extend .type-article-summary;
         @include full-width;
         @include head-content-details-style;
-        @include mobile-padding-collapse;
         padding-left: $article-padding;
         padding-right: $article-padding;
     }
@@ -140,11 +138,13 @@
             text-transform: uppercase;
             font-size: 11px;
             font-style: normal;
+            &:hover {
+                color: $color-text-gold;
+            }
         }
     }
 
     .related-content {
-        padding-bottom: 20px;
 
         &-items {
             .teaser__image {
@@ -165,7 +165,13 @@
         }
     }
 
+    &__main-hero {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     &__main-hero-image {
+        background-color: $body-bg-color;
         .article_image-caption {
             @include img-caption-style;
         }
@@ -184,23 +190,27 @@
     &__at_glance {
         display: block;
         margin: 0;
-        background-color: $color-awwfood-black;
-        color: $color-awwfood-white;
+        background-color: $color-heading-bg;
+        color: $color-white;
         text-align: center;
         padding: 15px;
         line-height: 1.1;
-        margin-top: $article-gap;
+        margin-top: $article-padding;
         margin-bottom: -1 * $article-padding;
+        position: relative;
+        z-index: 2;
 
         @media #{$medium-up} {
-            margin-left: 0px;
-            margin-right: 0px;
+            margin-left: 15px;
+            margin-right: 15px;
+            border-top-left-radius: $article-padding;
+            border-top-right-radius: $article-padding;
         }
 
         li {
             display: inline-block;
             white-space: nowrap;
-            border-right: 1px solid $color-awwfood-white;
+            border-right: 1px solid $color-white;
             font-size: 11px;
             padding-left: 10px;
             padding-right: 10px;
@@ -208,6 +218,17 @@
                 border-right: none;
             }
         }
+    }
+
+    .ad--beneath-hero {
+        background-color: $body-bg-color;
+        padding-top: $article-gap;
+        margin-top: 0;
+    }
+
+    .newsletter-signup-wrapper {
+        margin-top: $article-gap;
+        margin-bottom: 0;
     }
 }
 
