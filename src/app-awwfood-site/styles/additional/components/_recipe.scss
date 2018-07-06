@@ -48,13 +48,13 @@
 .recipe-notes {
     &__heading {
         @include type-header-secondary;
-        padding-top: 10px;
+        padding-top: $article-padding;
     }
 }
 
 .recipe-notes {
     @media #{$medium-up} {
-        margin-top: 2 *  $article-gap;
+        margin-top: 2 * $article-gap;
     }
 
     &__content {
@@ -73,7 +73,11 @@
     &__list--item {
 
         &-left {
-            top: 3px;
+            top: 1px;
+        }
+
+        &-right {
+            @include type-text;
         }
 
         div span {

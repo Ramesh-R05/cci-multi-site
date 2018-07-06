@@ -74,6 +74,8 @@
         @include full-width;
         @include head-content-details-style($article-gap);
         @extend .type-article-title;
+        padding-left: $article-padding;
+        padding-right: $article-padding;
     }
 
     &__summary {
@@ -193,7 +195,7 @@
         background-color: $color-heading-bg;
         color: $color-white;
         text-align: center;
-        padding: 15px;
+        padding: 15px $article-padding;
         line-height: 1.1;
         margin-top: $article-padding;
         margin-bottom: -1 * $article-padding;
@@ -201,8 +203,8 @@
         z-index: 2;
 
         @media #{$medium-up} {
-            margin-left: 15px;
-            margin-right: 15px;
+            margin-left: $article-padding;
+            margin-right: $article-padding;
             border-top-left-radius: $article-padding;
             border-top-right-radius: $article-padding;
         }

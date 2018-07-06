@@ -28,8 +28,8 @@ $global-header-height: $to-love-global-header-height-mobile;
 $global-header-height-desktop: $to-love-global-header-height-desktop;
 
 $header-logo-aspect-ratio: 4; // (140 / 35)
-$header-height: 54px;
-$header-height-desktop: 59px;
+$header-height: 50px;
+$header-height-desktop: 60px;
 $header-banner-logo-height: 173px;
 $header-logo-width-desktop: 332px;
 $header-logo-container-width-desktop: $header-logo-width-desktop;
@@ -116,6 +116,6 @@ $polar-in-related-feed-height: 56.5%;
 
 
 // vertical space between feed item and ads
-$feed-item-gap: 15px;
-$article-padding: 15px;
-$article-gap: 30px;
+$feed-item-gap: $column-gutter / 2;
+$article-padding: $column-gutter / 2;
+$article-gap: $column-gutter;
