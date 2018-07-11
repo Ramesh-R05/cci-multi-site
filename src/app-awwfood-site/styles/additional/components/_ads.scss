@@ -8,12 +8,22 @@
         position: relative;
         z-index: 1;
         max-width: 1024px;
-        margin: 10px auto;
+        margin: 0px auto 10px;
     }
 }
 
 .site-wrapper {
     .content-wrapper {
-        padding-top: 30px;
+        @media #{$medium-up} {
+            padding-top: $landing-page-module-gutter;
+        }
+    }
+}
+
+.sticky-block {
+    &.sticky-block--in-view {
+        .ad--section-bottom-leaderboard {
+            margin-bottom: 0;
+        }
     }
 }

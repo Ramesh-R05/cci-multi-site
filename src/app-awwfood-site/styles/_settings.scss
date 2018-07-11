@@ -11,8 +11,7 @@ $large-range: ($large-range-min, $large-range-max);
 $xlarge-range: ($xlarge-range-min, $xlarge-range-max);
 
 // Base
-//$body-bg-color: $color-awwfood-white;
-$body-bg-color: #dddddd;
+$body-bg-color: $color-awwfood-white;
 
 // Homepage and section landings
 $fixed-column-width: 300px;
@@ -67,27 +66,28 @@ $animation-timings: $transition-duration;
 $gallery-color-primary: $color-black;
 $gallery-color-grey: $color-black;
 
-// Article
-$related-content-border-color: #dddddd;
-
 // Footer
 $back-to-top-background-color: $color-primary;
 $social-title-image: '/assets/titles/get-more-dolly.svg';
 $footer-gap: 40px;
 
 // section page
+$landing-page-module-gutter: 30px;
+$landing-page-teaser-gutter: 12px;
 $play-icon: '/assets/icons/play-icon.svg';
 $gallery-icon: '/assets/icons/gallery-icon.svg';
 
+//teaser
+$teaser-content-space: 8px;
+$top-teaser-title-line-hight: 22px;
 // promoted component
 $promoted-teaser-title-size: 13px;
 $promoted-teaser-title-lineheight: 20px;
 $promoted-teaser-gutter: 20px;
 
 // mustread component
-$must-teaser-title-size: 13px;
-$must-teaser-title-lineheight: 8px;
-$must-teaser-gutter: 20px;
+$must-teaser-title-size: 12px;
+$must-teaser-title-lineheight: 20px;
 
 // teaser summary component
 $teaser-summary-font-size: 14px;

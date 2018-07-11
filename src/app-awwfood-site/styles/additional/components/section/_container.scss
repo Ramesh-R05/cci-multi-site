@@ -1,18 +1,24 @@
 .page--section {
     .page-title-container {
-        max-width: 1025px;
+        max-width: $row-width - 2 * $column-gutter ;
         overflow: auto;
-        background: #fff;
-        margin: 0 auto -30px;
+        background: $color-white;
+        margin: 0 auto (-0.5 * $column-gutter);
+
+        @media #{$medium-up} {
+            margin-top: $landing-page-module-gutter;
+        }
     }
 
     .page-title {
-        margin-left: 0;
-        margin-right: 0;
-
+        font-family: $font-header;
+        margin: 0;
+        border-top: $landing-page-teaser-gutter solid $color-white;
+        border-bottom: $landing-page-teaser-gutter solid $color-white;
+        background-color: $color-awwfood-gold;
+        width: auto;
         @media #{$medium-up} {
-            margin: 30px;
-            width: auto;
+            border: $landing-page-teaser-gutter solid $color-white;
         }
     }
 }

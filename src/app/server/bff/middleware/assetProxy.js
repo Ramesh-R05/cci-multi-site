@@ -27,7 +27,7 @@ export default function assetProxy({ originalUrl }, res) {
             if (process.env.HTTP_PROXY) req.proxy(process.env.HTTP_PROXY);
             req.end((e, r) => {
                 const { header, status, text, body } = (e ? e.response : r) || {};
-                const maxAge = header && header['cache-control'].match(/max-age=(\d+)/i);
+                const maxAge = header && header['cache-control'] && header['cache-control'].match(/max-age=(\d+)/i);
                 if (maxAge && !!maxAge.length) {
                     cache.set(origin, { header, status, text, body }, 1000 * parseInt(maxAge[1], 10));
                 }

@@ -86,21 +86,3 @@
         }
     }
 }
-
-@mixin content-body-section-heading-style($fontSize: 18px, $lineHeight: 26px) {
-    @include type-header-secondary;
-    background-color: $color-heading-bg;
-    padding-top: $article-padding / 2;
-    padding-bottom: $article-padding / 2;
-    line-height: 1;
-    display: block;
-    width: 100%;
-    color: $color-white;
-    font-size: $fontSize;
-    line-height: $lineHeight;
-
-    @media #{$medium-up} {
-        border-top-left-radius: $article-padding / 2;
-        border-top-right-radius: $article-padding / 2;
-    }
-}

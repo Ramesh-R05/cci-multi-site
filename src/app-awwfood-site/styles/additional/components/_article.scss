@@ -84,6 +84,10 @@
         @include head-content-details-style;
         padding-left: $article-padding;
         padding-right: $article-padding;
+        a {
+            font-size: inherit;
+            line-height: inherit;
+        }
     }
 
     .article-header-author {

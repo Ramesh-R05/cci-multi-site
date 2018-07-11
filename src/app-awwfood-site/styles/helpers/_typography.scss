@@ -110,6 +110,16 @@ $font-family-sans-serif-light: $font-text-light;
 
 // ---------------------------------------------------- typography mixins & classes
 
+@mixin type-display-fix-lines($lines-to-show, $line-height) {
+    display: block;    // fallback for non webkit
+    display: -webkit-box;
+    height: $line-height * $lines-to-show;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @mixin type-truncate(
     $lines-to-show,
     $font-size: 14px,  // must be px
@@ -304,7 +314,7 @@ $font-family-sans-serif-light: $font-text-light;
 // Hero (e.g. on homepage)
 @mixin type-hero-title {
     color: $color-awwfood-black;
-    font: 22px / 26px $font-family-serif-primary;
+    font: 24px / 28px $font-family-serif-primary;
     letter-spacing: 0.006em;
     text-transform: none;
     -webkit-font-smoothing: antialiased;
@@ -321,7 +331,7 @@ $font-family-sans-serif-light: $font-text-light;
 
 @mixin type-teaser-summary {
     color: $color-awwfood-black;
-    font: 400 14px / 21px $font-text-light;
+    font: 400 16px / 20px $font-text-light;
     letter-spacing: 0.02em;
     -webkit-font-smoothing: antialiased;
 }
@@ -559,11 +569,11 @@ $font-family-sans-serif-light: $font-text-light;
 // Top half teasers
 @mixin type-top-teaser-title {
     color: $color-awwfood-black;
-    font: 12px / 18px $font-family-sans-serif-light;
+    font: 15px / 20px $font-header;
 
     @media #{$medium-up} {
-        font-size: 13px;
-        line-height: 20px;
+        font-size: 18px;
+        line-height: $top-teaser-title-line-hight;
     }
 }
 
@@ -623,13 +633,13 @@ $font-family-sans-serif-light: $font-text-light;
 
     a, span {
         color: $color-awwfood-gold;
-        font: 400 12px/14px $font-family-sans-serif-primary;
+        font: 400 12px/20px $font-text;
         text-transform: uppercase;
     }
 
     &:hover,
     &:focus {
-        text-decoration: none !important; //Chrome underlines all links in user agent stylesheet, this prevents that
+        color: lighten($color-awwfood-gold, 30%);
     }
 }
 
@@ -881,5 +891,24 @@ a {
     text-decoration: none;
     article & {
         text-decoration: underline;
+    }
+}
+
+@mixin content-body-section-heading-style($fontSize: 18px, $lineHeight: 26px) {
+    @include type-header-secondary;
+    @content;
+    background-color: $color-heading-bg;
+    padding-top: $article-padding / 2;
+    padding-bottom: $article-padding / 2;
+    line-height: 1;
+    display: block;
+    width: 100%;
+    color: $color-white;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+
+    @media #{$medium-up} {
+        border-top-left-radius: $article-padding / 2;
+        border-top-right-radius: $article-padding / 2;
     }
 }
