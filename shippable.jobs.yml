@@ -6,6 +6,30 @@
 # Jobs are numbered to visualize sequence                          #
 ####################################################################
 
+#template for the performance test jobs
+templates: &template-lighthouse-csv-report
+  - echo "Using template-lighthouse-csv-report"
+  - cat result.txt
+  - aws s3 ls 's3://test-result-s3/'
+  - grep "testing for" result.txt > temp.txt
+  - grep -v "should have" temp.txt > pageLine.txt
+  - echo "Job ID" > pageName.txt
+  - "sed -e 's/^.*for //' -e 's/ : .*//' pageLine.txt >> pageName.txt"
+  - export S3_path=s3://test-result-s3/$JOB_NAME.csv
+  - if [ -z "$(aws s3 ls $S3_path)"]; then
+        echo "In progress to add header";
+        paste -d, -s pageName.txt > $JOB_NAME.csv;
+    else
+        aws s3 cp $S3_path $JOB_NAME.csv;
+    fi
+  - grep "maximum score" result.txt > temp.txt
+  - echo $BUILD_NUMBER > maxScore.txt
+  - "sed -e 's/^.*is //' temp.txt >> maxScore.txt"
+  - paste -d, -s maxScore.txt >> $JOB_NAME.csv
+  - shipctl copy_file_to_state $JOB_NAME.csv
+  - cat $JOB_STATE/$JOB_NAME.csv
+  - aws s3 cp $JOB_STATE/$JOB_NAME.csv 's3://test-result-s3/
+
 jobs:
 
   # 1. Sync pipeline to CI
@@ -568,10 +592,9 @@ jobs:
   # 4d. Run performance test on test environment
   - name: multi-site-performance-test
     type: runSh
-    always:
-      - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-test-deploy-master
+      - IN: test-result-s3-param-multi
       - IN: multi-site-repo
         switch: off
       - TASK:
@@ -587,7 +610,15 @@ jobs:
         - script: sudo apt-get update
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
-        - script: npm run test:perf
+        - script: npm run test:perf > result.txt
+    on_success:
+      - script: echo "SUCCESS"
+    on_failure:
+      - script: echo "FAILURE"
+    always:
+      script:
+        - *template-lighthouse-csv-report
+      NOTIFY: multi-slack-notifications
 
   # 5COSMO. Package release for production release
   - name: cosmo-release-master
@@ -922,9 +953,8 @@ jobs:
   # vi. Run Performance Test on live environment
   - name: gt-site-performance-test-live
     type: runSh
-    always:
-      - NOTIFY: multi-qa-team-notifications
     steps:
+     - IN: test-result-s3-param-multi
      - IN: multi-site-repo
        switch: off
      - IN: gt-perf-live-trigger
@@ -941,14 +971,21 @@ jobs:
         - script: sudo apt-get update
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
-        - script: npm run test:perflive
+        - script: npm run test:perflive > result.txt
+    on_success:
+      - script: echo "SUCCESS"
+    on_failure:
+      - script: echo "FAILURE"
+    always:
+      script:
+        - *template-lighthouse-csv-report
+      NOTIFY: multi-qa-team-notifications
 
   # vii. Run SEO Test on live environment
   - name: gt-site-seo-test-live
     type: runSh
-    always:
-      - NOTIFY: multi-qa-team-notifications
     steps:
+     - IN: test-result-s3-param-multi
      - IN: multi-site-repo
        switch: off
      - IN: gt-seo-live-trigger
@@ -965,7 +1002,15 @@ jobs:
         - script: sudo apt-get update
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
-        - script: npm run test:seolive
+        - script: npm run test:seolive > result.txt
+    on_success:
+      - script: echo "SUCCESS"
+    on_failure:
+      - script: echo "FAILURE"
+    always:
+      script:
+        - *template-lighthouse-csv-report
+      NOTIFY: multi-qa-team-notifications
 
 ##################################################################################
 #This is a workaround for homes-site performance test and seo test via lighthouse#
@@ -974,9 +1019,8 @@ jobs:
   # viii. Run Performance Test on test environment (homes-site)
   - name: homes-site-performance-test-workaround
     type: runSh
-    always:
-      - NOTIFY: multi-qa-team-notifications
     steps:
+     - IN: test-result-s3-param-multi
      - IN: multi-site-repo
        switch: off
      - IN: homes-perf-test-trigger-workaround
@@ -993,14 +1037,21 @@ jobs:
         - script: sudo apt-get update
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
-        - script: npm run test:homesperf
+        - script: npm run test:homesperf > result.txt
+    on_success:
+      - script: echo "SUCCESS"
+    on_failure:
+      - script: echo "FAILURE"
+    always:
+      script:
+        - *template-lighthouse-csv-report
+      NOTIFY: multi-qa-team-notifications
 
   # ix. Run Performance Test on live environment (homes-site)
   - name: homes-site-performance-test-live-workaround
     type: runSh
-    always:
-      - NOTIFY: multi-qa-team-notifications
     steps:
+     - IN: test-result-s3-param-multi
      - IN: multi-site-repo
        switch: off
      - IN: homes-perf-live-trigger-workaround
@@ -1017,14 +1068,21 @@ jobs:
         - script: sudo apt-get update
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
-        - script: npm run test:homesperflive
+        - script: npm run test:homesperflive > result.txt
+    on_success:
+      - script: echo "SUCCESS"
+    on_failure:
+      - script: echo "FAILURE"
+    always:
+      script:
+        - *template-lighthouse-csv-report
+      NOTIFY: multi-qa-team-notifications
 
   # x. Run SEO Test on live environment (homes-site)
   - name: homes-site-seo-test-live-workaround
     type: runSh
-    always:
-      - NOTIFY: multi-qa-team-notifications
     steps:
+     - IN: test-result-s3-param-multi
      - IN: multi-site-repo
        switch: off
      - IN: homes-seo-live-trigger-workaround
@@ -1041,4 +1099,12 @@ jobs:
         - script: sudo apt-get update
         - script: sudo apt-get install google-chrome-stable
         - script: google-chrome --product-version
-        - script: npm run test:homesseolive
+        - script: npm run test:homesseolive > result.txt
+    on_success:
+      - script: echo "SUCCESS"
+    on_failure:
+      - script: echo "FAILURE"
+    always:
+      script:
+        - *template-lighthouse-csv-report
+      NOTIFY: multi-qa-team-notifications
