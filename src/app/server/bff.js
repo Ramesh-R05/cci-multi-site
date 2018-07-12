@@ -31,6 +31,18 @@ export default function bff(server) {
     } else {
         server.get('/sitemap/:section?', sitemap, error);
         server.get(
+            '(/:preview(preview))?/amp/:page-:id(\\d+)',
+            pageModules,
+            commercialTag,
+            section,
+            page,
+            article,
+            gallery,
+            headerMeta,
+            responseBody,
+            amp
+        );
+        server.get(
             '(/:preview(preview))?/amp/:section/:page',
             pageModules, commercialTag, section, page, article, gallery, headerMeta, responseBody, amp
         );

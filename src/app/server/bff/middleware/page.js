@@ -9,7 +9,7 @@ export default async function pageMiddleware(req, res, next) {
             return;
         }
 
-        const { id } = req.query;
+        const id = req.query.id || req.params.id;
         const query = 'page' in req.query ? req.query : req.params;
         const { page, preview, section, subsection } = query;
         const pageID = id ? getPageID(`${page}${id}`) : getPageID(page);
@@ -28,9 +28,11 @@ export default async function pageMiddleware(req, res, next) {
         req.data = req.data || {};
         req.data.entity = { ...pageData };
         req.data.section = {
+            //here is a temp way to prevent amp page from breaking
+            // we need the section data
             id: pageData.sectionId,
-            name: section,
-            urlName: section
+            name: section || "",
+            urlName: section || ""
         }; // Initially used to set the ad slot within @bxm/ads + gtm in @bxm/server
         req.data.subsection = { name: subsection, urlName: subsection };
         next();

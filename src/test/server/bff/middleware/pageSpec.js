@@ -19,7 +19,7 @@ describe('Page middleware', () => {
     const validSubsection = 'models';
     const validPageName = 'kendall-jenners-skin-doctor-tells-us-what-mistake';
     const validPageId = 3640;
-    const validPage = `${validPageName}-${validPageId}`;
+    const validPage = `${validPageName}`;
     let next;
     let req;
 
@@ -27,7 +27,8 @@ describe('Page middleware', () => {
         before(() => {
             req = {
                 app: { locals: { config } },
-                query: { section: validSection, subsection: validSubsection, page: validPage }
+                query: { section: validSection, subsection: validSubsection, page: validPage },
+                params: {}
             };
             next = sinon.spy();
             getPageIDStub = sinon.stub().returns(undefined);
@@ -51,7 +52,8 @@ describe('Page middleware', () => {
             req = {
                 app: { locals: { config } },
                 data: { entity: {} },
-                query: { section: validSection, page: validPage }
+                query: { section: validSection, page: validPage },
+                paramas: {}
             };
             next = sinon.spy();
             getPageIDStub = sinon.stub();
@@ -74,7 +76,8 @@ describe('Page middleware', () => {
         before(() => {
             req = {
                 app: { locals: { config } },
-                query: { section: validSection, page : validPage }
+                query: { section: validSection, page : validPage, id: validPageId },
+                paramas: {}
             };
             rejectedResponse = {
                 body: 'Could not find the article DOLLY-36424',
@@ -98,7 +101,8 @@ describe('Page middleware', () => {
         before(() => {
             req = {
                 app: { locals: { config } },
-                query: { section: validSection, page: validPage, preview: 'preview' }
+                query: { section: validSection, page: validPage, preview: 'preview' },
+                params: {}
             };
             next = sinon.spy();
             makeRequestStub = sinon.stub().resolves(entity);
@@ -120,7 +124,8 @@ describe('Page middleware', () => {
             beforeEach(() => {
                 req = {
                     app: { locals: { config } },
-                    query: { section: validSection, subsection: validSubsection, page: validPage }
+                    query: { section: validSection, subsection: validSubsection, page: validPage },
+                    params: {}
                 };
                 next = sinon.spy();
                 makeRequestStub = sinon.stub().resolves(entity);
@@ -165,7 +170,8 @@ describe('Page middleware', () => {
                     query: {
                         section: validSection,
                         subsection: validSubsection,
-                        page: validPage
+                        page: validPage,
+                        id: validPageId
                     }
                 };
                 next = sinon.spy();
@@ -195,7 +201,8 @@ describe('Page middleware', () => {
             req = {
                 data: { header: 'Test' },
                 app: { locals: { config } },
-                query: { section: validSection, page: validPage }
+                query: { section: validSection, page: validPage },
+                params: {}
             };
             next = sinon.spy();
             makeRequestStub = sinon.stub().resolves(entity);
