@@ -50,10 +50,13 @@ function lighthouseTests(testObject) {
         chromeFlags: ["--headless", "--disable-gpu", "--enable-logging", "--no-sandbox"]
     };
     const { title, url, expectedScore } = testObject;
-    describe(`Multi site (GT) performance testing for ${title} : ${url}`, function loopedTests() {
-        this.retries(3);
+    describe(`Multi site performance testing for ${title} : ${url}`, function loopedTests() {
+        let numberLoops = 3;
+        this.retries(numberLoops);
         this.timeout(120000);
         let result;
+        var scoreRound = [];
+        var i = 0;
 
         beforeEach('Run Lighthouse base test', (done) => {
             lighthouseInit(url, lighthouseOptions, auditConfig)
@@ -67,8 +70,13 @@ function lighthouseTests(testObject) {
                 });
         });
         it(`should have a performance score >= ${expectedScore}`, () => {
-            const actualScore = result.find(data => data.id === 'performance').score;
-            console.log(`current score is => ${Math.round(actualScore)}`);
+            const actualScore = Math.round(result.find(data => data.id === 'performance').score);
+            scoreRound[i]= actualScore;
+            console.log(`current score is => ${actualScore}`);
+            if (actualScore >= expectedScore || i == numberLoops) {
+                console.log(`The maximum score for ${title} is ${Math.max(...scoreRound)}`);
+            }
+            i++;
             assert.isAtLeast(Math.round(actualScore), expectedScore);
         });
     });

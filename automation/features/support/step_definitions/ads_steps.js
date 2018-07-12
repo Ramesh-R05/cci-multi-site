@@ -53,7 +53,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see native ad below author$/, function () {
-        browser.scroll(wn_ads.galleryNativeAd);
+        scrolling(browser,wn_ads.galleryNativeAd,isBrowserStack);
         expect(browser.waitForVisible(wn_ads.galleryNativeAd,10000)).toBe(true);
     });
 
@@ -142,7 +142,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see MREC ad under the hero image$/, function () {
-        browser.scroll(wn_ads.ad_MrecUnderHeroImage);
+        scrolling(browser,wn_ads.ad_MrecUnderHeroImage,isBrowserStack);
         //expect(browser.waitForVisible(wn_ads.ad_MrecUnderHeroImage,10000)).toBe(true);
         expect(browser.isExisting(wn_ads.ad_MrecUnderHeroImage)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });

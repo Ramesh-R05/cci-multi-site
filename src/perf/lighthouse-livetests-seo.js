@@ -51,9 +51,12 @@ function lighthouseTests(testObject) {
     };
     const { title, url, expectedScore } = testObject;
     describe(`Multi site (GT) SEO testing for ${title} : ${url}`, function loopedTests() {
-        this.retries(1);
+        let numberLoops = 3;
+        this.retries(numberLoops);
         this.timeout(120000);
         let result;
+        var scoreRound = [];
+        var i = 0;
 
         beforeEach('Run Lighthouse base test', (done) => {
             lighthouseInit(url, lighthouseseoOptions, auditConfig)
@@ -67,8 +70,13 @@ function lighthouseTests(testObject) {
                 });
         });
         it(`should have a SEO score >= ${expectedScore}`, () => {
-            const actualScore = result.find(data => data.id === 'seo').score;
-            console.log(`current score is => ${Math.round(actualScore)}`);
+            const actualScore = Math.round(result.find(data => data.id === 'seo').score);
+            scoreRound[i]= actualScore;
+            console.log(`current score is => ${actualScore}`);
+            if (actualScore >= expectedScore || i == numberLoops) {
+                console.log(`The maximum score for ${title} is ${Math.max(...scoreRound)}`);
+            }
+            i++;
             assert.isAtLeast(Math.round(actualScore), expectedScore);
         });
     });
