@@ -1,27 +1,26 @@
-var fs = require('fs');
-var path = require('path');
-var cwd = process.cwd();
+const fs = require('fs');
+const path = require('path');
+const cwd = process.cwd();
 
 function fileExists(filePath) {
-    try  {
+    try {
         return fs.statSync(filePath).isFile();
     } catch (err) {
         return false;
     }
 }
 
+// eslint-disable-next-line func-names
 module.exports = function(babel) {
-
-    var t = babel.types;
+    const t = babel.types;
 
     function transformImportCall(nodePath, state) {
-
         // ignore if running unit tests, otherwise this will mess up stubbed imports
         if (process.env.APP_UNIT_TEST) return;
 
         // the string that represents the imported module
         // eg. in this code: `import module from './module';` ... the value of moduleArg.value is "./module".
-        var moduleArg = nodePath.node.source;
+        const moduleArg = nodePath.node.source;
 
         // string imports only (no variables)
         if (moduleArg.type !== 'StringLiteral') return;
@@ -39,9 +38,9 @@ module.exports = function(babel) {
         if (state.file.opts.filename.indexOf(`app-${process.env.APP_KEY}`) > -1) return;
 
         // create the path to the potential alternate file
-        var alternateFile = path.join(
+        let alternateFile = path.join(
             path.parse(state.file.opts.filename).dir.replace(`${cwd}${path.sep}app`, `${cwd}${path.sep}app-${process.env.APP_KEY}`),
-            `${moduleArg.value}.js`// add .js so we can check if the file is there on disk
+            `${moduleArg.value}.js` // add .js so we can check if the file is there on disk
         );
 
         // the replacement path should have app-{APP_KEY} in it, if not (for whatever reason), don't proceed, only replace app files
@@ -49,32 +48,31 @@ module.exports = function(babel) {
 
         // only continue if the alternate file exists on disk
         if (!fileExists(alternateFile)) {
-
             // try using /index.js
             alternateFile = alternateFile.replace('.js', `${path.sep}index.js`);
 
-            if (!fileExists(alternateFile)){
+            if (!fileExists(alternateFile)) {
                 return;
             }
         }
 
         // format the import string for the alternate file as relative path
-        var relativePathToAlternateFile = path.relative(path.parse(state.file.opts.filename).dir, alternateFile);
+        let relativePathToAlternateFile = path.relative(path.parse(state.file.opts.filename).dir, alternateFile);
 
         // make sure its a relative path (files in the app root won't get a ./ added automatically)
-        if (relativePathToAlternateFile.indexOf('.') !== 0){
+        if (relativePathToAlternateFile.indexOf('.') !== 0) {
             relativePathToAlternateFile = `.${path.sep}${relativePathToAlternateFile}`;
         }
 
         // apply the transform to the ast
+        // eslint-disable-next-line no-param-reassign
         nodePath.node.source = t.stringLiteral(relativePathToAlternateFile);
-
     }
 
     return {
         visitor: {
             ImportDeclaration: {
-                exit: function(nodePath, state) {
+                exit(nodePath, state) {
                     return transformImportCall(nodePath, state);
                 }
             }

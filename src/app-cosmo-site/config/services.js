@@ -21,4 +21,3 @@ export default {
     },
     faceBookAppID: '1549758481945731'
 };
-

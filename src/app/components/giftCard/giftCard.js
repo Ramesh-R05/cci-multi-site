@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import get from 'lodash/object/get';
 
 export default class GiftCard extends Component {
-
     static displayName = 'GiftCard';
 
     static propTypes = {

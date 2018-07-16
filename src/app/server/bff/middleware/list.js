@@ -12,7 +12,7 @@ export default async function list(req, res, next) {
         if (tagSectionQuery) {
             listingQuery = tagSectionQuery;
         } else {
-            const query = (section && filter) ? `${filter} eq %27${section}%27` : undefined;
+            const query = section && filter ? `${filter} eq %27${section}%27` : undefined;
             const queryWithCommercialTag = query ? `${query} and ${excludeCommercialTagQuery}` : excludeCommercialTagQuery;
             listingQuery = excludeCommercialTagQuery ? queryWithCommercialTag : query;
         }

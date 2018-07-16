@@ -3,7 +3,6 @@ import imageResize from '@bxm/ui/lib/common/ImageResize';
 import ResponsiveImage from '@bxm/ui/lib/common/ResponsiveImage';
 
 export default class SubscribeMagBlock extends Component {
-
     static propTypes = {
         inSideNav: PropTypes.bool.isRequired,
         magCoverUrl: PropTypes.string.isRequired,
@@ -36,28 +35,28 @@ export default class SubscribeMagBlock extends Component {
             <div className="subscription__image small-12 medium-6 columns">
                 <a className="subscription__image--mag" href="/subscribe-magazine" target="_blank">
                     <ResponsiveImage
-                      alt="subscribe magazine"
-                      ClassNames="subs-cover"
-                      url={magCoverUrl}
-                      sizes={imageSizes}
-                      breakpoints={breakpoints}
-                      scale={responsiveConfig.scale}
-                      mode={responsiveConfig.mode}
-                      anchor={responsiveConfig.anchor}
-                      quality={80}
+                        alt="subscribe magazine"
+                        ClassNames="subs-cover"
+                        url={magCoverUrl}
+                        sizes={imageSizes}
+                        breakpoints={breakpoints}
+                        scale={responsiveConfig.scale}
+                        mode={responsiveConfig.mode}
+                        anchor={responsiveConfig.anchor}
+                        quality={80}
                     />
                 </a>
                 <a className="subscription__image--ipad" href="/subscribe-digital" target="itunes_store">
                     <ResponsiveImage
-                      alt="subscribe ipad"
-                      ClassNames="subs-cover--ipad"
-                      url={magCoverUrl}
-                      sizes={imageSizes}
-                      breakpoints={breakpoints}
-                      scale={responsiveConfig.scale}
-                      mode={responsiveConfig.mode}
-                      anchor={responsiveConfig.anchor}
-                      quality={80}
+                        alt="subscribe ipad"
+                        ClassNames="subs-cover--ipad"
+                        url={magCoverUrl}
+                        sizes={imageSizes}
+                        breakpoints={breakpoints}
+                        scale={responsiveConfig.scale}
+                        mode={responsiveConfig.mode}
+                        anchor={responsiveConfig.anchor}
+                        quality={80}
                     />
                 </a>
             </div>

@@ -17,15 +17,15 @@ const SideBlock = proxyquire('../../../app/components/sideBlock/sideBlock', {
 }).default;
 
 const brandPropStub = {
-    "id": "aww",
-    "title": "Australian Women's Weekly",
-    "magazineTitle": "The Weekly",
-    "imageUrl": "/assets/images/headerlogos/AWW-logo.svg",
-    "url": "/aww",
-    "socialLinks": {
-        "facebookUrl": "https://www.facebook.com/WomensWeeklyMag",
-        "twitterUrl": "https://twitter.com/womensweeklymag",
-        "instagramUrl": "http://instagram.com/womensweeklymag"
+    id: 'aww',
+    title: "Australian Women's Weekly",
+    magazineTitle: 'The Weekly',
+    imageUrl: '/assets/images/headerlogos/AWW-logo.svg',
+    url: '/aww',
+    socialLinks: {
+        facebookUrl: 'https://www.facebook.com/WomensWeeklyMag',
+        twitterUrl: 'https://twitter.com/womensweeklymag',
+        instagramUrl: 'http://instagram.com/womensweeklymag'
     }
 };
 
@@ -33,7 +33,7 @@ const contextConfigStub = {
     key: 'config',
     type: '',
     value: {
-        global:  {
+        global: {
             breakpoints: ''
         },
         urls: {
@@ -54,20 +54,20 @@ describe(`SideBlock`, () => {
 
     describe('when passing in /aww as the brand prop', () => {
         before(() => {
-            reactModule = Context.mountComponent(SideBlock, {brand: brandPropStub}, [contextConfigStub]);
+            reactModule = Context.mountComponent(SideBlock, { brand: brandPropStub }, [contextConfigStub]);
             socialContainerStub = TestUtils.findRenderedComponentWithType(reactModule, SocialContainerStub);
         });
 
         it('should render the SocialContainer component with the AWW social link props', () => {
             expect(socialContainerStub.props).to.deep.eq({
                 socialUrls: brandPropStub.socialLinks
-            })
+            });
         });
     });
 
     describe(`when passing in a prop that sets showGiftCard to true`, () => {
         before(() => {
-            reactModule = Context.mountComponent(SideBlock, {showGiftCard: true, brand: brandPropStub}, [contextConfigStub]);
+            reactModule = Context.mountComponent(SideBlock, { showGiftCard: true, brand: brandPropStub }, [contextConfigStub]);
             giftCardStub = TestUtils.findRenderedComponentWithType(reactModule, GiftCardStub);
         });
 
@@ -78,7 +78,7 @@ describe(`SideBlock`, () => {
 
     describe(`when passing in showBrandMagazine prop as true`, () => {
         before(() => {
-            reactModule = Context.mountComponent(SideBlock, {showBrandMagazine: true, brand: brandPropStub}, [contextConfigStub]);
+            reactModule = Context.mountComponent(SideBlock, { showBrandMagazine: true, brand: brandPropStub }, [contextConfigStub]);
             brandMagazineStub = TestUtils.findRenderedComponentWithType(reactModule, BrandMagazineStub);
         });
 

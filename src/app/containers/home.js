@@ -57,7 +57,8 @@ export default class Home extends Component {
     };
 
     componentDidMount() {
-        this.setState({ // eslint-disable-line react/no-did-mount-set-state
+        // eslint-disable-next-line react/no-did-mount-set-state
+        this.setState({
             bottomElm: this.bottom,
             topElm: this.top
         });
@@ -71,15 +72,7 @@ export default class Home extends Component {
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
         const { showBelowHero, showAboveBottomTeasers } = config.features.promoted;
-        const {
-            currentUrl,
-            theme,
-            heroTeaser,
-            teasers,
-            list,
-            listNextParams,
-            magazineImageUrl
-        } = this.props;
+        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magazineImageUrl } = this.props;
 
         const adProps = {
             className: 'ad--section-bottom-leaderboard',
@@ -87,7 +80,8 @@ export default class Home extends Component {
             sizes: {
                 banner: 'banner',
                 leaderboard: 'leaderboard',
-                billboard: ['billboard', 'leaderboard'] },
+                billboard: ['billboard', 'leaderboard']
+            },
             pageLocation
         };
 
@@ -98,13 +92,7 @@ export default class Home extends Component {
         const isBrandDefined = typeof brand !== 'undefined';
 
         return (
-            <Page
-              currentUrl={currentUrl}
-              headerExpanded={config.features.headerExpanded}
-              showUniheader
-              theme={theme}
-              className="page--home"
-            >
+            <Page currentUrl={currentUrl} headerExpanded={config.features.headerExpanded} showUniheader theme={theme} className="page--home">
                 <div className="home-page">
                     {/* 1st Leaderboard or billboard to show on tablet and up */}
                     <div className="stripe-bg">
@@ -115,68 +103,68 @@ export default class Home extends Component {
                             <div className="row">
                                 <div className="page__top-container columns">
                                     <div className="row">
-                                        <div className="columns large-8 xlarge-9 home-page__teasers-container" ref={(c) => { this.top = c; }}>
+                                        <div
+                                            className="columns large-8 xlarge-9 home-page__teasers-container"
+                                            ref={c => {
+                                                this.top = c;
+                                            }}
+                                        >
                                             <div className="row">
                                                 <MustRead show={showInsideContainer} />
                                             </div>
                                             <HeroTeaser
-                                              article={heroTeaser} showPromoted={showBelowHero} brand={brand}
-                                              magazineImageUrl={magazineImageUrl}
+                                                article={heroTeaser}
+                                                showPromoted={showBelowHero}
+                                                brand={brand}
+                                                magazineImageUrl={magazineImageUrl}
                                             />
                                             <div className="home-page__teasers-title">
                                                 <span>what&apos;s happening now</span>
                                             </div>
-                                            {
-                                                topListType === 'grid' &&
+                                            {topListType === 'grid' && (
                                                 <TeaserGridView
-                                                  teasers={teasers.slice(0, 6)}
-                                                  className="news-feed top-news-feed"
-                                                  adPosition={8}
-                                                  adSizes={{ small: 'mrec', medium: ['mrec', 'double-mrec'] }}
-                                                  nativeAdConfig={{
-                                                      slotPositionIndex: polarLabels.homeTopFeed
-                                                  }}
+                                                    teasers={teasers.slice(0, 6)}
+                                                    className="news-feed top-news-feed"
+                                                    adPosition={8}
+                                                    adSizes={{ small: 'mrec', medium: ['mrec', 'double-mrec'] }}
+                                                    nativeAdConfig={{
+                                                        slotPositionIndex: polarLabels.homeTopFeed
+                                                    }}
                                                 />
-                                            }
-                                            {
-                                                topListType === 'list' &&
+                                            )}
+                                            {topListType === 'list' && (
                                                 <TeaserListView
-                                                  index={null}
-                                                  items={teasers.slice(0, 6)}
-                                                  className={'news-feed top-news-feed'}
-                                                  nativeAdConfig={{
-                                                      slotPositionIndex: polarLabels.homeTopFeed
-                                                  }}
-                                                  showDate={false}
-                                                  loadAgain={false}
-                                                  showAd={false}
-                                                  tagsToShow={tagsToShow}
-                                                  showImageBadge={showImageBadge}
-                                                  linesToShow={linesToShow}
+                                                    index={null}
+                                                    items={teasers.slice(0, 6)}
+                                                    className={'news-feed top-news-feed'}
+                                                    nativeAdConfig={{
+                                                        slotPositionIndex: polarLabels.homeTopFeed
+                                                    }}
+                                                    showDate={false}
+                                                    loadAgain={false}
+                                                    showAd={false}
+                                                    tagsToShow={tagsToShow}
+                                                    showImageBadge={showImageBadge}
+                                                    linesToShow={linesToShow}
                                                 />
-                                            }
+                                            )}
                                         </div>
                                         <div className="page__social-wrapper columns large-4 xlarge-3">
                                             <div className="columns medium-6 large-12">
                                                 <StickyAndDockAd
-                                                  offsetTop={95}
-                                                  offsetBottom={16}
-                                                  customiseBreakpoint={1024}
-                                                  bottomElm={this.state.bottomElm}
-                                                  topElm={this.state.topElm}
+                                                    offsetTop={95}
+                                                    offsetBottom={16}
+                                                    customiseBreakpoint={1024}
+                                                    bottomElm={this.state.bottomElm}
+                                                    topElm={this.state.topElm}
                                                 >
-                                                    <Ad
-                                                      className="ad--section-mrec"
-                                                      sizes="mrec"
-                                                      displayFor="large"
-                                                      pageLocation={Ad.pos.aside}
-                                                    />
+                                                    <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
                                                     <SideBlock
-                                                      showBrandMagazine={isBrandDefined}
-                                                      showBrandNewsletter={isBrandDefined}
-                                                      showGiftCard={giftCardEnabled}
-                                                      brand={brand}
-                                                      magazineImageUrl={magazineImageUrl}
+                                                        showBrandMagazine={isBrandDefined}
+                                                        showBrandNewsletter={isBrandDefined}
+                                                        showGiftCard={giftCardEnabled}
+                                                        brand={brand}
+                                                        magazineImageUrl={magazineImageUrl}
                                                     />
                                                 </StickyAndDockAd>
                                             </div>
@@ -187,41 +175,41 @@ export default class Home extends Component {
                         </div>
                     </div>
 
-                    <div ref={(c) => { this.bottom = c; }} />
+                    <div
+                        ref={c => {
+                            this.bottom = c;
+                        }}
+                    />
 
                     <Ad
-                      className="ad--section-leaderboard"
-                      sizes={{
-                          banner: 'banner',
-                          leaderboard: 'leaderboard',
-                          billboard: ['billboard', 'leaderboard'] }}
-                      pageLocation={pageLocation}
+                        className="ad--section-leaderboard"
+                        sizes={{
+                            banner: 'banner',
+                            leaderboard: 'leaderboard',
+                            billboard: ['billboard', 'leaderboard']
+                        }}
+                        pageLocation={pageLocation}
                     />
 
                     <Promoted show={showAboveBottomTeasers} />
 
                     <Repeatable
-                      component={TeaserListView}
-                      action={loadList}
-                      dataSource={list}
-                      nextParams={listNextParams}
-                      className="news-feed bottom-news-feed"
-                      nativeAdConfig={{
-                          slotPositionIndex: polarLabels.homeBottomFeed
-                      }}
-                      pageLocation={pageLocation}
-                      showImageBadge={showImageBadge}
-                      tagsToShow={tagsToShow}
-                      linesToShow={linesToShow}
+                        component={TeaserListView}
+                        action={loadList}
+                        dataSource={list}
+                        nextParams={listNextParams}
+                        className="news-feed bottom-news-feed"
+                        nativeAdConfig={{
+                            slotPositionIndex: polarLabels.homeBottomFeed
+                        }}
+                        pageLocation={pageLocation}
+                        showImageBadge={showImageBadge}
+                        tagsToShow={tagsToShow}
+                        linesToShow={linesToShow}
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}
-                    <StickyAd
-                      adProps={adProps}
-                      minHeight={450}
-                      stickyAtViewPort="mediumRangeMax"
-                      stickyDelay={5500}
-                    />
+                    <StickyAd adProps={adProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
                 </div>
             </Page>
         );

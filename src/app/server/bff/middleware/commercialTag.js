@@ -11,11 +11,13 @@ export default async function commercialTag(req, res, next) {
         }
         const commercialTags = await makeRequest(req.app.locals.config.services.remote.commercialtagsections);
 
-        if (!commercialTags ||
+        if (
+            !commercialTags ||
             !Array.isArray(commercialTags) ||
             !commercialTags.length ||
             !commercialTags[0].tagsDetails ||
-            !commercialTags[0].tagsDetails.length) {
+            !commercialTags[0].tagsDetails.length
+        ) {
             next();
             return;
         }

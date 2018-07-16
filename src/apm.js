@@ -8,6 +8,7 @@ if (process.env.APM_KEY) {
     if (process.env.HTTP_PROXY) process.env.NEW_RELIC_PROXY_URL = process.env.HTTP_PROXY;
     process.env.NEW_RELIC_NO_CONFIG_FILE = true;
     process.env.NEW_RELIC_LABELS = 'category: site';
+    // eslint-disable-next-line global-require
     require('newrelic');
     logger.info('APM registered');
 } else {

@@ -5,7 +5,6 @@ import articleStore from '@bxm/article/lib/stores/articleStore';
 import RecipeContent from './recipeContent';
 
 class Section extends Component {
-
     static displayName = 'Section';
 
     static propTypes = {
@@ -40,8 +39,16 @@ class Section extends Component {
     }
 
     render() {
-        const { footerComponentClass: Footer, isSideMenuOpen, feedItems, enableTeads,
-            contentBodyConfig, adSpacing, articleHeaderOrder, showAdBeforeRecommendations } = this.props;
+        const {
+            footerComponentClass: Footer,
+            isSideMenuOpen,
+            feedItems,
+            enableTeads,
+            contentBodyConfig,
+            adSpacing,
+            articleHeaderOrder,
+            showAdBeforeRecommendations
+        } = this.props;
 
         const menuSliderClassName = cx('side-menu-slider', {
             'side-menu-slider--side-menu-open': isSideMenuOpen
@@ -60,13 +67,11 @@ class Section extends Component {
             hero: this.getHero()
         };
 
-        return (
-            <RecipeContent {...mergedProps} />
-        );
+        return <RecipeContent {...mergedProps} />;
     }
 }
 
-export default connectToStores(Section, [articleStore], (context) => {
+export default connectToStores(Section, [articleStore], context => {
     const store = context.getStore(articleStore);
     return {
         content: store.getContent(),

@@ -60,7 +60,8 @@ export default class Section extends Component {
     };
 
     componentDidMount() {
-        this.setState({ // eslint-disable-line react/no-did-mount-set-state
+        // eslint-disable-next-line react/no-did-mount-set-state
+        this.setState({
             bottomElm: this.bottom,
             topElm: this.top
         });
@@ -73,7 +74,7 @@ export default class Section extends Component {
         // Using first teaser for each section because modules aren't setup for each one in the CMS
         const heroTeaser = teasers[0];
         const firstTeaserList = teasers.slice(1, 7);
-        const keyword = (nodeType === 'TagSection' && title) ? [title] : [];
+        const keyword = nodeType === 'TagSection' && title ? [title] : [];
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const isBrandDefined = typeof brand !== 'undefined';
@@ -94,7 +95,8 @@ export default class Section extends Component {
             sizes: {
                 banner: 'banner',
                 leaderboard: 'leaderboard',
-                billboard: ['billboard', 'leaderboard'] },
+                billboard: ['billboard', 'leaderboard']
+            },
             pageLocation,
             targets: keyword
         };
@@ -106,12 +108,12 @@ export default class Section extends Component {
 
         return (
             <Page
-              currentUrl={currentUrl}
-              headerExpanded={config.features.headerExpanded && themeEnabled}
-              pageTitle={pageTitle}
-              className="page--section"
-              headerClassName={headerClassName}
-              theme={themeEnabled ? theme : {}}
+                currentUrl={currentUrl}
+                headerExpanded={config.features.headerExpanded && themeEnabled}
+                pageTitle={pageTitle}
+                className="page--section"
+                headerClassName={headerClassName}
+                theme={themeEnabled ? theme : {}}
             >
                 <div className="section-page">
                     <div className="container">
@@ -119,67 +121,58 @@ export default class Section extends Component {
                             <div className="page__top-container columns">
                                 <div className="row">
                                     <div
-                                      className="columns large-8 xlarge-9 section-page__teasers-container"
-                                      ref={(c) => { this.top = c; }}
+                                        className="columns large-8 xlarge-9 section-page__teasers-container"
+                                        ref={c => {
+                                            this.top = c;
+                                        }}
                                     >
-                                        {subsections.totalCount > 1 && <SubsectionList
-                                          subsections={subsections.data}
-                                          currentUrl={currentUrl}
-                                        />
-                                        }
+                                        {subsections.totalCount > 1 && <SubsectionList subsections={subsections.data} currentUrl={currentUrl} />}
 
                                         <HeroTeaser showDate article={heroTeaser} brand={brand} magazineImageUrl={magazineImageUrl} />
 
-                                        {
-                                            topListType === 'grid' &&
+                                        {topListType === 'grid' && (
                                             <TeaserGridView
-                                              teasers={firstTeaserList}
-                                              showDate
-                                              className="news-feed top-news-feed"
-                                              adPosition={8}
-                                              adTargets={{ keyword }}
-                                              nativeAdConfig={{ slotPositionIndex: polarLabels.sectionTopFeed }}
+                                                teasers={firstTeaserList}
+                                                showDate
+                                                className="news-feed top-news-feed"
+                                                adPosition={8}
+                                                adTargets={{ keyword }}
+                                                nativeAdConfig={{ slotPositionIndex: polarLabels.sectionTopFeed }}
                                             />
-                                        }
-                                        {
-                                            topListType === 'list' &&
+                                        )}
+                                        {topListType === 'list' && (
                                             <TeaserListView
-                                              index={null}
-                                              items={teasers.slice(0, 6)}
-                                              className={'news-feed top-news-feed'}
-                                              nativeAdConfig={{
-                                                  slotPositionIndex: polarLabels.homeTopFeed
-                                              }}
-                                              showDate={false}
-                                              loadAgain={false}
-                                              showAd={false}
-                                              tagsToShow={tagsToShow}
-                                              showImageBadge={showImageBadge}
-                                              linesToShow={linesToShow}
+                                                index={null}
+                                                items={teasers.slice(0, 6)}
+                                                className={'news-feed top-news-feed'}
+                                                nativeAdConfig={{
+                                                    slotPositionIndex: polarLabels.homeTopFeed
+                                                }}
+                                                showDate={false}
+                                                loadAgain={false}
+                                                showAd={false}
+                                                tagsToShow={tagsToShow}
+                                                showImageBadge={showImageBadge}
+                                                linesToShow={linesToShow}
                                             />
-                                        }
+                                        )}
                                     </div>
                                     <div className="page__social-wrapper columns large-4 xlarge-3">
                                         <div className="columns medium-6 large-12">
                                             <StickyAndDockAd
-                                              offsetTop={95}
-                                              offsetBottom={16}
-                                              customiseBreakpoint={1024}
-                                              bottomElm={this.state.bottomElm}
-                                              topElm={this.state.topElm}
+                                                offsetTop={95}
+                                                offsetBottom={16}
+                                                customiseBreakpoint={1024}
+                                                bottomElm={this.state.bottomElm}
+                                                topElm={this.state.topElm}
                                             >
-                                                <Ad
-                                                  className="ad--section-mrec"
-                                                  sizes="mrec"
-                                                  displayFor="large"
-                                                  pageLocation={Ad.pos.aside}
-                                                />
+                                                <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
                                                 <SideBlock
-                                                  showBrandMagazine={isBrandDefined}
-                                                  showBrandNewsletter={isBrandDefined}
-                                                  showGiftCard={giftCardEnabled}
-                                                  brand={brand}
-                                                  magazineImageUrl={magazineImageUrl}
+                                                    showBrandMagazine={isBrandDefined}
+                                                    showBrandNewsletter={isBrandDefined}
+                                                    showGiftCard={giftCardEnabled}
+                                                    brand={brand}
+                                                    magazineImageUrl={magazineImageUrl}
                                                 />
                                             </StickyAndDockAd>
                                         </div>
@@ -189,37 +182,41 @@ export default class Section extends Component {
                         </div>
                     </div>
 
-                    <div ref={(c) => { this.bottom = c; }} />
+                    <div
+                        ref={c => {
+                            this.bottom = c;
+                        }}
+                    />
 
                     {/* 2nd Leaderboard or banner below Gallery of Videos */}
-                    { teasers.length ? <Ad
-                      className="ad--section-leaderboard"
-                      sizes={{
-                          banner: 'banner',
-                          leaderboard: 'leaderboard',
-                          billboard: ['billboard', 'leaderboard'] }}
-                      targets={{ keyword }}
-                      pageLocation={pageLocation}
-                    /> : null }
+                    {teasers.length ? (
+                        <Ad
+                            className="ad--section-leaderboard"
+                            sizes={{
+                                banner: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                            targets={{ keyword }}
+                            pageLocation={pageLocation}
+                        />
+                    ) : null}
 
                     <Repeatable
-                      component={TeaserListView}
-                      action={loadList}
-                      showDate
-                      dataSource={this.props.list}
-                      nextParams={this.props.listNextParams}
-                      className="news-feed bottom-news-feed"
-                      adTargets={{ keyword }}
-                      nativeAdConfig={{ slotPositionIndex: polarLabels.sectionBottomFeed }}
+                        component={TeaserListView}
+                        action={loadList}
+                        showDate
+                        dataSource={this.props.list}
+                        nextParams={this.props.listNextParams}
+                        className="news-feed bottom-news-feed"
+                        adTargets={{ keyword }}
+                        nativeAdConfig={{ slotPositionIndex: polarLabels.sectionBottomFeed }}
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}
-                    { get(this.props.list, 'items[0].length') ? <StickyAd
-                      adProps={adProps}
-                      minHeight={450}
-                      stickyAtViewPort="mediumRangeMax"
-                      stickyDelay={5500}
-                    /> : null }
+                    {get(this.props.list, 'items[0].length') ? (
+                        <StickyAd adProps={adProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
+                    ) : null}
                 </div>
             </Page>
         );

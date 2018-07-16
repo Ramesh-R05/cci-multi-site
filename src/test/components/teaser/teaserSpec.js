@@ -11,16 +11,16 @@ const AdStub = Context.createStubComponent();
 const context = {
     config: {
         defaultImageUrl: '',
-        global:  {
+        global: {
             breakpoints: ''
         }
     }
 };
 const contextNZ = {
-    context:{
+    context: {
         config: {
             defaultImageUrl: '',
-            global:  {
+            global: {
                 breakpoints: ''
             },
             site: {
@@ -43,10 +43,10 @@ const suffixContext = {
             }
         }
     }
-}
+};
 const proxyquire = require('proxyquire').noCallThru();
 const Teaser = proxyquire('../../../app/components/teaser/teaser', {
-    "react": React,
+    react: React,
     '@bxm/teaser/lib/components/image': ImageStub,
     '@bxm/teaser/lib/components/title': TeaserTitleStub,
     '@bxm/datetime/lib/components/Date': DateStub,
@@ -55,10 +55,10 @@ const Teaser = proxyquire('../../../app/components/teaser/teaser', {
 
 describe('Component', () => {
     describe('Teaser', () => {
-        const wrapper = shallow(<Teaser
-            article={teaserMock.stores.homepageHeroItems.items[0]}
-            sourceClassName="hero-teaser__source"
-            className="hero-teaser" />, { context });
+        const wrapper = shallow(
+            <Teaser article={teaserMock.stores.homepageHeroItems.items[0]} sourceClassName="hero-teaser__source" className="hero-teaser" />,
+            { context }
+        );
 
         it('it should contain source detail', () => {
             expect(wrapper.find('p.hero-teaser__source').length).to.be.equal(1);
@@ -85,91 +85,84 @@ describe('Component', () => {
         });
 
         describe('when there is source field in the article', () => {
-            const wrapper = shallow(<Teaser
-                article={{...teaserMock.stores.homepageHeroItems.items[0], source: 'Australian women\'s weekly' }}
-                sourceClassName="hero-teaser__source"
-                className="hero-teaser" />, { context });
+            const wrapper = shallow(
+                <Teaser
+                    article={{ ...teaserMock.stores.homepageHeroItems.items[0], source: "Australian women's weekly" }}
+                    sourceClassName="hero-teaser__source"
+                    className="hero-teaser"
+                />,
+                { context }
+            );
 
             it('it should find source with correct className to style', () => {
                 const elm = wrapper.find('.hero-teaser__source--australian-women-s-weekly');
                 expect(elm.length).to.be.equal(1);
-                expect(elm.text()).to.contain('Australian women\'s weekly');
+                expect(elm.text()).to.contain("Australian women's weekly");
             });
         });
 
         describe('when it is nz site', () => {
-            const wrapper = shallow(<Teaser
-            article={teaserMock.stores.homepageHeroItems.items[0]}/>,contextNZ);
+            const wrapper = shallow(<Teaser article={teaserMock.stores.homepageHeroItems.items[0]} />, contextNZ);
 
             it('it should has proper teaser classname for nz site', () => {
-                expect(wrapper.prop('className')).to.equal("teaser teaser--nz");
-            })
-        })
+                expect(wrapper.prop('className')).to.equal('teaser teaser--nz');
+            });
+        });
 
         describe('when teaser suffix enabled', () => {
-
-            describe("when shortTitle is present", () => {
+            describe('when shortTitle is present', () => {
                 const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
-                reviewTeaserMock.nodeType = "Review";
+                reviewTeaserMock.nodeType = 'Review';
                 const shortTitle = reviewTeaserMock.shortTitle;
 
-                const wrapper = shallow(<Teaser
-                    article={{...reviewTeaserMock }}
-                />, { context: suffixContext })
+                const wrapper = shallow(<Teaser article={{ ...reviewTeaserMock }} />, { context: suffixContext });
 
                 it('should append suffix to teaser short title', () => {
                     expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal(`${shortTitle}${suffix}`);
-                })
-            })
+                });
+            });
 
-            describe("when shortTitle is not present", () => {
+            describe('when shortTitle is not present', () => {
                 const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
-                reviewTeaserMock.nodeType = "Review";
+                reviewTeaserMock.nodeType = 'Review';
                 reviewTeaserMock.shortTitle = '';
                 const longTitle = reviewTeaserMock.title;
 
-                const wrapper = shallow(<Teaser
-                    article={{...reviewTeaserMock }}
-                />, { context: suffixContext })
+                const wrapper = shallow(<Teaser article={{ ...reviewTeaserMock }} />, { context: suffixContext });
 
                 it('should append suffix to teaser long title', () => {
                     expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal(`${longTitle}${suffix}`);
-                })
-            })
+                });
+            });
 
-            describe("when it is mustread or promo component", () => {
+            describe('when it is mustread or promo component', () => {
                 const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
-                reviewTeaserMock.nodeType = "Review";
-                reviewTeaserMock.id = "mustreadhome-123";
+                reviewTeaserMock.nodeType = 'Review';
+                reviewTeaserMock.id = 'mustreadhome-123';
                 const shortTitle = reviewTeaserMock.shortTitle;
 
-                const wrapper = shallow(<Teaser
-                    article={{...reviewTeaserMock }}
-                />, { context: suffixContext })
+                const wrapper = shallow(<Teaser article={{ ...reviewTeaserMock }} />, { context: suffixContext });
 
-                describe("if shortTitle present", () => {
+                describe('if shortTitle present', () => {
                     it('should not append suffix to teaser short title', () => {
                         expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal(shortTitle);
-                    })
-                })
+                    });
+                });
 
-                describe("if shortTitle not present", () => {
+                describe('if shortTitle not present', () => {
                     const reviewTeaserMock = Object.assign({}, teaserMock.stores.homepageHeroItems.items[0]);
-                    reviewTeaserMock.nodeType = "Review";
-                    reviewTeaserMock.id = "mustreadhome-123"
+                    reviewTeaserMock.nodeType = 'Review';
+                    reviewTeaserMock.id = 'mustreadhome-123';
                     reviewTeaserMock.shortTitle = '';
 
                     const longTitle = reviewTeaserMock.title;
-                    const wrapper = shallow(<Teaser
-                        article={{...reviewTeaserMock }}
-                    />, { context: suffixContext })
+                    const wrapper = shallow(<Teaser article={{ ...reviewTeaserMock }} />, { context: suffixContext });
 
                     it('should append suffix to teaser long title', () => {
                         expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal(`${longTitle}${suffix}`);
-                    })
-                })
-            })
-        })
-
+                    });
+                });
+            });
+        });
     });
 });

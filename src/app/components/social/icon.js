@@ -23,24 +23,24 @@ export default class SocialIcon extends Component {
         const { label, name, svgFile, url } = this.props;
         if (!name) return null;
 
-        const src = `/assets/icons/social/${svgFile || (`${name}.svg`)}`;
+        const src = `/assets/icons/social/${svgFile || `${name}.svg`}`;
         const image = <img src={src} alt={`${name} icon`} />;
 
         const iconWithLabel = [
-            <span className="social-link__icon">{ canUseDOM ? <InlineSVG src={src}>{ image }</InlineSVG> : image }</span>,
-            <span className="social-link__label">{ label || name }</span>
+            <span className="social-link__icon">{canUseDOM ? <InlineSVG src={src}>{image}</InlineSVG> : image}</span>,
+            <span className="social-link__label">{label || name}</span>
         ];
 
         return (
             <span className={`social-link social-link--${name}`}>
-                { !url ? iconWithLabel :
-                <a
-                  href={this.props.url}
-                  target={this.props.target}
-                  onClick={this.fireEvent}
-                >{ iconWithLabel }</a> }
+                {!url ? (
+                    iconWithLabel
+                ) : (
+                    <a href={this.props.url} target={this.props.target} onClick={this.fireEvent}>
+                        {iconWithLabel}
+                    </a>
+                )}
             </span>
         );
     }
 }
-

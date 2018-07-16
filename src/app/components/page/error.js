@@ -25,32 +25,27 @@ export default class Error extends Component {
         const { content, emojiSrc, title, symbol, returnHomeText } = message;
 
         return (
-            <Page
-              currentUrl={this.props.currentUrl}
-              className="error-page"
-              hideLeaderboard
-              headerExpanded
-            >
+            <Page currentUrl={this.props.currentUrl} className="error-page" hideLeaderboard headerExpanded>
                 <section className="error-page-container container">
                     <h1 className="page-title error-page-container__title">
-                        {symbol ? <span className="page-title__symbol">{symbol}</span> : null }
+                        {symbol ? <span className="page-title__symbol">{symbol}</span> : null}
                         {/* eslint-disable react/no-danger */}
                         <span dangerouslySetInnerHTML={{ __html: title }} />
                     </h1>
                     <a href="/">
                         {content.map((item, i) => (
-                            <p className="error-page-container__body-item">{item} {
-                                    emojiSrc && i === content.length - 1
-                                        ? <img className="emoji emoji--grin" alt="emoji grin" src={emojiSrc} /> : null
-                            }</p>
+                            <p className="error-page-container__body-item">
+                                {item}{' '}
+                                {emojiSrc && i === content.length - 1 ? <img className="emoji emoji--grin" alt="emoji grin" src={emojiSrc} /> : null}
+                            </p>
                         ))}
                     </a>
                     <p className="error-page-container__footer">
                         {/* eslint-disable react/no-danger */}
                         <a
-                          href="/"
-                          className="gtm-error-goback error-page-container__homepage-link"
-                          dangerouslySetInnerHTML={{ __html: returnHomeText }}
+                            href="/"
+                            className="gtm-error-goback error-page-container__homepage-link"
+                            dangerouslySetInnerHTML={{ __html: returnHomeText }}
                         />
                     </p>
                 </section>

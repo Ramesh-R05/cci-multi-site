@@ -1,20 +1,21 @@
 if (!process.env.APP_KEY) throw new Error('APP_KEY environment variable not set');
 process.title = process.env.APP_KEY;
-process.on('uncaughtException', function(e) {
+process.on('uncaughtException', e => {
     throw e;
 });
 require('babel-polyfill');
 require('babel-register');
-var logger = require('./logger').default;
+const logger = require('./logger').default;
 require('./apm');
-var fs = require('fs');
-var requiredFile = './dist/manifest.json';
-var retryDelay = 5000;
-var attemptCount = 0;
-var maxAttempts = 12;
-var timerId = null;
+const fs = require('fs');
+const requiredFile = './dist/manifest.json';
+const retryDelay = 5000;
+let attemptCount = 0;
+const maxAttempts = 12;
+let timerId = null;
 
 function startWhenReady() {
+    // eslint-disable-next-line no-plusplus
     attemptCount++;
     if (timerId) {
         clearTimeout(timerId);
@@ -22,6 +23,7 @@ function startWhenReady() {
     }
     if (fs.existsSync(requiredFile)) {
         logger.info(`${requiredFile} exists, ok to start`);
+        // eslint-disable-next-line global-require
         require('./app/server/server');
     } else if (attemptCount <= maxAttempts) {
         logger.info(`${requiredFile} in progress - waiting ${retryDelay / 1000} more seconds`);

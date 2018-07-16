@@ -10,10 +10,7 @@ export default {
     loggly: {
         inputToken: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
         subdomain: 'bauerdigital',
-        tags: [
-            'gt',
-            'live'
-        ],
+        tags: ['gt', 'live'],
         json: true,
         level: 'info',
         proxy: 'http://proxy.mgmt.local:3128'

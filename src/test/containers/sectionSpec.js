@@ -1,8 +1,8 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 import polarConfig from '../mocks/polar';
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const PageStub = Context.createStubComponentWithChildren();
@@ -39,7 +39,7 @@ AdStub.pos = {
     wallpaper: 'wallpaper',
     inskin: 'inskin',
     panel: 'panel'
-}
+};
 
 const contextConfigStub = {
     key: 'config',
@@ -50,18 +50,19 @@ const contextConfigStub = {
         },
         brands: {
             uniheader: [
-            {
-                "id": "aww",
-                "title": "Australian Women's Weekly",
-                "magazineTitle": "The Weekly",
-                "imageUrl": "/assets/images/headerlogos/AWW-logo.svg",
-                "url": "/aww",
-                "socialLinks": {
-                    "facebookUrl": "https://www.facebook.com/WomensWeeklyMag",
-                    "twitterUrl": "https://twitter.com/womensweeklymag",
-                    "instagramUrl": "https://www.instagram.com/womensweeklymag"
+                {
+                    id: 'aww',
+                    title: "Australian Women's Weekly",
+                    magazineTitle: 'The Weekly',
+                    imageUrl: '/assets/images/headerlogos/AWW-logo.svg',
+                    url: '/aww',
+                    socialLinks: {
+                        facebookUrl: 'https://www.facebook.com/WomensWeeklyMag',
+                        twitterUrl: 'https://twitter.com/womensweeklymag',
+                        instagramUrl: 'https://www.instagram.com/womensweeklymag'
+                    }
                 }
-            }]
+            ]
         },
         features: {
             headerExpanded: true
@@ -71,22 +72,21 @@ const contextConfigStub = {
 };
 
 describe('Section Container', () => {
-
     Context.addStore('PageStore', {
         getTitle() {
             return 'Title';
         },
         getShortTitle() {
-            return 'Short Title'
+            return 'Short Title';
         },
         getSummary() {
-            return 'Summary'
+            return 'Summary';
         },
         getMagazineImageUrl() {
             return 'http://stubbedimages.biz/content.jpg';
         },
         getSubsections() {
-            return {}
+            return {};
         }
     });
 
@@ -101,9 +101,7 @@ describe('Section Container', () => {
 
         getList() {
             return {
-                items: [
-                    [8, 9, 10, 11, 12, 13, 14]
-                ]
+                items: [[8, 9, 10, 11, 12, 13, 14]]
             };
         },
 
@@ -119,25 +117,25 @@ describe('Section Container', () => {
     after(Context.cleanup);
 
     it(`should render 1 normal ad in total`, () => {
-        const reactModule = Context.mountComponent(SectionContainer,{},[contextConfigStub]);
+        const reactModule = Context.mountComponent(SectionContainer, {}, [contextConfigStub]);
         const AdComponents = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         expect(AdComponents.length).to.eq(1);
     });
 
     it(`should render 1 sticky ad in total`, () => {
-        const reactModule = Context.mountComponent(SectionContainer,{},[contextConfigStub]);
+        const reactModule = Context.mountComponent(SectionContainer, {}, [contextConfigStub]);
         const AdComponents = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
         expect(AdComponents.length).to.eq(1);
     });
 
     it('should render a hero teaser', () => {
-        const reactModule = Context.mountComponent(SectionContainer,{},[contextConfigStub]);
+        const reactModule = Context.mountComponent(SectionContainer, {}, [contextConfigStub]);
         const HeroTeaserComponent = TestUtils.scryRenderedComponentsWithType(reactModule, HeroTeaserStub);
         expect(HeroTeaserComponent.length).to.eq(1);
     });
 
     it('should render a teaser grid', () => {
-        const reactModule = Context.mountComponent(SectionContainer,{},[contextConfigStub]);
+        const reactModule = Context.mountComponent(SectionContainer, {}, [contextConfigStub]);
         const TeaserGridViewComponent = TestUtils.scryRenderedComponentsWithType(reactModule, TeaserGridViewStub);
         expect(TeaserGridViewComponent.length).to.eq(1);
     });

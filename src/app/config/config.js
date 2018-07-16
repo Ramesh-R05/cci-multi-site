@@ -7,7 +7,6 @@ import site from './site';
 import polar from './polar';
 
 export default {
-
     gtm: { masthead: 'NOW', id: 'GTM-MSL9XB' },
 
     defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/defaultimage.png',
@@ -239,6 +238,4 @@ export default {
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     }
-
 };
-

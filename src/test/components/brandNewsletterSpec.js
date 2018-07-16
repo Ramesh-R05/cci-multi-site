@@ -1,4 +1,3 @@
-
 import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -13,14 +12,14 @@ describe(`brandNewsletter`, () => {
         value: {
             product: {
                 id: 'product',
-                newsletterUrl: '/product-newsletter/',
+                newsletterUrl: '/product-newsletter/'
             }
         }
     };
 
     describe('when passing in brandPropStub', () => {
         before(() => {
-            reactModule = Context.mountComponent(brandNewsletter, { }, [contextConfigStub]);
+            reactModule = Context.mountComponent(brandNewsletter, {}, [contextConfigStub]);
         });
 
         it('should render a component with a class of newsletter-subscribe__button', () => {
@@ -35,8 +34,7 @@ describe(`brandNewsletter`, () => {
 
         it('should render an anchor with a src of product newsletterUrl', () => {
             const a = TestUtils.findRenderedDOMComponentWithTag(reactModule, 'a');
-            expect(a.href).to.eq("/product-newsletter/");
+            expect(a.href).to.eq('/product-newsletter/');
         });
     });
-
 });

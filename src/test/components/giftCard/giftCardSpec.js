@@ -13,14 +13,13 @@ describe('GiftCard', () => {
 
     const context = {
         config: {
-            site:  {
+            site: {
                 host: 'https://someurl.com'
             }
         }
     };
 
     describe('when brand prop is passed into component', () => {
-
         describe('imageUrl is set using site host', () => {
             const brandStub = {
                 id: 'gt'

@@ -7,7 +7,6 @@ import Teaser from './teaser';
 import get from 'lodash/object/get';
 
 export default class TeaserListView extends Component {
-
     static displayName = 'TeaserListView';
 
     static propTypes = {
@@ -66,10 +65,14 @@ export default class TeaserListView extends Component {
         let ad = null;
 
         if (showAd) {
-            ad = items.length > 1 ?
-                (<StickyBlock carriageYPosition={95} breakpoints={['medium', 'large', 'xlarge']}>
+            ad =
+                items.length > 1 ? (
+                    <StickyBlock carriageYPosition={95} breakpoints={['medium', 'large', 'xlarge']}>
+                        <Ad {...adProps} />
+                    </StickyBlock>
+                ) : (
                     <Ad {...adProps} />
-                </StickyBlock>) : <Ad {...adProps} />;
+                );
         }
 
         return (
@@ -77,25 +80,25 @@ export default class TeaserListView extends Component {
                 <div className="row">
                     <div className="teaser-view-container teaser-view-list-container">
                         <TeaserList
-                          listClassName="teaser-view-list"
-                          CustomisedTeaser={Teaser}
-                          showDate={showDate}
-                          articles={items}
-                          showSubSection
-                          imageSizes={sizes}
-                          adPosition={4}
-                          adConfig={{
-                              className: 'ad--teaser-list',
-                              displayFor: 'small',
-                              sizes: 'mrec',
-                              targets: adProps.targets,
-                              pageLocation: Ad.pos.body
-                          }}
-                          nativeAdConfig={nativeAdConfig}
-                          loadAgain={loadAgain}
+                            listClassName="teaser-view-list"
+                            CustomisedTeaser={Teaser}
+                            showDate={showDate}
+                            articles={items}
+                            showSubSection
+                            imageSizes={sizes}
+                            adPosition={4}
+                            adConfig={{
+                                className: 'ad--teaser-list',
+                                displayFor: 'small',
+                                sizes: 'mrec',
+                                targets: adProps.targets,
+                                pageLocation: Ad.pos.body
+                            }}
+                            nativeAdConfig={nativeAdConfig}
+                            loadAgain={loadAgain}
                         />
                     </div>
-                    { ad }
+                    {ad}
                 </div>
             </div>
         );

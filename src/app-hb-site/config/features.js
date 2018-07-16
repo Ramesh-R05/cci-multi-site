@@ -52,7 +52,7 @@ export default {
             { ca: '10034219', a: 'yp0d3p0a' }, // HB pixel
             { ca: '20001092', a: 'jmtr1l0t' }, // Rollup pixel
             { ca: '20002303', a: 'qv7034ra' }, // Luxury pixel
-            { ca: '20002304', a: '30tp4z58' }  // Women's sites pixel
+            { ca: '20002304', a: '30tp4z58' } // Women's sites pixel
         ]
     },
     feedCarousel: {

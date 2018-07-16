@@ -44,11 +44,27 @@ export default function bff(server) {
         );
         server.get(
             '(/:preview(preview))?/amp/:section/:page',
-            pageModules, commercialTag, section, page, article, gallery, headerMeta, responseBody, amp
+            pageModules,
+            commercialTag,
+            section,
+            page,
+            article,
+            gallery,
+            headerMeta,
+            responseBody,
+            amp
         );
         server.get(
             '(/:preview(preview))?/amp/:section/:subsection/:page',
-            pageModules, commercialTag, section, page, article, gallery, headerMeta, responseBody, amp
+            pageModules,
+            commercialTag,
+            section,
+            page,
+            article,
+            gallery,
+            headerMeta,
+            responseBody,
+            amp
         );
         server.get(server.locals.config.services.endpoints.list, commercialTag, list, https, render, error);
         server.get(
@@ -71,16 +87,6 @@ export default function bff(server) {
             render,
             error
         );
-        server.get(
-            server.locals.config.services.endpoints.search,
-            pageModules,
-            commercialTag,
-            comScore,
-            headerMeta,
-            search,
-            https,
-            render,
-            error
-        );
+        server.get(server.locals.config.services.endpoints.search, pageModules, commercialTag, comScore, headerMeta, search, https, render, error);
     }
 }

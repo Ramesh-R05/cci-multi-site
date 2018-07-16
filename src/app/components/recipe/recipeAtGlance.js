@@ -37,7 +37,7 @@ export default class RecipeAtGlance extends Component {
 
         const recipeCookingTimeFiltered = ((recipeCookingTime && recipeCookingTime.times) || []).filter(time => parseInt(time.minutes, 10));
 
-        return recipeCookingTimeFiltered.map((time) => {
+        return recipeCookingTimeFiltered.map(time => {
             const minInt = parseInt(time.minutes, 10) || 0;
             const hours = Math.floor(minInt / 60);
             const mins = minInt % 60;
@@ -55,12 +55,16 @@ export default class RecipeAtGlance extends Component {
         const getRecipeServingsDetail = RecipeAtGlance.getRecipeServings(recipeServings);
         const getRecipeCookingTimeDtails = RecipeAtGlance.getRecipeCookingTime(recipeCookingTime);
 
-        if (getRecipeServingsDetail) { glanceDetails.push(getRecipeServingsDetail); }
-        if (getRecipeCookingTimeDtails.length) { glanceDetails = glanceDetails.concat(getRecipeCookingTimeDtails); }
+        if (getRecipeServingsDetail) {
+            glanceDetails.push(getRecipeServingsDetail);
+        }
+        if (getRecipeCookingTimeDtails.length) {
+            glanceDetails = glanceDetails.concat(getRecipeCookingTimeDtails);
+        }
 
         if (glanceDetails.length === 0) return null;
 
-        return glanceDetails.map((detail, id) => (<li key={id.toString()}>{detail}</li>));
+        return glanceDetails.map((detail, id) => <li key={id.toString()}>{detail}</li>);
     }
 
     render() {
@@ -68,6 +72,6 @@ export default class RecipeAtGlance extends Component {
         const glanceDetails = this.getGlanceDetails();
         if (!recipeAtGlance || Object.keys(recipeAtGlance).length === 0 || !glanceDetails) return null;
 
-        return (<ul className="article__at_glance">{glanceDetails}</ul>);
+        return <ul className="article__at_glance">{glanceDetails}</ul>;
     }
 }

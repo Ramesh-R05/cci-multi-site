@@ -21,10 +21,7 @@ class StickyAndDockAd extends Component {
         offsetTop: PropTypes.number,
         offsetBottom: PropTypes.number,
         viewport: PropTypes.object.isRequired,
-        children: PropTypes.oneOfType([
-            PropTypes.arrayOf(PropTypes.element),
-            PropTypes.element
-        ]),
+        children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]),
         adStyle: PropTypes.object,
         adContainerStyle: PropTypes.object,
         customiseBreakpoint: PropTypes.number,
@@ -80,7 +77,8 @@ class StickyAndDockAd extends Component {
         window.addEventListener('scroll', this.onScroll);
     }
 
-    getTopOffset(el) { // eslint-disable-line class-methods-use-this
+    // eslint-disable-next-line class-methods-use-this
+    getTopOffset(el) {
         return el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || 0);
     }
 
@@ -123,7 +121,12 @@ class StickyAndDockAd extends Component {
         return (
             <div style={adContainerStyleWithDefault}>
                 <span style={this.state.styles.stickyContainer}>
-                    <div style={adStyleWithDefault} ref={(c) => { this.ad = c; }}>
+                    <div
+                        style={adStyleWithDefault}
+                        ref={c => {
+                            this.ad = c;
+                        }}
+                    >
                         {children}
                     </div>
                 </span>

@@ -17,6 +17,6 @@ export default class Social extends Component {
             url: socialUrls[socialItemName]
         }));
 
-        return (<SocialLinks links={links} />);
+        return <SocialLinks links={links} />;
     }
 }

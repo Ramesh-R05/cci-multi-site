@@ -51,7 +51,7 @@ export default {
         pixels: [
             { ca: '10034215', a: 'yp0d3p0a' }, // Cosmo pixel
             { ca: '20001092', a: 'jmtr1l0t' }, // Rollup pixel
-            { ca: '20002304', a: '30tp4z58' }  // Women's sites pixel
+            { ca: '20002304', a: '30tp4z58' } // Women's sites pixel
         ]
     },
     feedCarousel: {

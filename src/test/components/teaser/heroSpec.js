@@ -1,7 +1,7 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
-import proxyquire, {noCallThru} from 'proxyquire';
+const { React, ReactDOM, TestUtils } = Context;
+import proxyquire, { noCallThru } from 'proxyquire';
 import { shallow } from 'enzyme';
 noCallThru();
 
@@ -34,14 +34,14 @@ const contextConfigStub = {
                 twitter: 'https://twitter.com/GourmetTweets',
                 instagram: 'https://www.instagram.com/gourmettraveller/',
                 pinterest: 'https://www.pinterest.com.au/gourmetpins/',
-                'gift-card': 'gift-card',
+                'gift-card': 'gift-card'
             }
         }
     }
 };
 
 describe('Hero Teaser Component', () => {
-    const article = {id: 'HERO-TEASER', title: 'title', source: 'Australian women\'s weekly'};
+    const article = { id: 'HERO-TEASER', title: 'title', source: "Australian women's weekly" };
     const defaultImageSizes = {
         s: { w: 700, h: 583 },
         m: { w: 619, h: 515 },
@@ -66,7 +66,7 @@ describe('Hero Teaser Component', () => {
 
     describe('when passing an article', () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(HeroTeaser, {article}, [contextConfigStub]);
+            reactModule = Context.mountComponent(HeroTeaser, { article }, [contextConfigStub]);
             TeaserComponent = TestUtils.findRenderedComponentWithType(reactModule, TeaserStub);
         });
 
@@ -77,16 +77,16 @@ describe('Hero Teaser Component', () => {
 
         it(`should render the teaser component with relevant props`, () => {
             expect(TeaserComponent.props).to.deep.eq({
-                className: "hero-teaser",
+                className: 'hero-teaser',
                 article,
                 imageSizes: defaultImageSizes,
-                sourceClassName: "hero-teaser__source",
+                sourceClassName: 'hero-teaser__source',
                 showDate: true
-            })
+            });
         });
 
         it('should render 1 ad', () => {
-            const wrapper =  shallow(<HeroTeaser article={article} />);
+            const wrapper = shallow(<HeroTeaser article={article} />);
             const elm = wrapper.find(TeaserStub);
             expect(elm.length).to.be.equal(1);
         });
@@ -94,7 +94,7 @@ describe('Hero Teaser Component', () => {
 
     describe('when passing both article, imageSizes and showDate prop', () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(HeroTeaser, {article, imageSizes, showDate: false}, [contextConfigStub]);
+            reactModule = Context.mountComponent(HeroTeaser, { article, imageSizes, showDate: false }, [contextConfigStub]);
             TeaserComponent = TestUtils.findRenderedComponentWithType(reactModule, TeaserStub);
         });
 

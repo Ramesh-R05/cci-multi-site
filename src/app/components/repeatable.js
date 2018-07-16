@@ -2,7 +2,6 @@ import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 
 export default class Repeatable extends Component {
-
     static propTypes = {
         component: PropTypes.instanceOf(Component).isRequired,
         action: PropTypes.func.isRequired,
@@ -33,24 +32,15 @@ export default class Repeatable extends Component {
     }
 
     render() {
-        const {
-            component: ChildComponent,
-            dataSource,
-            ...otherProps
-        } = this.props;
+        const { component: ChildComponent, dataSource, ...otherProps } = this.props;
 
         const items = dataSource.items;
 
         if (!items || items.length === 0) return null;
 
         const repeatableComponents = items.map((item, i) => (
-            <ChildComponent
-              key={item.id || i}
-              index={i} items={item}
-              {...otherProps}
-              loadAgain={i === items.length - 1}
-            />
-            ));
+            <ChildComponent key={item.id || i} index={i} items={item} {...otherProps} loadAgain={i === items.length - 1} />
+        ));
 
         const prevUrl = dataSource.previous && dataSource.previous.path;
         const prevProps = {

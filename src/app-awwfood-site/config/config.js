@@ -7,7 +7,6 @@ import site from './site';
 import polar from './polar';
 
 export default {
-
     ga: { id: 'UA-57795117-12' },
 
     gtm: { masthead: 'AWWFOOD', id: 'GTM-MHX78ZT' }, // TODO: Check that the masthead is correct
@@ -72,7 +71,7 @@ export default {
             twitter: 'https://twitter.com/GourmetTweets',
             instagram: 'https://www.instagram.com/gourmettraveller/',
             pinterest: 'https://www.pinterest.com.au/gourmetpins/',
-            'gift-card': 'gift-card',
+            'gift-card': 'gift-card'
         },
 
         newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kf/signup-gourmettraveller-article-iframe-bottom' // TODO: update this URL
@@ -129,7 +128,7 @@ export default {
                 id: 'elle',
                 imageUrl: '/assets/images/menulogos/elle-logo.svg',
                 url: 'http://elle.com.au/',
-                title: "Elle"
+                title: 'Elle'
             },
             {
                 id: 'harpers',
@@ -160,12 +159,11 @@ export default {
             "Australian Women's Weekly": 'AWW'
         }
     },
-    outbrain: { // TODO: change this for awwfood
-        templateId: 'Harper\'sBazaarAU',
+    outbrain: {
+        // TODO: change this for awwfood
+        templateId: "Harper'sBazaarAU",
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
     nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708' // TODO: change this ID
-
 };
-

@@ -85,41 +85,41 @@ export default class Document extends Component {
         if (nodeType === 'Gallery') {
             return (
                 <Page
-                  currentUrl={currentUrl}
-                  headerExpanded={config.features.headerExpanded && themeEnabled}
-                  hideFooter={false}
-                  theme={themeEnabled ? theme : {}}
+                    currentUrl={currentUrl}
+                    headerExpanded={config.features.headerExpanded && themeEnabled}
+                    hideFooter={false}
+                    theme={themeEnabled ? theme : {}}
                 >
                     <VerticalGallery
-                      articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'ImageCount', 'NativeAd', 'Hero']}
-                      contentBodyConfig={Document.articleContentBodyConfig}
-                      enableTeads
-                      CustomisedTeaser={Teaser}
-                      showAdBeforeRecommendations
-                      showSocialShare
-                      socialShare={socialShare}
-                      theme={theme}
+                        articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'ImageCount', 'NativeAd', 'Hero']}
+                        contentBodyConfig={Document.articleContentBodyConfig}
+                        enableTeads
+                        CustomisedTeaser={Teaser}
+                        showAdBeforeRecommendations
+                        showSocialShare
+                        socialShare={socialShare}
+                        theme={theme}
                     />
                 </Page>
             );
         } else if (nodeType === 'Recipe') {
             return (
                 <Page
-                  currentUrl={currentUrl}
-                  headerExpanded={config.features.headerExpanded && themeEnabled}
-                  hideFooter={false}
-                  theme={themeEnabled ? theme : {}}
+                    currentUrl={currentUrl}
+                    headerExpanded={config.features.headerExpanded && themeEnabled}
+                    hideFooter={false}
+                    theme={themeEnabled ? theme : {}}
                 >
                     <RecipeSection
-                      articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
-                      contentBodyConfig={Document.articleContentBodyConfig}
-                      enableTeads
-                      CustomisedTeaser={Teaser}
-                      showAdBeforeRecommendations
-                      showSocialShare
-                      socialShare={socialShare}
-                      theme={theme}
-                      adSpacing={6}
+                        articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
+                        contentBodyConfig={Document.articleContentBodyConfig}
+                        enableTeads
+                        CustomisedTeaser={Teaser}
+                        showAdBeforeRecommendations
+                        showSocialShare
+                        socialShare={socialShare}
+                        theme={theme}
+                        adSpacing={6}
                     />
                 </Page>
             );
@@ -127,20 +127,20 @@ export default class Document extends Component {
 
         return (
             <Page
-              currentUrl={currentUrl}
-              headerExpanded={config.features.headerExpanded && themeEnabled}
-              hideFooter={false}
-              theme={themeEnabled ? theme : {}}
+                currentUrl={currentUrl}
+                headerExpanded={config.features.headerExpanded && themeEnabled}
+                hideFooter={false}
+                theme={themeEnabled ? theme : {}}
             >
                 <Article
-                  articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
-                  contentBodyConfig={Document.articleContentBodyConfig}
-                  enableTeads
-                  CustomisedTeaser={Teaser}
-                  showAdBeforeRecommendations
-                  showSocialShare
-                  socialShare={socialShare}
-                  theme={theme}
+                    articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
+                    contentBodyConfig={Document.articleContentBodyConfig}
+                    enableTeads
+                    CustomisedTeaser={Teaser}
+                    showAdBeforeRecommendations
+                    showSocialShare
+                    socialShare={socialShare}
+                    theme={theme}
                 />
             </Page>
         );

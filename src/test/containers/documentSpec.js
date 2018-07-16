@@ -1,7 +1,7 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
-import proxyquire, {noCallThru} from 'proxyquire';
+const { React, ReactDOM, TestUtils } = Context;
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const ArticleStub = Context.createStubComponent();
@@ -32,7 +32,7 @@ const contextConfigStub = {
 };
 
 describe('Document Component', () => {
-    const headerPinPoints = {expanded: {}};
+    const headerPinPoints = { expanded: {} };
     const navItems = [];
     const siteName = 'Dolly';
     const articleContent = { title: 'Title Test' };
@@ -48,7 +48,9 @@ describe('Document Component', () => {
         let reactModule;
 
         beforeEach(() => {
-            reactModule = Context.mountComponent(Document, {headerPinPoints, navItems, siteName, nodeType, currentUrl: '/url'}, [contextConfigStub]);
+            reactModule = Context.mountComponent(Document, { headerPinPoints, navItems, siteName, nodeType, currentUrl: '/url' }, [
+                contextConfigStub
+            ]);
         });
 
         it(`should render the Article Component passing down relevant props`, () => {
@@ -74,7 +76,7 @@ describe('Document Component', () => {
             });
         });
 
-        it ('should pass the appropriate props', () => {
+        it('should pass the appropriate props', () => {
             const PageComponent = TestUtils.findRenderedComponentWithType(reactModule, PageStub);
             expect(PageComponent.props).to.deep.contain({
                 headerExpanded: false,
@@ -95,7 +97,7 @@ describe('Document Component', () => {
         let reactModule;
 
         before(() => {
-            reactModule = Context.mountComponent(Document, {headerPinPoints, navItems, siteName, nodeType}, [contextConfigStub]);
+            reactModule = Context.mountComponent(Document, { headerPinPoints, navItems, siteName, nodeType }, [contextConfigStub]);
         });
 
         it(`should render the Gallery Component`, () => {

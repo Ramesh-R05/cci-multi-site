@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import Subscribe from './subscribe/subscribe';
 
 export default class FooterSubscribe extends Component {
-
     static propTypes = {
         content: PropTypes.object.isRequired,
         isDisplayed: PropTypes.bool

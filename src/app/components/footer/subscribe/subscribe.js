@@ -20,16 +20,12 @@ export default class Subscribe extends Component {
         const { subscribeHeading, magCover } = content;
         const magCoverImageUrl = magCover && magCover.moduleImageUrl;
         const magCoverText = magCover && magCover.moduleTitle;
-        const xLargeGridClass = (!inSideNav) ? 'xlarge-6' : '';
+        const xLargeGridClass = !inSideNav ? 'xlarge-6' : '';
 
         return (
             <div className="subscribe">
                 <div className="row">
-
-                    { magCoverImageUrl && <SubscribeMagBlock
-                      inSideNav={inSideNav}
-                      magCoverUrl={magCoverImageUrl}
-                    /> }
+                    {magCoverImageUrl && <SubscribeMagBlock inSideNav={inSideNav} magCoverUrl={magCoverImageUrl} />}
 
                     <div className={`small-12 ${xLargeGridClass} medium-6 columns`}>
                         <div className="subscribe__subscribe">
@@ -37,10 +33,10 @@ export default class Subscribe extends Component {
                             <p className="subscribe__content">{magCoverText}</p>
                             <div className="subscribe__action">
                                 <a
-                                  className="button button--link button--subscribe"
-                                  href="/subscribe-magazine"
-                                  target="_blank"
-                                  onClick={this.fireEvent}
+                                    className="button button--link button--subscribe"
+                                    href="/subscribe-magazine"
+                                    target="_blank"
+                                    onClick={this.fireEvent}
                                 >
                                     Subscribe
                                 </a>

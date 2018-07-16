@@ -1,8 +1,6 @@
-import {initialState, reducer} from '../../app/reducers/loadPage';
-
+import { initialState, reducer } from '../../app/reducers/loadPage';
 
 describe(`loadPage Reducer`, () => {
-
     const DEFAULT_MAGCOVER = {
         moduleImageUrl: '/path/to/magCover.jpg',
         moduleTitle: 'Subscribe Now'
@@ -45,7 +43,7 @@ describe(`loadPage Reducer`, () => {
             });
 
             it(`should still return the new items `, () => {
-                expect(reducer(initialState, {body}, 'LOAD_CONTENT')).to.contain.all.keys({
+                expect(reducer(initialState, { body }, 'LOAD_CONTENT')).to.contain.all.keys({
                     error: null,
                     footer: payload.body.footer,
                     nodeType: payload.body.entity.nodeType,
@@ -136,5 +134,5 @@ describe(`loadPage Reducer`, () => {
         it(`should return the initalState`, () => {
             expect(reducer(initialState, payload)).to.deep.eq(initialState);
         });
-    })
+    });
 });

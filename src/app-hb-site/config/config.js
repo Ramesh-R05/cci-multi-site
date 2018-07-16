@@ -7,7 +7,6 @@ import site from './site';
 import polar from './polar';
 
 export default {
-
     ga: { id: 'UA-8689567-1' },
 
     gtm: { masthead: 'HB', id: 'GTM-NX2PKZ' },
@@ -43,14 +42,14 @@ export default {
 
     error: {
         404: {
-            title: 'Whoops! Looks like we don\'t have the page you’re looking for.',
+            title: "Whoops! Looks like we don't have the page you’re looking for.",
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.jpg',
             returnHomeText: 'Try refreshing this page or join us back on the <span class="error-page__text-hyperlink">homepage</span>.'
         },
         503: {
-            title: 'Whoops! Looks like we don\'t have the page you\'re looking for.',
+            title: "Whoops! Looks like we don't have the page you're looking for.",
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.jpg',
@@ -125,7 +124,7 @@ export default {
                 id: 'elle',
                 imageUrl: '/assets/images/menulogos/elle-logo.svg',
                 url: 'http://elle.com.au/',
-                title: "Elle"
+                title: 'Elle'
             },
             {
                 id: 'gt',
@@ -157,11 +156,9 @@ export default {
         }
     },
     outbrain: {
-        templateId: 'Harper\'sBazaarAU',
+        templateId: "Harper'sBazaarAU",
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
     nielsen: 'B18AE936-92F1-49ED-ADA2-B6E10FAF25C7'
-
 };
-

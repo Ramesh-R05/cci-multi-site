@@ -14,7 +14,7 @@ const environment = (process.env.APP_ENV || process.env.NODE_ENV || 'local').toL
 
 const configApi = {
     get(configPath, defaultValue = '') {
-        return configPath.split('.').reduce((prev, curr) => prev ? prev[curr] : undefined, this) || defaultValue;
+        return configPath.split('.').reduce((prev, curr) => (prev ? prev[curr] : undefined), this) || defaultValue;
     },
     isFeatureEnabled(feature) {
         return this.get(`features.${feature}.enabled`, false);
@@ -29,10 +29,4 @@ const config = load('./config');
 
 const environmentConfig = load(`./environments/${environment}`);
 
-export default mergeWith(
-    env,
-    configApi,
-    config,
-    environmentConfig,
-    (objValue, srcValue) => Array.isArray(objValue) ? srcValue : undefined
-);
+export default mergeWith(env, configApi, config, environmentConfig, (objValue, srcValue) => (Array.isArray(objValue) ? srcValue : undefined));

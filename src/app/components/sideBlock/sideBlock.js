@@ -5,7 +5,6 @@ import GiftCard from '../giftCard/giftCard';
 import SocialContainer from '../social/block';
 
 export default class SideBlock extends Component {
-
     static displayName = 'SideBlock';
 
     static propTypes = {
@@ -36,17 +35,18 @@ export default class SideBlock extends Component {
 
     render() {
         const { config } = this.context;
-        const { showBrandMagazine, showBrandNewsletter, showGiftCard, showSocial, brand, isHero,
-            magazineImageUrl } = this.props;
+        const { showBrandMagazine, showBrandNewsletter, showGiftCard, showSocial, brand, isHero, magazineImageUrl } = this.props;
 
         return (
             <div className={isHero ? 'hide-for-large-up' : ''}>
-                { showBrandMagazine && <BrandMagazine brand={brand} magazineImageUrl={magazineImageUrl} /> }
-                { showBrandNewsletter && <BrandNewsletter /> }
-                { showGiftCard && <GiftCard brand={brand} /> }
-                { showSocial && <div className="page__get-social-container columns medium-6 large-12">
-                    <SocialContainer socialUrls={config.urls.socialUrls} />
-                </div> }
+                {showBrandMagazine && <BrandMagazine brand={brand} magazineImageUrl={magazineImageUrl} />}
+                {showBrandNewsletter && <BrandNewsletter />}
+                {showGiftCard && <GiftCard brand={brand} />}
+                {showSocial && (
+                    <div className="page__get-social-container columns medium-6 large-12">
+                        <SocialContainer socialUrls={config.urls.socialUrls} />
+                    </div>
+                )}
             </div>
         );
     }

@@ -13,13 +13,13 @@ const MobileCanvasStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
 
 let reactModuleInstance;
-const ViewportStub = (CompositeComponent) => {
+const ViewportStub = CompositeComponent => {
     return class extends React.Component {
         render() {
             reactModuleInstance = CompositeComponent;
-            return <CompositeComponent { ...this.props } />;
+            return <CompositeComponent {...this.props} />;
         }
-    }
+    };
 };
 
 let initializeStub = () => {};
@@ -35,7 +35,7 @@ const GalleryActionsStub = {
 };
 
 const GallerySection = proxyquire('../../app/containers/gallery', {
-    'react': React,
+    react: React,
     '@bxm/site-header': HeaderStub,
     '@bxm/gallery/lib/components/page/main': MainStub,
     '@bxm/gallery/lib/components/page/aside': AsideStub,
@@ -45,7 +45,7 @@ const GallerySection = proxyquire('../../app/containers/gallery', {
     '@bxm/nav/lib/components/offcanvas/content': MobileCanvasStub,
     '../components/footer': FooterStub,
     '@bxm/ad/lib/google/components/standardPageAdsWrapper': StandardPageAdsWrapperStub,
-    '@bxm/nav/lib/components/hamburgerWrapper': (component) => component
+    '@bxm/nav/lib/components/hamburgerWrapper': component => component
 }).default;
 
 AdStub.pos = {
@@ -55,19 +55,22 @@ AdStub.pos = {
     wallpaper: 'wallpaper',
     inskin: 'inskin',
     panel: 'panel'
-}
+};
 
 const gallery = {
     summary: 'Gallery Summary',
     title: 'Gallery Title',
     name: 'GalleryName',
-    tagsDetails: [{
-        name: 'location:citytown:Toronto',
-        fullName: 'Toronto'
-    }, {
-        name: 'location:Homes navigation:Nav Item',
-        fullName: 'Nav Item'
-    }],
+    tagsDetails: [
+        {
+            name: 'location:citytown:Toronto',
+            fullName: 'Toronto'
+        },
+        {
+            name: 'location:Homes navigation:Nav Item',
+            fullName: 'Nav Item'
+        }
+    ],
     imageUrl: 'http://image.com/image.jpg',
     dateCreated: '1/1/2000',
     siteUrl: 'http://homestolove.com.au',
@@ -86,7 +89,8 @@ const ads = { data: {}, id: 1, rendered: false, viewed: false, failed: false };
 const isAdSlideItem = false;
 const isAdViewed = false;
 const magCover = {
-    moduleImageUrl: "http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/27/6096/0018975_elle-australia-magazine-subscription.png",
+    moduleImageUrl:
+        'http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Elle/2017/03/27/6096/0018975_elle-australia-magazine-subscription.png',
     moduleTitle: 'Subscribe Now'
 };
 function addStores() {
@@ -178,15 +182,15 @@ describe('GallerySection', () => {
         it('should render the ad', () => {
             expect(ad.props).to.deep.eq({
                 reloadOnResourceChange: 0,
-                className: "gallery__mobile-ad",
-                label: {active: false},
+                className: 'gallery__mobile-ad',
+                label: { active: false },
                 displayFor: ['small', 'medium', 'large', 'xlarge'],
                 sizes: {
                     large: 'leaderboard',
                     medium: 'leaderboard',
                     small: 'banner'
                 },
-                pageLocation: "outside",
+                pageLocation: 'outside',
                 targets: {
                     keyword: ['Toronto', 'Nav Item']
                 }
@@ -332,7 +336,7 @@ describe('GallerySection', () => {
             });
 
             it('should not call the reload and hide the body element', () => {
-                expect(document.body.style.display).to.eq('')
+                expect(document.body.style.display).to.eq('');
                 expect(reloadStub).to.not.have.been.called;
                 galleryComp.onPop();
                 expect(document.body.style.display).to.eq('none');

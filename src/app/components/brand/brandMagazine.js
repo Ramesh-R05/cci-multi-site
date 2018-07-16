@@ -4,7 +4,6 @@ import ResponsiveImage from '@bxm/ui/lib/common/ResponsiveImage';
 import get from 'lodash/object/get';
 
 export default class BrandMagazine extends Component {
-
     static propTypes = {
         magazineImageUrl: PropTypes.string,
         brand: PropTypes.object.isRequired,
@@ -46,23 +45,25 @@ export default class BrandMagazine extends Component {
         return (
             <div className="brand--magazine-container">
                 {renderSubscribeElements && <span className="brand--magazine-title">Subscribe to {magazineTitle || title}</span>}
-                {magazineImageUrl && <div className="brand--magazine-image">
-                    <ResponsiveImage
-                      alt=""
-                      url={magazineImageUrl}
-                      sizes={sizes}
-                      breakpoints={breakpoints}
-                      scale={responsiveConfig.scale}
-                      mode={responsiveConfig.mode}
-                      anchor={responsiveConfig.anchor}
-                      quality={80}
-                    />
-                </div>}
-                {renderSubscribeElements &&
-                <a target="_blank" className={`gtm-subscribe-${id}`} href={buttonUrl}>
-                    <span className="button button--link button--subscribe">{buttonText}</span>
-                </a>
-                }
+                {magazineImageUrl && (
+                    <div className="brand--magazine-image">
+                        <ResponsiveImage
+                            alt=""
+                            url={magazineImageUrl}
+                            sizes={sizes}
+                            breakpoints={breakpoints}
+                            scale={responsiveConfig.scale}
+                            mode={responsiveConfig.mode}
+                            anchor={responsiveConfig.anchor}
+                            quality={80}
+                        />
+                    </div>
+                )}
+                {renderSubscribeElements && (
+                    <a target="_blank" className={`gtm-subscribe-${id}`} href={buttonUrl}>
+                        <span className="button button--link button--subscribe">{buttonText}</span>
+                    </a>
+                )}
             </div>
         );
     }

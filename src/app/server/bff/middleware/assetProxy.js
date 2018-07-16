@@ -11,7 +11,9 @@ function send(res, header, status, text, body) {
     const h = { ...header };
     // eslint-disable-next-line semi
     delete h['content-length'];
-    res.set(h).status(status).send(text || body);
+    res.set(h)
+        .status(status)
+        .send(text || body);
 }
 
 export default function assetProxy({ originalUrl }, res) {

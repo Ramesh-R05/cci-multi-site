@@ -7,7 +7,6 @@ import site from './site';
 import polar from './polar';
 
 export default {
-
     ga: { id: 'UA-8689462-1' },
 
     gtm: { masthead: 'COSMO', id: 'GTM-K774C2' },
@@ -29,7 +28,7 @@ export default {
     ads: {
         targets: { env: 'test' },
         blocked: {
-            sections: [ 'sex' ],
+            sections: ['sex'],
             tags: [
                 'common:topic:Sex stories',
                 'common:topic:Sex positions',

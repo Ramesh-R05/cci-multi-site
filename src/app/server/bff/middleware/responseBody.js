@@ -32,12 +32,14 @@ export default function responseBody(req, res, next) {
 
         if (get(req, 'data.mustread')) {
             res.body.mustRead = parseEntities(req.data.mustread, {
-                title: 'title', imageUrl: 'imageUrl', location: 'url'
+                title: 'title',
+                imageUrl: 'imageUrl',
+                location: 'url'
             });
         }
 
         if (get(req, 'data.leftHandSide')) {
-            const lhsData = req.data.leftHandSide.data.map((lhsTeaser) => {
+            const lhsData = req.data.leftHandSide.data.map(lhsTeaser => {
                 const withDefaultImg = { ...lhsTeaser };
                 withDefaultImg.contentImageUrl = withDefaultImg.contentImageUrl || req.app.locals.config.defaultImageUrl;
                 return withDefaultImg;
@@ -80,7 +82,9 @@ export default function responseBody(req, res, next) {
             };
 
             res.body.promoted.items = parseEntities(req.data.promoted.items, {
-                title: 'title', imageUrl: 'imageUrl', location: 'url'
+                title: 'title',
+                imageUrl: 'imageUrl',
+                location: 'url'
             });
 
             res.body.promoted.title = req.data.promoted.title;

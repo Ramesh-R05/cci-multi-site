@@ -16,7 +16,7 @@ export default function loadPageContent(context, payload) {
     };
 
     return pageService.read(args).then(
-        (content) => {
+        content => {
             if (content instanceof Error) context.dispatch('LOAD_CONTENT_FAILED', content);
             else context.dispatch('LOAD_CONTENT', { ...content, request: { payload } });
         },

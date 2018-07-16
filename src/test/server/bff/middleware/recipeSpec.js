@@ -1,13 +1,15 @@
 import proxyquire, { noCallThru } from 'proxyquire';
-import article from '../../../mocks/article'
-import listing from '../../../mocks/listing'
+import article from '../../../mocks/article';
+import listing from '../../../mocks/listing';
 noCallThru();
 
 let getLatestTeasersStub = () => {};
 
 const recipeMiddleware = proxyquire('../../../../app/server/bff/middleware/recipe', {
     '../api/listing': {
-        getLatestTeasers: () => { return getLatestTeasersStub() }
+        getLatestTeasers: () => {
+            return getLatestTeasersStub();
+        }
     }
 }).default;
 
@@ -24,7 +26,6 @@ describe('Recipe middleware', () => {
     let req;
 
     describe('when nodeTypeAlias is NOT `Recipe`', () => {
-
         before(() => {
             req = {
                 data: { entity: article }
@@ -38,12 +39,14 @@ describe('Recipe middleware', () => {
             req.data.entity.nodeTypeAlias = validNodeType;
         });
 
-        it('should not set leftHandSide on `req.data` object', (done) => {
-            recipeMiddleware(req, res, next).then(() => {
-                expect(req.data).to.not.include.keys('leftHandSide');
-                expect(next).to.be.called;
-                done();
-            }).catch(done);
+        it('should not set leftHandSide on `req.data` object', done => {
+            recipeMiddleware(req, res, next)
+                .then(() => {
+                    expect(req.data).to.not.include.keys('leftHandSide');
+                    expect(next).to.be.called;
+                    done();
+                })
+                .catch(done);
         });
     });
 
@@ -99,7 +102,6 @@ describe('Recipe middleware', () => {
         });
 
         describe('when sectionId has a value', () => {
-
             before(() => {
                 reqBase = {
                     query: {
@@ -121,13 +123,15 @@ describe('Recipe middleware', () => {
                 getLatestTeasersStub = sinon.stub().resolves(listing);
             });
 
-            it('should set leftHandSide in req.data with `getLatestTeasers` response', (done) => {
-                recipeMiddleware(req, res, next).then(() => {
-                    expect(req.data).to.include.keys('leftHandSide');
-                    expect(req.data.leftHandSide).to.equal(listing);
-                    expect(next).to.be.called;
-                    done();
-                }).catch(done);
+            it('should set leftHandSide in req.data with `getLatestTeasers` response', done => {
+                recipeMiddleware(req, res, next)
+                    .then(() => {
+                        expect(req.data).to.include.keys('leftHandSide');
+                        expect(req.data.leftHandSide).to.equal(listing);
+                        expect(next).to.be.called;
+                        done();
+                    })
+                    .catch(done);
             });
         });
     });

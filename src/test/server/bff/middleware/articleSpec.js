@@ -1,13 +1,15 @@
 import proxyquire, { noCallThru } from 'proxyquire';
-import article from '../../../mocks/article'
-import listing from '../../../mocks/listing'
+import article from '../../../mocks/article';
+import listing from '../../../mocks/listing';
 noCallThru();
 
 let getLatestTeasersStub = () => {};
 
 const articleMiddleware = proxyquire('../../../../app/server/bff/middleware/article', {
     '../api/listing': {
-        getLatestTeasers: () => { return getLatestTeasersStub() }
+        getLatestTeasers: () => {
+            return getLatestTeasersStub();
+        }
     }
 }).default;
 
@@ -24,7 +26,6 @@ describe('Article middleware', () => {
     let req;
 
     describe('when nodeTypeAlias is NOT `Article`', () => {
-
         before(() => {
             req = {
                 data: { entity: article }
@@ -38,17 +39,18 @@ describe('Article middleware', () => {
             req.data.entity.nodeTypeAlias = validNodeType;
         });
 
-        it('should not set leftHandSide on `req.data` object', (done) => {
-            articleMiddleware(req, res, next).then(() => {
-                expect(req.data).to.not.include.keys('leftHandSide');
-                expect(next).to.be.called;
-                done();
-            }).catch(done);
+        it('should not set leftHandSide on `req.data` object', done => {
+            articleMiddleware(req, res, next)
+                .then(() => {
+                    expect(req.data).to.not.include.keys('leftHandSide');
+                    expect(next).to.be.called;
+                    done();
+                })
+                .catch(done);
         });
     });
 
     describe('when there is no sectionId', () => {
-
         before(() => {
             delete req.data.entity.sectionId;
         });
@@ -57,12 +59,14 @@ describe('Article middleware', () => {
             req.data.entity.sectionId = validSectionId;
         });
 
-        it('should set leftHandSide on `req.data` object', (done) => {
-            articleMiddleware(req, res, next).then(() => {
-                expect(req.data).to.include.keys('leftHandSide');
-                expect(next).to.be.called;
-                done();
-            }).catch(done);
+        it('should set leftHandSide on `req.data` object', done => {
+            articleMiddleware(req, res, next)
+                .then(() => {
+                    expect(req.data).to.include.keys('leftHandSide');
+                    expect(next).to.be.called;
+                    done();
+                })
+                .catch(done);
         });
     });
 
@@ -118,7 +122,6 @@ describe('Article middleware', () => {
         });
 
         describe('when sectionId has a value', () => {
-
             before(() => {
                 reqBase = {
                     query: {
@@ -140,13 +143,15 @@ describe('Article middleware', () => {
                 getLatestTeasersStub = sinon.stub().resolves(listing);
             });
 
-            it('should set leftHandSide in req.data with `getLatestTeasers` response', (done) => {
-                articleMiddleware(req, res, next).then(() => {
-                    expect(req.data).to.include.keys('leftHandSide');
-                    expect(req.data.leftHandSide).to.equal(listing);
-                    expect(next).to.be.called;
-                    done();
-                }).catch(done);
+            it('should set leftHandSide in req.data with `getLatestTeasers` response', done => {
+                articleMiddleware(req, res, next)
+                    .then(() => {
+                        expect(req.data).to.include.keys('leftHandSide');
+                        expect(req.data.leftHandSide).to.equal(listing);
+                        expect(next).to.be.called;
+                        done();
+                    })
+                    .catch(done);
             });
         });
     });

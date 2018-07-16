@@ -14,10 +14,14 @@ export default async function sectionMiddleware(req, res, next) {
         const { commercialTag, excludeCommercialTagQuery } = req.data;
         pageNo = parseInt(req.query.pageNo || pageNo, 10);
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
-        if ((nodeTypeAlias !== 'Section' &&
-             nodeTypeAlias !== 'Subsection' &&
-             nodeTypeAlias !== 'Brand' &&
-             nodeTypeAlias !== 'CommercialTagSection') || !section || page) {
+        if (
+            (nodeTypeAlias !== 'Section' &&
+                nodeTypeAlias !== 'Subsection' &&
+                nodeTypeAlias !== 'Brand' &&
+                nodeTypeAlias !== 'CommercialTagSection') ||
+            !section ||
+            page
+        ) {
             next();
             return;
         }
@@ -44,9 +48,7 @@ export default async function sectionMiddleware(req, res, next) {
             sectionQuery = `/${section}${subsection ? `/${subsection}` : ''}`;
             teaserFilter = 'parentUrl';
             const sectionListingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
-            listingQuery = excludeCommercialTagQuery ?
-                            `${sectionListingQuery} and ${excludeCommercialTagQuery}` :
-                            sectionListingQuery;
+            listingQuery = excludeCommercialTagQuery ? `${sectionListingQuery} and ${excludeCommercialTagQuery}` : sectionListingQuery;
             req.data.subsectionList = await makeRequest(`${req.app.locals.config.services.remote.module}/sections/${section}`);
         }
 
@@ -58,19 +60,16 @@ export default async function sectionMiddleware(req, res, next) {
             teaserQuery = source.replace(/'/g, "''");
             teaserFilter = 'source';
             const brandListingQuery = `${teaserFilter} eq %27${teaserQuery}%27 and nodeTypeAlias ne %27Brand%27`;
-            listingQuery = excludeCommercialTagQuery ?
-                            `${brandListingQuery} and ${excludeCommercialTagQuery}` :
-                            brandListingQuery;
+            listingQuery = excludeCommercialTagQuery ? `${brandListingQuery} and ${excludeCommercialTagQuery}` : brandListingQuery;
         }
 
-        const skip = ((pageNo - 1) * listCount);
+        const skip = (pageNo - 1) * listCount;
         const latestTeasersResp = await getLatestTeasers(listCount, skip, listingQuery);
         const totalPageFloor = Math.floor(latestTeasersResp.totalCount / listCount);
         const totalPage = latestTeasersResp.totalCount % listCount ? totalPageFloor : totalPageFloor + 1;
         const err = new Error('Page not found');
         err.status = 404;
-        if (totalPage < (pageNo - 1)) throw err;
-
+        if (totalPage < pageNo - 1) throw err;
 
         // TODO: need to handle `data` in resp better
         const latestTeasers = latestTeasersResp || {
@@ -110,9 +109,7 @@ export default async function sectionMiddleware(req, res, next) {
                 filter: teaserFilter,
                 sectionFormatted: section
             },
-            items: [
-                parseEntities(latestTeasers.data.slice(latestTeaserCount))
-            ],
+            items: [parseEntities(latestTeasers.data.slice(latestTeaserCount))],
             previous: previousPage,
             current: currentPage,
             next: nextPage

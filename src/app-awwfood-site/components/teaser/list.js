@@ -6,7 +6,6 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 import Teaser from '../../../app/components/teaser/teaser';
 
 export default class TeaserListView extends Component {
-
     static displayName = 'TeaserListView';
 
     static propTypes = {
@@ -72,10 +71,14 @@ export default class TeaserListView extends Component {
         let ad = null;
 
         if (showAd) {
-            ad = items.length > 1 ?
-                <StickyBlock carriageYPosition={95} breakpoints={['medium', 'large', 'xlarge']}>
+            ad =
+                items.length > 1 ? (
+                    <StickyBlock carriageYPosition={95} breakpoints={['medium', 'large', 'xlarge']}>
+                        <Ad {...adProps} />
+                    </StickyBlock>
+                ) : (
                     <Ad {...adProps} />
-                </StickyBlock> : <Ad {...adProps} />;
+                );
         }
 
         return (
@@ -83,33 +86,33 @@ export default class TeaserListView extends Component {
                 <div className="row">
                     <div className="teaser-view-container teaser-view-list-container">
                         <TeaserList
-                          listClassName="teaser-view-list"
-                          CustomisedTeaser={Teaser}
-                          showDate={showDate}
-                          articles={items}
-                          showSubSection
-                          imageSizes={{
-                              s: { w: 323, h: 242 },
-                              m: { w: 452, h: 339 },
-                              l: { w: 409, h: 307 },
-                              xl: { w: 1010, h: 756 }
-                          }}
-                          adPosition={4}
-                          adConfig={{
-                              className: 'ad--teaser-list',
-                              displayFor: 'small',
-                              sizes: 'mrec',
-                              targets: adProps.targets,
-                              pageLocation: Ad.pos.body
-                          }}
-                          nativeAdConfig={nativeAdConfig}
-                          loadAgain={loadAgain}
-                          showImageBadge={showImageBadge}
-                          tagsToShow={tagsToShow}
-                          linesToShow={linesToShow}
+                            listClassName="teaser-view-list"
+                            CustomisedTeaser={Teaser}
+                            showDate={showDate}
+                            articles={items}
+                            showSubSection
+                            imageSizes={{
+                                s: { w: 323, h: 242 },
+                                m: { w: 452, h: 339 },
+                                l: { w: 409, h: 307 },
+                                xl: { w: 1010, h: 756 }
+                            }}
+                            adPosition={4}
+                            adConfig={{
+                                className: 'ad--teaser-list',
+                                displayFor: 'small',
+                                sizes: 'mrec',
+                                targets: adProps.targets,
+                                pageLocation: Ad.pos.body
+                            }}
+                            nativeAdConfig={nativeAdConfig}
+                            loadAgain={loadAgain}
+                            showImageBadge={showImageBadge}
+                            tagsToShow={tagsToShow}
+                            linesToShow={linesToShow}
                         />
                     </div>
-                    { ad }
+                    {ad}
                 </div>
             </div>
         );

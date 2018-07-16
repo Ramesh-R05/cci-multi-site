@@ -1,9 +1,9 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import articleMock from '../../mocks/article';
 import feedMock from '../../mocks/feed';
 
 const Context = betterMockComponentContext();
-const {React, TestUtils} = Context;
+const { React, TestUtils } = Context;
 
 const proxyquire = require('proxyquire').noCallThru();
 const RecipeContentStub = Context.createStubComponent();
@@ -11,7 +11,7 @@ const RecipeContentStub = Context.createStubComponent();
 const feedConfigMock = {};
 const getPageMock = () => {};
 const RecipeSection = proxyquire('../../../app/components/recipe/section', {
-    'react': React,
+    react: React,
     '@bxm/article/lib/actions/getArticleFeed': { getArticleFeed: getPageMock },
     './recipeContent': RecipeContentStub
 }).default;
@@ -33,11 +33,11 @@ Context.addStore('articleStore', {
 
 describe(`RecipeSection Component`, () => {
     let reactModule;
-    const localDataMock = {iframeUrl: ''};
+    const localDataMock = { iframeUrl: '' };
     const contextConfigStub = {
         key: 'config',
         type: '',
-        value: { get: (key) => key === 'localeData' ? localDataMock : {} }
+        value: { get: key => (key === 'localeData' ? localDataMock : {}) }
     };
 
     describe(`When content alignment is not specified`, () => {

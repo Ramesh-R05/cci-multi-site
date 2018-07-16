@@ -12,9 +12,7 @@ export default class Links extends Component {
             <section className="get-social">
                 <div className="get-social-title" />
                 <div className="get-social__links">
-                    <span className="row">
-                        { links.map(link => <SocialIcon {...link} />) }
-                    </span>
+                    <span className="row">{links.map(link => <SocialIcon {...link} />)}</span>
                 </div>
             </section>
         );

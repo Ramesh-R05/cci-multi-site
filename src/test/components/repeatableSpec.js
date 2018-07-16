@@ -1,22 +1,22 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
-import proxyquire, {noCallThru} from 'proxyquire';
+const { React, ReactDOM, TestUtils } = Context;
+import proxyquire, { noCallThru } from 'proxyquire';
 import { shallow } from 'enzyme';
 noCallThru();
 
-const clidComponentStub =  Context.createStubComponent();
-const Repeatable  = proxyquire('../../app/components/repeatable',{
-    "react": React
+const clidComponentStub = Context.createStubComponent();
+const Repeatable = proxyquire('../../app/components/repeatable', {
+    react: React
 }).default;
 
 describe('Repeatable Component', () => {
     const props = {
         component: clidComponentStub,
-        action: ()=>{},
-        dataSource: {items:['aaa','bbb','ccc','ddd']},
-        nextParams: {'aa':'aaa','bbb':'bbb'}
-    }
+        action: () => {},
+        dataSource: { items: ['aaa', 'bbb', 'ccc', 'ddd'] },
+        nextParams: { aa: 'aaa', bbb: 'bbb' }
+    };
 
     let reactModule;
     let ClidComponent;
@@ -25,7 +25,7 @@ describe('Repeatable Component', () => {
 
     describe('when componentDidMount()', () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(Repeatable,props);
+            reactModule = Context.mountComponent(Repeatable, props);
             ClidComponent = TestUtils.scryRenderedComponentsWithType(reactModule, clidComponentStub);
         });
 
@@ -37,17 +37,16 @@ describe('Repeatable Component', () => {
 
         it(`loadAgain prop of last childComponent should be true, the one of others should be false`, () => {
             ClidComponent.forEach((comItem, index) => {
-                if (index < ClidComponent.length-1){
-                    expect(comItem.props.loadAgain).to.be.false;    
-                }
-                else {
+                if (index < ClidComponent.length - 1) {
+                    expect(comItem.props.loadAgain).to.be.false;
+                } else {
                     expect(comItem.props.loadAgain).to.be.true;
                 }
-            })
+            });
             expect(ClidComponent[0].props.loadAgain).to.be.false;
             expect(ClidComponent[1].props.loadAgain).to.be.false;
             expect(ClidComponent[2].props.loadAgain).to.be.false;
-            expect(ClidComponent[3].props.loadAgain).to.be.true;      
+            expect(ClidComponent[3].props.loadAgain).to.be.true;
         });
     });
 });

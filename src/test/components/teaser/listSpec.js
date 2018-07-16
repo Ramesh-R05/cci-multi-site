@@ -1,10 +1,10 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
+const { React, ReactDOM, TestUtils } = Context;
 import listingMock from '../../mocks/listing';
 import polarConfig from '../../mocks/polar';
 const items = listingMock.data;
-import proxyquire, {noCallThru} from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const TeaserListStub = Context.createStubComponent();
@@ -30,7 +30,7 @@ AdStub.pos = {
     wallpaper: 'wallpaper',
     inskin: 'inskin',
     panel: 'panel'
-}
+};
 
 describe('TeaserListView', () => {
     const imageSizes = {
@@ -58,17 +58,16 @@ describe('TeaserListView', () => {
     describe('when receiving teasers', () => {
         describe('and there are more than 1', () => {
             beforeEach(() => {
-                reactModule = Context.mountComponent(TeaserListView, {items, showDate: false}, contextConfigStub);
+                reactModule = Context.mountComponent(TeaserListView, { items, showDate: false }, contextConfigStub);
                 TeaserListViewComponent = TestUtils.findRenderedComponentWithType(reactModule, TeaserListStub);
                 AdComponent = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
                 StickyComponent = TestUtils.findRenderedComponentWithType(reactModule, StickyStub);
             });
 
             it(`should render the TeaserList component with relevant props`, () => {
-
                 expect(TeaserListViewComponent.props).to.deep.eq({
                     CustomisedTeaser: TeaserStub,
-                    listClassName: "teaser-view-list",
+                    listClassName: 'teaser-view-list',
                     articles: items,
                     showDate: false,
                     imageSizes,
@@ -94,7 +93,7 @@ describe('TeaserListView', () => {
                     className: 'ad--section-mrec',
                     displayFor: ['medium', 'large', 'xlarge'],
                     sizes: { medium: ['mrec', 'double-mrec'] },
-                    pageLocation: "rhs",
+                    pageLocation: 'rhs',
                     targets: {}
                 });
             });
@@ -102,7 +101,7 @@ describe('TeaserListView', () => {
 
         describe('and there is only 1', () => {
             beforeEach(() => {
-                reactModule = Context.mountComponent(TeaserListView, { items: items.slice(0,1) });
+                reactModule = Context.mountComponent(TeaserListView, { items: items.slice(0, 1) });
                 AdComponent = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
                 StickyComponent = TestUtils.scryRenderedComponentsWithType(reactModule, StickyStub);
             });
@@ -113,7 +112,7 @@ describe('TeaserListView', () => {
                     className: 'ad--section-mrec',
                     displayFor: ['medium', 'large', 'xlarge'],
                     sizes: { medium: ['mrec', 'double-mrec'] },
-                    pageLocation: "rhs",
+                    pageLocation: 'rhs',
                     targets: {}
                 });
             });
@@ -132,7 +131,7 @@ describe('TeaserListView', () => {
 
     describe('when setting the adTargets', () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(TeaserListView, {items, adTargets: { position: 2 }});
+            reactModule = Context.mountComponent(TeaserListView, { items, adTargets: { position: 2 } });
             AdComponent = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
         });
 
@@ -141,9 +140,9 @@ describe('TeaserListView', () => {
                 className: 'ad--section-mrec',
                 displayFor: ['medium', 'large', 'xlarge'],
                 sizes: { medium: ['mrec', 'double-mrec'] },
-                pageLocation: "rhs",
+                pageLocation: 'rhs',
                 targets: reactModule.props.adTargets
             });
-        })
+        });
     });
 });

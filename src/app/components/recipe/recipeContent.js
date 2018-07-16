@@ -5,7 +5,6 @@ import Ad from '@bxm/ad/lib/google/components/ad';
 import Recipe from './recipe';
 
 export default class RecipeContent extends Component {
-
     static displayName = 'RecipeContent';
 
     static propTypes = {
@@ -84,35 +83,24 @@ export default class RecipeContent extends Component {
 
         return (
             <div>
-                { enableTeads && <Ad label={{ active: false }} sizes="teads" targets={{ keyword }} pageLocation={Ad.pos.outside} /> }
+                {enableTeads && <Ad label={{ active: false }} sizes="teads" targets={{ keyword }} pageLocation={Ad.pos.outside} />}
                 <div className={`article-section main-wrapper container row ${menuSliderClassName}`}>
-                    <Recipe
-                      {...this.props}
-                      {...content}
-                      heroItem={hero}
-                      contentBody={content.body}
-                      pageId={content.id}
-                    />
+                    <Recipe {...this.props} {...content} heroItem={hero} contentBody={content.body} pageId={content.id} />
                     <Feed
-                      showFeedOnRight
-                      feedItemClass={feedItemClass}
-                      items={feedItems}
-                      adSpacing={adSpacing}
-                      pageId={content.id}
-                      tags={content.tagsDetails}
-                      source={content.source}
-                      feedTitle={feedTitle}
-                      isSideMenuOpen={isSideMenuOpen}
-                      isVerticalGallery={isVerticalGallery}
+                        showFeedOnRight
+                        feedItemClass={feedItemClass}
+                        items={feedItems}
+                        adSpacing={adSpacing}
+                        pageId={content.id}
+                        tags={content.tagsDetails}
+                        source={content.source}
+                        feedTitle={feedTitle}
+                        isSideMenuOpen={isSideMenuOpen}
+                        isVerticalGallery={isVerticalGallery}
                     />
                 </div>
 
-                <StickyAd
-                  adProps={stickyAdProps}
-                  minHeight={450}
-                  stickyAtViewPort="mediumRangeMax"
-                  stickyDelay={5500}
-                />
+                <StickyAd adProps={stickyAdProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
 
                 <Ad {...nonStickyAdProps} />
 

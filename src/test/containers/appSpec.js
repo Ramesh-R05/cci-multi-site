@@ -1,7 +1,7 @@
-import {betterMockComponentContext, connectToStores} from '@bxm/flux';
+import { betterMockComponentContext, connectToStores } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
-import proxyquire, {noCallThru} from 'proxyquire';
+const { React, ReactDOM, TestUtils } = Context;
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 const ErrorStub = Context.createStubComponent();
 
@@ -45,7 +45,7 @@ describe('App Component', () => {
 
     Context.addStore('RouteStore', {
         isNavigateComplete() {
-            return true
+            return true;
         }
     });
 
@@ -61,13 +61,13 @@ describe('App Component', () => {
 
     describe(`when error is not defined`, () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(App, {currentRoute});
+            reactModule = Context.mountComponent(App, { currentRoute });
             HandlerComponent = TestUtils.findRenderedComponentWithType(reactModule, Handler);
-            ErrorComponent = TestUtils.scryRenderedComponentsWithType(reactModule, ErrorStub)
+            ErrorComponent = TestUtils.scryRenderedComponentsWithType(reactModule, ErrorStub);
         });
 
         it(`should pass appropriate props to the Handler Component`, () => {
-            expect(HandlerComponent.props).to.deep.eq({ currentUrl: currentRoute.url, nodeType, theme: themeMock })
+            expect(HandlerComponent.props).to.deep.eq({ currentUrl: currentRoute.url, nodeType, theme: themeMock });
         });
 
         it(`should not render the Error Component`, () => {
@@ -77,10 +77,10 @@ describe('App Component', () => {
 
     describe(`when the error is defined`, () => {
         beforeEach(() => {
-            error = {status: 404};
-            reactModule = Context.mountComponent(App, {currentRoute});
+            error = { status: 404 };
+            reactModule = Context.mountComponent(App, { currentRoute });
             HandlerComponent = TestUtils.scryRenderedComponentsWithType(reactModule, Handler);
-            ErrorComponent = TestUtils.findRenderedComponentWithType(reactModule, ErrorStub)
+            ErrorComponent = TestUtils.findRenderedComponentWithType(reactModule, ErrorStub);
         });
 
         afterEach(() => {
@@ -88,7 +88,7 @@ describe('App Component', () => {
         });
 
         it(`should pass appropriate props to the Error Component`, () => {
-            expect(ErrorComponent.props).to.deep.eq({ currentUrl: currentRoute.url, status: error.status })
+            expect(ErrorComponent.props).to.deep.eq({ currentUrl: currentRoute.url, status: error.status });
         });
 
         it(`should pass the error status code to the Error Component`, () => {

@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import parse from '@bxm/markdown/lib/parse';
 
-
 class RecipeNotes extends Component {
     render() {
         const { recipeNotes } = this.props;
@@ -21,4 +20,3 @@ RecipeNotes.propTypes = {
 };
 
 export default RecipeNotes;
-

@@ -15,7 +15,9 @@ let getLatestTeasersStub = () => {};
 
 const reviewMiddleware = proxyquire('../../../../app/server/bff/middleware/review', {
     '../api/listing': {
-        getLatestTeasers: (...args) => { return getLatestTeasersStub(...args) }
+        getLatestTeasers: (...args) => {
+            return getLatestTeasersStub(...args);
+        }
     }
 }).default;
 
@@ -38,13 +40,15 @@ describe('Review middleware', () => {
             req.data.entity.nodeTypeAlias = 'Review';
         });
 
-        it('should not set leftHandSide on `req.data` object', (done) => {
-            reviewMiddleware(req, res, next).then(() => {
-                expect(req.data).to.not.include.keys('leftHandSide');
-                expect(getLatestTeasersStub).to.not.be.called;
-                expect(next).to.be.called;
-                done();
-            }).catch(done);
+        it('should not set leftHandSide on `req.data` object', done => {
+            reviewMiddleware(req, res, next)
+                .then(() => {
+                    expect(req.data).to.not.include.keys('leftHandSide');
+                    expect(getLatestTeasersStub).to.not.be.called;
+                    expect(next).to.be.called;
+                    done();
+                })
+                .catch(done);
         });
     });
 
@@ -52,7 +56,7 @@ describe('Review middleware', () => {
         let res = {};
         let req;
 
-        beforeEach(()=>{
+        beforeEach(() => {
             req = {
                 data: { entity: { ...review } },
                 app: {
@@ -63,22 +67,28 @@ describe('Review middleware', () => {
             };
         });
 
-        it('should call `getLatestTeasers` with correct params', (done) => {
-            reviewMiddleware(req, res, next).then(() => {
-                expect(getLatestTeasersStub).to.be.called;
-                expect(getLatestTeasersStub.getCall(0).args[2]).to.equal("nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'");
-                expect(next).to.be.called;
-                done();
-            }).catch(done);
+        it('should call `getLatestTeasers` with correct params', done => {
+            reviewMiddleware(req, res, next)
+                .then(() => {
+                    expect(getLatestTeasersStub).to.be.called;
+                    expect(getLatestTeasersStub.getCall(0).args[2]).to.equal(
+                        "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'"
+                    );
+                    expect(next).to.be.called;
+                    done();
+                })
+                .catch(done);
         });
 
-        it('should update the title', (done) => {
-            reviewMiddleware(req, res, next).then(() => {
-                expect(req.data.entity.pageTitle).to.equal(review.pageTitle + config.features.reviewTitleSuffix.titleSuffix);
-                expect(req.data.entity.contentTitle).to.equal(review.contentTitle + config.features.reviewTitleSuffix.titleSuffix);
-                expect(next).to.be.called;
-                done();
-            }).catch(done);
+        it('should update the title', done => {
+            reviewMiddleware(req, res, next)
+                .then(() => {
+                    expect(req.data.entity.pageTitle).to.equal(review.pageTitle + config.features.reviewTitleSuffix.titleSuffix);
+                    expect(req.data.entity.contentTitle).to.equal(review.contentTitle + config.features.reviewTitleSuffix.titleSuffix);
+                    expect(next).to.be.called;
+                    done();
+                })
+                .catch(done);
         });
     });
 });

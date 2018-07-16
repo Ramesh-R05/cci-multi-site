@@ -1,7 +1,7 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 const Context = betterMockComponentContext();
-const {React, ReactDOM, TestUtils} = Context;
-import proxyquire, {noCallThru} from 'proxyquire';
+const { React, ReactDOM, TestUtils } = Context;
+import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const PageStub = Context.createStubComponentWithChildren();
@@ -28,8 +28,8 @@ const HomeContainer = proxyquire('../../app/containers/home', {
     '../components/repeatable': RepeatableStub,
     '../components/social/block': SocialLinks,
     '../components/page/stickyAndDockAd': StickyAndDockStub,
-    '../components/promoted/promoted':  PromotedStub,
-    '../components/mustRead/mustRead':  MustReadStub
+    '../components/promoted/promoted': PromotedStub,
+    '../components/mustRead/mustRead': MustReadStub
 }).default;
 
 AdStub.pos = {
@@ -42,7 +42,6 @@ AdStub.pos = {
 };
 
 describe('Home Container', () => {
-
     let reactModule;
 
     const contextConfigStub = {
@@ -77,7 +76,7 @@ describe('Home Container', () => {
         },
 
         getMustReadItems() {
-          return [];
+            return [];
         },
         getMagazineImageUrl() {
             return 'http://stubbedimages.biz/content.jpg';
@@ -86,7 +85,7 @@ describe('Home Container', () => {
 
     Context.addStore('TeaserStore', {
         getHeroTeaser() {
-            return {id: 'HERO-TEASER'};
+            return { id: 'HERO-TEASER' };
         },
 
         getLatestTeasers() {
@@ -113,15 +112,14 @@ describe('Home Container', () => {
     after(Context.cleanup);
 
     it(`should render 1 normal ad in total`, () => {
-        const reactModule = Context.mountComponent(HomeContainer,{},[contextConfigStub]);
+        const reactModule = Context.mountComponent(HomeContainer, {}, [contextConfigStub]);
         const AdComponents = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         expect(AdComponents.length).to.eq(1);
     });
 
     it(`should render 1 sticky ad in total`, () => {
-        const reactModule = Context.mountComponent(HomeContainer,{},[contextConfigStub]);
+        const reactModule = Context.mountComponent(HomeContainer, {}, [contextConfigStub]);
         const AdComponents = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
         expect(AdComponents.length).to.eq(1);
     });
-
 });

@@ -7,7 +7,6 @@ import site from './site';
 import polar from './polar';
 
 export default {
-
     ga: { id: 'UA-42966291-1' },
 
     gtm: { masthead: 'ELLE', id: 'GTM-TXC6CF' },
@@ -43,14 +42,14 @@ export default {
 
     error: {
         404: {
-            title: 'Oops, we don\'t have the page you\'re looking for.',
+            title: "Oops, we don't have the page you're looking for.",
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.jpg',
             returnHomeText: 'Try refreshing this page or <span class="error-page__text-hyperlink"> join us</span> back on the homepage'
         },
         503: {
-            title: 'Oops, we don\'t have the page you\'re looking for',
+            title: "Oops, we don't have the page you're looking for",
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.jpg',
@@ -163,4 +162,3 @@ export default {
     },
     nielsen: '5714739C-ACCD-4AC1-9BFB-EB7DD3E8DAD4'
 };
-

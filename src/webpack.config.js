@@ -1,13 +1,13 @@
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var ManifestPlugin = require('webpack-manifest-plugin');
-var WebpackMd5Hash = require('webpack-md5-hash');
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
 
-var production = (process.env.NODE_ENV === 'production');
+const production = process.env.NODE_ENV === 'production';
 
-var config = {
+const config = {
     bail: true,
     devtool: 'source-map',
     entry: ['./app/client.js', './app/styles/main.scss'],
@@ -34,25 +34,31 @@ var config = {
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        { loader: 'css-loader',
+                        {
+                            loader: 'css-loader',
                             options: {
                                 sourceMap: true,
                                 url: false,
                                 minimize: process.env.NODE_ENV
                             }
                         },
-                        { loader: 'postcss-loader',
+                        {
+                            loader: 'postcss-loader',
                             options: {
                                 sourceMap: true,
-                                plugins: () => [autoprefixer({
-                                    browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
-                                })]
+                                plugins: () => [
+                                    autoprefixer({
+                                        browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
+                                    })
+                                ]
                             }
                         },
-                        { loader: 'sass-loader',
+                        {
+                            loader: 'sass-loader',
                             options: {
                                 sourceMap: true,
                                 outputStyle: 'compressed',
+                                // eslint-disable-next-line global-require
                                 importer: require('./sass-importer.js')
                             }
                         }
@@ -90,6 +96,5 @@ if (production) {
         })
     );
 }
-
 
 module.exports = config;

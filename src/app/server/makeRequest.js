@@ -14,25 +14,28 @@ export default function makeRequest(url, isJsonRequest = true) {
             return;
         }
 
-        request.get({
-            url,
-            json: isJsonRequest
-        }, (err, res, body) => {
-            const status = parseInt(res ? res.statusCode || 404 : 503, 10);
-            if (err || status < 200 || status > 300) {
-                logger.error(`makeRequest errored requesting ${url}`);
-                reject({ message: body, err, status });
-            } else {
-                if (res.headers['cache-control']) {
-                    const regexSearch = res.headers['cache-control'].match(/max-age=(\d+)/i);
-                    if (regexSearch && !!regexSearch.length) {
-                        cache.set(url, body, 1000 * parseInt(regexSearch[1], 10));
+        request.get(
+            {
+                url,
+                json: isJsonRequest
+            },
+            (err, res, body) => {
+                const status = parseInt(res ? res.statusCode || 404 : 503, 10);
+                if (err || status < 200 || status > 300) {
+                    logger.error(`makeRequest errored requesting ${url}`);
+                    reject({ message: body, err, status });
+                } else {
+                    if (res.headers['cache-control']) {
+                        const regexSearch = res.headers['cache-control'].match(/max-age=(\d+)/i);
+                        if (regexSearch && !!regexSearch.length) {
+                            cache.set(url, body, 1000 * parseInt(regexSearch[1], 10));
+                        }
+                        logger.debug(`makeRequest cached ${url}`);
                     }
-                    logger.debug(`makeRequest cached ${url}`);
+                    resolve(body);
+                    logger.debug(`makeRequest resolved ${url} `);
                 }
-                resolve(body);
-                logger.debug(`makeRequest resolved ${url} `);
             }
-        });
+        );
     });
 }

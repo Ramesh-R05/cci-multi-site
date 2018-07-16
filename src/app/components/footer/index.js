@@ -27,14 +27,16 @@ export default class Footer extends Component {
         let classNames = 'footer';
 
         // Only show the brand logos and title, if the array list has items.
-        const brandLogos = logoList.length === 0 ? null : (
-            <div className="footer__logos">
-                <span className="footer__logos-title">CONTENT SUPPORTED BY</span><br />
-                <nav className="footer__logos-nav">
-                    <Logos className="footer__logos-list" openInNewTab logoList={logoList} />
-                </nav>
-            </div>
-        );
+        const brandLogos =
+            logoList.length === 0 ? null : (
+                <div className="footer__logos">
+                    <span className="footer__logos-title">CONTENT SUPPORTED BY</span>
+                    <br />
+                    <nav className="footer__logos-nav">
+                        <Logos className="footer__logos-list" openInNewTab logoList={logoList} />
+                    </nav>
+                </div>
+            );
 
         if (modifier) {
             classNames += ` footer--${modifier}`;
@@ -47,12 +49,9 @@ export default class Footer extends Component {
                         <span className="home-page__social-logo">{config.site.name}</span>
                         <SocialContainer socialUrls={config.urls.socialUrls} />
                     </div>
-                    <FooterSubscribe
-                      content={{ ...subscribeContent, magCover }}
-                      isDisplayed={magCover !== {}}
-                    />
+                    <FooterSubscribe content={{ ...subscribeContent, magCover }} isDisplayed={magCover !== {}} />
 
-                    { brandLogos }
+                    {brandLogos}
 
                     <FooterNavigation footerUrls={config.urls.footerUrls} />
                     <div className="footer__copyright">

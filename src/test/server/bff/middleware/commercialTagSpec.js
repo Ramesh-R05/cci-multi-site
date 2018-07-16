@@ -1,12 +1,10 @@
-import proxyquire,  {noCallThru } from 'proxyquire';
+import proxyquire, { noCallThru } from 'proxyquire';
 
 noCallThru();
 
-let makeRequestStub = () => {}
+let makeRequestStub = () => {};
 const tagsToQueryStub = tags => tags;
-const expectCommercialTag = [
-    { tagsDetails: [ {fullName: 'aaa'} ] }
-]
+const expectCommercialTag = [{ tagsDetails: [{ fullName: 'aaa' }] }];
 
 const commercialTagMiddleware = proxyquire('../../../../app/server/bff/middleware/commercialTag', {
     '../../makeRequest': url => makeRequestStub,
@@ -19,13 +17,15 @@ describe('CommercialTag middleware', () => {
     beforeEach(() => {
         next = sinon.spy();
         reqStub = {
-            app: { locals: { 
-                config: {
-                    site:{ prefix: 'awwfood'},
-                    services: { remote: { commercialtagsections: 'whatever url' }}
-                }}
+            app: {
+                locals: {
+                    config: {
+                        site: { prefix: 'awwfood' },
+                        services: { remote: { commercialtagsections: 'whatever url' } }
+                    }
+                }
             }
-        }
+        };
     });
 
     it('Input argument will have property isFoodSite with correct value', () => {
@@ -37,21 +37,21 @@ describe('CommercialTag middleware', () => {
         noneFoodReqStub.app.locals.config.site.prefix = 'now';
         commercialTagMiddleware(noneFoodReqStub, {}, next);
         expect(noneFoodReqStub.data.isFoodSite).to.eq(false);
-    })
+    });
 
     it('Input argument will not get propery commercialTag, if remote return errors', () => {
-        makeRequestStub = Promise.reject({status: 404});
+        makeRequestStub = Promise.reject({ status: 404 });
         const foodReqStub = { ...reqStub };
         commercialTagMiddleware(foodReqStub, {}, next);
         expect(typeof foodReqStub.data.commercialTag === 'undefined').to.eq(true);
-    })
+    });
 
     it('Input argument will get propery commercialTag, if there is commercialTag returned', () => {
         makeRequestStub = Promise.resolve(expectCommercialTag);
         const reqCopy = { ...reqStub };
         commercialTagMiddleware(reqCopy, {}, next);
         makeRequestStub.then(data => {
-            expect(foodReqStub.data.commercialTag).to.deep.eq(['aaa'])
-        })
-    })
+            expect(foodReqStub.data.commercialTag).to.deep.eq(['aaa']);
+        });
+    });
 });

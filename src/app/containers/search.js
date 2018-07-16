@@ -56,7 +56,8 @@ export default class Search extends Component {
     };
 
     componentDidMount() {
-        this.setState({ // eslint-disable-line react/no-did-mount-set-state
+        // eslint-disable-next-line react/no-did-mount-set-state
+        this.setState({
             bottomElm: this.bottom,
             topElm: this.top
         });
@@ -65,9 +66,8 @@ export default class Search extends Component {
     render() {
         const { config } = this.context;
         const brand = config.product;
-        const { nodeType, teasers, title, currentUrl, theme, searchTotal, list, listNextParams,
-            magazineImageUrl } = this.props;
-        const keyword = (nodeType === 'TagSection' && title) ? [title] : [];
+        const { nodeType, teasers, title, currentUrl, theme, searchTotal, list, listNextParams, magazineImageUrl } = this.props;
+        const keyword = nodeType === 'TagSection' && title ? [title] : [];
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const isBrandDefined = typeof brand !== 'undefined';
@@ -87,7 +87,8 @@ export default class Search extends Component {
             sizes: {
                 banner: 'banner',
                 leaderboard: 'leaderboard',
-                billboard: ['billboard', 'leaderboard'] },
+                billboard: ['billboard', 'leaderboard']
+            },
             pageLocation,
             targets: keyword
         };
@@ -98,12 +99,12 @@ export default class Search extends Component {
 
         return (
             <Page
-              currentUrl={currentUrl}
-              headerExpanded={config.features.headerExpanded && themeEnabled}
-              pageTitle={pageTitle}
-              className="page--section"
-              headerClassName={headerClassName}
-              theme={themeEnabled ? theme : {}}
+                currentUrl={currentUrl}
+                headerExpanded={config.features.headerExpanded && themeEnabled}
+                pageTitle={pageTitle}
+                className="page--section"
+                headerClassName={headerClassName}
+                theme={themeEnabled ? theme : {}}
             >
                 <div className="section-page search-page">
                     <div className="container">
@@ -111,45 +112,42 @@ export default class Search extends Component {
                             <div className="page__top-container columns">
                                 <div className="row">
                                     <div
-                                      className="columns large-8 xlarge-9 section-page__teasers-container"
-                                      ref={(c) => { this.top = c; }}
+                                        className="columns large-8 xlarge-9 section-page__teasers-container"
+                                        ref={c => {
+                                            this.top = c;
+                                        }}
                                     >
                                         <SearchBar />
 
                                         <TeaserListView
-                                          index={null}
-                                          items={teasers.slice(0, 6)}
-                                          className="news-feed top-news-feed"
-                                          showDate={false}
-                                          loadAgain={false}
-                                          showAd={false}
-                                          tagsToShow={tagsToShow}
-                                          showImageBadge={showImageBadge}
-                                          linesToShow={linesToShow}
-                                          adTargets={{ keyword }}
+                                            index={null}
+                                            items={teasers.slice(0, 6)}
+                                            className="news-feed top-news-feed"
+                                            showDate={false}
+                                            loadAgain={false}
+                                            showAd={false}
+                                            tagsToShow={tagsToShow}
+                                            showImageBadge={showImageBadge}
+                                            linesToShow={linesToShow}
+                                            adTargets={{ keyword }}
                                         />
                                     </div>
                                     <div className="page__social-wrapper columns large-4 xlarge-3">
                                         <div className="columns medium-6 large-12">
                                             <StickyAndDockAd
-                                              offsetTop={95}
-                                              offsetBottom={16}
-                                              customiseBreakpoint={1024}
-                                              bottomElm={this.state.bottomElm}
-                                              topElm={this.state.topElm}
+                                                offsetTop={95}
+                                                offsetBottom={16}
+                                                customiseBreakpoint={1024}
+                                                bottomElm={this.state.bottomElm}
+                                                topElm={this.state.topElm}
                                             >
-                                                <Ad
-                                                  className="ad--section-mrec"
-                                                  sizes="mrec"
-                                                  displayFor="large"
-                                                  pageLocation={Ad.pos.aside}
-                                                />
+                                                <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
                                                 <SideBlock
-                                                  showBrandMagazine={isBrandDefined}
-                                                  showBrandNewsletter={isBrandDefined}
-                                                  showGiftCard={giftCardEnabled}
-                                                  brand={brand}
-                                                  magazineImageUrl={magazineImageUrl}
+                                                    showBrandMagazine={isBrandDefined}
+                                                    showBrandNewsletter={isBrandDefined}
+                                                    showGiftCard={giftCardEnabled}
+                                                    brand={brand}
+                                                    magazineImageUrl={magazineImageUrl}
                                                 />
                                             </StickyAndDockAd>
                                         </div>
@@ -159,39 +157,43 @@ export default class Search extends Component {
                         </div>
                     </div>
 
-                    <div ref={(c) => { this.bottom = c; }} />
+                    <div
+                        ref={c => {
+                            this.bottom = c;
+                        }}
+                    />
 
                     {/* 2nd Leaderboard or banner below Gallery of Videos */}
-                    { teasers.length ? <Ad
-                      className="ad--section-leaderboard"
-                      sizes={{
-                          banner: 'banner',
-                          leaderboard: 'leaderboard',
-                          billboard: ['billboard', 'leaderboard'] }}
-                      targets={{ keyword }}
-                      pageLocation={pageLocation}
-                    /> : null }
+                    {teasers.length ? (
+                        <Ad
+                            className="ad--section-leaderboard"
+                            sizes={{
+                                banner: 'banner',
+                                leaderboard: 'leaderboard',
+                                billboard: ['billboard', 'leaderboard']
+                            }}
+                            targets={{ keyword }}
+                            pageLocation={pageLocation}
+                        />
+                    ) : null}
 
                     <Repeatable
-                      component={TeaserListView}
-                      action={loadSearch}
-                      dataSource={list}
-                      nextParams={listNextParams}
-                      className="news-feed bottom-news-feed"
-                      pageLocation={pageLocation}
-                      showImageBadge={showImageBadge}
-                      tagsToShow={tagsToShow}
-                      linesToShow={linesToShow}
-                      adTargets={{ keyword }}
+                        component={TeaserListView}
+                        action={loadSearch}
+                        dataSource={list}
+                        nextParams={listNextParams}
+                        className="news-feed bottom-news-feed"
+                        pageLocation={pageLocation}
+                        showImageBadge={showImageBadge}
+                        tagsToShow={tagsToShow}
+                        linesToShow={linesToShow}
+                        adTargets={{ keyword }}
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}
-                    { get(list, 'items[0].length') ? <StickyAd
-                      adProps={adProps}
-                      minHeight={450}
-                      stickyAtViewPort="mediumRangeMax"
-                      stickyDelay={5500}
-                    /> : null }
+                    {get(list, 'items[0].length') ? (
+                        <StickyAd adProps={adProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
+                    ) : null}
                 </div>
             </Page>
         );

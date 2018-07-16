@@ -1,4 +1,4 @@
-import {betterMockComponentContext} from '@bxm/flux';
+import { betterMockComponentContext } from '@bxm/flux';
 import recipeMock from '../../mocks/recipe';
 import breakpoints from '../../mocks/breakpoints';
 import feedDataMock from '../../mocks/feed';
@@ -21,7 +21,7 @@ const RecipeAtGlanceStub = Context.createStubComponent();
 const RecipeIngredientsStub = Context.createStubComponent();
 const RecipeMethodStub = Context.createStubComponent();
 const RecipeNotesStub = Context.createStubComponent();
-const staticConfigurationStoreStub = {getBreakpoints: sinon.spy};
+const staticConfigurationStoreStub = { getBreakpoints: sinon.spy };
 const keywords = ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor'];
 const kingtag = 'Outdoor';
 
@@ -52,7 +52,7 @@ const contextConfigStub = {
 };
 
 const Recipe = proxyquire('../../../app/components/recipe/recipe', {
-    'react': React,
+    react: React,
     'react/addons': React,
     '@bxm/article/lib/components/article/header': HeaderStub,
     '@bxm/article/lib/components/article/footer': FooterStub,
@@ -83,7 +83,7 @@ AdStub.pos = {
     inskin: 'inskin',
     panel: 'panel',
     outOfPage: 'outOfPage'
-}
+};
 
 describe(`Recipe Component`, () => {
     const imageUrl = 'http://www.imageUrl.com/image.jpg';
@@ -130,28 +130,32 @@ describe(`Recipe Component`, () => {
         let recipeNotesStub;
 
         before(`rendering component`, () => {
-            reactModule = Context.mountComponent(Recipe, {
-                articleHeaderOrder,
-                authorProfiles,
-                className,
-                contentBodyConfig,
-                contentBody,
-                dateCreated,
-                imageUrl,
-                heroItem,
-                footerMetaClass,
-                source,
-                summary,
-                tagsDetails,
-                title,
-                pageId,
-                feedItems,
-                showAd: false,
-                showAdBeforeRecommendations: true,
-                showOutbrain: true,
-                outbrainConfig: {},
-                showFeedCarousel: true
-            }, [contextConfigStub]);
+            reactModule = Context.mountComponent(
+                Recipe,
+                {
+                    articleHeaderOrder,
+                    authorProfiles,
+                    className,
+                    contentBodyConfig,
+                    contentBody,
+                    dateCreated,
+                    imageUrl,
+                    heroItem,
+                    footerMetaClass,
+                    source,
+                    summary,
+                    tagsDetails,
+                    title,
+                    pageId,
+                    feedItems,
+                    showAd: false,
+                    showAdBeforeRecommendations: true,
+                    showOutbrain: true,
+                    outbrainConfig: {},
+                    showFeedCarousel: true
+                },
+                [contextConfigStub]
+            );
 
             const adStubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
             const StickyAdStubStubs = TestUtils.scryRenderedComponentsWithType(reactModule, StickyAdStub);
@@ -243,8 +247,13 @@ describe(`Recipe Component`, () => {
 
         describe('when source prop is not present', () => {
             before(() => {
-                reactModule = Context.mountComponent(Recipe, {contentBody
-                }, [contextConfigStub]);
+                reactModule = Context.mountComponent(
+                    Recipe,
+                    {
+                        contentBody
+                    },
+                    [contextConfigStub]
+                );
             });
 
             it('should not render BrandLogo Component', () => {
@@ -255,10 +264,14 @@ describe(`Recipe Component`, () => {
 
         describe('when source prop is present', () => {
             before(() => {
-                reactModule = Context.mountComponent(Recipe, {
-                    source: 'test',
-                    contentBody
-                }, [contextConfigStub]);
+                reactModule = Context.mountComponent(
+                    Recipe,
+                    {
+                        source: 'test',
+                        contentBody
+                    },
+                    [contextConfigStub]
+                );
             });
 
             it('should render BrandLogo Component', () => {
@@ -268,18 +281,22 @@ describe(`Recipe Component`, () => {
 
         describe(`when articleHeaderOrder prop contains "Hero"`, () => {
             before(() => {
-                reactModule = Context.mountComponent(Recipe, {
-                    articleHeaderOrder: [...articleHeaderOrder, "Hero"],
-                    heroItem
-                }, [contextConfigStub]);
+                reactModule = Context.mountComponent(
+                    Recipe,
+                    {
+                        articleHeaderOrder: [...articleHeaderOrder, 'Hero'],
+                        heroItem
+                    },
+                    [contextConfigStub]
+                );
             });
 
             it(`should present RecipeAtGlanceStub as an array element in the articleHeaderOrder prop of Header Component `, () => {
                 headerSub = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
-                const indexOfHero = headerSub.props.articleHeaderOrder.indexOf('Hero')
+                const indexOfHero = headerSub.props.articleHeaderOrder.indexOf('Hero');
                 expect(headerSub.props.articleHeaderOrder[indexOfHero - 1].type).to.equal(RecipeAtGlanceStub);
-            })
-        })
+            });
+        });
         // TODO - Cleanup ad tests
         // describe(`Top ad sub-component`, () => {
         //     const className = 'ad--article-top';
@@ -393,11 +410,15 @@ describe(`Recipe Component`, () => {
         let adStub;
         let recommendationsStub;
         before(() => {
-            reactModule = Context.mountComponent(Recipe, {
-                showAd: false,
-                showAdBeforeRecommendations: false,
-                contentBody
-            }, [contextConfigStub]);
+            reactModule = Context.mountComponent(
+                Recipe,
+                {
+                    showAd: false,
+                    showAdBeforeRecommendations: false,
+                    contentBody
+                },
+                [contextConfigStub]
+            );
         });
 
         it('should not render out ad component', () => {
@@ -412,7 +433,7 @@ describe(`Recipe Component`, () => {
         let adStubs;
 
         before(`rendering component`, () => {
-            reactModule = Context.mountComponent(Recipe, {contentBody}, [contextConfigStub]);
+            reactModule = Context.mountComponent(Recipe, { contentBody }, [contextConfigStub]);
             adStubs = TestUtils.scryRenderedComponentsWithType(reactModule, AdStub);
         });
 
@@ -422,5 +443,3 @@ describe(`Recipe Component`, () => {
         });
     });
 });
-
-

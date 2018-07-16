@@ -23,12 +23,12 @@ const contentMock = {
     tags: [1, 2],
     tagsDetails: [
         {
-            name: "homes:Topic:Garden planner",
-            fullName: "homes_Topic_Garden_planner"
+            name: 'homes:Topic:Garden planner',
+            fullName: 'homes_Topic_Garden_planner'
         },
         {
-            name: "homes:Homes navigation:Outdoor",
-            fullName: "homes_Homes_navigation_Outdoor"
+            name: 'homes:Homes navigation:Outdoor',
+            fullName: 'homes_Homes_navigation_Outdoor'
         }
     ]
 };
@@ -40,7 +40,7 @@ AdStub.pos = {
     wallpaper: 'wallpaper',
     inskin: 'inskin',
     panel: 'panel'
-}
+};
 
 describe('Component', () => {
     describe('RecipeContent', () => {
@@ -73,11 +73,11 @@ describe('Component', () => {
                 expect(wrapper.find(StickyAdStub).props()).to.deep.eq({
                     adProps: {
                         className: 'ad--section-bottom-leaderboard',
-                            displayFor: ['small', 'medium'],
-                            sizes: {
-                                banner: 'banner',
-                                leaderboard: 'leaderboard',
-                                billboard: ['billboard', 'leaderboard']
+                        displayFor: ['small', 'medium'],
+                        sizes: {
+                            banner: 'banner',
+                            leaderboard: 'leaderboard',
+                            billboard: ['billboard', 'leaderboard']
                         },
                         targets: {
                             keyword: ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor']
@@ -93,8 +93,7 @@ describe('Component', () => {
                     minHeight: 450,
                     stickyAtViewPort: 'mediumRangeMax',
                     stickyDelay: 5500
-                    }
-                );
+                });
             });
         });
 
@@ -124,7 +123,17 @@ describe('Component', () => {
             });
 
             it('should have the correct props to the ad', () => {
-                expect(wrapper.find(AdStub).first().props()).to.deep.eq({ label: { active: false }, sizes: 'teads', targets: {keyword: ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor']}, pageLocation: 'outside' });
+                expect(
+                    wrapper
+                        .find(AdStub)
+                        .first()
+                        .props()
+                ).to.deep.eq({
+                    label: { active: false },
+                    sizes: 'teads',
+                    targets: { keyword: ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor'] },
+                    pageLocation: 'outside'
+                });
             });
         });
 

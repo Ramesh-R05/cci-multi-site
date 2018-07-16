@@ -7,6 +7,7 @@ export default function loggerPlugin() {
             return {
                 plugActionContext(actionContext) {
                     const originalActionDispatch = actionContext.dispatch;
+                    // eslint-disable-next-line no-param-reassign
                     actionContext.dispatch = function dispatch(type, payload) {
                         if (type.includes('_FAILED') || type === 'PAGE_NOT_FOUND') {
                             let err = payload;

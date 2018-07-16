@@ -77,13 +77,17 @@ class GallerySection extends Component {
     componentDidMount() {
         window.addEventListener('popstate', this.onPop, false);
 
-        this.galleryBody.addEventListener('touchstart', (e) => {
-            const { isAdViewed, isAdSlideItem } = this.props;
+        this.galleryBody.addEventListener(
+            'touchstart',
+            e => {
+                const { isAdViewed, isAdSlideItem } = this.props;
 
-            if (!isAdViewed && isAdSlideItem) {
-                e.stopPropagation();
-            }
-        }, true);
+                if (!isAdViewed && isAdSlideItem) {
+                    e.stopPropagation();
+                }
+            },
+            true
+        );
     }
 
     componentWillUnmount() {
@@ -101,11 +105,13 @@ class GallerySection extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return nextState.galleryHeight !== this.state.galleryHeight ||
+        return (
+            nextState.galleryHeight !== this.state.galleryHeight ||
             nextProps.isGalleryCompletedItemActive !== this.props.isGalleryCompletedItemActive ||
             nextProps.galleryItems !== this.props.galleryItems ||
             nextProps.activeGalleryItem !== this.props.activeGalleryItem ||
-            nextProps.menuClasses !== this.props.menuClasses;
+            nextProps.menuClasses !== this.props.menuClasses
+        );
     }
 
     componentWillReceiveProps(nextProps) {
@@ -161,51 +167,48 @@ class GallerySection extends Component {
 
         return (
             <div className={this.props.menuClasses}>
-                <section
-                  className="gallery small-12 columns side-menu__push"
-                  itemType="http://schema.org/Article"
-                >
+                <section className="gallery small-12 columns side-menu__push" itemType="http://schema.org/Article">
                     <Header
-                      currentUrl={this.props.currentUrl}
-                      isExpanded={this.props.headerExpanded}
-                      navItems={this.props.headerNavItems}
-                      siteName={this.context.config.get('site.name')}
-                      toggleMenu={this.toggleMenu}
-                      theme={theme}
+                        currentUrl={this.props.currentUrl}
+                        isExpanded={this.props.headerExpanded}
+                        navItems={this.props.headerNavItems}
+                        siteName={this.context.config.get('site.name')}
+                        toggleMenu={this.toggleMenu}
+                        theme={theme}
                     />
 
                     <Ad
-                      className="gallery__mobile-ad"
-                      label={{ active: false }}
-                      reloadOnResourceChange={this.props.activeGalleryItemIndex || 0}
-                      displayFor={['small', 'medium', 'large', 'xlarge']}
-                      pageLocation={pageLocation}
-                      sizes={{
-                          large: 'leaderboard',
-                          medium: 'leaderboard',
-                          small: 'banner'
-                      }}
-                      targets={targets}
+                        className="gallery__mobile-ad"
+                        label={{ active: false }}
+                        reloadOnResourceChange={this.props.activeGalleryItemIndex || 0}
+                        displayFor={['small', 'medium', 'large', 'xlarge']}
+                        pageLocation={pageLocation}
+                        sizes={{
+                            large: 'leaderboard',
+                            medium: 'leaderboard',
+                            small: 'banner'
+                        }}
+                        targets={targets}
                     />
 
                     <StandardPageAdsWrapper>
-                        <section ref={(c) => { this.galleryBody = c; }} className="gallery__body row" style={{ height: this.state.galleryHeight }}>
+                        <section
+                            ref={c => {
+                                this.galleryBody = c;
+                            }}
+                            className="gallery__body row"
+                            style={{ height: this.state.galleryHeight }}
+                        >
                             <GalleryDetailMain
-                              {...this.props}
-                              keyword={keyword}
-                              customisedTeaser={customisedTeaser}
-                              onNextGalleryClick={this.onNextGalleryClick}
-                              alwaysDisplayTitle
-                              showFooterAd={false}
+                                {...this.props}
+                                keyword={keyword}
+                                customisedTeaser={customisedTeaser}
+                                onNextGalleryClick={this.onNextGalleryClick}
+                                alwaysDisplayTitle
+                                showFooterAd={false}
                             />
 
-                            <GalleryDetailAside
-                              {...this.props}
-                              showAuthor
-                              showSourceLogo
-                              keyword={keyword}
-                              showSocialShare
-                            />
+                            <GalleryDetailAside {...this.props} showAuthor showSourceLogo keyword={keyword} showSocialShare />
                         </section>
                     </StandardPageAdsWrapper>
 
@@ -214,14 +217,16 @@ class GallerySection extends Component {
                     <MobileOffCanvas side="left" toggleSideMenu={this.toggleMenu}>
                         <div className="off-canvas-content-wrapper">
                             <button
-                              className="close-btn"
-                              onClick={this.toggleMenu}
-                    /* eslint-disable max-len, react/no-danger */
-                              dangerouslySetInnerHTML={{ __html: `
+                                className="close-btn"
+                                onClick={this.toggleMenu}
+                                /* eslint-disable max-len, react/no-danger */
+                                dangerouslySetInnerHTML={{
+                                    __html: `
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="22" height="22" viewBox="0 0 22 22">
                             <path d="M12.757,10.979 C12.757,10.979 21.608,19.830 21.608,19.830 C22.099,20.321 22.099,21.117 21.608,21.607 C21.117,22.098 20.322,22.098 19.831,21.607 C19.831,21.607 10.980,12.756 10.980,12.756 C10.980,12.756 2.129,21.607 2.129,21.607 C1.639,22.098 0.843,22.098 0.352,21.607 C-0.138,21.117 -0.138,20.321 0.352,19.830 C0.352,19.830 9.203,10.979 9.203,10.979 C9.203,10.979 0.352,2.129 0.352,2.129 C-0.138,1.638 -0.138,0.843 0.352,0.351 C0.843,-0.139 1.639,-0.139 2.129,0.351 C2.129,0.351 10.980,9.202 10.980,9.202 C10.980,9.202 19.831,0.351 19.831,0.351 C20.322,-0.139 21.117,-0.139 21.608,0.351 C22.099,0.843 22.099,1.638 21.608,2.129 C21.608,2.129 12.757,10.979 12.757,10.979 Z" id="path-1" class="cls-2" fill-rule="evenodd"></path>
                         </svg>
-                    ` }}
+                    `
+                                }}
                             />
                             <HamburgerNav className="mobile-menu" items={mobileNav} currentUrl={currentUrl} />
                             <Logos className="mobile-menu-list" openInNewTab logoList={this.context.config.brands.hamburgers} />
@@ -233,7 +238,7 @@ class GallerySection extends Component {
     }
 }
 
-export default connectToStores(resizeViewport(GallerySection), ['NavigationStore', GalleryStore, GalleryPageStore, AdStore, 'PageStore'], (context) => {
+export default connectToStores(resizeViewport(GallerySection), ['NavigationStore', GalleryStore, GalleryPageStore, AdStore, 'PageStore'], context => {
     const theAdStore = context.getStore(AdStore);
     const ads = theAdStore.getAds();
     const viewed = ads[`gpt-slot-${theAdStore.getCurrentSlideAd()}`] && ads[`gpt-slot-${theAdStore.getCurrentSlideAd()}`].viewed;

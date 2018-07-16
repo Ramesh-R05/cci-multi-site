@@ -36,22 +36,22 @@ export default class TeaserGridView extends Component {
                 <div className="row">
                     <div className="columns teaser-view-container teaser-view-grid-container">
                         <TeaserList
-                          listClassName="teaser-view-grid"
-                          CustomisedTeaser={Teaser}
-                          showDate={showDate}
-                          articles={teasers}
-                          showSubSection
-                          imageSizes={{
-                              s: { w: 690, h: 388 },
-                              m: { w: 486, h: 404 },
-                              l: { w: 624, h: 518 },
-                              xl: { w: 368, h: 306 }
-                          }}
-                          nativeAdConfig={nativeAdConfig}
-                          adConfig={{
-                              targets: adTargets,
-                              pageLocation: Ad.pos.body
-                          }}
+                            listClassName="teaser-view-grid"
+                            CustomisedTeaser={Teaser}
+                            showDate={showDate}
+                            articles={teasers}
+                            showSubSection
+                            imageSizes={{
+                                s: { w: 690, h: 388 },
+                                m: { w: 486, h: 404 },
+                                l: { w: 624, h: 518 },
+                                xl: { w: 368, h: 306 }
+                            }}
+                            nativeAdConfig={nativeAdConfig}
+                            adConfig={{
+                                targets: adTargets,
+                                pageLocation: Ad.pos.body
+                            }}
                         />
                     </div>
                 </div>

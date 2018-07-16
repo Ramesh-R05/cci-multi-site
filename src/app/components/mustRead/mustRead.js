@@ -4,7 +4,6 @@ import TeaserList from '@bxm/teaser/lib/components/teaserList';
 import Teaser from '../teaser/teaser';
 
 class MustRead extends Component {
-
     static displayName = 'MustRead';
 
     static propTypes = {
@@ -28,11 +27,7 @@ class MustRead extends Component {
     render() {
         const { mustRead, show } = this.props;
         const { config } = this.context;
-        const {
-            desktopCount,
-            tabletCount,
-            imageSizes = MustRead.imageSizes
-        } = config.features.mustRead;
+        const { desktopCount, tabletCount, imageSizes = MustRead.imageSizes } = config.features.mustRead;
 
         if (!show || !mustRead || mustRead.length < desktopCount) {
             return null;
@@ -43,15 +38,12 @@ class MustRead extends Component {
 
         // Add gtm class name,
         // mustReadItem.id prop will pass into teaser component and be attached as a gtm class
-        const newMustRead = mustRead
-            .slice(0, desktopCount)
-            .map((item, index) => {
-                const mustReadItem = { ...item };
-                mustReadItem.id = `mustread${index + 1}-homepage`;
-                mustReadItem.source = shortenedNameList[mustReadItem.source] || mustReadItem.source;
-                return mustReadItem;
-            }
-        );
+        const newMustRead = mustRead.slice(0, desktopCount).map((item, index) => {
+            const mustReadItem = { ...item };
+            mustReadItem.id = `mustread${index + 1}-homepage`;
+            mustReadItem.source = shortenedNameList[mustReadItem.source] || mustReadItem.source;
+            return mustReadItem;
+        });
 
         const polarLabels = config.polar.details;
 
@@ -62,21 +54,21 @@ class MustRead extends Component {
                 </div>
                 <div className="columns xlarge-10">
                     <TeaserList
-                      listClassName={listClassName}
-                      imageSizes={imageSizes}
-                      articles={newMustRead}
-                      CustomisedTeaser={Teaser}
-                      showDate={false}
-                      nativeAdConfig={{
-                          slotPositionIndex: polarLabels.homeMustRead
-                      }}
-                      sourceDefault={'SPONSORED'}
+                        listClassName={listClassName}
+                        imageSizes={imageSizes}
+                        articles={newMustRead}
+                        CustomisedTeaser={Teaser}
+                        showDate={false}
+                        nativeAdConfig={{
+                            slotPositionIndex: polarLabels.homeMustRead
+                        }}
+                        sourceDefault={'SPONSORED'}
                     />
                 </div>
             </div>
         );
     }
- }
+}
 
 export default connectToStores(MustRead, ['TeaserStore'], context => ({
     mustRead: context.getStore('TeaserStore').getMustReadItems()

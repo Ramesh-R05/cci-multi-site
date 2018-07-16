@@ -35,29 +35,18 @@ export default class HeroTeaser extends Component {
 
         return (
             <div className="hero-wrapper">
-                <Teaser
-                  sourceClassName="hero-teaser__source"
-                  className="hero-teaser"
-                  showDate={showDate}
-                  article={article}
-                  imageSizes={imageSizes}
-                />
+                <Teaser sourceClassName="hero-teaser__source" className="hero-teaser" showDate={showDate} article={article} imageSizes={imageSizes} />
 
-                <Ad
-                  displayFor={['small', 'medium']}
-                  className="ad--section-top-mrec"
-                  sizes="mrec"
-                  pageLocation={pageLocation}
-                />
+                <Ad displayFor={['small', 'medium']} className="ad--section-top-mrec" sizes="mrec" pageLocation={pageLocation} />
 
-                { showPromoted && <Promoted show /> }
+                {showPromoted && <Promoted show />}
 
                 <SideBlock
-                  showBrandMagazine={isBrandDefined}
-                  showBrandNewsletter={isBrandDefined}
-                  brand={brand}
-                  isHero
-                  magazineImageUrl={magazineImageUrl}
+                    showBrandMagazine={isBrandDefined}
+                    showBrandNewsletter={isBrandDefined}
+                    brand={brand}
+                    isHero
+                    magazineImageUrl={magazineImageUrl}
                 />
             </div>
         );

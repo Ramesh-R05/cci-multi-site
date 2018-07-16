@@ -19,7 +19,6 @@ import RecipeMethod from './recipeMethod';
 import RecipeNotes from './recipeNotes';
 
 export default class Recipe extends Component {
-
     static displayName = 'Recipe';
 
     static propTypes = {
@@ -61,14 +60,18 @@ export default class Recipe extends Component {
         showAd: false,
         showAdBeforeRecommendations: false,
         totalGalleryItems: null,
-        recipeIngredients: [{
-            heading: null,
-            ingredients: []
-        }],
-        recipeCookingMethod: [{
-            heading: null,
-            methods: []
-        }],
+        recipeIngredients: [
+            {
+                heading: null,
+                ingredients: []
+            }
+        ],
+        recipeCookingMethod: [
+            {
+                heading: null,
+                methods: []
+            }
+        ],
         recipeTips: ''
     };
 
@@ -115,15 +118,15 @@ export default class Recipe extends Component {
         let screenSizes = ['small', 'medium', 'large', 'xlarge'];
 
         switch (adClassName) {
-        case 'ad--article-top':
-            screenSizes.shift();
-            break;
-        case 'ad--article-before-recommendations':
-            adSizes = { small: 'mrec' };
-            screenSizes = ['small', 'medium'];
-            break;
-        default:
-            break;
+            case 'ad--article-top':
+                screenSizes.shift();
+                break;
+            case 'ad--article-before-recommendations':
+                adSizes = { small: 'mrec' };
+                screenSizes = ['small', 'medium'];
+                break;
+            default:
+                break;
         }
 
         const adProps = {
@@ -137,18 +140,9 @@ export default class Recipe extends Component {
         };
 
         if (sticky) {
-            return (
-                <StickyAd
-                  adProps={adProps}
-                  minHeight={450}
-                />
-            );
+            return <StickyAd adProps={adProps} minHeight={450} />;
         }
-        return (
-            <Ad
-              {...adProps}
-            />
-        );
+        return <Ad {...adProps} />;
     }
 
     addToHeaderBefore(exisitingComponent, toAddComponent) {
@@ -162,10 +156,32 @@ export default class Recipe extends Component {
     }
 
     render() {
-        const { className, showAd, dateCreated, pageId, url, siteUrl, heroItem,
-            summary, title, source, parentName, authorProfiles, contentBody, contentBodyConfig,
-            showAdBeforeRecommendations, nodeType, totalGalleryItems, siteName, feedItems,
-            recipeServings, recipeCookingTime, recipeIngredients, recipeCookingMethod, recipeTips } = this.props;
+        const {
+            className,
+            showAd,
+            dateCreated,
+            pageId,
+            url,
+            siteUrl,
+            heroItem,
+            summary,
+            title,
+            source,
+            parentName,
+            authorProfiles,
+            contentBody,
+            contentBodyConfig,
+            showAdBeforeRecommendations,
+            nodeType,
+            totalGalleryItems,
+            siteName,
+            feedItems,
+            recipeServings,
+            recipeCookingTime,
+            recipeIngredients,
+            recipeCookingMethod,
+            recipeTips
+        } = this.props;
         const { config } = this.context;
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showRevContent = config.isFeatureEnabled('revContent');
@@ -175,31 +191,30 @@ export default class Recipe extends Component {
 
         return (
             <article className={classNames('article', 'recipe', className)}>
-
-                { showAd && this.renderAds('ad--article-top') }
+                {showAd && this.renderAds('ad--article-top')}
 
                 <Header
-                  dateCreated={dateCreated}
-                  articleHeaderOrder={recipeHeaderOrder}
-                  pageId={pageId}
-                  url={url}
-                  heroItem={heroItem}
-                  summary={summary}
-                  title={title}
-                  source={source}
-                  section={parentName}
-                  authorProfiles={authorProfiles}
-                  totalGalleryItems={totalGalleryItems}
+                    dateCreated={dateCreated}
+                    articleHeaderOrder={recipeHeaderOrder}
+                    pageId={pageId}
+                    url={url}
+                    heroItem={heroItem}
+                    summary={summary}
+                    title={title}
+                    source={source}
+                    section={parentName}
+                    authorProfiles={authorProfiles}
+                    totalGalleryItems={totalGalleryItems}
                 />
 
                 <ContentBody
-                  body={contentBody}
-                  siteName={siteName}
-                  breakpoints={config.get('breakpoints')}
-                  className="article__body article__body--top-border"
-                  config={contentBodyConfig}
-                  relatedContentComponent={RelatedContentComponent}
-                  adTargets={this.getAdTargets()}
+                    body={contentBody}
+                    siteName={siteName}
+                    breakpoints={config.get('breakpoints')}
+                    className="article__body article__body--top-border"
+                    config={contentBodyConfig}
+                    relatedContentComponent={RelatedContentComponent}
+                    adTargets={this.getAdTargets()}
                 />
 
                 <section className="recipe-details row medium-collapse large-collapse">
@@ -212,29 +227,19 @@ export default class Recipe extends Component {
 
                 <Footer {...this.props} />
 
-                { showFeedCarousel && <FeedCarousel items={feedItems} headingText={`The Latest from ${config.site.name}`} /> }
+                {showFeedCarousel && <FeedCarousel items={feedItems} headingText={`The Latest from ${config.site.name}`} />}
 
-                { source && <BrandLogo
-                  source={source}
-                  position="bottom"
-                /> }
+                {source && <BrandLogo source={source} position="bottom" />}
 
-                { showAdBeforeRecommendations && this.renderAds('ad--article-before-recommendations') }
+                {showAdBeforeRecommendations && this.renderAds('ad--article-before-recommendations')}
 
-                { showAdBeforeRecommendations && <Recommendations
-                  nodeType={nodeType}
-                  nodeId={pageId}
-                /> }
+                {showAdBeforeRecommendations && <Recommendations nodeType={nodeType} nodeId={pageId} />}
 
-                { showAd && this.renderAds('ad--article-beneath-recommendations', true) }
+                {showAd && this.renderAds('ad--article-beneath-recommendations', true)}
 
+                {showOutbrain && <Outbrain url={siteUrl + url} />}
 
-                { showOutbrain && <Outbrain
-                  url={siteUrl + url}
-                /> }
-
-                { showRevContent && <RevContent /> }
-
+                {showRevContent && <RevContent />}
             </article>
         );
     }

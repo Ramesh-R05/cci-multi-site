@@ -26,7 +26,8 @@ export default {
     },
     headerNavigation: navigation.getData(),
     magCover: {
-        moduleImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/2017/10/11/1507683961181_0018975elle-australia-magazine-subscription.png',
+        moduleImageUrl:
+            'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/elle/2017/10/11/1507683961181_0018975elle-australia-magazine-subscription.png',
         moduleTitle: 'Subscribe Now'
     }
-}
+};
