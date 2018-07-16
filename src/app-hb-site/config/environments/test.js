@@ -17,5 +17,8 @@ export default {
     },
     polar: {
         propertyId: 'NA-HARPSBAZACONTPROM-11238618'
+    },
+    ads: {
+        iasAds: false
     }
 };

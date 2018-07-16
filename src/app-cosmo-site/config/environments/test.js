@@ -17,5 +17,8 @@ export default {
     },
     polar: {
         propertyId: 'NA-COSMCONTPROMNEW-11238888'
+    },
+    ads: {
+        iasAds: false
     }
 };

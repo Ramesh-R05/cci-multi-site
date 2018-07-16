@@ -17,5 +17,8 @@ export default {
     },
     polar: {
         propertyId: 'NA-GOURTRAVCONTPROM-11238617'
+    },
+    ads: {
+        iasAds: false
     }
 };

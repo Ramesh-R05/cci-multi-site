@@ -17,5 +17,8 @@ export default {
     },
     polar: {
         propertyId: 'NA-ELLECONTPROM-11238619'
+    },
+    ads: {
+        iasAds: false
     }
 };
