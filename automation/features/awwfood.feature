@@ -79,12 +79,12 @@ Feature: Smoke test for AWW FOOD
         """
         Oops - we're not sure why you ended up here. But at least there's a view.
         """
-        * I should see the site header logo to open homepage and contain "gtm-navbar-gourmet" class name
+        * I should see the site header logo to open homepage and contain "gtm-navbar-australian womens weekly food" class name
 
     Scenario: I can see the site header logo in the desktop style
         Given I switch to "desktop" view
         When I am currently viewing the homepage
-        * I should see the site header logo to open homepage and contain "gtm-navbar-gourmet" class name
+        * I should see the site header logo to open homepage and contain "gtm-navbar-australian womens weekly food" class name
 
     Scenario: I can see the GTM container with id "GTM-MHX78ZT"
         When I am currently viewing the homepage
