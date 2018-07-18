@@ -28,7 +28,7 @@ export default async function pageMiddleware(req, res, next) {
         req.data = req.data || {};
         req.data.entity = { ...pageData };
         req.data.section = {
-            //here is a temp way to prevent amp page from breaking
+            // here is a temp way to prevent amp page from breaking
             // we need the section data
             id: pageData.sectionId,
             name: section || '',
