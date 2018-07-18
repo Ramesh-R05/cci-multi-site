@@ -31,8 +31,8 @@ export default async function pageMiddleware(req, res, next) {
             //here is a temp way to prevent amp page from breaking
             // we need the section data
             id: pageData.sectionId,
-            name: section || "",
-            urlName: section || ""
+            name: section || '',
+            urlName: section || ''
         }; // Initially used to set the ad slot within @bxm/ads + gtm in @bxm/server
         req.data.subsection = { name: subsection, urlName: subsection };
         next();
