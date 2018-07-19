@@ -7,7 +7,7 @@ export default {
         sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/awwfood',
         tag: 'http://services.sit.bxm.internal/tag/v1/awwfood',
         search: 'http://services.sit.bxm.internal/es-search/v1/awwfood',
-        commercialtagsections: 'http://services.sit.bxm.internal/entity/v1/awwfood/commercialtagsections/'
+        alltagsections: 'http://services.sit.bxm.internal/entity/v1/awwfood/alltagsections'
     },
     endpoints: {
         page: '/api/getPageContent',

@@ -183,12 +183,12 @@ Feature: Smoke test for AWW FOOD
     #        |device             |page       |pageUrl                                            |
     #        |tablet portrait    |recipe     |recipes/chefs-recipes/smashed-cucumber-salad-31442 |
 
-#    Scenario: Verify the commercialtag section #waiting Yi to fix middleware
-#        Given I switch to "mobile" view
-#        When I am currently viewing "myer"
-#        Then I should see at least one teaser
-#        When I am currently viewing "tags/cupcake"
-#        Then I should not see any teaser
+    Scenario: Verify the commercialtag section
+        Given I switch to "mobile" view
+        When I am currently viewing "myer"
+        Then I should see at least one teaser
+        When I am currently viewing "tags/cupcake"
+        Then I should not see any teaser
 
      Scenario Outline: Verify the Homepage top search box "<device>" view
         When I switch to "<device>" view
