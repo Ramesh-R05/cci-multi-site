@@ -15,6 +15,7 @@ const StickyAndDockStub = Context.createStubComponent();
 const PromotedStub = Context.createStubComponent();
 const MustReadStub = Context.createStubComponent();
 const StickyAdStub = Context.createStubComponent();
+const PageSearchBoxStub = Context.createStubComponent();
 
 import polarConfig from '../mocks/polar';
 
@@ -29,7 +30,8 @@ const HomeContainer = proxyquire('../../app/containers/home', {
     '../components/social/block': SocialLinks,
     '../components/page/stickyAndDockAd': StickyAndDockStub,
     '../components/promoted/promoted': PromotedStub,
-    '../components/mustRead/mustRead': MustReadStub
+    '../components/mustRead/mustRead': MustReadStub,
+    '../components/search/pageSearchBox': PageSearchBoxStub
 }).default;
 
 AdStub.pos = {
@@ -80,6 +82,9 @@ describe('Home Container', () => {
         },
         getMagazineImageUrl() {
             return 'http://stubbedimages.biz/content.jpg';
+        },
+        getHomeSearchBox() {
+            return {};
         }
     });
 

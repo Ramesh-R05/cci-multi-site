@@ -38,13 +38,20 @@ export default class SearchBar extends Component {
     render() {
         return (
             <div className="search-bar">
-                <div className="search-bar--input">
-                    <form onSubmit={this.handleSubmit}>
-                        <input type="text" name="searchTerm" placeholder="Search" value={this.state.searchTerm} onChange={this.handleInputChange} />
+                <div className="search-bar__input">
+                    <form onSubmit={this.handleSubmit} className="search-bar__form">
+                        <input
+                            className="search-bar__searchTerm"
+                            type="text"
+                            name="searchTerm"
+                            placeholder="Search"
+                            value={this.state.searchTerm}
+                            onChange={this.handleInputChange}
+                        />
                         <input
                             type="image"
                             name="submit"
-                            className="search-bar--submit"
+                            className="search-bar__submit"
                             src="/assets/images/search-btn.png"
                             alt="Search"
                             onClick={this.handleSubmit}

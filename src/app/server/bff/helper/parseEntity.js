@@ -44,7 +44,11 @@ const entityPropertyMap = {
     recipeCourse: 'recipeCourse',
     cuisine: 'recipeCuisine',
     disableAmp: 'disableAmp',
-    isAllAmpCompatible: 'isAllAmpCompatible'
+    isAllAmpCompatible: 'isAllAmpCompatible',
+    enableSearch: 'enableSearch',
+    searchBackgroundImage: 'searchBackgroundImage',
+    searchDescribeText: 'searchDescribeText',
+    searchTagsDetails: 'searchTagsDetails'
 };
 
 export function parseEntity(data, propertyMapOverride = {}) {

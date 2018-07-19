@@ -6,7 +6,7 @@
         display: block;
     }
 
-    &--input {
+    &__input {
         height: 61px;
         width: 100%;
         border: 1px solid black;
@@ -23,24 +23,71 @@
         :-moz-placeholder { /* Firefox 18- */
             color: $color-black-origin;
         }
-
-        input {
-
-            &[type='text'] {
-                height: 58px;
-                width: 100%;
-                padding: 0 25px;
-                font-size: 14px;
-                font-weight: bold;
-                border: none;
-            }
-        }
     }
 
-    &--submit {
+    &__searchTerm {
+        height: 58px;
+        width: 100%;
+        padding: 0 25px;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+    }
+
+    &__submit {
         position: absolute;
         right: 16px;
         width: 60px;
         height: 60px;
+    }
+
+    .page-search-box & {
+        display: block;
+        
+        &__input {
+            display: block;
+            position: relative;
+            border-color: transparent;
+            height: 50px;
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                width: 15px;
+                height: 1px;
+                background: $color-black;
+                position: absolute;
+                right: 15px;
+            }
+
+            &:before {
+                top: calc( 50% - 5px );
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                top: calc( 50% + 5px );
+                transform: rotate(-45deg);
+            }
+        }
+
+        &__searchTerm {
+            border-radius: 5px;
+            height: inherit;
+        }
+
+        &__submit {
+            right: 0;
+            top: -1px;
+            opacity: 0;
+            height: inherit;
+            width: 50px;
+        }
+
+        &__form {
+            overflow: hidden;
+            height: 100%;
+        }
     }
 }

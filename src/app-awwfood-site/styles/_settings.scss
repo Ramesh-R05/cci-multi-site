@@ -17,7 +17,7 @@ $body-bg-color: $color-awwfood-white;
 $fixed-column-width: 300px;
 
 // Header heights
-$tl-header-bg-primary-color: #111;
+$tl-header-bg-primary-color: #333;
 $tl-header-primary-color: $color-primary;
 $tl-header-max-width: $row-width;
 $tl-header-heading-font-weight: normal;
@@ -92,6 +92,10 @@ $must-teaser-title-lineheight: 20px;
 // teaser summary component
 $teaser-summary-font-size: 14px;
 $teaser-summary-line-height: 1.5; // ems
+
+//page search box
+$page-search-box-bg: #b6956a;
+$page-search-box-gutter: $landing-page-teaser-gutter;
 
 // menu hover
 $menu-hover-border-thickness: 1px;

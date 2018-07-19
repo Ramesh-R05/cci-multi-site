@@ -14,6 +14,7 @@ import MustRead from '../components/mustRead/mustRead';
 import Promoted from '../components/promoted/promoted';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import SideBlock from '../components/sideBlock/sideBlock';
+import PageSearchBox from '../components/search/pageSearchBox';
 
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');
@@ -23,7 +24,8 @@ function mapStateToProps(context) {
         teasers: teaserStore.getLatestTeasers(),
         list: teaserStore.getList(),
         listNextParams: teaserStore.getListNextParams(),
-        magazineImageUrl: pageStore.getMagazineImageUrl()
+        magazineImageUrl: pageStore.getMagazineImageUrl(),
+        homePageSearchBox: pageStore.getHomeSearchBox()
     };
 }
 
@@ -35,6 +37,7 @@ export default class Home extends Component {
         heroTeaser: PropTypes.object.isRequired,
         list: PropTypes.array.isRequired,
         listNextParams: PropTypes.object.isRequired,
+        homePageSearchBox: PropTypes.object.isRequired,
         teasers: PropTypes.array.isRequired,
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
@@ -72,7 +75,7 @@ export default class Home extends Component {
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
         const { showBelowHero, showAboveBottomTeasers } = config.features.promoted;
-        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magazineImageUrl } = this.props;
+        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magazineImageUrl, homePageSearchBox } = this.props;
 
         const adProps = {
             className: 'ad--section-bottom-leaderboard',
@@ -109,6 +112,9 @@ export default class Home extends Component {
                                                 this.top = c;
                                             }}
                                         >
+                                            <div className="row">
+                                                <PageSearchBox {...homePageSearchBox} />
+                                            </div>
                                             <div className="row">
                                                 <MustRead show={showInsideContainer} />
                                             </div>

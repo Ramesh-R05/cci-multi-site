@@ -66,6 +66,10 @@ export default async function home(req, res, next) {
         req.data.entity = { ...pageData };
         req.data.latestTeasers = latestTeasers.data.slice(0, latestTeaserCount);
 
+        if (pageData.enableSearch) {
+            req.data.entity.searchBackgroundImage = pageData.searchBackgroundImage && pageData.searchBackgroundImage.url;
+        }
+
         req.data.list = {
             listName: 'home',
             params: {

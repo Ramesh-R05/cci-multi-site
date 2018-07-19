@@ -118,8 +118,3 @@ Feature: Homepage
             |device|
             |tablet portrait |
             |tablet landscape|
-
-
-
-
-

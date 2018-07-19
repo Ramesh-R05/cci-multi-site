@@ -149,7 +149,7 @@ Feature: Smoke test for AWW FOOD
         * I should see the search icon in the navigation bar
         * I should see the search box after clicking the icon
         * I should still see the search box after scrolling the page down
-        #* I should be able to search a keyword "beef" on "navigation bar" and see the result page
+        * I should be able to search a keyword "beef" on "navigation bar" and see the result page
         * I should not see the search bar on the search result page in mobile version
         Examples:
             |device             |page       |pageUrl                                            |
@@ -189,3 +189,16 @@ Feature: Smoke test for AWW FOOD
         Then I should see at least one teaser
         When I am currently viewing "tags/cupcake"
         Then I should not see any teaser
+
+     Scenario Outline: Verify the Homepage top search box "<device>" view
+        When I switch to "<device>" view
+        Given I am currently viewing the homepage
+        * I should see top search box
+        * I should see a searchbar inside search box
+
+        Examples:
+            |device|
+            |mobile|
+            |desktop|
+            |tablet portrait |
+            |tablet landscape|

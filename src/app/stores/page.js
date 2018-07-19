@@ -50,6 +50,20 @@ export default createReducerStore({
 
         getComScoreSegmentIds(state) {
             return state.comScoreSegmentIds;
+        },
+
+        getHomeSearchBox(state) {
+            const enableHomeSearchBox = !!state.enableHomeSearchBox;
+            const linkToBackgroundImage = state.linkToBackgroundImage || '';
+            const searchDescribeText = state.searchDescribeText || '';
+            const searchTagsDetails = state.searchTagsDetails || [];
+
+            return {
+                enableHomeSearchBox,
+                linkToBackgroundImage,
+                searchDescribeText,
+                searchTagsDetails
+            };
         }
     }
 });

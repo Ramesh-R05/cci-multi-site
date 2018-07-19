@@ -886,9 +886,10 @@ h6 {
 }
 
 a {
-
     @extend .type-link;
+    transition: color .3s ease;
     text-decoration: none;
+    
     article & {
         text-decoration: underline;
     }

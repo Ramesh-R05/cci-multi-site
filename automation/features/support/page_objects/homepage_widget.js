@@ -40,7 +40,9 @@ var homepage_widget = {
     newsletterSignUpBtnMobile: '.hero-wrapper .newsletter-subscribe__button a',
     loadMoreFeed: '.repeatable-component div:nth-child(2) article',
     loadMoreFeedTeaserImg: '.repeatable-component div:nth-child(2) li.teaser__list-item:nth-child(1) article .teaser__image img',
-    loadMoreFeedTeaserImgLink: '.repeatable-component div:nth-child(2) li.teaser__list-item:nth-child(1) article .teaser__image'
+    loadMoreFeedTeaserImgLink: '.repeatable-component div:nth-child(2) li.teaser__list-item:nth-child(1) article .teaser__image',
+    topSearchBox: '.page-search-box',
+    topSearchBoxSearchBar: '.page-search-box .search-bar'
 };
 
 module.exports = homepage_widget;

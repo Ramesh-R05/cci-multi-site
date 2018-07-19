@@ -17,7 +17,24 @@ export default {
         url: '/',
         parentName: 'Now',
         parentUrl: '/',
-        siteUrl: 'http://dev.now-site.bauer-media.net.au'
+        siteUrl: 'http://dev.now-site.bauer-media.net.au',
+        enableSearch: true,
+        searchBackgroundImage: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/AWW/2016/08/17/28455/Beach-house-art.jpg',
+        searchDescribeText: "Mother's Day is around the corner, Here;s some breakfast idea",
+        searchTagsDetails: [
+            {
+                name: "food:Occasion:Father's Day",
+                displayName: "Father's Day",
+                urlName: 'fathers-day',
+                fullName: 'food_Occasion_Fathers_Day'
+            },
+            {
+                name: "food:Occasion:Mother's Day",
+                displayName: "Mother's Day",
+                urlName: 'mothers-day',
+                fullName: 'food_Occasion_Mothers_Day'
+            }
+        ]
     },
     headerMetaData: {
         googleTagManagerEnvironment: 'dev',

@@ -41,7 +41,7 @@ module.exports = function(){
         this.When(/^I search for "([^"]*)" using the search box$/, function (tag) {
             browser.click('button.search__button');
             browser.setValue(".search__input",tag);
-            browser.click('.button--submit');
+            browser.click('.button__submit');
             global.tagText = tag;
         });
 

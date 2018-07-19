@@ -251,4 +251,13 @@ module.exports = function(){
         expect(loadMoreFeedTeaserImgLink).not.toEqual('');
     });
 
+    this.Then(/^I should see top search box$/, function () {
+        var topSearchBox = home.topSearchBox;
+        expect(browser.isVisible(topSearchBox)).toEqual(true);
+    });
+
+    this.Then(/^I should see a searchbar inside search box$/, function () {
+        var topSearchBoxSearchBar = home.topSearchBoxSearchBar;
+        expect(browser.isVisible(topSearchBoxSearchBar)).toEqual(true);
+    });
 };
