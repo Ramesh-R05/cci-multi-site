@@ -1,7 +1,7 @@
 var search_widget = {
     searchNavIcon: 'button.header-search--icon',
-    searchNavBox: '.header-search__input input[name="searchTerm"]',
-    searchNavSubmit: '.header-search__input input[name="submit"]',
+    searchNavBox: '.header-search--input input[name="searchTerm"]',
+    searchNavSubmit: '.header-search--input input[name="submit"]',
     searchResultPageBox: '.search-bar__input input[name="searchTerm"]',
     searchResultPageSubmit: '.search-bar__input input[name="submit"]',
     searchResultPageTitle: '.page-title-container',
