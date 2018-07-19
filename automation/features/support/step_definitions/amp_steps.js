@@ -1,6 +1,9 @@
 var amp = require('../page_objects/amp_widget');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var loadAllElements = require('../../../node_modules/@bxm/automation/lib/utils/loadAllElements');
+var world = require('../world');
+var isBrowserStack = world.Urls.isBrowserStack;
+var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 
 module.exports = function() {
 
@@ -96,7 +99,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see first MREC in the body on AMP page$/, function () {
-        browser.scroll(0,2000);
+        scrolling(browser,amp.ampMrecList,isBrowserStack);
         var bodyAmpAdList = browser.waitForVisible(amp.ampMrecList,5000);
         //var bodyAmpAdList = browser.isExisting(amp.ampMrecList); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
         expect(bodyAmpAdList[0]).toBe(true);
@@ -110,10 +113,10 @@ module.exports = function() {
 
     this.Then(/^I should see the sticky bottom leaderboard on AMP page$/, function () {
         wait(5000);
-        browser.scroll(0,500);
+        scrolling(browser,amp.ampBodyImg,isBrowserStack);
         //expect(browser.waitForVisible(amp.ampBottomLeaderboard,5000)).toBe(true);
         expect(browser.isExisting(amp.ampBottomLeaderboard)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
-        browser.scroll(0,1000);
+        scrolling(browser,amp.ampBodyVideo,isBrowserStack);
         //expect(browser.waitForVisible(amp.ampBottomLeaderboard,5000)).toBe(true);
         expect(browser.isExisting(amp.ampBottomLeaderboard)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });
