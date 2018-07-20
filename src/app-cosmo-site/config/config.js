@@ -38,8 +38,7 @@ export default {
                 'media_common:quotation_subject:Sex scandal'
             ]
         },
-        disabledGalleryChangeRefresh: true,
-        iasAds: true
+        disabledGalleryChangeRefresh: true
     },
 
     site,
