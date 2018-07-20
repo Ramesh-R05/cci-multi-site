@@ -41,7 +41,7 @@ describe('Tag middleware', () => {
     let rejectedResponse;
 
     describe('when a tag is set in the query params', () => {
-        const baseReq = { app: { locals: { config } }, query: { tag: 'two-words' }, data: { excludeCommercialTagQuery: '' } };
+        const baseReq = { app: { locals: { config } }, query: { tag: 'two-words' }, data: { excludeTagQuery: '' } };
         describe('and an entity is not defined', () => {
             describe('and the remote listing and tag service returns an error response and entity returns valid response', () => {
                 beforeEach(() => {
@@ -437,7 +437,7 @@ describe('Tag middleware', () => {
 
     describe('when a section is set in the query params', () => {
         beforeEach(() => {
-            req = { app: { locals: { config } }, query: { section: 'two-words' }, data: { excludeCommercialTagQuery: '' } };
+            req = { app: { locals: { config } }, query: { section: 'two-words' }, data: { excludeTagQuery: '' } };
             next = sinon.spy();
             makeRequestStub = sinon.stub();
             makeRequestStub.withArgs(`${entityService}/section/${req.query.section}`).resolves({});

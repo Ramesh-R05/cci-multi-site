@@ -17,7 +17,7 @@ describe('Listing middleware', () => {
     let next;
 
     describe('when there is a section in the query param', () => {
-        const reqBase = { query: { section: 'sec' }, app: { locals: { config } }, data: { excludeCommercialTagQuery: '' } };
+        const reqBase = { query: { section: 'sec' }, app: { locals: { config } }, data: { excludeTagQuery: '' } };
         describe('when the remote returns an error response', () => {
             const req = { ...reqBase };
             const rejectedResponse = {
@@ -42,7 +42,7 @@ describe('Listing middleware', () => {
         });
 
         describe('when the remote returns an entity in the response', () => {
-            const req = { ...reqBase, data: { excludeCommercialTagQuery: '' } };
+            const req = { ...reqBase, data: { excludeTagQuery: '' } };
 
             describe('and there is not a req.data object set', () => {
                 before(() => {
@@ -56,7 +56,7 @@ describe('Listing middleware', () => {
                             expect(req.data).to.deep.equal({
                                 entity,
                                 section: { id: entity.id, name: entity.contentTitle, urlName: entity.urlName },
-                                excludeCommercialTagQuery: ''
+                                excludeTagQuery: ''
                             });
                             done();
                         })

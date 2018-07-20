@@ -21,7 +21,7 @@ export default async function tagMiddleware(req, res, next) {
         const tag = query ? query.tag || query.section : null;
         const entity = get(req, 'data.entity');
         const tagsDetails = get(req, 'data.entity.tagsDetails', []);
-        const { excludeCommercialTagQuery } = req.data;
+        const { excludeTagQuery } = req.data;
         if (!tag || query.page || (entity && entity.nodeTypeAlias !== 'TagSection')) {
             next();
             return;
@@ -69,7 +69,7 @@ export default async function tagMiddleware(req, res, next) {
             ? tagsToQuery(tagsDetails.map(singleTag => singleTag.fullName), 'eq')
             : `tagsDetails/urlName eq %27${loweredCaseTag}%27`;
 
-        const listingQuery = excludeCommercialTagQuery ? `${tagListingQuery} and ${excludeCommercialTagQuery}` : tagListingQuery;
+        const listingQuery = excludeTagQuery ? `${tagListingQuery} and ${excludeTagQuery}` : tagListingQuery;
         const latestTeasersResp = await getLatestTeasers(listCount, skip, listingQuery);
 
         // TODO: need to handle `data` in resp better

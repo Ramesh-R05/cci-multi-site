@@ -42,7 +42,7 @@ describe('Home middleware', () => {
             err: 'Error 404',
             status: 404
         };
-        const req = { app: { locals: { config } }, data: { excludeCommercialTagQuery: '' } };
+        const req = { app: { locals: { config } }, data: { excludeTagQuery: '' } };
 
         before(() => {
             next = sinon.spy();
@@ -64,7 +64,7 @@ describe('Home middleware', () => {
 
     describe('when the remote returns an entity in the response', () => {
         describe('and getLatestTeasers returns the teasers and video gallery teasers', () => {
-            const req = { app: { locals: { config } }, data: { excludeCommercialTagQuery: '' } };
+            const req = { app: { locals: { config } }, data: { excludeTagQuery: '' } };
 
             before(() => {
                 next = sinon.spy();
@@ -124,7 +124,7 @@ describe('Home middleware', () => {
         });
 
         describe('and getLatestTeasers returns an error when getting video gallery teasers', () => {
-            const req = { app: { locals: { config } }, data: { excludeCommercialTagQuery: '' } };
+            const req = { app: { locals: { config } }, data: { excludeTagQuery: '' } };
 
             before(() => {
                 next = sinon.spy();
@@ -146,7 +146,7 @@ describe('Home middleware', () => {
     });
 
     describe('when the request contains existing data', () => {
-        const req = { data: { header: 'Test', excludeCommercialTagQuery: '' }, app: { locals: { config } } };
+        const req = { data: { header: 'Test', excludeTagQuery: '' }, app: { locals: { config } } };
 
         before(() => {
             next = sinon.spy();
@@ -167,7 +167,7 @@ describe('Home middleware', () => {
     });
 
     describe('when there is a query param', () => {
-        const req = { app: { locals: { config } }, query: {}, data: { excludeCommercialTagQuery: '' } };
+        const req = { app: { locals: { config } }, query: {}, data: { excludeTagQuery: '' } };
         const skippedQueries = ['page', 'section', 'tag'];
         after(() => {
             req.query = {};
@@ -195,7 +195,7 @@ describe('Home middleware', () => {
     });
 
     describe('when a query param of pageNo 2 is passed in', () => {
-        const req = { app: { locals: { config } }, query: { pageNo: 2 }, data: { excludeCommercialTagQuery: '' } };
+        const req = { app: { locals: { config } }, query: { pageNo: 2 }, data: { excludeTagQuery: '' } };
         before(() => {
             next = sinon.stub();
             makeRequestStub = sinon.stub().resolves(entity);
