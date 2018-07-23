@@ -1,117 +1,3 @@
-/*
-.mustread-teaser-view-grid,
-.promoted-teaser-view-grid,
-.teaser-view-grid {
-    .teaser__title {
-        font: 400 20px/27px $font-family-serif-primary;
-        margin-bottom: 6px;
-
-        a {
-            text-decoration: none;
-            font-size: inherit;
-            font-family: inherit;
-        }
-    }
-
-    .teaser__summary {
-        line-height: 21px;
-        font-size: 13px;
-    } 
-
-    .teaser__body {
-        margin-top: 7px;
-        position: relative;
-        font-family: $font-family-sans-serif-primary;
-    }
-
-    .teaser__source {
-        font-size: 11px;
-        line-height: 15px;
-        font-weight: 400;
-        padding: 0 15px;
-        color: $color-grey-light;
-        text-transform: uppercase;
-        letter-spacing: .7px;
-        display: none;
-
-        @media #{$medium-up} {
-            padding: 0;
-            line-height: 12px;
-        }
-
-    }
-
-    @media #{$small-only} {
-        .teaser__body {
-            margin-bottom: 40px;
-            margin-top: 8px;
-        }
-
-        .teaser__title,
-        .teaser__summary {
-            line-height: 22px;
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
-        .teaser__title {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .teaser__badge-container {
-            margin-left: 15px;
-        }
-    }
-
-    @media #{$medium-only} {
-        .teaser__title,
-        .teaser__summary {
-            padding-left: 0;
-        }
-
-        .teaser__badge-container {
-            margin-left: 0;
-        }
-    }
-
-    @media #{$medium-up} {
-        .teaser__title {
-            margin-bottom: 12px;
-        }
-
-        .teaser__body {
-            margin-bottom: 30px;
-        }
-    }
-}
-
-.teaser-view-grid {
-
-    .teaser__title {
-        line-height: 24px;
-
-        @media #{$medium-up} {
-            margin-top: 0;
-            line-height: 26px;
-        }
-
-    }
-
-    .teaser__section-tag {
-        padding: 0 $column-gutter/2;
-        margin-top: 16px;
-        margin-bottom: 0;
-
-        @media #{$medium-up} {
-            padding: 0;
-            margin-bottom: 0px;
-        }
-
-
-    }
-}
-*/
 
 .teaser-view-grid.teaser__list {
     & > li {
@@ -183,6 +69,7 @@
 }
 
 .mustread-teaser-view-grid {
+    @extend .clearfix;
 
     img {
         // Hack to ensure images take up the whole width in tablet view
@@ -194,41 +81,51 @@
     }
 
     .teaser__list {
-        background-color: $color-white;
-
         &[class*='block-grid-'] {
-            display: table;
-            width: calc(100% + #{$column-gutter});
-            margin: 0 -1*$column-gutter/2 $landing-page-module-gutter;
-
+            display: flex;
             &:before,
             &:after {
                 content: none;
                 display: none;
             }
 
-            @media #{$medium-up} {
-                width: calc(100% + #{$column-gutter + $landing-page-teaser-gutter});
-                margin: 0 -1*$column-gutter/2 $landing-page-module-gutter -1*($column-gutter/2+$landing-page-teaser-gutter);
+            margin: {
+                top: 0;
+                left: -$landing-page-teaser-gutter / 2 - 1*$column-gutter / 2;
+                right: -$landing-page-teaser-gutter / 2 - 1*$column-gutter / 2;
+                bottom: $landing-page-module-gutter;
             }
 
             @media #{$large-up} {
-                width: calc(100% + #{$landing-page-teaser-gutter});
-                margin-left: -1*$landing-page-teaser-gutter;
-                margin-right: 0;
+                margin: {
+                    top: 0;
+                    left: -$landing-page-teaser-gutter / 2;
+                    right: -$landing-page-teaser-gutter / 2;
+                    bottom: $landing-page-module-gutter;
+                }
             }
         }
     }
 
     .teaser__list-item {
         // Following two line is to defeat block grid from foundation,
-        // Changed to table base grid for the design of white panel
-        display: table-cell;
-        padding: 0!important; // to override the styling from app folder
+        // Changed to flex base grid for the design of white panel
+        
         float: none;
+        background-color: $color-white;
+        box-shadow: $panel-shadow;
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+            padding: 0;
+        }
 
         .teaser {
-
+            box-shadow: none;
             &__title {
                 font-family: $font-text;
                 font-size: $must-teaser-title-size;
@@ -248,20 +145,10 @@
             height: 25px;
         }
 
-        &:nth-child(1) {
-            @media #{$small-only} {
-                .teaser {
-                    padding-right: $landing-page-teaser-gutter / 2;
-                }
-            }
-        }
-
-        &:nth-child(2) {
-            @media #{$small-only} {
-                .teaser {
-                    padding-left: $landing-page-teaser-gutter / 2;
-                }
-            }
+        width: calc(50% - #{$landing-page-teaser-gutter});
+        margin: {
+            left: $landing-page-teaser-gutter / 2;
+            right: $landing-page-teaser-gutter / 2;
         }
 
         &:nth-child(3),
@@ -271,26 +158,22 @@
             display: none;
         }
 
-        @media #{$medium-up} {
-            border-left: $body-bg-color solid $landing-page-teaser-gutter;
-
-            &:nth-child(3),
-            &:nth-child(4) {
-                display: none;
-            }
-
-        }
-
         @media #{$large-up} {
+            width: calc(25% - #{$landing-page-teaser-gutter});
+            margin: {
+                left: $landing-page-teaser-gutter / 2;
+                right: $landing-page-teaser-gutter / 2;
+            }
             &:nth-child(3),
             &:nth-child(4) {
-                display: table-cell;
-            }
+                display: block;
+            }   
         }
     }
 }
 
 .promoted-teaser-view-grid {
+    box-shadow: $panel-shadow;
     background-color: $color-white;
     margin-top: $landing-page-teaser-gutter + $landing-page-module-gutter;
     padding: {
@@ -323,7 +206,7 @@
     }
 
     .teaser {
-
+        box-shadow: none;
         padding: {
             top: 0;
             left: $landing-page-teaser-gutter / 2;

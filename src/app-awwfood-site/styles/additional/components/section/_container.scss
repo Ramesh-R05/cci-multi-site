@@ -1,5 +1,6 @@
-.page--section {
+.page {
     .page-title-container {
+        box-shadow: $panel-shadow-y-up;
         max-width: $row-width - 2 * $column-gutter ;
         overflow: auto;
         background: $color-white;

@@ -2,10 +2,12 @@
 
     @include full-width;
     @include content-body-component;
+    box-shadow: $panel-shadow;
 
-    & + & {
-        margin-top: -1 * $article-gap;
-    }
+    // & + & {
+    //     margin-top: -1 * $article-gap;
+    //     box-shadow: $panel-shadow;
+    // }
 
     li {
         padding-bottom: 15px;
@@ -63,10 +65,12 @@
 
         & + .content-body {
             margin-top: -1 * $article-gap;
+            box-shadow: $panel-shadow;
         }
     }
 
     &__inline-image {
+        box-shadow: $panel-shadow;
         margin-top: $article-gap;
         margin-bottom: 0;
 
@@ -111,6 +115,7 @@
 
         .related-content-wrapper {
             @include content-body-component;
+            box-shadow: $panel-shadow;
             margin-left: 0;
             margin-right: 0;
         }
@@ -167,6 +172,7 @@
 
     &__tips {
         @include content-body-component;
+        box-shadow: $panel-shadow;
         font-family: $font-text;
         border: 1px solid $color-awwfood-black;
         padding: 0;
@@ -192,6 +198,7 @@
     &__embed--giphy,
     &__embed--playbuzz,
     &__embed-video-container {
+        box-shadow: $panel-shadow;
         @include content-body-component;
     }
 

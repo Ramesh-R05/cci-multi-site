@@ -16,6 +16,7 @@
         padding-bottom: $feed-item-gap;
         padding-left: $feed-item-gap;
         padding-right: $feed-item-gap;
+        box-shadow: $panel-shadow-y;
 
         &:first-child {
             padding-top: $feed-item-gap;

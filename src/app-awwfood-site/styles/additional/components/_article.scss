@@ -29,6 +29,7 @@
         @include mobile-padding-collapse;
         margin-top: 0;
         background-color: $color-white;
+        box-shadow: $panel-shadow;
     }
 
     &-header-section {
@@ -100,13 +101,14 @@
         @include full-width;
         @include mobile-padding-collapse;
         @include content-body-component;
+        box-shadow: $panel-shadow;
         clear: both;
 
         a.fb-share-link,
         a.pinterest-share-link {
-            background-color: $color-button;
+            background-color: $color-awwfood-gold;
             &:hover {
-                background-color: $color-button-hover;
+                background-color: lighten($color-button-hover, 10%);
             }
         }
 
@@ -151,7 +153,7 @@
     }
 
     .related-content {
-
+        box-shadow: $panel-shadow;
         &-items {
             .teaser__image {
                 margin-bottom: 5px;

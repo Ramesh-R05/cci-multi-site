@@ -123,7 +123,7 @@ $footer-section-gap: 35px;
 
 .footer {
     padding: 0 0 $footer-section-gap;
-    
+    box-shadow: $panel-shadow;
     .home-page__get-social-container {
         background-color: $color-heading-bg;
         padding-top: $footer-section-gap / 2;

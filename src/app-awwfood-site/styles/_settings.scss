@@ -29,7 +29,7 @@ $global-header-height-desktop: $to-love-global-header-height-desktop;
 $header-logo-aspect-ratio: 4; // (140 / 35)
 $header-height: 50px;
 $header-height-desktop: 60px;
-$header-banner-logo-height: 173px;
+$header-banner-logo-height: 137px;
 $header-logo-width-desktop: 332px;
 $header-logo-container-width-desktop: $header-logo-width-desktop;
 $header-logo-path: '/assets/logos/header-logo.svg';
@@ -123,3 +123,8 @@ $polar-in-related-feed-height: 56.5%;
 $feed-item-gap: $column-gutter / 2;
 $article-padding: $column-gutter / 2;
 $article-gap: $column-gutter;
+
+// white panel
+$panel-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
+$panel-shadow-y: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
+$panel-shadow-y-up: 0 -15px 30px 0 rgba(0, 0, 0, 0.05);

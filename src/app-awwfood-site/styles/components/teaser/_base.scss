@@ -6,7 +6,8 @@
 .teaser {
     background-color: $color-white;
     padding: $landing-page-teaser-gutter;
-    
+    box-shadow: $panel-shadow;
+
     &__inner {
         @extend .clearfix;
     }

@@ -42,11 +42,11 @@
         &-item--video,
         &-item--image {
             @include inline-img-style;
+            box-shadow: $panel-shadow;
         }
     }
 
     &__item {
-
         &-count {
             margin-bottom: 15px;
             display: inline-block;

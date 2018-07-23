@@ -2,12 +2,12 @@
 
 .button {
     background-color: $color-button;
-    border: 2px solid $color-button;
-    border-radius: 0;
-    color: $color-white;
+    border: 2px solid $color-awwfood-gold;
+    border-radius: 3px;
+    color: $color-text;
     display: inline-block;
-    font: 400 13px $font-family-sans-serif-light;
-    letter-spacing: normal;
+    font: 600 11px Nunito-Regular;
+    letter-spacing: 3px;
     min-height: 52px;
     padding: 0 33px;
     text-transform: uppercase;
@@ -19,6 +19,7 @@
             border-color: $color-button-hover;
             outline: none;
             text-decoration: none;
+            color: $color-white;
         }
     }
 
@@ -90,10 +91,6 @@
         @media #{$medium-up} {
             margin-bottom: 40px;
         }
-    }
-
-    &.back-to-top {
-        background-color: $color-black-origin;
     }
 
     &--link {
