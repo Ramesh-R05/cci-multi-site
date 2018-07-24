@@ -43,6 +43,14 @@
             letter-spacing: 0;
             margin-bottom: 0;
         }
+
+        &.feed-item--has-video,
+        &.feed-item--gallery {
+            &:after {
+                top: 0;
+                left: 15px;
+            }
+        }
     }
 
     .feed-ad {
