@@ -75,10 +75,7 @@ Feature: Smoke test for AWW FOOD
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
-        * I should see the error title as:
-        """
-        Oops - we're not sure why you ended up here. But at least there's a view.
-        """
+        * I should see the error title not empty
         * I should see the site header logo to open homepage and contain "gtm-navbar-australian womens weekly food" class name
 
     Scenario: I can see the site header logo in the desktop style

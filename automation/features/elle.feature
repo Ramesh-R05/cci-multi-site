@@ -65,10 +65,7 @@ Feature: Smoke test for ELLE
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
-        * I should see the error title as:
-        """
-        Oops, we don't have the page you're looking for.
-        """
+        * I should see the error title not empty
         * I should see the site header logo to open homepage and contain "gtm-navbar-elle" class name
 #        * I should see the Big Banner logo to open homepage and contain "gtm-navbar-elle" class name
 

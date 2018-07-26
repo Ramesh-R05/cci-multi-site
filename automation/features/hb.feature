@@ -60,10 +60,7 @@ Feature: Smoke test for HB
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
-        * I should see the error title as:
-        """
-        WHOOPS! LOOKS LIKE WE DON'T HAVE THE PAGE YOU’RE LOOKING FOR.
-        """
+        * I should see the error title not empty
         * I should see the site header logo to open homepage and contain "gtm-navbar-harper" class name
 #        * I should see the Big Banner logo to open homepage and contain "gtm-navbar-harpers" class name
 

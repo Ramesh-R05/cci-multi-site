@@ -42,14 +42,14 @@ export default {
 
     error: {
         404: {
-            title: "Oops - we're not sure why you ended up here. But at least there's a view.",
+            title: "Whoops, seems we couldn't find the page you were looking for. But we did find this cake.",
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.png',
             returnHomeText: 'Try refreshing this page or join us back on the <span class="error-page__text-hyperlink">homepage</span>.'
         },
         503: {
-            title: "Oops - we're not sure why you ended up here. But at least there's a view.",
+            title: "Whoops, seems we couldn't find the page you were looking for. But we did find this cake.",
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.png',
