@@ -99,6 +99,14 @@ resources:
       sourceName: bauerxcelmedia/multi-site
       branch: master
 
+  # Multi Github repo - Branch
+  - name: multi-site-repo-branch
+    type: gitRepo
+    integration: production-github
+    pointer:
+      sourceName: bauerxcelmedia/multi-site
+      branch: fix/wwfood-compatibility-test
+
   # SIT Parameter
   - name: multi-site-params-sit
     type: params

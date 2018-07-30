@@ -1108,3 +1108,26 @@ jobs:
       script:
         - *template-lighthouse-csv-report
       NOTIFY: multi-qa-team-notifications
+
+  # xi. Run compatibility test for AWWFOOD - SPIKE
+  - name: spike-awwfood-compatibility-test
+    type: runSh
+    always:
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: multi-site-repo-branch
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo-branch/gitRepo/automation
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=awwfood-site
+       - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
+       - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
+       - script: export URL=http://awwfood-site-au.sit.bxm.net.au/
+       - script: npm run test:awwfoodmobile
+       - script: npm run test:awwfoodbrowser
