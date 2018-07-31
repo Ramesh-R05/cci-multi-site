@@ -54,8 +54,9 @@
     &:before {
         content: 'More from the To Love Network';
         font-family: 'AbrilFatface-Regular';
-        color: $color-white;
-        font-size: 16px;
+        color: rgba($color-awwfood-light, 0.33);
+        font-size: 18px;
+        letter-spacing: 1px;
     }
 
     li:nth-child(5) {
@@ -69,7 +70,7 @@
 }
 
 .off-canvas {
-    background-color: $color-awwfood-gold;
+    background-color: $color-primary;
 }
 
 .off-canvas-content-wrapper {
