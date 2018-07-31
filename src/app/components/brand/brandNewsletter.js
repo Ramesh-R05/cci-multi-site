@@ -7,7 +7,9 @@ export default class Newsletter extends Component {
     };
 
     static DEFAULT_TITLE = 'Get The Newsletter';
+
     static DEFAULT_TEXT = 'The latest news delivered to your inbox';
+
     static DEFAULT_BUTTON_TEXT = 'SIGN UP';
 
     render() {

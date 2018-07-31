@@ -1,12 +1,12 @@
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import TeaserList from '@bxm/teaser/lib/components/teaserList';
-import Teaser from './teaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import Teaser from './teaser';
 
 export default class TeaserGridView extends Component {
     static propTypes = {
-        teasers: PropTypes.array.isRequired,
+        teasers: PropTypes.array,
         className: PropTypes.string,
         nativeAdConfig: PropTypes.shape({
             slotPositionIndex: PropTypes.array,

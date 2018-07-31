@@ -31,6 +31,7 @@ export default class BrandMagazine extends Component {
     };
 
     static DEFAULT_SUBSCRIBE_URL = 'subscribe-magazine';
+
     static DEFAULT_SUBSCRIBE_TEXT = 'SUBSCRIBE NOW';
 
     render() {

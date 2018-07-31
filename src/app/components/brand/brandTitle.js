@@ -4,7 +4,7 @@ export default class BrandTitle extends Component {
     static propTypes = {
         brand: PropTypes.object.isRequired,
         shortTitle: PropTypes.string,
-        summary: PropTypes.summary
+        summary: PropTypes.string
     };
 
     static defaultProps = {

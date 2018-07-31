@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import get from 'lodash/object/get';
 import { connectToStores } from '@bxm/flux';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import HeroTeaser from '../components/teaser/hero';
 import TeaserGridView from '../components/teaser/grid';
 import TeaserListView from '../components/teaser/list';
@@ -12,7 +13,6 @@ import loadList from '../actions/loadList';
 import StickyAndDockAd from '../components/page/stickyAndDockAd';
 import MustRead from '../components/mustRead/mustRead';
 import Promoted from '../components/promoted/promoted';
-import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import SideBlock from '../components/sideBlock/sideBlock';
 import PageSearchBox from '../components/search/pageSearchBox';
 
@@ -38,7 +38,7 @@ export default class Home extends Component {
         list: PropTypes.array.isRequired,
         listNextParams: PropTypes.object.isRequired,
         homePageSearchBox: PropTypes.object.isRequired,
-        teasers: PropTypes.array.isRequired,
+        teasers: PropTypes.array,
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
         magazineImageUrl: PropTypes.string
@@ -142,7 +142,7 @@ export default class Home extends Component {
                                                 <TeaserListView
                                                     index={null}
                                                     items={teasers.slice(0, 6)}
-                                                    className={'news-feed top-news-feed'}
+                                                    className="news-feed top-news-feed"
                                                     nativeAdConfig={{
                                                         slotPositionIndex: polarLabels.homeTopFeed
                                                     }}

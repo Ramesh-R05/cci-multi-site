@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
 import VerticalGallery from '@bxm/article/lib/gallery';
 import Article from '@bxm/article/lib/article';
+import Ad from '@bxm/ad/lib/google/components/ad';
 import RecipeSection from '../components/recipe/section';
 import Page from './page';
 import Teaser from '../components/teaser/teaser';
-import Ad from '@bxm/ad/lib/google/components/ad';
 
 function mapStateToProps(context) {
     return {
@@ -102,7 +102,8 @@ export default class Document extends Component {
                     />
                 </Page>
             );
-        } else if (nodeType === 'Recipe') {
+        }
+        if (nodeType === 'Recipe') {
             return (
                 <Page
                     currentUrl={currentUrl}

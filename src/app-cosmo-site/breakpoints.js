@@ -18,4 +18,4 @@ module.exports = {
     railLeaderboardRangeMin: '1148px',
     railLeaderboardRangeMax: '1413px'
 };
-/*eslint-enable */
+/* eslint-enable */

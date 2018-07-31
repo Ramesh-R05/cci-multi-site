@@ -1,14 +1,19 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const production = process.env.NODE_ENV === 'production';
+const isDebug = process.env.APP_DEBUG === 'true';
+
+if (isDebug) {
+    process.traceDeprecation = true;
+}
 
 const config = {
     bail: true,
+    cache: false,
     devtool: 'source-map',
     entry: ['./app/client.js', './app/styles/main.scss'],
     output: {
@@ -20,7 +25,7 @@ const config = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: [/node_modules/, /dist/],
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -31,45 +36,54 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true,
-                                url: false,
-                                minimize: process.env.NODE_ENV
-                            }
-                        },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                sourceMap: true,
-                                plugins: () => [
-                                    autoprefixer({
-                                        browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
-                                    })
-                                ]
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: true,
-                                outputStyle: 'compressed',
-                                // eslint-disable-next-line global-require
-                                importer: require('./sass-importer.js')
-                            }
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: false, // Enabling this adds around 30 seconds to build time
+                            minimize: production,
+                            url: false
                         }
-                    ]
-                })
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: false,
+                            plugins: () => [
+                                autoprefixer({
+                                    browsers: ['last 2 versions', 'ie >= 10', 'ios >= 9', 'Android >= 4']
+                                })
+                            ]
+                        }
+                    },
+                    'resolve-url-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: false, // Enabling this adds around 40 seconds to build time
+                            outputStyle: 'compressed',
+                            importer: require('./sass-importer.js')
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000
+                }
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin(`[name]${production ? '-[chunkhash]' : ''}.css`),
-        new ManifestPlugin(),
+        new MiniCssExtractPlugin({
+            fileName: `[name]${production ? '-[contenthash]' : ''}.css`
+        }),
+        new ManifestPlugin({
+            publicPath: '' // This removes the /dist/ prefix so that @bxm/server/lib/index.js can load properly
+        }),
         new webpack.DefinePlugin({
             'process.env.APP_KEY': JSON.stringify(process.env.APP_KEY)
         })
@@ -77,22 +91,15 @@ const config = {
 };
 
 if (production) {
-    config.plugins.push(new WebpackMd5Hash());
     config.plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            beautify: false,
-            comments: false,
-            compress: {
-                warnings: false,
-                comparisons: false,
-                screw_ie8: true
+        new UglifyJsPlugin({
+            sourceMap: false, // Enabling this will add around 8 seconds to build time
+            parallel: true,
+            uglifyOptions: {
+                beautify: false,
+                mangle: false, // Enabling this will add around 3 seconds to build time
+                compress: false // Enabling this will add around 20 seconds to build time
             }
-        })
-    );
-    config.plugins.push(
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
         })
     );
 }

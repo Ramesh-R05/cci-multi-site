@@ -14,7 +14,7 @@ export default class Teaser extends Component {
     static displayName = 'Teaser';
 
     static propTypes = {
-        article: PropTypes.object.isRequired,
+        article: PropTypes.object,
         imageSizes: PropTypes.object,
         showResponsiveImage: PropTypes.bool,
         className: PropTypes.string.isRequired,
@@ -195,7 +195,7 @@ export default class Teaser extends Component {
                     </div>
                 </div>
 
-                {polar && <Ad sizes={'nativeAdTeaser'} label={polar.label} targets={polar.targets} nativeAd pageLocation={Ad.pos.body} />}
+                {polar && <Ad sizes="nativeAdTeaser" label={polar.label} targets={polar.targets} nativeAd pageLocation={Ad.pos.body} />}
             </article>
         );
     }

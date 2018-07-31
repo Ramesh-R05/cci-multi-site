@@ -17,6 +17,7 @@ const styles = {
 
 class StickyAndDockAd extends Component {
     static displayName = 'StickyAndDockAd';
+
     static propTypes = {
         offsetTop: PropTypes.number,
         offsetBottom: PropTypes.number,

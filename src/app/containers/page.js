@@ -3,14 +3,14 @@ import { connectToStores } from '@bxm/flux';
 import hamburgerWrapper from '@bxm/nav/lib/components/hamburgerWrapper';
 import MobileOffCanvas from '@bxm/nav/lib/components/offcanvas/content';
 import Header from '@bxm/site-header';
-import Footer from '../components/footer';
-import UniHeader from '../components/uniheader';
-import Logos from '../components/page/logos';
 import HamburgerNav from '@bxm/site-header/lib/components/hamburgerNav';
 import classnames from 'classnames';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import StandardPageAdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
+import Logos from '../components/page/logos';
+import UniHeader from '../components/uniheader';
+import Footer from '../components/footer';
 
 function mapStateToProps(context) {
     const NavigationStore = context.getStore('NavigationStore');

@@ -13,6 +13,7 @@ export default class GiftCard extends Component {
     };
 
     static DEFAULT_URL = 'gift-card-large';
+
     static DEFAULT_BUTTON_TEXT = 'Buy Now';
 
     shouldComponentUpdate = () => false;

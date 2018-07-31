@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores, provideContext } from '@bxm/flux';
 import { handleHistory } from 'fluxible-router';
-import ErrorPage from '../components/page/error';
 import { canUseDOM } from 'exenv';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import ErrorPage from '../components/page/error';
 
 function mapStateToProps(context) {
     return {
@@ -30,14 +30,16 @@ class Application extends Component {
         }),
         nodeType: PropTypes.string.isRequired,
         error: PropTypes.object,
-        theme: PropTypes.object
+        theme: PropTypes.object,
+        isNavigateComplete: PropTypes.bool
     };
 
     static defaultProps = {
         error: null,
         theme: null,
         currentRoute: null,
-        currentNavigateError: null
+        currentNavigateError: null,
+        isNavigateComplete: false
     };
 
     static contextTypes = {
@@ -46,9 +48,8 @@ class Application extends Component {
     };
 
     componentDidMount() {
-        // Temp added here due to unforseen update of versions when updating react.
+        // Temp added here due to unforeseen update of versions when updating react.
         // This loads <picture> element in older browsers and IE
-        // eslint-disable-next-line global-require
         require('picturefill');
     }
 

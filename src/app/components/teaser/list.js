@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import TeaserList from '@bxm/teaser/lib/components/teaserList';
 import StickyBlock from '@bxm/behaviour/lib/components/sticky';
 import Ad from '@bxm/ad/lib/google/components/ad';
-import Teaser from './teaser';
 import get from 'lodash/object/get';
+import Teaser from './teaser';
 
 export default class TeaserListView extends Component {
     static displayName = 'TeaserListView';
@@ -22,7 +22,8 @@ export default class TeaserListView extends Component {
         }),
         showDate: PropTypes.bool,
         loadAgain: PropTypes.bool,
-        showAd: PropTypes.bool
+        showAd: PropTypes.bool,
+        teasers: PropTypes.array
     };
 
     static defaultProps = {

@@ -53,7 +53,7 @@ describe('Component', () => {
             });
 
             it('shoud make the component stick to the top of the screen', () => {
-                sandbox.stub(StickyAndDockAd.prototype, 'getTopOffset', () => {
+                sandbox.stub(StickyAndDockAd.prototype, 'getTopOffset').callsFake(() => {
                     return 0;
                 });
                 const component = TestUtils.renderIntoDocument(<StickyAndDockAd {...props} />);
@@ -62,7 +62,7 @@ describe('Component', () => {
             });
 
             it('shoud make the component stick to the top of the bottom element', () => {
-                sandbox.stub(StickyAndDockAd.prototype, 'getTopOffset', () => {
+                sandbox.stub(StickyAndDockAd.prototype, 'getTopOffset').callsFake(() => {
                     return -500;
                 });
                 const component = TestUtils.renderIntoDocument(<StickyAndDockAd {...props} />);

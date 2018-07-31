@@ -13,7 +13,7 @@
 }
 
 .top-news-feed {
-    
+
     & > .row {
         @media #{$medium-up} {
             margin-left: auto;
@@ -30,7 +30,7 @@
                 }
                 padding-top: 0;
             }
-            
+
             &__list-item {
                 margin-bottom: $landing-page-teaser-gutter;
 
@@ -39,9 +39,9 @@
                         margin-bottom: 0;
                     }
                 }
-                
+
                 @media #{$medium-up} {
-                    
+
                     &:nth-child(2n - 1) {
                         padding-left: 0;
                         padding-right: $landing-page-teaser-gutter/2;
@@ -52,7 +52,7 @@
                         padding-left: $landing-page-teaser-gutter/2;
                     }
                 }
-                
+
             }
 
             &__summary {
@@ -110,7 +110,7 @@
     .teaser__list-item {
         // Following two line is to defeat block grid from foundation,
         // Changed to flex base grid for the design of white panel
-        
+
         float: none;
         background-color: $color-white;
         box-shadow: $panel-shadow;
@@ -167,7 +167,7 @@
             &:nth-child(3),
             &:nth-child(4) {
                 display: block;
-            }   
+            }
         }
     }
 }
@@ -180,7 +180,7 @@
         left: $landing-page-teaser-gutter / 2;
         right: $landing-page-teaser-gutter / 2;
     }
-    
+
     @media #{$medium-up} {
         margin: $landing-page-module-gutter $column-gutter 0;
         max-width: $row-width;
@@ -201,8 +201,8 @@
             left: -$landing-page-teaser-gutter / 2;
             right: -$landing-page-teaser-gutter / 2;
         }
-        
-        
+
+
     }
 
     .teaser {
@@ -233,7 +233,7 @@
 
         &__list-item {
             padding-bottom: 0;
-            
+
             &:nth-child(-n+4) {
                 padding-left: 0;
                 padding-right: 0;

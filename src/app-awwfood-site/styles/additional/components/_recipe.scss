@@ -8,7 +8,7 @@
             margin-right: 0;
         }
     }
-    
+
     h3 {
         @include type-header;
         background-color: $color-heading-bg;
@@ -27,7 +27,7 @@
         margin-left: -1 * $article-padding;
         margin-right: -1 * $article-padding;
         text-transform: capitalize;
-        
+
         @media #{$medium-up} {
             margin-top: -1 *  $article-gap;
             border-top-left-radius: $article-padding / 2;

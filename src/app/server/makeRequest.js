@@ -1,6 +1,6 @@
-import logger from '../../logger';
 import request from 'request';
 import LRU from 'lru-cache';
+import logger from '../../logger';
 
 const cache = LRU({ max: 500, maxAge: 1 });
 
@@ -23,6 +23,7 @@ export default function makeRequest(url, isJsonRequest = true) {
                 const status = parseInt(res ? res.statusCode || 404 : 503, 10);
                 if (err || status < 200 || status > 300) {
                     logger.error(`makeRequest errored requesting ${url}`);
+                    // eslint-disable-next-line prefer-promise-reject-errors
                     reject({ message: body, err, status });
                 } else {
                     if (res.headers['cache-control']) {

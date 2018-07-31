@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
 import SocialContainer from '../social/block';
 import FooterNavigation from './footerNavigation';
-import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
 import Logos from '../page/logos';
 import FooterSubscribe from './footerSubscribe';
 

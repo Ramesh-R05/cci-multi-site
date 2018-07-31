@@ -1,7 +1,7 @@
+import get from 'lodash/object/get';
 import { parseEntity, parseEntities } from '../helper/parseEntity';
 import parseHeaderMetaData from '../helper/parseHeaderMetaData';
 import parseModule from '../helper/parseModule';
-import get from 'lodash/object/get';
 
 export default function responseBody(req, res, next) {
     try {

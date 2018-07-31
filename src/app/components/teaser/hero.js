@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import Teaser from './teaser';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import Teaser from './teaser';
 import Promoted from '../promoted/promoted';
 import SideBlock from '../sideBlock/sideBlock';
 

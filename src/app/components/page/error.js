@@ -9,10 +9,6 @@ export default class Error extends Component {
         currentUrl: PropTypes.string.isRequired
     };
 
-    static defaultProps = {
-        navItems: []
-    };
-
     static contextTypes = {
         config: PropTypes.object
     };
@@ -29,7 +25,6 @@ export default class Error extends Component {
                 <section className="error-page-container container">
                     <h1 className="page-title error-page-container__title">
                         {symbol ? <span className="page-title__symbol">{symbol}</span> : null}
-                        {/* eslint-disable react/no-danger */}
                         <span dangerouslySetInnerHTML={{ __html: title }} />
                     </h1>
                     <a href="/">
@@ -41,7 +36,6 @@ export default class Error extends Component {
                         ))}
                     </a>
                     <p className="error-page-container__footer">
-                        {/* eslint-disable react/no-danger */}
                         <a
                             href="/"
                             className="gtm-error-goback error-page-container__homepage-link"

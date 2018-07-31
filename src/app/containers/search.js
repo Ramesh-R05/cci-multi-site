@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { connectToStores } from '@bxm/flux';
-import Page from './page';
 import Ad from '@bxm/ad/lib/google/components/ad';
+import get from 'lodash/object/get';
+import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
+import Page from './page';
 import TeaserListView from '../components/teaser/list';
 import Repeatable from '../components/repeatable';
 import loadSearch from '../actions/loadSearch';
 import StickyAndDockAd from '../components/page/stickyAndDockAd';
-import get from 'lodash/object/get';
-import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import SideBlock from '../components/sideBlock/sideBlock';
 import SearchBar from '../components/search/searchBar';
 
@@ -35,7 +35,7 @@ export default class Search extends Component {
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
         searchTotal: PropTypes.number.isRequired,
-        teasers: PropTypes.array.isRequired,
+        teasers: PropTypes.array,
         list: PropTypes.object.isRequired,
         magazineImageUrl: PropTypes.string
     };

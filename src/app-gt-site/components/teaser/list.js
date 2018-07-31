@@ -24,7 +24,8 @@ export default class TeaserListView extends Component {
         showAd: PropTypes.bool,
         showImageBadge: PropTypes.bool,
         tagsToShow: PropTypes.number,
-        linesToShow: PropTypes.number
+        linesToShow: PropTypes.number,
+        teasers: PropTypes.array
     };
 
     static defaultProps = {

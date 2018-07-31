@@ -62,7 +62,7 @@ class MustRead extends Component {
                         nativeAdConfig={{
                             slotPositionIndex: polarLabels.homeMustRead
                         }}
-                        sourceDefault={'SPONSORED'}
+                        sourceDefault="SPONSORED"
                     />
                 </div>
             </div>

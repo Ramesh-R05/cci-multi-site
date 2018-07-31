@@ -12,8 +12,8 @@ import AdStore from '@bxm/ad/lib/google/stores/ad';
 import GalleryStore from '@bxm/gallery/lib/stores/gallery';
 import GalleryPageStore from '@bxm/gallery/lib/stores/galleryPage';
 import hamburgerWrapper from '@bxm/nav/lib/components/hamburgerWrapper';
-import Logos from '../components/page/logos';
 import StandardPageAdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
+import Logos from '../components/page/logos';
 import Footer from '../components/footer';
 
 @hamburgerWrapper
