@@ -24,7 +24,6 @@ const itemLists = [
 const imageUrls = [
     'data.entity.contentImageUrl',
     'data.hero.contentImageUrl',
-    'data.magcover.moduleImageUrl',
     'data.theme.themeImage',
     'data.theme.headerSmallBackground',
     'data.theme.headerMediumBackground',
@@ -89,6 +88,10 @@ export default function https(req, res, next) {
 
         get(res, 'body.latestTeasers', []).forEach(item => {
             httpsSet(item, 'imageUrl');
+        });
+
+        get(req, 'data.magcover', []).forEach(item => {
+            httpsSet(item, 'moduleImageUrl');
         });
 
         next();
