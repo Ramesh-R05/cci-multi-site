@@ -22,6 +22,8 @@ function mapStateToProps(context) {
         hamburgerNavItems: NavigationStore.getHamburgerItems(),
         content: articleStore.getContent(),
         magCover: PageStore.getModule('magCover'),
+        magCoverImageUrl: PageStore.getMagazineImageUrl(),
+        magCoverText: PageStore.getMagazineText(),
         searchMagCover: NavigationStore.getMagCover(),
         isSearchPage: NavigationStore.isSearchPage()
     };
@@ -50,7 +52,9 @@ export default class Page extends Component {
         theme: PropTypes.object,
         magCover: PropTypes.object,
         searchMagCover: PropTypes.object,
-        isSearchPage: PropTypes.bool
+        isSearchPage: PropTypes.bool,
+        magCoverImageUrl: PropTypes.string,
+        magCoverText: PropTypes.string
     };
 
     static contextTypes = {
@@ -63,7 +67,9 @@ export default class Page extends Component {
         theme: {},
         magCover: {},
         searchMagCover: {},
-        isSearchPage: false
+        isSearchPage: false,
+        magCoverImageUrl: '',
+        magCoverText: ''
     };
 
     toggleMenu = () => {
@@ -137,6 +143,8 @@ export default class Page extends Component {
             theme,
             menuClasses,
             magCover,
+            magCoverImageUrl,
+            magCoverText,
             searchMagCover,
             isSearchPage
         } = this.props;
@@ -210,7 +218,14 @@ export default class Page extends Component {
                     <StandardPageAdsWrapper customParams={customAdParams}>
                         <div className="content-wrapper">
                             {this.props.children}
-                            {!hideFooter && <Footer magCover={footerMagCover} logoList={config.brands.uniheader} />}
+                            {!hideFooter && (
+                                <Footer
+                                    magCover={footerMagCover}
+                                    logoList={config.brands.uniheader}
+                                    magCoverImageUrl={magCoverImageUrl}
+                                    magCoverText={magCoverText}
+                                />
+                            )}
                         </div>
                     </StandardPageAdsWrapper>
 

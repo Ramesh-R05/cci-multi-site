@@ -9,11 +9,15 @@ export default class Footer extends Component {
     static propTypes = {
         modifier: PropTypes.string.isRequired,
         logoList: PropTypes.arrayOf(PropTypes.element).isRequired,
-        magCover: PropTypes.object
+        magCover: PropTypes.object,
+        magCoverImageUrl: PropTypes.string,
+        magCoverText: PropTypes.string
     };
 
     static defaultProps = {
-        magCover: {}
+        magCover: {},
+        magCoverImageUrl: '',
+        magCoverText: ''
     };
 
     static contextTypes = {
@@ -22,7 +26,7 @@ export default class Footer extends Component {
 
     render() {
         const { config } = this.context;
-        const { modifier, logoList, magCover } = this.props;
+        const { modifier, logoList, magCover, magCoverImageUrl, magCoverText } = this.props;
         const subscribeContent = config.subscribe;
         let classNames = 'footer';
 
@@ -49,7 +53,7 @@ export default class Footer extends Component {
                         <span className="home-page__social-logo">{config.site.name}</span>
                         <SocialContainer socialUrls={config.urls.socialUrls} />
                     </div>
-                    <FooterSubscribe content={{ ...subscribeContent, magCover }} isDisplayed={magCover !== {}} />
+                    <FooterSubscribe content={{ ...subscribeContent, magCover, magCoverImageUrl, magCoverText }} isDisplayed={magCover !== {}} />
 
                     {brandLogos}
 

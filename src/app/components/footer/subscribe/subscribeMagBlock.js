@@ -6,7 +6,8 @@ export default class SubscribeMagBlock extends Component {
     static propTypes = {
         inSideNav: PropTypes.bool.isRequired,
         magCoverUrl: PropTypes.string.isRequired,
-        responsiveConfig: PropTypes.object
+        responsiveConfig: PropTypes.object,
+        magCoverList: PropTypes.object
     };
 
     static contextTypes = {
@@ -18,12 +19,51 @@ export default class SubscribeMagBlock extends Component {
             scale: imageResize.scale.BOTH,
             anchor: imageResize.anchor.TC,
             mode: ''
-        }
+        },
+        magCoverList: {}
     };
 
+    static getOtherMagCovers(otherMagCovers, responsiveConfig, imageSizes, breakpoints, magCoverUrl) {
+        if (Array.isArray(otherMagCovers) && otherMagCovers.length) {
+            return otherMagCovers.map(cover => (
+                <a className="subscription__image--ipad subscription__image--ipad--multiple" href={cover.url} target="itunes_store" key={cover.id}>
+                    <ResponsiveImage
+                        alt="subscribe ipad"
+                        ClassNames="subs-cover--ipad"
+                        url={cover.moduleImageUrl}
+                        sizes={imageSizes}
+                        breakpoints={breakpoints}
+                        scale={responsiveConfig.scale}
+                        mode={responsiveConfig.mode}
+                        anchor={responsiveConfig.anchor}
+                        quality={80}
+                    />
+                </a>
+            ));
+        }
+
+        return (
+            <a className="subscription__image--ipad" href="/subscribe-digital" target="itunes_store">
+                <ResponsiveImage
+                    alt="subscribe ipad"
+                    ClassNames="subs-cover--ipad"
+                    url={magCoverUrl}
+                    sizes={imageSizes}
+                    breakpoints={breakpoints}
+                    scale={responsiveConfig.scale}
+                    mode={responsiveConfig.mode}
+                    anchor={responsiveConfig.anchor}
+                    quality={80}
+                />
+            </a>
+        );
+    }
+
     render() {
-        const { inSideNav, magCoverUrl, responsiveConfig } = this.props;
+        const { inSideNav, magCoverUrl, responsiveConfig, magCoverList } = this.props;
         const breakpoints = this.context.config.global.breakpoints;
+        const { siteMagCover, otherMagCovers } = magCoverList || {};
+        const { moduleImageUrl, url } = siteMagCover || {};
         const imageSizes = {
             s: { w: 248 },
             m: { w: 248 },
@@ -33,11 +73,11 @@ export default class SubscribeMagBlock extends Component {
 
         return inSideNav ? null : (
             <div className="subscription__image small-12 medium-6 columns">
-                <a className="subscription__image--mag" href="/subscribe-magazine" target="_blank">
+                <a className="subscription__image--mag" href={url || '/subscribe-magazine'} target="_blank">
                     <ResponsiveImage
                         alt="subscribe magazine"
                         ClassNames="subs-cover"
-                        url={magCoverUrl}
+                        url={moduleImageUrl || magCoverUrl}
                         sizes={imageSizes}
                         breakpoints={breakpoints}
                         scale={responsiveConfig.scale}
@@ -46,19 +86,7 @@ export default class SubscribeMagBlock extends Component {
                         quality={80}
                     />
                 </a>
-                <a className="subscription__image--ipad" href="/subscribe-digital" target="itunes_store">
-                    <ResponsiveImage
-                        alt="subscribe ipad"
-                        ClassNames="subs-cover--ipad"
-                        url={magCoverUrl}
-                        sizes={imageSizes}
-                        breakpoints={breakpoints}
-                        scale={responsiveConfig.scale}
-                        mode={responsiveConfig.mode}
-                        anchor={responsiveConfig.anchor}
-                        quality={80}
-                    />
-                </a>
+                {SubscribeMagBlock.getOtherMagCovers(otherMagCovers, responsiveConfig, imageSizes, breakpoints, magCoverUrl)}
             </div>
         );
     }

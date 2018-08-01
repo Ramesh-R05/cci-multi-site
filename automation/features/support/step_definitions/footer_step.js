@@ -117,5 +117,15 @@ module.exports = function() {
         expect(subscribeButton).toContain('subscribe-magazine');
     });
 
+    this.Given(/^I can see mag buttons clickable to open its page in the footer$/, function () {
 
+        //below captures the array of mag buttons to validate against the table
+        var buttonLink = browser.getAttribute(footer.footerElementSubscriptionButton, 'href');
+        expect(buttonLink[0]).toEqual(browser.getAttribute(footer.footerElementSubscriptionCoverLink, 'href'));
+
+        for (var i = 0; i < buttonLink.length; ++i) {
+            //validates position of mag buttons on Index and their link
+            expect(buttonLink[i]).toContain('https://www.magshop.com.au/');
+        }
+    });
 };

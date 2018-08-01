@@ -57,7 +57,8 @@ Feature: Smoke test for AWW FOOD
             |Instagram  |https://www.instagram.com/gourmettraveller/  |
             |Pinterest  |https://www.pinterest.com.au/gourmetpins/    |
             |GiftCard   |/gift-card                                   |
-
+        * I can see mag buttons clickable to open its page in the footer
+            
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view
         When I am currently viewing the homepage

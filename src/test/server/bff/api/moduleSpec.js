@@ -22,6 +22,7 @@ describe(`Module API`, () => {
         let themeModuleData;
         let heroModuleData;
         let expectedHeroData;
+        let magCoverModuleData;
 
         describe(`when passing no arguments`, () => {
             it(`should return an empty object`, done => {
@@ -152,6 +153,86 @@ describe(`Module API`, () => {
                             getModules('hero', 'footer')
                                 .then(modules => {
                                     expect(modules).to.deep.eq({ hero: null, footer: {} });
+                                    done();
+                                })
+                                .catch(done);
+                        });
+                    });
+
+                    describe(`and there is a moduleName equal 'magcover'`, () => {
+                        it(`should return expected magcover data, if there is only magCover`, done => {
+                            magCoverModuleData = {
+                                moduleName: 'magcover',
+                                url: '/modules/some-url',
+                                moduleTitle: 'subscribe now to win',
+                                moduleImageUrl: 'image url'
+                            };
+
+                            makeRequestStub = sinon.stub().resolves({
+                                data: [magCoverModuleData]
+                            });
+
+                            const expectedSingleMagCoverData = {
+                                magcover: [
+                                    {
+                                        moduleName: 'magcover',
+                                        url: '/some-url',
+                                        moduleTitle: 'subscribe now to win',
+                                        moduleImageUrl: 'image url',
+                                        isSiteMagCover: true
+                                    }
+                                ]
+                            };
+
+                            getModules('magcover')
+                                .then(modules => {
+                                    expect(modules).to.deep.eq(expectedSingleMagCoverData);
+                                    done();
+                                })
+                                .catch(done);
+                        });
+
+                        it(`should return expected magcover data, if there are more than one magCover`, done => {
+                            magCoverModuleData = [
+                                {
+                                    moduleName: 'magcover',
+                                    url: '/modules/some-url',
+                                    moduleTitle: 'null',
+                                    moduleImageUrl: '/image-url'
+                                },
+                                {
+                                    moduleName: 'magcover',
+                                    url: '/modules/some-url-1',
+                                    moduleTitle: '',
+                                    moduleImageUrl: '/image-url-1'
+                                }
+                            ];
+
+                            makeRequestStub = sinon.stub().resolves({
+                                data: magCoverModuleData
+                            });
+
+                            const expectedMultipuleMagCoverData = {
+                                magcover: [
+                                    {
+                                        moduleName: 'magcover',
+                                        url: '/some-url',
+                                        moduleImageUrl: '/image-url',
+                                        isSiteMagCover: true
+                                    },
+                                    {
+                                        moduleName: 'magcover',
+                                        url: '/some-url-1',
+                                        moduleTitle: '',
+                                        moduleImageUrl: '/image-url-1',
+                                        isSiteMagCover: false
+                                    }
+                                ]
+                            };
+
+                            getModules('magcover')
+                                .then(modules => {
+                                    expect(modules).to.deep.eq(expectedMultipuleMagCoverData);
                                     done();
                                 })
                                 .catch(done);

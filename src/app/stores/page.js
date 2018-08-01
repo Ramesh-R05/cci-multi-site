@@ -32,7 +32,24 @@ export default createReducerStore({
 
         getMagazineImageUrl(state) {
             if (!state.magCover) return '';
+
+            if (Array.isArray(state.magCover) && state.magCover.length) {
+                const siteMagCover = state.magCover.find(mag => mag.isSiteMagCover);
+                return !!siteMagCover && siteMagCover.moduleImageUrl;
+            }
+
             return state.magCover.moduleImageUrl;
+        },
+
+        getMagazineText(state) {
+            if (!state.magCover) return '';
+
+            if (Array.isArray(state.magCover) && state.magCover.length) {
+                const siteMagCover = state.magCover.find(mag => mag.isSiteMagCover);
+                return !!siteMagCover && siteMagCover.moduleTitle;
+            }
+
+            return state.magCover.moduleTitle;
         },
 
         getFooter(state) {

@@ -18,7 +18,7 @@ export default {
     gigya: { apiKey: '' },
 
     subscribe: {
-        subscribeHeading: 'Love our recipes?'
+        subscribeHeading: 'Hungry for more?'
     },
 
     features,
@@ -100,7 +100,21 @@ export default {
             m: { w: 275 },
             l: { w: 275 },
             xl: { w: 275 }
-        }
+        },
+        footerSubscribeButtonText: [
+            {
+                url: '/wwf',
+                text: `Subscribe to Women's Weekly Food`
+            },
+            {
+                url: '/australian-womens-weekly',
+                text: 'Subscribe to The Weekly'
+            },
+            {
+                url: '/aww-cookbooks',
+                text: 'Browse all cookbooks'
+            }
+        ]
     },
 
     brands: {

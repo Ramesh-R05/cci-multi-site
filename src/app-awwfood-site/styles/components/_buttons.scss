@@ -99,12 +99,25 @@
 
     &--subscribe {
         transition: background $transition-duration ease-in-out, border-color $transition-duration ease-in-out;
-
+        white-space: nowrap;
         &:hover,
         &:focus,
         &:active,
         &.active {
             text-decoration: none;
+        }
+
+        .footer & {
+            padding: {
+                left: 0;
+                right: 0;
+            }
+            width: 100%;
+            letter-spacing: .8px;
+        }
+
+        &--multiple {
+            margin-top: 10px;
         }
     }
 }

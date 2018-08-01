@@ -13,7 +13,7 @@ $footer-section-gap: 35px;
 
     &::before {
         @extend .type-text-light;
-        content: 'Get Social';
+        content: 'Follow us';
         display: block;
         color: $color-white;
         font-size: 18px;
@@ -102,6 +102,13 @@ $footer-section-gap: 35px;
         }
     }
 
+    .subscription__image--mag {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        left: auto;
+    }
+ 
     .subscription__image--ipad {
         background-image: url(/assets/backgrounds/white-ipad.png);
         padding: 16px 5px 1px;
@@ -116,6 +123,21 @@ $footer-section-gap: 35px;
             padding: 25px 6px 2px;
             width: 194px;
             height: 276px;
+        }
+
+        &--multiple {
+            z-index: 1;
+            position: absolute;
+            margin-left: 0;
+            margin-right: 0;
+            top: 10px;
+
+            &:nth-child(2) {
+                right: 10%;
+            }
+            &:nth-child(3) {
+                left: 10%;
+            }
         }
     }
 

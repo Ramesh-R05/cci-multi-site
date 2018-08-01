@@ -138,6 +138,14 @@ describe('Page Container', () => {
     Context.addStore('PageStore', {
         getModule(module) {
             if (module === 'magCover') return {};
+        },
+
+        getMagazineImageUrl() {
+            return '';
+        },
+
+        getMagazineText() {
+            return '';
         }
     });
 

@@ -24,7 +24,9 @@ describe(`Subscribe`, () => {
         magCover: {
             moduleImageUrl: '/mag/cover/path.jpg',
             moduleTitle: 'Subscribe Now'
-        }
+        },
+        magCoverImageUrl: '/mag/cover/path.jpg',
+        magCoverText: 'Some text under mag img'
     };
     let reactModule;
     let domElement;

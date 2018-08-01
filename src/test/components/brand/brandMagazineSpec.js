@@ -26,7 +26,7 @@ describe(`BrandMagazine`, () => {
         }
     };
     const brandPropRenderSubFalseStub = { renderSubscribeElements: false, ...brandPropStub };
-    const magImageUrlStub = 'http://stubbedimages.biz/content.jpg';
+    const magCoverImageUrlStub = 'http://stubbedimages.biz/content.jpg';
 
     const contextConfigStub = {
         key: 'config',
@@ -40,7 +40,9 @@ describe(`BrandMagazine`, () => {
 
     describe('when passing in /aww as the brand prop', () => {
         before(() => {
-            reactModule = Context.mountComponent(BrandMagazine, { brand: brandPropStub, magazineImageUrl: magImageUrlStub }, [contextConfigStub]);
+            reactModule = Context.mountComponent(BrandMagazine, { brand: brandPropStub, magazineImageUrl: magCoverImageUrlStub }, [
+                contextConfigStub
+            ]);
             responsiveImageStub = TestUtils.findRenderedComponentWithType(reactModule, ResponsiveImageStub);
         });
 
@@ -60,12 +62,14 @@ describe(`BrandMagazine`, () => {
 
     describe('when passing in magazineImageUrl as a prop', () => {
         before(() => {
-            reactModule = Context.mountComponent(BrandMagazine, { brand: brandPropStub, magazineImageUrl: magImageUrlStub }, [contextConfigStub]);
+            reactModule = Context.mountComponent(BrandMagazine, { brand: brandPropStub, magazineImageUrl: magCoverImageUrlStub }, [
+                contextConfigStub
+            ]);
             responsiveImageStub = TestUtils.findRenderedComponentWithType(reactModule, ResponsiveImageStub);
         });
 
         it('should render the ResponsiveImage component with the url it receives from the store', () => {
-            expect(responsiveImageStub.props.url).to.eq(magImageUrlStub);
+            expect(responsiveImageStub.props.url).to.eq(magCoverImageUrlStub);
         });
     });
 
