@@ -1130,4 +1130,6 @@ jobs:
        - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
        - script: export URL=http://awwfood-site-au.sit.bxm.net.au/
        - script: npm run test:awwfoodmobile
-       - script: npm run test:awwfoodbrowser
+       - script: npm run test:awwfooddesktop
+       - script: npm run test:awwfoodtabletportrait
+       - script: npm run test:awwfoodtabletlandscape
