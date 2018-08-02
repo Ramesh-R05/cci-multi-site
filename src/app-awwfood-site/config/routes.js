@@ -21,6 +21,12 @@ export default {
         handler: SearchPage,
         action: loadSearch
     },
+    tags: {
+        path: '/tags/:tag',
+        method: 'get',
+        handler: SectionPage,
+        action: loadPageContent
+    },
     recipes: {
         path: '/recipes/:page(.*-):id([0-9]+)',
         method: 'get',
@@ -35,12 +41,6 @@ export default {
     },
     section: {
         path: '/:section',
-        method: 'get',
-        handler: SectionPage,
-        action: loadPageContent
-    },
-    tags: {
-        path: '/tags/:tag',
         method: 'get',
         handler: SectionPage,
         action: loadPageContent
