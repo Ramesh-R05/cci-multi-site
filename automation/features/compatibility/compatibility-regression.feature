@@ -25,14 +25,14 @@ Feature: Users can navigate the site using a different devices and browsers
 #        * I should see second MREC in the body on AMP page #disable until the disapearring ad issue is fixed in SIT.
         * I should see the sticky bottom leaderboard on AMP page
 
-    @browser
+    @desktop
     Scenario: Verify Ads on article page in different browsers
         Given I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
         * I should see the top leaderboard ad under navigation
         * I should see native ad below author
         * I should see the bottom leaderboard ad above the footer on article
 
-    @browser
+    @desktop
     Scenario: Verify Ads on gallery page in different browsers
         Given I am currently viewing "fashion/automation-test-gallery-13302"
         * I should see the top leaderboard ad under navigation

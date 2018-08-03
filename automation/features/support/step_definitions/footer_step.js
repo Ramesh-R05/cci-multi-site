@@ -9,6 +9,7 @@ module.exports = function() {
 
     this.Given(/^I can see the social icons clickable to open its page in the footer$/, function (dataTable) {
         var rows = dataTable.hashes();
+        browser.waitForVisible(footer.footerSocialLink, 10000);
 
         //below captures the array of social links to validate against the table
         var socialLink = browser.getAttribute(footer.footerSocialLink, 'href');

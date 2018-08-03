@@ -48,7 +48,7 @@ module.exports = function() {
     });
 
     this.When(/^I can see the hero image$/, function () {
-        browser.scroll(wn_article.heroImg);
+        scrolling(browser,wn_article.heroImg,isBrowserStack);
         var heroImg = browser.waitForVisible(wn_article.heroImg,2000);
         expect(heroImg).toBe(true);
     });

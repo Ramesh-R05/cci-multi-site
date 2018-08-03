@@ -1,11 +1,15 @@
 var home = require('../page_objects/homepage_widget');
 var world = require('../world');
 var validateImageURL = require('../../../node_modules/@bxm/automation/lib/utils/validateImageURL');
+var world = require('../world');
+var isBrowserStack = world.Urls.isBrowserStack;
+var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 
 module.exports = function(){
 
     this.When(/^I should see the main hero item containing its image and clickable to open its page$/, function () {
         //Verify the hero image
+        browser.waitForVisible(home.heroImgUrl,5000);
         var heroImgUrl = browser.getAttribute(home.heroImgUrl, 'data-srcset');
         validateImageURL(heroImgUrl);
         //Verify the hero image's link
@@ -238,8 +242,8 @@ module.exports = function(){
                 break;
         }
 
-        browser.scroll(signUpBtn);
-        expect(browser.isVisible(signUpBtn)).toEqual(true);
+        scrolling(browser,signUpBtn,isBrowserStack);
+        expect(browser.waitForVisible(signUpBtn,5000)).toEqual(true);
         expect(signUpBtnLink).toContain(url);
     });
 
@@ -252,12 +256,10 @@ module.exports = function(){
     });
 
     this.Then(/^I should see top search box$/, function () {
-        var topSearchBox = home.topSearchBox;
-        expect(browser.isVisible(topSearchBox)).toEqual(true);
+        expect(browser.waitForVisible(home.topSearchBox,5000)).toEqual(true);
     });
 
-    this.Then(/^I should see a searchbar inside search box$/, function () {
-        var topSearchBoxSearchBar = home.topSearchBoxSearchBar;
-        expect(browser.isVisible(topSearchBoxSearchBar)).toEqual(true);
+    this.Then(/^I should see a search bar inside search box$/, function () {
+        expect(browser.waitForVisible(home.topSearchBoxSearchBar,5000)).toEqual(true);
     });
 };

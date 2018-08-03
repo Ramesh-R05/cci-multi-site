@@ -1,14 +1,14 @@
 {
-    "site":"hb",
+    "site":"awwfood",
     "status":"published",
     "document":{
         "id": "------ THIS IS UPDATED RANDOMLY ------",
         "parentID": "1159",
         "level": "2",
         "creatorID": "0",
-        "sortOrder": "2",
-        "createDate": "2017-04-12T13:19:54",
-        "updateDate": "2017-01-19T10:08:05",
+        "sortOrder": "12",
+        "createDate": "2017-08-02T15:23:02",
+        "updateDate": "2017-08-02T15:23:12",
         "nodeName": "------ THIS IS UPDATED RANDOMLY ------",
         "urlName": "------ THIS IS UPDATED RANDOMLY ------",
         "path": "------ THIS IS UPDATED RANDOMLY ------",
@@ -27,6 +27,8 @@
         "contentVideo": "{\"videoId\":null}",
         "navIsHidden": "0",
         "navRedirect": "{\"Title\":\"\",\"Mode\":2,\"NodeId\":null,\"Url\":null,\"NewWindow\":false}",
-        "contentFacebookImageUrl": "{\"source\":\"\",\"tags\":[],\"credits\":[]}"
+        "contentFacebookImageUrl": "{\"credits\":[],\"tags\":[],\"source\":\"\"}",
+        "contentBody": "[]",
+        "navigationItems": "[]"
     }
 }

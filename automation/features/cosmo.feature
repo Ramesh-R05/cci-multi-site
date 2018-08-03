@@ -79,17 +79,20 @@ Feature: Smoke test for COSMO
 
     Scenario: Verify all the doc type items
         Given I switch to "mobile" view
+        # -----------------------
         Given Emily just published the "section" doc type item in "cosmo"
         When I navigate to the "section" page in "cosmo"
         Then our readers can enjoy the created "section" page
+        # -----------------------
         Given Emily just published the "article" doc type item in "cosmo"
         When I navigate to the "article" page in "cosmo"
         Then our readers can enjoy the created "article" page
+        When I navigate to the "amp article" page in "cosmo"
+        Then our readers can enjoy the created "amp article" page
+        # -----------------------
         Given Emily just published the "gallery" doc type item in "cosmo"
         When I navigate to the "gallery" page in "cosmo"
         Then our readers can enjoy the created "gallery" page
-        When I navigate to the "amp article" page in "cosmo"
-        Then our readers can enjoy the created "amp article" page
         When I navigate to the "amp gallery" page in "cosmo"
         Then our readers can enjoy the created "amp gallery" page
 

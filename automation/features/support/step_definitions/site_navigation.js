@@ -77,8 +77,9 @@ module.exports = function() {
 
     this.Then(/^I can navigate to all (\d+) sites in the hamburger navigation menu/, function(number, dataTable){
         var menuTitle, menuhref, menuGTM, i, row;
+        browser.waitForVisible(site_nav.siteHamburger, 10000);
         browser.click(site_nav.siteHamburger);
-        browser.waitForVisible(site_nav.siteHamburgerOneDetail, 3000);
+        browser.waitForVisible(site_nav.siteHamburgerOneDetail, 10000);
         wait(500); // ensure it waits for transition effect to complete
         var rows = dataTable.hashes();
         for (i = 1; i <= number; ++i) {

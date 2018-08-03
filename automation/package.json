@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test:mobile": "bash -c \"APP_KEY=multi-mobile npm run mobile\"",
-    "mobile": "bash -c \"node runner.js --tags=@mobile --pMode=mobile\"",
-    "test:browser": "bash -c \"APP_KEY=multi-browser npm run browser\"",
+    "test:mobile": "bash -c \"APP_KEY=multi-mobile node runner.js --tags=@mobile --pMode=mobile\"",
+    "test:desktop": "bash -c \"APP_KEY=multi-desktop node runner.js --tags=@desktop\"",
+    "test:awwfoodmobile": "bash -c \"APP_KEY=awwfood-mobile node runner.js --tags=@awwfoodmobile --pMode=mobile\"",
+    "test:awwfooddesktop": "bash -c \"APP_KEY=awwfood-desktop node runner.js --tags=@awwfooddesktop --pMode=desktop\"",
+    "test:awwfoodtabletlandscape": "bash -c \"APP_KEY=awwfood-tabletlandscape node runner.js --tags=@awwfoodtabletlandscape --pMode=tablet\"",
+    "test:awwfoodtabletportrait": "bash -c \"APP_KEY=awwfood-tabletportrait node runner.js --tags=@awwfoodtabletportrait --pMode=tablet\"",
     "test:tags": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=$0\"",
     "test:high": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=@high\"",
     "test:med": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@elle --tags=@med\"",
@@ -33,7 +36,6 @@
     "watch": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --watch\"",
     "watch:phantom": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --browser=phantomjs --watch\"",
     "features": "bash -c \"node runner.js --pMode=features\"",
-    "browser": "bash -c \"node runner.js --tags=@browser\"",
     "elle:automation": "bash -c \"URL=http://multi-site.test.bxm.net.au/ APP_KEY=elle-site npm run all:test\"",
     "elle:automation:verbose": "bash -c \"export URL= && export APP_KEY=elle-site && export APP_ENV=test && npm run all:test:verbose\"",
     "elle:automation:phantom": "bash -c \"export APP_KEY=elle-site && export APP_ENV=test && npm run all:test\"",
@@ -43,7 +45,7 @@
     "shippable:test": "export APP_KEY=elle-site && npm run test:high"
   },
   "dependencies": {
-    "@bxm/automation": "^6.4.0"
+    "@bxm/automation": "^6.6.0"
   },
   "devDependencies": {
     "he": "^1.1.1"

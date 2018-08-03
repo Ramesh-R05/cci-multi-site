@@ -119,6 +119,12 @@ Feature: Smoke test for GT
         Then our readers can enjoy the created "review" page
         When I navigate to the "amp review" page in "gt"
         Then our readers can enjoy the created "amp review" page
+        # -----------------------
+        Given Emily just published the "recipe" doc type item in "gt"
+        When I navigate to the "recipe" page in "gt"
+        Then our readers can enjoy the created "recipe" page
+        When I navigate to the "amp recipe" page in "gt"
+        Then our readers can enjoy the created "amp recipe" page
 
     Scenario: Verify the RSS feed
         Given I am currently viewing "rss"
