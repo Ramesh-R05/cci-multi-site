@@ -61,6 +61,6 @@ export default {
         enabled: true
     },
     pubmatic: {
-        enabled: false
+        enabled: true
     }
 };
