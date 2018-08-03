@@ -429,7 +429,7 @@ jobs:
        - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
        - script: export URL=http://multi-site.test.bxm.net.au/
        - script: npm run test:mobile
-       - script: npm run test:browser
+       - script: npm run test:desktop
 #    on_failure:
 #      - NOTIFY: elle-deployment-notifications
 
@@ -1110,13 +1110,14 @@ jobs:
       NOTIFY: multi-qa-team-notifications
 
   # xi. Run compatibility test for AWWFOOD - SPIKE
-  - name: spike-awwfood-compatibility-test
+  - name: awwfood-compatibility-test
     type: runSh
     always:
     - NOTIFY: multi-qa-team-notifications
     steps:
     - IN: multi-site-repo-branch
       switch: off
+    - IN: awwfood-weekly-trigger
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
