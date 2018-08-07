@@ -6,12 +6,12 @@ const testLinks = [
     {
         title: 'homepage',
         url: 'https://www.gourmettraveller.com.au/',
-        expectedScore: 27
+        expectedScore: 25
     },
     {
         title: 'section',
         url: 'https://www.gourmettraveller.com.au/recipes/',
-        expectedScore: 29
+        expectedScore: 27
     },
     {
         title: 'article',
@@ -21,12 +21,12 @@ const testLinks = [
     {
         title: 'gallery',
         url: 'https://www.gourmettraveller.com.au/recipes/recipe-collections/fried-rice-15062/',
-        expectedScore: 29
+        expectedScore: 28
     },
     {
         title: 'recipe',
         url: 'https://www.gourmettraveller.com.au/recipes/browse-all/prawn-and-pineapple-tom-yum-with-rice-noodles-11890/',
-        expectedScore: 28
+        expectedScore: 27
     },
     {
         title: 'review',

@@ -6,27 +6,27 @@ const testLinks = [
     {
         title: 'homepage',
         url: 'http://homes-site.test.bxm.net.au/',
-        expectedScore: 34
+        expectedScore: 32
     },
     {
         title: 'section',
         url: 'http://homes-site.test.bxm.net.au/real-homes/',
-        expectedScore: 33
+        expectedScore: 31
     },
     {
         title: 'tags landing page',
         url: 'http://homes-site.test.bxm.net.au/tags/luxury-home/',
-        expectedScore: 33
+        expectedScore: 34
     },
     {
         title: 'article',
         url: 'http://homes-site.test.bxm.net.au/automation-test-article-with-hero-image-3193/',
-        expectedScore: 21
+        expectedScore: 23
     },
     {
         title: 'gallery',
         url: 'http://homes-site.test.bxm.net.au/automation-test-gallery-3201/',
-        expectedScore: 24
+        expectedScore: 23
     }
 ];
 
