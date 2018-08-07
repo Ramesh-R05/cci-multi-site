@@ -98,7 +98,7 @@ export default {
             pinterest: 'https://au.pinterest.com/cosmoaustralia',
             youtube: 'https://www.youtube.com/cosmoaustralia'
         },
-        newsletterUrl: '//www.cosmopolitan.com.au/cosmo-newsletter',
+        newsletterUrl: 'https://www.cosmopolitan.com.au/cosmo-newsletter',
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: '/subscribe-magazine',
         imageSizes: {
