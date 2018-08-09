@@ -36,7 +36,8 @@ const contextConfigStub = {
                 pinterest: 'https://www.pinterest.com.au/gourmetpins/',
                 'gift-card': 'gift-card'
             }
-        }
+        },
+        isFeatureEnabled: () => true
     }
 };
 
@@ -56,7 +57,7 @@ describe('Hero Teaser Component', () => {
 
     describe('when not passing an article', () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(HeroTeaser);
+            reactModule = Context.mountComponent(HeroTeaser, null, [contextConfigStub]);
         });
 
         it(`should not render`, () => {
@@ -86,7 +87,15 @@ describe('Hero Teaser Component', () => {
         });
 
         it('should render 1 ad', () => {
-            const wrapper = shallow(<HeroTeaser article={article} />);
+
+            // Enzyme's config stub is different from betterMockComponentContext
+            const stub = {
+                config: {
+                    isFeatureEnabled: () => true
+                }
+            };
+
+            const wrapper = shallow(<HeroTeaser article={article} />, {context: stub });
             const elm = wrapper.find(TeaserStub);
             expect(elm.length).to.be.equal(1);
         });

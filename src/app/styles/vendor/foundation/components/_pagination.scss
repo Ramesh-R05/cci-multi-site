@@ -40,7 +40,7 @@ $pagination-link-current-active-bg: $primary-color !default;
 //
 // Style the pagination container. Currently only used when centering elements.
 // $center - Default: false, Options: true
-@mixin pagination-container($center:false) {
+@mixin pagination-container($center: false) {
     @if $center {
         text-align: center;
     }
@@ -100,7 +100,7 @@ $pagination-link-current-active-bg: $primary-color !default;
 // $center - Left or center align the li elements. Default: false
 // $base-style - Sets base styles for pagination. Default: true, Options: false
 // $use-default-classes - Makes unavailable & current classes available for use. Default: true
-@mixin pagination($center:false, $base-style:true, $use-default-classes:true) {
+@mixin pagination($center: false, $base-style: true, $use-default-classes: true) {
 
     @if $base-style {
         display: block;

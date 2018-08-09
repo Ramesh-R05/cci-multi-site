@@ -90,15 +90,15 @@ $last-child-float: $opposite-direction !default;
 // $collapse - Get rid of gutter padding on column? Default: false.
 // $float - Should this float? Default: true. Options: true, false, left, right.
 @mixin grid-column(
-    $columns:false,
-    $last-column:false,
-    $center:false,
-    $offset:false,
-    $push:false,
-    $pull:false,
-    $collapse:false,
-    $float:true,
-    $position:false) {
+    $columns: false,
+    $last-column: false,
+    $center: false,
+    $offset: false,
+    $push: false,
+    $pull: false,
+    $collapse: false,
+    $float: true,
+    $position: false) {
 
     // If positioned for default .column, include relative position
     // push and pull require position set

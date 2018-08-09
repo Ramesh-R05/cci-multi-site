@@ -102,5 +102,8 @@ export default {
     },
     search: {
         enabled: true
+    },
+    showRecipeSourceAsAttribute: {
+        enabled: true
     }
 };

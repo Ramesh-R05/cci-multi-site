@@ -65,7 +65,7 @@ $button-disabled-cursor: $cursor-default-value !default;
 // $style - Sets base styles. Can be set to false. Default: true.
 // $display - Used to control display property. Default: $button-display || inline-block
 
-@mixin button-base($style:true, $display:$button-display) {
+@mixin button-base($style: true, $display: $button-display) {
     @if $style {
         border-style: $button-border-style;
         border-width: $button-border-width;
@@ -92,7 +92,7 @@ $button-disabled-cursor: $cursor-default-value !default;
 // $padding - Used to build padding for buttons Default: $button-med ||= rem-calc(12)
 // $full-width - We can set $full-width:true to remove side padding extend width - Default: false
 
-@mixin button-size($padding:$button-med, $full-width:false) {
+@mixin button-size($padding: $button-med, $full-width: false) {
 
     // We control which padding styles come through,
     // these can be turned off by setting $padding:false
@@ -143,7 +143,7 @@ $button-disabled-cursor: $cursor-default-value !default;
 // $disabled - We can set $disabled:true to create a disabled transparent button. Default: false
 // $bg-hover - Button Hover Background Color. Default: $button-bg-hover
 // $border-color - Button Border Color. Default: $button-border-color
-@mixin button-style($bg:$button-bg-color, $radius:false, $disabled:false, $bg-hover:null, $border-color:null) {
+@mixin button-style($bg: $button-bg-color, $radius: false, $disabled: false, $bg-hover: null, $border-color: null) {
 
     // We control which background styles are used,
     // these can be removed by setting $bg:false
@@ -210,7 +210,7 @@ $button-disabled-cursor: $cursor-default-value !default;
 // $bg-hover - Button Hover Color - Default null - see button-style mixin
 // $border-color - Button Border Color - Default null - see button-style mixin
 // $transition - We can control whether or not to include the background-color transition property - Default:true.
-@mixin button($padding:$button-med, $bg:$button-bg-color, $radius:false, $full-width:false, $disabled:false, $is-prefix:false, $bg-hover:null, $border-color:null, $transition: true) {
+@mixin button($padding: $button-med, $bg: $button-bg-color, $radius: false, $full-width: false, $disabled: false, $is-prefix: false, $bg-hover: null, $border-color: null, $transition: true) {
     @include button-base;
     @include button-size($padding, $full-width);
     @include button-style($bg, $radius, $disabled, $bg-hover, $border-color);

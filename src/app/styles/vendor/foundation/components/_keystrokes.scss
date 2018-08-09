@@ -30,7 +30,7 @@ $keystroke-radius: $global-radius !default;
 //
 // We use this mixin to create keystroke styles.
 // $bg - Default: $keystroke-bg || scale-color($white, $lightness: $keystroke-function-factor) !default;
-@mixin keystroke($bg:$keystroke-bg) {
+@mixin keystroke($bg: $keystroke-bg) {
     // This find the lightness percentage of the background color.
     $bg-lightness: lightness($bg);
 

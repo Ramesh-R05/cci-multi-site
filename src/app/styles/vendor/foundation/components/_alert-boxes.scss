@@ -65,7 +65,7 @@ $alert-transition-ease: ease-out !default;
 // We use this mixin to add alert styles
 //
 // $bg - The background of the alert. Default: $primary-color.
-@mixin alert-style($bg:$primary-color) {
+@mixin alert-style($bg: $primary-color) {
 
     // This finds the lightness percentage of the background color.
     $bg-lightness: lightness($bg);
@@ -105,7 +105,7 @@ $alert-transition-ease: ease-out !default;
 //
 // $bg - Background of alert. Default: $primary-color.
 // $radius - Radius of alert box. Default: false.
-@mixin alert($bg:$primary-color, $radius:false) {
+@mixin alert($bg: $primary-color, $radius: false) {
     @include alert-base;
     @include alert-style($bg);
     @include radius($radius);

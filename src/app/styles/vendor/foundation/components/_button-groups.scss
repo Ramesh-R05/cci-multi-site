@@ -18,7 +18,7 @@ $button-group-border-width: 1px !default;
 //
 
 // We use this to add styles for a button group container
-@mixin button-group-container($styles:true, $float:false) {
+@mixin button-group-container($styles: true, $float: false) {
     @if $styles {
         list-style: none;
         margin: 0;
@@ -35,7 +35,7 @@ $button-group-border-width: 1px !default;
 }
 
 // We use this to control styles for button groups
-@mixin button-group-style($radius:false, $even:false, $float:false, $orientation:horizontal) {
+@mixin button-group-style($radius: false, $even: false, $float: false, $orientation: horizontal) {
 
     > button, .button {
         border-#{$default-float}: $button-group-border-width solid;

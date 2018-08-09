@@ -61,10 +61,10 @@ $split-button-pip-default-float-lrg: rem-calc(-6) !default;
 // $span-border - Border color of button divider. Default: $primary-color.
 // $base-style - Apply base style to split button. Default: true.
 @mixin split-button(
-    $padding:medium,
-    $pip-color:$split-button-pip-color,
-    $span-border:$primary-color,
-    $base-style:true) {
+    $padding: medium,
+    $pip-color: $split-button-pip-color,
+    $span-border: $primary-color,
+    $base-style: true) {
 
     // With this, we can control whether or not the base styles come through.
     @if $base-style {

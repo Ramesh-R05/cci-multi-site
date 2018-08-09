@@ -27,27 +27,34 @@ export default class HeroTeaser extends Component {
         magazineImageUrl: ''
     };
 
+    static contextTypes = {
+        config: PropTypes.object.isRequired
+    };
+
     render() {
         if (!this.props.article) return null;
+        const { config } = this.context;
         const { article, imageSizes, showPromoted, brand, showDate, magazineImageUrl } = this.props;
         const pageLocation = Ad.pos.outside;
-        const isBrandDefined = Object.prototype.toString.call(brand).indexOf('Object') !== -1;
+        const hasBrand = brand !== null;
+        const showRecipeSource = config.isFeatureEnabled('showRecipeSourceAsAttribute');
+        const containerAttributes = {
+            className: 'hero-wrapper'
+        };
+
+        if (article.nodeType === 'Recipe' && showRecipeSource && article.source) {
+            containerAttributes['data-recipe-source'] = article.source;
+        }
 
         return (
-            <div className="hero-wrapper">
+            <div {...containerAttributes}>
                 <Teaser sourceClassName="hero-teaser__source" className="hero-teaser" showDate={showDate} article={article} imageSizes={imageSizes} />
 
                 <Ad displayFor={['small', 'medium']} className="ad--section-top-mrec" sizes="mrec" pageLocation={pageLocation} />
 
                 {showPromoted && <Promoted show />}
 
-                <SideBlock
-                    showBrandMagazine={isBrandDefined}
-                    showBrandNewsletter={isBrandDefined}
-                    brand={brand}
-                    isHero
-                    magazineImageUrl={magazineImageUrl}
-                />
+                <SideBlock showBrandMagazine={hasBrand} showBrandNewsletter={hasBrand} brand={brand} isHero magazineImageUrl={magazineImageUrl} />
             </div>
         );
     }

@@ -34,7 +34,7 @@ $callout-panel-link-color: $primary-color !default;
 // $bg - Sets the panel background color. Default: $panel-pg || scale-color($white, $lightness: -5%) !default
 // $padding - Sets the panel padding amount. Default: $panel-padding || rem-calc(20)
 // $adjust - Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust || true
-@mixin panel($bg:$panel-bg, $padding:$panel-padding, $adjust:$panel-header-adjust) {
+@mixin panel($bg: $panel-bg, $padding: $panel-padding, $adjust: $panel-header-adjust) {
 
     @if $bg {
         $bg-lightness: lightness($bg);

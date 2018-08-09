@@ -186,11 +186,20 @@ export default class Recipe extends Component {
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showRevContent = config.isFeatureEnabled('revContent');
         const showFeedCarousel = config.isFeatureEnabled('feedCarousel');
+        const showRecipeSource = config.isFeatureEnabled('showRecipeSourceAsAttribute');
         const recipeAtGlance = { recipeServings, recipeCookingTime };
         const recipeHeaderOrder = this.addToHeaderBefore('Hero', <RecipeAtGlance recipeAtGlance={recipeAtGlance} />);
 
+        const articleAttributes = {
+            className: classNames('article', 'recipe', className)
+        };
+
+        if (showRecipeSource && source) {
+            articleAttributes['data-recipe-source'] = source;
+        }
+
         return (
-            <article className={classNames('article', 'recipe', className)}>
+            <article {...articleAttributes}>
                 {showAd && this.renderAds('ad--article-top')}
 
                 <Header

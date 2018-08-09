@@ -31,10 +31,10 @@ $block-grid-media-queries: true !default;
 // $spacing - # of ems to use as padding on each block item. Default: rem-calc(20).
 // $base-style - Apply a base style to block grid. Default: true.
 @mixin block-grid(
-    $per-row:false,
-    $spacing:$block-grid-default-spacing,
-    $include-spacing:true,
-    $base-style:true) {
+    $per-row: false,
+    $spacing: $block-grid-default-spacing,
+    $include-spacing: true,
+    $base-style: true) {
 
     @if $base-style {
         display: block;

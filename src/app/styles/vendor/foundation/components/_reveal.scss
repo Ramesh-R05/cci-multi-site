@@ -65,7 +65,7 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
 // $base-style - Provides reveal base styles, can be set to false to override. Default: true, Options: false
 // $width - Sets reveal width Default: $reveal-default-width || 80%
 //
-@mixin reveal-modal-base( $base-style: true, $width:$reveal-default-width, $max-width:$reveal-max-width, $border-radius: $reveal-radius) {
+@mixin reveal-modal-base( $base-style: true, $width: $reveal-default-width, $max-width: $reveal-max-width, $border-radius: $reveal-radius) {
     @if $base-style {
         visibility: hidden;
         display: none;
@@ -118,15 +118,15 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
 // $radius - If true, set to modal radius which is $global-radius || explicitly set radius amount in px (ex. $radius:10px). Default: false
 // $top-offset - Default: $reveal-position-top || 50px
 @mixin reveal-modal-style(
-    $bg:false,
-    $padding:false,
-    $border:false,
-    $border-style:$reveal-border-style,
-    $border-width:$reveal-border-width,
-    $border-color:$reveal-border-color,
-    $box-shadow:false,
-    $radius:false,
-    $top-offset:false) {
+    $bg: false,
+    $padding: false,
+    $border: false,
+    $border-style: $reveal-border-style,
+    $border-width: $reveal-border-width,
+    $border-color: $reveal-border-color,
+    $box-shadow: false,
+    $radius: false,
+    $top-offset: false) {
 
     @if $bg {
         background-color: $bg;
@@ -161,7 +161,7 @@ $close-reveal-modal-class: "close-reveal-modal" !default;
 // We use this to create a close button for the reveal modal
 //
 // $color - Default: $reveal-close-color || $base
-@mixin reveal-close($color:$reveal-close-color) {
+@mixin reveal-close($color: $reveal-close-color) {
     font-size: $reveal-close-font-size;
     line-height: 1;
     position: absolute;

@@ -52,11 +52,11 @@ $side-nav-divider-color: scale-color($white, $lightness: 10%) !default;
 // $link-color - Color of navigation links. Default: $side-nav-link-color.
 // $link-color-hover - Color of navigation links when hovered. Default: $side-nav-link-color-hover.
 @mixin side-nav(
-    $divider-color:$side-nav-divider-color,
-    $font-size:$side-nav-font-size,
-    $link-color:$side-nav-link-color,
-    $link-color-hover:$side-nav-link-color-hover,
-    $link-bg-hover:$side-nav-link-bg-hover) {
+    $divider-color: $side-nav-divider-color,
+    $font-size: $side-nav-font-size,
+    $link-color: $side-nav-link-color,
+    $link-color-hover: $side-nav-link-color-hover,
+    $link-bg-hover: $side-nav-link-bg-hover) {
     display: block;
     margin: 0;
     padding: $side-nav-padding;

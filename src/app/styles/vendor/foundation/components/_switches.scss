@@ -39,8 +39,8 @@ $switch-active-color: $primary-color !default;
 // $transition-speed - Time in ms for switch to toggle. Default: $switch-paddle-transition-speed.
 // $transition-ease - Easing function to use for animation (i.e. ease-out). Default: $switch-paddle-transition-ease.
 @mixin switch-base(
-    $transition-speed:$switch-paddle-transition-speed,
-    $transition-ease:$switch-paddle-transition-ease) {
+    $transition-speed: $switch-paddle-transition-speed,
+    $transition-ease: $switch-paddle-transition-ease) {
 
     padding: 0;
     border: none;
@@ -144,9 +144,9 @@ $switch-active-color: $primary-color !default;
 // $radius - Radius to apply to switch. Default: false.
 // $base-style - Apply base styles? Default: true.
 @mixin switch-style(
-    $paddle-bg:$switch-paddle-bg,
-    $radius:false,
-    $base-style:true) {
+    $paddle-bg: $switch-paddle-bg,
+    $radius: false,
+    $base-style: true) {
 
     @if $base-style {
 
@@ -198,8 +198,8 @@ $switch-active-color: $primary-color !default;
     $height: $switch-height-med,
     $paddle-bg: $switch-paddle-bg,
     $active-color: $switch-active-color,
-    $radius:false,
-    $base-style:true) {
+    $radius: false,
+    $base-style: true) {
     @include switch-base($transition-speed, $transition-ease);
     @include switch-size($height);
     @include switch-style($paddle-bg, $radius, $base-style);

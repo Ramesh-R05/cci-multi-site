@@ -152,12 +152,12 @@ $icon-bar-item-padding: 1.25rem !default;
 }
 
 @mixin icon-bar-style(
-    $bar-bg:$icon-bar-bg,
-    $bar-font-color:$icon-bar-font-color,
-    $bar-hover-color:$icon-bar-hover-color,
-    $bar-icon-color:$icon-bar-icon-color,
-    $bar-active-color:$icon-bar-active-color,
-    $base-style:true) {
+    $bar-bg: $icon-bar-bg,
+    $bar-font-color: $icon-bar-font-color,
+    $bar-hover-color: $icon-bar-hover-color,
+    $bar-icon-color: $icon-bar-icon-color,
+    $bar-active-color: $icon-bar-active-color,
+    $base-style: true) {
 
     @if $base-style {
 
@@ -191,17 +191,17 @@ $icon-bar-item-padding: 1.25rem !default;
 // $base-style - Apply base styles? Default: true.
 
 @mixin icon-bar(
-    $bar-bg:$icon-bar-bg,
-    $bar-font-color:$icon-bar-font-color,
-    $bar-hover-color:$icon-bar-hover-color,
-    $bar-icon-color:$icon-bar-icon-color,
-    $bar-active-color:$icon-bar-active-color,
+    $bar-bg: $icon-bar-bg,
+    $bar-font-color: $icon-bar-font-color,
+    $bar-hover-color: $icon-bar-hover-color,
+    $bar-icon-color: $icon-bar-icon-color,
+    $bar-active-color: $icon-bar-active-color,
     $padding: $icon-bar-item-padding,
       $font-size: $icon-bar-font-size,
       $icon-size: $icon-bar-icon-size,
       $image-width: $icon-bar-image-width,
       $image-height: $icon-bar-image-height,
-    $base-style:true) {
+    $base-style: true) {
     @include icon-bar-base();
     @include icon-bar-size($padding, $font-size, $icon-size, $image-width, $image-height);
     @include icon-bar-style($bar-bg, $bar-font-color, $bar-hover-color, $bar-icon-color, $bar-active-color, $base-style);

@@ -42,7 +42,7 @@ $progress-meter-alert-color: $alert-color !default;
 // @mixins
 //
 // $bg - Default: $progress-meter-color || $primary-color
-@mixin progress-meter($bg:$progress-meter-color) {
+@mixin progress-meter($bg: $progress-meter-color) {
     background: $bg;
     height: 100%;
     display: block;

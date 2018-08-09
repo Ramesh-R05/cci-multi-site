@@ -87,7 +87,7 @@ $range-slider-disabled-opacity: 0.7 !default;
 
 @mixin range-slider-bar(
     $bg: $range-slider-bar-bg-color,
-    $radius:false) {
+    $radius: false) {
     @include range-slider-bar-base;
     @include range-slider-bar-style;
 }
