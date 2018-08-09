@@ -95,7 +95,7 @@
     }
 }
 
-article.recipe[data-recipe-source="Australian Women's Weekly"] .article__main-hero-image picture:before,
+.recipe[data-recipe-source="Australian Women's Weekly"] .article__main-hero-image picture:before,
 .hero-wrapper[data-recipe-source="Australian Women's Weekly"] .hero-teaser picture:before {
     content: ' ';
     background: url('/assets/images/triple-tested.svg') transparent center/cover;
@@ -112,21 +112,20 @@ article.recipe[data-recipe-source="Australian Women's Weekly"] .article__main-he
     }
 }
 
-article.recipe[data-recipe-source="Australian Women's Weekly"] .article__main-hero-image picture:before {
+.recipe[data-recipe-source="Australian Women's Weekly"] .article__main-hero-image picture:before {
     @media #{$medium-up} {
         right: 45px;
     }
 }
 
-.hero-wrapper[data-recipe-source="Australian Women's Weekly"] .hero-teaser picture:before {
-    @media #{$medium-up} {
-        top: 0;
-        left: 50%;
-        margin-left: -25px;
+.hero-wrapper[data-recipe-source="Australian Women's Weekly"] {
+    .teaser__image {
+        display: block;
+        position: relative;
     }
-
-    @media #{$large-up} {
-        left: initial;
-        margin-left: 0;
+    .hero-teaser picture:before {
+        @media #{$medium-up} {
+            top: 0;
+        }
     }
 }
