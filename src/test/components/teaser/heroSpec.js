@@ -87,7 +87,6 @@ describe('Hero Teaser Component', () => {
         });
 
         it('should render 1 ad', () => {
-
             // Enzyme's config stub is different from betterMockComponentContext
             const stub = {
                 config: {
@@ -95,7 +94,7 @@ describe('Hero Teaser Component', () => {
                 }
             };
 
-            const wrapper = shallow(<HeroTeaser article={article} />, {context: stub });
+            const wrapper = shallow(<HeroTeaser article={article} />, { context: stub });
             const elm = wrapper.find(TeaserStub);
             expect(elm.length).to.be.equal(1);
         });
