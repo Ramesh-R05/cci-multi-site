@@ -4,6 +4,7 @@ import VerticalGallery from '@bxm/article/lib/gallery';
 import Article from '@bxm/article/lib/article';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import RecipeSection from '../components/recipe/section';
+import CollectionSection from '../components/collection/section';
 import Page from './page';
 import Teaser from '../components/teaser/teaser';
 
@@ -112,6 +113,29 @@ export default class Document extends Component {
                     theme={themeEnabled ? theme : {}}
                 >
                     <RecipeSection
+                        articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
+                        contentBodyConfig={Document.articleContentBodyConfig}
+                        enableTeads
+                        CustomisedTeaser={Teaser}
+                        showAdBeforeRecommendations
+                        showSocialShare
+                        socialShare={socialShare}
+                        theme={theme}
+                        adSpacing={6}
+                    />
+                </Page>
+            );
+        }
+
+        if (nodeType === 'RecipeCollection') {
+            return (
+                <Page
+                    currentUrl={currentUrl}
+                    headerExpanded={config.features.headerExpanded && themeEnabled}
+                    hideFooter={false}
+                    theme={themeEnabled ? theme : {}}
+                >
+                    <CollectionSection
                         articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
                         contentBodyConfig={Document.articleContentBodyConfig}
                         enableTeads

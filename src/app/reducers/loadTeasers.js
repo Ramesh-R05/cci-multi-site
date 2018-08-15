@@ -4,6 +4,7 @@ export const initialState = {
     videoGalleryTeasers: [],
     mustRead: [],
     promoted: { title: '', items: [] },
+    collectionRecipeEntities: [],
     list: {}
 };
 
@@ -21,13 +22,16 @@ export function reducer(state = initialState, payload = { body: {} }, eventName 
                 promoted = { title: '', items: [] }
             } = payload.body;
 
+            const collectionRecipeEntities = payload.body.entity.contentRecipeEntities || [];
+
             return {
                 heroTeaser,
                 latestTeasers,
                 videoGalleryTeasers,
                 mustRead,
                 promoted,
-                list
+                list,
+                collectionRecipeEntities
             };
         }
         case 'LOAD_CONTENT_FAILED': {
@@ -37,7 +41,8 @@ export function reducer(state = initialState, payload = { body: {} }, eventName 
                 videoGalleryTeasers: [],
                 mustRead: [],
                 promoted: { title: '', items: [] },
-                list: {}
+                list: {},
+                collectionRecipeEntities: []
             };
         }
         case 'LOAD_LIST': {

@@ -31,6 +31,10 @@ export default createReducerStore({
             return state.promoted;
         },
 
+        getCollectionRecipeEntities(state) {
+            return state.collectionRecipeEntities;
+        },
+
         getListNextParams(state) {
             const pageNo = get(state, 'list.params.pageNo', 1);
 

@@ -10,7 +10,7 @@ const VerticalGalleryStub = Context.createStubComponent();
 const PageStub = Context.createStubComponentWithChildren();
 const CustomisedTeaserStub = Context.createStubComponent();
 const FooterStub = Context.createStubComponent();
-const AdWrapperStub = Context.createStubComponentWithChildren();
+const CollectionSectionStub = Context.createStubComponent();
 
 const Document = proxyquire('../../app/containers/document', {
     '@bxm/article/lib/article': ArticleStub,
@@ -18,7 +18,8 @@ const Document = proxyquire('../../app/containers/document', {
     '@bxm/article/lib/gallery': VerticalGalleryStub,
     './page': PageStub,
     '../components/teaser/teaser': CustomisedTeaserStub,
-    '../components/article/footer': FooterStub
+    '../components/article/footer': FooterStub,
+    '../components/collection/section': CollectionSectionStub
 }).default;
 
 const contextConfigStub = {
@@ -102,6 +103,19 @@ describe('Document Component', () => {
 
         it(`should render the Gallery Component`, () => {
             TestUtils.findRenderedComponentWithType(reactModule, VerticalGalleryStub);
+        });
+    });
+
+    describe('when nodeType is RecipeCollection', () => {
+        const nodeType = 'RecipeCollection';
+        let reactModule;
+
+        before(() => {
+            reactModule = Context.mountComponent(Document, { headerPinPoints, navItems, siteName, nodeType }, [contextConfigStub]);
+        });
+
+        it(`should render the Collection Component`, () => {
+            TestUtils.findRenderedComponentWithType(reactModule, CollectionSectionStub);
         });
     });
 });

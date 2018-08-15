@@ -119,7 +119,7 @@ export default class Teaser extends Component {
         if (!article) return null;
 
         article = teaserContentOverride(article);
-        const { title, shortTitle, summaryTitle, nodeType, id } = article;
+        const { title, shortTitle, summaryTitle, nodeType, id, teaserIndex } = article;
 
         const articleTitle =
             (id && id.includes('mustread')) || (id && id.includes('promo'))
@@ -173,6 +173,8 @@ export default class Teaser extends Component {
                     )}
 
                     <div className="teaser__body">
+                        {teaserIndex && <span className="teaser__index">{teaserIndex}</span>}
+
                         <a href={article.parentUrl} className="teaser__section-tag">
                             <span>{article.parentName}</span>
                         </a>

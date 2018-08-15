@@ -46,6 +46,14 @@
                 opacity: 0.55;
             }
         }
+
+        .container--collection & {
+            max-width: calc(100% - #{$column-gutter});
+            padding-left: $column-gutter / 2;
+            vertical-align: top;
+            line-height: 30px;
+            font-size: 20px;
+        }
     }
 
     &__badge-container {
@@ -53,6 +61,9 @@
     }
 
     &__section-tag {
+        .container--collection & {
+            display: none;
+        }
         @include type-teaser-tag;
         margin-bottom: 0;
         margin-top: $teaser-content-space;
@@ -74,6 +85,15 @@
 
     &__source {
         display: none;
+    }
+
+    &__index {
+        @include type-header;
+        border-bottom: 3px solid $color-awwfood-gold;
+        min-width: 15px;
+        display: inline-block;
+        text-align: center;
+        margin-top: $teaser-content-space;
     }
 
     .article__tags {

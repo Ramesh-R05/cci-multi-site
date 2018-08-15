@@ -1,0 +1,413 @@
+<testsuite name="Mocha Tests" tests="411" failures="0" errors="0" skipped="0" timestamp="Mon, 13 Aug 2018 11:46:20 GMT" time="0.822">
+<testcase classname="BrandMagazine when passing in /aww as the brand prop" name="should render the first span and apply the correct title from the config" time="0.001"/>
+<testcase classname="BrandMagazine when passing in /aww as the brand prop" name="should render the second span and apply the correct class from the config" time="0.001"/>
+<testcase classname="BrandMagazine when passing in magazineImageUrl as a prop" name="should render the ResponsiveImage component with the url it receives from the store" time="0"/>
+<testcase classname="BrandMagazine when passing in a prop that sets renderSubscribeElements to false" name="should not render the title span" time="0"/>
+<testcase classname="BrandMagazine when passing in a prop that sets renderSubscribeElements to false" name="should not render the subscribe now span" time="0"/>
+<testcase classname="BrandTitle when passing in /aww as the currentUrl prop" name="should render a component with a class of brand-title-aww" time="0.001"/>
+<testcase classname="BrandTitle when passing in /aww as the currentUrl prop" name="should render two hr tags" time="0"/>
+<testcase classname="BrandTitle when passing in /aww as the currentUrl prop" name="should render an img with a src of aww-logo.svg" time="0.007"/>
+<testcase classname="brandNewsletter when passing in brandPropStub" name="should render a component with a class of newsletter-subscribe__button" time="0.001"/>
+<testcase classname="brandNewsletter when passing in brandPropStub" name="should render a component with a class of gtm-subs-homepage" time="0"/>
+<testcase classname="brandNewsletter when passing in brandPropStub" name="should render an anchor with a src of product newsletterUrl" time="0"/>
+<testcase classname="CollectionContent" name="shoud render Feed component" time="0.001"/>
+<testcase classname="CollectionContent" name="shoud render StickyAd component" time="0"/>
+<testcase classname="CollectionContent" name="shoud render Ad component" time="0"/>
+<testcase classname="CollectionContent" name="shoud render Collection component" time="0.001"/>
+<testcase classname="Collection" name="shoud render Header component" time="0"/>
+<testcase classname="Collection" name="shoud render ContentBody component" time="0"/>
+<testcase classname="Collection" name="shoud render NewsletterSignup component" time="0"/>
+<testcase classname="Collection" name="shoud render Footer component" time="0"/>
+<testcase classname="Collection" name="shoud render FeedCarousel component, when showFeedCarousel feature is on" time="0"/>
+<testcase classname="Collection" name="shoud render Outbrain component, when showOutbrain feature is on" time="0"/>
+<testcase classname="Collection" name="shoud render RevContent component, when showRevContent feature is on" time="0"/>
+<testcase classname="Collection" name="should not render collectionRecipeEntities list, when collectionRecipeEntities prop is empty" time="0.001"/>
+<testcase classname="Collection" name="should render collectionRecipeEntities list, when collectionRecipeEntities prop is not empty" time="0.001"/>
+<testcase classname="Collection when features are off" name="shoud not render FeedCarousel component, when showFeedCarousel feature is off" time="0.001"/>
+<testcase classname="Collection when features are off" name="shoud not render Outbrain component, when showOutbrain feature is off" time="0"/>
+<testcase classname="Collection when features are off" name="shoud not render RevContent component, when showRevContent feature is off" time="0"/>
+<testcase classname="FooterNavigation rendering footer without props" name="shouldnt render the FooterNavigation Component" time="0"/>
+<testcase classname="FooterNavigation rendering footer with props" name="should render default anchor urls if nothing is passed" time="0.002"/>
+<testcase classname="Footer with default props" name="should render the FooterNavigation Component" time="0"/>
+<testcase classname="Footer with default props" name="should render the socialLinks Component" time="0"/>
+<testcase classname="Footer with default props" name="should render the BackToTop with the classname prop equal to button " time="0"/>
+<testcase classname="Footer with a modifier prop" name="should render footer with the footer footer--article class" time="0.001"/>
+<testcase classname="FooterSubscribe" name="should not render the FooterSubscribe Component" time="0"/>
+<testcase classname="FooterSubscribe when passing true to isDisplayed prop" name="Should render the footer subscribe" time="0"/>
+<testcase classname="SubscribeMagBlock when inSideNav is false" name="should contain responsive image" time="0"/>
+<testcase classname="SubscribeMagBlock when inSideNav is true" name="should not contain responsive image" time="0"/>
+<testcase classname="SubscribeMagBlock when magCoverList prop is passed in" name="should contain multiple mag images" time="0"/>
+<testcase classname="SubscribeMagBlock when magCoverList prop is passed in" name="should assign correct link url to multi mag component" time="0"/>
+<testcase classname="Subscribe SubscribeMagBlock Component" name="should render the Subscribe Component" time="0"/>
+<testcase classname="Subscribe SubscribeMagBlock Component" name="should pass the appropriate props" time="0.002"/>
+<testcase classname="Subscribe #onClick" name="should fire a dataLayer event" time="0.001"/>
+<testcase classname="GiftCard when brand prop is passed into component imageUrl is set using site host" name="has set the src correctly" time="0"/>
+<testcase classname="GiftCard when brand prop is passed into component when brand contains giftCard url" name="has the url value set in brand object" time="0.008"/>
+<testcase classname="GiftCard when brand prop is passed into component when brand does not contain giftCard url" name="has the url value set in brand object" time="0"/>
+<testcase classname="GiftCard when brand prop is passed into component when brand contains buttonText" name="has the buttonText value set in brand object" time="0"/>
+<testcase classname="GiftCard when brand prop is passed into component when brand does not contain buttonText" name="has the buttonText value set in brand object" time="0"/>
+<testcase classname="#MustRead Component When MustRead articles are &#x3E;= 6" name="MustRead component should render" time="0"/>
+<testcase classname="#MustRead Component When MustRead articles are &#x3E;= 6" name="Should pass in prop gtm class and should use short source name" time="0"/>
+<testcase classname="#MustRead Component When mustRead articles are &#x3C; 6" name="MustRead component should not render" time="0"/>
+<testcase classname="ErrorPage Component when status is not defined" name="should render " time="0"/>
+<testcase classname="ErrorPage Component when status is not defined" name="should render a 503 h1" time="0"/>
+<testcase classname="ErrorPage Component when status is not defined" name="should render a 500 message" time="0"/>
+<testcase classname="ErrorPage Component when status is 404" name="should render " time="0"/>
+<testcase classname="ErrorPage Component when status is 404" name="should render a 404 h1" time="0.001"/>
+<testcase classname="ErrorPage Component when status is 404" name="should render a 404 message" time="0.001"/>
+<testcase classname="ErrorPage Component when status is 404" name="should render an emoji at the end of the last paragraph" time="0.003"/>
+<testcase classname="ErrorPage Component when status is 500" name="should render " time="0"/>
+<testcase classname="ErrorPage Component when status is 500" name="should render a 500 h1" time="0"/>
+<testcase classname="ErrorPage Component Page Component" name="should pass the appropriate props" time="0.001"/>
+<testcase classname="ErrorPage Component Page Component" name="should wrap the Error Component " time="0.001"/>
+<testcase classname="Brand Header Rendering the Logos" name="should load an image for each brand in the config" time="0.001"/>
+<testcase classname="Brand Header Rendering the Logos" name="should apply the correct url to anchor" time="0"/>
+<testcase classname="Brand Header Rendering the Logos" name="should give the anchor a target of blank" time="0"/>
+<testcase classname="Brand Header Rendering the Logos" name="should apply the correct gtm class to the anchor" time="0"/>
+<testcase classname="Brand Header Passing in the openInNewTab prop" name="should give the anchor a target of &#x22;_blank" time="0.001"/>
+<testcase classname="Brand Header Not passing in the openInNewTab prop" name="should give the anchor a target of self" time="0"/>
+<testcase classname="Component StickyAndDockAd" name="should render out the default style" time="0"/>
+<testcase classname="Component StickyAndDockAd" name="should render out the children" time="0.001"/>
+<testcase classname="Component StickyAndDockAd when the window size greater than 1200" name="shoud make the component stick to the top of the screen" time="0.015"/>
+<testcase classname="Component StickyAndDockAd when the window size greater than 1200" name="shoud make the component stick to the top of the bottom element" time="0.003"/>
+<testcase classname="Component StickyAndDockAd when the window size is less than 1200" name="shoud make no style change to the component" time="0.002"/>
+<testcase classname="#Promoted Component When promoted articles are &#x3E;= 4" name="promoted component should render" time="0.001"/>
+<testcase classname="#Promoted Component When promoted articles are &#x3E;= 4" name="Should pass in prop gtm class and should use short source name" time="0"/>
+<testcase classname="#Promoted Component When promoted articles are &#x3E;= 4" name="Should get the component title from CMS" time="0"/>
+<testcase classname="#Promoted Component When promoted articles are &#x3C; 4" name="Promoted component should not render" time="0"/>
+<testcase classname="RecipeAtAGlance Component" name="if all data set to be 0, should not render component" time="0.003"/>
+<testcase classname="RecipeAtAGlance Component when pass in recipeAtGlance.recipeServings prop" name="if the prop has serveMax property" time="0.001"/>
+<testcase classname="RecipeAtAGlance Component when pass in recipeAtGlance.recipeServings prop" name="if the prop has serveMin property" time="0.002"/>
+<testcase classname="RecipeAtAGlance Component when pass in recipeAtGlance.recipeServings prop" name="if the prop has both serveMin and serveMax properties" time="0.003"/>
+<testcase classname="RecipeAtAGlance Component when pass in recipeAtGlance.recipeServings prop" name="if the prop has yieldQuantity property" time="0.003"/>
+<testcase classname="RecipeAtAGlance Component when pass in recipeAtGlance.recipeServings prop" name="if the prop has both yieldQuantity and property" time="0.002"/>
+<testcase classname="RecipeAtAGlance Component when pass in recipeAtGlance.recipeServings prop" name="if the prop has serveMin, yieldQuantity and property" time="0.001"/>
+<testcase classname="RecipeAtAGlance Component when pass in recipeAtGlance.recipeCookingTime prop" name="if the prop has times.preparation property" time="0.001"/>
+<testcase classname="Component RecipeContent recipe" name="should render recipe" time="0"/>
+<testcase classname="Component RecipeContent recipe" name="should render feed" time="0"/>
+<testcase classname="Component RecipeContent recipe" name="should render sticky ad" time="0"/>
+<testcase classname="Component RecipeContent recipe" name="should render sticky ad with correct props" time="0.001"/>
+<testcase classname="Component RecipeContent Teads enabled" name="should have the correct props to the ad" time="0.001"/>
+<testcase classname="Component RecipeContent Teads disabled" name="should not render" time="0"/>
+<testcase classname="RecipeIngredients component with both heading and ingredients data" name="should render heading and ingredients items" time="0.006"/>
+<testcase classname="RecipeIngredients component with only ingredients data" name="should not render heading" time="0.001"/>
+<testcase classname="RecipeMethod component with both heading and methods data" name="should render heading and ingredients items" time="0.004"/>
+<testcase classname="RecipeMethod component with only methods data" name="should not render heading" time="0.001"/>
+<testcase classname="RecipeNotes component with recipeNotes data" name="should render notes" time="0.004"/>
+<testcase classname="Recipe Component when passing all props" name="should render the component with class &#x22;article&#x22;" time="0"/>
+<testcase classname="Recipe Component when passing all props" name="should render the component with class &#x22;test-article&#x22;" time="0.001"/>
+<testcase classname="Recipe Component when passing all props" name="should render the key recipe sub-components on the page" time="0"/>
+<testcase classname="Recipe Component when passing all props" name="should render the recipe details components on the page" time="0"/>
+<testcase classname="Recipe Component when passing all props" name="should render out ad component" time="0"/>
+<testcase classname="Recipe Component when passing all props Header sub-component" name="should have heroItem object" time="0"/>
+<testcase classname="Recipe Component when passing all props Header sub-component" name="should have summary &#x22;Dani Somerville-Kimlin and husband Jamahl Wilsonfour&#x2019;s four-bedroom home in Noosa brilliantly proves that just because you are renting&#x22;" time="0"/>
+<testcase classname="Recipe Component when passing all props Header sub-component" name="should have title &#x22;undefined&#x22;" time="0"/>
+<testcase classname="Recipe Component when passing all props ContentBody sub-component" name="should have body array" time="0"/>
+<testcase classname="Recipe Component when passing all props ContentBody sub-component" name="should have breakpoints object" time="0"/>
+<testcase classname="Recipe Component when passing all props ContentBody sub-component" name="should have class &#x22;article__body article__body--top-border&#x22;" time="0"/>
+<testcase classname="Recipe Component when passing all props ContentBody sub-component" name="should get the context config&#x22;" time="0.001"/>
+<testcase classname="Recipe Component when passing all props ContentBody sub-component" name="should pass the relatedContentComponent prop" time="0"/>
+<testcase classname="Recipe Component when passing all props Footer sub-component" name="should have authorProfiles object" time="0"/>
+<testcase classname="Recipe Component when passing all props Footer sub-component" name="should have footerMetaClass prop" time="0"/>
+<testcase classname="Recipe Component when passing all props Footer sub-component" name="should have tags array" time="0"/>
+<testcase classname="Recipe Component when passing all props when source prop is not present" name="should not render BrandLogo Component" time="0"/>
+<testcase classname="Recipe Component when passing all props when source prop is present" name="should render BrandLogo Component" time="0"/>
+<testcase classname="Recipe Component when passing all props when articleHeaderOrder prop contains &#x22;Hero&#x22;" name="should present RecipeAtGlanceStub as an array element in the articleHeaderOrder prop of Header Component " time="0"/>
+<testcase classname="Recipe Component when passing showAdBeforeRecommendations prop as false" name="should not render out ad component" time="0"/>
+<testcase classname="Recipe Component when passing no props" name="should render the component with class &#x22;article&#x22;" time="0"/>
+<testcase classname="RecipeSection Component When content alignment is not specified" name="should render the content left" time="0"/>
+<testcase classname="Repeatable Component when componentDidMount()" name="child component of Repeatable component should have loadAgain props" time="0"/>
+<testcase classname="Repeatable Component when componentDidMount()" name="loadAgain prop of last childComponent should be true, the one of others should be false" time="0.001"/>
+<testcase classname="Page Search Box" name="should not render PageSearchBox, if not enabled" time="0.002"/>
+<testcase classname="Page Search Box" name="should render PageSearchBox, if enabled" time="0.016"/>
+<testcase classname="Page Search Box" name="should render search background image, if provided" time="0.002"/>
+<testcase classname="Page Search Box" name="should not render background image, if not provided" time="0.001"/>
+<testcase classname="Page Search Box" name="should render search text, if provided" time="0.002"/>
+<testcase classname="Page Search Box" name="should not render search text, if not provided" time="0.002"/>
+<testcase classname="Page Search Box" name="should not render search tag list, if not provided" time="0.001"/>
+<testcase classname="Page Search Box when search tag list is provided" name="should render search tag list" time="0"/>
+<testcase classname="Page Search Box when search tag list is provided" name="should render 2 list items" time="0"/>
+<testcase classname="Page Search Box when search tag list is provided" name="list item should has correct link name and href" time="0"/>
+<testcase classname="SideBlock when passing in /aww as the brand prop" name="should render the SocialContainer component with the AWW social link props" time="0.001"/>
+<testcase classname="SideBlock when passing in a prop that sets showGiftCard to true" name="should render the GiftCard component" time="0"/>
+<testcase classname="SideBlock when passing in showBrandMagazine prop as true" name="should render the GiftCard component" time="0"/>
+<testcase classname="Social Block" name="should pass proper props to links component" time="0"/>
+<testcase classname="SocialIcon" name="renders" time="0"/>
+<testcase classname="SocialIcon" name="sets the className to &#x22;social-link social-link--socialName&#x22;" time="0"/>
+<testcase classname="SocialIcon" name="renders the link with href &#x22;http://www.socialpage.com&#x22;" time="0"/>
+<testcase classname="SocialIcon" name="renders the label with text &#x22;@IamaLabel&#x22;" time="0"/>
+<testcase classname="SocialIcon" name="sends clicks to the data layer" time="0.001"/>
+<testcase classname="SocialIcon without URL" name="renders" time="0"/>
+<testcase classname="SocialIcon without URL" name="sets the className to &#x22;social-link social-link--socialName&#x22;" time="0"/>
+<testcase classname="SocialIcon without URL" name="should not renders the link" time="0"/>
+<testcase classname="SocialIcon without URL" name="renders the label with text &#x22;@IamaLabel&#x22;" time="0"/>
+<testcase classname="SocialLinks" name="should render the SocialLinks Component" time="0"/>
+<testcase classname="SocialLinks" name="should render 8 SocialIcons components" time="0"/>
+<testcase classname="SocialLinks facebook social icon" name="sets the name to &#x22;facebook&#x22;" time="0"/>
+<testcase classname="SocialLinks facebook social icon" name="sets the url to &#x22;http://www.facebook.com/dollymag&#x22;" time="0"/>
+<testcase classname="SocialLinks facebook social icon" name="sets the label to &#x22;facebook&#x22;" time="0"/>
+<testcase classname="SocialLinks instagram social icon" name="sets the name to &#x22;instagram&#x22;" time="0"/>
+<testcase classname="SocialLinks instagram social icon" name="sets the url to &#x22;http://www.instagram.com/dollymag&#x22;" time="0"/>
+<testcase classname="SocialLinks instagram social icon" name="sets the label to &#x22;instagram&#x22;" time="0"/>
+<testcase classname="SocialLinks snapchat social icon" name="sets the name to &#x22;snapchat&#x22;" time="0"/>
+<testcase classname="SocialLinks snapchat social icon" name="sets the url to &#x22;https://itunes.apple.com/us/app/snapchat/id447188370?mt=8&#x22;" time="0"/>
+<testcase classname="SocialLinks snapchat social icon" name="sets the label to &#x22;DollyMag&#x22;" time="0"/>
+<testcase classname="SocialLinks twitter social icon" name="sets the name to &#x22;twitter&#x22;" time="0"/>
+<testcase classname="SocialLinks twitter social icon" name="sets the url to &#x22;https://twitter.com/dollymag&#x22;" time="0"/>
+<testcase classname="SocialLinks twitter social icon" name="sets the label to &#x22;twitter&#x22;" time="0"/>
+<testcase classname="SocialLinks newsletter social icon" name="sets the name to &#x22;newsletter&#x22;" time="0.001"/>
+<testcase classname="SocialLinks newsletter social icon" name="sets the url to &#x22;#&#x22;" time="0"/>
+<testcase classname="SocialLinks newsletter social icon" name="sets the label to &#x22;newsletter&#x22;" time="0"/>
+<testcase classname="SocialLinks dollymag social icon" name="sets the name to &#x22;dollymag&#x22;" time="0"/>
+<testcase classname="SocialLinks dollymag social icon" name="sets the url to &#x22;https://www.magshop.com.au/dolly/h1608dol&#x22;" time="0"/>
+<testcase classname="SocialLinks dollymag social icon" name="sets the label to &#x22;dolly mag&#x22;" time="0"/>
+<testcase classname="SocialLinks dollydr social icon" name="sets the name to &#x22;dollydr&#x22;" time="0"/>
+<testcase classname="SocialLinks dollydr social icon" name="sets the url to &#x22;https://itunes.apple.com/au/app/dolly-doctor/id948492088?mt=8&#x22;" time="0"/>
+<testcase classname="SocialLinks dollydr social icon" name="sets the label to &#x22;dolly dr&#x22;" time="0"/>
+<testcase classname="SocialLinks youtube social icon" name="sets the name to &#x22;youtube&#x22;" time="0"/>
+<testcase classname="SocialLinks youtube social icon" name="sets the url to &#x22;https://www.youtube.com/user/DOLLYaus&#x22;" time="0"/>
+<testcase classname="SocialLinks youtube social icon" name="sets the label to &#x22;youtube&#x22;" time="0"/>
+<testcase classname="TeaserGridView when receiving teasers" name="should render the TeaserList component with relevant props" time="0"/>
+<testcase classname="TeaserGridView when passing through showDate prop as false" name="should pass the value as false to showDate" time="0.001"/>
+<testcase classname="Hero Teaser Component when not passing an article" name="should not render" time="0"/>
+<testcase classname="Hero Teaser Component when passing an article" name="should render a div around the teaser component with class &#x27;hero-wrapper&#x27;" time="0.001"/>
+<testcase classname="Hero Teaser Component when passing an article" name="should render the teaser component with relevant props" time="0.001"/>
+<testcase classname="Hero Teaser Component when passing an article" name="should render 1 ad" time="0"/>
+<testcase classname="Hero Teaser Component when passing both article, imageSizes and showDate prop" name="should pass the imageSize prop to the Teaser component" time="0"/>
+<testcase classname="Hero Teaser Component when passing both article, imageSizes and showDate prop" name="should pass the showDate to the Teaser component" time="0"/>
+<testcase classname="TeaserListView when receiving teasers and there are more than 1" name="should render the TeaserList component with relevant props" time="0"/>
+<testcase classname="TeaserListView when receiving teasers and there are more than 1" name="should render the Ad component with relevant props, inside a sticky Ad" time="0.001"/>
+<testcase classname="TeaserListView when receiving teasers and there is only 1" name="should render the Ad component with relevant props, but there should be no sticky block" time="0"/>
+<testcase classname="TeaserListView when receiving teasers and there are 0" name="should not render component" time="0.001"/>
+<testcase classname="TeaserListView when setting the adTargets" name="should pass the correct adTargets to the TeaserList component" time="0"/>
+<testcase classname="Component Teaser" name="it should contain source detail" time="0"/>
+<testcase classname="Component Teaser" name="it should display default source now to love" time="0"/>
+<testcase classname="Component Teaser" name="it should container teaser image" time="0"/>
+<testcase classname="Component Teaser" name="it should container teaser title" time="0"/>
+<testcase classname="Component Teaser" name="it should container date component" time="0"/>
+<testcase classname="Component Teaser" name="it should use short title" time="0"/>
+<testcase classname="Component Teaser when there is source field in the article" name="it should find source with correct className to style" time="0.001"/>
+<testcase classname="Component Teaser when it is nz site" name="it should has proper teaser classname for nz site" time="0"/>
+<testcase classname="Component Teaser when teaser suffix enabled when shortTitle is present" name="should append suffix to teaser short title" time="0"/>
+<testcase classname="Component Teaser when teaser suffix enabled when shortTitle is not present" name="should append suffix to teaser long title" time="0"/>
+<testcase classname="Component Teaser when teaser suffix enabled when it is mustread or promo component if shortTitle present" name="should not append suffix to teaser short title" time="0"/>
+<testcase classname="Component Teaser when teaser suffix enabled when it is mustread or promo component if shortTitle not present" name="should append suffix to teaser long title" time="0"/>
+<testcase classname="Brand Header Rendering the UniHeader on the Home Page" name="should render the component" time="0"/>
+<testcase classname="App Component when error is not defined" name="should pass appropriate props to the Handler Component" time="0"/>
+<testcase classname="App Component when error is not defined" name="should not render the Error Component" time="0"/>
+<testcase classname="App Component when the error is defined" name="should pass appropriate props to the Error Component" time="0"/>
+<testcase classname="App Component when the error is defined" name="should pass the error status code to the Error Component" time="0"/>
+<testcase classname="App Component when the error is defined" name="should not render the Handler Component" time="0"/>
+<testcase classname="Document Component when nodeType is Article" name="should render the Article Component passing down relevant props" time="0"/>
+<testcase classname="Document Component when nodeType is Article" name="should pass the appropriate props" time="0"/>
+<testcase classname="Document Component when nodeType is Article" name="should wrap the Article Component " time="0"/>
+<testcase classname="Document Component when nodeType is Gallery" name="should render the Gallery Component" time="0"/>
+<testcase classname="Document Component when nodeType is RecipeCollection" name="should render the Collection Component" time="0"/>
+<testcase classname="GallerySection on initial render" name="should render the Gallery Header" time="0"/>
+<testcase classname="GallerySection on initial render" name="should render the MobileCanvas component" time="0"/>
+<testcase classname="GallerySection on initial render" name="should render the Footer component" time="0"/>
+<testcase classname="GallerySection on initial render" name="should render the ad" time="0.001"/>
+<testcase classname="GallerySection on initial render" name="should render the Gallery Main Section" time="0"/>
+<testcase classname="GallerySection on initial render" name="should render the Gallery Aside Section" time="0.001"/>
+<testcase classname="GallerySection on initial render" name="should initalise the page" time="0"/>
+<testcase classname="GallerySection #componentWillUpdate" name="should not re-initalise the gallery" time="0.001"/>
+<testcase classname="GallerySection #componentWillUpdate" name="should should re-initalise the gallery" time="0"/>
+<testcase classname="GallerySection #onNextGalleryClick" name="should set the nextGallery data" time="0"/>
+<testcase classname="GallerySection #componentWillReceiveProps when the window width is large" name="should set the galleryHeight state in the correct pixels" time="0"/>
+<testcase classname="GallerySection #componentWillReceiveProps when the window width is small" name="should set the galleryHeight state in the correct pixels" time="0"/>
+<testcase classname="GallerySection #onPop when on the same gallery page" name="should not call the reload and hide the body element" time="0.001"/>
+<testcase classname="Home Container" name="should render 1 normal ad in total" time="0.013"/>
+<testcase classname="Home Container" name="should render 1 sticky ad in total" time="0.015"/>
+<testcase classname="Page Container when passing all props" name="should render" time="0"/>
+<testcase classname="Page Container when passing all props" name="should render with className &#x22;page customClass&#x22;" time="0"/>
+<testcase classname="Page Container when passing all props" name="should render a wrapped element inside a className site-menu" time="0"/>
+<testcase classname="Page Container when passing all props" name="should render the Uni Header component" time="0"/>
+<testcase classname="Page Container when passing all props" name="should render the Header component, passing the appropriate props" time="0.001"/>
+<testcase classname="Page Container when passing all props" name="should render the children and footer inside a content-wrapper div" time="0"/>
+<testcase classname="Page Container when passing all props" name="should render the offCanvas menu with the appropriate props" time="0"/>
+<testcase classname="Page Container when passing all props" name="should render the Logos with the appropriate props" time="0.001"/>
+<testcase classname="Page Container when passing all props" name="should pass the correct props to the Navigation component" time="0"/>
+<testcase classname="Page Container when passing all props" name="should pass the toggleMenu function to the button as an onClick" time="0"/>
+<testcase classname="Page Container when passing all props" name="should render close button and Navigation component as children of the offCanvas component" time="0.001"/>
+<testcase classname="Page Container when passing all props" name="should render a top ad banner" time="0"/>
+<testcase classname="Page Container when passing all props when the close button is clicked" name="should call the toggleSideMenu prop with the argument &#x27;left&#x27;" time="0"/>
+<testcase classname="Page Container the current page is not home page" name="should not render the Brand Component" time="0"/>
+<testcase classname="Page Container when hiding the footer" name="shouldn&#x27;t render the footer" time="0"/>
+<testcase classname="Page Container when there is no hamburgerNavItems prop" name="should pass the correct props to the Navigation component, containing the headerNavItems props with a link to the home page" time="0"/>
+<testcase classname="Section Container" name="should render 1 normal ad in total" time="0.012"/>
+<testcase classname="Section Container" name="should render 1 sticky ad in total" time="0.005"/>
+<testcase classname="Section Container" name="should render a hero teaser" time="0.011"/>
+<testcase classname="Section Container" name="should render a teaser grid" time="0.004"/>
+<testcase classname="loadPage Reducer on LOAD_CONTENT when the payload contains the navigation items within the body object" name="should return the new items" time="0.001"/>
+<testcase classname="loadPage Reducer on LOAD_CONTENT when the payload contains the navigation items within the body object" name="should still return the new items " time="0"/>
+<testcase classname="loadPage Reducer on LOAD_CONTENT when the payload is empty" name="should return the initalState" time="0"/>
+<testcase classname="loadPage Reducer on LOAD_CONTENT when the payload does not contain entity" name="should return the initalState" time="0"/>
+<testcase classname="loadPage Reducer on LOAD_CONTENT_FAILED" name="should set the error and make nodeType and title empty" time="0"/>
+<testcase classname="loadPage Reducer on LOAD_CONTENT_FAILED" name="should set the error status to 400 if it is not set in response" time="0.001"/>
+<testcase classname="loadPage Reducer on RANDOM_ACTION" name="should return the initalState" time="0"/>
+<testcase classname="loadSearch Reducer on LOAD_SEARCH when the payload contains the search data within the body object" name="should return the new items" time="0.001"/>
+<testcase classname="loadSearch Reducer on LOAD_SEARCH when the payload is empty" name="should return the initalState" time="0"/>
+<testcase classname="loadSearch Reducer on LOAD_SEARCH when the payload does not contain search" name="should return the initalState" time="0"/>
+<testcase classname="loadSearch Reducer on LOAD_SEARCH_FAILED" name="should set the error and make nodeType and title empty" time="0"/>
+<testcase classname="loadSearch Reducer on LOAD_SEARCH_FAILED" name="should set the error status to 400 if it is not set in response" time="0"/>
+<testcase classname="loadSearch Reducer on RANDOM_ACTION" name="should return the initialState" time="0"/>
+<testcase classname="loadTeasers Reducer on LOAD_CONTENT when the payload contains the heroTeaser and latestTeasers in the body object" name="should return the new items" time="0"/>
+<testcase classname="loadTeasers Reducer on LOAD_CONTENT when the payload contains the heroTeaser and latestTeasers in the body object" name="should still return the new items " time="0"/>
+<testcase classname="loadTeasers Reducer on LOAD_CONTENT when the payload is empty" name="should return the initalState" time="0"/>
+<testcase classname="loadTeasers Reducer on LOAD_CONTENT when the payload does not contain a heroTeaser" name="should return the state without the heroTeaser" time="0"/>
+<testcase classname="loadTeasers Reducer on LOAD_CONTENT when the payload does not contain the latestTeasers" name="should return the state with empty latestTeasers" time="0"/>
+<testcase classname="loadTeasers Reducer on LOAD_CONTENT when the payload does not contain the videoGalleryTeasers" name="should return the state with empty videoGalleryTeasers" time="0"/>
+<testcase classname="loadTeasers Reducer on LOAD_CONTENT_FAILED" name="should return the data as empty" time="0"/>
+<testcase classname="loadTeasers Reducer on RANDOM_ACTION" name="should return the initalState" time="0"/>
+<testcase classname="ListingAPI #getLatestTeasers() when the getLatestTeasers method is called and the query contains both a top value and section id" name="should call makeRequest with http://remoteListingUrl.com/api/teasers/undefined" time="0"/>
+<testcase classname="ListingAPI #getLatestTeasers() when the getLatestTeasers method is called and the filter is null" name="should call makeRequest with the default query " time="0"/>
+<testcase classname="ListingAPI #getLatestTeasers() when the getLatestTeasers method is called and the section and top are not passed" name="should call makeRequest with http://remoteListingUrl.com/api/teasers/undefined" time="0"/>
+<testcase classname="ListingAPI #getLatestTeasers() when the getLatestTeasers method is called and the listings remote returns a list in the response" name="should return the listing data" time="0"/>
+<testcase classname="ListingAPI #getLatestTeasers() when the getLatestTeasers method is called and the filter is being passed" name="should call makeRequest with http://remoteListingUrl.com/api/teasers/undefined" time="0"/>
+<testcase classname="ListingAPI #getLatestTeasers() when the getLatestTeasers method is called and the listings returns an error response" name="should return an empty array object" time="0.001"/>
+<testcase classname="Module API #getModules when passing no arguments" name="should return an empty object" time="0.002"/>
+<testcase classname="Module API #getModules when passing 2 arguments and the response returns an empty object" name="should return an object which contains a footer and header property with an empty array" time="0.001"/>
+<testcase classname="Module API #getModules when passing 2 arguments and the response returns an object with an array of data and there is a moduleName that matches only one of the items" name="should return an object which contains a footer property with an empty array and the header with data" time="0"/>
+<testcase classname="Module API #getModules when passing 2 arguments and the response returns an object with an array of data and there is a moduleName that matches both args being passed and there is a moduleManualContent with a data property" name="should return an object which contains the data for both footer and header" time="0"/>
+<testcase classname="Module API #getModules when passing 2 arguments and the response returns an object with an array of data and there is a moduleName that contains &#x27;theme&#x27;" name="should return an object which contains the data for traveltheme" time="0"/>
+<testcase classname="Module API #getModules when passing 2 arguments and the response returns an object with an array of data and there is a moduleName equal to &#x27;hero&#x27; and there is heroModule data " name="should return an object which contains the data for hero" time="0.001"/>
+<testcase classname="Module API #getModules when passing 2 arguments and the response returns an object with an array of data and there is a moduleName equal to &#x27;hero&#x27; and there is no heroModule data " name="should return null" time="0.001"/>
+<testcase classname="Module API #getModules when passing 2 arguments and the response returns an object with an array of data and there is a moduleName equal to &#x27;hero&#x27; and there is a moduleName equal &#x27;magcover&#x27;" name="should return expected magcover data, if there is only magCover" time="0.001"/>
+<testcase classname="Module API #getModules when passing 2 arguments and the response returns an object with an array of data and there is a moduleName equal to &#x27;hero&#x27; and there is a moduleName equal &#x27;magcover&#x27;" name="should return expected magcover data, if there are more than one magCover" time="0.001"/>
+<testcase classname="SearchAPI #getSearchResults() when the getSearchResults method is called and the query contains size, from and query values" name="should call makeRequest with http://remoteSearchUrl.com/api/undefined" time="0.001"/>
+<testcase classname="SearchAPI #getSearchResults() when the getSearchResults method is called and the query is empty" name="should call makeRequest with the default query " time="0"/>
+<testcase classname="SearchAPI #getSearchResults() when the getSearchResults method is called and the search remote returns a list in the response" name="should return the search data" time="0"/>
+<testcase classname="SearchAPI #getSearchResults() when the getSearchResults method is called and the search returns an error response" name="should return an empty array object" time="0"/>
+<testcase classname="#getPageID" name="should return valid page ID DOLLY-1234" time="0"/>
+<testcase classname="#getPageID" name="should return undefined for invalid page ID" time="0"/>
+<testcase classname="#parseEntity when passing an entity object" name="should return all required entity properties" time="0"/>
+<testcase classname="#parseEntity when passing an entity object" name="should not contain data that is not needed - &#x22;UnusedKey&#x22;" time="0"/>
+<testcase classname="#parseEntity when passing an entity object and a custom mapped object" name="should return all required entity properties, also referencing the custom mapped object" time="0"/>
+<testcase classname="#parseEntities when passing an entity object" name="should return all entities each with required entity properties" time="0"/>
+<testcase classname="#parseEntities when passing an entity object and a custom mapped object" name="should return all entities each with required entity properties" time="0"/>
+<testcase classname="#parseHeaderMetaData when not passing additional headerMetaData items" name="should return required headerMetaData properties" time="0.001"/>
+<testcase classname="#parseHeaderMetaData when passing additional headerMetaData items" name="should return required headerMetaData properties" time="0.001"/>
+<testcase classname="tagsToQueryHelp" name="should return empty string, if not input proper tags argument" time="0"/>
+<testcase classname="tagsToQueryHelp" name="should return expect query string, if input proper arguments" time="0"/>
+<testcase classname="Article middleware when nodeTypeAlias is NOT &#x60;Article&#x60;" name="should not set leftHandSide on &#x60;req.data&#x60; object" time="0.001"/>
+<testcase classname="Article middleware when there is no sectionId" name="should set leftHandSide on &#x60;req.data&#x60; object" time="0"/>
+<testcase classname="Article middleware when nodeTypeAlias is &#x60;Article&#x60; when sectionId has a value" name="should set leftHandSide in req.data with &#x60;getLatestTeasers&#x60; response" time="0.001"/>
+<testcase classname="#assetProxy()" name="should return error when there is no origin url" time="0.001"/>
+<testcase classname="#assetProxy()" name="should not return error when there is an origin url" time="0.002"/>
+<testcase classname="#assetProxy()" name="should not return pass through content length header" time="0"/>
+<testcase classname="Collection middleware when nodeTypeAlias is NOT &#x60;RecipeCollection&#x60;" name="should not set leftHandSide on &#x60;req.data&#x60; object" time="0.001"/>
+<testcase classname="Collection middleware when there is no sectionId" name="should set leftHandSide on &#x60;req.data&#x60; object" time="0"/>
+<testcase classname="Collection middleware when nodeTypeAlias is &#x60;RecipeCollection&#x60; when sectionId has a value" name="should set leftHandSide in req.data with &#x60;getLatestTeasers&#x60; response" time="0.001"/>
+<testcase classname="CommercialTag middleware" name="Input argument will have property isFoodSite with correct value" time="0.001"/>
+<testcase classname="CommercialTag middleware" name="Input argument will get propery commercialTag, if there is commercialTag returned" time="0"/>
+<testcase classname="CommercialTag middleware" name="Input argument will not get propery commercialTag, if remote return errors" time="0"/>
+<testcase classname="Error middleware when an unhandled exception occurs" name="should set response status to 500" time="0.001"/>
+<testcase classname="Error middleware when an unhandled exception occurs" name="should set response status to 404" time="0.001"/>
+<testcase classname="Error middleware when an unhandled exception occurs" name="should set response json to the error object" time="0"/>
+<testcase classname="Gallery middleware when nodeTypeAlias is NOT &#x60;Gallery&#x60;" name="should not set moreGalleries on &#x60;req.data&#x60; object" time="0.001"/>
+<testcase classname="Gallery middleware when nodeTypeAlias is NOT &#x60;Gallery&#x60;" name="should not set leftHandSide on &#x60;req.data&#x60; object" time="0"/>
+<testcase classname="Gallery middleware when there is no sectionId" name="should set leftHandSide on &#x60;req.data&#x60; object" time="0.001"/>
+<testcase classname="Gallery middleware when nodeTypeAlias is &#x60;Gallery&#x60; when moreGalleries is called" name="should set moreGalleries in req.data with &#x60;getMoreGalleries&#x60; response" time="0.002"/>
+<testcase classname="Gallery middleware when nodeTypeAlias is &#x60;Gallery&#x60; when sectionId has a value" name="should set leftHandSide in req.data with &#x60;getLatestTeasers&#x60; response" time="0"/>
+<testcase classname="HeaderMeta middleware when there is no APP_ENV set and is not on prod domain and there is no entity and no data in the req object" name="should set the req data object to contain &#x27;headerMetaData&#x27; object" time="0"/>
+<testcase classname="HeaderMeta middleware when there is no APP_ENV set and is not on prod domain and there is no entity and no data in the req object" name="should have called next" time="0"/>
+<testcase classname="HeaderMeta middleware when there is no APP_ENV set and is not on prod domain and there is an entity object that contains contentSummary and contentTitle" name="should set the req data object to contain &#x27;headerMetaData&#x27; and updated entity object" time="0.001"/>
+<testcase classname="HeaderMeta middleware when there is no APP_ENV set and is not on prod domain and there is an entity object that contains contentSummary and contentTitle" name="should have called next" time="0"/>
+<testcase classname="HeaderMeta middleware when there is no APP_ENV set and is not on prod domain that contains contentSummary, contentTitle, pageTitle and pageMetaDescription" name="should set the req data object to contain &#x27;headerMetaData&#x27; and updated entity object" time="0.001"/>
+<testcase classname="HeaderMeta middleware when there is no APP_ENV set and is not on prod domain that contains contentSummary, contentTitle, pageTitle and pageMetaDescription" name="should have called next" time="0"/>
+<testcase classname="HeaderMeta middleware when APP_ENV equals to &#x27;prod&#x27; and is not on prod domain" name="should set the req data object to contain &#x27;headerMetaData&#x27; object" time="0"/>
+<testcase classname="HeaderMeta middleware when APP_ENV equals to &#x27;prod&#x27; and is not on prod domain" name="should have called next" time="0"/>
+<testcase classname="HeaderMeta middleware when APP_ENV equals to &#x27;prod&#x27; and is on prod domain and is not the preview site" name="should set the req data object to contain &#x27;headerMetaData&#x27; object" time="0"/>
+<testcase classname="HeaderMeta middleware when APP_ENV equals to &#x27;prod&#x27; and is on prod domain and is not the preview site" name="should have called next" time="0"/>
+<testcase classname="HeaderMeta middleware when APP_ENV equals to &#x27;prod&#x27; and is on prod domain and is the preview site" name="should set the robots to NOINDEX,NOFOLLOW" time="0"/>
+<testcase classname="HeaderMeta middleware when APP_ENV equals to &#x27;prod&#x27; and is on prod domain and is the preview site" name="should have called next" time="0"/>
+<testcase classname="Home middleware when the remote returns an error response" name="should pass error to next middleware" time="0.002"/>
+<testcase classname="Home middleware when the remote returns an entity in the response and getLatestTeasers returns the teasers and video gallery teasers" name="should store the entity in &#x60;req.data&#x60;" time="0.001"/>
+<testcase classname="Home middleware when the remote returns an entity in the response and getLatestTeasers returns the teasers and video gallery teasers" name="should store the section in &#x60;req.data&#x60;" time="0"/>
+<testcase classname="Home middleware when the remote returns an entity in the response and getLatestTeasers returns the teasers and video gallery teasers" name="should store the latestTeasers in &#x60;req.data&#x60;" time="0.001"/>
+<testcase classname="Home middleware when the remote returns an entity in the response and getLatestTeasers returns the teasers and video gallery teasers" name="should store the videoGalleryTeasers in &#x60;req.data&#x60;" time="0"/>
+<testcase classname="Home middleware when the remote returns an entity in the response and getLatestTeasers returns the teasers and video gallery teasers" name="the videoGalleryTeasers should set the contentImageUrl as brightcove image still" time="0"/>
+<testcase classname="Home middleware when the remote returns an entity in the response and getLatestTeasers returns an error when getting video gallery teasers" name="should return an empty object for videoGalleryTeasers in &#x60;req.data.videoGalleryTeasers&#x60;" time="0"/>
+<testcase classname="Home middleware when the request contains existing data" name="should keep the existing header data in &#x27;req.data&#x27;" time="0"/>
+<testcase classname="Home middleware when there is a query param and it contains a page value" name="should call next without making a request" time="0"/>
+<testcase classname="Home middleware when there is a query param and it contains a section value" name="should call next without making a request" time="0"/>
+<testcase classname="Home middleware when there is a query param and it contains a tag value" name="should call next without making a request" time="0.001"/>
+<testcase classname="Home middleware when a query param of pageNo 2 is passed in" name="should not have a query param in the previous page url" time="0.001"/>
+<testcase classname="https middleware" name="should secure content body" time="0.002"/>
+<testcase classname="https middleware" name="should secure the content gallery" time="0.001"/>
+<testcase classname="https middleware" name="should secure content images" time="0"/>
+<testcase classname="https middleware" name="should secure item lists" time="0.001"/>
+<testcase classname="https middleware" name="should secure item lists for load more" time="0"/>
+<testcase classname="Listing middleware when there is a section in the query param when the remote returns an error response" name="should pass error to next middleware" time="0.001"/>
+<testcase classname="Listing middleware when there is a section in the query param when the remote returns an entity in the response and there is not a req.data object set" name="should store the entity in &#x60;req.data&#x60;" time="0.001"/>
+<testcase classname="Listing middleware when there is a section in the query param when the remote returns an entity in the response and there is a req.data object set" name="should store the entity in &#x60;req.data&#x60;" time="0"/>
+<testcase classname="Listing middleware when there is a page query param" name="should call next without making a request" time="0"/>
+<testcase classname="Listing middleware when there is a page and section query param" name="should call next without making a request" time="0"/>
+<testcase classname="Listing middleware when there is an existing data.entity in the req" name="should call next without making a request" time="0"/>
+<testcase classname="Listing middleware when there is an existing data.entity in the req" name="should not override the entity" time="0"/>
+<testcase classname="PageModules middleware when the response is valid" name="should set &#x60;req.data.headernavigation&#x60; to equal the response" time="0.001"/>
+<testcase classname="PageModules middleware when the response returns an error" name="should have not changed &#x60;req.data&#x60; and call next without any args" time="0"/>
+<testcase classname="Page middleware when the path does not contain an ID number in the slug" name="should pass error to next middleware" time="0.001"/>
+<testcase classname="Page middleware when the req already contains &#x27;data.entity&#x27;" name="should pass error to next middleware" time="0.001"/>
+<testcase classname="Page middleware when the remote returns an error response" name="should pass error to next middleware" time="0"/>
+<testcase classname="Page middleware when the req is a preview page" name="should call makeRequest with saved data" time="0"/>
+<testcase classname="Page middleware when the remote returns an entity in the response and is not a preview page and the url does not match the url in response" name="should call makeRequest without saved data" time="0.001"/>
+<testcase classname="Page middleware when the remote returns an entity in the response and is not a preview page and the url does not match the url in response" name="should return an error when section does not match remote" time="0"/>
+<testcase classname="Page middleware when the remote returns an entity in the response and is not a preview page and the url does not match the url in response" name="should return an error when the page does not match remote" time="0"/>
+<testcase classname="Page middleware when the remote returns an entity in the response and is not a preview page and the url matches the data.url of the response" name="should store the entity in &#x60;req.data&#x60;" time="0.001"/>
+<testcase classname="Page middleware when the remote returns an entity in the response and is not a preview page and the url matches the data.url of the response" name="should store the section in &#x60;req.data&#x60;" time="0.001"/>
+<testcase classname="Page middleware when the request contains existing data" name="should keep the existing header data in &#x27;req.data&#x27;" time="0.001"/>
+<testcase classname="Recipe middleware when nodeTypeAlias is NOT &#x60;Recipe&#x60;" name="should not set leftHandSide on &#x60;req.data&#x60; object" time="0.001"/>
+<testcase classname="Recipe middleware when nodeTypeAlias is &#x60;Recipe&#x60; when sectionId has a value" name="should set leftHandSide in req.data with &#x60;getLatestTeasers&#x60; response" time="0"/>
+<testcase classname="Render middleware" name="should set response json to &#x60;res.body&#x60;" time="0"/>
+<testcase classname="Render middleware" name="should set the cache headers" time="0"/>
+<testcase classname="ResponseBody middleware when parsing default body properties" name="should set response entity to &#x60;req.data.entity&#x60;" time="0.001"/>
+<testcase classname="ResponseBody middleware when data contains &#x60;leftHandSide&#x60;" name="should set &#x60;res.body.leftHandSide&#x60;" time="0.001"/>
+<testcase classname="ResponseBody middleware when data contains &#x60;leftHandSide&#x60; and it has no image" name="should return the placeholder image" time="0"/>
+<testcase classname="ResponseBody middleware when data contains &#x60;moreGalleries&#x60;" name="should set &#x60;res.body.moreGalleries&#x60;" time="0.001"/>
+<testcase classname="ResponseBody middleware when data contains &#x60;latestTeasers&#x60;" name="should set &#x60;res.body.latestTeasers&#x60;" time="0"/>
+<testcase classname="ResponseBody middleware when data contains &#x60;headernavigation&#x60;" name="should set &#x60;res.body.headerNavigation&#x60;" time="0.001"/>
+<testcase classname="ResponseBody middleware when data contains &#x60;hamburgernavigation&#x60;" name="should set &#x60;res.body.hamburgerNavigation&#x60;" time="0"/>
+<testcase classname="ResponseBody middleware when data contains &#x60;heroTeaser&#x60;" name="should set &#x60;res.body.heroTeaser&#x60;" time="0"/>
+<testcase classname="Review middleware when nodeTypeAlias is NOT &#x60;Review&#x60;" name="should not set leftHandSide on &#x60;req.data&#x60; object" time="0.005"/>
+<testcase classname="Review middleware when nodeTypeAlias is &#x60;Review&#x60;" name="should call &#x60;getLatestTeasers&#x60; with correct params" time="0.002"/>
+<testcase classname="Review middleware when nodeTypeAlias is &#x60;Review&#x60;" name="should update the title" time="0.001"/>
+<testcase classname="Section middleware when there is a section in the query param and nodeTypeAlias equal to Section when the remote returns an error response" name="should pass error to next middleware" time="0.002"/>
+<testcase classname="Section middleware when there is a section in the query param and nodeTypeAlias equal to Section when the remote returns the list of teasers" name="should store the latest teasers in &#x60;req.data&#x60;" time="0"/>
+<testcase classname="Section middleware when there is a section in the query param and nodeTypeAlias equal to Section when the remote returns the list of teasers" name="should have valid section value in &#x60;req.data.list&#x60;" time="0"/>
+<testcase classname="Section middleware when there is a section in the query param and nodeTypeAlias equal to Section when a query param of pageNo 2 is passed in" name="should not have a query param in the previous page url" time="0"/>
+<testcase classname="Section middleware when there is a page query param and nodeTypeAlias equal to Section" name="should call next without making a request" time="0.001"/>
+<testcase classname="Section middleware when there is a page query param and nodeTypeAlias equal to Subsection" name="should call next without making a request" time="0"/>
+<testcase classname="Section middleware when there is a page and section query param along with a nodeTypeAlias equal to Section" name="should call next without making a request" time="0.001"/>
+<testcase classname="Section middleware when there is a section in the query param and nodeTypeAlias equal to Article and there is a nodeTypeAlias equal Section" name="should call next without making a request" time="0"/>
+<testcase classname="Section middleware when there is a brand in the query param and nodeTypeAlias equal to Brand when source is Australian Women&#x27;s Weekly" name="should set adBrand as aww" time="0"/>
+<testcase classname="Section middleware when there is a brand in the query param and nodeTypeAlias equal to Brand when articleSource is undefined" name="should set adBrand as ntl" time="0.001"/>
+<testcase classname="Section middleware when there is a brand in the query param and nodeTypeAlias equal to Brand when the remote returns the list of teasers" name="should request for teasers" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote listing and tag service returns an error response and entity returns valid response" name="should have called the entity service" time="0.002"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote listing and tag service returns an error response and entity returns valid response" name="should pass an error to next middleware" time="0.001"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote entity service returns an error response, and the listing returns valid teasers and the tag service returns an error response" name="should set the entity with valid properties" time="0.001"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote entity service returns an error response, and the listing returns valid teasers and the tag service returns an error response" name="should set the latest teasers" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote entity service returns an error response, and the listing returns valid teasers and the tag service returns an error response" name="should set the section property" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote entity service returns an error response, and the listing returns valid teasers and the tag service returns an valid response that is empty" name="should set the entity just like when the tag service was rejected" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote entity service returns an error response, and the listing returns valid teasers and the tag service returns an valid response that contains an empty array of data" name="should set the entity just like when the tag service was rejected" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote entity service returns an error response, and the listing returns valid teasers and the tag service returns an valid response that does not contain the matching tag in data" name="should set the entity just like when the tag service was rejected" time="0.001"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote entity service returns an error response, and the listing returns valid teasers and the tag service returns an valid response that has 1 matching tag in data" name="should set the entity with valid properties from tag service" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote entity service returns an error response, and the listing returns valid teasers and the tag service returns an valid response that has 2 matching tag in data" name="should set the entity just like when the tag service was rejected" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote listing and entity service returns valid responses and the entity response nodeTypeAlias does not equal TagSection" name="should set the entity with valid properties" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote listing and entity service returns valid responses and the entity response nodeTypeAlias equals TagSection but does not contain a url" name="should set the entity with valid properties" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is not defined and the remote listing and entity service returns valid responses and the entity response nodeTypeAlias equals TagSection and contains url" name="should set the entity with valid properties" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is defined and the nodeTypeAlias equals to TagSection" name="should call both the listing and entity service, along with calling next" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is defined and the nodeTypeAlias equals to TagSection when a query param of pageNo 2 is passed in" name="should not have a query param in the previous page url" time="0.001"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is defined and the nodeTypeAlias equals to Section" name="should not call the listing or entity services, only call next" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and an entity is defined and there is a url set inside the entity" name="should not need to call the entity service" time="0"/>
+<testcase classname="Tag middleware when a tag is set in the query params and the page is also defined in the query params" name="should not call the listing or entity services, only call next" time="0"/>
+<testcase classname="Tag middleware when a section is set in the query params" name="should call both the listing and entity service, along with calling next" time="0.001"/>
+<testcase classname="Tag middleware when neither tag nor section is set in the query params" name="should not call the listing or entity services, only call next" time="0.001"/>
+<testcase classname="#makeRequest()" name="should return the body of the response when status is a 200" time="0.001"/>
+<testcase classname="#makeRequest()" name="should attempt to get the cache response, then set the cache response when there is no cache" time="0.001"/>
+<testcase classname="#makeRequest()" name="should get the cache response when set and not need to request external data or set any cache data" time="0"/>
+<testcase classname="#makeRequest()" name="should return the body of the response when status is a 202" time="0.001"/>
+<testcase classname="#makeRequest()" name="should return an error response when status is a 404" time="0"/>
+<testcase classname="#makeRequest()" name="should return an error response when there is an err" time="0"/>
+<testcase classname="#makeRequest()" name="should return an error response with a 503 status code when there is no response or no error" time="0"/>
+</testsuite>

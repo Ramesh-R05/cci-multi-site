@@ -11,6 +11,7 @@ describe(`loadTeasers Reducer`, () => {
                 videoGalleryTeasers: ['VideoTeaser 1', 'VideoTeaser 2', 'VideoTeaser 3'],
                 mustRead: [],
                 promoted: { title: '', items: [] },
+                entity: {},
                 list: {
                     params: {
                         pageNo: 1
@@ -25,34 +26,55 @@ describe(`loadTeasers Reducer`, () => {
         });
 
         describe(`when the payload contains the heroTeaser and latestTeasers in the body object`, () => {
+            let bodyWithRecipeEntities = {
+                heroTeaser: {},
+                latestTeasers: ['Teaser 1', 'Teaser 2'],
+                videoGalleryTeasers: ['VideoTeaser 1', 'VideoTeaser 2', 'VideoTeaser 3'],
+                mustRead: [],
+                promoted: { title: '', items: [] },
+                entity: {
+                    contentRecipeEntities: ['entity1', 'entity2', 'entity2']
+                },
+                list: {
+                    params: {
+                        pageNo: 1
+                    },
+                    items: []
+                }
+            };
+
+            let payloadWithRecipeEntities = { type: 'LOAD_CONTENT', body: bodyWithRecipeEntities };
+
             it(`should return the new items`, () => {
-                expect(reducer(initialState, payload)).to.deep.eq({
-                    heroTeaser: payload.body.heroTeaser,
-                    latestTeasers: payload.body.latestTeasers,
-                    videoGalleryTeasers: payload.body.videoGalleryTeasers,
-                    mustRead: payload.body.mustRead,
-                    promoted: payload.body.promoted,
+                expect(reducer(initialState, payloadWithRecipeEntities)).to.deep.eq({
+                    heroTeaser: payloadWithRecipeEntities.body.heroTeaser,
+                    latestTeasers: payloadWithRecipeEntities.body.latestTeasers,
+                    videoGalleryTeasers: payloadWithRecipeEntities.body.videoGalleryTeasers,
+                    mustRead: payloadWithRecipeEntities.body.mustRead,
+                    promoted: payloadWithRecipeEntities.body.promoted,
+                    collectionRecipeEntities: payloadWithRecipeEntities.body.entity.contentRecipeEntities,
                     list: {
                         params: {
-                            pageNo: payload.body.list.params.pageNo
+                            pageNo: payloadWithRecipeEntities.body.list.params.pageNo
                         },
-                        items: payload.body.list.items
+                        items: payloadWithRecipeEntities.body.list.items
                     }
                 });
             });
 
             it(`should still return the new items `, () => {
-                expect(reducer(initialState, payload)).to.deep.eq({
-                    heroTeaser: payload.body.heroTeaser,
-                    latestTeasers: payload.body.latestTeasers,
-                    videoGalleryTeasers: payload.body.videoGalleryTeasers,
-                    mustRead: payload.body.mustRead,
-                    promoted: payload.body.promoted,
+                expect(reducer(initialState, payloadWithRecipeEntities)).to.deep.eq({
+                    heroTeaser: payloadWithRecipeEntities.body.heroTeaser,
+                    latestTeasers: payloadWithRecipeEntities.body.latestTeasers,
+                    videoGalleryTeasers: payloadWithRecipeEntities.body.videoGalleryTeasers,
+                    mustRead: payloadWithRecipeEntities.body.mustRead,
+                    promoted: payloadWithRecipeEntities.body.promoted,
+                    collectionRecipeEntities: payloadWithRecipeEntities.body.entity.contentRecipeEntities,
                     list: {
                         params: {
-                            pageNo: payload.body.list.params.pageNo
+                            pageNo: payloadWithRecipeEntities.body.list.params.pageNo
                         },
-                        items: payload.body.list.items
+                        items: payloadWithRecipeEntities.body.list.items
                     }
                 });
             });
@@ -84,7 +106,8 @@ describe(`loadTeasers Reducer`, () => {
                     promoted: {
                         title: '',
                         items: []
-                    }
+                    },
+                    collectionRecipeEntities: []
                 });
             });
         });
@@ -109,7 +132,8 @@ describe(`loadTeasers Reducer`, () => {
                     promoted: {
                         title: '',
                         items: []
-                    }
+                    },
+                    collectionRecipeEntities: []
                 });
             });
         });
@@ -134,7 +158,8 @@ describe(`loadTeasers Reducer`, () => {
                     promoted: {
                         title: '',
                         items: []
-                    }
+                    },
+                    collectionRecipeEntities: []
                 });
             });
         });
@@ -156,7 +181,8 @@ describe(`loadTeasers Reducer`, () => {
                 promoted: {
                     title: '',
                     items: []
-                }
+                },
+                collectionRecipeEntities: []
             };
             payload = {
                 type: 'LOAD_CONTENT_FAILED',
@@ -185,7 +211,8 @@ describe(`loadTeasers Reducer`, () => {
                 promoted: {
                     title: '',
                     items: []
-                }
+                },
+                collectionRecipeEntities: []
             };
             payload = {
                 type: 'RANDOM_ACTION',

@@ -59,4 +59,14 @@
             opacity: 0.9;
         }
     }
+
+    &__index {
+        display: inline-block;
+        min-width: 15px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        border-bottom: 3px solid #b6956a;
+    }
 }
