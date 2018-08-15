@@ -9,7 +9,7 @@ module.exports = function() {
 
     this.When(/^I can see the amp hero image$/, function () {
         browser.scroll(amp.ampHeroImage);
-        var heroImg = browser.waitForVisible(amp.ampHeroImage,2000);
+        var heroImg = browser.waitForVisible(amp.ampHeroImage,10000);
         expect(heroImg).toBe(true);
     });
 

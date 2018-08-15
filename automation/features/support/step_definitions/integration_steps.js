@@ -343,34 +343,34 @@ module.exports = function() {
         switch(docType) {
             case 'article':
             case 'amp article':
-                browser.waitForExist(".article__title", 30000);
+                browser.waitForVisible(".article__title", 30000);
                 expect(browser.getText(".article__title").toUpperCase()).toEqual("ARTICLE TEST " + ID);
                 break;
             case 'gallery':
             case 'amp gallery':
-                browser.waitForExist(".article__title", 30000);
+                browser.waitForVisible(".article__title", 30000);
                 expect(browser.getText(".article__title").toUpperCase()).toEqual("GALLERY TEST " + ID);
                 break;
             case 'section':
-                browser.waitForExist("h1.page-title", 30000);
+                browser.waitForVisible("h1.page-title", 30000);
                 expect(browser.getText("h1.page-title")).toEqual("SECTIONTEST-" + ID + "-PAGE");
                 break;
             case 'subsection':
-                browser.waitForExist("h1.page-title", 30000);
+                browser.waitForVisible("h1.page-title", 30000);
                 expect(browser.getText("h1.page-title")).toEqual("SUBSECTIONTEST-" + ID + "-PAGE");
                 break;
             case 'review':
             case 'amp review':
-                browser.waitForExist(".article__title", 30000);
+                browser.waitForVisible(".article__title", 30000);
                 expect(browser.getText(".article__title").toUpperCase()).toEqual("REVIEW TEST " + ID + ": RESTAURANT REVIEW");
                 break;
             case 'recipe collection':
-                browser.waitForExist(".article__title", 30000);
+                browser.waitForVisible(".article__title", 30000);
                 expect(browser.getText(".article__title").toUpperCase()).toEqual("RECIPE COLLECTION TEST " + ID);
                 break;
             case 'recipe':
             case 'amp recipe':
-                browser.waitForExist(".article__title", 30000);
+                browser.waitForVisible(".article__title", 30000);
                 expect(browser.getText(".article__title").toUpperCase()).toEqual("RECIPE TEST " + ID);
                 break;
         }

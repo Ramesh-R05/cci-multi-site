@@ -78,11 +78,12 @@ module.exports = function() {
         expect(lhrFeed).toBe(false);
     });
     this.Given(/^I can see the long title "([^"]*)"$/, function (articleTitle) {
-        browser.waitForVisible(wn_article.longTitle, 2000);
+        browser.waitForVisible(wn_article.longTitle, 10000);
         var longTitle = browser.getText(wn_article.longTitle).toLowerCase();
         expect(longTitle).toContain(articleTitle);
     });
     this.Given(/^I can see the created date "([^"]*)"$/, function (date) {
+        browser.waitForVisible(wn_article.dateText, 10000);
         var articleDate = browser.getText(wn_article.dateText);
         expect(articleDate.toString()).toContain(date);
     });
@@ -99,6 +100,7 @@ module.exports = function() {
         expect(heroImg).toBe(false);
     });
     this.Given(/^I can see the short teaser "([^"]*)"$/, function (articleShortTeaser) {
+        browser.waitForVisible(wn_article.shortTeaser, 10000);
         var shortTeaser = browser.getText(wn_article.shortTeaser);
         expect(shortTeaser).toContain(articleShortTeaser);
     });
