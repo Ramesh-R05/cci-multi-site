@@ -10,7 +10,7 @@ export default {
             pageTypes: {
                 Brand: 'index'
             },
-            siteId: 'gourmettraveller',
+            siteId: 'womensweeklyfood',
             tagsObject: 'tags',
             sizes: {
                 native: [250, 30],
