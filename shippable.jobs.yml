@@ -1131,7 +1131,11 @@ jobs:
        - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
        - script: export URL=http://awwfood-site-au.sit.bxm.net.au/
        - script: npm run test:awwfoodmobile || mobileResult=failed
+       - script: echo $mobileResult
        - script: npm run test:awwfooddesktop || desktopResult=failed
+       - script: echo $desktopResult
        - script: npm run test:awwfoodtabletportrait || tabletportraitResult=failed
+       - script: echo $tabletportraitResult
        - script: npm run test:awwfoodtabletlandscape || tabletlandscapeResult=failed
+       - script: echo $tabletlandscapeResult
        - script: if [ -n "$mobileResult"] || [-n "$desktopResult"] || [-n "$tabletportraitResult"] || [-n "$tabletlandscapeResult"]; then fail; fi
