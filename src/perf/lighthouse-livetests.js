@@ -6,22 +6,22 @@ const testLinks = [
     {
         title: 'homepage',
         url: 'https://www.gourmettraveller.com.au/',
-        expectedScore: 25
+        expectedScore: 27
     },
     {
         title: 'section',
         url: 'https://www.gourmettraveller.com.au/recipes/',
-        expectedScore: 27
+        expectedScore: 28
     },
     {
         title: 'article',
         url: 'https://www.gourmettraveller.com.au/news/food-news/josh-niland-danielle-alvarez-and-more-join-ozharvests-2018-ceo-cook-off-15582/',
-        expectedScore: 28
+        expectedScore: 26
     },
     {
         title: 'gallery',
         url: 'https://www.gourmettraveller.com.au/recipes/recipe-collections/fried-rice-15062/',
-        expectedScore: 28
+        expectedScore: 27
     },
     {
         title: 'recipe',
@@ -31,7 +31,7 @@ const testLinks = [
     {
         title: 'review',
         url: 'https://www.gourmettraveller.com.au/dining-out/restaurant-reviews/grossi-florentino-6820/',
-        expectedScore: 26
+        expectedScore: 23
     }
 ];
 
