@@ -60,6 +60,7 @@ var ads_widget = {
     //Body
     ad_MrecAfterSlide3: '.gallery__feed-item--ad:nth-child(4) .gallery__ad [id^=ad-gpt-slot-]', //gallery
     ad_MrecAfterSlide7: '.gallery__feed-item--ad:nth-child(9) .gallery__ad [id^=ad-gpt-slot-]', //gallery
+    ad_MrecAfterRecipe3:  '.teaser__list-item--ad [id^=ad-gpt-slot-]', //recipe collection
 
     //For Mobile
     ad_MrecUnderHeroTeaser: '.hero-wrapper [id^=ad-gpt-slot-]', //mobile homepage, index, brand

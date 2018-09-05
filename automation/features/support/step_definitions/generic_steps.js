@@ -53,6 +53,7 @@ module.exports = function() {
         }
 
         browser.waitForVisible(loadMore.loadMoreButton,10000);
+        wait(1500);
         browser.click(loadMore.loadMoreButton);
 
         //static wait due to elements loading move the load more button and creates error in the script

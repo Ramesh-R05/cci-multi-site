@@ -52,6 +52,10 @@ export default function stubServer(siteServer, siteConfig) {
             //beauty section has the Inskin ad
             const section = require('../test_data/listing/section_inskin').default;
             return res.json(section);
+        } else if (section === 'xmas') {
+            //xmas is a test commercial tag section
+            const section = require('../test_data/listing/commercialtag').default;
+            return res.json(section);
         } else {
             return next({ body: 'Could not find the section page', err: null, status: 404 });
         }
@@ -104,6 +108,9 @@ export default function stubServer(siteServer, siteConfig) {
                 break;
             case 'bar-rochford-restaurant-review-1713':
                 data = require('../test_data/pages/review').default;
+                break;
+            case 'comforting-slow-cooker-recipes-31166':
+                data = require('../test_data/pages/recipe_collection').default;
                 break;
             default:
                 return next({ body: 'Could not find the article page', err: null, status: 404 });

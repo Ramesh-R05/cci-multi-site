@@ -1,4 +1,5 @@
 import navigation from '../modules/navigation';
+import latestTeasers from '../latestTeasers';
 
 export default {
     entity: {
@@ -18,6 +19,22 @@ export default {
         pageName: 'Tag',
         robots: 'NOINDEX,NOFOLLOW',
         title: ''
+    },
+    latestTeasers: latestTeasers.slice(0, 7),
+    list: {
+        params: {
+            pageNo: 1
+        },
+        items: [latestTeasers.slice(6)],
+        previous: null,
+        current: {
+            path: '/',
+            url: 'http://multi-site.test.bxm.net.au/fashion'
+        },
+        next: {
+            path: '/?pageNo=2',
+            url: 'http://multi-site.test.bxm.net.au/fashion/?pageNo=2'
+        }
     },
     request: {
         queryString: {

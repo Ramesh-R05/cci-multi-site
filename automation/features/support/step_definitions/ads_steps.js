@@ -229,6 +229,9 @@ module.exports = function() {
                 case 'MREC Under Hero Image': //mobile
                     adElement = wn_ads.ad_MrecUnderHeroImage;
                     break;
+                case 'MREC After Recipe 3':
+                    adElement = wn_ads.ad_MrecAfterRecipe3;
+                    break;
             }
             var className = browser.getAttribute(adElement,'class');
             expect(className).toEqual(row['class-name']);
