@@ -33,6 +33,12 @@ const contentMock = {
     ]
 };
 
+const contextConfigStub = {
+    config: {
+        product: { id: `awwfood` }
+    }
+};
+
 AdStub.pos = {
     aside: 'rhs',
     outside: 'outside',
@@ -53,8 +59,7 @@ describe('Component', () => {
                     content: contentMock,
                     footer: FooterStub
                 };
-
-                wrapper = shallow(<RecipeContent {...props} />);
+                wrapper = shallow(<RecipeContent {...props} />, { context: contextConfigStub });
             });
 
             it('should render recipe', () => {
@@ -119,7 +124,7 @@ describe('Component', () => {
                     enableTeads: true
                 };
 
-                wrapper = shallow(<RecipeContent {...props} />);
+                wrapper = shallow(<RecipeContent {...props} />, { context: contextConfigStub });
             });
 
             it('should have the correct props to the ad', () => {
@@ -143,7 +148,7 @@ describe('Component', () => {
                     content: contentMock
                 };
 
-                wrapper = shallow(<RecipeContent {...props} />);
+                wrapper = shallow(<RecipeContent {...props} />, { context: contextConfigStub });
             });
 
             it('should not render', () => {

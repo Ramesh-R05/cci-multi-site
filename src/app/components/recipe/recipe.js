@@ -47,7 +47,8 @@ export default class Recipe extends Component {
         recipeCookingTime: PropTypes.object.isRequired,
         recipeIngredients: PropTypes.array,
         recipeCookingMethod: PropTypes.array,
-        recipeTips: PropTypes.string
+        recipeTips: PropTypes.string,
+        excludedSource: PropTypes.string
     };
 
     static defaultProps = {
@@ -72,7 +73,8 @@ export default class Recipe extends Component {
                 methods: []
             }
         ],
-        recipeTips: ''
+        recipeTips: '',
+        excludedSource: ''
     };
 
     static contextTypes = {

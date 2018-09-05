@@ -31,7 +31,16 @@ export default class RecipeContent extends Component {
         isVerticalGallery: false
     };
 
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
     render() {
+        const { config } = this.context;
+        let excludedSource = ``;
+        if (config.product.id === `awwfood`) {
+            excludedSource = `Australian Women's Weekly`;
+        }
         const {
             enableTeads,
             menuSliderClassName,
@@ -85,7 +94,14 @@ export default class RecipeContent extends Component {
             <div>
                 {enableTeads && <Ad label={{ active: false }} sizes="teads" targets={{ keyword }} pageLocation={Ad.pos.outside} />}
                 <div className={`article-section main-wrapper container row ${menuSliderClassName}`}>
-                    <Recipe {...this.props} {...content} heroItem={hero} contentBody={content.body} pageId={content.id} />
+                    <Recipe
+                        {...this.props}
+                        {...content}
+                        heroItem={hero}
+                        contentBody={content.body}
+                        pageId={content.id}
+                        excludedSource={excludedSource}
+                    />
                     <Feed
                         showFeedOnRight
                         feedItemClass={feedItemClass}
