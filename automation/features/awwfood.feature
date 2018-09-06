@@ -7,7 +7,7 @@ Feature: Smoke test for AWW FOOD
     Scenario: Verify the homepage
         Given I switch to "mobile" view
         When I am currently viewing the homepage
-        Then I should see the sign up button containing "https://www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
+        Then I should see the sign up form in "mobile" view
         And I should see 2 must read images and titles which are clickable to open their page
         And I should see the main hero item containing its image and clickable to open its page
         And I should see 2 promoted images and titles which are clickable to open their page
@@ -23,7 +23,7 @@ Feature: Smoke test for AWW FOOD
         When I am currently viewing "recipes"
         Then I should see "RECIPES" title
         # Then I should see "SELECT A SUB-SECTION..." selected as a default in the list
-        Then I should see the sign up button containing "https://www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
+        Then I should see the sign up form in "mobile" view
         Then I should see the main hero item containing its image and clickable to open its page
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its image and clickable to open its page
@@ -37,7 +37,7 @@ Feature: Smoke test for AWW FOOD
     #    When I am currently viewing "travel/destinations"
     #    Then I should see "DESTINATIONS" title
     #    Then I should see "DESTINATIONS" selected as a default in the list
-    #    Then I should see the sign up button containing "https://www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
+    #    Then I should see the sign up button containing "https://www.womensweeklyfood.com.au/womensweeklyfood-newsletter" url in "mobile" view
     #    Then I should see the main hero item containing its image and clickable to open its page
     #    And I should see a "top" feed item containing its image and clickable to open its page
     #    And I should see a "bottom" feed item containing its image and clickable to open its page
@@ -57,11 +57,10 @@ Feature: Smoke test for AWW FOOD
         When I am currently viewing the homepage
         * I can see the social icons clickable to open its page in the footer
             |social     |url                                          |
-            |Facebook   |https://www.facebook.com/gourmettraveller    |
-            |Twitter    |https://twitter.com/GourmetTweets            |
-            |Instagram  |https://www.instagram.com/gourmettraveller/  |
-            |Pinterest  |https://www.pinterest.com.au/gourmetpins/    |
-            |GiftCard   |/gift-card                                   |
+            |Facebook   |https://www.facebook.com/womensweeklyfood/   |
+            |Instagram  |https://www.instagram.com/womensweeklyfood/  |
+            |Pinterest  |https://www.pinterest.com.au/womensweeklyfood|
+            
         * I can see mag buttons clickable to open its page in the footer
         
     @awwfoodmobile

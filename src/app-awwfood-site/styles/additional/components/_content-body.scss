@@ -4,11 +4,6 @@
     @include content-body-component;
     box-shadow: $panel-shadow;
 
-    // & + & {
-    //     margin-top: -1 * $article-gap;
-    //     box-shadow: $panel-shadow;
-    // }
-
     li {
         padding-bottom: 15px;
         color: $color-text;
@@ -52,6 +47,7 @@
         @include type-article-heading;
         @include content-body-component;
         @include full-width;
+        position: relative;
         
         @media #{$large-up} {
             width: 100%;
@@ -62,7 +58,7 @@
             margin-top: 0;
             padding-bottom: 0;
         }
-
+        
         & + .content-body {
             margin-top: -1 * $article-gap;
             box-shadow: $panel-shadow;
@@ -120,6 +116,11 @@
             margin-right: 0;
         }
 
+        .related-content-items {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
         .related-content__heading {
             @include content-body-section-heading-style;
             margin-top: 0;
@@ -144,30 +145,37 @@
     &__gallery-link {
         margin-top: $article-gap;
         margin-bottom: 0;
-    }
+        transition: opacity .3s ease;
+        a  {
+            text-decoration: none; 
+        }
 
-    &__gallery-link-caption {
-        -webkit-font-smoothing: auto;
-        background-color: $color-grey-light;
-        color: $color-text;
-        position: static;
-        margin-left: 0;
-        margin-right: 0;
-        padding-top: 18px;
-        padding-bottom: 20px;
- 	 
-        @media #{$medium-up} {
-            width: 100%;
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: .9;
         }
     }
 
+    &__gallery-link-caption {
+        @include img-caption-style;
+        width: 100%;
+        bottom: 0;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $color-awwfood-gold;
+        }
+    }
+
+    &__gallery-link-category {
+        @extend .type-header-secondary;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
     &__gallery-link-title {
-        background-color: $color-text;
-        color: $color-grey-light;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 16px;
-        padding-top: 3px;
+       @include caption;
     }
 
     &__tips {
@@ -194,9 +202,14 @@
         @include full-width;
         margin-bottom: 0;
     }
+    &__competition,
     &__embed--facebook,
     &__embed--giphy,
     &__embed--playbuzz,
+    &__embed--instagram,
+    &__embed--twitter,
+    &__embed--pinterest,
+    &__embed--wirewax,
     &__embed-video-container {
         box-shadow: $panel-shadow;
         @include content-body-component;

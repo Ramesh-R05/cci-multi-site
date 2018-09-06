@@ -12,13 +12,10 @@
     }
 }
 
-.site-wrapper {
-    .content-wrapper {
-        @media #{$medium-up} {
-            padding-top: $landing-page-module-gutter;
-        }
-    }
+.ad--section-leaderboard {
+    padding-top: $column-gutter/2;
 }
+
 
 .sticky-block {
     &.sticky-block--in-view {

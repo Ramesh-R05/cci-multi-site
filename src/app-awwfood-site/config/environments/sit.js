@@ -3,7 +3,7 @@ const playerId = '9d8a1e14-2673-43d9-9260-6ff50b059ad9';
 
 export default {
     site: {
-        host: 'http://gt-site-au.sit.bxm.net.au'
+        host: 'http://awwfood-site-au.sit.bxm.net.au'
     },
     brightcove: {
         playerId,
@@ -12,7 +12,7 @@ export default {
     loggly: {
         inputToken: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
         subdomain: 'bauerdigital',
-        tags: ['gt', 'dev'],
+        tags: ['awwfood', 'dev'],
         json: true,
         level: 'info',
         proxy: 'http://proxy.mgmt.local:3128'

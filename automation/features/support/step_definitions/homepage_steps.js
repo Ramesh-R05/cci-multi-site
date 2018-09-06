@@ -247,6 +247,24 @@ module.exports = function(){
         expect(signUpBtnLink).toContain(url);
     });
 
+    this.Then(/^I should see the sign up form in "([^"]*)" view$/, function (device) {
+        var signUpForm;
+
+        switch(device) {
+            case 'mobile':
+            case 'tablet portrait':
+                signUpForm = home.newsletterSignUpFormMobile;
+                break;
+            case 'desktop':
+            case 'tablet landscape':
+                signUpForm = home.newsletterSignUpFormDesktop;
+                break;
+        }
+
+        scrolling(browser,signUpForm,isBrowserStack);
+        expect(browser.waitForVisible(signUpForm,5000)).toEqual(true);
+    });
+
     this.When(/^I should see a load more feed item containing its image and clickable to open its page$/, function () {
         //verify images of one teaser
         var loadMoreFeedTeaserImgUrl = browser.getAttribute(home.loadMoreFeedTeaserImg,'data-srcset');

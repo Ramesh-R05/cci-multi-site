@@ -4,13 +4,13 @@ export default {
     },
     gigya: { apiKey: '' },
     site: {
-        host: 'https://www.gourmettraveller.com.au',
+        host: 'https://www.womensweeklyfood.com.au',
         protocol: 'https'
     },
     loggly: {
         inputToken: '9b4a2693-dc77-4e7e-a5ee-498845c59793',
         subdomain: 'bauerdigital',
-        tags: ['gt', 'live'],
+        tags: ['awwfood', 'live'],
         json: true,
         level: 'info',
         proxy: 'http://proxy.mgmt.local:3128'

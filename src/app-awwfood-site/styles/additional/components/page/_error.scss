@@ -20,6 +20,10 @@
 
     .footer {
         margin-top: $column-gutter;
+
+        .subscribe {
+            display: none;
+        }
     }
 }
 

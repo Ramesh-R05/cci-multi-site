@@ -51,6 +51,7 @@ $head-logo-font-size: 35px;
     border-width: 0;
     background-color: $color-awwfood-light;
     color: $color-text;
+    box-shadow: $panel-shadow-y;
     position: fixed;
 
     &.header--hide {
@@ -79,21 +80,23 @@ $head-logo-font-size: 35px;
     .header__sections {
         background: none;
         max-width: none;
-        box-shadow: $panel-shadow-y;
+        width: 100%;
 
         .nav-item--active {
             color: $color-tertiary;
         }
 
-        @media #{$medium-up} {
-            padding-left: calc( 50% - #{$head-content-width-large/2} );
+
+        @media #{$large-up} {
+            width: $head-content-width-large;
         }
     }
 
     &.header--expanded.header--pinned .header-logo {
         @media #{$medium-up} {
-            width: 140px;
+            width: 120px;
         }
+
     }
 
     .header-logo {
@@ -101,9 +104,10 @@ $head-logo-font-size: 35px;
         transition: width $header-transition-duration;
 
         @media #{$medium-up} {
-            width: 140px;
-            margin-left: -20px;
+            width: 120px;
+            margin-left: -40px;
         }
+
     }
 
     &.header--expanded {
@@ -214,10 +218,15 @@ $head-logo-font-size: 35px;
         transition: width $header-transition-duration;
 
         @media #{$medium-up} {
-
+            display: inline-block;
+            width: calc( 100% - 160px );
             &:before {
                 content: none;
             }
+        }
+
+        @media #{$large-up} {
+            width: $head-content-width-large - 160px;
         }
 
         nav {
@@ -227,10 +236,10 @@ $head-logo-font-size: 35px;
         a {
             display: inline-block;
             text-decoration: none;
-            padding: 0 25px;
+            padding: 0 5px;
             color: $color-text;
-            letter-spacing: 0.4pt;
-            font: 15px $font-text;
+            letter-spacing: 0.2pt;
+            font: 12px $font-text;
             text-transform: uppercase;
             font-weight: 600;
 
@@ -241,12 +250,16 @@ $head-logo-font-size: 35px;
                 color: $color-white;
             }
 
-            @media #{$xlarge-up} {
-                font-size: 20px;
+            @media #{$large-up} {
+                padding: 0 15px;
+                letter-spacing: 0.4pt;
+                font-size: 13px;
             }
         }
 
         &__nav {
+            white-space: nowrap;
+
             > a,
             .header-sub-nav > a {
                 text-decoration: none;
@@ -338,6 +351,19 @@ $head-logo-font-size: 35px;
             }
         }
     }
+
+    .header-search {
+       
+        @media #{$medium-up} {
+            right: 20px;
+            left: auto;
+        }
+
+        @media #{$large-up} {
+            right: auto;
+            left: calc(50% + 455px);
+        }
+    }
 }
 
 .header.header--expanded.header--pinned {
@@ -388,13 +414,11 @@ $head-logo-font-size: 35px;
         }
 
         nav {
-            display: block;
             height: 26px;
             line-height: 1.5em;
             margin-left: 0;
             text-align: center;
             transform: translate(0);
-            white-space: normal;
             width: 100%;
         }
 
@@ -424,10 +448,27 @@ $head-logo-font-size: 35px;
 
 .header-search {
     top: 0;
-
+   
     &__open {
         .header-search--icon-container {
             background-color: $color-awwfood-light;
+        }
+    }
+
+    &--icon {
+        top: 0;
+        height: 25px;
+
+        .page--home & {
+            top: 0;
+        }
+
+        @media #{$medium-up} {
+            top: 0;
+        }
+
+        @media #{$large-up} {
+            top: 0;
         }
     }
 

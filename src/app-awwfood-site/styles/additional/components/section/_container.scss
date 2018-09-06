@@ -1,10 +1,8 @@
 .page {
     .page-title-container {
-        box-shadow: $panel-shadow-y-up;
         max-width: $row-width - 2 * $column-gutter ;
         overflow: auto;
-        background: $color-white;
-        margin: 0 auto (-0.5 * $column-gutter);
+        text-align: center;
 
         @media #{$medium-up} {
             margin-top: $landing-page-module-gutter;
@@ -12,14 +10,15 @@
     }
 
     .page-title {
-        font-family: $font-header;
         margin: 0;
-        border-top: $landing-page-teaser-gutter solid $color-white;
-        border-bottom: $landing-page-teaser-gutter solid $color-white;
-        background-color: $color-awwfood-gold;
+        padding: 0;
         width: auto;
-        @media #{$medium-up} {
-            border: $landing-page-teaser-gutter solid $color-white;
+        background: inherit;
+        @include page-title-with-underline;
+
+        span {
+            color: inherit;
         }
+
     }
 }

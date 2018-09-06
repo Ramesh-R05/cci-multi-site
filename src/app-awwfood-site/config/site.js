@@ -1,7 +1,7 @@
 export default {
     dateTimeFormat: 'MMM DD, YYYY h:mma',
-    host: 'http://dev.gt-site.bauer-media.net.au',
-    prodDomain: 'www.gourmettraveller.com.au',
+    host: 'http://awwfood-site-au.sit.bxm.net.au',
+    prodDomain: 'www.womensweeklyfood.com.au',
     name: 'Australian Womens Weekly Food',
     shortName: 'Australian Womens Weekly Food',
     prefix: 'AWWFOOD',

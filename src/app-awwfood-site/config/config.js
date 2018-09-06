@@ -11,7 +11,7 @@ export default {
 
     gtm: { masthead: 'AWWFOOD', id: 'GTM-MHX78ZT' }, // TODO: Check that the masthead is correct
 
-    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/GourmetTraveller/defaultimage.png', // TODO: update this URL
+    defaultImageUrl: 'http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/awwfood/2018/09/03/1535939419920_awwfood-default.png',
 
     brightcove,
 
@@ -67,11 +67,9 @@ export default {
         },
 
         socialUrls: {
-            facebook: 'https://www.facebook.com/gourmettraveller',
-            twitter: 'https://twitter.com/GourmetTweets',
-            instagram: 'https://www.instagram.com/gourmettraveller/',
-            pinterest: 'https://www.pinterest.com.au/gourmetpins/',
-            'gift-card': 'gift-card'
+            facebook: 'https://www.facebook.com/womensweeklyfood/',
+            instagram: 'https://www.instagram.com/womensweeklyfood/',
+            pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
         },
 
         newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kf/signup-gourmettraveller-article-iframe-bottom' // TODO: update this URL
@@ -84,15 +82,14 @@ export default {
         title: '',
         magazineTitle: '',
         socialLinks: {
-            facebook: 'https://www.facebook.com/gourmettraveller',
-            twitter: 'https://twitter.com/GourmetTweets',
-            instagram: 'https://www.instagram.com/gourmettraveller/',
-            pinterest: 'https://www.pinterest.com.au/gourmetpins/',
-            'gift-card': 'gift-card'
+            facebook: 'https://www.facebook.com/womensweeklyfood/',
+            instagram: 'https://www.instagram.com/womensweeklyfood/',
+            pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
         },
         newsletterTitle: 'Get the newsletter',
-        newsletterText: 'The latest news, restaurant reviews, recipes and travel inspiration, straight to your inbox',
-        newsletterUrl: 'https://www.gourmettraveller.com.au/gt-newsletter',
+        newsletterText:
+            'Subscribe to receive triple-tested recipes, expert cooking tips, food inspiration, and exclusive offers right to your inbox.',
+        newsletterUrl: 'https://www.womensweeklyfood.com.au/womensweeklyfood-newsletter', // to update
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: '/subscribe-magazine',
         imageSizes: {
@@ -179,5 +176,15 @@ export default {
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
-    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708' // TODO: change this ID
+    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708', // TODO: change this ID
+    sailthru: {
+        list: 'wwfood', // 'master_foodtolove',
+        vars: {
+            list_foodtolove_newsletter: '1',
+            list_foodtolove_solus: '1'
+        },
+        source: {
+            sidebar: 'wwf_website_sidebar'
+        }
+    }
 };

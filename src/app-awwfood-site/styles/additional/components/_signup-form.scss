@@ -1,0 +1,10 @@
+.signup-form {
+    margin-top: 10px;
+    
+    @media #{$medium-up} {
+        margin-top: $landing-page-module-gutter;
+        &__submit-button {
+            margin-top: 20px;
+        }
+    }
+}

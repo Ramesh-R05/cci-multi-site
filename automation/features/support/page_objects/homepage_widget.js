@@ -38,6 +38,8 @@ var homepage_widget = {
     rhsSocialLink: '.page__social-wrapper .social-link a',
     newsletterSignUpBtnDesktop: '.page__social-wrapper .newsletter-subscribe__button a',
     newsletterSignUpBtnMobile: '.hero-wrapper .newsletter-subscribe__button a',
+    newsletterSignUpFormDesktop: '.page__social-wrapper .signup-form',
+    newsletterSignUpFormMobile: '.hero-wrapper .signup-form',
     loadMoreFeed: '.repeatable-component div:nth-child(2) article',
     loadMoreFeedTeaserImg: '.repeatable-component div:nth-child(2) li.teaser__list-item:nth-child(1) article .teaser__image img',
     loadMoreFeedTeaserImgLink: '.repeatable-component div:nth-child(2) li.teaser__list-item:nth-child(1) article .teaser__image',

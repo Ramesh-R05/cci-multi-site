@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import get from 'lodash.get';
+import { SignupForm } from '@bxm/newsletter';
 
 export default class Newsletter extends Component {
     static contextTypes = {
@@ -18,16 +19,22 @@ export default class Newsletter extends Component {
         const title = get(config, 'product.newsletterTitle', Newsletter.DEFAULT_TITLE);
         const text = get(config, 'product.newsletterText', Newsletter.DEFAULT_TEXT);
         const buttonText = get(config, 'product.newsletterButtonText', Newsletter.DEFAULT_BUTTON_TEXT);
+        const sailthruSource = get(config, 'sailthru.source.sidebar', '');
+        const sailthruList = get(config, 'sailthru.list', '');
 
         return !url ? null : (
             <div className="newsletter-subscribe column medium-6 large-12">
                 <div className="newsletter-subscribe__title">{title}</div>
                 <p className="newsletter-subscribe__text">{text}</p>
-                <div className="newsletter-subscribe__button">
-                    <a href={url} className="gtm-subs-homepage" target="_blank">
-                        {buttonText}
-                    </a>
-                </div>
+                {sailthruSource && sailthruList ? (
+                    <SignupForm source={sailthruSource} />
+                ) : (
+                    <div className="newsletter-subscribe__button">
+                        <a href={url} className="gtm-subs-homepage" target="_blank">
+                            {buttonText}
+                        </a>
+                    </div>
+                )}
             </div>
         );
     }

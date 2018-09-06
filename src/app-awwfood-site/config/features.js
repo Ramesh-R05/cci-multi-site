@@ -81,7 +81,7 @@ export default {
         }
     },
     giftCard: {
-        enabled: true
+        enabled: false
     },
     navigationSubSectionDropdown: {
         enabled: true

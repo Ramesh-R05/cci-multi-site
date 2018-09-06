@@ -895,7 +895,7 @@ a {
     }
 }
 
-@mixin content-body-section-heading-style($fontSize: 18px, $lineHeight: 26px) {
+@mixin content-body-section-heading-style($fontSize: 12px, $lineHeight: 26px) {
     @include type-header-secondary;
     @content;
     background-color: $color-heading-bg;
@@ -907,9 +907,26 @@ a {
     color: $color-white;
     font-size: $fontSize;
     line-height: $lineHeight;
+    letter-spacing: 2px;
 
     @media #{$medium-up} {
         border-top-left-radius: $article-padding / 2;
         border-top-right-radius: $article-padding / 2;
     }
+}
+
+@mixin page-title-with-underline(
+    $title-padding: $article-padding,
+    $fontSize: 36px,
+    $lineHeight: 42px
+    ) {
+    @include type-header;
+    padding-top: $title-padding;
+    padding-bottom: $article-padding / 2;
+    margin-bottom: $title-padding;
+    color: #333;
+    display: inline-block;
+    border-bottom: 2px solid $color-awwfood-gold;
+    font-size: $fontSize;
+    line-height: $lineHeight;
 }

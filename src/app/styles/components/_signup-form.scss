@@ -1,0 +1,91 @@
+$signup-form-gutter: 8px;
+$signup-form-field-height: 45px;
+
+
+.signup-form {
+    text-align: center;
+
+    &__inner {
+        @extend .clearfix;
+    }
+
+    &__field {
+        display: block;
+        width: 100%;
+        position: relative;
+        height: $signup-form-field-height;
+        line-height: $signup-form-field-height;
+        border: #999999 solid 1px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        overflow: hidden;
+        color: #666;
+        float: left;
+        box-sizing: border-box;
+        
+        
+        &--first-name,
+        &--last-name {
+            width: calc(50% - 4px);
+        }
+
+        &--first-name {
+            margin-right: $signup-form-gutter;
+        }
+
+        &--email {
+            margin-top: $signup-form-gutter;
+        }
+
+        &.empty {
+            input {
+                background: transparent;
+            }
+        }
+    }
+
+    &__field-input,
+    &__field-label {
+        border: none;
+        background-color: inherit;
+        line-height: inherit;
+        box-sizing: inherit;
+        border-radius: inherit;
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        padding: {
+            left: 15px;
+            right: 15px;
+        }
+    }
+
+    &__field-input {
+        font-size: 16px;
+        z-index: 2;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus + label {
+           opacity: 0;
+        }
+    }
+
+    &__field-label {
+        font-size: 14px;
+        font-style: italic;
+        transition: all 1s ease-in-out;
+        z-index: 1;
+    }
+
+    &__submit-button {
+        margin-top: $signup-form-gutter;
+        clear: both;
+    }
+}

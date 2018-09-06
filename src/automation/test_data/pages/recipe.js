@@ -25,77 +25,59 @@ export default {
                     'Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2 Automation Test Recipe Body Paragraph 2'
             },
             {
-                "type": "related-content",
-                "label": "Related Content",
-                "content": [
+                type: 'related-content',
+                label: 'Related Content',
+                content: [
                     {
-                        "id": "AWWFOOD-9891",
-                        "url": "/recipes/beef-bourguignon-9891",
-                        "name": "Beef bourguignon",
-                        "level": 5,
-                        "title": "Beef bourguignon",
-                        "pathIds": [
-                            "AWWFOOD--1",
-                            "AWWFOOD-1159",
-                            "AWWFOOD-1191",
-                            "AWWFOOD-8103",
-                            "AWWFOOD-9647",
-                            "AWWFOOD-9891"
-                        ],
-                        "siteUrl": "http://awwfood-site-au.sit.bxm.net.au",
-                        "summary": "So much more than just a beef stew, boeuf à la Bourguignonne, is a traditional French recipe.",
-                        "urlName": "beef-bourguignon",
-                        "imageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/food/2015/03/20/da926457533148d19d9864e60c35d6c2/beef-bourguignon.jpg",
-                        "nodeType": "Recipe",
-                        "parentId": "AWWFOOD-9647",
-                        "siteCode": "3556e173-c5c2-4bd9-afca-974feea3461e",
-                        "siteName": "awwfood",
-                        "typeName": "RecipeTeaserDto",
-                        "parentUrl": "/recipes",
-                        "sortOrder": 243,
-                        "parentName": "Recipes",
-                        "cookingTime": "{\r\n  \"total\": 180,\r\n  \"times\": [\r\n    {\r\n      \"id\": \"preparation\",\r\n      \"label\": \"\",\r\n      \"minutes\": 0,\r\n      \"quantity\": 0\r\n    },\r\n    {\r\n      \"id\": \"cooking\",\r\n      \"label\": \"\",\r\n      \"minutes\": 180,\r\n      \"quantity\": 180\r\n    },\r\n    {\r\n      \"id\": \"marinating\",\r\n      \"label\": \"\",\r\n      \"minutes\": 0,\r\n      \"quantity\": 0\r\n    }\r\n  ]\r\n}",
-                        "dateIndexed": "2018-08-28T09:06:19",
-                        "imageAltText": "beef bourguignon",
-                        "nodeTypeAliasPath": [
-                            "Page",
-                            "Editorial",
-                            "Recipe"
-                        ]
+                        id: 'AWWFOOD-9891',
+                        url: '/recipes/beef-bourguignon-9891',
+                        name: 'Beef bourguignon',
+                        level: 5,
+                        title: 'Beef bourguignon',
+                        pathIds: ['AWWFOOD--1', 'AWWFOOD-1159', 'AWWFOOD-1191', 'AWWFOOD-8103', 'AWWFOOD-9647', 'AWWFOOD-9891'],
+                        siteUrl: 'http://awwfood-site-au.sit.bxm.net.au',
+                        summary: 'So much more than just a beef stew, boeuf à la Bourguignonne, is a traditional French recipe.',
+                        urlName: 'beef-bourguignon',
+                        imageUrl:
+                            'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/food/2015/03/20/da926457533148d19d9864e60c35d6c2/beef-bourguignon.jpg',
+                        nodeType: 'Recipe',
+                        parentId: 'AWWFOOD-9647',
+                        siteCode: '3556e173-c5c2-4bd9-afca-974feea3461e',
+                        siteName: 'awwfood',
+                        typeName: 'RecipeTeaserDto',
+                        parentUrl: '/recipes',
+                        sortOrder: 243,
+                        parentName: 'Recipes',
+                        cookingTime:
+                            '{\r\n  "total": 180,\r\n  "times": [\r\n    {\r\n      "id": "preparation",\r\n      "label": "",\r\n      "minutes": 0,\r\n      "quantity": 0\r\n    },\r\n    {\r\n      "id": "cooking",\r\n      "label": "",\r\n      "minutes": 180,\r\n      "quantity": 180\r\n    },\r\n    {\r\n      "id": "marinating",\r\n      "label": "",\r\n      "minutes": 0,\r\n      "quantity": 0\r\n    }\r\n  ]\r\n}',
+                        dateIndexed: '2018-08-28T09:06:19',
+                        imageAltText: 'beef bourguignon',
+                        nodeTypeAliasPath: ['Page', 'Editorial', 'Recipe']
                     },
                     {
-                        "id": "AWWFOOD-9856",
-                        "url": "/recipes/beef-casserole-9856",
-                        "name": "Beef casserole",
-                        "level": 5,
-                        "title": "Beef casserole",
-                        "pathIds": [
-                            "AWWFOOD--1",
-                            "AWWFOOD-1159",
-                            "AWWFOOD-1191",
-                            "AWWFOOD-8103",
-                            "AWWFOOD-9647",
-                            "AWWFOOD-9856"
-                        ],
-                        "siteUrl": "http://awwfood-site-au.sit.bxm.net.au",
-                        "urlName": "beef-casserole",
-                        "imageUrl": "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/food/2015/03/18/d94b01880bfe4fc7b9216d74653c0918/family-beef-casserole.jpg",
-                        "nodeType": "Recipe",
-                        "parentId": "AWWFOOD-9647",
-                        "siteCode": "3556e173-c5c2-4bd9-afca-974feea3461e",
-                        "siteName": "awwfood",
-                        "typeName": "RecipeTeaserDto",
-                        "parentUrl": "/recipes",
-                        "sortOrder": 208,
-                        "parentName": "Recipes",
-                        "cookingTime": "{\r\n  \"total\": 140,\r\n  \"times\": [\r\n    {\r\n      \"id\": \"preparation\",\r\n      \"label\": \"\",\r\n      \"minutes\": 0,\r\n      \"quantity\": 0\r\n    },\r\n    {\r\n      \"id\": \"cooking\",\r\n      \"label\": \"\",\r\n      \"minutes\": 140,\r\n      \"quantity\": 140\r\n    },\r\n    {\r\n      \"id\": \"marinating\",\r\n      \"label\": \"\",\r\n      \"minutes\": 0,\r\n      \"quantity\": 0\r\n    }\r\n  ]\r\n}",
-                        "dateIndexed": "2018-08-28T09:05:22",
-                        "imageAltText": "FAMILY BEEF CASSEROLE",
-                        "nodeTypeAliasPath": [
-                            "Page",
-                            "Editorial",
-                            "Recipe"
-                        ]
+                        id: 'AWWFOOD-9856',
+                        url: '/recipes/beef-casserole-9856',
+                        name: 'Beef casserole',
+                        level: 5,
+                        title: 'Beef casserole',
+                        pathIds: ['AWWFOOD--1', 'AWWFOOD-1159', 'AWWFOOD-1191', 'AWWFOOD-8103', 'AWWFOOD-9647', 'AWWFOOD-9856'],
+                        siteUrl: 'http://awwfood-site-au.sit.bxm.net.au',
+                        urlName: 'beef-casserole',
+                        imageUrl:
+                            'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/food/2015/03/18/d94b01880bfe4fc7b9216d74653c0918/family-beef-casserole.jpg',
+                        nodeType: 'Recipe',
+                        parentId: 'AWWFOOD-9647',
+                        siteCode: '3556e173-c5c2-4bd9-afca-974feea3461e',
+                        siteName: 'awwfood',
+                        typeName: 'RecipeTeaserDto',
+                        parentUrl: '/recipes',
+                        sortOrder: 208,
+                        parentName: 'Recipes',
+                        cookingTime:
+                            '{\r\n  "total": 140,\r\n  "times": [\r\n    {\r\n      "id": "preparation",\r\n      "label": "",\r\n      "minutes": 0,\r\n      "quantity": 0\r\n    },\r\n    {\r\n      "id": "cooking",\r\n      "label": "",\r\n      "minutes": 140,\r\n      "quantity": 140\r\n    },\r\n    {\r\n      "id": "marinating",\r\n      "label": "",\r\n      "minutes": 0,\r\n      "quantity": 0\r\n    }\r\n  ]\r\n}',
+                        dateIndexed: '2018-08-28T09:05:22',
+                        imageAltText: 'FAMILY BEEF CASSEROLE',
+                        nodeTypeAliasPath: ['Page', 'Editorial', 'Recipe']
                     }
                 ]
             }

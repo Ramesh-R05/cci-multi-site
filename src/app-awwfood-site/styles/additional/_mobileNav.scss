@@ -57,6 +57,11 @@
         color: rgba($color-awwfood-light, 0.33);
         font-size: 18px;
         letter-spacing: 1px;
+        height: auto;
+
+        @media #{$small-only} {
+            margin: 25px 0px 20px;
+        }
     }
 
     li:nth-child(5) {

@@ -51,8 +51,14 @@
             max-width: calc(100% - #{$column-gutter});
             padding-left: $column-gutter / 2;
             vertical-align: top;
-            line-height: 30px;
-            font-size: 20px;
+            font: 15px/20px "AbrilFatface-Regular";
+            margin-top: 10px;
+
+            @media #{$large-up} {
+                font-size: 20px;
+                line-height: 25px;
+                margin-top: 15px;
+            }
         }
     }
 

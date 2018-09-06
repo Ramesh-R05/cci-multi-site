@@ -69,14 +69,13 @@ $footer-section-gap: 35px;
     }
 
     &__heading {
-        @extend .type-subscribe-heading;
+        @include page-title-with-underline(0px);
+        white-space: nowrap;
         letter-spacing: normal;
-        margin-bottom: 20px;
         font-size: 24px;
 
         @media #{$medium-up} {
             font-size: 36px;
-            margin-bottom: 30px;
         }
 
         &::before {
@@ -130,14 +129,32 @@ $footer-section-gap: 35px;
             position: absolute;
             margin-left: 0;
             margin-right: 0;
-            top: 5px;
 
             &:nth-child(2) {
-                right: 10%;
+                right: 5%;
             }
             &:nth-child(3) {
-                left: 10%;
+                left: 5%;
             }
+
+            @media #{$medium-up} {
+                &:nth-child(2) {
+                    right: 5%;
+                }
+                &:nth-child(3) {
+                    left: 5%;
+                }
+            }
+
+            @media #{$large-up} {
+                &:nth-child(2) {
+                    right: 0;
+                }
+                &:nth-child(3) {
+                    left: 0;
+                }
+            }
+            
         }
     }
 

@@ -19,6 +19,10 @@
         
         & img {
             max-height: 295px;
+
+            @media #{$medium-only} {
+                max-height: 180px;
+            }
         }
     }
 }

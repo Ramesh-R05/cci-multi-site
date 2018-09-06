@@ -15,14 +15,17 @@
             font-size: 0;
             margin-top: -40px;
             margin-bottom: $article-padding;
+            text-align: center;
             @include content-body-section-heading-style(0, 0);
 
             &:before {
                 @include type-header-secondary;
                 color: inherit;
                 content: 'READ MORE';
-                font-size: 18px;
+                font-size: 12px;
                 line-height: 26px;
+                letter-spacing: inherit;
+                display: inherit;
             }
         }
 
@@ -84,5 +87,6 @@
         background: transparent;
         color: $color-white;
         font-size: 14px;
+        letter-spacing: 2px;
     }
 }

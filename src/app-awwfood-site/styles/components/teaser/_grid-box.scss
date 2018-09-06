@@ -172,46 +172,57 @@
     }
 }
 
+$promoted-teaser-gutter: 30px;
 .promoted-teaser-view-grid {
+    border: 5px solid $color-awwfood-gold;
+    text-align: center;
     box-shadow: $panel-shadow;
     background-color: $color-white;
-    margin-top: $landing-page-teaser-gutter + $landing-page-module-gutter;
-    padding: {
-        left: $landing-page-teaser-gutter / 2;
-        right: $landing-page-teaser-gutter / 2;
-    }
-
+    margin-top: $landing-page-teaser-gutter;
+    
     @media #{$medium-up} {
-        margin: $landing-page-module-gutter $column-gutter 0;
+        margin: $landing-page-module-gutter $promoted-teaser-gutter 0;
         max-width: $row-width;
     }
 
     ul {
-        padding-bottom: 20px;
+        padding-bottom: $landing-page-teaser-gutter;
+        @media #{$medium-up} {
+            padding-bottom: $promoted-teaser-gutter;
+        }
     }
 
     .home-page__teasers-title {
-        @include content-body-section-heading-style;
-        position: relative;
-        top: -$landing-page-teaser-gutter;
-        text-align: center;
-        width: calc(100% + #{$landing-page-teaser-gutter});
-        font-family: $font-header;
-        margin: {
-            left: -$landing-page-teaser-gutter / 2;
-            right: -$landing-page-teaser-gutter / 2;
+        @include page-title-with-underline(
+            $title-padding: $article-padding,
+            $fontSize: 26px,
+            $lineHeight: 30px);
+        @media #{$medium-up} {
+            padding-top: $promoted-teaser-gutter;
+            margin-bottom: $promoted-teaser-gutter;
+            font-size: 36px;
+            line-height: 42px;
         }
-
-
     }
 
     .teaser {
+        text-align: left;
         box-shadow: none;
-        padding: {
+        padding: 0;
+        margin: {
             top: 0;
             left: $landing-page-teaser-gutter / 2;
             right: $landing-page-teaser-gutter / 2;
             bottom: 0
+        }
+
+        @media #{$medium-up} {
+            margin: {
+                top: 0;
+                left: $promoted-teaser-gutter / 2;
+                right: $promoted-teaser-gutter / 2;
+                bottom: 0
+            }
         }
 
         &__body {
@@ -274,9 +285,9 @@
             }
 
             a {
-                @include type-top-teaser-title;
+                @include type-teaser-summary;
                 line-height: 18px;
-                font-weight: 400;
+                font-weight: 600;
             }
         }
 

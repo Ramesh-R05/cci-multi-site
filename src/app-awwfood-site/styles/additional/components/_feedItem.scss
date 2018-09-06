@@ -61,7 +61,7 @@
         background: transparent; 
 
         & + .feed-item {
-            padding-top: $feed-item-gap;
+            border-top: $feed-item-gap solid $color-white;
         }
     }
 
