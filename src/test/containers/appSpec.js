@@ -49,6 +49,11 @@ describe('App Component', () => {
         }
     });
 
+    Context.addStore('AdStore', {
+        getAdComponents: () => [],
+        getAdIds: () => []
+    });
+
     const currentRoute = {
         handler: Handler,
         url: '/url'

@@ -62,5 +62,9 @@ export default {
     },
     pubmatic: {
         enabled: true
+    },
+    ias: {
+        enabled: true,
+        id: 926929
     }
 };
