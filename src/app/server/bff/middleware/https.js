@@ -74,6 +74,10 @@ export default function https(req, res, next) {
             httpsSet(item, 'url');
         });
 
+        get(req, 'data.entity.contentRecipeEntities', []).forEach(item => {
+            httpsSet(item, 'imageUrl');
+        });
+
         get(req, 'data.list.items', []).forEach(item => {
             item.forEach(listItem => {
                 httpsSet(listItem, 'imageUrl');
