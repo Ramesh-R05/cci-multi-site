@@ -28,13 +28,13 @@ export default {
         action: loadPageContent
     },
     recipes: {
-        path: '/recipes/:page(.*-):id([0-9]+)',
+        path: '/recipes/:page*:id*',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
     },
     page: {
-        path: '/:page(.*-):id([0-9]+)',
+        path: '/:page*:id*',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
