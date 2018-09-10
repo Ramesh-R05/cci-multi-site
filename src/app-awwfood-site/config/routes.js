@@ -34,7 +34,7 @@ export default {
         action: loadPageContent
     },
     page: {
-        path: '/:page*:id*',
+        path: '/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
