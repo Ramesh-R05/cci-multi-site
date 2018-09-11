@@ -1,0 +1,32 @@
+.signup-form-wrapper {
+    text-align: center;
+
+    .alert-box.success {
+        margin-top: $signup-form-gutter;
+
+        @media #{$medium-up} {
+            margin-top: $signup-form-gutter;
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__links {
+        margin-top: $signup-form-gutter;
+    }
+
+    &__link-item {
+        font-size: 10px;
+        display: inline-block;
+        line-height: 1;
+
+        &:first-child {
+            padding-right: $signup-form-gutter;
+            margin-right: $signup-form-gutter;
+            border-right: 1px solid #333;
+        }
+    }
+}

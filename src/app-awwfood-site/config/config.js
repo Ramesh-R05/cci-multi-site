@@ -87,8 +87,7 @@ export default {
             pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
         },
         newsletterTitle: 'Get the newsletter',
-        newsletterText:
-            'Subscribe to receive triple-tested recipes, expert cooking tips, food inspiration, and exclusive offers right to your inbox.',
+        newsletterText: 'Subscribe to receive triple-tested recipes, expert cooking tips, food inspiration, and exclusive offers.',
         newsletterUrl: 'https://www.womensweeklyfood.com.au/womensweeklyfood-newsletter', // to update
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: '/subscribe-magazine',
@@ -178,13 +177,14 @@ export default {
     },
     nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708', // TODO: change this ID
     sailthru: {
-        list: 'wwfood', // 'master_foodtolove',
+        list: 'master_foodtolove',
         vars: {
             list_foodtolove_newsletter: '1',
             list_foodtolove_solus: '1'
         },
         source: {
-            sidebar: 'wwf_website_sidebar'
+            sidebar: 'wwf_website_sidebar',
+            contentPage: 'wwf_website_content_bottom'
         }
     }
 };

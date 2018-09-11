@@ -3,10 +3,12 @@ $signup-form-field-height: 45px;
 
 
 .signup-form {
+    $self: &;
     text-align: center;
 
     &__inner {
         @extend .clearfix;
+        width: 100%;
     }
 
     &__field {
@@ -37,8 +39,8 @@ $signup-form-field-height: 45px;
             margin-top: $signup-form-gutter;
         }
 
-        &.empty {
-            input {
+        &--is-empty {
+            #{$self}__field-input {
                 background: transparent;
             }
         }
@@ -87,5 +89,58 @@ $signup-form-field-height: 45px;
     &__submit-button {
         margin-top: $signup-form-gutter;
         clear: both;
+    }
+
+    &--inline {
+
+        &#{$self} {
+            margin-top: 0;
+        }
+
+        #{$self}__inner {
+            display: flex;
+            flex: 1;
+        }
+
+        #{$self}__field--email,
+        #{$self}__submit-button {
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
+        }
+
+        #{$self}__field--email {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            width: calc(100% - 100px);
+            text-align: left;
+        }
+
+        #{$self}__submit-button {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-right: none;
+            border-width: 1px;
+            margin-top: $signup-form-gutter;
+            height: $signup-form-field-height;
+            text-align: center;
+            width: 100px;
+            background-color: #333333;
+            color: #ffffff;
+            letter-spacing: 1px;
+            
+            padding: {
+                left: 0;
+                right: 0;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: darken(#333333, 5%);
+            }
+        }
     }
 }
