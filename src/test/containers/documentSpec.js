@@ -28,6 +28,9 @@ const contextConfigStub = {
     value: {
         features: {
             headerExpanded: true
+        },
+        product: {
+            id: 'awwfood'
         }
     }
 };
@@ -72,7 +75,8 @@ describe('Document Component', () => {
                 showAdBeforeRecommendations: true,
                 CustomisedTeaser: CustomisedTeaserStub,
                 showSocialShare: true,
-                socialShare: socialShare,
+                socialShare,
+                sourceEnabled: false,
                 theme: {}
             });
         });

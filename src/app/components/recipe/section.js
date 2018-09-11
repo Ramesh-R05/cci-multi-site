@@ -16,7 +16,8 @@ class Section extends Component {
         isSideMenuOpen: PropTypes.bool,
         enableTeads: PropTypes.bool,
         adSpacing: PropTypes.number,
-        showAdBeforeRecommendations: PropTypes.bool
+        showAdBeforeRecommendations: PropTypes.bool,
+        sourceEnabled: PropTypes.bool
     };
 
     static defaultProps = {
@@ -25,7 +26,8 @@ class Section extends Component {
         isSideMenuOpen: false,
         footerComponentClass: null,
         adSpacing: 0,
-        showAdBeforeRecommendations: false
+        showAdBeforeRecommendations: false,
+        sourceEnabled: true
     };
 
     static contextTypes = {
@@ -47,7 +49,8 @@ class Section extends Component {
             contentBodyConfig,
             adSpacing,
             articleHeaderOrder,
-            showAdBeforeRecommendations
+            showAdBeforeRecommendations,
+            sourceEnabled
         } = this.props;
 
         const menuSliderClassName = cx('side-menu-slider', {
@@ -63,6 +66,7 @@ class Section extends Component {
             feedItems,
             menuSliderClassName,
             showAdBeforeRecommendations,
+            sourceEnabled,
             Footer,
             hero: this.getHero()
         };

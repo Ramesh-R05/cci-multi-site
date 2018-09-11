@@ -15,6 +15,7 @@ export default class CollectionContent extends Component {
         feedItemClass: PropTypes.func,
         feedItems: PropTypes.array,
         isSideMenuOpen: PropTypes.bool,
+        sourceEnabled: PropTypes.bool,
         Footer: PropTypes.object,
         adSpacing: PropTypes.number,
         isVerticalGallery: PropTypes.bool,
@@ -26,6 +27,7 @@ export default class CollectionContent extends Component {
         feedItemClass: null,
         feedItems: [],
         isSideMenuOpen: false,
+        sourceEnabled: true,
         Footer: null,
         adSpacing: 0,
         isVerticalGallery: false
@@ -43,7 +45,8 @@ export default class CollectionContent extends Component {
             Footer,
             adSpacing,
             isVerticalGallery,
-            feedTitle
+            feedTitle,
+            sourceEnabled
         } = this.props;
         const keyword = content.tagsDetails ? content.tagsDetails.map(tag => tag.fullName) : '';
         const stickyAdProps = {
@@ -97,6 +100,7 @@ export default class CollectionContent extends Component {
                         feedTitle={feedTitle}
                         isSideMenuOpen={isSideMenuOpen}
                         isVerticalGallery={isVerticalGallery}
+                        sourceEnabled={sourceEnabled}
                     />
                 </div>
 

@@ -185,6 +185,10 @@ export default class Recipe extends Component {
             recipeTips
         } = this.props;
         const { config } = this.context;
+        let sourceEnabled = true;
+        if (config.product.id === 'awwfood') {
+            sourceEnabled = false;
+        }
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showRevContent = config.isFeatureEnabled('revContent');
         const showFeedCarousel = config.isFeatureEnabled('feedCarousel');
@@ -238,7 +242,9 @@ export default class Recipe extends Component {
 
                 <Footer {...this.props} />
 
-                {showFeedCarousel && <FeedCarousel items={feedItems} headingText={`The Latest from ${config.site.name}`} />}
+                {showFeedCarousel && (
+                    <FeedCarousel items={feedItems} headingText={`The Latest from ${config.site.name}`} sourceEnabled={sourceEnabled} />
+                )}
 
                 {source && <BrandLogo source={source} position="bottom" />}
 

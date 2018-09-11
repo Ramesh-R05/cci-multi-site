@@ -37,6 +37,7 @@ export default class Collection extends Component {
         url: PropTypes.string.isRequired,
         siteUrl: PropTypes.string.isRequired,
         showAdBeforeRecommendations: PropTypes.bool,
+        sourceEnabled: PropTypes.bool,
         totalGalleryItems: PropTypes.number,
         feedItems: PropTypes.array.isRequired,
         siteName: PropTypes.string.isRequired,
@@ -51,6 +52,7 @@ export default class Collection extends Component {
         summary: null,
         parentName: null,
         showAd: false,
+        sourceEnabled: true,
         showAdBeforeRecommendations: false,
         totalGalleryItems: null
     };
@@ -147,7 +149,8 @@ export default class Collection extends Component {
             siteName,
             feedItems,
             articleHeaderOrder,
-            collectionRecipeEntities
+            collectionRecipeEntities,
+            sourceEnabled
         } = this.props;
         const { config } = this.context;
         const showOutbrain = config.isFeatureEnabled('outbrain');
@@ -195,7 +198,9 @@ export default class Collection extends Component {
 
                 <Footer {...this.props} />
 
-                {showFeedCarousel && <FeedCarousel items={feedItems} headingText={`The Latest from ${config.site.name}`} />}
+                {showFeedCarousel && (
+                    <FeedCarousel items={feedItems} headingText={`The Latest from ${config.site.name}`} sourceEnabled={sourceEnabled} />
+                )}
 
                 {source && <BrandLogo source={source} position="bottom" />}
 

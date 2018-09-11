@@ -16,6 +16,7 @@ class CollectionSection extends Component {
         feedItems: PropTypes.array,
         isSideMenuOpen: PropTypes.bool,
         enableTeads: PropTypes.bool,
+        sourceEnabled: PropTypes.bool,
         adSpacing: PropTypes.number,
         showAdBeforeRecommendations: PropTypes.bool
     };
@@ -24,6 +25,7 @@ class CollectionSection extends Component {
         feedItems: [],
         enableTeads: false,
         isSideMenuOpen: false,
+        sourceEnabled: true,
         footerComponentClass: null,
         adSpacing: 0,
         showAdBeforeRecommendations: false
@@ -49,7 +51,8 @@ class CollectionSection extends Component {
             adSpacing,
             articleHeaderOrder,
             showAdBeforeRecommendations,
-            collectionRecipeEntities
+            collectionRecipeEntities,
+            sourceEnabled
         } = this.props;
 
         const menuSliderClassName = cx('side-menu-slider', {
@@ -67,6 +70,7 @@ class CollectionSection extends Component {
             showAdBeforeRecommendations,
             Footer,
             collectionRecipeEntities,
+            sourceEnabled,
             hero: this.getHero()
         };
 

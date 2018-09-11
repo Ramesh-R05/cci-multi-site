@@ -18,6 +18,7 @@ export default class RecipeContent extends Component {
         Footer: PropTypes.object,
         adSpacing: PropTypes.number,
         isVerticalGallery: PropTypes.bool,
+        sourceEnabled: PropTypes.bool,
         feedTitle: PropTypes.string.isRequired
     };
 
@@ -28,7 +29,8 @@ export default class RecipeContent extends Component {
         isSideMenuOpen: false,
         Footer: null,
         adSpacing: 0,
-        isVerticalGallery: false
+        isVerticalGallery: false,
+        sourceEnabled: true
     };
 
     static contextTypes = {
@@ -52,7 +54,8 @@ export default class RecipeContent extends Component {
             Footer,
             adSpacing,
             isVerticalGallery,
-            feedTitle
+            feedTitle,
+            sourceEnabled
         } = this.props;
         const keyword = content.tagsDetails ? content.tagsDetails.map(tag => tag.fullName) : '';
         const stickyAdProps = {
@@ -113,6 +116,7 @@ export default class RecipeContent extends Component {
                         feedTitle={feedTitle}
                         isSideMenuOpen={isSideMenuOpen}
                         isVerticalGallery={isVerticalGallery}
+                        sourceEnabled={sourceEnabled}
                     />
                 </div>
 

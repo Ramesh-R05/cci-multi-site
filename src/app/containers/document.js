@@ -64,6 +64,10 @@ export default class Document extends Component {
     render() {
         const { content, currentUrl, nodeType, theme } = this.props;
         const { config } = this.context;
+        let sourceEnabled = true;
+        if (config.product.id === 'awwfood') {
+            sourceEnabled = false;
+        }
 
         const headerAd = {
             type: 'Ad',
@@ -100,6 +104,7 @@ export default class Document extends Component {
                         showSocialShare
                         socialShare={socialShare}
                         theme={theme}
+                        sourceEnabled={sourceEnabled}
                     />
                 </Page>
             );
@@ -122,6 +127,7 @@ export default class Document extends Component {
                         socialShare={socialShare}
                         theme={theme}
                         adSpacing={6}
+                        sourceEnabled={sourceEnabled}
                     />
                 </Page>
             );
@@ -145,6 +151,7 @@ export default class Document extends Component {
                         socialShare={socialShare}
                         theme={theme}
                         adSpacing={6}
+                        sourceEnabled={sourceEnabled}
                     />
                 </Page>
             );
@@ -166,6 +173,7 @@ export default class Document extends Component {
                     showSocialShare
                     socialShare={socialShare}
                     theme={theme}
+                    sourceEnabled={sourceEnabled}
                 />
             </Page>
         );
