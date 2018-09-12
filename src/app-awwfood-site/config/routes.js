@@ -27,12 +27,6 @@ export default {
         handler: SectionPage,
         action: loadPageContent
     },
-    recipes: {
-        path: '/recipes/:page*:id*',
-        method: 'get',
-        handler: SinglePage,
-        action: loadPageContent
-    },
     page: {
         path: '/:page(.*-):id([0-9]+)',
         method: 'get',
@@ -46,9 +40,15 @@ export default {
         action: loadPageContent
     },
     subsection: {
-        path: '/:section/:subsection',
+        path: '/:section/:subsection*',
         method: 'get',
         handler: SectionPage,
+        action: loadPageContent
+    },
+    recipes: {
+        path: '/recipes/:page*:id*',
+        method: 'get',
+        handler: SinglePage,
         action: loadPageContent
     },
     all: {
