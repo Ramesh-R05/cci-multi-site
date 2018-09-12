@@ -1,11 +1,25 @@
 .recipe-details {
     background-color: $color-white;
     box-shadow: $panel-shadow;
+
     &.row {
         @media #{$medium-up} {
             margin-top: 2 *  $article-gap;
             margin-left: 0;
             margin-right: 0;
+        }
+    }
+
+    .recipe-notes {
+
+        h3 {
+            background: none;
+            color: $color-black;
+            width: 48px;
+            margin-left: 5px;
+            padding-left: 0;
+            padding-bottom: 3px;
+            border-bottom: 2px solid #b6956a;
         }
     }
 
