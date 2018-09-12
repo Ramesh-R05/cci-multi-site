@@ -104,12 +104,12 @@
         box-shadow: $panel-shadow;
         clear: both;
 
-        a.fb-share-link,
-        a.pinterest-share-link {
-            background-color: $color-awwfood-gold;
-            &:hover {
-                background-color: lighten($color-button-hover, 10%);
-            }
+        .fb-share-link,
+        .pinterest-share-link {
+            @extend .button;
+            border-radius: 0;
+            height: auto;
+            line-height: 32px;
         }
 
         .tags__title {
@@ -235,8 +235,10 @@
     }
 
     .newsletter-signup-wrapper {
-        margin-top: $article-gap;
-        margin-bottom: 0;
+        @include full-width;
+        @include mobile-padding-collapse;
+        @include content-body-component;
+        box-shadow: $panel-shadow;
     }
 }
 

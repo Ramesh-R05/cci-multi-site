@@ -1,10 +1,11 @@
 // Base button styles
 
 .button {
-    background-color: $color-button;
-    border: 2px solid $color-awwfood-gold;
+    background-color: $color-awwfood-gold;
+    border: none;
+    outline: none;
     border-radius: 26px;
-    color: $color-text;
+    color: $color-button;
     display: inline-block;
     font: 600 11px Nunito-Regular;
     letter-spacing: 3px;
@@ -12,13 +13,12 @@
     padding: 0 33px;
     text-transform: uppercase;
     white-space: nowrap;
-    transition: background $transition-duration ease-in-out, border-color $transition-duration ease-in-out;
+    transition: background $transition-duration ease-in-out;
 
     &:not(:disabled):not(.disabled) {
         &:hover,
         &:focus {
             background-color: $color-button-hover;
-            border-color: $color-button-hover;
             outline: none;
             text-decoration: none;
             color: $color-white;

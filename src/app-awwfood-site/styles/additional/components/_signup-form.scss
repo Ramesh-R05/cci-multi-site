@@ -18,7 +18,7 @@
                 &:hover,
                 &:active,
                 &:focus {
-                    background-color: darken($color-awwfood-gold, 5%);
+                    background-color: $color-button-hover;
                 }
             }
         }
