@@ -2,7 +2,6 @@
 Feature: Smoke test for AWW FOOD
     As a user
     I should be able to see the AWWFOOD site showing correct static data and all pages are working correctly
-
     @awwfoodmobile
     Scenario: Verify the homepage
         Given I switch to "mobile" view
