@@ -71,7 +71,6 @@ export default class Search extends Component {
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const isBrandDefined = typeof brand !== 'undefined';
-        const headerClassName = '';
         const pageTitle = (
             <h1 className="page-title">
                 <span className="page-title__symbol" />
@@ -103,7 +102,6 @@ export default class Search extends Component {
                 headerExpanded={config.features.headerExpanded && themeEnabled}
                 pageTitle={pageTitle}
                 className="page--section"
-                headerClassName={headerClassName}
                 theme={themeEnabled ? theme : {}}
             >
                 <div className="section-page search-page">
