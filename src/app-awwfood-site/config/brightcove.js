@@ -1,5 +1,5 @@
 const accountId = '761709621001';
-const playerId = '9d8a1e14-2673-43d9-9260-6ff50b059ad9';
+const playerId = '6050ce74-35a8-43ef-ba96-cd2c38a30b65';
 
 export default {
     accountId,
