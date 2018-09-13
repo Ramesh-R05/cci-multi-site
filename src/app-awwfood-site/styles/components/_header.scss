@@ -155,10 +155,6 @@ $head-logo-font-size: 35px;
         line-height: 125px;
         background: none;
 
-        // @media #{$xlarge-up} {
-        //     line-height: 198px;
-        // }
-
         a {
             background-image: none;
             height: 100px;
@@ -233,7 +229,8 @@ $head-logo-font-size: 35px;
             transition: margin-left $header-transition-duration,transform $header-transition-duration,-webkit-transform $header-transition-duration;
         }
 
-        a {
+        .nav-item {
+            $this: ".nav-item";
             display: inline-block;
             text-decoration: none;
             padding: 0 5px;
@@ -246,8 +243,12 @@ $head-logo-font-size: 35px;
             &:active,
             &:focus,
             &:hover,
-            &.nav-item--active {
+            &#{$this}--active {
                 color: $color-white;
+            }
+
+            &#{$this}--default-cursor {
+                cursor: default;
             }
 
             @media #{$large-up} {
@@ -330,7 +331,7 @@ $head-logo-font-size: 35px;
                 @media #{$medium-up} {
                     width: 165px;
                     // Slowly hide to allow mouse to drag from nav to reach sub-nav before it disappears
-                    transition: visibility 0s linear 0.15s, opacity 0.15s linear;
+                    transition: visibility 0s linear .5s, opacity .5s linear;
                 }
 
                 &:hover {

@@ -63,7 +63,7 @@ export default class Page extends Component {
 
     static defaultProps = {
         hideLeaderboard: false,
-        headerClassName: '',
+        headerClassName: 'header',
         theme: {},
         magCover: {},
         searchMagCover: {},

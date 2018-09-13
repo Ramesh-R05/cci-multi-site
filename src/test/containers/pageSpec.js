@@ -202,7 +202,8 @@ describe('Page Container', () => {
                 navItems: headerItems,
                 siteName: siteName,
                 toggleMenu: currentInstance.toggleMenu,
-                theme: {}
+                theme: {},
+                headerClassName: 'header'
             });
         });
 

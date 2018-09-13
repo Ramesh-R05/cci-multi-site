@@ -186,5 +186,6 @@ export default {
             sidebar: 'wwf_website_sidebar',
             contentPage: 'wwf_website_content_bottom'
         }
-    }
+    },
+    navItemsToExcludeUrlList: ['In The Test Kitchen']
 };
