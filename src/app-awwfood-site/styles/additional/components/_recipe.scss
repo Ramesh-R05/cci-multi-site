@@ -67,6 +67,13 @@
     }
 }
 
+.recipe-ingredients,
+.recipe-method {
+    &__heading {
+        padding-top: 2 * $article-padding;
+    }
+}
+
 .recipe-notes {
     @media #{$medium-up} {
         margin-top: 2 * $article-gap;

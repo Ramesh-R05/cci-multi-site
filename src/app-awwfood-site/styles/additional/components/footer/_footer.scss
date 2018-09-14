@@ -109,17 +109,18 @@ $footer-section-gap: 35px;
     }
  
     .subscription__image--ipad {
-        background-image: url(/assets/backgrounds/white-ipad.png);
-        padding: 16px 5px 1px;
+        background-image: none;
+        padding: 0;
         width: 124px;
         height: 177px;
+        margin-top: 15px;
+
         @media #{$medium-up} {
-            padding: 21px 6px 2px;
             width: 161px;
             height: 228px;
+            margin-top: 20px;
         }
         @media #{$large-up} {
-            padding: 25px 6px 2px;
             width: 194px;
             height: 276px;
         }
