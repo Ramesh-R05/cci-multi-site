@@ -1,7 +1,8 @@
 var home = require('../page_objects/homepage_widget');
+var wn_ads = require('../page_objects/ads_widget');
 var world = require('../world');
 var validateImageURL = require('../../../node_modules/@bxm/automation/lib/utils/validateImageURL');
-var world = require('../world');
+var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var isBrowserStack = world.Urls.isBrowserStack;
 var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 
@@ -102,17 +103,20 @@ module.exports = function(){
     });
 
     this.Given(/^I should see (\d+) must read images and titles which are clickable to open their page$/, function(number) {
+        scrolling(browser,wn_ads.ad_TopLeaderboard,isBrowserStack);
+
         //find elements of image and title of all must read items
         var mustreadImage = browser.getAttribute(home.mustreadImage,'data-srcset');
         var mustreadImageLink = browser.getAttribute(home.mustreadImageLink,'href');
         var mustreadTitle = browser.getText(home.mustreadTitle);
         var mustreadTitleLink = browser.getAttribute(home.mustreadTitle,'href');
-
         //validate image and title and their links
         for (var i=0; i<number; i++){
             validateImageURL(mustreadImage[i]);
             expect(mustreadImageLink[i]).not.toEqual('');
-            expect(mustreadTitle[i]).not.toEqual('');
+            if (i != 1) { //Skip the 2nd teaser because it is replaced by a Polar ad
+                expect(mustreadTitle[i]).not.toEqual('');
+            }
             expect(mustreadTitleLink[i]).toEqual(mustreadImageLink[i]);
         }
     });
