@@ -201,7 +201,7 @@ $head-logo-font-size: 35px;
 
             &:hover svg,
             &:hover svg path {
-                fill: $color-white;
+                fill: $color-black;
                 opacity: $hover-opacity;
                 transition: opacity 0.3s;
                 transition-timing-function: ease-in-out;
@@ -244,7 +244,7 @@ $head-logo-font-size: 35px;
             &:focus,
             &:hover,
             &#{$this}--active {
-                color: $color-white;
+                color: $color-awwfood-gold;
             }
 
             &#{$this}--default-cursor {
@@ -273,7 +273,7 @@ $head-logo-font-size: 35px;
                 &:focus,
                 &:hover,
                 &.nav-item--active {
-                    color: $color-white;
+                    color: $color-awwfood-gold;
                 }
             }
         }
@@ -354,7 +354,7 @@ $head-logo-font-size: 35px;
     }
 
     .header-search {
-       
+
         @media #{$medium-up} {
             right: 20px;
             left: auto;
@@ -449,10 +449,17 @@ $head-logo-font-size: 35px;
 
 .header-search {
     top: 0;
-   
+
     &__open {
         .header-search--icon-container {
             background-color: $color-awwfood-light;
+        }
+
+        .header-search--icon {
+
+            path {
+                fill: $color-awwfood-gold;
+            }
         }
     }
 
@@ -499,7 +506,7 @@ $head-logo-font-size: 35px;
 
         @media #{$medium-up} {
             height: $header-height-desktop - 2px;
-            width: $header-height-desktop;
+            width: $header-height-desktop - 2px;
         }
     }
 

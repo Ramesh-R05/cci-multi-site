@@ -78,10 +78,9 @@ export default {
             pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
         },
 
-        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kf/signup-gourmettraveller-article-iframe-bottom' // TODO: update this URL
+        newsletterSignupInBodyCopy: '' // Not used on WWFood
     },
 
-    // TODO: update below for awwfood
     // Used for the magazine image (not the one in the footer)
     product: {
         id: 'awwfood',
