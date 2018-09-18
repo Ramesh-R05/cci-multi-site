@@ -34,7 +34,7 @@ export default class PageSearchBox extends Component {
     render() {
         const { enableHomeSearchBox, linkToBackgroundImage, searchTagsDetails, searchDescribeText } = this.props;
         const searchBoxStyle = !!linkToBackgroundImage && {
-            backgroundImage: `url("${linkToBackgroundImage}")`,
+            backgroundImage: `url("${linkToBackgroundImage}?width=600&height=225&mode=crop&quality=75")`,
             backgroundPosition: 'center',
             backgroundSize: 'cover'
         };

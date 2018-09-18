@@ -60,7 +60,7 @@ describe(`Page Search Box`, () => {
         const searchBg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__bg');
         expect(searchBg).to.exist;
         expect(searchBg.props.style).to.deep.equal({
-            backgroundImage: 'url("background image")',
+            backgroundImage: 'url("background image?width=600&height=225&mode=crop&quality=75")',
             backgroundPosition: 'center',
             backgroundSize: 'cover'
         });

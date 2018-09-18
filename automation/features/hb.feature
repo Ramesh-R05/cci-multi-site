@@ -50,7 +50,7 @@ Feature: Smoke test for HB
             |title                      |url                                |gtm                        |
             |Now To Love                |http://nowtolove.com.au/           |gtm-hamburger-now          |
             |Homes To Love              |http://homestolove.com.au/         |gtm-hamburger-homes        |
-            |Food To Love               |http://foodtolove.com.au/          |gtm-hamburger-food         |
+            |Womens Weekly Food         |http://womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
             |Elle                       |http://elle.com.au/                |gtm-hamburger-elle         |
             |Gourmet Traveller          |http://gourmettraveller.com.au/    |gtm-hamburger-gt           |
             |Cosmopolitan               |http://cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
