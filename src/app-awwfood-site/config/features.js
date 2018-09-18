@@ -90,10 +90,17 @@ export default {
         enabled: true,
         id: 'm8frgflsxh',
         pixels: [
-            { ca: '10034218', a: 'yp0d3p0a' }, // GT pixel
-            { ca: '20001092', a: 'jmtr1l0t' }, // Rollup pixel
-            { ca: '20002303', a: 'qv7034ra' }, // Luxury pixel
-            { ca: '20002304', a: '30tp4z58' } // Women's sites pixel
+            // Please leave these (copied from GT) here until RoyMorgan for awwfood implementation has been confirmed.
+            // The given implementation looks wrong, as it doesn't follow what the other sites are doing.
+            // I'm guessing that we will have to use these in the future. - GKappatos
+
+            // { ca: '10034218', a: 'yp0d3p0a' }, // GT pixel
+            // { ca: '20001092', a: 'jmtr1l0t' }, // Rollup pixel
+            // { ca: '20002303', a: 'qv7034ra' }, // Luxury pixel
+            // { ca: '20002304', a: '30tp4z58' } // Women's sites pixel
+
+            { ca: '20002950', a: 'jmtr1l0t' }, // AwwFood - see BXMA-1403, BXMA-1234
+            { ca: '20002304', a: '30tp4z58' } // Women's sites pixel - see BXMA-1403, BXMA-1234
         ]
     },
     reviewTitleSuffix: {

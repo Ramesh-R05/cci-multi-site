@@ -16,7 +16,7 @@ export default {
         host: 'http://automation.hb-site.bauer-media.net.au/'
     },
     polar: {
-        propertyId: 'NA-HARPSBAZACONTPROM-11238618'
+        propertyId: 'NA-WOMEWEEKFOOD-11239342'
     },
     ads: {
         iasAds: false
