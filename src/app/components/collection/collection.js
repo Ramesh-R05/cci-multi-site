@@ -154,6 +154,7 @@ export default class Collection extends Component {
         } = this.props;
         const { config } = this.context;
         const showOutbrain = config.isFeatureEnabled('outbrain');
+        const showAlternativeTitle = config.isFeatureEnabled('alternativeTitle');
         const showRevContent = config.isFeatureEnabled('revContent');
         const showFeedCarousel = config.isFeatureEnabled('feedCarousel');
         const collectionHeaderOrder = [...articleHeaderOrder];
@@ -175,7 +176,7 @@ export default class Collection extends Component {
                     summary={summary}
                     title={title}
                     source={source}
-                    section={parentName}
+                    section={showAlternativeTitle ? nodeType : parentName}
                     authorProfiles={authorProfiles}
                     totalGalleryItems={totalGalleryItems}
                 />

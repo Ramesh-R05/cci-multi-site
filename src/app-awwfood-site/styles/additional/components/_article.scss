@@ -165,6 +165,12 @@
                     display: block;
                 }
 
+                &__section-tag--link-disabled {
+                    @include type-teaser-tag;
+                    display: block;
+                    pointer-events: none;
+                }
+
                 &__body-title {
                     margin-top: 0;
                 }

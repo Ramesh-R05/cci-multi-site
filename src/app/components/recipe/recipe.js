@@ -191,6 +191,7 @@ export default class Recipe extends Component {
         }
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showRevContent = config.isFeatureEnabled('revContent');
+        const showAlternativeTitle = config.isFeatureEnabled('alternativeTitle');
         const showFeedCarousel = config.isFeatureEnabled('feedCarousel');
         const showRecipeSource = config.isFeatureEnabled('showRecipeSourceAsAttribute');
         const recipeAtGlance = { recipeServings, recipeCookingTime };
@@ -217,7 +218,7 @@ export default class Recipe extends Component {
                     summary={summary}
                     title={title}
                     source={source}
-                    section={parentName}
+                    section={showAlternativeTitle ? nodeType : parentName}
                     authorProfiles={authorProfiles}
                     totalGalleryItems={totalGalleryItems}
                 />

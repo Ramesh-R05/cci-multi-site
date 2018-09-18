@@ -75,6 +75,17 @@
         margin-top: $teaser-content-space;
     }
 
+    &__section-tag--link-disabled {
+        @include type-teaser-tag;
+        margin-bottom: 0;
+        margin-top: $teaser-content-space;
+        pointer-events: none;
+
+        .container--collection & {
+            display: none;
+        }
+    }
+
     &__summary {
         @include type-teaser-summary();
         margin-top: $teaser-content-space;

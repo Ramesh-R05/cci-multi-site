@@ -13,7 +13,8 @@ const context = {
         defaultImageUrl: '',
         global: {
             breakpoints: ''
-        }
+        },
+        alternativeTitleMap: {}
     }
 };
 const contextNZ = {
@@ -25,7 +26,8 @@ const contextNZ = {
             },
             site: {
                 region: 'nz'
-            }
+            },
+            alternativeTitleMap: {}
         }
     }
 };
@@ -40,6 +42,9 @@ const suffixContext = {
             reviewTitleSuffix: {
                 enabled: true,
                 titleSuffix: suffix
+            },
+            alternativeTitle: {
+                enabled: true
             }
         }
     }

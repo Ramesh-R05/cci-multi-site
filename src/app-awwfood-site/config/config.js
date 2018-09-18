@@ -57,6 +57,12 @@ export default {
         }
     },
 
+    alternativeTitleMap: {
+        article: 'Kitchen Tips',
+        recipecollection: 'Best Of',
+        recipes: 'Recipe'
+    },
+
     polar,
 
     urls: {

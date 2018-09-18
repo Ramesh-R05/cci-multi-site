@@ -35,6 +35,16 @@
             color: $color-awwfood-gold;
         }
 
+        &__section-tag--link-disabled {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-family: $font-text;
+            line-height: 30px;
+            color: $color-awwfood-gold;
+            pointer-events: none;
+        }
+
         .article__date-created {
             display: none;
             font-family: $font-text-light;

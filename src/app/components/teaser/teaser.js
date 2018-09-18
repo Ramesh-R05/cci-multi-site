@@ -158,6 +158,13 @@ export default class Teaser extends Component {
             );
         }
 
+        let teaserTitle = article.parentName;
+        const isAlternativeTitleEnabled = get(config, 'features.alternativeTitle.enabled', false);
+        if (isAlternativeTitleEnabled) {
+            const alternativeTitleMap = get(config, 'alternativeTitleMap', {});
+            teaserTitle = alternativeTitleMap[article.nodeType.toLowerCase()] || article.nodeType;
+        }
+
         return (
             <article className={containerClassNames} onClick={this.props.onClick}>
                 <div className="teaser__inner">
@@ -175,9 +182,15 @@ export default class Teaser extends Component {
                     <div className="teaser__body">
                         {teaserIndex && <span className="teaser__index">{teaserIndex}</span>}
 
-                        <a href={article.parentUrl} className="teaser__section-tag">
-                            <span>{article.parentName}</span>
-                        </a>
+                        {isAlternativeTitleEnabled ? (
+                            <a href={article.parentUrl} className="teaser__section-tag--link-disabled">
+                                <span>{teaserTitle}</span>
+                            </a>
+                        ) : (
+                            <a href={article.parentUrl} className="teaser__section-tag">
+                                <span>{teaserTitle}</span>
+                            </a>
+                        )}
 
                         <TeaserTitle title={articleTitle} url={article.url} gtmClass={this.getGTMClass()} />
 

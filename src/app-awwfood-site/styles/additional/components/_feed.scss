@@ -51,6 +51,19 @@
                 }
             }
 
+            &__section-tag--link-disabled {
+
+                span {
+                    color: $color-text-gold;
+                    display: inline-block;
+                    border-bottom: 1px $color-awwfood-white dashed;
+                    text-transform: uppercase;
+                    margin-bottom: 5px;
+                    font-size: 13px;
+                    pointer-events: none;
+                }
+            }
+
             .teaser__image {
                 overflow: hidden;
                 width: calc(100% + #{ 2 * $article-padding });

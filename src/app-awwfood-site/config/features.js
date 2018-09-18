@@ -83,6 +83,9 @@ export default {
     giftCard: {
         enabled: false
     },
+    alternativeTitle: {
+        enabled: true
+    },
     navigationSubSectionDropdown: {
         enabled: true
     },
