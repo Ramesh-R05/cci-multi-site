@@ -44,6 +44,7 @@
 
         @media #{$medium-up} {
             margin-top: -1 *  $article-gap;
+            margin-bottom: $article-gap / 2;
             border-top-left-radius: $article-padding / 2;
             border-top-right-radius: $article-padding / 2;
         }
@@ -64,13 +65,6 @@
     &__heading {
         @include type-header-secondary;
         padding-top: $article-padding;
-    }
-}
-
-.recipe-ingredients,
-.recipe-method {
-    &__heading {
-        padding-top: 2 * $article-padding;
     }
 }
 
