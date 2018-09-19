@@ -16,7 +16,6 @@ Feature: Footer
             |PRIVACY POLICY |http://www.bauer-media.com.au/privacy                          |
             |ADVERTISE      |http://www.bauer-media.com.au/advertising/advertise-with-us    |
             |TERMS OF USE   |http://www.bauer-media.com.au/terms/website-terms              |
-            |CONTACT US     |contact-us                                                     |
         * I can see the standard bauer text in the footer as "© COPYRIGHT BAUER MEDIA PTY LTD"
         * I can see the standard copyright text in the footer as "ALL RIGHTS RESERVED"
         @med
