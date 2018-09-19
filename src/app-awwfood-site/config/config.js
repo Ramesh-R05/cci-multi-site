@@ -180,7 +180,7 @@ export default {
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
-    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708', // TODO: change this ID
+    nielsen: '69335BF5-94E8-4D8B-B7DB-99D54705A524',
     sailthru: {
         list: 'master_foodtolove',
         vars: {
