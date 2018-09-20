@@ -67,28 +67,28 @@ Feature: Smoke test for AWW FOOD
         Given I switch to "mobile" view
         When I am currently viewing the homepage
         * I can navigate to all 8 sites in the hamburger navigation menu
-            |title                      |url                                |gtm                        |
-            |Now To Love                |http://nowtolove.com.au/           |gtm-hamburger-now          |
-            |Homes To Love              |http://homestolove.com.au/         |gtm-hamburger-homes        |
-            |Womens Weekly Food         |http://womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
-            |Elle                       |http://elle.com.au/                |gtm-hamburger-elle         |
-            |Harper's Bazaar            |http://harpersbazaar.com.au/       |gtm-hamburger-harpers      |
-            |Cosmopolitan               |http://cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
-            |Dolly                      |http://dolly.com.au/               |gtm-hamburger-dolly        |
-            |Beauty Heaven              |http://beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
+            |title                      |url                                     |gtm                        |
+            |Now To Love                |https://www.nowtolove.com.au/           |gtm-hamburger-now          |
+            |Homes To Love              |https://www.homestolove.com.au/         |gtm-hamburger-homes        |
+            |Women's Weekly Food        |https://www.womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
+            |Elle                       |https://www.elle.com.au/                |gtm-hamburger-elle         |
+            |Harper's Bazaar            |https://www.harpersbazaar.com.au/       |gtm-hamburger-harpers      |
+            |Cosmopolitan               |https://www.cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
+            |Dolly                      |http://www.dolly.com.au/                |gtm-hamburger-dolly        |
+            |Beauty Heaven              |https://www.beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
 
     @awwfoodmobile
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view
         When I am currently viewing "404"
         * I should see the error title not empty
-        * I should see the site header logo to open homepage and contain "gtm-navbar-australian womens weekly food" class name
+        * I should see the site header logo to open homepage and contain "gtm-navbar-australian-womens-weekly-food" class name
 
     @awwfooddesktop
     Scenario: I can see the site header logo in the desktop style
         Given I switch to "desktop" view
         When I am currently viewing the homepage
-        * I should see the site header logo to open homepage and contain "gtm-navbar-australian womens weekly food" class name
+        * I should see the site header logo to open homepage and contain "gtm-navbar-australian-womens-weekly-food" class name
 
     @awwfoodmobile
     Scenario: I can see the GTM container with id "GTM-MHX78ZT"
@@ -132,7 +132,7 @@ Feature: Smoke test for AWW FOOD
     Scenario: Verify the RSS feed
         Given I am currently viewing "rss"
         Then I should see "link" tag containing "http://awwfood-site-au.sit.bxm.net.au" value
-        * I should see "dc:creator" tag containing "Australian Womens Weekly Food" in CDATA
+        * I should see "dc:creator" tag containing "Australian Women's Weekly Food" in CDATA
         * I should see "title" tag containing a value
         * I should see "dc:creator" tag containing a value
         * I should see "content:encoded" tag containing a value

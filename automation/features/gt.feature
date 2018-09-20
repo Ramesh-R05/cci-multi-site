@@ -62,15 +62,15 @@ Feature: Smoke test for GT
         Given I switch to "mobile" view
         When I am currently viewing the homepage
         * I can navigate to all 8 sites in the hamburger navigation menu
-            |title                      |url                                |gtm                        |
-            |Now To Love                |http://nowtolove.com.au/           |gtm-hamburger-now          |
-            |Homes To Love              |http://homestolove.com.au/         |gtm-hamburger-homes        |
-            |Womens Weekly Food         |http://womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
-            |Elle                       |http://elle.com.au/                |gtm-hamburger-elle         |
-            |Harper's Bazaar            |http://harpersbazaar.com.au/       |gtm-hamburger-harpers      |
-            |Cosmopolitan               |http://cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
-            |Dolly                      |http://dolly.com.au/               |gtm-hamburger-dolly        |
-            |Beauty Heaven              |http://beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
+            |title                      |url                                     |gtm                        |
+            |Now To Love                |https://www.nowtolove.com.au/           |gtm-hamburger-now          |
+            |Homes To Love              |https://www.homestolove.com.au/         |gtm-hamburger-homes        |
+            |Women's Weekly Food        |https://www.womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
+            |Elle                       |https://www.elle.com.au/                |gtm-hamburger-elle         |
+            |Harper's Bazaar            |https://www.harpersbazaar.com.au/       |gtm-hamburger-harpers      |
+            |Cosmopolitan               |https://www.cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
+            |Dolly                      |http://www.dolly.com.au/                |gtm-hamburger-dolly        |
+            |Beauty Heaven              |https://www.beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
 
     Scenario: I can see the 404 error page in the mobile style
         Given I switch to "mobile" view

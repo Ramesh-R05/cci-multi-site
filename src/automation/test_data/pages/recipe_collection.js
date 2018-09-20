@@ -1012,7 +1012,7 @@ export default {
             imageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/food/2015/12/16/31238/Boy-art.jpg',
             nodeType: 'Gallery',
             summary: "It's birthday time again!",
-            source: 'Womens Weekly Food',
+            source: "Women's Weekly Food",
             url: '/the-best-birthday-cakes-for-little-boys-30838',
             parentName: 'Home',
             parentUrl: '/',
