@@ -204,6 +204,8 @@ describe('Tag middleware', () => {
                         const obj = { title: 'Title', description: 'desc', tag: { name: 'this:is:a:Two Words' } };
 
                         beforeEach(() => {
+                            req = { ...baseReq };
+                            req.data.entity = null;
                             makeRequestStub.withArgs(`${tagService}/tags/${generateTagToTitle(req.query.tag)}`).resolves({ data: [obj] });
                         });
 
@@ -228,6 +230,8 @@ describe('Tag middleware', () => {
                         const obj2 = { title: 'Title1', description: 'desc1', tag: { name: 'this:is:a:Two Words' } };
 
                         beforeEach(() => {
+                            req = { ...baseReq };
+                            req.data.entity = null;
                             makeRequestStub.withArgs(`${tagService}/tags/${generateTagToTitle(req.query.tag)}`).resolves({ data: [obj1, obj2] });
                         });
 
@@ -253,6 +257,7 @@ describe('Tag middleware', () => {
                 describe('and the entity response nodeTypeAlias does not equal TagSection', () => {
                     beforeEach(() => {
                         req = { ...baseReq };
+                        req.data.entity = null;
                         next = sinon.spy();
                         makeRequestStub = sinon.stub();
                         makeRequestStub

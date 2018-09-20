@@ -5,13 +5,9 @@ import makeRequest from '../../makeRequest';
 import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
 import tagsToQuery from '../helper/tagsToQuery';
-
+import capitalize from '../helper/capitalize';
 const latestTeaserCount = 7;
 const listCount = 14;
-
-function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
 
 export default async function tagMiddleware(req, res, next) {
     try {
@@ -20,6 +16,7 @@ export default async function tagMiddleware(req, res, next) {
         pageNo = parseInt(query.pageNo || pageNo, 10);
         const tag = query ? query.tag || query.section : null;
         const entity = get(req, 'data.entity');
+        const tagPageTitle = get(req, 'data.entity.pageTitle');
         const tagsDetails = get(req, 'data.entity.tagsDetails', []);
         const { excludeTagQuery } = req.data;
         if (!tag || query.page || (entity && entity.nodeTypeAlias !== 'TagSection')) {
@@ -109,7 +106,7 @@ export default async function tagMiddleware(req, res, next) {
             {
                 contentTitle: title,
                 url,
-                pageTitle: tagData.title || title,
+                pageTitle: capitalize(tagPageTitle || tagData.title || title),
                 pageMetaDescription: tagData.description || ''
             }
         );
