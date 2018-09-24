@@ -175,8 +175,7 @@ export default {
         }
     },
     outbrain: {
-        // TODO: change this for awwfood
-        templateId: "Harper'sBazaarAU",
+        templateId: "Foodtolove",
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
