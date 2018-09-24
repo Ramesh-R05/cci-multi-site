@@ -23,7 +23,8 @@ function mapStateToProps(context) {
         list: teaserStore.getList(),
         listNextParams: teaserStore.getListNextParams(),
         magazineImageUrl: pageStore.getMagazineImageUrl(),
-        subsections: pageStore.getSubsections()
+        subsections: pageStore.getSubsections(),
+        summary: pageStore.getSummary()
     };
 }
 
@@ -40,14 +41,16 @@ export default class Section extends Component {
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
         subsections: PropTypes.object,
-        magazineImageUrl: PropTypes.string
+        magazineImageUrl: PropTypes.string,
+        summary: PropTypes.string
     };
 
     static defaultProps = {
         teasers: [],
         theme: {},
         subsections: { data: [], totalCount: 0 },
-        magazineImageUrl: ''
+        magazineImageUrl: '',
+        summary: ''
     };
 
     static contextTypes = {
@@ -70,13 +73,14 @@ export default class Section extends Component {
     render() {
         const { config } = this.context;
         const brand = config.product;
-        const { nodeType, teasers, title, currentUrl, theme, subsections, magazineImageUrl } = this.props;
+        const { nodeType, teasers, title, currentUrl, theme, subsections, magazineImageUrl, summary } = this.props;
         // Using first teaser for each section because modules aren't setup for each one in the CMS
         const heroTeaser = teasers[0];
         const firstTeaserList = teasers.slice(1, 7);
         const keyword = nodeType === 'TagSection' && title ? [title] : [];
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
+        const summaryEnabled = get(config, 'features.summary.enabled', false);
         const isBrandDefined = typeof brand !== 'undefined';
         const pageTitle = (
             <h1 className="page-title">
@@ -84,6 +88,7 @@ export default class Section extends Component {
                 {title}
             </h1>
         );
+
         const polarLabels = this.context.config.polar.details;
 
         const themeEnabled = !!theme && !!theme.headerSmallBackground && !!theme.headerMediumBackground && !!theme.headerLargeBackground;
@@ -115,6 +120,19 @@ export default class Section extends Component {
             >
                 <div className="section-page">
                     <div className="container">
+                        {summaryEnabled &&
+                            summary && (
+                                <div className="row">
+                                    {' '}
+                                    <div className="columns">
+                                        {' '}
+                                        <div className="summary-description">
+                                            {' '}
+                                            <p>{summary}</p>{' '}
+                                        </div>{' '}
+                                    </div>{' '}
+                                </div>
+                            )}
                         <div className="row">
                             <div className="page__top-container columns">
                                 <div className="row">

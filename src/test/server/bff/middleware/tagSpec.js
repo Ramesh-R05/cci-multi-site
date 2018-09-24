@@ -107,6 +107,7 @@ describe('Tag middleware', () => {
                                     contentTitle: expectedTitle,
                                     url: expectedUrl,
                                     pageMetaDescription: '',
+                                    contentSummary: '',
                                     pageTitle: expectedTitle
                                 });
                                 done();
@@ -148,6 +149,7 @@ describe('Tag middleware', () => {
                                         contentTitle: expectedTitle,
                                         url: expectedUrl,
                                         pageMetaDescription: '',
+                                        contentSummary: '',
                                         pageTitle: expectedTitle
                                     });
                                     done();
@@ -169,6 +171,7 @@ describe('Tag middleware', () => {
                                         contentTitle: expectedTitle,
                                         url: expectedUrl,
                                         pageMetaDescription: '',
+                                        contentSummary: '',
                                         pageTitle: expectedTitle
                                     });
                                     done();
@@ -192,6 +195,7 @@ describe('Tag middleware', () => {
                                         contentTitle: expectedTitle,
                                         url: expectedUrl,
                                         pageMetaDescription: '',
+                                        contentSummary: '',
                                         pageTitle: expectedTitle
                                     });
                                     done();
@@ -217,6 +221,7 @@ describe('Tag middleware', () => {
                                         contentTitle: expectedTitle,
                                         url: expectedUrl,
                                         pageMetaDescription: obj.description,
+                                        contentSummary: '',
                                         pageTitle: obj.title
                                     });
                                     done();
@@ -243,6 +248,7 @@ describe('Tag middleware', () => {
                                         contentTitle: expectedTitle,
                                         url: expectedUrl,
                                         pageMetaDescription: obj2.description,
+                                        contentSummary: '',
                                         pageTitle: obj2.title
                                     });
                                     done();
@@ -275,6 +281,7 @@ describe('Tag middleware', () => {
                                     contentTitle: expectedTitle,
                                     url: expectedUrl,
                                     pageMetaDescription: '',
+                                    contentSummary: '',
                                     pageTitle: expectedTitle
                                 });
                                 done();
@@ -301,6 +308,7 @@ describe('Tag middleware', () => {
                                     contentTitle: expectedTitle,
                                     url: expectedUrl,
                                     pageMetaDescription: '',
+                                    contentSummary: '',
                                     pageTitle: expectedTitle
                                 });
                                 done();
@@ -330,6 +338,7 @@ describe('Tag middleware', () => {
                                     contentTitle: expectedTitle,
                                     url: '/url-of-tag-page',
                                     pageMetaDescription: '',
+                                    contentSummary: '',
                                     pageTitle: expectedTitle
                                 });
                                 done();

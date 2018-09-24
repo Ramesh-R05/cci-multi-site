@@ -17,6 +17,7 @@ export default async function tagMiddleware(req, res, next) {
         const tag = query ? query.tag || query.section : null;
         const entity = get(req, 'data.entity');
         const tagPageTitle = get(req, 'data.entity.pageTitle');
+        const contentSummary = get(req, 'data.entity.contentSummary', '');
         const tagsDetails = get(req, 'data.entity.tagsDetails', []);
         const { excludeTagQuery } = req.data;
         if (!tag || query.page || (entity && entity.nodeTypeAlias !== 'TagSection')) {
@@ -107,7 +108,8 @@ export default async function tagMiddleware(req, res, next) {
                 contentTitle: title,
                 url,
                 pageTitle: capitalize(tagPageTitle || tagData.title || title),
-                pageMetaDescription: tagData.description || ''
+                pageMetaDescription: tagData.description || '',
+                contentSummary
             }
         );
         req.data.latestTeasers = latestTeasers.data.slice(0, latestTeaserCount);

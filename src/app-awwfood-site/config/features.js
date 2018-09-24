@@ -83,6 +83,9 @@ export default {
     giftCard: {
         enabled: false
     },
+    summary: {
+        enabled: true
+    },
     alternativeTitle: {
         enabled: true
     },
