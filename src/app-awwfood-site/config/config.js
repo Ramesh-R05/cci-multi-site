@@ -175,7 +175,7 @@ export default {
         }
     },
     outbrain: {
-        templateId: "Foodtolove",
+        templateId: 'Foodtolove',
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },

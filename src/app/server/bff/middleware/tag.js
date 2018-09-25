@@ -100,18 +100,16 @@ export default async function tagMiddleware(req, res, next) {
             url: `${req.app.locals.config.site.host}${path}`
         };
 
-        req.data = req.data || {};
-        req.data.entity = Object.assign(
-            {},
-            { nodeTypeAlias: 'TagSection' },
-            {
-                contentTitle: title,
-                url,
-                pageTitle: capitalize(tagPageTitle || tagData.title || title),
-                pageMetaDescription: tagData.description || '',
-                contentSummary
-            }
-        );
+        req.data.entity = {
+            ...req.data.entity,
+            nodeTypeAlias: 'TagSection',
+            contentTitle: title,
+            url,
+            pageTitle: capitalize(tagPageTitle || tagData.title || title),
+            pageMetaDescription: tagData.description || '',
+            contentSummary
+        };
+
         req.data.latestTeasers = latestTeasers.data.slice(0, latestTeaserCount);
         req.data.list = {
             listName: title,
