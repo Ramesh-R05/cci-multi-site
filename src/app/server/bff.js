@@ -92,6 +92,17 @@ export default function bff(server) {
             render,
             error
         );
-        server.get(server.locals.config.services.endpoints.search, pageModules, commercialTag, comScore, headerMeta, search, https, render, error);
+        server.get(
+            server.locals.config.services.endpoints.search,
+            pageModules,
+            commercialTag,
+            comScore,
+            headerMeta,
+            search,
+            https,
+            responseBody,
+            render,
+            error
+        );
     }
 }

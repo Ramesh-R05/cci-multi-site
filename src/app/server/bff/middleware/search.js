@@ -1,14 +1,36 @@
 import get from 'lodash/object/get';
-import { parseEntities, parseEntity } from '../helper/parseEntity';
-import parseHeaderMetaData from '../helper/parseHeaderMetaData';
+import qs from 'qs';
+import { parseEntities } from '../helper/parseEntity';
 import getSearchResults from '../api/search';
-import parseModule from '../helper/parseModule';
 
 const searchResultTeaserCount = 6;
 const searchCount = 14;
 
+/* 
+    TODO: move to helpers
+    write simple unit test
+*/
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+/* 
+    TODO : refactor into a more generic function that generates queryStrings based on params & appends them to the basePath (if included)
+*/
+
+function generateSearchQueryUrl(basePath, q, size, from, pageNo) {
+    const queryString = qs.stringify(
+        {
+            q,
+            size,
+            from,
+            pageNo
+        },
+        { addQueryPrefix: true }
+    );
+
+    return `${basePath}${queryString}`;
 }
 
 export default async function searchMiddleware(req, res, next) {
@@ -19,8 +41,6 @@ export default async function searchMiddleware(req, res, next) {
         }
         const query = req.query.params ? get(req, 'query.params.query', '') : get(req, 'query.q', '');
         const from = (pageNo - 1) * searchCount;
-        // For testing with real data
-        // const searchDataResp = await getLatestTeasers(searchCount, from);
         const searchDataResp = await getSearchResults(searchCount, from, query);
 
         const basePath = `/search/${query}`;
@@ -29,7 +49,8 @@ export default async function searchMiddleware(req, res, next) {
         if (pageNo > 1) {
             const prevPageNo = pageNo - 1;
             const prevFrom = (prevPageNo - 1) * searchCount;
-            const path = `${basePath}?q=${query}&size=${searchCount}&from=${prevFrom}&pageNo=${prevPageNo}`;
+            const path = generateSearchQueryUrl(basePath, query, searchCount, prevFrom, prevPageNo);
+
             previousPage = {
                 path,
                 url: `${req.app.locals.config.site.host}${path}`
@@ -40,14 +61,14 @@ export default async function searchMiddleware(req, res, next) {
         if (from + searchDataResp.results.length < searchDataResp.total) {
             const nextPageNo = pageNo + 1;
             const nextFrom = (nextPageNo - 1) * searchCount;
-            const path = `${basePath}?q=${query}&size=${searchCount}&from=${nextFrom}&pageNo=${nextPageNo}`;
+            const path = generateSearchQueryUrl(basePath, query, searchCount, nextFrom, nextPage);
             nextPage = {
                 path,
                 url: `${req.app.locals.config.site.host}${path}`
             };
         }
 
-        const path = pageNo > 1 ? `${basePath}?q=${query}&size=${searchCount}&from=${from}&pageNo=${pageNo}` : basePath;
+        const path = pageNo > 1 ? generateSearchQueryUrl(basePath, query, searchCount, from, pageNo) : basePath;
         const currentPage = {
             path,
             url: `${req.app.locals.config.site.host}${path}`
@@ -57,26 +78,20 @@ export default async function searchMiddleware(req, res, next) {
         const formattedQuery = capitalizeFirstLetter(decodedQuery);
         const dashSeparatedLowerCasedQuery = decodedQuery.replace(/[^A-Z0-9]+/gi, '-');
 
-        const entity = {
-            id: `${req.app.locals.config.site.prefix}-SEARCH-${dashSeparatedLowerCasedQuery}`,
-            nodeTypeAlias: 'Search',
-            contentTitle: formattedQuery,
-            url: currentPage.url,
-            pageTitle: capitalizeFirstLetter(formattedQuery),
-            pageMetaDescription: `${formattedQuery} search results`
-        };
-
-        res.body = {
-            entity: parseEntity(entity),
+        req.data = {
+            ...req.data,
+            entity: {
+                id: `${req.app.locals.config.site.prefix}-SEARCH-${dashSeparatedLowerCasedQuery}`,
+                nodeTypeAlias: 'Search',
+                contentTitle: formattedQuery,
+                url: currentPage.url,
+                pageTitle: capitalizeFirstLetter(formattedQuery),
+                pageMetaDescription: `${formattedQuery} search results`
+            },
             search: {
                 total: searchDataResp.total
             },
-            headerMetaData: {
-                ...parseHeaderMetaData(entity, get(req, 'data.headerMetaData', {})),
-                robots: 'NOINDEX,FOLLOW',
-                pageName: 'Search'
-            },
-            latestTeasers: pageNo > 1 ? [] : parseEntities(searchDataResp.results.slice(0, searchResultTeaserCount)),
+            latestTeasers: pageNo > 1 ? [] : searchDataResp.results.slice(0, searchResultTeaserCount),
             list: {
                 listName: 'search',
                 params: {
@@ -91,59 +106,6 @@ export default async function searchMiddleware(req, res, next) {
                 next: nextPage
             }
         };
-
-        // Custom robots for Search Results page
-        res.body.headerMetaData = {
-            ...res.body.headerMetaData,
-            robots: 'NOINDEX,FOLLOW'
-        };
-
-        if (get(req, 'data.theme')) {
-            res.body.theme = req.data.theme;
-        }
-
-        if (get(req, 'data.headernavigation')) {
-            res.body.headerNavigation = {
-                items: parseEntities(req.data.headernavigation, { contentTitle: 'name' })
-            };
-        }
-
-        if (get(req, 'data.hamburgernavigation')) {
-            res.body.hamburgerNavigation = {
-                items: parseEntities(req.data.hamburgernavigation, { contentTitle: 'name' })
-            };
-        }
-
-        if (get(req, 'data.footer')) {
-            res.body.footer = parseModule(req.data.footer);
-        }
-
-        if (get(req, 'data.mustread')) {
-            res.body.mustRead = parseEntities(req.data.mustread, {
-                title: 'title',
-                imageUrl: 'imageUrl',
-                location: 'url'
-            });
-        }
-
-        if (get(req, 'data.promoted')) {
-            res.body.promoted = {
-                title: '',
-                items: []
-            };
-
-            res.body.promoted.items = parseEntities(req.data.promoted.items, {
-                title: 'title',
-                imageUrl: 'imageUrl',
-                location: 'url'
-            });
-
-            res.body.promoted.title = req.data.promoted.title;
-        }
-
-        if (get(req, 'data.magcover')) {
-            res.body.magCover = req.data.magcover;
-        }
 
         next();
     } catch (error) {

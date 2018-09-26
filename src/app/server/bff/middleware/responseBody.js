@@ -14,6 +14,15 @@ export default function responseBody(req, res, next) {
             res.body.theme = req.data.theme;
         }
 
+        if (get(req, 'data.search')) {
+            res.body.search = req.data.search;
+            res.body.headerMetaData = {
+                ...res.body.headerMetaData,
+                robots: 'NOINDEX,FOLLOW',
+                pageName: 'Search'
+            };
+        }
+
         if (get(req, 'data.headernavigation')) {
             res.body.headerNavigation = {
                 items: parseEntities(req.data.headernavigation, { contentTitle: 'name' })
