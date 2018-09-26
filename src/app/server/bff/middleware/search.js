@@ -1,6 +1,5 @@
 import get from 'lodash/object/get';
-import { parseEntities } from '../helper/parseEntity';
-// import { getLatestTeasers } from '../api/listing';
+import { parseEntities, parseEntity } from '../helper/parseEntity';
 import parseHeaderMetaData from '../helper/parseHeaderMetaData';
 import getSearchResults from '../api/search';
 import parseModule from '../helper/parseModule';
@@ -56,8 +55,11 @@ export default async function searchMiddleware(req, res, next) {
 
         const decodedQuery = decodeURI(query);
         const formattedQuery = capitalizeFirstLetter(decodedQuery);
+        const dashSeparatedLowerCasedQuery = decodedQuery.replace(/[^A-Z0-9]+/gi, '-');
 
-        req.data.entity = {
+        const entity = {
+            id: `${req.app.locals.config.site.prefix}-SEARCH-${dashSeparatedLowerCasedQuery}`,
+            nodeTypeAlias: 'Search',
             contentTitle: formattedQuery,
             url: currentPage.url,
             pageTitle: capitalizeFirstLetter(formattedQuery),
@@ -65,10 +67,15 @@ export default async function searchMiddleware(req, res, next) {
         };
 
         res.body = {
+            entity: parseEntity(entity),
             search: {
                 total: searchDataResp.total
             },
-            headerMetaData: parseHeaderMetaData(req.data.entity, get(req, 'data.headerMetaData', {})),
+            headerMetaData: {
+                ...parseHeaderMetaData(entity, get(req, 'data.headerMetaData', {})),
+                robots: 'NOINDEX,FOLLOW',
+                pageName: 'Search'
+            },
             latestTeasers: pageNo > 1 ? [] : parseEntities(searchDataResp.results.slice(0, searchResultTeaserCount)),
             list: {
                 listName: 'search',
