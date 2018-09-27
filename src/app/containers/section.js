@@ -24,7 +24,8 @@ function mapStateToProps(context) {
         listNextParams: teaserStore.getListNextParams(),
         magazineImageUrl: pageStore.getMagazineImageUrl(),
         subsections: pageStore.getSubsections(),
-        summary: pageStore.getSummary()
+        summary: pageStore.getSummary(),
+        curatedHeroTeaser: teaserStore.getCuratedHeroTeaser()
     };
 }
 
@@ -37,6 +38,7 @@ export default class Section extends Component {
         list: PropTypes.array.isRequired,
         listNextParams: PropTypes.object.isRequired,
         teasers: PropTypes.array,
+        curatedHeroTeaser: PropTypes.object,
         title: PropTypes.array.isRequired,
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
@@ -47,6 +49,7 @@ export default class Section extends Component {
 
     static defaultProps = {
         teasers: [],
+        curatedHeroTeaser: null,
         theme: {},
         subsections: { data: [], totalCount: 0 },
         magazineImageUrl: '',
@@ -73,10 +76,18 @@ export default class Section extends Component {
     render() {
         const { config } = this.context;
         const brand = config.product;
-        const { nodeType, teasers, title, currentUrl, theme, subsections, magazineImageUrl, summary } = this.props;
+        const { nodeType, teasers, title, currentUrl, theme, subsections, magazineImageUrl, summary, curatedHeroTeaser } = this.props;
         // Using first teaser for each section because modules aren't setup for each one in the CMS
-        const heroTeaser = teasers[0];
-        const firstTeaserList = teasers.slice(1, 7);
+        let heroTeaser = teasers[0];
+        let firstTeaserList = teasers.slice(1, 7);
+        const curatedHeroTeaserEnabled = get(config, 'features.curatedHeroTeaser.enabled', false);
+        if (curatedHeroTeaserEnabled && curatedHeroTeaser) {
+            heroTeaser = curatedHeroTeaser;
+            this.props.list.items[0].unshift(teasers[6]);
+            this.props.list.items[0] = [...new Set(this.props.list.items[0])];
+            firstTeaserList = teasers.slice(0, 6);
+        }
+
         const keyword = nodeType === 'TagSection' && title ? [title] : [];
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);

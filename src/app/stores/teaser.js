@@ -15,6 +15,10 @@ export default createReducerStore({
             return state.latestTeasers;
         },
 
+        getCuratedHeroTeaser(state) {
+            return state.curatedHeroTeaser;
+        },
+
         getVideoGalleryTeasers(state) {
             return state.videoGalleryTeasers;
         },

@@ -1,5 +1,6 @@
 export const initialState = {
     heroTeaser: null,
+    curatedHeroTeaser: null,
     latestTeasers: [],
     videoGalleryTeasers: [],
     mustRead: [],
@@ -16,6 +17,7 @@ export function reducer(state = initialState, payload = { body: {} }, eventName 
             const {
                 heroTeaser = null,
                 latestTeasers = [],
+                curatedHeroTeaser = null,
                 videoGalleryTeasers = [],
                 list = {},
                 mustRead = [],
@@ -27,6 +29,7 @@ export function reducer(state = initialState, payload = { body: {} }, eventName 
             return {
                 heroTeaser,
                 latestTeasers,
+                curatedHeroTeaser,
                 videoGalleryTeasers,
                 mustRead,
                 promoted,
@@ -37,6 +40,7 @@ export function reducer(state = initialState, payload = { body: {} }, eventName 
         case 'LOAD_CONTENT_FAILED': {
             return {
                 heroTeaser: null,
+                curatedHeroTeaser: null,
                 latestTeasers: [],
                 videoGalleryTeasers: [],
                 mustRead: [],

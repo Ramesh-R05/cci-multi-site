@@ -8,6 +8,7 @@ describe(`loadTeasers Reducer`, () => {
             body = {
                 heroTeaser: {},
                 latestTeasers: ['Teaser 1', 'Teaser 2'],
+                curatedHeroTeaser: null,
                 videoGalleryTeasers: ['VideoTeaser 1', 'VideoTeaser 2', 'VideoTeaser 3'],
                 mustRead: [],
                 promoted: { title: '', items: [] },
@@ -29,6 +30,7 @@ describe(`loadTeasers Reducer`, () => {
             let bodyWithRecipeEntities = {
                 heroTeaser: {},
                 latestTeasers: ['Teaser 1', 'Teaser 2'],
+                curatedHeroTeaser: null,
                 videoGalleryTeasers: ['VideoTeaser 1', 'VideoTeaser 2', 'VideoTeaser 3'],
                 mustRead: [],
                 promoted: { title: '', items: [] },
@@ -49,6 +51,7 @@ describe(`loadTeasers Reducer`, () => {
                 expect(reducer(initialState, payloadWithRecipeEntities)).to.deep.eq({
                     heroTeaser: payloadWithRecipeEntities.body.heroTeaser,
                     latestTeasers: payloadWithRecipeEntities.body.latestTeasers,
+                    curatedHeroTeaser: payloadWithRecipeEntities.body.curatedHeroTeaser,
                     videoGalleryTeasers: payloadWithRecipeEntities.body.videoGalleryTeasers,
                     mustRead: payloadWithRecipeEntities.body.mustRead,
                     promoted: payloadWithRecipeEntities.body.promoted,
@@ -66,6 +69,7 @@ describe(`loadTeasers Reducer`, () => {
                 expect(reducer(initialState, payloadWithRecipeEntities)).to.deep.eq({
                     heroTeaser: payloadWithRecipeEntities.body.heroTeaser,
                     latestTeasers: payloadWithRecipeEntities.body.latestTeasers,
+                    curatedHeroTeaser: payloadWithRecipeEntities.body.curatedHeroTeaser,
                     videoGalleryTeasers: payloadWithRecipeEntities.body.videoGalleryTeasers,
                     mustRead: payloadWithRecipeEntities.body.mustRead,
                     promoted: payloadWithRecipeEntities.body.promoted,
@@ -95,6 +99,7 @@ describe(`loadTeasers Reducer`, () => {
                 expect(reducer(initialState, payload)).to.deep.eq({
                     heroTeaser: null,
                     latestTeasers: payload.body.latestTeasers,
+                    curatedHeroTeaser: payload.body.curatedHeroTeaser,
                     videoGalleryTeasers: payload.body.videoGalleryTeasers,
                     list: {
                         params: {
@@ -121,6 +126,7 @@ describe(`loadTeasers Reducer`, () => {
                 expect(reducer(initialState, payload)).to.deep.eq({
                     heroTeaser: payload.body.heroTeaser,
                     latestTeasers: [],
+                    curatedHeroTeaser: null,
                     videoGalleryTeasers: payload.body.videoGalleryTeasers,
                     list: {
                         params: {
@@ -147,6 +153,7 @@ describe(`loadTeasers Reducer`, () => {
                 expect(reducer(initialState, payload)).to.deep.eq({
                     heroTeaser: payload.body.heroTeaser,
                     latestTeasers: payload.body.latestTeasers,
+                    curatedHeroTeaser: payload.body.curatedHeroTeaser,
                     videoGalleryTeasers: [],
                     list: {
                         params: {
@@ -170,6 +177,7 @@ describe(`loadTeasers Reducer`, () => {
             body = {
                 heroTeaser: {},
                 latestTeasers: ['Teaser 1', 'Teaser 2'],
+                curatedHeroTeaser: null,
                 videoGalleryTeasers: ['VideoTeaser 1', 'VideoTeaser 2', 'VideoTeaser 3'],
                 list: {
                     params: {

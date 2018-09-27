@@ -86,6 +86,9 @@ export default {
     summary: {
         enabled: true
     },
+    curatedHeroTeaser: {
+        enabled: true
+    },
     alternativeTitle: {
         enabled: true
     },

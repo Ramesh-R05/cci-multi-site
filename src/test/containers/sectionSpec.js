@@ -99,6 +99,10 @@ describe('Section Container', () => {
             return [1, 2, 3, 4, 5, 6, 7];
         },
 
+        getCuratedHeroTeaser() {
+            return null;
+        },
+
         getList() {
             return {
                 items: [[8, 9, 10, 11, 12, 13, 14]]

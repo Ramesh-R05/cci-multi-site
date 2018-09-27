@@ -13,7 +13,8 @@ export default async function pageModules(req, res, next) {
             'promoted',
             'hero',
             `${section}theme`,
-            'magcover'
+            'magcover',
+            `${section}hero`
         );
     } catch (error) {
         logger.error(error);

@@ -39,6 +39,13 @@ export default function responseBody(req, res, next) {
             res.body.footer = parseModule(req.data.footer);
         }
 
+        if (get(req, `data.${req.data.entity.contentTitle.toLowerCase()}hero`)) {
+            const curatedHeroTeaser = get(req, `data.${req.data.entity.contentTitle.toLowerCase()}hero`).length;
+            if (curatedHeroTeaser) {
+                res.body.curatedHeroTeaser = parseEntity(req.data[`${req.data.entity.contentTitle.toLowerCase()}hero`][0]);
+            }
+        }
+
         if (get(req, 'data.mustread')) {
             res.body.mustRead = parseEntities(req.data.mustread, {
                 title: 'title',
