@@ -102,5 +102,9 @@ export default {
     },
     search: {
         enabled: true
+    },
+    ias: {
+        enabled: true,
+        id: 926929
     }
 };

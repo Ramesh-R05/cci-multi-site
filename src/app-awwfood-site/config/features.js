@@ -118,5 +118,9 @@ export default {
     },
     showRecipeSourceAsAttribute: {
         enabled: true
+    },
+    ias: {
+        enabled: true,
+        id: 926929
     }
 };
