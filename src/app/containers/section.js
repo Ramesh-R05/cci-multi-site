@@ -81,6 +81,7 @@ export default class Section extends Component {
         let heroTeaser = teasers[0];
         let firstTeaserList = teasers.slice(1, 7);
         const curatedHeroTeaserEnabled = get(config, 'features.curatedHeroTeaser.enabled', false);
+
         if (curatedHeroTeaserEnabled && curatedHeroTeaser) {
             heroTeaser = curatedHeroTeaser;
             this.props.list.items[0].unshift(teasers[6]);

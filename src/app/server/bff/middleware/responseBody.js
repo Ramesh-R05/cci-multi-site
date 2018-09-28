@@ -39,10 +39,15 @@ export default function responseBody(req, res, next) {
             res.body.footer = parseModule(req.data.footer);
         }
 
-        if (get(req, `data.${req.data.entity.contentTitle.toLowerCase()}hero`)) {
-            const curatedHeroTeaser = get(req, `data.${req.data.entity.contentTitle.toLowerCase()}hero`).length;
-            if (curatedHeroTeaser) {
-                res.body.curatedHeroTeaser = parseEntity(req.data[`${req.data.entity.contentTitle.toLowerCase()}hero`][0]);
+        const curatedHeroTeaserKey = `${req.data.entity.contentTitle.toLowerCase()}hero`;
+        const hasCuratedHeroTeaser = get(req, `data.${curatedHeroTeaserKey}`);
+
+        if (hasCuratedHeroTeaser) {
+            // Getting lots of 'undefined to deeply equal' errors if the length is checked at the 'if' above
+            // Checking the length is needed to get the boolean logic in an empty array
+            // Executing it inside the block does the trick
+            if (hasCuratedHeroTeaser.length) {
+                res.body.curatedHeroTeaser = parseEntity(req.data[curatedHeroTeaserKey][0]);
             }
         }
 
