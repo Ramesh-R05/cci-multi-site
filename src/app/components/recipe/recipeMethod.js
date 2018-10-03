@@ -2,18 +2,19 @@ import React, { PropTypes, Component } from 'react';
 import parse from '@bxm/markdown/lib/parse';
 
 export default class RecipeMethod extends Component {
+    static displayName = 'RecipeMethod';
+
     static propTypes = {
         recipeMethod: PropTypes.array.isRequired
     };
 
-    constructor(props, context) {
-        super(props, context);
-
-        this.methodCount = 0;
+    shouldComponentUpdate(nextProps /* , nextState */) {
+        return this.props.recipeMethod !== nextProps.recipeMethod;
     }
 
     render() {
         const { recipeMethod } = this.props;
+        let methodCount = 0;
 
         return (
             <div className="recipe-method columns small-12 medium-6">
@@ -26,7 +27,7 @@ export default class RecipeMethod extends Component {
                                 {recipeData.methods.map(item => (
                                     <li className="recipe-method__list--item">
                                         <div className="recipe-method__list--item-left">
-                                            <span>{(this.methodCount += 1)}</span>
+                                            <span>{(methodCount += 1)}</span>
                                         </div>
                                         <div className="recipe-method__list--item-right" dangerouslySetInnerHTML={{ __html: parse(item.method) }} />
                                     </li>

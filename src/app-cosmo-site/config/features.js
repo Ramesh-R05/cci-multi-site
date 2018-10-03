@@ -60,9 +60,6 @@ export default {
     search: {
         enabled: true
     },
-    pubmatic: {
-        enabled: true
-    },
     ias: {
         enabled: true,
         id: 926929
