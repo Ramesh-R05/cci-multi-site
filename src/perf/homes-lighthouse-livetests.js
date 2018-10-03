@@ -7,27 +7,27 @@ const testLinks = [
     {
         title: 'homepage',
         url: 'https://www.homestolove.com.au/',
-        expectedScore: 25
+        expectedScore: 10
     },
     {
         title: 'section',
         url: 'https://www.homestolove.com.au/real-homes/',
-        expectedScore: 27
+        expectedScore: 8
     },
     {
         title: 'tags landing page',
         url: 'https://www.homestolove.com.au/tags/renovation/',
-        expectedScore: 29
+        expectedScore: 10
     },
     {
         title: 'article',
         url: 'https://www.homestolove.com.au/6-free-design-apps-you-should-know-about-4174',
-        expectedScore: 20
+        expectedScore: 9
     },
     {
         title: 'gallery',
         url: 'https://www.homestolove.com.au/12-smart-home-offices-3309',
-        expectedScore: 21
+        expectedScore: 8
     }
 ];
 
