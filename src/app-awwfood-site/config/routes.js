@@ -15,6 +15,17 @@ export default {
         handler: HomePage,
         action: loadPageContent
     },
+    /* Google tries to call old FoodToLove urls, eg:
+     * https://www.womensweeklyfood.com.au/Recipe/FOOD-8937
+     * In this instance, the node id works because it references a folder in the live cms. This is not ideal.
+     * Block any old FoodToLove urls from being accessed, because the node id is wrong.
+     * */
+    oldFoodToLoveRecipes: {
+        path: '/Recipe/*',
+        method: 'get',
+        handler: ErrorPage,
+        action: pageNotFound
+    },
     search: {
         path: '/search/:query',
         method: 'get',
