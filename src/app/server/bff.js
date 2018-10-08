@@ -32,7 +32,7 @@ export default function bff(server) {
     } else {
         server.get('/sitemap/:section?', sitemap, error);
         server.get(
-            '(/:preview(preview))?/amp/:page-:id(\\d+)',
+            '(/:preview(preview))?/amp/:page(.*-):id([0-9]+)',
             pageModules,
             commercialTag,
             section,

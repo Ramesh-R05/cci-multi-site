@@ -46,7 +46,7 @@ export default {
         action: loadPageContent
     },
     recipes: {
-        path: '/recipes/:page*:id*',
+        path: '/recipes/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: SinglePage,
         action: loadPageContent
