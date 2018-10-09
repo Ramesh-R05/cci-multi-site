@@ -57,8 +57,6 @@ build:
 branches:
   only:
     - master
-    - feature/*
-    - fix/*
 
 #Integration and Notifications
 integrations:
