@@ -55,7 +55,14 @@ export default class HeroTeaser extends Component {
 
                 {showPromoted && <Promoted show />}
 
-                <SideBlock showBrandMagazine={hasBrand} showBrandNewsletter={hasBrand} showGiftCard={showGiftCard} brand={brand} isHero magazineImageUrl={magazineImageUrl} />
+                <SideBlock
+                    showBrandMagazine={hasBrand}
+                    showBrandNewsletter={hasBrand}
+                    showGiftCard={showGiftCard}
+                    brand={brand}
+                    isHero
+                    magazineImageUrl={magazineImageUrl}
+                />
             </div>
         );
     }
