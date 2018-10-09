@@ -38,6 +38,7 @@ export default class HeroTeaser extends Component {
         const pageLocation = Ad.pos.outside;
         const hasBrand = brand !== null;
         const showRecipeSource = config.isFeatureEnabled('showRecipeSourceAsAttribute');
+        const showGiftCard = config.isFeatureEnabled('giftCard');
         const containerAttributes = {
             className: 'hero-wrapper'
         };
@@ -54,7 +55,7 @@ export default class HeroTeaser extends Component {
 
                 {showPromoted && <Promoted show />}
 
-                <SideBlock showBrandMagazine={hasBrand} showBrandNewsletter={hasBrand} brand={brand} isHero magazineImageUrl={magazineImageUrl} />
+                <SideBlock showBrandMagazine={hasBrand} showBrandNewsletter={hasBrand} showGiftCard={showGiftCard} brand={brand} isHero magazineImageUrl={magazineImageUrl} />
             </div>
         );
     }

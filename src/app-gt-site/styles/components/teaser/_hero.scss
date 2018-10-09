@@ -20,6 +20,10 @@ $hero-teaser-line-height: 25px;
                 bottom: 35%;
             }
         }
+
+        .gift-card-container {
+            display: none;
+        }
     }
 
     @media #{$large-up} {

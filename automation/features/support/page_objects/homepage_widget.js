@@ -1,5 +1,4 @@
 var homepage_widget = {
-
     mustreadHeader: '.mustread-teaser-view-grid .home-page__teasers-title',
     mustreadImage: '.mustread-teaser-view-grid .teaser__list-item .teaser__inner img',
     mustreadImageLink: '.mustread-teaser-view-grid .teaser__list-item .teaser__inner > a',
@@ -40,6 +39,8 @@ var homepage_widget = {
     newsletterSignUpBtnMobile: '.hero-wrapper .newsletter-subscribe__button a',
     newsletterSignUpFormDesktop: '.page__social-wrapper .signup-form',
     newsletterSignUpFormMobile: '.hero-wrapper .signup-form',
+    giftCardBtnMobile: '.hero-wrapper .gift-card-container .gift-card-button',
+    giftCardBtnLink: '.hero-wrapper .gift-card-container .gift-card-button a',
     loadMoreFeed: '.repeatable-component div:nth-child(2) article',
     loadMoreFeedTeaserImg: '.repeatable-component div:nth-child(2) li.teaser__list-item:nth-child(1) article .teaser__image img',
     loadMoreFeedTeaserImgLink: '.repeatable-component div:nth-child(2) li.teaser__list-item:nth-child(1) article .teaser__image',

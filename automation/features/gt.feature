@@ -7,6 +7,7 @@ Feature: Smoke test for GT
         Given I switch to "mobile" view
         When I am currently viewing the homepage
         Then I should see the sign up button containing "https://www.gourmettraveller.com.au/gt-newsletter" url in "mobile" view
+        And I should see the gift card buy now button on mobile view
         And I should see 2 must read images and titles which are clickable to open their page
         And I should see the main hero item containing its image and clickable to open its page
         And I should see 2 promoted images and titles which are clickable to open their page

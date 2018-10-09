@@ -231,7 +231,8 @@ module.exports = function(){
     });
 
     this.Then(/^I should see the sign up button containing "([^"]*)" url in "([^"]*)" view$/, function (url, device) {
-        var signUpBtn, signUpBtnLink;
+        var signUpBtn;
+        var signUpBtnLink;
 
         switch(device) {
             case 'mobile':
@@ -249,6 +250,14 @@ module.exports = function(){
         scrolling(browser,signUpBtn,isBrowserStack);
         expect(browser.waitForVisible(signUpBtn,5000)).toEqual(true);
         expect(signUpBtnLink).toContain(url);
+    });
+
+    this.Then(/^I should see the gift card buy now button on mobile view$/, function () {
+        var giftCardBtnLink = browser.getAttribute(home.giftCardBtnLink, 'href');
+
+        scrolling(browser,home.giftCardBtnMobile,isBrowserStack);
+        expect(browser.waitForVisible(home.giftCardBtnMobile,5000)).toEqual(true);
+        expect(giftCardBtnLink).toContain('gift-card-large');
     });
 
     this.Then(/^I should see the sign up form in "([^"]*)" view$/, function (device) {
