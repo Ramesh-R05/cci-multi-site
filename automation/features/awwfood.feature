@@ -21,7 +21,6 @@ Feature: Smoke test for AWW FOOD
         Given I switch to "mobile" view
         When I am currently viewing "recipes"
         Then I should see "RECIPES" title
-        # Then I should see "SELECT A SUB-SECTION..." selected as a default in the list
         Then I should see the sign up form in "mobile" view
         Then I should see the main hero item containing its image and clickable to open its page
         And I should see a "top" feed item containing its image and clickable to open its page
@@ -29,20 +28,6 @@ Feature: Smoke test for AWW FOOD
         When I click on the Load More button
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
-
-#We don't have subsection on AWWFOOD at the moment.
-    #Scenario: Verify the subsection landing page
-    #    Given I switch to "mobile" view
-    #    When I am currently viewing "travel/destinations"
-    #    Then I should see "DESTINATIONS" title
-    #    Then I should see "DESTINATIONS" selected as a default in the list
-    #    Then I should see the sign up button containing "https://www.womensweeklyfood.com.au/womensweeklyfood-newsletter" url in "mobile" view
-    #    Then I should see the main hero item containing its image and clickable to open its page
-    #    And I should see a "top" feed item containing its image and clickable to open its page
-    #    And I should see a "bottom" feed item containing its image and clickable to open its page
-    #    When I click on the Load More button
-    #    Then I should see extra 14 teasers after loading more
-    #    And I should see a load more feed item containing its image and clickable to open its page
 
     @awwfoodmobile
     Scenario: Verify the tag landing page
@@ -59,9 +44,9 @@ Feature: Smoke test for AWW FOOD
             |Facebook   |https://www.facebook.com/womensweeklyfood/   |
             |Instagram  |https://www.instagram.com/womensweeklyfood/  |
             |Pinterest  |https://www.pinterest.com.au/womensweeklyfood|
-            
+
         * I can see mag buttons clickable to open its page in the footer
-        
+
     @awwfoodmobile
     Scenario: I can see the brand logos in the hamburger menu
         Given I switch to "mobile" view
@@ -128,6 +113,13 @@ Feature: Smoke test for AWW FOOD
         Then our readers can enjoy the created "recipe" page
         When I navigate to the "amp recipe" page in "awwfood"
         Then our readers can enjoy the created "amp recipe" page
+
+    @awwfoodmobile
+    Scenario: Verify the recipe collection page
+        Given I switch to "mobile" view
+        When I am currently viewing "easy-cucumber-recipes-31843"
+        * I can see the hero image
+        * I can see the list of recipes
 
     Scenario: Verify the RSS feed
         Given I am currently viewing "rss"
