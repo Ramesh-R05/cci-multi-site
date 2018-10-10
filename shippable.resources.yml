@@ -188,12 +188,6 @@ resources:
 #    seed:
 #      interval: "0 22 * * 3"
 
-  #"30 22 * * 0,3" is 10:30pm Sunday & Wednesday which are Monday morning and Thursday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: gt-perf-live-trigger
-    type: time
-    seed:
-      interval: "30 22 * * 0,3"
-
   #"30 22 * * 0" is 10:30pm Sunday which is Monday morning 9:30am daylight saving or 8:30am standard time in Sydney
   - name: gt-seo-live-trigger
     type: time
@@ -201,12 +195,6 @@ resources:
       interval: "30 22 * * 0"
 
   # This is for homes-site performance test and SEO test only (Workaround)
-  #"30 22 * * 2,4" is 10:30pm Tuesday & Thursday which are Wednesday morning and Friday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: homes-perf-live-trigger-workaround
-    type: time
-    seed:
-      interval: "30 22 * * 2,4"
-
   #"30 22 * * 2" is 10:30pm Tuesday which is Wednesday morning 9:30am daylight saving or 8:30am standard time in Sydney
   - name: homes-perf-test-trigger-workaround
     type: time
