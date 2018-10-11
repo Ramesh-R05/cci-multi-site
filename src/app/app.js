@@ -14,21 +14,23 @@ import RouteStore from './stores/route';
 import TeaserStore from './stores/teaser';
 import TrackingStore from './stores/tracking';
 
+export const stores = [
+    AdStore,
+    ArticleStore,
+    VerticalGalleryStore,
+    GalleryPageStore,
+    GalleryStore,
+    HtmlStore,
+    NavigationStore,
+    PageStore,
+    SearchStore,
+    PolarAdStore,
+    RouteStore,
+    TeaserStore,
+    TrackingStore
+];
+
 export default new Flux({
     component: AppComponent,
-    stores: [
-        AdStore,
-        ArticleStore,
-        VerticalGalleryStore,
-        GalleryPageStore,
-        GalleryStore,
-        HtmlStore,
-        NavigationStore,
-        PageStore,
-        SearchStore,
-        PolarAdStore,
-        RouteStore,
-        TeaserStore,
-        TrackingStore
-    ]
+    stores
 });
