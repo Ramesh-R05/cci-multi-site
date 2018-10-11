@@ -10,11 +10,11 @@ module.exports = function(){
     });
 
     this.Then(/^I should see at least one teaser$/, function () {
-        expect(browser.isExisting(section.heroComponent)).toEqual(true);
+        expect(browser.isExisting(section.teaserList)).toEqual(true);
     });
 
     this.Then(/^I should not see any teaser$/, function () {
-        expect(browser.isExisting(section.heroComponent)).toEqual(false);
+        expect(browser.isExisting(section.teaserList)).toEqual(false);
     });
 
     this.Then(/^I should see "([^"]*)" title$/, function (sectionName) {
@@ -27,5 +27,13 @@ module.exports = function(){
         expect(subSectionList).toEqual(subSectionName);
     });
 
+    this.Then(/^I should see the summary description$/, function () {
+        expect(browser.isExisting(section.summaryDescription)).toEqual(true);
+        expect(browser.getText(section.summaryDescription)).not.toBe('');
+    });
+
+    this.Then(/^I should see the hero teaser$/, function () {
+        expect(browser.isExisting(section.heroComponent)).toEqual(true);
+    });
 
 };

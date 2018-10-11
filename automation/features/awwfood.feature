@@ -2,6 +2,7 @@
 Feature: Smoke test for AWW FOOD
     As a user
     I should be able to see the AWWFOOD site showing correct static data and all pages are working correctly
+
     @awwfoodmobile
     Scenario: Verify the homepage
         Given I switch to "mobile" view
@@ -34,6 +35,26 @@ Feature: Smoke test for AWW FOOD
         Given I switch to "mobile" view
         When I am currently viewing "tags/cake"
         Then I should see the main hero item containing its image and clickable to open its page
+
+    @awwfoodmobile
+    #This scenario requires the tag section named 'healthy' and it should contain this tag `food:Meal type:Healthy`
+    Scenario: Verify the tag section
+        Given I switch to "mobile" view
+        When I am currently viewing "healthy"
+        Then I should see at least one teaser
+        And I should see the summary description
+        And I should see the hero teaser
+
+    @awwfoodmobile
+    #This scenario requires the commercial tag section named 'myer' and it should contain this tag `food:Dish type:Cupcake`
+    Scenario: Verify the commercial tag section
+        Given I switch to "mobile" view
+        When I am currently viewing "myer"
+        Then I should see at least one teaser
+        And I should see the summary description
+        And I should see the hero teaser
+        When I am currently viewing "tags/cupcake"
+        Then I should not see any teaser
 
     @awwfoodmobile
     Scenario: Verify the footer in the "mobile" view
@@ -182,14 +203,6 @@ Feature: Smoke test for AWW FOOD
         Examples:
             |device             |page       |pageUrl                                            |
             |tablet portrait    |recipe     |recipes/chefs-recipes/smashed-cucumber-salad-31442 |
-
-    @awwfoodmobile
-    Scenario: Verify the commercial tag section
-        Given I switch to "mobile" view
-        When I am currently viewing "myer"
-        Then I should see at least one teaser
-        When I am currently viewing "tags/cupcake"
-        Then I should not see any teaser
 
      Scenario Outline: Verify the Homepage top search box "<device>" view
         When I switch to "<device>" view
