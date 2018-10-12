@@ -93,7 +93,7 @@ describe(`Recipe Component`, () => {
     const dateCreated = 'today';
     const articleClassName = `article`;
     const title = recipeMock.title;
-    const contentBody = recipeMock.body;
+    const contentBody = recipeMock.contentBody;
     const contentBodyClass = `article__body article__body--top-border`;
     const source = recipeMock.source;
     const pageId = recipeMock.id;
@@ -288,7 +288,8 @@ describe(`Recipe Component`, () => {
                     Recipe,
                     {
                         articleHeaderOrder: [...articleHeaderOrder, 'Hero'],
-                        heroItem
+                        heroItem,
+                        contentBody
                     },
                     [contextConfigStub]
                 );

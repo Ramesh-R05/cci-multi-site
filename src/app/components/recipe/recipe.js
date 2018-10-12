@@ -184,10 +184,19 @@ export default class Recipe extends Component {
             recipeCookingMethod,
             recipeTips
         } = this.props;
+
+        let relatedContentItem = null;
+        let bodyContent = contentBody;
+
         const { config } = this.context;
         let sourceEnabled = true;
         if (config.product.id === 'awwfood') {
             sourceEnabled = false;
+            relatedContentItem = contentBody.find(item => item.type === 'related-content');
+
+            if (relatedContentItem) {
+                bodyContent = contentBody.filter(item => item.type !== 'related-content');
+            }
         }
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showRevContent = config.isFeatureEnabled('revContent');
@@ -196,7 +205,6 @@ export default class Recipe extends Component {
         const showRecipeSource = config.isFeatureEnabled('showRecipeSourceAsAttribute');
         const recipeAtGlance = { recipeServings, recipeCookingTime };
         const recipeHeaderOrder = this.addToHeaderBefore('Hero', <RecipeAtGlance recipeAtGlance={recipeAtGlance} />);
-
         const articleAttributes = {
             className: classNames('article', 'recipe', className)
         };
@@ -224,7 +232,7 @@ export default class Recipe extends Component {
                 />
 
                 <ContentBody
-                    body={contentBody}
+                    body={bodyContent}
                     siteName={siteName}
                     breakpoints={config.get('breakpoints')}
                     className="article__body article__body--top-border"
@@ -238,6 +246,14 @@ export default class Recipe extends Component {
                     <RecipeMethod recipeMethod={recipeCookingMethod} />
                     <RecipeNotes recipeNotes={recipeTips} />
                 </section>
+
+                {relatedContentItem && (
+                    <RelatedContentComponent
+                        items={relatedContentItem.content}
+                        displayCount={contentBodyConfig.displayCount}
+                        {...contentBodyConfig.relatedContent}
+                    />
+                )}
 
                 <NewsletterSignup dateCreated={dateCreated} />
 
