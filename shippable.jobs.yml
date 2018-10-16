@@ -447,7 +447,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     - NOTIFY: multi-qa-team-notifications
     steps:
-    - IN: cosmo-site-sit-deploy-master
+    #- IN: cosmo-site-sit-deploy-master
     - IN: multi-site-repo
       switch: off
     - TASK:
@@ -473,7 +473,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     - NOTIFY: multi-qa-team-notifications
     steps:
-    - IN: elle-site-sit-deploy-master
+    #- IN: elle-site-sit-deploy-master
     - IN: multi-site-repo
       switch: off
     - TASK:
@@ -499,7 +499,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     - NOTIFY: multi-qa-team-notifications
     steps:
-    - IN: hb-site-sit-deploy-master
+    #- IN: hb-site-sit-deploy-master
     - IN: multi-site-repo
       switch: off
     - TASK:
@@ -525,7 +525,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     - NOTIFY: multi-qa-team-notifications
     steps:
-    - IN: gt-site-sit-deploy-master
+    #- IN: gt-site-sit-deploy-master
     - IN: multi-site-repo
       switch: off
     - TASK:
@@ -551,7 +551,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     - NOTIFY: multi-qa-team-notifications
     steps:
-    - IN: awwfood-site-sit-deploy-master
+    #- IN: awwfood-site-sit-deploy-master
     - IN: multi-site-repo
       switch: off
     - TASK:
@@ -635,7 +635,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
-      - IN: cosmo-site-smoke-test
+      - IN: multi-site-smoke-test
       - IN: cosmo-site-version
       - IN: cosmo-site-man-master
         switch: off
@@ -651,7 +651,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
-      - IN: elle-site-smoke-test
+      - IN: multi-site-smoke-test
       - IN: elle-site-version
       - IN: elle-site-man-master
         switch: off
@@ -667,7 +667,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
-      - IN: hb-site-smoke-test
+      - IN: multi-site-smoke-test
       - IN: hb-site-version
       - IN: hb-site-man-master
         switch: off
@@ -683,7 +683,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
-      - IN: gt-site-smoke-test
+      - IN: multi-site-smoke-test
       - IN: gt-site-version
       - IN: gt-site-man-master
         switch: off
@@ -699,7 +699,7 @@ jobs:
     - NOTIFY: multi-slack-notifications
     steps:
       - IN: multi-site-automation-test
-      - IN: awwfood-site-smoke-test
+      - IN: multi-site-smoke-test
       - IN: awwfood-site-version
       - IN: awwfood-site-man-master
         switch: off
