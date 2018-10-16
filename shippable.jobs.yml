@@ -432,8 +432,8 @@ jobs:
        - script: cd ./IN/multi-site-repo-branch/gitRepo/automation
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
-      # - script: export APP_KEY=mutli-site
-      # - script: export URL=https://www.sit.cosmopolitan.com.au/
+       - script: export APP_KEY=
+       - script: export URL=
        - script: npm run smoketest:sit || true
        - script: actualsize=$(wc -c <"@rerun.txt")
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
