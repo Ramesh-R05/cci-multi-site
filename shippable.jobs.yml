@@ -409,6 +409,37 @@ jobs:
 #    on_failure:
 #      - NOTIFY: elle-deployment-notifications
 
+  # 4c. Run smoke test on SIT environment for all sites
+  - name: multi-site-smoke-test
+    type: runSh
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: elle-site-sit-deploy-master
+    - IN: hb-site-sit-deploy-master
+    - IN: cosmo-site-sit-deploy-master
+    - IN: gt-site-sit-deploy-master
+    - IN: awwfood-site-sit-deploy-master
+    - IN: multi-site-repo-branch
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo-branch/gitRepo/automation
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+      # - script: export APP_KEY=mutli-site
+      # - script: export URL=https://www.sit.cosmopolitan.com.au/
+       - script: npm run smoketest:sit || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+    on_failure:
+      - NOTIFY: multi-deployment-notifications
+
   # 4cCOSMO. Run smoke test on SIT environment COSMO
   - name: cosmo-site-smoke-test
     type: runSh
