@@ -7,7 +7,7 @@ import site from './site';
 import polar from './polar';
 
 export default {
-    ga: { id: 'UA-57795117-12' },
+    ga: { id: 'UA-57795117-1' },
 
     gtm: { masthead: 'AWWFOOD', id: 'GTM-MHX78ZT' }, // TODO: Check that the masthead is correct
 

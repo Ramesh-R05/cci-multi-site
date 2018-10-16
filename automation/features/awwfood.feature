@@ -101,10 +101,9 @@ Feature: Smoke test for AWW FOOD
         When I am currently viewing the homepage
         Then I should see the GTM container id "GTM-MHX78ZT" on the DOM
 
-# We will enable this scenario once we start using the tags of this GA ID on AWWFOOD
-#    Scenario: I can see the GA container with id "UA-57795117-12"
-#        When I am currently viewing the homepage
-#        Then I should see the GA container id "UA-57795117-12" on the DOM
+    Scenario: I can see the GA container with id "UA-57795117-1"
+        When I am currently viewing the homepage
+        Then I should see the GA container id "UA-57795117-1" on the DOM
 
     Scenario: Verify all the doc type items
         Given I switch to "mobile" view
