@@ -107,13 +107,13 @@ resources:
       sourceName: bauerxcelmedia/multi-site
       branch: master
 
-  # Multi Github repo - Branch (Please enable this and update to your branch if you need to use your branch to experiment or test in the pipeline)
-  - name: multi-site-repo-branch
-    type: gitRepo
-    integration: production-github
-    pointer:
-      sourceName: bauerxcelmedia/multi-site
-      branch: fix/merge-smoke-test
+#  # Multi Github repo - Branch (Please enable this and update to your branch if you need to use your branch to experiment or test in the pipeline)
+#  - name: multi-site-repo-branch
+#    type: gitRepo
+#    integration: production-github
+#    pointer:
+#      sourceName: bauerxcelmedia/multi-site
+#      branch: fix/merge-smoke-test
 
   # SIT Parameter
   - name: multi-site-params-sit

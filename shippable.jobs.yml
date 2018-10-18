@@ -422,14 +422,14 @@ jobs:
     - IN: cosmo-site-sit-deploy-master
     - IN: gt-site-sit-deploy-master
     - IN: awwfood-site-sit-deploy-master
-    - IN: multi-site-repo-branch
+    - IN: multi-site-repo
       switch: off
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
        - script: nvm install "8.9.1"
        - script: nvm use "8.9.1"
-       - script: cd ./IN/multi-site-repo-branch/gitRepo/automation
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
        - script: npm install
        - script: export APP_KEY=
@@ -439,162 +439,6 @@ jobs:
        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
     on_failure:
       - NOTIFY: multi-deployment-notifications
-
-  # 4cCOSMO. Run smoke test on SIT environment COSMO
-  - name: cosmo-site-smoke-test
-    type: runSh
-    always:
-    - NOTIFY: multi-slack-notifications
-    - NOTIFY: multi-qa-team-notifications
-    steps:
-    #- IN: cosmo-site-sit-deploy-master
-    - IN: multi-site-repo
-      switch: off
-    - TASK:
-       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-       - script: source ~/.nvm/nvm.sh
-       - script: nvm install "8.9.1"
-       - script: nvm use "8.9.1"
-       - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-       - script: npm install
-       - script: export APP_KEY=cosmo-site
-       - script: export URL=https://www.sit.cosmopolitan.com.au/
-       - script: npm run smoketest:cosmo || true
-       - script: actualsize=$(wc -c <"@rerun.txt")
-       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    on_failure:
-      - NOTIFY: cosmo-deployment-notifications
-
-  # 4cELLE. Run smoke test on SIT environment ELLE
-  - name: elle-site-smoke-test
-    type: runSh
-    always:
-    - NOTIFY: multi-slack-notifications
-    - NOTIFY: multi-qa-team-notifications
-    steps:
-    #- IN: elle-site-sit-deploy-master
-    - IN: multi-site-repo
-      switch: off
-    - TASK:
-       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-       - script: source ~/.nvm/nvm.sh
-       - script: nvm install "8.9.1"
-       - script: nvm use "8.9.1"
-       - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-       - script: npm install
-       - script: export APP_KEY=elle-site
-       - script: export URL=https://www.sit.elle.com.au/
-       - script: npm run smoketest:elle || true
-       - script: actualsize=$(wc -c <"@rerun.txt")
-       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    on_failure:
-      - NOTIFY: elle-deployment-notifications
-
-  # 4cHB. Run smoke test on SIT environment HB
-  - name: hb-site-smoke-test
-    type: runSh
-    always:
-    - NOTIFY: multi-slack-notifications
-    - NOTIFY: multi-qa-team-notifications
-    steps:
-    #- IN: hb-site-sit-deploy-master
-    - IN: multi-site-repo
-      switch: off
-    - TASK:
-       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-       - script: source ~/.nvm/nvm.sh
-       - script: nvm install "8.9.1"
-       - script: nvm use "8.9.1"
-       - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-       - script: npm install
-       - script: export APP_KEY=hb-site
-       - script: export URL=https://www.sit.harpersbazaar.com.au/
-       - script: npm run smoketest:hb || true
-       - script: actualsize=$(wc -c <"@rerun.txt")
-       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    on_failure:
-      - NOTIFY: hb-deployment-notifications
-
-  # 4cGT. Run smoke test on SIT environment GT
-  - name: gt-site-smoke-test
-    type: runSh
-    always:
-    - NOTIFY: multi-slack-notifications
-    - NOTIFY: multi-qa-team-notifications
-    steps:
-    #- IN: gt-site-sit-deploy-master
-    - IN: multi-site-repo
-      switch: off
-    - TASK:
-       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-       - script: source ~/.nvm/nvm.sh
-       - script: nvm install "8.9.1"
-       - script: nvm use "8.9.1"
-       - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-       - script: npm install
-       - script: export APP_KEY=gt-site
-       - script: export URL=https://www.sit.gourmettraveller.com.au/
-       - script: npm run smoketest:gt || true
-       - script: actualsize=$(wc -c <"@rerun.txt")
-       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    on_failure:
-      - NOTIFY: gt-deployment-notifications
-
-  # 4cAWWFOOD. Run smoke test on SIT environment AWWFOOD
-  - name: awwfood-site-smoke-test
-    type: runSh
-    always:
-    - NOTIFY: multi-slack-notifications
-    - NOTIFY: multi-qa-team-notifications
-    steps:
-    #- IN: awwfood-site-sit-deploy-master
-    - IN: multi-site-repo
-      switch: off
-    - TASK:
-       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-       - script: source ~/.nvm/nvm.sh
-       - script: nvm install "8.9.1"
-       - script: nvm use "8.9.1"
-       - script: cd ./IN/multi-site-repo/gitRepo/automation
-       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-       - script: npm install
-       - script: export APP_KEY=awwfood-site
-       - script: export URL=http://awwfood-site-au.sit.bxm.net.au/
-       - script: npm run smoketest:awwfood || true
-       - script: actualsize=$(wc -c <"@rerun.txt")
-       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-    on_failure:
-      - NOTIFY: awwfood-deployment-notifications
-
-#  # 4cFOODNZ. Run smoke test on SIT environment FOODNZ
-#  - name: foodnz-site-smoke-test
-#    type: runSh
-#    always:
-#    - NOTIFY: multi-slack-notifications
-#    - NOTIFY: multi-qa-team-notifications
-#    steps:
-#    - IN: foodnz-site-sit-deploy-master
-#    - IN: multi-site-repo
-#      switch: off
-#    - TASK:
-#       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-#       - script: source ~/.nvm/nvm.sh
-#       - script: nvm install "8.9.1"
-#       - script: nvm use "8.9.1"
-#       - script: cd ./IN/multi-site-repo/gitRepo/automation
-#       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-#       - script: npm install
-#       - script: export APP_KEY=foodnz-site
-#       - script: export URL=http://foodnz-site-nz.sit.bxm.net.au/
-#       - script: npm run smoketest:foodnz || true
-#       - script: actualsize=$(wc -c <"@rerun.txt")
-#       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-#    on_failure:
-#      - NOTIFY: foodnz-deployment-notifications
 
   # 4d. Run performance test on test environment
   - name: multi-site-performance-test
@@ -1084,3 +928,27 @@ jobs:
        - script: npm run test:awwfoodtabletlandscape || tabletlandscapeResult=failed
        - script: echo $tabletlandscapeResult
        - script: if [ -n "$mobileResult"] || [-n "$desktopResult"] || [-n "$tabletportraitResult"] || [-n "$tabletlandscapeResult"]; then fail; fi
+
+  #xii. Run full smoke test on SIT environment for all sites
+  - name: full-multi-site-smoke-test
+    type: runSh
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/automation
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=
+       - script: export URL=
+       - script: npm run smoketest:all || true
+       - script: actualsize=$(wc -c <"@rerun.txt")
+       - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
+
