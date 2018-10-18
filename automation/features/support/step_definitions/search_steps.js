@@ -1,4 +1,5 @@
 var search = require('../page_objects/search_widget');
+var sit = require('../url.sit');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var world = require('../world');
 var isBrowserStack = world.Urls.isBrowserStack;
@@ -39,8 +40,8 @@ module.exports = function() {
         expect(searchBox).toBe(false);
     });
 
-    this.Then(/^I should be able to search a keyword "([^"]*)" on "([^"]*)" and see the result page$/, function (keyword, position) {
-        var searchBox, searchSubmit;
+    this.Then(/^I should be able to search a keyword on "([^"]*)" and see the result page on "([^"]*)" site$/, function (position, site) {
+        var searchBox, searchSubmit, keyword;
         if (!isBrowserStack) {
             browser.scroll(0,0);
         } else {
@@ -48,10 +49,16 @@ module.exports = function() {
             scrolling(browser,search.headerWrapper,isBrowserStack);
         }
 
+        //To get a site name from APP_KEY if the URL is specified
+        if (world.Urls.home_page.length !== 0) {
+            site = world.Urls.site;
+        }
+
         switch (position){
             case 'navigation bar' :
                 searchBox = search.searchNavBox;
                 searchSubmit = search.searchNavSubmit;
+                keyword = sit[site].keyword1;
                 if (browser.isVisible(search.searchNavBox) === false) {
                     browser.click(search.searchNavIcon);
                     browser.waitForVisible(searchBox,5000);
@@ -60,6 +67,7 @@ module.exports = function() {
             case 'search result page' :
                 searchBox = search.searchResultPageBox;
                 searchSubmit = search.searchResultPageSubmit;
+                keyword = sit[site].keyword2;
                 break;
         }
 

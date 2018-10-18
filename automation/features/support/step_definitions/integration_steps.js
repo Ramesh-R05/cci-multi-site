@@ -1,4 +1,5 @@
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
+var wn_article = require('../page_objects/article_widget');
 var world = require('../world');
 var fs = require("fs");
 var request = require('request');
@@ -374,5 +375,11 @@ module.exports = function() {
                 expect(browser.getText(".article__title").toUpperCase()).toEqual("RECIPE TEST " + ID);
                 break;
         }
+    });
+
+    this.Given(/^I should see the long title$/, function () {
+        browser.waitForVisible(wn_article.longTitle, 10000);
+        var longTitle = browser.getText(wn_article.longTitle).toLowerCase();
+        expect(longTitle).not.toBe('');
     });
 };

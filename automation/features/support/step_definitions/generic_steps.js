@@ -1,8 +1,8 @@
 var world = require('../world');
+var sit = require('../url.sit');
 var window_handler = require('../../../node_modules/@bxm/automation/lib/utils/window_handler');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 var loadMore = require('../page_objects/loadmore_widget');
-var world = require('../world');
 var isBrowserStack = world.Urls.isBrowserStack;
 var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 
@@ -17,16 +17,64 @@ module.exports = function() {
     });
 
     this.Given(/^I am currently viewing the homepage$/, function () {
-        browser.url(world.Urls.home_page);
+        var pageUrl = world.Urls.home_page;
+        console.log('    ' + pageUrl);
+        browser.url(pageUrl);
         browser.waitUntil(function () {
-            return browser.getUrl() === world.Urls.home_page;
+            return browser.getUrl() === pageUrl;
         }, 20000, 1000);
     });
 
     this.Given(/^I am currently viewing "([^"]*)"$/, function (pagename) {
-        browser.url(world.Urls.home_page+pagename)
+        var pageUrl = world.Urls.home_page + pagename;
+        console.log('    ' + pageUrl);
+        browser.url(pageUrl);
         browser.waitUntil(function () {
-            return browser.getUrl() === world.Urls.home_page+pagename;
+            return browser.getUrl() === pageUrl;
+        }, 20000, 1000);
+    });
+
+    //This step is for smoke test only
+    this.Given(/^I am currently viewing "([^"]*)" page on "([^"]*)" site$/, function (page,site) {
+        var pageUrl;
+
+        //Identify the page URL
+        if (world.Urls.home_page.length === 0) {
+            if (page === 'homepage') {
+                pageUrl = sit[site].homepage;
+            } else {
+                pageUrl = sit[site].homepage + sit[site][page];
+            }
+        } else {
+            if (page === 'homepage') {
+                pageUrl = world.Urls.home_page;
+            } else {
+                pageUrl = world.Urls.home_page + sit[world.Urls.site][page];
+            }
+        }
+
+        console.log('    ' + pageUrl);
+        browser.url(pageUrl);
+        browser.waitUntil(function () {
+            return browser.getUrl() === pageUrl;
+        }, 20000, 1000);
+    });
+
+    //This step is for smoke test only
+    this.Given(/^I am currently viewing "([^"]*)" url on "([^"]*)" site$/, function (url,site) {
+        var pageUrl;
+
+        //Identify the page URL
+        if (world.Urls.home_page.length === 0) {
+            pageUrl = sit[site].homepage + url;
+        } else {
+            pageUrl = world.Urls.home_page + url;
+        }
+
+        console.log('    ' + pageUrl);
+        browser.url(pageUrl);
+        browser.waitUntil(function () {
+            return browser.getUrl() === pageUrl;
         }, 20000, 1000);
     });
 

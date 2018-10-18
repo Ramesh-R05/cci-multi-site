@@ -1,4 +1,6 @@
 var site_nav = require('../page_objects/site_navigation_widget');
+var world = require('../world');
+var sit = require('../url.sit');
 var wait = require('../../../node_modules/@bxm/automation/lib/utils/wait');
 //compose URL base on ENV variables
 var nconf = require('nconf');
@@ -17,11 +19,21 @@ module.exports = function() {
         expect(headerBackground).toContain('background-image: url');
     });
 
-    this.Then(/^I should see the site header logo to open homepage and contain "([^"]*)" class name$/, function (gtm) {
+    this.Then(/^I should see the site header logo to open homepage of "([^"]*)" site and contain "([^"]*)" class name$/, function (site, gtm) {
+        var linkUrl;
+
         browser.waitForExist(site_nav.smallIconlink, 3000);
+
+        //Identify the expected link URL
+        if (world.Urls.home_page.length === 0) {
+            linkUrl = sit[site].homepage;
+        } else {
+            linkUrl = world.Urls.home_page;
+        }
+
         //Validate the logo is clickable to open homepage
         var headerLogoLink = browser.getAttribute(site_nav.smallIconlink,'href');
-        expect(headerLogoLink).toEqual(site_domain);
+        expect(headerLogoLink).toEqual(linkUrl);
         //Validate GTM
         var headerLogoClass = browser.getAttribute(site_nav.smallIconlink,'class');
         expect(headerLogoClass).toContain(gtm);

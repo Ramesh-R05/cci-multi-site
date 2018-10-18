@@ -54,7 +54,7 @@ module.exports = function() {
     this.Given(/^I am currently viewing the create form$/, function () {
         var cmsSectionID;
 
-        switch (world.Urls.site) {
+        switch (world.Urls.appKey) {
             case 'elle-site':
                 cmsSectionID = '1168'; //Celebrity
                 break;
