@@ -7,7 +7,7 @@ import Header from '@bxm/article/lib/components/article/header';
 import Footer from '@bxm/article/lib/components/article/footer';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 import RelatedContentComponent from '@bxm/article/lib/components/article/relatedContent';
-import { getFirstTagNameForCategory } from '@bxm/tags/lib/utils';
+import MoreFrom from '@bxm/article/lib/components/article/moreFrom';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import BrandLogo from '@bxm/article/lib/components/article/brandLogo';
 import Outbrain from '@bxm/article/lib/components/article/outbrain';
@@ -41,7 +41,12 @@ export default class Collection extends Component {
         totalGalleryItems: PropTypes.number,
         feedItems: PropTypes.array.isRequired,
         siteName: PropTypes.string.isRequired,
-        collectionRecipeEntities: PropTypes.array.isRequired
+        collectionRecipeEntities: PropTypes.array.isRequired,
+        moreFrom: PropTypes.shape({
+            title: PropTypes.string,
+            items: PropTypes.array,
+            options: PropTypes.object
+        })
     };
 
     static defaultProps = {
@@ -54,7 +59,11 @@ export default class Collection extends Component {
         showAd: false,
         sourceEnabled: true,
         showAdBeforeRecommendations: false,
-        totalGalleryItems: null
+        totalGalleryItems: null,
+        moreFrom: {
+            title: '',
+            items: []
+        }
     };
 
     static contextTypes = {
@@ -80,10 +89,6 @@ export default class Collection extends Component {
             keyword: adKeywords,
             pageId
         };
-
-        const kingtag = getFirstTagNameForCategory(tagsDetails, 'Homes navigation');
-
-        if (kingtag) targets.kingtag = kingtag;
 
         return targets;
     }
@@ -150,13 +155,17 @@ export default class Collection extends Component {
             feedItems,
             articleHeaderOrder,
             collectionRecipeEntities,
-            sourceEnabled
+            sourceEnabled,
+            moreFrom
         } = this.props;
         const { config } = this.context;
+
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showAlternativeTitle = config.isFeatureEnabled('alternativeTitle');
         const showRevContent = config.isFeatureEnabled('revContent');
         const showFeedCarousel = config.isFeatureEnabled('feedCarousel');
+        const showMoreFrom = config.isFeatureEnabled('moreFrom');
+
         const collectionHeaderOrder = [...articleHeaderOrder];
         const collectionRecipeEntitiesWithIndex = collectionRecipeEntities.map((entity, index) => ({
             ...entity,
@@ -214,6 +223,8 @@ export default class Collection extends Component {
                 {showOutbrain && <Outbrain url={siteUrl + url} />}
 
                 {showRevContent && <RevContent />}
+
+                {showMoreFrom && <MoreFrom {...moreFrom} />}
             </article>
         );
     }

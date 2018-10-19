@@ -7,12 +7,12 @@ import Header from '@bxm/article/lib/components/article/header';
 import Footer from '@bxm/article/lib/components/article/footer';
 import Recommendations from '@bxm/recommendations/lib/components/recommendations';
 import RelatedContentComponent from '@bxm/article/lib/components/article/relatedContent';
-import { getFirstTagNameForCategory } from '@bxm/tags/lib/utils';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import BrandLogo from '@bxm/article/lib/components/article/brandLogo';
 import Outbrain from '@bxm/article/lib/components/article/outbrain';
 import RevContent from '@bxm/article/lib/components/article/revContent';
 import FeedCarousel from '@bxm/article/lib/components/article/feedCarousel';
+import MoreFrom from '@bxm/article/lib/components/article/moreFrom';
 import RecipeAtGlance from './recipeAtGlance';
 import RecipeIngredients from './recipeIngredients';
 import RecipeMethod from './recipeMethod';
@@ -48,7 +48,12 @@ export default class Recipe extends Component {
         recipeIngredients: PropTypes.array,
         recipeCookingMethod: PropTypes.array,
         recipeTips: PropTypes.string,
-        excludedSource: PropTypes.string
+        excludedSource: PropTypes.string,
+        moreFrom: PropTypes.shape({
+            title: PropTypes.string,
+            items: PropTypes.array,
+            options: PropTypes.object
+        })
     };
 
     static defaultProps = {
@@ -74,7 +79,12 @@ export default class Recipe extends Component {
             }
         ],
         recipeTips: '',
-        excludedSource: ''
+        excludedSource: '',
+        moreFrom: {
+            title: '',
+            items: [],
+            options: {}
+        }
     };
 
     static contextTypes = {
@@ -100,10 +110,6 @@ export default class Recipe extends Component {
             keyword: adKeywords,
             pageId
         };
-
-        const kingtag = getFirstTagNameForCategory(tagsDetails, 'Homes navigation');
-
-        if (kingtag) targets.kingtag = kingtag;
 
         return targets;
     }
@@ -182,14 +188,15 @@ export default class Recipe extends Component {
             recipeCookingTime,
             recipeIngredients,
             recipeCookingMethod,
-            recipeTips
+            recipeTips,
+            moreFrom
         } = this.props;
+        const { config } = this.context;
 
         let relatedContentItem = null;
         let bodyContent = contentBody;
-
-        const { config } = this.context;
         let sourceEnabled = true;
+
         if (config.product.id === 'awwfood') {
             sourceEnabled = false;
             relatedContentItem = contentBody.find(item => item.type === 'related-content');
@@ -198,11 +205,14 @@ export default class Recipe extends Component {
                 bodyContent = contentBody.filter(item => item.type !== 'related-content');
             }
         }
+
         const showOutbrain = config.isFeatureEnabled('outbrain');
         const showRevContent = config.isFeatureEnabled('revContent');
         const showAlternativeTitle = config.isFeatureEnabled('alternativeTitle');
         const showFeedCarousel = config.isFeatureEnabled('feedCarousel');
         const showRecipeSource = config.isFeatureEnabled('showRecipeSourceAsAttribute');
+        const showMoreFrom = config.isFeatureEnabled('moreFrom');
+
         const recipeAtGlance = { recipeServings, recipeCookingTime };
         const recipeHeaderOrder = this.addToHeaderBefore('Hero', <RecipeAtGlance recipeAtGlance={recipeAtGlance} />);
         const articleAttributes = {
@@ -274,6 +284,8 @@ export default class Recipe extends Component {
                 {showOutbrain && <Outbrain url={siteUrl + url} />}
 
                 {showRevContent && <RevContent />}
+
+                {showMoreFrom && <MoreFrom {...moreFrom} />}
             </article>
         );
     }

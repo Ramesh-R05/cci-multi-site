@@ -1,4 +1,6 @@
 import { betterMockComponentContext } from '@bxm/flux';
+import moreFromMock from '../mocks/moreFrom';
+
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
 import proxyquire, { noCallThru } from 'proxyquire';
@@ -13,6 +15,7 @@ const FooterStub = Context.createStubComponent();
 const CollectionSectionStub = Context.createStubComponent();
 
 const Document = proxyquire('../../app/containers/document', {
+    react: React,
     '@bxm/article/lib/article': ArticleStub,
     './gallery': GalleryPageStub,
     '@bxm/article/lib/gallery': VerticalGalleryStub,
@@ -44,6 +47,9 @@ describe('Document Component', () => {
     Context.addStore('articleStore', {
         getContent() {
             return articleContent;
+        },
+        getMoreFrom() {
+            return moreFromMock;
         }
     });
 

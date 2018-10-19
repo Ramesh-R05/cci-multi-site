@@ -2,6 +2,7 @@ import { betterMockComponentContext } from '@bxm/flux';
 import recipeMock from '../../mocks/recipe';
 import breakpoints from '../../mocks/breakpoints';
 import feedDataMock from '../../mocks/feed';
+import moreFromMock from '../../mocks/moreFrom';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -21,6 +22,8 @@ const RecipeAtGlanceStub = Context.createStubComponent();
 const RecipeIngredientsStub = Context.createStubComponent();
 const RecipeMethodStub = Context.createStubComponent();
 const RecipeNotesStub = Context.createStubComponent();
+const MoreFromStub = Context.createStubComponent();
+
 const staticConfigurationStoreStub = { getBreakpoints: sinon.spy };
 const keywords = ['homes_Topic_Garden_planner', 'homes_Homes_navigation_Outdoor'];
 const kingtag = 'Outdoor';
@@ -68,14 +71,12 @@ const Recipe = proxyquire('../../../app/components/recipe/recipe', {
     '@bxm/article/lib/components/contentBody/contentBody': ContentBody,
     '@bxm/ui/lib/to-love/stores/staticConfigurationStore': staticConfigurationStoreStub,
     '@bxm/article/lib/components/article/relatedContent': RelatedContentComponentStub,
+    '@bxm/article/lib/components/article/moreFrom': MoreFromStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub,
     './recipeAtGlance': RecipeAtGlanceStub,
     './recipeIngredients': RecipeIngredientsStub,
     './recipeMethod': RecipeMethodStub,
-    './recipeNotes': RecipeNotesStub,
-    '@bxm/tags/lib/utils': {
-        getFirstTagNameForCategory: () => kingtag
-    }
+    './recipeNotes': RecipeNotesStub
 }).default;
 
 AdStub.pos = {
@@ -155,7 +156,8 @@ describe(`Recipe Component`, () => {
                     showAdBeforeRecommendations: true,
                     showOutbrain: true,
                     outbrainConfig: {},
-                    showFeedCarousel: true
+                    showFeedCarousel: true,
+                    moreFrom: moreFromMock
                 },
                 [contextConfigStub]
             );
@@ -245,6 +247,16 @@ describe(`Recipe Component`, () => {
 
             it(`should have tags array`, () => {
                 expect(footerSub.props.tagsDetails).to.eq(tagsDetails);
+            });
+        });
+
+        describe('moreFrom sub component', () => {
+            it('should render to the page', () => {
+                expect(MoreFromStub).to.exist;
+            });
+
+            it('should be passed the moreFrom data as props', () => {
+                expect(MoreFromStub.props).to.deep.eq(...moreFromMock);
             });
         });
 

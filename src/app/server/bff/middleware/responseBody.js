@@ -70,6 +70,13 @@ export default function responseBody(req, res, next) {
             res.body.leftHandSide = { items: parseEntities(lhsData) };
         }
 
+        if (get(req, 'data.moreFrom')) {
+            res.body.moreFrom = {
+                title: req.data.moreFrom.title,
+                items: parseEntities(req.data.moreFrom.items)
+            };
+        }
+
         if (req.data.moreGalleries) {
             res.body.moreGalleries = parseEntities(req.data.moreGalleries.data);
         }

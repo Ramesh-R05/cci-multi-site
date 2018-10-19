@@ -18,7 +18,8 @@ class CollectionSection extends Component {
         enableTeads: PropTypes.bool,
         sourceEnabled: PropTypes.bool,
         adSpacing: PropTypes.number,
-        showAdBeforeRecommendations: PropTypes.bool
+        showAdBeforeRecommendations: PropTypes.bool,
+        moreFrom: PropTypes.object.isRequired
     };
 
     static defaultProps = {

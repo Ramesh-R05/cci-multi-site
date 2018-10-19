@@ -23,6 +23,7 @@ import comScore from './bff/middleware/comScore';
 import search from './bff/middleware/search';
 import commercialTag from './bff/middleware/commercialTag';
 import collection from './bff/middleware/collection';
+import moreFrom from './bff/middleware/moreFrom';
 
 export default function bff(server) {
     server.get('/api/asset', assetProxy);
@@ -40,6 +41,7 @@ export default function bff(server) {
             article,
             gallery,
             collection,
+            moreFrom,
             headerMeta,
             responseBody,
             amp
@@ -53,6 +55,7 @@ export default function bff(server) {
             article,
             gallery,
             collection,
+            moreFrom,
             headerMeta,
             responseBody,
             amp
@@ -66,6 +69,7 @@ export default function bff(server) {
             article,
             gallery,
             collection,
+            moreFrom,
             headerMeta,
             responseBody,
             amp
@@ -86,6 +90,7 @@ export default function bff(server) {
             gallery,
             collection,
             review,
+            moreFrom,
             headerMeta,
             https,
             responseBody,

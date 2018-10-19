@@ -10,7 +10,8 @@ import Teaser from '../components/teaser/teaser';
 
 function mapStateToProps(context) {
     return {
-        content: context.getStore('articleStore').getContent()
+        content: context.getStore('articleStore').getContent(),
+        moreFrom: context.getStore('articleStore').getMoreFrom()
     };
 }
 
@@ -20,6 +21,7 @@ export default class Document extends Component {
 
     static propTypes = {
         content: PropTypes.object.isRequired,
+        moreFrom: PropTypes.object.isRequired,
         currentUrl: PropTypes.string.isRequired,
         nodeType: PropTypes.string.isRequired,
         theme: PropTypes.object
@@ -62,7 +64,7 @@ export default class Document extends Component {
     };
 
     render() {
-        const { content, currentUrl, nodeType, theme } = this.props;
+        const { content, moreFrom, currentUrl, nodeType, theme } = this.props;
         const { config } = this.context;
         let sourceEnabled = true;
         if (config.product.id === 'awwfood') {
@@ -105,6 +107,7 @@ export default class Document extends Component {
                         socialShare={socialShare}
                         theme={theme}
                         sourceEnabled={sourceEnabled}
+                        moreFrom={moreFrom}
                     />
                 </Page>
             );
@@ -128,6 +131,7 @@ export default class Document extends Component {
                         theme={theme}
                         adSpacing={6}
                         sourceEnabled={sourceEnabled}
+                        moreFrom={moreFrom}
                     />
                 </Page>
             );
@@ -152,6 +156,7 @@ export default class Document extends Component {
                         theme={theme}
                         adSpacing={6}
                         sourceEnabled={sourceEnabled}
+                        moreFrom={moreFrom}
                     />
                 </Page>
             );

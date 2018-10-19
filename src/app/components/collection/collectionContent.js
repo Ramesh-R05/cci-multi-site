@@ -19,7 +19,12 @@ export default class CollectionContent extends Component {
         Footer: PropTypes.object,
         adSpacing: PropTypes.number,
         isVerticalGallery: PropTypes.bool,
-        feedTitle: PropTypes.string.isRequired
+        feedTitle: PropTypes.string.isRequired,
+        moreFrom: PropTypes.shape({
+            title: PropTypes.string,
+            items: PropTypes.array,
+            options: PropTypes.object
+        })
     };
 
     static defaultProps = {
@@ -30,7 +35,11 @@ export default class CollectionContent extends Component {
         sourceEnabled: true,
         Footer: null,
         adSpacing: 0,
-        isVerticalGallery: false
+        isVerticalGallery: false,
+        moreFrom: {
+            title: '',
+            items: []
+        }
     };
 
     render() {

@@ -2,6 +2,7 @@ import proxyquire, { noCallThru } from 'proxyquire';
 import article from '../../../mocks/article';
 import listing from '../../../mocks/listing';
 import moreGalleries from '../../../mocks/moreGalleries';
+import moreFrom from '../../../mocks/moreFrom';
 noCallThru();
 
 let parseEntityStub = () => {};
@@ -214,6 +215,31 @@ describe('ResponseBody middleware', () => {
             responseBodyMiddleware(req, res, next);
             expect(parseEntityStub).to.have.been.calledWith(heroTeaser);
             expect(res.body.heroTeaser).to.deep.equal(heroTeaser);
+        });
+    });
+
+    describe('when data contains `moreFrom`', () => {
+        const reqData = { moreFrom };
+        const reqBase = { data: reqData, app: { locals: { config } } };
+        const req = { ...reqBase };
+        const res = {};
+        parseEntitiesStub = sinon.stub();
+        let next;
+
+        beforeEach(() => {
+            parseEntitiesStub.reset();
+            parseEntitiesStub.returns(moreFrom.items);
+            next = sinon.spy();
+        });
+
+        it('should set `res.body.moreFrom`', () => {
+            responseBodyMiddleware(req, res, next);
+            expect(res.body.moreFrom).to.deep.eq(moreFrom);
+        });
+
+        it('should call parseEntities with the moreFrom data', () => {
+            responseBodyMiddleware(req, res, next);
+            expect(parseEntitiesStub).to.be.calledWith(reqData.moreFrom.items);
         });
     });
 });

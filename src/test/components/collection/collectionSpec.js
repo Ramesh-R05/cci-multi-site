@@ -1,9 +1,12 @@
 import { betterMockComponentContext } from '@bxm/flux';
-const Context = betterMockComponentContext();
-const { React } = Context;
 import proxyquire, { noCallThru } from 'proxyquire';
 import { shallow } from 'enzyme';
+import moreFrom from '../../mocks/moreFrom';
+
 noCallThru();
+
+const Context = betterMockComponentContext();
+const { React } = Context;
 
 const ContentBodyStub = Context.createStubComponent();
 const NewsletterSignupStub = Context.createStubComponent();
@@ -14,6 +17,7 @@ const OutbrainStub = Context.createStubComponent();
 const RevContentStub = Context.createStubComponent();
 const FeedCarouselStub = Context.createStubComponent();
 const ListStub = Context.createStubComponent();
+const MoreFromStub = Context.createStubComponent();
 
 const Collection = proxyquire('../../../app/components/collection/collection', {
     react: React,
@@ -25,6 +29,7 @@ const Collection = proxyquire('../../../app/components/collection/collection', {
     '@bxm/article/lib/components/article/outbrain': OutbrainStub,
     '@bxm/article/lib/components/article/revContent': RevContentStub,
     '@bxm/article/lib/components/article/feedCarousel': FeedCarouselStub,
+    '@bxm/article/lib/components/article/moreFrom': MoreFromStub,
     '../teaser/list': ListStub
 }).default;
 
@@ -52,42 +57,47 @@ describe('Collection', () => {
         siteUrl: '',
         feedItems: [],
         siteName: 'awwfood',
-        collectionRecipeEntities: []
+        collectionRecipeEntities: [],
+        moreFrom
     };
 
     beforeEach(() => {
         wrapper = shallow(<Collection {...props} />, { context: contextConfigStub });
     });
 
-    it('shoud render Header component', () => {
+    it('should render Header component', () => {
         expect(wrapper.find(HeaderStub).exists()).to.equal(true);
     });
 
-    it('shoud render ContentBody component', () => {
+    it('should render ContentBody component', () => {
         expect(wrapper.find(ContentBodyStub).exists()).to.equal(true);
     });
 
-    it('shoud render NewsletterSignup component', () => {
+    it('should render NewsletterSignup component', () => {
         expect(wrapper.find(NewsletterSignupStub).exists()).to.equal(true);
     });
 
-    it('shoud render Footer component', () => {
+    it('should render Footer component', () => {
         expect(wrapper.find(FooterStub).exists()).to.equal(true);
     });
 
-    it('shoud render FeedCarousel component, when showFeedCarousel feature is on', () => {
+    it('should render FeedCarousel component, when feedCarousel feature is enabled', () => {
         expect(wrapper.find(FeedCarouselStub).exists()).to.equal(true);
     });
 
-    it('shoud render Outbrain component, when showOutbrain feature is on', () => {
+    it('should render Outbrain component, when outbrain feature is enabled', () => {
         expect(wrapper.find(OutbrainStub).exists()).to.equal(true);
     });
 
-    it('shoud render RevContent component, when showRevContent feature is on', () => {
+    it('should render RevContent component, when revContent feature is enabled', () => {
         expect(wrapper.find(RevContentStub).exists()).to.equal(true);
     });
 
-    it('should not render collectionRecipeEntities list, when collectionRecipeEntities prop is empty', () => {
+    it('should render MoreFrom component, when showRevContent feature is enabled', () => {
+        expect(wrapper.find(MoreFromStub).exists()).to.equal(true);
+    });
+
+    it('should not render List, when collectionRecipeEntities prop is empty', () => {
         expect(wrapper.find(ListStub).exists()).to.equal(false);
     });
 
@@ -110,16 +120,20 @@ describe('Collection', () => {
             wrapper = shallow(<Collection {...props} />, { context: contextFeatureOffStub });
         });
 
-        it('shoud not render FeedCarousel component, when showFeedCarousel feature is off', () => {
+        it('should not render FeedCarousel component, when FeedCarousel feature is disabled', () => {
             expect(wrapper.find(FeedCarouselStub).exists()).to.equal(false);
         });
 
-        it('shoud not render Outbrain component, when showOutbrain feature is off', () => {
+        it('should not render Outbrain component, when outbrain feature is disabled', () => {
             expect(wrapper.find(OutbrainStub).exists()).to.equal(false);
         });
 
-        it('shoud not render RevContent component, when showRevContent feature is off', () => {
+        it('should not render RevContent component, when revContent feature is disabled', () => {
             expect(wrapper.find(RevContentStub).exists()).to.equal(false);
+        });
+
+        it('should not render MoreFrom component, when moreFrom feature is disabled', () => {
+            expect(wrapper.find(MoreFromStub).exists()).to.equal(false);
         });
     });
 });

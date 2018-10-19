@@ -15,6 +15,7 @@ const itemLists = [
     'data.promoted.items',
     'data.latestTeasers',
     'data.leftHandSide.data',
+    'data.moreFrom.items',
     'data.moreGalleries.data',
     'data.mustread',
     'data.hamburgernavigation',
