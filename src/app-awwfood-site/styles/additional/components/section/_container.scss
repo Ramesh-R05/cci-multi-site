@@ -1,8 +1,9 @@
 .page {
     .page-title-container {
-        max-width: $row-width - 2 * $column-gutter ;
+        max-width: 1024px;
         overflow: auto;
         text-align: center;
+        background: $color-awwfood-white;
 
         @media #{$medium-up} {
             margin-top: $landing-page-module-gutter;
