@@ -91,13 +91,13 @@ resources:
       recipients:
         - "#survivors_outlast_au"
 
-#  # Slack connection
-#  - name: foodnz-deployment-notifications
-#    type: notification                          #required
-#    integration: slack-bauerxcelmedia
-#    pointer:
-#      recipients:
-#        - "#survivors_outlast_au"
+  # Slack connection
+  - name: foodnz-deployment-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#survivors_outlast_au"
 
   # Multi Github repo
   - name: multi-site-repo
@@ -478,52 +478,52 @@ resources:
 # This section is for FOODNZ
 ###########################
 
-#  # FOODNZ Docker Image Options
-#  - name: foodnz-site-opts-sit
-#    type: dockerOptions
-#    version:
-#      memory: 512
-#      memoryReservation: 256
-#      cpuShares: 192
-#      portMappings:
-#        - 0:3001
-#      publishAllPorts : true
-#      logConfig:
-#        type: awslogs
-#        options:
-#          awslogs-group: "app_ecs"
-#          awslogs-region: "ap-southeast-2"
-#          awslogs-stream-prefix: "app-foodnz-site"
-#
-#  # FOODNZ Seed image version MASTER Docker Image
-#  - name: foodnz-site-img-master
-#    type: image
-#    pointer:
-#      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/foodnz-site"
-#    seed:
-#      versionName: latest
-#
-#  # FOODNZ Seed image version feature BRANCH Docker Image
-#  - name: foodnz-site-img-branch
-#    type: image
-#    pointer:
-#      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/foodnz-site"
-#    seed:
-#      versionName: latest
-#
-#  # AWS SIT load Balancer - FOODNZ - MASTER branch
-#  - name: foodnz-site-alb-sit
-#    type: loadBalancer
-#    pointer:
-#      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/foodnz-site-nz-sit/48061bba36a5a85a"
-#      method: application
-#
-#  # AWS SIT load Balancer - FOODNZ - feature BRANCH
-#  - name: foodnz-site-alb-sit-branch
-#    type: loadBalancer
-#    pointer:
-#      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/foodnz-site-nz-branch-sit/a0e9a08fe1f7a366"
-#      method: application
+  # FOODNZ Docker Image Options
+  - name: foodnz-site-opts-sit
+    type: dockerOptions
+    version:
+      memory: 512
+      memoryReservation: 256
+      cpuShares: 192
+      portMappings:
+        - 0:3001
+      publishAllPorts : true
+      logConfig:
+        type: awslogs
+        options:
+          awslogs-group: "app_ecs"
+          awslogs-region: "ap-southeast-2"
+          awslogs-stream-prefix: "app-foodnz-site"
+
+  # FOODNZ Seed image version MASTER Docker Image
+  - name: foodnz-site-img-master
+    type: image
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/foodnz-site"
+    seed:
+      versionName: latest
+
+  # FOODNZ Seed image version feature BRANCH Docker Image
+  - name: foodnz-site-img-branch
+    type: image
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/foodnz-site"
+    seed:
+      versionName: latest
+
+  # AWS SIT load Balancer - FOODNZ - MASTER branch
+  - name: foodnz-site-alb-sit
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/foodnz-site-nz-sit/48061bba36a5a85a"
+      method: application
+
+  # AWS SIT load Balancer - FOODNZ - feature BRANCH
+  - name: foodnz-site-alb-sit-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/foodnz-site-nz-branch-sit/a0e9a08fe1f7a366"
+      method: application
 
 
 ####################################
@@ -644,18 +644,18 @@ resources:
 # FOODNZ
 ##############
 
-#  # Seed Release version
-#  # for Rollback refer to below URL
-#  # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
-#  - name: foodnz-site-version
-#    type: version
-#    seed:
-#      versionName: "1.0.0"  # This can be changed for Roll back
-#
-#  # AWS PROD load Balancer - HB PROD - MASTER branch
-#  - name: foodnz-site-alb-prod
-#    type: loadBalancer
-#    pointer:
-#      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/foodnz-site-nz-prod/98aaa43f377d819f"
-#      method: application
+  # Seed Release version
+  # for Rollback refer to below URL
+  # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
+  - name: foodnz-site-version
+    type: version
+    seed:
+      versionName: "1.0.0"  # This can be changed for Roll back
+
+  # AWS PROD load Balancer - HB PROD - MASTER branch
+  - name: foodnz-site-alb-prod
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/foodnz-site-nz-prod/98aaa43f377d819f"
+      method: application
 

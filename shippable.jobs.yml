@@ -22,8 +22,8 @@ jobs:
       - OUT: hb-site-img-branch
       - OUT: awwfood-site-img-master
       - OUT: awwfood-site-img-branch
-#      - OUT: foodnz-site-img-master
-#      - OUT: foodnz-site-img-branch
+      - OUT: foodnz-site-img-master
+      - OUT: foodnz-site-img-branch
 
   # 2branchAWWFOOD. Manifest for a BRANCH image
   - name: awwfood-site-man-branch
@@ -41,21 +41,21 @@ jobs:
       - IN: awwfood-site-opts-sit
       - TASK: managed
 
-#  # 2branchFOODNZ. Manifest for a BRANCH image
-#  - name: foodnz-site-man-branch
-#    type: manifest
-#    steps:
-#      - IN: foodnz-site-img-branch
-#      - IN: foodnz-site-opts-sit
-#      - TASK: managed
-#
-#  # 2FOODNZ. Manifest for MASTER image
-#  - name: foodnz-site-man-master
-#    type: manifest
-#    steps:
-#      - IN: foodnz-site-img-master
-#      - IN: foodnz-site-opts-sit
-#      - TASK: managed
+  # 2branchFOODNZ. Manifest for a BRANCH image
+  - name: foodnz-site-man-branch
+    type: manifest
+    steps:
+      - IN: foodnz-site-img-branch
+      - IN: foodnz-site-opts-sit
+      - TASK: managed
+
+  # 2FOODNZ. Manifest for MASTER image
+  - name: foodnz-site-man-master
+    type: manifest
+    steps:
+      - IN: foodnz-site-img-master
+      - IN: foodnz-site-opts-sit
+      - TASK: managed
 
   # 2branchGT. Manifest for a BRANCH image
   - name: gt-site-man-branch
@@ -319,42 +319,41 @@ jobs:
       - TASK: managed
         deployMethod: replace
 
-#  # 3BranchFOODNZ. SIT deployment for feature BRANCH
-#  - name: foodnz-site-sit-deploy-branch
-#    type: deploy
-#    always:
-#      - NOTIFY: multi-slack-notifications
-#    steps:
-#      - IN: foodnz-site-man-branch # for non-master, don't auto deploy.
-#        switch: off
-#      - IN: multi-env-sit-ecs
-#      - IN: multi-site-params-sit
-#      - IN: foodnz-site-alb-sit-branch
-#        applyTo:
-#          - manifest: foodnz-site-man-branch
-#            image: foodnz-site-img-branch
-#            port: 3001
-#      - TASK: managed
-#        deployMethod: replace
-#
-#  # 3FOODNZ. SIT deployment for MASTER
-#  - name: foodnz-site-sit-deploy-master
-#    type: deploy
-#    always:
-#      - NOTIFY: multi-slack-notifications
-#    steps:
-#      - IN: foodnz-site-man-master # for master - auto deploy to SIT
-#        switch: on
-#      - IN: multi-env-sit-ecs
-#      - IN: multi-site-params-sit
-#      - IN: foodnz-site-alb-sit
-#        applyTo:
-#          - manifest: foodnz-site-man-master
-#            image: foodnz-site-img-master
-#            port: 3001
-#      - TASK: managed
-#        deployMethod: replace
+  # 3BranchFOODNZ. SIT deployment for feature BRANCH
+  - name: foodnz-site-sit-deploy-branch
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: foodnz-site-man-branch # for non-master, don't auto deploy.
+        switch: off
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: foodnz-site-alb-sit-branch
+        applyTo:
+          - manifest: foodnz-site-man-branch
+            image: foodnz-site-img-branch
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
 
+  # 3FOODNZ. SIT deployment for MASTER
+  - name: foodnz-site-sit-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: foodnz-site-man-master # for master - auto deploy to SIT
+        switch: on
+      - IN: multi-env-sit-ecs
+      - IN: multi-site-params-sit
+      - IN: foodnz-site-alb-sit
+        applyTo:
+          - manifest: foodnz-site-man-master
+            image: foodnz-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: replace
 
   # 4a. Run regression test on TEST environment
   - name: multi-site-automation-test
@@ -422,6 +421,7 @@ jobs:
     - IN: cosmo-site-sit-deploy-master
     - IN: gt-site-sit-deploy-master
     - IN: awwfood-site-sit-deploy-master
+    - IN: foodnz-site-sit-deploy-master
     - IN: multi-site-repo
       switch: off
     - TASK:
@@ -551,21 +551,21 @@ jobs:
     on_success:
       - NOTIFY: awwfood-deployment-notifications
 
-#  # 5FOODNZ. Package release for production release
-#  - name: foodnz-release-master
-#    type: release
-#    dependencyMode: strict
-#    always:
-#    - NOTIFY: multi-slack-notifications
-#    steps:
-#      - IN: multi-site-automation-test
-#      - IN: foodnz-site-smoke-test
-#      - IN: foodnz-site-version
-#      - IN: foodnz-site-man-master
-#        switch: off
-#      - TASK: managed
-#    on_success:
-#      - NOTIFY: foodnz-deployment-notifications
+  # 5FOODNZ. Package release for production release
+  - name: foodnz-release-master
+    type: release
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    steps:
+      - IN: multi-site-automation-test
+      - IN: multi-site-smoke-test
+      - IN: foodnz-site-version
+      - IN: foodnz-site-man-master
+        switch: off
+      - TASK: managed
+    on_success:
+      - NOTIFY: foodnz-deployment-notifications
 
   # 6COSMO. PROD deployment for MASTER COSMO
   - name: cosmo-site-prod-deploy-master
@@ -662,24 +662,24 @@ jobs:
       - TASK: managed
         deployMethod: upgrade
 
-#  # 6FOODNZ. PROD deployment for MASTER FOODNZ
-#  - name: foodnz-site-prod-deploy-master
-#    type: deploy
-#    always:
-#      - NOTIFY: multi-slack-notifications
-#      - NOTIFY: foodnz-deployment-notifications
-#    steps:
-#      - IN: foodnz-release-master
-#        switch: off
-#      - IN: multi-env-prod-ecs
-#      - IN: multi-site-params-prod
-#      - IN: foodnz-site-alb-prod
-#        applyTo:
-#          - manifest: foodnz-site-man-master
-#            image: foodnz-site-img-master
-#            port: 3001
-#      - TASK: managed
-#        deployMethod: upgrade
+  # 6FOODNZ. PROD deployment for MASTER FOODNZ
+  - name: foodnz-site-prod-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: multi-slack-notifications
+      - NOTIFY: foodnz-deployment-notifications
+    steps:
+      - IN: foodnz-release-master
+        switch: off
+      - IN: multi-env-prod-ecs
+      - IN: multi-site-params-prod
+      - IN: foodnz-site-alb-prod
+        applyTo:
+          - manifest: foodnz-site-man-master
+            image: foodnz-site-img-master
+            port: 3001
+      - TASK: managed
+        deployMethod: upgrade
 
   ##############################################
   # Schedule jobs - not attached to the pipeline
