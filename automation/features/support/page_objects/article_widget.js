@@ -75,7 +75,12 @@ var article_widget = {
     imageRevealer: '.content-body .image-revealer',
     imageRevealerLeftImg: '.content-body .image-revealer__left img',
     imageRevealerRightImg: '.content-body .image-revealer__right img',
-    feedCoursel: '.content-body__feed-carousel-content'
+    feedCoursel: '.content-body__feed-carousel-content',
+    moreFromHeading: 'section.more-from .more-from__heading',
+    moreFromTeaserImageLink: 'section.more-from .more-from__teaser-list .teaser__image',
+    moreFromTeaserImage: 'section.more-from .more-from__teaser-list .teaser__image img',
+    moreFromTeaserSubsection: 'section.more-from .more-from__teaser-list .teaser__sub-section',
+    moreFromTeaserTitle: 'section.more-from .more-from__teaser-list .teaser__title a'
 };
 
 module.exports = article_widget;

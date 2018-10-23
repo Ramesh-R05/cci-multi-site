@@ -161,79 +161,79 @@ Feature: Smoke test for all sites in SIT environment
     @smoketestelle
     Scenario Outline: Verify the "<doctype>" page is up on ELLE
         Given I am currently viewing "<doctype>" page on "elle" site
-        Then I should see the long title
+        Then I should see the "<element>" element
         Examples:
-            | doctype       |
-            | article       |
-            | amp gallery   |
+            | doctype       | element       |
+            | article       | long title    |
+            | amp gallery   | long title    |
     @optional
         Examples:
-            | doctype       |
-            | gallery       |
-            | amp article   |
+            | doctype       | element       |
+            | gallery       | long title    |
+            | amp article   | long title    |
 
     @smoketesthb
     Scenario Outline: Verify the "<doctype>" page is up on HB
         Given I am currently viewing "<doctype>" page on "hb" site
-        Then I should see the long title
+        Then I should see the "<element>" element
         Examples:
-            | doctype       |
-            | gallery       |
-            | amp article   |
+            | doctype       | element       |
+            | gallery       | long title    |
+            | amp article   | long title    |
     @optional
         Examples:
-            | doctype       |
-            | article       |
-            | amp gallery   |
+            | doctype       | element       |
+            | article       | long title    |
+            | amp gallery   | long title    |
 
     @smoketestcosmo @optional
     Scenario Outline: Verify the "<doctype>" page is up on COSMO
         Given I am currently viewing "<doctype>" page on "cosmo" site
-        Then I should see the long title
+        Then I should see the "<element>" element
         Examples:
-            | doctype       |
-            | article       |
-            | gallery       |
-            | amp article   |
-            | amp gallery   |
+            | doctype       | element       |
+            | article       | long title    |
+            | gallery       | long title    |
+            | amp article   | long title    |
+            | amp gallery   | long title    |
 
     @smoketestgt
     Scenario Outline: Verify the "<doctype>" page is up on GT
         Given I am currently viewing "<doctype>" page on "gt" site
-        Then I should see the long title
+        Then I should see the "<element>" element
         Examples:
-            | doctype               |
-            | recipe collection     |
-            | amp recipe            |
+            | doctype               | element       |
+            | recipe collection     | long title    |
+            | amp recipe            | long title    |
     @optional
         Examples:
-            | doctype               |
-            | article               |
-            | gallery               |
-            | review                |
-            | recipe                |
-            | amp article           |
-            | amp gallery           |
-            | amp review            |
-            | amp recipe collection |
+            | doctype               | element       |
+            | article               | long title    |
+            | gallery               | long title    |
+            | review                | long title    |
+            | recipe                | long title    |
+            | amp article           | long title    |
+            | amp gallery           | long title    |
+            | amp review            | long title    |
+            | amp recipe collection | long title    |
 
     @smoketestawwfood @awwfoodmobile @awwfooddesktop
     Scenario Outline: Verify the "<doctype>" page is up on AWWFOOD
         Given I am currently viewing "<doctype>" page on "awwfood" site
-        Then I should see the long title
+        Then I should see the "<element>" element
         Examples:
-            | doctype               |
-            | recipe                |
-            | amp recipe collection |
+            | doctype               | element           |
+            | recipe                | more from wwfood  |
+            | amp recipe collection | long title        |
     @optional
         Examples:
-            | doctype               |
-            | article               |
-            | gallery               |
-            | recipe collection     |
-            | amp article           |
-            | amp gallery           |
-            | amp recipe            |
+            | doctype               | element           |
+            | article               | more from wwfood  |
+            | gallery               | more from wwfood  |
+            | recipe collection     | more from wwfood  |
+            | amp article           | long title        |
+            | amp gallery           | long title        |
+            | amp recipe            | long title        |
 
     @smoketestawwfood @awwfoodmobile
     Scenario: Verify the recipe collection page on AWWFOOD

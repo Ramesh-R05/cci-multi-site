@@ -8,6 +8,8 @@ var subsectionName;
 var contentName = {}; //Global Hash variable to collect the value of content name from different doc type e.g. contentName['article'] = 'article-test-xxxx'
 var docTypeID = {}; //Global Hash variable to collect the value of random ID from different doc type e.g. docTypeID['article'] = 'xxxx'
 var docType;
+var isBrowserStack = world.Urls.isBrowserStack;
+var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 var sitUrls = {
     'cosmo': 'http://cosmo-site-au.sit.bxm.net.au/',
     'elle': 'http://elle-site-au.sit.bxm.net.au/',
@@ -377,9 +379,32 @@ module.exports = function() {
         }
     });
 
-    this.Given(/^I should see the long title$/, function () {
-        browser.waitForVisible(wn_article.longTitle, 10000);
-        var longTitle = browser.getText(wn_article.longTitle).toLowerCase();
-        expect(longTitle).not.toBe('');
+    this.Given(/^I should see the "([^"]*)" element$/, function (element) {
+
+        switch(element) {
+            case 'long title':
+                browser.waitForVisible(wn_article.longTitle, 10000);
+                var longTitle = browser.getText(wn_article.longTitle).toLowerCase();
+                expect(longTitle).not.toBe('');
+                break;
+            case 'more from wwfood':
+                scrolling(browser,wn_article.moreFromHeading,isBrowserStack);
+                browser.waitForVisible(wn_article.moreFromHeading, 10000);
+
+                //check teaser elements
+                expect(browser.getText(wn_article.moreFromHeading)).toEqual('More From Women\'s Weekly Food');
+                expect(browser.getAttribute(wn_article.moreFromTeaserImage,'data-srcset')[1]).toContain('.jpg');
+                expect(browser.getText(wn_article.moreFromTeaserSubsection)[0]).not.toBe('');
+
+                //check the links of image and title are the same.
+                var imageLink = browser.getAttribute(wn_article.moreFromTeaserImageLink,'href');
+                var titleLink = browser.getAttribute(wn_article.moreFromTeaserTitle,'href');
+                expect(imageLink[0]).not.toBe('');
+                expect(titleLink[0]).toEqual(imageLink[0]);
+                break;
+            default:
+                throw('Cannot find this "' + element + '" element in this step');
+        }
+
     });
 };
