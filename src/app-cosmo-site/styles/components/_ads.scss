@@ -1,0 +1,119 @@
+// This applies the width and z-index styles to make the wallpaper ad sit correctly behind the content
+
+.gallery__body {
+    z-index: 1;
+    background-color: #fff;
+}
+
+.uniheader {
+    position: relative;
+    z-index: 1;
+}
+
+.header-wrapper {
+    position: initial;
+    z-index: 1;
+}
+
+.page-title-container {
+    position: relative;
+    z-index: 1;
+}
+
+.ad--section-top-leaderboard {
+    @media #{$large-up} {
+        position: relative;
+        z-index: 1;
+        max-width: 1024px;
+        margin: 30px auto;
+    }
+}
+
+.site-wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+    z-index: 0;
+
+    .ad--wallpaper-wrapper {
+        left: calc((100% - 1920px) / 2);
+        width: 100%;
+        z-index: 0;
+        position: fixed;
+        top: $ad-wallpaper-top-mobile;
+    }
+
+    @media #{$medium-up} {
+        &-top-leaderboard {
+            &-90 .ad--wallpaper-wrapper {
+                position: absolute;
+                top: $ad-wallpaper-top-unpinned-90;
+            }
+            &-90-with-page-title .ad--wallpaper-wrapper {
+                position: absolute;
+                top: $ad-wallpaper-top-unpinned-90-with-page-title;
+            }
+            &-250 .ad--wallpaper-wrapper {
+                position: absolute;
+                top: $ad-wallpaper-top-unpinned-250;
+            }
+            &-250-with-page-title .ad--wallpaper-wrapper {
+                position: absolute;
+                top: $ad-wallpaper-top-unpinned-250-with-page-title;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1940px) {
+        &-pinned .ad--wallpaper-wrapper {
+            left: 0;
+        }
+    }
+}
+
+.content-wrapper {
+    z-index: 2;
+    background-color: #FFF;
+}
+
+.page-title {
+    @media #{$large-up} {
+        width: 1024px;
+        background-color: #FFF;
+        z-index: 1;
+        position: relative;
+        margin: auto;
+    }
+}
+
+.footer {
+    margin-top: 0px;
+    max-width: 1024px;
+    background-color: #fff;
+}
+
+.sticky-block {
+    &.sticky-block--in-view {
+        .ad--section-bottom-leaderboard {
+            padding-top: 15px;
+        }
+    }
+
+    &.sticky-block--at-top {
+        bottom: auto;
+        .ad {
+            padding-bottom: 0;
+            @media #{$small-only} {
+                margin-bottom: 0px;
+            }
+            @media #{$medium-only} {
+                margin-bottom: 20px;
+            }
+            @media #{$medium-up} {
+                margin-bottom: 30px;
+            }
+        }
+    }
+    &.sticky-block--at-bottom {
+        top: auto;
+    }
+}
