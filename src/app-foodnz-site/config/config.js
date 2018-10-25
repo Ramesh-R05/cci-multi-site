@@ -9,16 +9,16 @@ import polar from './polar';
 export default {
     ga: { id: 'UA-8689488-1' },
 
-    gtm: { masthead: 'GT', id: 'GTM-P8JPLN' },
+    gtm: { masthead: 'GT', id: 'GTM-P8JPLN' }, // TODO: Check that the masthead is correct
 
-    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/GourmetTraveller/defaultimage.png',
+    defaultImageUrl: 'http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/awwfood/2018/09/03/1535939419920_awwfood-default.png',
 
     brightcove,
 
     gigya: { apiKey: '' },
 
     subscribe: {
-        subscribeHeading: 'Get The Magazine'
+        subscribeHeading: 'Hungry for more?'
     },
 
     features,
@@ -42,19 +42,25 @@ export default {
 
     error: {
         404: {
-            title: "Oops - we're not sure why you ended up here. But at least there's a view.",
+            title: "Whoops, seems we couldn't find the page you were looking for. But we did find this cake.",
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.png',
             returnHomeText: 'Try refreshing this page or join us back on the <span class="error-page__text-hyperlink">homepage</span>.'
         },
         503: {
-            title: "Oops - we're not sure why you ended up here. But at least there's a view.",
+            title: "Whoops, seems we couldn't find the page you were looking for. But we did find this cake.",
             symbol: null,
             content: [''],
             emojiSrc: '/assets/images/error.png',
             returnHomeText: 'Try refreshing this page or join us back on the <span class="error-page__text-hyperlink">homepage</span>.'
         }
+    },
+
+    alternativeTitleMap: {
+        article: 'Kitchen Tips',
+        recipecollection: 'Best Of',
+        recipes: 'Recipe'
     },
 
     polar,
@@ -67,31 +73,27 @@ export default {
         },
 
         socialUrls: {
-            facebook: 'https://www.facebook.com/gourmettraveller',
-            twitter: 'https://twitter.com/GourmetTweets',
-            instagram: 'https://www.instagram.com/gourmettraveller/',
-            pinterest: 'https://www.pinterest.com.au/gourmetpins/',
-            'gift-card': 'gift-card'
+            facebook: 'https://www.facebook.com/womensweeklyfood/',
+            instagram: 'https://www.instagram.com/womensweeklyfood/',
+            pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
         },
 
-        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kf/signup-gourmettraveller-article-iframe-bottom'
+        newsletterSignupInBodyCopy: '' // Not used on WWFood
     },
 
     // Used for the magazine image (not the one in the footer)
     product: {
-        id: 'gt',
+        id: 'awwfood',
         title: '',
         magazineTitle: '',
         socialLinks: {
-            facebook: 'https://www.facebook.com/gourmettraveller',
-            twitter: 'https://twitter.com/GourmetTweets',
-            instagram: 'https://www.instagram.com/gourmettraveller/',
-            pinterest: 'https://www.pinterest.com.au/gourmetpins/',
-            'gift-card': 'gift-card'
+            facebook: 'https://www.facebook.com/womensweeklyfood/',
+            instagram: 'https://www.instagram.com/womensweeklyfood/',
+            pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
         },
         newsletterTitle: 'Get the newsletter',
-        newsletterText: 'The latest news, restaurant reviews, recipes and travel inspiration, straight to your inbox',
-        newsletterUrl: 'https://www.gourmettraveller.com.au/gt-newsletter',
+        newsletterText: 'Subscribe to receive triple-tested recipes, expert cooking tips, food inspiration, and exclusive offers.',
+        newsletterUrl: 'https://www.womensweeklyfood.com.au/womensweeklyfood-newsletter', // to update
         subscribeButtonText: 'Subscribe',
         subscribeButtonUrl: '/subscribe-magazine',
         imageSizes: {
@@ -99,7 +101,21 @@ export default {
             m: { w: 275 },
             l: { w: 275 },
             xl: { w: 275 }
-        }
+        },
+        footerSubscribeButtonText: [
+            {
+                url: '/wwf',
+                text: `Subscribe to Women's Weekly Food`
+            },
+            {
+                url: '/australian-womens-weekly',
+                text: 'Subscribe to The Weekly'
+            },
+            {
+                url: '/aww-cookbooks',
+                text: 'Browse all cookbooks'
+            }
+        ]
     },
 
     brands: {
@@ -159,9 +175,21 @@ export default {
         }
     },
     outbrain: {
-        templateId: "Harper'sBazaarAU",
+        templateId: 'Foodtolove',
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
-    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708'
+    nielsen: '69335BF5-94E8-4D8B-B7DB-99D54705A524',
+    sailthru: {
+        list: 'master_foodtolove',
+        vars: {
+            list_foodtolove_newsletter: '1',
+            list_foodtolove_solus: '1'
+        },
+        source: {
+            sidebar: 'wwf_website_sidebar',
+            contentPage: 'wwf_website_content_bottom'
+        }
+    },
+    navItemsToExcludeUrlList: ['In The Test Kitchen']
 };

@@ -1,0 +1,17 @@
+.alert-box {
+    border-color: $color-awwfood-gold;
+    color: darken($color-awwfood-gold, 20%);
+
+    &.success {
+        margin-top: 10px;
+
+        @media #{$medium-up} {
+            margin-top: $landing-page-module-gutter;
+        }
+    }
+
+    &.alert {
+        margin-bottom: 8px;
+        background-color: lighten($color-awwfood-gold, 20%);
+    }
+}

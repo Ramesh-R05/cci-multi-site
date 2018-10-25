@@ -1,10 +1,18 @@
 .content-body {
 
+    @include full-width;
+    @include content-body-component;
+    box-shadow: $panel-shadow;
+
     li {
-        margin-bottom: 5px;
+        padding-bottom: 15px;
+        color: $color-text;
+        margin-bottom: 0;
+        @include type-text;
     }
 
     &-container {
+        @include mobile-padding-collapse;
         margin-top: $article-gap;
 
         & + .newsletter-signup-wrapper {
@@ -19,49 +27,63 @@
     }
 
     p {
-        margin-top: $article-gap/4;
-        margin-bottom: $article-gap/2;
+        @include content-body-component;
+        padding-bottom: 0;
+        margin: 0;
+
+        &.content-body__paragraph:last-child {
+            padding-bottom: $article-padding;
+        }
+    }
+
+    h2 {
+        @include type-article-heading;
+        @include content-body-component;
+        margin-top: 0;
+        padding-bottom: 0;
     }
 
     &__heading {
+        @include type-article-heading;
+        @include content-body-component;
+        @include full-width;
+        position: relative;
+        
+        @media #{$large-up} {
+            width: 100%;
+        }
+
         h2 {
-            @include type-article-heading;
-            margin-top: $article-gap;
-            margin-bottom: 0;
-            padding-top: 0;
+            @include content-body-component;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+        
+        & + .content-body {
+            margin-top: -1 * $article-gap;
+            box-shadow: $panel-shadow;
         }
     }
 
     &__inline-image {
+        box-shadow: $panel-shadow;
         margin-top: $article-gap;
         margin-bottom: 0;
 
         figure figcaption {
-            @include caption {
-                color: $color-gt-grey-2;;
-            }
+            @include img-caption-style;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        
+        picture {
             display: block;
-            position: relative;
-            background-color: transparent;
-            padding-left: 0;
-            padding-right: 0;
-            padding-top: $article-gap/3;
-            padding-bottom: calc(#{$article-gap/3} + 8px);
-
-            &:after {
-                content: '';
-                position: absolute;
-                background-color: $color-gt-black-1;
-                display: block;
-                width: 24px;
-                height: 8px;
-                bottom: 0;
-                left: 0;
+            @media #{$medium-up} {
+                padding: $article-padding;
+                background-color: $color-white;
             }
-
-            a {
-                @include type-link;
-                text-decoration: underline;
+            img {
+                width: 100%;
             }
         }
 
@@ -71,40 +93,44 @@
     }
 
     &__related-content {
+        margin-top: $article-gap;
+        margin-bottom: 0;
+        padding: 0;
         border: 0px solid $line-color;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
-        margin: $article-gap 0 0;
-        margin-left: -($column-gutter/2);
-        width: calc(100% + #{$column-gutter});
-        text-align: left;
-        padding-bottom: 40px;
+        border-top: none;
+        border-bottom: none;
 
         @media #{$large-up} {
             text-align: center;
-            border-left-width: 1px;
-            border-right-width: 1px;
+            border-left: none;
+            border-right: none;
             margin-left: 0;
             margin-right: 0;
             width: auto;
         }
 
         .related-content-wrapper {
-            padding-top: 15px;
-            padding-left: $column-gutter/2;
-            padding-right: $column-gutter/2;
+            @include content-body-component;
+            box-shadow: $panel-shadow;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .related-content-items {
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .related-content__heading {
-            font-family: $font-family-sans-serif-light;
-            font-size: 17px;
-            letter-spacing: 0.05em;
-            font-weight: 600;
+            @include content-body-section-heading-style;
+            margin-top: 0;
+            margin-bottom: -1 * $article-gap;
         }
 
         .feed-item {
             .feed-item__source,
             .feed-item__body-title {
+                @include type-text-light;
                 letter-spacing: .03em;
                 text-align: left;
                 text-decoration: none;
@@ -119,36 +145,44 @@
     &__gallery-link {
         margin-top: $article-gap;
         margin-bottom: 0;
-    }
+        transition: opacity .3s ease;
+        a  {
+            text-decoration: none; 
+        }
 
-    &__gallery-link-caption {
-        -webkit-font-smoothing: auto;
-        background-color: #000;
-        color: $color-grey-light;
-        position: static;
-        margin-left: 0;
-        margin-right: 0;
-        padding-top: 18px;
-        padding-bottom: 20px;
-
-        @media #{$medium-up} {
-            width: 100%;
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: .9;
         }
     }
 
+    &__gallery-link-caption {
+        @include img-caption-style;
+        width: 100%;
+        bottom: 0;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $color-awwfood-gold;
+        }
+    }
+
+    &__gallery-link-category {
+        @extend .type-header-secondary;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
     &__gallery-link-title {
-        color: $color-grey-light;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 16px;
-        padding-top: 3px;
+       @include caption;
     }
 
     &__tips {
-        margin-top: $article-gap;
-        margin-bottom: 0;
+        @include content-body-component;
+        box-shadow: $panel-shadow;
         font-family: $font-text;
-        border: 1px solid $color-gt-black-1;
+        border: 1px solid $color-awwfood-black;
         padding: 0;
 
         p {
@@ -156,17 +190,40 @@
         }
 
         @media #{$medium-up} {
-            @include content-body-width();
             margin-top: $article-gap;
             margin-bottom: 0;
-        }
-
-        @media #{$large-up} {
-            width: 100%;
         }
 
         .tips {
             padding: 20px;
         }
+    }
+    &__embed {
+        @include full-width;
+        margin-bottom: 0;
+    }
+    &__competition,
+    &__embed--facebook,
+    &__embed--giphy,
+    &__embed--playbuzz,
+    &__embed--instagram,
+    &__embed--twitter,
+    &__embed--pinterest,
+    &__embed--wirewax,
+    &__embed-video-container {
+        box-shadow: $panel-shadow;
+        @include content-body-component;
+    }
+
+    &__inline-image,
+    &__embed--giphy {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .image-revealer,
+    &__embed-video {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }

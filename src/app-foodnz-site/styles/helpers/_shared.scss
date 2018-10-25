@@ -1,0 +1,101 @@
+@mixin content-body-component($paddingH: $article-padding, $paddingV: $article-padding) {
+    margin-top: $article-gap;
+    background-color: $color-white;
+    padding-left: $paddingH;
+    padding-right: $paddingH;
+    padding-top: $paddingV;
+    padding-bottom: $paddingV;
+    margin-bottom: 0;
+}
+
+@mixin inline-img-style {
+    margin-top: $article-gap;
+    background-color: $color-white;    
+    margin-bottom: 0;
+    padding-bottom: $article-padding;
+    padding-top: 0;
+    @media #{$medium-up} {
+        padding-top: $article-padding;
+        padding-left: $article-padding;
+        padding-right: $article-padding;
+    }
+}
+
+@mixin head-content-details-style($paddingTop: $article-padding) {
+    background-color: $color-white;
+    padding-top: $paddingTop;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: block;
+}
+
+@mixin full-width {
+    width: 100%;
+
+    @media #{$medium-up} {
+        width: 100%;
+    }
+
+    @media #{$large-up} {
+        width: 100%;
+    }
+}
+
+@mixin mobile-padding-collapse($largeScreenWidth: 100%) {
+    margin-left: -1 * $article-padding;
+    margin-right: -1 * $article-padding;
+    width: calc(100% + #{2 * $article-padding});
+
+    @media #{$medium-up} {
+        margin-left: 0;
+        margin-right: 0;
+        width: $largeScreenWidth;
+    }
+}
+
+@mixin img-caption-style() {
+    @include caption {
+        color: $color-text;
+    }
+
+    display: block;
+    position: relative;
+    background-color: $color-heading-bg;
+    color: $color-white;
+    padding-top: $article-padding / 2;
+    padding-left: $article-padding;
+    padding-right: $article-padding;
+    padding-bottom: $article-padding / 2;
+    text-align: left;
+
+    @media #{$medium-up} {
+        border-bottom-right-radius: $article-padding;
+        border-bottom-left-radius: $article-padding;
+    }
+
+    a {
+        @include type-link;
+        color: inherit;
+        text-decoration: underline;
+        font-size: inherit;
+        line-height: inherit;
+
+        @media #{$medium-up} {
+            font-size: inherit;
+            line-height: inherit;
+        }
+    }
+}
+
+@mixin disable_text_highlighting {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;     
+    -o-user-select: none;
+    user-select: none;  
+}
+
+.disable_text_highlighting {
+    @include disable_text_highlighting;
+}

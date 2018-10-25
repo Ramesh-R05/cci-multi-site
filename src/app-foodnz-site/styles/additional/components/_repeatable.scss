@@ -1,13 +1,18 @@
 .repeatable-component {
     
+    margin-top: $landing-page-module-gutter;
+
+    @media #{$large-up} {
+        margin-top: $landing-page-module-gutter;
+    }
+
     .button--load-more {
         margin-bottom: 0;
     }
 
     .container {
-        
         &:last-child {
-            margin-bottom: 30px;
+            margin-bottom: $landing-page-module-gutter;
         }
     }
 }

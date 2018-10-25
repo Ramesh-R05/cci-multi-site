@@ -1,0 +1,146 @@
+.recipe-details {
+    background-color: $color-white;
+    box-shadow: $panel-shadow;
+
+    &.row {
+        @media #{$medium-up} {
+            margin-top: 2 *  $article-gap;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    .recipe-notes {
+
+        h3 {
+            background: none;
+            color: $color-black;
+            width: 48px;
+            margin-left: 5px;
+            padding-left: 0;
+            padding-bottom: 3px;
+            border-bottom: 2px solid #b6956a;
+        }
+    }
+
+    h3 {
+        @include type-header;
+        background-color: $color-heading-bg;
+        padding-top: $article-padding / 2;
+        padding-bottom: $article-padding / 2;
+        padding-left: $article-padding;
+        padding-right: $article-padding;
+        line-height: 1;
+        display: block;
+        width: calc( 100% + #{2 * $article-padding} );
+        color: $color-white;
+        font-size: 18px;
+        line-height: 26px;
+        border-bottom: none;
+        margin-bottom: 0;
+        margin-left: -1 * $article-padding;
+        margin-right: -1 * $article-padding;
+        text-transform: capitalize;
+
+        @media #{$medium-up} {
+            margin-top: -1 *  $article-gap;
+            margin-bottom: $article-gap / 2;
+            border-top-left-radius: $article-padding / 2;
+            border-top-right-radius: $article-padding / 2;
+        }
+    }
+
+    ul {
+        li {
+            @include type-text;
+            padding-bottom: 15px;
+            color: $color-text;
+        }
+    }
+}
+
+.recipe-ingredients,
+.recipe-method,
+.recipe-notes {
+    &__heading {
+        @include type-header-secondary;
+        padding-top: $article-padding;
+    }
+}
+
+.recipe-notes {
+    @media #{$medium-up} {
+        margin-top: 2 * $article-gap;
+    }
+
+    &__content {
+        padding-top: $article-padding;
+    }
+}
+
+.recipe-method {
+
+    h3 {
+        @media #{$medium-up} {
+            border-top-left-radius: 0;
+        }
+    }
+
+    &__list--item {
+
+        &-left {
+            top: 1px;
+        }
+
+        &-right {
+            @include type-text;
+        }
+
+        div span {
+            @include type-number;
+        }
+    }
+}
+
+.recipe-ingredients {
+    h3 {
+        @media #{$medium-up} {
+            border-top-right-radius: 0;
+        }
+    }
+}
+
+.recipe[data-recipe-source="Australian Women's Weekly"] .article__main-hero-image picture:before,
+.hero-wrapper[data-recipe-source="Australian Women's Weekly"] .hero-teaser picture:before {
+    content: ' ';
+    background: url('/assets/images/triple-tested.svg') transparent center/cover;
+    display: block;
+    position: absolute;
+    width: 48px;
+    height: 89px;
+    top: 15px;
+    right: 25px;
+
+    @media #{$medium-up} {
+        width: 55px;
+        height: 102px;
+    }
+}
+
+.recipe[data-recipe-source="Australian Women's Weekly"] .article__main-hero-image picture:before {
+    @media #{$medium-up} {
+        right: 45px;
+    }
+}
+
+.hero-wrapper[data-recipe-source="Australian Women's Weekly"] {
+    .teaser__image {
+        display: block;
+        position: relative;
+    }
+    .hero-teaser picture:before {
+        @media #{$medium-up} {
+            top: 0;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+/**** 
+  this is where styling for external embedded scripts that inejct HTML
+  use a modifier to denote the type
+
+  .external-embed--embed-title {}
+****/
+
+.external-embed {
+  &--outbrain {
+    padding-top: 35px;
+  }
+}

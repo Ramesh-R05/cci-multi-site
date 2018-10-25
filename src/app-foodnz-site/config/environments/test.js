@@ -1,5 +1,5 @@
 import brightcove from '../brightcove';
-const playerId = '9d8a1e14-2673-43d9-9260-6ff50b059ad9';
+const playerId = 'VkuyApojl';
 
 export default {
     brightcove: {
@@ -16,7 +16,7 @@ export default {
         host: 'http://automation.hb-site.bauer-media.net.au/'
     },
     polar: {
-        propertyId: 'NA-HARPSBAZACONTPROM-11238618'
+        propertyId: 'NA-WOMEWEEKFOOD-11239342'
     },
     ads: {
         iasAds: false

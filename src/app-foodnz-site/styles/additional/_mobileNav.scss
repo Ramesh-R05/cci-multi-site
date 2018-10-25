@@ -2,8 +2,7 @@
     font-size: 20px;
 
     a:hover {
-        color: $color-white;
-        font-weight: bold;
+        color: lighten($color-awwfood-gold, 30%);
     }
 
     &::after {
@@ -13,8 +12,9 @@
     }
 
     .nav-item {
+        @extend .disable_text_highlighting;
         color: $color-white;
-        text-transform: uppercase;
+        text-transform: capitalize;
         letter-spacing: 0.02em;
         padding: 8px 0;
         font-size: 16px;
@@ -24,9 +24,12 @@
             font-size: 20px;
         }
 
+        &--default-cursor {
+            cursor: default;
+        }
+
         &--active {
             color: $color-white;
-            font-weight: bold;
         }
     }
 
@@ -37,7 +40,6 @@
             li {
                 max-width: 90%;
                 padding-bottom: 8px;
-                border-bottom: 1px solid white;
 
                 @media #{$medium-up} {
                     max-width: 220px;
@@ -45,7 +47,7 @@
 
                 a {
                     font-style: normal;
-                    text-transform: uppercase;
+                    text-transform: capitalize;
                 }
             }
         }
@@ -56,9 +58,15 @@
 
     &:before {
         content: 'More from the To Love Network';
-        font-family: 'PlayfairDisplay-Bold', sans-serif;
-        color: $color-white;
-        font-size: 16px;
+        font-family: 'AbrilFatface-Regular';
+        color: rgba($color-awwfood-light, 0.33);
+        font-size: 18px;
+        letter-spacing: 1px;
+        height: auto;
+
+        @media #{$small-only} {
+            margin: 25px 0px 20px;
+        }
     }
 
     li:nth-child(5) {
@@ -72,12 +80,15 @@
 }
 
 .off-canvas {
-    background-color: $color-black-origin;
+    background-color: $color-primary;
 }
 
 .off-canvas-content-wrapper {
 
     svg {
         fill: $color-white;
+        &:hover {
+            fill: lighten($color-awwfood-gold, 30%);
+        }
     }
 }

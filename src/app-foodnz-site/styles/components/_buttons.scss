@@ -1,24 +1,27 @@
 // Base button styles
 
 .button {
-    background-color: $color-button;
-    border: 2px solid $color-button;
-    border-radius: 0;
-    color: $color-white;
+    background-color: $color-awwfood-gold;
+    border: none;
+    outline: none;
+    border-radius: 26px;
+    color: $color-button;
     display: inline-block;
-    font: 400 13px $font-family-sans-serif-light;
-    letter-spacing: normal;
-    min-height: 52px;
+    font: 600 11px Nunito-Regular;
+    letter-spacing: 3px;
+    height: 52px;
     padding: 0 33px;
     text-transform: uppercase;
+    white-space: nowrap;
+    transition: background $transition-duration ease-in-out;
 
     &:not(:disabled):not(.disabled) {
         &:hover,
         &:focus {
             background-color: $color-button-hover;
-            border-color: $color-button-hover;
             outline: none;
             text-decoration: none;
+            color: $color-white;
         }
     }
 
@@ -92,22 +95,29 @@
         }
     }
 
-    &.back-to-top {
-        background-color: $color-black-origin;
-    }
-
     &--link {
         padding-top: 17px;
     }
 
     &--subscribe {
-        transition: background $transition-duration ease-in-out, border-color $transition-duration ease-in-out;
-
         &:hover,
         &:focus,
         &:active,
         &.active {
             text-decoration: none;
+        }
+
+        .footer & {
+            padding: {
+                left: 0;
+                right: 0;
+            }
+            width: 100%;
+            letter-spacing: .8px;
+        }
+
+        &--multiple {
+            margin-top: 10px;
         }
     }
 }

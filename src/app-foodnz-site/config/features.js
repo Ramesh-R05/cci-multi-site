@@ -81,6 +81,15 @@ export default {
         }
     },
     giftCard: {
+        enabled: false
+    },
+    summary: {
+        enabled: true
+    },
+    curatedHeroTeaser: {
+        enabled: true
+    },
+    alternativeTitle: {
         enabled: true
     },
     navigationSubSectionDropdown: {
@@ -90,9 +99,9 @@ export default {
         enabled: true,
         id: 'm8frgflsxh',
         pixels: [
-            { ca: '10034218', a: 'yp0d3p0a' }, // GT pixel
+            { ca: '20002950', a: 'jmtr1l0t' }, // Site pixel
             { ca: '20001092', a: 'jmtr1l0t' }, // Rollup pixel
-            { ca: '20002303', a: 'qv7034ra' }, // Luxury pixel
+            { ca: '20002302', a: '0j16fz4d' }, // To Love pixel
             { ca: '20002304', a: '30tp4z58' } // Women's sites pixel
         ]
     },
@@ -103,8 +112,26 @@ export default {
     search: {
         enabled: true
     },
+    showRecipeSourceAsAttribute: {
+        enabled: true
+    },
     ias: {
         enabled: true,
         id: 926929
+    },
+    moreFrom: {
+        enabled: true,
+        title: "More From Women's Weekly Food",
+        options: {
+            showTeaserLink: true,
+            showSubSection: true,
+            showTeaserSummary: false,
+            imageSizes: {
+                s: { w: 690, h: 388 },
+                m: { w: 486, h: 404 },
+                l: { w: 624, h: 518 },
+                xl: { w: 368, h: 306 }
+            }
+        }
     }
 };

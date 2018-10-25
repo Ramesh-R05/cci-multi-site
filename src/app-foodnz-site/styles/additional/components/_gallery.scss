@@ -1,6 +1,17 @@
 .gallery {
+
+    &-section {
+        .article__hero-container {
+            margin-top: 0;
+        }
+
+        .article__title {
+            margin-top: 0px;
+        }
+    }
+
     &__ad {
-        margin-top: 0px;
+        margin-top: $article-gap;
         margin-bottom: 0px;
     }
 
@@ -27,14 +38,15 @@
     }
 
     &__feed {
-        &-item--ad,
+
+        &-item--video,
         &-item--image {
-            margin-bottom: $article-gap;
+            @include inline-img-style;
+            box-shadow: $panel-shadow;
         }
     }
 
     &__item {
-
         &-count {
             margin-bottom: 15px;
             display: inline-block;
@@ -49,6 +61,15 @@
         &-total {
             @include type-header;
             font-size: 20px;
+        }
+        
+        &-content {
+            margin-left: $article-padding;
+            margin-right: $article-padding;
+            @media #{$medium-up} {
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
     }
 
@@ -200,6 +221,10 @@
             }
        }
 
+    }
+
+    &-container {
+        @include mobile-padding-collapse;
     }
 
     .content-body a {
