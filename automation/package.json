@@ -31,6 +31,7 @@
     "smoketest:gt": "bash -c \"APP_KEY=gt-site ./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestgt,@smoketestlocal\"",
     "smoketest:awwfood": "bash -c \"APP_KEY=awwfood-site ./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestawwfood,@smoketestlocal\"",
     "smoketest:foodnz": "bash -c \"APP_KEY=foodnz-site ./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestfoodnz,@smoketestlocal\"",
+    "test:perf": "mocha --require babel-polyfill --require babel-register --reporter spec --recursive perf/lighthouse-tests.js ",
     "single": "bash -c \"./node_modules/.bin/chimp chimp.js $NODE_DEBUG_OPTION --jsonOutput=reports/regression.json\"",
     "once": "npm run single",
     "html_report": "bash -c \"node generate_html.js\"",
@@ -47,7 +48,7 @@
     "shippable:test": "export APP_KEY=elle-site && npm run test:high"
   },
   "dependencies": {
-    "@bxm/automation": "^6.6.0"
+    "@bxm/automation": "^7.0.0"
   },
   "devDependencies": {
     "he": "^1.1.1"
