@@ -67,6 +67,9 @@ module.exports = function() {
             case 'gt-site':
                 cmsSectionID = '5276'; //Travel > Destinations
                 break;
+            case 'awwfood-site':
+                cmsSectionID = '1191'; //Recipes
+                break;
             default:
                 cmsSectionID = '1175'; //Those three sites have this ID as a section.
         }

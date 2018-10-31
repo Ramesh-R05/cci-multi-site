@@ -1,8 +1,8 @@
-@cms
 Feature: CMS Smoke Test
     As an editor
     I should be able to use CMS to create and update content
 
+    @cms
     Scenario: Create the Article item
         Given I am logging in CMS
         When I am currently viewing the create form
@@ -30,6 +30,7 @@ Feature: CMS Smoke Test
         * I should be able to visit the live URL
         * I should see the amp page is active
 
+    @cms
     Scenario: Validate the link in the body paragraph
         Given I am logging in CMS
         When I am currently viewing the create form
@@ -49,6 +50,7 @@ Feature: CMS Smoke Test
             | [URL with target and rel](http://test.com\|target="_blank"\|rel="nofollow")|
         * I should be able to publish the item
 
+    @cms
     Scenario: Create the Gallery item
         Given I am logging in CMS
         When I am currently viewing the create form
@@ -75,7 +77,7 @@ Feature: CMS Smoke Test
         * I should be able to visit the live URL
         * I should see the amp page is inactive
 
-    @gtcms
+    @gtcms @awwfoodcms
     Scenario: Create the Recipe item
         Given I am logging in CMS
         When I am currently viewing the create form
