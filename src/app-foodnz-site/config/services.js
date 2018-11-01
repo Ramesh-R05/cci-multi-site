@@ -7,12 +7,13 @@ export default {
         sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/awwfood',
         tag: 'http://services.sit.bxm.internal/tag/v1/awwfood',
         search: 'http://services.sit.bxm.internal/es-search/v1/awwfood',
-        alltagsections: 'http://services.sit.bxm.internal/entity/v1/awwfood/alltagsections'
+        identity: 'https://dev.dmp.bauer-media.net.au/api/identity'
     },
     endpoints: {
         page: '/api/getPageContent',
         list: '/api/list',
-        search: '/api/search'
+        search: '/api/search',
+        identity: '/api/identity'
     },
     header: {
         url: 'https://d38h2iiydertbj.cloudfront.net/header/prod/globalheader.json'

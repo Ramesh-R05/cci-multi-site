@@ -46,6 +46,14 @@ AdStub.pos = {
     panel: 'panel'
 };
 
+const emailLinkTrackingMock = {
+    event: 'user_linked_from_email',
+    bauer_global_unique_id: 'SBKOJmETMCgmErCswcfVaI9pzo6hgyrb1IRVDX7nRKw=',
+    source: 'Sailthru',
+    campaign: 'BASE WELCOME template',
+    medium: 'email'
+};
+
 describe('Page Container', () => {
     const siteName = 'Dolly';
     const brandStubData = {
@@ -146,6 +154,10 @@ describe('Page Container', () => {
 
         getMagazineText() {
             return '';
+        },
+
+        getEmailLinkTrackingData() {
+            return emailLinkTrackingMock;
         }
     });
 
@@ -164,6 +176,7 @@ describe('Page Container', () => {
         };
 
         before(() => {
+            window.dataLayer = { push: sinon.stub() };
             reactModule = Context.mountComponent(PageWrapper, props, [contextConfigStub]);
             currentInstance = TestUtils.findRenderedComponentWithType(reactModule, reactModuleInstance);
             offCanvas = TestUtils.findRenderedComponentWithType(reactModule, OffCanvasStub);
@@ -184,6 +197,10 @@ describe('Page Container', () => {
         it(`should render with className "page ${props.className}"`, () => {
             const comp = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, `page ${props.className}`);
             expect(ReactDOM.findDOMNode(comp[0])).to.exist;
+        });
+
+        it('should push emailTrackingData to datalayer when component mounts', () => {
+            expect(window.dataLayer.push).to.be.calledWith(emailLinkTrackingMock);
         });
 
         it(`should render a wrapped element inside a className ${props.menuClasses}`, () => {

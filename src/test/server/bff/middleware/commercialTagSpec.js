@@ -40,7 +40,7 @@ describe('CommercialTag middleware', () => {
                 locals: {
                     config: {
                         site: { prefix: 'awwfood' },
-                        services: { remote: { alltagsections: 'whatever url' } }
+                        services: { remote: { entity: 'whatever url' } }
                     }
                 }
             }

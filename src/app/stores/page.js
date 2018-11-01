@@ -81,6 +81,10 @@ export default createReducerStore({
                 searchDescribeText,
                 searchTagsDetails
             };
+        },
+
+        getEmailLinkTrackingData(state) {
+            return state.emailLinkTrackingData;
         }
     }
 });

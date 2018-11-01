@@ -48,12 +48,6 @@ class Application extends Component {
         executeAction: PropTypes.func
     };
 
-    componentDidMount() {
-        // Temp added here due to unforeseen update of versions when updating react.
-        // This loads <picture> element in older browsers and IE
-        require('picturefill');
-    }
-
     shouldComponentUpdate(nextProps) {
         return !!nextProps.isNavigateComplete;
     }

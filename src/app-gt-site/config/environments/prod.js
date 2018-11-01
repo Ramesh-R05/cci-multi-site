@@ -22,7 +22,8 @@ export default {
             module: 'http://services.prod.bxm.internal/module/v1/gt',
             sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/gt',
             tag: 'http://services.prod.bxm.internal/tag/v1/gt',
-            search: 'http://services.prod.bxm.internal/es-search/v1/gt'
+            search: 'http://services.prod.bxm.internal/es-search/v1/gt',
+            identity: 'https://live.dmp.bauer-media.net.au/api/identity'
         },
         redirect: {
             url: 'http://services.prod.bxm.internal/redirect/v1/gt/301'

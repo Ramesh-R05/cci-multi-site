@@ -5,7 +5,8 @@ export const initialState = {
     title: '',
     magazineImageUrl: '',
     magCover: {},
-    comScoreSegmentIds: ''
+    comScoreSegmentIds: '',
+    emailLinkTrackingData: null
 };
 
 export function reducer(state = initialState, payload = {}, eventName = '') {
@@ -17,8 +18,11 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             const footer = payload.body.footer || {};
             const subsections = payload.body.subsectionList;
             const comScoreSegmentIds = payload.body.comScoreSegmentIds;
+            const emailLinkTrackingData = payload.body.emailLinkTrackingData;
 
-            if (!entity) return state;
+            if (!entity) {
+                return state;
+            }
 
             return {
                 error: null,
@@ -35,7 +39,8 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
                 theme: payload.body.theme,
                 magCover: payload.body.magCover,
                 subsections,
-                comScoreSegmentIds
+                comScoreSegmentIds,
+                emailLinkTrackingData
             };
         }
 

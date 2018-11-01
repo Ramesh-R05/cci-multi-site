@@ -9,10 +9,10 @@ export default function loadPageContent(context, payload) {
     }
     const args = {
         ...params,
+        ...query,
         hostname: navigate.hostname,
         url,
-        path,
-        pageNo: query.pageNo
+        path
     };
 
     return pageService.read(args).then(

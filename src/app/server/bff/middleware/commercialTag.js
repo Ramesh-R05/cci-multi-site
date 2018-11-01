@@ -3,14 +3,20 @@ import tagsToQuery from '../helper/tagsToQuery';
 import logger from '../../../../logger';
 export default async function commercialTag(req, res, next) {
     try {
-        const sitePrefix = req.app.locals.config.site.prefix;
+        const {
+            config: {
+                services: { remote: entity },
+                site: { prefix }
+            }
+        } = req.app.locals;
+
         req.data = req.data || {};
-        req.data.isFoodSite = ['awwfood', 'foodnz'].includes(sitePrefix.toLowerCase());
+        req.data.isFoodSite = ['awwfood', 'foodnz'].includes(prefix.toLowerCase());
         if (!req.data.isFoodSite) {
             next();
             return;
         }
-        const allCommercailSectionTags = await makeRequest(req.app.locals.config.services.remote.alltagsections);
+        const allCommercailSectionTags = await makeRequest(`${entity}/alltagsections/`);
 
         if (!allCommercailSectionTags || !Array.isArray(allCommercailSectionTags) || !allCommercailSectionTags.length) {
             next();

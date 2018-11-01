@@ -25,7 +25,8 @@ function mapStateToProps(context) {
         magCoverImageUrl: PageStore.getMagazineImageUrl(),
         magCoverText: PageStore.getMagazineText(),
         searchMagCover: NavigationStore.getMagCover(),
-        isSearchPage: NavigationStore.isSearchPage()
+        isSearchPage: NavigationStore.isSearchPage(),
+        emailLinkTrackingData: PageStore.getEmailLinkTrackingData()
     };
 }
 
@@ -54,7 +55,13 @@ export default class Page extends Component {
         searchMagCover: PropTypes.object,
         isSearchPage: PropTypes.bool,
         magCoverImageUrl: PropTypes.string,
-        magCoverText: PropTypes.string
+        magCoverText: PropTypes.string,
+        emailLinkTrackingData: PropTypes.shape({
+            bauer_global_unique_id: PropTypes.string,
+            source: PropTypes.string,
+            campaign: PropTypes.string,
+            medium: PropTypes.string
+        })
     };
 
     static contextTypes = {
@@ -69,8 +76,21 @@ export default class Page extends Component {
         searchMagCover: {},
         isSearchPage: false,
         magCoverImageUrl: '',
-        magCoverText: ''
+        magCoverText: '',
+        emailLinkTrackingData: null
     };
+
+    componentDidMount() {
+        const { emailLinkTrackingData } = this.props;
+
+        // eslint-disable-next-line no-unused-expressions
+        emailLinkTrackingData &&
+            window &&
+            window.dataLayer &&
+            window.dataLayer.push({
+                ...emailLinkTrackingData
+            });
+    }
 
     toggleMenu = () => {
         this.props.toggleSideMenu('left');

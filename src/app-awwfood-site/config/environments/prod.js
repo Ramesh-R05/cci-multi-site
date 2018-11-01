@@ -23,7 +23,7 @@ export default {
             sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/awwfood',
             tag: 'http://services.prod.bxm.internal/tag/v1/awwfood',
             search: 'http://services.prod.bxm.internal/es-search/v1/awwfood',
-            alltagsections: 'http://services.prod.bxm.internal/entity/v1/awwfood/alltagsections/'
+            identity: 'https://live.dmp.bauer-media.net.au/api/identity'
         },
         redirect: {
             url: 'http://services.prod.bxm.internal/redirect/v1/awwfood/301'

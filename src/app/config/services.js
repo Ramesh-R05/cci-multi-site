@@ -5,11 +5,13 @@ export default {
         listings: 'http://dev.listings.services.bauer-media.internal/v1/now',
         module: 'http://dev.modules.services.bauer-media.internal/v1/now',
         sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/now',
-        tag: 'http://dev.tags.services.bauer-media.internal/v1/now'
+        tag: 'http://dev.tags.services.bauer-media.internal/v1/now',
+        identity: 'https://dev.dmp.bauer-media.net.au/api/identity'
     },
     endpoints: {
         page: '/api/getPageContent',
-        list: '/api/list'
+        list: '/api/list',
+        identity: '/api/identity'
     },
     header: {
         url: 'https://d38h2iiydertbj.cloudfront.net/header/prod/globalheader.json'
