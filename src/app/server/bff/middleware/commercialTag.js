@@ -5,7 +5,9 @@ export default async function commercialTag(req, res, next) {
     try {
         const {
             config: {
-                services: { remote: entity },
+                services: {
+                    remote: { entity }
+                },
                 site: { prefix }
             }
         } = req.app.locals;
@@ -16,6 +18,7 @@ export default async function commercialTag(req, res, next) {
             next();
             return;
         }
+
         const allCommercailSectionTags = await makeRequest(`${entity}/alltagsections/`);
 
         if (!allCommercailSectionTags || !Array.isArray(allCommercailSectionTags) || !allCommercailSectionTags.length) {
