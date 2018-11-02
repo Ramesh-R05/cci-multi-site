@@ -4,32 +4,32 @@ const testLinks = [
     {
         title: 'Mutli-homepage',
         url: 'http://multi-site.test.bxm.net.au/',
-        expectedScore: 0.19
+        expectedScore: 0.20
     },
     {
         title: 'Mutli-section',
         url: 'http://multi-site.test.bxm.net.au/fashion/',
-        expectedScore: 0.21
+        expectedScore: 0.24
     },
     {
         title: 'Mutli-article',
         url: 'http://multi-site.test.bxm.net.au/fashion/automation-test-article-with-hero-image-3663/',
-        expectedScore: 0.21
+        expectedScore: 0.15
     },
     {
         title: 'Mutli-gallery',
         url: 'http://multi-site.test.bxm.net.au/fashion/automation-test-gallery-13302/',
-        expectedScore: 0.23
+        expectedScore: 0.17
     },
     {
         title: 'Mutli-recipe',
         url: 'http://multi-site.test.bxm.net.au/recipes/automation-test-recipe-2127/',
-        expectedScore: 0.23
+        expectedScore: 0.21
     },
     {
         title: 'Mutli-review',
         url: 'http://multi-site.test.bxm.net.au/restaurant-reviews/bar-rochford-restaurant-review-1713/',
-        expectedScore: 0.23
+        expectedScore: 0.20
     }
 ];
 
