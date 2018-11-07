@@ -83,7 +83,7 @@ export default {
 
     // Used for the magazine image (not the one in the footer)
     product: {
-        id: 'awwfood',
+        id: 'foodnz',
         title: '',
         magazineTitle: '',
         socialLinks: {

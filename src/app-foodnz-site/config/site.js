@@ -1,12 +1,12 @@
 export default {
     dateTimeFormat: 'MMM DD, YYYY h:mma',
-    host: 'http://awwfood-site-au.sit.bxm.net.au',
+    host: 'http://foodnz-site-nz.sit.bxm.net.au',
     prodDomain: 'www.womensweeklyfood.com.au',
     name: "Australian Women's Weekly Food",
     shortName: "Australian Women's Weekly Food",
-    prefix: 'AWWFOOD',
+    prefix: 'FOODNZ',
     network: 'wn',
-    adTaggingId: 'awwfood',
+    adTaggingId: 'foodnz',
     feedTitle: 'Read More',
     useFeedTitlePrefix: false
 };
