@@ -56,6 +56,12 @@ export default {
         handler: SectionPage,
         action: loadPageContent
     },
+    previewPage: {
+        path: '/:preview(preview)/:section/:page',
+        method: 'get',
+        handler: SinglePage,
+        action: loadPageContent
+    },
     recipes: {
         path: '/recipes/:page(.*-):id([0-9]+)',
         method: 'get',
