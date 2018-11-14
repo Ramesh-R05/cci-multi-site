@@ -26,6 +26,7 @@ Feature: Gallery
         * I can see the created date on the gallery "DEC 15, 2016"
         * I can see the image number "1" on the gallery
         * I can see the image caption on the gallery containing "Fresh-faced beauty"
+        * I can see the youtube item in the gallery
         When I see the video item on the gallery
         * I can see the play button and click on it
 
