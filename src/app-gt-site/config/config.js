@@ -99,6 +99,10 @@ export default {
             m: { w: 275 },
             l: { w: 275 },
             xl: { w: 275 }
+        },
+        giftCard: {
+            buttonText: 'See Offer',
+            image: 'gift-card.jpg'
         }
     },
 

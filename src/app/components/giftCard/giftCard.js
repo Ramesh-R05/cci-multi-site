@@ -16,14 +16,21 @@ export default class GiftCard extends Component {
 
     static DEFAULT_BUTTON_TEXT = 'Buy Now';
 
-    shouldComponentUpdate = () => false;
+    static DEFAULT_IMAGE = 'gift-card.png';
+
+    shouldComponentUpdate() {
+        return false;
+    }
 
     render() {
         const { config } = this.context;
         const { brand } = this.props;
+
+        const assetImagePath = `${config.site.host}/assets/images`;
         const url = get(brand, 'giftCard.url', GiftCard.DEFAULT_URL);
         const buttonText = get(brand, 'giftCard.buttonText', GiftCard.DEFAULT_BUTTON_TEXT);
-        const imageUrl = `${config.site.host}/assets/images/gift-card.png`;
+        const giftCardImage = get(brand, 'giftCard.image', GiftCard.DEFAULT_IMAGE);
+        const imageUrl = `${assetImagePath}/${giftCardImage}`;
 
         return (
             <div className="gift-card-container column medium-6 large-12">
