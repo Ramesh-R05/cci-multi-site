@@ -13,7 +13,8 @@ export default {
             listings: 'http://live.listings.services.bauer-media.internal/v1/now',
             module: 'http://live.modules.services.bauer-media.internal/v1/now',
             sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/now',
-            tag: 'http://live.tags.services.bauer-media.internal/v1/now'
+            tag: 'http://live.tags.services.bauer-media.internal/v1/now',
+            identity: 'https://live.dmp.bauer-media.net.au/api/identity'
         },
         redirect: {
             url: 'http://live.redirect.services.bauer-media.internal/v1/now/301'

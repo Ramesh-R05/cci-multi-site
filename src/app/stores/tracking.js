@@ -94,6 +94,17 @@ function trackVerticalGalleryItemChanged(action) {
     dataLayer.push(data);
 }
 
+function trackUserDetailSubmitted(action) {
+    const data = {
+        event: 'newsletter_subscribe',
+        eventInfo: {
+            bauer_global_unique_id: action.text,
+            source: 'sailthru'
+        }
+    };
+    dataLayer.push(data);
+}
+
 function trackGalleryComplete(action) {
     const items = action.items;
     const numAds = getNumAds(items);
@@ -173,7 +184,8 @@ module.exports = createStore({
         VERTICAL_GALLERY_COMPLETED: 'onVerticalGalleryCompleted',
         GALLERY_NEXT_GALLERY: 'onNextGallery',
         LOAD_LIST: 'onLoadList',
-        IMAGE_REVEALER_INTERACTION: 'onImageRevealerInteraction'
+        IMAGE_REVEALER_INTERACTION: 'onImageRevealerInteraction',
+        NEWSLETTER_SUBMITTED: 'onNewsletterSubmitted'
     },
 
     onGalleryOpened: payload => {
@@ -198,6 +210,10 @@ module.exports = createStore({
 
     onGalleryCompleted: payload => {
         trackGalleryComplete(payload);
+    },
+
+    onNewsletterSubmitted: payload => {
+        trackUserDetailSubmitted(payload);
     },
 
     onVerticalGalleryCompleted: payload => {
