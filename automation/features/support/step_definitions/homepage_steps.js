@@ -252,12 +252,24 @@ module.exports = function(){
         expect(signUpBtnLink).toContain(url);
     });
 
-    this.Then(/^I should see the gift card buy now button on mobile view$/, function () {
-        var giftCardBtnLink = browser.getAttribute(home.giftCardBtnLink, 'href');
+    this.Then(/^I should see the gift card element in "([^"]*)" view$/, function (device) {
+        var giftCardRhr;
+        var giftCardButton;
 
-        scrolling(browser,home.giftCardBtnMobile,isBrowserStack);
-        expect(browser.waitForVisible(home.giftCardBtnMobile,5000)).toEqual(true);
-        expect(giftCardBtnLink).toContain('gift-card-large');
+        switch(device) {
+            case 'mobile':
+                giftCardRhr = home.giftCardRhrMobile;
+                giftCardButton = home.giftCardRhrButtonMobile;
+                break;
+            case 'desktop':
+                giftCardRhr = home.giftCardRhrDesktop;
+                giftCardButton = home.giftCardRhrButtonDesktop;
+                break;
+        }
+
+        expect(browser.waitForVisible(giftCardRhr,5000)).toEqual(true);
+        expect(browser.getAttribute(giftCardButton,'href')).toContain('gift-card-large');
+        expect(browser.getText(giftCardButton,5000)).toEqual('SEE OFFER'); //BXMA-1622 (The original button name is 'BUY NOW')
     });
 
     this.Then(/^I should see the sign up form in "([^"]*)" view$/, function (device) {
