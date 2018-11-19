@@ -52,7 +52,7 @@ Feature: Smoke test for all sites in SIT environment
 
     Scenario Outline: Verify the gift card element for GT on "<device>"
         Given I switch to "<device>" view
-        When I am currently viewing "homepage" page on "GT" site
+        When I am currently viewing "homepage" page on "gt" site
         Then I should see the gift card element in "<device>" view
     @smoketestgt
         Examples:
