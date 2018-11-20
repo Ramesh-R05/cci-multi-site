@@ -98,7 +98,7 @@ function trackUserDetailSubmitted(action) {
     const data = {
         event: 'newsletter_subscribe',
         eventInfo: {
-            bauer_global_unique_id: action.text,
+            bauer_global_unique_id: action.data,
             source: 'sailthru'
         }
     };
