@@ -26,12 +26,43 @@ import commercialTag from './bff/middleware/commercialTag';
 import collection from './bff/middleware/collection';
 import moreFrom from './bff/middleware/moreFrom';
 
+const cosmoRedirects = {
+    beauty: 'https://www.elle.com.au/beauty',
+    fashion: 'https://www.elle.com.au/fashion',
+    celebrity: 'https://www.elle.com.au/celebrity',
+    news: 'https://www.elle.com.au/news',
+    sex: 'https://www.elle.com.au/health-fitness',
+    'health-fitness': 'https://www.elle.com.au/health-fitness',
+    horoscopes: 'https://www.elle.com.au/culture',
+    lifestyle: 'https://www.elle.com.au/culture',
+    'women-of-the-year': 'https://www.elle.com.au/',
+    weddings: 'https://www.elle.com.au/wedding',
+    careers: 'https://www.elle.com.au/culture',
+    travel: 'https://www.elle.com.au/travel',
+    bachelor: 'https://www.elle.com.au/',
+    win: 'https://www.elle.com.au/',
+    love: 'https://www.elle.com.au/culture',
+    homepage: 'https://www.elle.com.au/'
+};
+
+function cosmoRedirectsMiddleware(req, res, next) {
+    if (process.env.APP_KEY !== 'cosmo-site') {
+        return next();
+    }
+    const s = req.url.split('/')[1] || 'homepage';
+    if (cosmoRedirects[s]) {
+        return res.redirect(cosmoRedirects[s]);
+    }
+    return next();
+}
+
 export default function bff(server) {
     server.get('/api/asset', assetProxy);
     if (process.env.APP_STUBBED === 'true') {
         stubServer(server, server.locals.config);
         logger.warn('stubbing does not exercise BFF code');
     } else {
+        server.use(cosmoRedirectsMiddleware);
         server.get('/sitemap/:section?', sitemap, error);
         server.get(
             '(/:preview(preview))?/amp/:page*:id([0-9]+)',
