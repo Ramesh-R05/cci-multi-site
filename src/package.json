@@ -49,7 +49,7 @@
         "@bxm/react-script-loader": "^2.1.1",
         "@bxm/recommendations": "^4.1.0",
         "@bxm/server": "^26.10.0",
-        "@bxm/site-header": "^8.0.0",
+        "@bxm/site-header": "^8.0.1",
         "@bxm/tags": "^3.0.0",
         "@bxm/teaser": "^6.3.0",
         "@bxm/ui": "^17.1.0",
