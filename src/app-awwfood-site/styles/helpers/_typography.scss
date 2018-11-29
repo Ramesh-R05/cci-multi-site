@@ -269,9 +269,23 @@ $font-family-sans-serif-light: $font-text-light;
 
 @mixin type-side-menu-link {
     color: $color-white;
-    font: 500 20px / 1.5 $font-family-sans-serif-primary;
+    font: 500 16px / 1.5 $font-family-sans-serif-primary;
     letter-spacing: .04em;
-    text-transform: uppercase;
+    text-transform: capitalize;
+
+    @media #{$medium-up} {
+        font-size: 20px;
+    }
+}
+
+@mixin type-side-menu-subsection {
+    @include type-side-menu-link;
+    font-size: 13px;
+    font-weight: 100;
+
+    @media #{$medium-up} {
+        font-size: 15px;
+    }
 }
 
 .type-side-menu-link {

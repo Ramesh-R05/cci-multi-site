@@ -200,6 +200,16 @@ a {
     @include type-side-menu-link;
 }
 
+@mixin type-side-menu-subsection {
+    @include type-side-menu-link;
+    font-size: 21px;
+    font-weight: 100;
+
+    @media #{$medium-up} {
+        font-size: 24px;
+    }
+}
+
 // Must Read headline
 @mixin type-teaser-headline-title {
     color: $color-white;

@@ -278,6 +278,16 @@ $font-family-sans-serif-light: $font-text-light;
     @include type-side-menu-link;
 }
 
+@mixin type-side-menu-subsection {
+    @include type-side-menu-link;
+    font-size: 13px;
+    font-weight: 100;    
+
+    @media #{$medium-up} {
+        font-size: 15px;
+    }
+}
+
 // Must Read headline
 @mixin type-teaser-headline-title {
     color: $color-white;

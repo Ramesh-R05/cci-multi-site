@@ -1,0 +1,31 @@
+.nav-link {
+  @include type-side-menu-link;  
+  margin-bottom: 8px;
+
+  &:hover {
+    color: $color-accent;
+    text-decoration: none;
+  }
+
+  &--active {
+    color: $color-accent;
+    text-decoration: none;
+  }
+
+  &:focus {        
+    color: $color-accent;
+    text-decoration: none;
+  }
+  
+  &--subsection {
+    @include type-side-menu-subsection;
+    margin-bottom: 0;
+  }
+
+  &--dropdown-root {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    margin-bottom: 0;
+  }
+}

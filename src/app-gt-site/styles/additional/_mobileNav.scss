@@ -11,45 +11,6 @@
         border-top: 1px solid $color-white;
         display: block;
     }
-
-    .nav-item {
-        color: $color-white;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-        padding: 8px 0;
-        font-size: 16px;
-        font-style: normal;
-
-        @media #{$medium-up} {
-            font-size: 20px;
-        }
-
-        &--active {
-            color: $color-white;
-            font-weight: bold;
-        }
-    }
-
-    span {
-
-        ul {
-
-            li {
-                max-width: 90%;
-                padding-bottom: 8px;
-                border-bottom: 1px solid white;
-
-                @media #{$medium-up} {
-                    max-width: 220px;
-                }
-
-                a {
-                    font-style: normal;
-                    text-transform: uppercase;
-                }
-            }
-        }
-    }
 }
 
 .mobile-menu-list {
@@ -62,7 +23,6 @@
     }
 
     li:nth-child(5) {
-
         margin-left: -3px;
 
         @media #{$medium-up} {
@@ -76,7 +36,6 @@
 }
 
 .off-canvas-content-wrapper {
-
     svg {
         fill: $color-white;
     }
