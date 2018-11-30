@@ -152,10 +152,10 @@ export default {
                 title: "Harper's Bazaar"
             },
             {
-                id: 'cosmo',
-                imageUrl: '/assets/images/menulogos/COSMO-logo.svg',
-                url: 'https://www.cosmopolitan.com.au/',
-                title: 'Cosmopolitan'
+                id: 'gt',
+                imageUrl: '/assets/images/menulogos/GT-logo.svg',
+                url: 'https://www.gourmettraveller.com.au/',
+                title: 'Gourmet Traveller'
             },
             {
                 id: 'dolly',
