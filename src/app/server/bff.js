@@ -51,7 +51,7 @@ function cosmoRedirectsMiddleware(req, res, next) {
     }
     const s = req.url.split('/')[1] || 'homepage';
     if (cosmoRedirects[s]) {
-        return res.redirect(cosmoRedirects[s]);
+        return res.redirect(301, cosmoRedirects[s]);
     }
     return next();
 }
