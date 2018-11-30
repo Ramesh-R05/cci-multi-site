@@ -9,13 +9,9 @@
         height: 34px;
         width: 34px;
     }
-    svg polygon,
-    svg path {
-        .footer & {
-            fill: $color-white;
-        }
 
-        fill: $color-awwfood-gold;
+    svg path {
+        fill: $color-primary;
     }
 
     &--facebook:hover svg path {
@@ -26,11 +22,8 @@
         fill: $twitter-blue;
     }
 
-    &--instagram:hover svg {
-        polygon,
-        path {
-            fill: $instagram-pink;
-        }
+    &--instagram:hover svg path {
+        fill: $instagram-pink;
     }
 
     &--pinterest:hover svg path {

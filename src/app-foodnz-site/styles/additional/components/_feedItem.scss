@@ -10,17 +10,14 @@
 
     .feed-item {
         border-top-color: transparent;
-        min-height: auto;
+        min-height: 130px;
         overflow: hidden;
         padding-top: 0;
         padding-bottom: $feed-item-gap;
-        padding-left: $feed-item-gap;
-        padding-right: $feed-item-gap;
-        box-shadow: $panel-shadow-y;
 
-        &:first-child {
-            padding-top: $feed-item-gap;
-        } 
+        &:last-child {
+            border-bottom: 1px solid $line-color;
+        }
 
         &__body-title {
             @include type-text-light;
@@ -32,17 +29,7 @@
             text-transform: uppercase;
             font-family: $font-text;
             line-height: 30px;
-            color: $color-awwfood-gold;
-        }
-
-        &__section-tag--link-disabled {
-            display: block;
-            font-size: 12px;
-            text-transform: uppercase;
-            font-family: $font-text;
-            line-height: 30px;
-            color: $color-awwfood-gold;
-            pointer-events: none;
+            color: $color-gt-grey-2;
         }
 
         .article__date-created {
@@ -53,29 +40,16 @@
             letter-spacing: 0;
             margin-bottom: 0;
         }
-
-        &.feed-item--has-video,
-        &.feed-item--gallery {
-            &:after {
-                top: 0;
-                left: 15px;
-            }
-        }
     }
 
     .feed-ad {
-        padding-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 1.5 * $feed-item-gap;
-        margin-top: 1.5 * $feed-item-gap;
-        background: transparent; 
-
-        & + .feed-item {
-            border-top: $feed-item-gap solid $color-white;
-        }
+        border-bottom: 1px solid $line-color;
+        padding-top: $feed-item-gap;
+        padding-bottom: $feed-item-gap;
+        margin-bottom: $feed-item-gap;
     }
 
     & + .rhs-ads .carriage {
-        margin-top: 1.5 * $feed-item-gap;
+        padding-top: $feed-item-gap;
     }
 }

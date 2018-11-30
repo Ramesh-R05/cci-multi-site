@@ -1,36 +1,32 @@
 // Primary colours have been moved to the bottom of this file.
 
-//Awwfood color
-$color-awwfood-black:  #333333;
-$color-awwfood-white:  #fcfbfb;
-$color-awwfood-gold:  #b6956a;
-$color-awwfood-light-gold:  #d3bfa6;
-$color-awwfood-light:  #dbe9eb;
-$color-awwfood-yellow: #ffd55d;
+//GT color
+$color-gt-black-1:  #000000;
+$color-gt-black-2:  #323232;
+$color-gt-black-3:  #646464;
+$color-gt-grey-1:   #969696;
+$color-gt-grey-2:   #bcbec2;
+$color-gt-white:    #ffffff;
 
-//Awwfood Button Color
-$color-button:       #fff;
-$color-button-hover: lighten($color-awwfood-gold, 10%);
+//GT Button Color
+$color-button:       $color-gt-black-1;
+$color-button-hover: $color-gt-black-3;
 
-//Awwfood Text Color
-$color-text:         $color-awwfood-black;
-$color-text-gold:    $color-awwfood-gold;
-$color-text-grey:    $color-awwfood-black;
-$color-text-light:   $color-awwfood-yellow;
-$color-text-lighter: $color-awwfood-yellow;
-$color-text-white:   $color-awwfood-light;
+//GT Text Color
+$color-text:         $color-gt-black-2;
+$color-text-grey:    $color-gt-black-3;
+$color-text-light:   $color-gt-grey-1;
+$color-text-lighter: $color-gt-grey-2;
+$color-text-white:   $color-gt-white;
 
 // Other colours
-$color-purple: #811aff;
-$color-violet: #ddd5ea;
-$color-blue: #16d1ff;
 $color-green: #31c7ce;
 $color-yellow: #ffff5c;
 $color-gold: #b49465;
-$color-gold-light: #b39468; // HB accent
+$color-eggplant: #614051; // FoodNZ accent
 $color-orange: #ff771d;
 $color-red: #c40010;
-$feed-item-header-colour: $color-awwfood-black;
+$feed-item-header-colour: $color-gt-black-1;
 
 // Social
 $facebook-blue: #3b5998;
@@ -47,7 +43,7 @@ $color-red-light2: #f8b8d6;
 
 // B&W and Greys
 $color-black-origin: #000;
-$color-black: $color-awwfood-black;
+$color-black: #333;
 $color-black-light: #242424;// HB primary
 $color-black-hover: #444;
 $color-grey-darker: #777;   // Used in @bxm/article
@@ -84,15 +80,13 @@ $nz-nadia-color: #151515;
 $nz-simply-you-color: #151515;
 
 // Other
-$line-color: $color-awwfood-black;
+$line-color: $color-gt-black-1;
 $color-section-separator: #e5e5e5;
 $color-header-menu-button: #555;
 $color-footer-grey: #555;
-$color-heading-bg: $color-awwfood-gold;
-
 
 // Main colours
-$color-primary: $color-awwfood-black;
+$color-primary: $color-black-light;
 $color-secondary: $color-grey;
 $color-tertiary: $color-grey-light;
-$color-accent: $color-gold-light;
+$color-accent: $color-eggplant;

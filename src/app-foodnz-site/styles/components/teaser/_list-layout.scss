@@ -4,17 +4,13 @@
     .teaser {
         &__image {
             @include grid-column(6);
-            padding-left: 0;
 
             @media #{$medium-only} {
                 @include grid-column($columns: 12);
-                padding-left: 0;
-                padding-right: 0;
             }
 
             @media #{$large-up} {
                 @include grid-column(6);
-                padding-left: 0;
             }
         }
 

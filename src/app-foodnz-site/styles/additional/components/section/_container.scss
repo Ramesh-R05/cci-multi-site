@@ -1,25 +1,18 @@
-.page {
+.page--section {
     .page-title-container {
-        max-width: 1024px;
+        max-width: 1025px;
         overflow: auto;
-        text-align: center;
-        background: $color-awwfood-white;
-
-        @media #{$medium-up} {
-            margin-top: $landing-page-module-gutter;
-        }
+        background: #fff;
+        margin: 0 auto -30px;
     }
 
     .page-title {
-        margin: 0;
-        padding: 0;
-        width: auto;
-        background: inherit;
-        @include page-title-with-underline;
+        margin-left: 0;
+        margin-right: 0;
 
-        span {
-            color: inherit;
+        @media #{$medium-up} {
+            margin: 30px;
+            width: auto;
         }
-
     }
 }

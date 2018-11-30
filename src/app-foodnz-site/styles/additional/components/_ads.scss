@@ -8,19 +8,12 @@
         position: relative;
         z-index: 1;
         max-width: 1024px;
-        margin: 0px auto 10px;
+        margin: 10px auto;
     }
 }
 
-.ad--section-leaderboard {
-    padding-top: $column-gutter/2;
-}
-
-
-.sticky-block {
-    &.sticky-block--in-view {
-        .ad--section-bottom-leaderboard {
-            margin-bottom: 0;
-        }
+.site-wrapper {
+    .content-wrapper {
+        padding-top: 30px;
     }
 }

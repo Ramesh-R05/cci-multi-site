@@ -2,48 +2,29 @@
     @include type-article-body;
     margin: 15px 0 0 0;
 
-    @media #{$medium-up} {
-        border-right: none;
-    }
-
-    @media #{$large-up} {
-        padding: 0;
-    }
-
     &__date-created,
     &-header-author,
     &__image-count {
-        @include head-content-details-style;
-        font-family: $font-header-light;
+        font-family: $font-text-light;
         font-size: 12px;
         line-height: 20px;
-        color: $color-text-gold;
-        display: inline-block;
-        
+        color: $color-text;
+        margin-top: $article-gap/2;
+        margin-bottom: 0;
+
         &__name {
-            color: $color-text-gold;
+            color: $color-text-lighter;
         }
     }
 
-    &__header {
-        @include mobile-padding-collapse;
-        margin-top: 0;
-        background-color: $color-white;
-        box-shadow: $panel-shadow;
-    }
-
     &-header-section {
-        background-color: $color-white;
-        padding-top: $article-gap;
-        border-top-left-radius: $article-padding;
-        border-top-right-radius: $article-padding;
-        margin-bottom: -1 * $article-padding;
         display: block;
+        margin-top: 10px;
+        margin-bottom: 4px;
 
         &__text {
             @include type-teaser-tag();
             visibility: visible;
-            line-height: $article-padding;
         }
 
         @media #{$medium-up} {
@@ -52,17 +33,13 @@
     }
 
     &__hero {
-        &-container {
-            margin-bottom: 0;
-            margin-top: 0;
 
+        &-container {
+            margin-top: $article-gap;
+            margin-bottom: 0;
             picture {
                 display: block;
-                padding: $article-padding 0 0;
-                background-color: $color-white;
-                @media #{$medium-up} {
-                    padding: $article-padding;
-                }
+    
                 img {
                     width: 100%;
                 }
@@ -72,23 +49,15 @@
 
 
     &__title {
-        @include full-width;
-        @include head-content-details-style($article-gap);
         @extend .type-article-title;
-        padding-left: $article-padding;
-        padding-right: $article-padding;
+        margin-top: 0;
+        margin-bottom: 0
     }
 
     &__summary {
         @extend .type-article-summary;
-        @include full-width;
-        @include head-content-details-style;
-        padding-left: $article-padding;
-        padding-right: $article-padding;
-        a {
-            font-size: inherit;
-            line-height: inherit;
-        }
+        margin-top: $article-gap/2;
+        margin-bottom: 0;
     }
 
     .article-header-author {
@@ -98,18 +67,22 @@
     }
 
     &__footer {
-        @include full-width;
-        @include mobile-padding-collapse;
-        @include content-body-component;
-        box-shadow: $panel-shadow;
         clear: both;
+        margin-top: $article-gap;
+        margin-bottom: $article-gap;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $line-color;
+        border-top: 1px solid $line-color;
+        font-style: normal;
 
-        .fb-share-link,
-        .pinterest-share-link {
-            @extend .button;
-            border-radius: 0;
-            height: auto;
-            line-height: 32px;
+        a.fb-share-link,
+        a.pinterest-share-link {
+            background-color: $color-button;
+            &:hover {
+                background-color: $color-button-hover;
+            }
         }
 
         .tags__title {
@@ -129,7 +102,7 @@
     }
 
     &__tags {
-        color: $color-awwfood-black;
+        color: $color-gt-black-3;
         font-family: $font-family-sans-serif-light;
         font-size: 11px;
         margin-bottom: 15px;
@@ -142,18 +115,25 @@
 
         .tags__detail,
         li a {
-            color: $color-awwfood-black;
+            color: $color-gt-black-3;
             text-transform: uppercase;
             font-size: 11px;
             font-style: normal;
-            &:hover {
-                color: $color-text-gold;
+        }
+
+        .course,
+        .cuisine,
+        .photography,
+        .styling {
+            .tags__detail {
+                text-decoration: underline;
             }
         }
     }
 
     .related-content {
-        box-shadow: $panel-shadow;
+        padding-bottom: 20px;
+
         &-items {
             .teaser__image {
                 margin-bottom: 5px;
@@ -165,12 +145,6 @@
                     display: block;
                 }
 
-                &__section-tag--link-disabled {
-                    @include type-teaser-tag;
-                    display: block;
-                    pointer-events: none;
-                }
-
                 &__body-title {
                     margin-top: 0;
                 }
@@ -179,52 +153,73 @@
         }
     }
 
-    &__main-hero {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
     &__main-hero-image {
-        background-color: $body-bg-color;
         .article_image-caption {
-            @include img-caption-style;
+
+            @include caption {
+                color: $color-gt-grey-2;
+            }
+            display: block;
+            position: relative;
+            background-color: transparent;
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: $article-gap/3;
+            padding-bottom: calc(#{$article-gap/3} + 8px);
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: $color-gt-white;
+            text-align: left;
+
+            @media #{$medium-up} {
+                font-style: italic;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                background-color: $color-gt-black-1;
+                display: block;
+                width: 24px;
+                height: 8px;
+                bottom: 0;
+                left: 15px;
+                @media #{$medium-up} {
+                    left: 0px;
+                }
+            }
+
+            a {
+                @include type-link;
+                text-decoration: underline;
+            }
         }
     }
-
-    &__main-hero-video {
-        display: block;
-        padding: $article-padding 0 0;
-        background-color: $color-white;
-        @media #{$medium-up} {
-            padding: $article-padding;
-        }
-    }
-
 
     &__at_glance {
         display: block;
         margin: 0;
-        background-color: $color-heading-bg;
-        color: $color-white;
+        background-color: $color-gt-black-1;
+        color: $color-gt-white;
         text-align: center;
-        padding: 15px $article-padding;
+        padding: 15px;
         line-height: 1.1;
-        margin-top: $article-padding;
-        margin-bottom: -1 * $article-padding;
-        position: relative;
-        z-index: 2;
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-top: $article-gap;
+        margin-bottom: -1 * $article-gap;
 
         @media #{$medium-up} {
-            margin-left: $article-padding;
-            margin-right: $article-padding;
-            border-top-left-radius: $article-padding;
-            border-top-right-radius: $article-padding;
+            margin-left: 0px;
+            margin-right: 0px;
         }
 
         li {
             display: inline-block;
             white-space: nowrap;
-            border-right: 1px solid $color-white;
+            border-right: 1px solid $color-gt-white;
             font-size: 11px;
             padding-left: 10px;
             padding-right: 10px;
@@ -232,19 +227,6 @@
                 border-right: none;
             }
         }
-    }
-
-    .ad--beneath-hero {
-        background-color: $body-bg-color;
-        padding-top: $article-gap;
-        margin-top: 0;
-    }
-
-    .newsletter-signup-wrapper {
-        @include full-width;
-        @include mobile-padding-collapse;
-        @include content-body-component;
-        box-shadow: $panel-shadow;
     }
 }
 
