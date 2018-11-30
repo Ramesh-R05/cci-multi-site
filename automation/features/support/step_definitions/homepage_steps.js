@@ -10,7 +10,7 @@ module.exports = function(){
 
     this.When(/^I should see the main hero item containing its image and clickable to open its page$/, function () {
         //Verify the hero image
-        browser.waitForVisible(home.heroImgUrl,5000);
+        browser.waitForExist(home.heroImgUrl,5000);
         var heroImgUrl = browser.getAttribute(home.heroImgUrl, 'data-srcset');
         validateImageURL(heroImgUrl);
         //Verify the hero image's link
@@ -103,7 +103,7 @@ module.exports = function(){
     });
 
     this.Given(/^I should see (\d+) must read images and titles which are clickable to open their page$/, function(number) {
-        scrolling(browser,wn_ads.ad_TopLeaderboard,isBrowserStack);
+        //scrolling(browser,wn_ads.ad_TopLeaderboard,isBrowserStack);
 
         //find elements of image and title of all must read items
         var mustreadImage = browser.getAttribute(home.mustreadImage,'data-srcset');

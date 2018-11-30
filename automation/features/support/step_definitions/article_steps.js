@@ -49,7 +49,7 @@ module.exports = function() {
 
     this.When(/^I can see the hero image$/, function () {
         scrolling(browser,wn_article.heroImg,isBrowserStack);
-        var heroImg = browser.waitForVisible(wn_article.heroImg,2000);
+        var heroImg = browser.waitForExist(wn_article.heroImg,2000);
         expect(heroImg).toBe(true);
     });
     this.When(/^I can see the hero image on Food$/, function () {
