@@ -11,6 +11,7 @@ export default async function sectionMiddleware(req, res, next) {
     try {
         let pageNo = 1;
         const { page, section, subsection } = req.query;
+        const { config } = req.app.locals;
         const { commercialTagSections, excludeTagQuery } = req.data;
         pageNo = parseInt(req.query.pageNo || pageNo, 10);
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
@@ -55,13 +56,13 @@ export default async function sectionMiddleware(req, res, next) {
             teaserFilter = 'parentUrl';
             const sectionListingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
             listingQuery = excludeTagQuery ? `${sectionListingQuery} and ${excludeTagQuery}` : sectionListingQuery;
-            req.data.subsectionList = await makeRequest(`${req.app.locals.config.services.remote.module}/sections/${section}`);
+            req.data.subsectionList = await makeRequest(`${config.services.remote.module}/sections/${section}`);
         }
 
         if (nodeTypeAlias === 'Brand') {
             const source = get(req, 'data.entity.source', '');
-            const adBrand = find(req.app.locals.config.brands.uniheader, b => b.title === source);
-            req.data.entity.adBrand = get(adBrand, 'id', 'ntl');
+            const adBrand = find(config.brands.uniheader, b => b.title === source);
+            req.data.entity.adBrand = get(adBrand, 'id', config.product.id);
 
             teaserQuery = source.replace(/'/g, "''");
             teaserFilter = 'source';
@@ -75,7 +76,9 @@ export default async function sectionMiddleware(req, res, next) {
         const totalPage = latestTeasersResp.totalCount % listCount ? totalPageFloor : totalPageFloor + 1;
         const err = new Error('Page not found');
         err.status = 404;
-        if (totalPage < pageNo - 1) throw err;
+        if (totalPage < pageNo - 1) {
+            throw err;
+        }
 
         // TODO: need to handle `data` in resp better
         const latestTeasers = latestTeasersResp || {
@@ -87,7 +90,7 @@ export default async function sectionMiddleware(req, res, next) {
             const path = pageNo === 2 ? `${sectionQuery}` : `/${sectionQuery}?pageNo=${pageNo - 1}`;
             previousPage = {
                 path,
-                url: `${req.app.locals.config.site.host}${path}`
+                url: `${config.site.host}${path}`
             };
         }
 
@@ -96,14 +99,14 @@ export default async function sectionMiddleware(req, res, next) {
             const path = `${sectionQuery}?pageNo=${pageNo + 1}`;
             nextPage = {
                 path,
-                url: `${req.app.locals.config.site.host}${path}`
+                url: `${config.site.host}${path}`
             };
         }
 
         const path = pageNo > 1 ? `${sectionQuery}?pageNo=${pageNo}` : `${sectionQuery}`;
         const currentPage = {
             path,
-            url: `${req.app.locals.config.site.host}${path}`
+            url: `${config.site.host}${path}`
         };
 
         req.data.latestTeasers = latestTeasers.data.slice(0, latestTeaserCount);

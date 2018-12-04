@@ -119,7 +119,84 @@ export default {
     },
 
     brands: {
-        uniheader: [],
+        uniheader: [
+            {
+                id: 'nztaste',
+                title: 'New Zealand Taste',
+                magazineTitle: 'New Zealand Taste',
+                imageUrl: '',
+                url: 'brands/new-zealand-taste',
+                socialLinks: {
+                    facebook: 'https://www.facebook.com/tastemagazine',
+                    twitter: 'https://twitter.com/tastemagnz',
+                    instagram: 'https://www.instagram.com/tastemagnz/'
+                },
+                newsletterUrl: ''
+            },
+            {
+                id: 'nzww',
+                title: "New Zealand Woman's Weekly",
+                magazineTitle: "New Zealand Woman's Weekly",
+                imageUrl: '',
+                url: 'brands/new-zealand-womans-weekly',
+                socialLinks: {
+                    facebook: 'https://www.facebook.com/nzwomansweekly',
+                    twitter: 'https://twitter.com/nzwomansweekly',
+                    instagram: 'https://www.instagram.com/newzealandwomansweekly'
+                },
+                newsletterUrl: ''
+            },
+            {
+                id: 'nzwd',
+                title: "Woman's Day",
+                magazineTitle: "Woman's Day",
+                imageUrl: '',
+                url: 'brands/womans-day',
+                socialLinks: {
+                    facebook: 'https://www.facebook.com/womansdaynz',
+                    twitter: 'https://twitter.com/WomansDayNZ',
+                    instagram: 'https://www.instagram.com/womansdaynz'
+                },
+                newsletterUrl: ''
+            },
+            {
+                id: 'awwnz',
+                title: "The Australian Women's Weekly",
+                magazineTitle: "The Australian Women's Weekly",
+                imageUrl: '',
+                url: 'brands/the-australian-womens-weekly',
+                socialLinks: {
+                    facebook: 'https://www.facebook.com/awwmagazine',
+                    instagram: 'https://www.instagram.com/awwmagazine'
+                },
+                newsletterUrl: ''
+            },
+            {
+                id: 'nzgh',
+                title: 'Good Health And Wellbeing',
+                magazineTitle: 'Good Health And Wellbeing',
+                imageUrl: '',
+                url: 'brands/good-health-and-wellbeing',
+                socialLinks: {
+                    facebook: 'https://www.facebook.com/goodhealthchoicesnz/',
+                    twitter: 'https://twitter.com/good_health_nz',
+                    instagram: 'https://www.instagram.com/goodhealthnz/',
+                    pinterest: 'https://nz.pinterest.com/goodhealthmag/'
+                },
+                newsletterUrl: ''
+            },
+            {
+                id: 'nadia',
+                title: 'Nadia',
+                magazineTitle: 'Nadia',
+                imageUrl: '',
+                url: 'brands/nadia',
+                socialLinks: {
+                    instagram: 'https://www.instagram.com/nadiamagazine'
+                },
+                newsletterUrl: ''
+            }
+        ],
         hamburgers: [
             {
                 id: 'now',

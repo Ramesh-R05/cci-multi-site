@@ -18,6 +18,9 @@ const sectionMiddleware = proxyquire('../../../../app/server/bff/middleware/sect
 
 describe('Section middleware', () => {
     const config = {
+        product: {
+            id: 'foobar'
+        },
         brands: {
             uniheader: [
                 {
@@ -281,10 +284,10 @@ describe('Section middleware', () => {
                 next = sinon.spy();
             });
 
-            it('should set adBrand as ntl', done => {
+            it('should set adBrand as the product id', done => {
                 sectionMiddleware(req, res, next)
                     .then(() => {
-                        expect(req.data.entity.adBrand).to.equal('ntl');
+                        expect(req.data.entity.adBrand).to.equal(config.product.id);
                         done();
                     })
                     .catch(done);
