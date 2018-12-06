@@ -11,7 +11,7 @@ env:
   matrix:
     - APP_KEY=awwfood-site
     - APP_KEY=gt-site
-    - APP_KEY=cosmo-site
+#    - APP_KEY=cosmo-site
     - APP_KEY=elle-site
     - APP_KEY=hb-site
     - APP_KEY=foodnz-site
