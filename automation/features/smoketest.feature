@@ -13,9 +13,9 @@ Feature: Smoke test for all sites in SIT environment
         And I should see 2 promoted images and titles which are clickable to open their page
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its image and clickable to open its page
-#        When I click on the Load More button
-#        Then I should see extra 14 teasers after loading more
-#        And I should see a load more feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 14 teasers after loading more
+        And I should see a load more feed item containing its image and clickable to open its page
         Examples:
             | site  |
             | gt    |
@@ -68,9 +68,9 @@ Feature: Smoke test for all sites in SIT environment
         Then I should see the main hero item containing its image and clickable to open its page
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its image and clickable to open its page
-#        When I click on the Load More button
-#        Then I should see extra 14 teasers after loading more
-#        And I should see a load more feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 14 teasers after loading more
+        And I should see a load more feed item containing its image and clickable to open its page
     @awwfoodmobile
         Examples:
             | site      |
@@ -126,9 +126,9 @@ Feature: Smoke test for all sites in SIT environment
         Then I should see the main hero item containing its image and clickable to open its page
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its image and clickable to open its page
-#        When I click on the Load More button
-#        Then I should see extra 14 teasers after loading more
-#        And I should see a load more feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 14 teasers after loading more
+        And I should see a load more feed item containing its image and clickable to open its page
 
 ########## Tag landing page ##########
     @smoketestlocal
@@ -138,9 +138,9 @@ Feature: Smoke test for all sites in SIT environment
         Then I should see the main hero item containing its image and clickable to open its page
         And I should see a "top" feed item containing its image and clickable to open its page
         And I should see a "bottom" feed item containing its image and clickable to open its page
-#        When I click on the Load More button
-#        Then I should see extra 14 teasers after loading more
-#        And I should see a load more feed item containing its image and clickable to open its page
+        When I click on the Load More button
+        Then I should see extra 14 teasers after loading more
+        And I should see a load more feed item containing its image and clickable to open its page
         Examples:
             | site  |
             | elle |
@@ -316,16 +316,16 @@ Feature: Smoke test for all sites in SIT environment
     Scenario Outline: I can see the brand logos in the hamburger menu on "<site>"
         Given I switch to "mobile" view
         When I am currently viewing "homepage" page on "<site>" site
-#        * I can navigate to all 8 sites in the hamburger navigation menu
-#            |title                      |url                                     |gtm                        |
-#            |Now To Love                |https://www.nowtolove.com.au/           |gtm-hamburger-now          |
-#            |Homes To Love              |https://www.homestolove.com.au/         |gtm-hamburger-homes        |
-#            |Women's Weekly Food        |https://www.womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
-#            |Harper's Bazaar            |https://www.harpersbazaar.com.au/       |gtm-hamburger-harpers      |
-#            |Gourmet Traveller          |https://www.gourmettraveller.com.au/    |gtm-hamburger-gt           |
-#            |Cosmopolitan               |https://www.cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
-#            |Dolly                      |http://www.dolly.com.au/                |gtm-hamburger-dolly        |
-#            |Beauty Heaven              |https://www.beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
+        * I can navigate to all 8 sites in the hamburger navigation menu
+            |title                      |url                                     |gtm                        |
+            |Now To Love                |https://www.nowtolove.com.au/           |gtm-hamburger-now          |
+            |Homes To Love              |https://www.homestolove.com.au/         |gtm-hamburger-homes        |
+            |Women's Weekly Food        |https://www.womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
+            |Harper's Bazaar            |https://www.harpersbazaar.com.au/       |gtm-hamburger-harpers      |
+            |Gourmet Traveller          |https://www.gourmettraveller.com.au/    |gtm-hamburger-gt           |
+            |Cosmopolitan               |https://www.cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
+            |Dolly                      |http://www.dolly.com.au/                |gtm-hamburger-dolly        |
+            |Beauty Heaven              |https://www.beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
     Examples:
         | site  |
         | elle  |
@@ -658,10 +658,10 @@ Feature: Smoke test for all sites in SIT environment
         Given I switch to "mobile" view
         When I am currently viewing "homepage" page on "<site>" site
         * I should see the search icon in the navigation bar
-#        * I should see the search box after clicking the icon
-#        * I should still see the search box after scrolling the page down
-#        * I should be able to search a keyword on "navigation bar" and see the result page on "<site>" site
-#        * I should not see the search bar on the search result page in mobile version
+        * I should see the search box after clicking the icon
+        * I should still see the search box after scrolling the page down
+        * I should be able to search a keyword on "navigation bar" and see the result page on "<site>" site
+        * I should not see the search bar on the search result page in mobile version
         Examples:
             | site     |
             | elle     |
@@ -671,10 +671,10 @@ Feature: Smoke test for all sites in SIT environment
         Given I switch to "desktop" view
         When I am currently viewing "article" page on "<site>" site
         * I should see the search icon in the navigation bar
-#        * I should see the search box after clicking the icon
-#        * I should still see the search box after scrolling the page down
-#        * I should be able to search a keyword on "navigation bar" and see the result page on "<site>" site
-#        * I should be able to search a keyword on "search result page" and see the result page on "<site>" site
+        * I should see the search box after clicking the icon
+        * I should still see the search box after scrolling the page down
+        * I should be able to search a keyword on "navigation bar" and see the result page on "<site>" site
+        * I should be able to search a keyword on "search result page" and see the result page on "<site>" site
         Examples:
             | site  |
             | gt    |

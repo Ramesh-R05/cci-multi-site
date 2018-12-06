@@ -21,7 +21,7 @@ Feature: Article
         * I can see the body gallery
         * I can see the body video
         * I can see the body tips "body tips body tips eom"
-#        * I can see the body competition
+        * I can see the body competition
         * I can see the Image Revealer component
         * I can see the related tags "GOSSIP GIRL," "DOLLY DOCTOR"
         @high

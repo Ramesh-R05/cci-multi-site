@@ -14,7 +14,7 @@ Feature: Gallery
         * I can see the image number "1" on the gallery
         * I can see the image caption on the gallery containing "Fresh-faced beauty"
         When I see the video item on the gallery
-#        * I can see the play button and click on it
+        * I can see the play button and click on it
 
     @med
     Scenario: Verify a gallery page in desktop style on desktop view

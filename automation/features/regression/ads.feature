@@ -14,7 +14,7 @@ Feature: Ad
         * I should not see MREC ad in the bottom news feed
         * I should see the middle leaderboard ad under the top news feed
         * I should see the bottom leaderboard ad above the footer
-#    @homepage @high
+    @homepage @high
         Examples:
             |device             |page       |pageUrl    |
             |desktop            |homepage   |           |
@@ -34,7 +34,7 @@ Feature: Ad
         * I should see the middle leaderboard ad under the top news feed
         * I should see the bottom leaderboard ad above the footer
 
-#    @homepage @high
+    @homepage @high
     Scenario: Ads on index page in the mobile view (Test on homepage)
         Given I switch to "mobile" view
         When I am currently viewing the homepage
@@ -55,7 +55,7 @@ Feature: Ad
         * I should see four MREC ads in the RHR feed
         * I should not see MREC ad under the hero image
         * I should not see MREC ad above recommendation
-#    @gallery @high
+    @gallery @high
         Examples:
             |device             |page       |pageUrl                                                |
             |desktop            |gallery    |fashion/automation-test-gallery-13302                  |
@@ -74,7 +74,7 @@ Feature: Ad
         * I should see the bottom leaderboard ad above the footer on article
         * I should not see MREC ad under the hero image
 
-#    @article @high
+    @article @high
     Scenario: Ads on content page in the mobile view (Test on article)
         Given I switch to "mobile" view
         When I am currently viewing "fashion/automation-test-article-with-hero-image-3663"
@@ -90,7 +90,7 @@ Feature: Ad
         When I am currently viewing "fashion/automation-test-gallery-13302"
         Then I should not see MREC ad under the hero image
         And I should see MREC ad between images
-#    @high
+    @high
     Examples:
         |device         |
         |mobile         |

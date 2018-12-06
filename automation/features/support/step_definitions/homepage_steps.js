@@ -10,7 +10,7 @@ module.exports = function(){
 
     this.When(/^I should see the main hero item containing its image and clickable to open its page$/, function () {
         //Verify the hero image
-        browser.waitForExist(home.heroImgUrl,5000);
+        browser.waitForVisible(home.heroImgUrl,5000);
         var heroImgUrl = browser.getAttribute(home.heroImgUrl, 'data-srcset');
         validateImageURL(heroImgUrl);
         //Verify the hero image's link
