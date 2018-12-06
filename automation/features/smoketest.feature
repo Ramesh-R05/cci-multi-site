@@ -316,14 +316,13 @@ Feature: Smoke test for all sites in SIT environment
     Scenario Outline: I can see the brand logos in the hamburger menu on "<site>"
         Given I switch to "mobile" view
         When I am currently viewing "homepage" page on "<site>" site
-        * I can navigate to all 8 sites in the hamburger navigation menu
+        * I can navigate to all 7 sites in the hamburger navigation menu
             |title                      |url                                     |gtm                        |
             |Now To Love                |https://www.nowtolove.com.au/           |gtm-hamburger-now          |
             |Homes To Love              |https://www.homestolove.com.au/         |gtm-hamburger-homes        |
             |Women's Weekly Food        |https://www.womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
             |Harper's Bazaar            |https://www.harpersbazaar.com.au/       |gtm-hamburger-harpers      |
             |Gourmet Traveller          |https://www.gourmettraveller.com.au/    |gtm-hamburger-gt           |
-            |Cosmopolitan               |https://www.cosmopolitan.com.au/        |gtm-hamburger-cosmo        |
             |Dolly                      |http://www.dolly.com.au/                |gtm-hamburger-dolly        |
             |Beauty Heaven              |https://www.beautyheaven.com.au/        |gtm-hamburger-beautyheaven |
     Examples:
