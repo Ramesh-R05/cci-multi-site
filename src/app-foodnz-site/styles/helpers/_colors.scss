@@ -8,10 +8,6 @@ $color-gt-grey-1:   #969696;
 $color-gt-grey-2:   #bcbec2;
 $color-gt-white:    #ffffff;
 
-//GT Button Color
-$color-button:       $color-gt-black-1;
-$color-button-hover: $color-gt-black-3;
-
 //GT Text Color
 $color-text:         $color-gt-black-2;
 $color-text-grey:    $color-gt-black-3;
@@ -84,6 +80,9 @@ $line-color: $color-gt-black-1;
 $color-section-separator: #e5e5e5;
 $color-header-menu-button: #555;
 $color-footer-grey: #555;
+
+$color-button:       $color-eggplant;
+$color-button-hover: lighten($color-eggplant, 10%);
 
 // Main colours
 $color-primary: $color-black-light;

@@ -5,7 +5,7 @@ export default class Error extends Component {
     static displayName = 'ErrorPage';
 
     static propTypes = {
-        status: PropTypes.string.isRequired,
+        status: PropTypes.number.isRequired,
         currentUrl: PropTypes.string.isRequired
     };
 

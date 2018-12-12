@@ -13,7 +13,7 @@ export default class UniHeader extends Component {
         return (
             <header className={this.props.className}>
                 <nav className={navclass}>
-                    <Logos className={this.props.className} openInNewTab logoList={this.props.logoList} />
+                    <Logos className={this.props.className} openInNewTab logoList={this.props.logoList} gtmPrefix="uniheader" />
                 </nav>
             </header>
         );

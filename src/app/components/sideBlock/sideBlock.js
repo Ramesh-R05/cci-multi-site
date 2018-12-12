@@ -14,6 +14,7 @@ export default class SideBlock extends Component {
         showSocial: PropTypes.bool,
         brand: PropTypes.object,
         isHero: PropTypes.bool,
+        isBrandPage: PropTypes.bool,
         magazineImageUrl: PropTypes.string
     };
 
@@ -24,6 +25,7 @@ export default class SideBlock extends Component {
         showSocial: true,
         brand: {},
         isHero: false,
+        isBrandPage: false,
         magazineImageUrl: ''
     };
 
@@ -35,16 +37,18 @@ export default class SideBlock extends Component {
 
     render() {
         const { config } = this.context;
-        const { showBrandMagazine, showBrandNewsletter, showGiftCard, showSocial, brand, isHero, magazineImageUrl } = this.props;
+        const { showBrandMagazine, showBrandNewsletter, showGiftCard, showSocial, brand, isHero, magazineImageUrl, isBrandPage } = this.props;
+
+        const socialUrls = isBrandPage ? config.brands.uniheader.find(b => b.id === brand.id).socialLinks : config.urls.socialUrls;
 
         return (
             <div className={isHero ? 'hide-for-large-up' : ''}>
                 {showBrandMagazine && <BrandMagazine brand={brand} magazineImageUrl={magazineImageUrl} />}
-                {showBrandNewsletter && <BrandNewsletter />}
+                {showBrandNewsletter && <BrandNewsletter isBrandPage={isBrandPage} brandId={brand.id} />}
                 {showGiftCard && <GiftCard brand={brand} />}
                 {showSocial && (
                     <div className="page__get-social-container columns medium-6 large-12">
-                        <SocialContainer socialUrls={config.urls.socialUrls} />
+                        <SocialContainer socialUrls={socialUrls} />
                     </div>
                 )}
             </div>

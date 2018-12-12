@@ -38,20 +38,20 @@ export default class Page extends Component {
     static propTypes = {
         className: PropTypes.string.isRequired,
         children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
-        content: PropTypes.array.isRequired,
+        content: PropTypes.object.isRequired,
         headerExpanded: PropTypes.bool.isRequired,
-        hideFooter: PropTypes.bool.isRequired,
+        hideFooter: PropTypes.bool,
         menuClasses: PropTypes.string.isRequired,
         headerNavItems: PropTypes.array.isRequired,
         hamburgerNavItems: PropTypes.array.isRequired,
         toggleSideMenu: PropTypes.func.isRequired,
         currentUrl: PropTypes.string.isRequired,
-        showUniheader: PropTypes.bool.isRequired,
+        showUniheader: PropTypes.bool,
         hideLeaderboard: PropTypes.bool,
-        pageTitle: PropTypes.string.isRequired,
+        pageTitle: PropTypes.string,
         headerClassName: PropTypes.string,
-        theme: PropTypes.object,
-        magCover: PropTypes.object,
+        theme: PropTypes.oneOfType([PropTypes.object, PropTypes.array]), // default value for getModule from store is an array, should be refactored.
+        magCover: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         searchMagCover: PropTypes.object,
         isSearchPage: PropTypes.bool,
         magCoverImageUrl: PropTypes.string,
@@ -75,9 +75,12 @@ export default class Page extends Component {
         magCover: {},
         searchMagCover: {},
         isSearchPage: false,
+        showUniheader: false,
         magCoverImageUrl: '',
         magCoverText: '',
-        emailLinkTrackingData: null
+        emailLinkTrackingData: null,
+        hideFooter: false,
+        pageTitle: null
     };
 
     componentDidMount() {
@@ -168,9 +171,12 @@ export default class Page extends Component {
             searchMagCover,
             isSearchPage
         } = this.props;
+        const { config } = this.context;
+
+        const isBrandPage = content && content.nodeType === 'Brand';
+        const brand = isBrandPage ? config.brands.uniheader.find(b => b.url === currentUrl) : config.product;
 
         const pageLocation = Ad.pos.outside;
-        const { config } = this.context;
         const mobileNav = hamburgerNavItems ? hamburgerNavItems.slice() : headerNavItems.slice();
         const footerMagCover = isSearchPage ? searchMagCover : magCover;
         const pageClassName = classnames('page', this.props.className);
@@ -240,6 +246,8 @@ export default class Page extends Component {
                             {this.props.children}
                             {!hideFooter && (
                                 <Footer
+                                    isBrandPage={isBrandPage}
+                                    brand={brand}
                                     magCover={footerMagCover}
                                     logoList={config.brands.uniheader}
                                     magCoverImageUrl={magCoverImageUrl}

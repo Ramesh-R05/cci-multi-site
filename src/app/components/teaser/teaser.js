@@ -183,9 +183,9 @@ export default class Teaser extends Component {
                         {teaserIndex && <span className="teaser__index">{teaserIndex}</span>}
 
                         {isAlternativeTitleEnabled ? (
-                            <a href={article.parentUrl} className="teaser__section-tag--link-disabled">
+                            <span className="teaser__section-tag teaser__section-tag--link-disabled">
                                 <span>{teaserTitle}</span>
-                            </a>
+                            </span>
                         ) : (
                             <a href={article.parentUrl} className="teaser__section-tag">
                                 <span>{teaserTitle}</span>

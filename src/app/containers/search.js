@@ -132,22 +132,24 @@ export default class Search extends Component {
                                     </div>
                                     <div className="page__social-wrapper columns large-4 xlarge-3">
                                         <div className="columns medium-6 large-12">
-                                            <StickyAndDockAd
-                                                offsetTop={95}
-                                                offsetBottom={16}
-                                                customiseBreakpoint={1024}
-                                                bottomElm={this.state.bottomElm}
-                                                topElm={this.state.topElm}
-                                            >
-                                                <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
-                                                <SideBlock
-                                                    showBrandMagazine={isBrandDefined}
-                                                    showBrandNewsletter={isBrandDefined}
-                                                    showGiftCard={giftCardEnabled}
-                                                    brand={brand}
-                                                    magazineImageUrl={magazineImageUrl}
-                                                />
-                                            </StickyAndDockAd>
+                                            {this.state.bottomElm && (
+                                                <StickyAndDockAd
+                                                    offsetTop={95}
+                                                    offsetBottom={16}
+                                                    customiseBreakpoint={1024}
+                                                    bottomElm={this.state.bottomElm}
+                                                    topElm={this.state.topElm}
+                                                >
+                                                    <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
+                                                    <SideBlock
+                                                        showBrandMagazine={isBrandDefined}
+                                                        showBrandNewsletter={isBrandDefined}
+                                                        showGiftCard={giftCardEnabled}
+                                                        brand={brand}
+                                                        magazineImageUrl={magazineImageUrl}
+                                                    />
+                                                </StickyAndDockAd>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

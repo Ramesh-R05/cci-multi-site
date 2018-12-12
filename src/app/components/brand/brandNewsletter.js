@@ -7,6 +7,16 @@ export default class Newsletter extends Component {
         config: PropTypes.object.isRequired
     };
 
+    static propTypes = {
+        isBrandPage: PropTypes.bool,
+        brandId: PropTypes.string
+    };
+
+    static defaultProps = {
+        isBrandPage: false,
+        brandId: ''
+    };
+
     static DEFAULT_TITLE = 'Get The Newsletter';
 
     static DEFAULT_TEXT = 'The latest news delivered to your inbox';
@@ -14,13 +24,21 @@ export default class Newsletter extends Component {
     static DEFAULT_BUTTON_TEXT = 'SIGN UP';
 
     render() {
+        const { isBrandPage, brandId } = this.props;
         const { config } = this.context;
-        const url = get(config, 'product.newsletterUrl', false);
-        const title = get(config, 'product.newsletterTitle', Newsletter.DEFAULT_TITLE);
-        const text = get(config, 'product.newsletterText', Newsletter.DEFAULT_TEXT);
-        const buttonText = get(config, 'product.newsletterButtonText', Newsletter.DEFAULT_BUTTON_TEXT);
-        const sailthruSource = get(config, 'sailthru.source.sidebar', '');
-        const sailthruList = get(config, 'sailthru.list', '');
+
+        const brandConfigPath = isBrandPage && brandId ? config.brands.uniheader.find(b => b.id === brandId) : config;
+
+        const url = get(brandConfigPath, isBrandPage ? 'newsletterUrl' : 'product.newsletterUrl', false);
+        const title = get(brandConfigPath, isBrandPage ? 'newsletterTitle' : 'product.newsletterTitle', Newsletter.DEFAULT_TITLE);
+        const text = get(brandConfigPath, isBrandPage ? 'newsletterText' : 'product.newsletterText', Newsletter.DEFAULT_TEXT);
+        const buttonText = get(
+            brandConfigPath,
+            isBrandPage ? 'newsletterButtonText' : 'product.newsletterButtonText',
+            Newsletter.DEFAULT_BUTTON_TEXT
+        );
+        const sailthruSource = get(brandConfigPath, 'sailthru.source.sidebar', '');
+        const sailthruList = get(brandConfigPath, 'sailthru.list', '');
 
         return !url ? null : (
             <div className="newsletter-subscribe column medium-6 large-12">

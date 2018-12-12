@@ -34,12 +34,12 @@ export default class Section extends Component {
     static displayName = 'Section';
 
     static propTypes = {
-        nodeType: PropTypes.array.isRequired,
-        list: PropTypes.array.isRequired,
+        nodeType: PropTypes.string.isRequired,
+        list: PropTypes.object.isRequired,
         listNextParams: PropTypes.object.isRequired,
         teasers: PropTypes.array,
         curatedHeroTeaser: PropTypes.object,
-        title: PropTypes.array.isRequired,
+        title: PropTypes.string.isRequired,
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
         subsections: PropTypes.object,
@@ -75,8 +75,11 @@ export default class Section extends Component {
 
     render() {
         const { config } = this.context;
-        const brand = config.product;
         const { nodeType, teasers, title, currentUrl, theme, subsections, magazineImageUrl, summary, curatedHeroTeaser } = this.props;
+        const { topElm, bottomElm } = this.state;
+        const isBrandPage = nodeType === 'Brand';
+        const brand = isBrandPage ? config.brands.uniheader.find(b => b.url === currentUrl) : config.product;
+
         // Using first teaser for each section because modules aren't setup for each one in the CMS
         let heroTeaser = teasers[0];
         let firstTeaserList = teasers.slice(1, 7);
@@ -94,7 +97,11 @@ export default class Section extends Component {
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const summaryEnabled = get(config, 'features.summary.enabled', false);
         const isBrandDefined = typeof brand !== 'undefined';
-        const pageTitle = (
+        const pageTitle = isBrandPage ? (
+            <h1 className="page-title page-title--with-brand-logo">
+                <img className="page-title__brand-logo" src={brand.imageUrl} alt={brand.id} />
+            </h1>
+        ) : (
             <h1 className="page-title">
                 <span className="page-title__symbol" />
                 {title}
@@ -187,22 +194,25 @@ export default class Section extends Component {
                                     </div>
                                     <div className="page__social-wrapper columns large-4 xlarge-3">
                                         <div className="columns medium-6 large-12">
-                                            <StickyAndDockAd
-                                                offsetTop={95}
-                                                offsetBottom={16}
-                                                customiseBreakpoint={1024}
-                                                bottomElm={this.state.bottomElm}
-                                                topElm={this.state.topElm}
-                                            >
-                                                <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
-                                                <SideBlock
-                                                    showBrandMagazine={isBrandDefined}
-                                                    showBrandNewsletter={isBrandDefined}
-                                                    showGiftCard={giftCardEnabled}
-                                                    brand={brand}
-                                                    magazineImageUrl={magazineImageUrl}
-                                                />
-                                            </StickyAndDockAd>
+                                            {bottomElm && (
+                                                <StickyAndDockAd
+                                                    offsetTop={95}
+                                                    offsetBottom={16}
+                                                    customiseBreakpoint={1024}
+                                                    bottomElm={bottomElm}
+                                                    topElm={topElm}
+                                                >
+                                                    <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
+                                                    <SideBlock
+                                                        isBrandPage={isBrandPage}
+                                                        showBrandMagazine={isBrandDefined}
+                                                        showBrandNewsletter={isBrandDefined}
+                                                        showGiftCard={giftCardEnabled}
+                                                        brand={brand}
+                                                        magazineImageUrl={magazineImageUrl}
+                                                    />
+                                                </StickyAndDockAd>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

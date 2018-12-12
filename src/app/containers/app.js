@@ -31,7 +31,7 @@ class Application extends Component {
         }),
         nodeType: PropTypes.string.isRequired,
         error: PropTypes.object,
-        theme: PropTypes.object,
+        theme: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         isNavigateComplete: PropTypes.bool
     };
 

@@ -87,7 +87,9 @@ class StickyAndDockAd extends Component {
         const { bottomElm, topElm, offsetTop, offsetBottom } = this.props;
         let style = null;
 
-        if (!topElm && !bottomElm) return;
+        if (!topElm && !bottomElm) {
+            return;
+        }
 
         const disFromTop = window.pageYOffset;
         const topElmPosition = this.getTopOffset(topElm);

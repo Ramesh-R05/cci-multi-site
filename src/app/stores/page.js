@@ -71,7 +71,7 @@ export default createReducerStore({
 
         getHomeSearchBox(state) {
             const enableHomeSearchBox = !!state.enableHomeSearchBox;
-            const linkToBackgroundImage = state.linkToBackgroundImage || '';
+            const linkToBackgroundImage = typeof state.linkToBackgroundImage === 'string' ? state.linkToBackgroundImage : '';
             const searchDescribeText = state.searchDescribeText || '';
             const searchTagsDetails = state.searchTagsDetails || [];
 

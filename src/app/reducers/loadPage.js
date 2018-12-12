@@ -6,7 +6,8 @@ export const initialState = {
     magazineImageUrl: '',
     magCover: {},
     comScoreSegmentIds: '',
-    emailLinkTrackingData: null
+    emailLinkTrackingData: null,
+    linkToBackgroundImage: ''
 };
 
 export function reducer(state = initialState, payload = {}, eventName = '') {

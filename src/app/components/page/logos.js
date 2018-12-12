@@ -13,9 +13,13 @@ export default class Logos extends Component {
     };
 
     render() {
-        if (!this.props.logoList || this.props.logoList.length <= 0) return null;
+        const { logoList } = this.props;
 
-        const html = this.props.logoList.map(item => {
+        if (!logoList || logoList.length <= 0) {
+            return null;
+        }
+
+        const html = logoList.map(item => {
             const gtmClassName = `gtm-${this.props.gtmPrefix || this.props.className}-${item.id}`;
 
             const imgClassName = `${this.props.className}__logo--${item.id}`
@@ -24,14 +28,8 @@ export default class Logos extends Component {
                 .toLowerCase();
 
             return (
-                <li>
-                    <a
-                        key={item.id}
-                        href={item.url}
-                        target={this.props.openInNewTab ? '_blank' : '_self'}
-                        title={item.title}
-                        className={gtmClassName}
-                    >
+                <li key={item.id}>
+                    <a href={item.url} target={this.props.openInNewTab ? '_blank' : '_self'} title={item.title} className={gtmClassName}>
                         <img src={item.imageUrl} alt={item.title} className={imgClassName} />
                     </a>
                 </li>

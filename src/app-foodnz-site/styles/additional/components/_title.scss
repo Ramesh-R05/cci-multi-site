@@ -1,32 +1,41 @@
 .page-title {
+    $root: &;
+
     @include type-section-title();
-    background: $color-black-origin;
-    color: $color-white;
+    color: $color-accent;
     margin: 22px 30px 10px;
     padding: 0 $column-gutter/2;
 
     @media #{$medium-up} {
         padding: 10px $column-gutter/2;
+    }    
+
+    &--with-brand-logo {
+        margin: 15px 0;
+
+        #{$root}__brand-logo {
+            height: 80px;
+
+            @media #{$medium-up} {
+                height: 120px;
+            }
+        }
     }
 
-    span {
-        color: $color-white;
+    &__symbol {
+        color: $color-primary;
+        letter-spacing: -5px;
+    
+        &:before {
+            content: '';
+        }
 
         &:after {
             display: none;
         }
-    }
-}
-
-.page-title__symbol {
-    color: $color-primary;
-    letter-spacing: -5px;
-
-    &:before {
-        content: '';
-    }
-
-    @media #{$medium-up} {
-        letter-spacing: -8px;
+    
+        @media #{$medium-up} {
+            letter-spacing: -8px;
+        }
     }
 }

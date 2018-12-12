@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
 import SocialContainer from '../social/block';
 import FooterNavigation from './footerNavigation';
@@ -7,28 +8,36 @@ import FooterSubscribe from './footerSubscribe';
 
 export default class Footer extends Component {
     static propTypes = {
-        modifier: PropTypes.string.isRequired,
-        logoList: PropTypes.arrayOf(PropTypes.element).isRequired,
-        magCover: PropTypes.object,
+        modifier: PropTypes.string,
+        logoList: PropTypes.arrayOf(PropTypes.object).isRequired,
+        magCover: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         magCoverImageUrl: PropTypes.string,
-        magCoverText: PropTypes.string
+        magCoverText: PropTypes.string,
+        brand: PropTypes.object,
+        isBrandPage: PropTypes.bool
     };
 
     static defaultProps = {
         magCover: {},
+        brand: null,
         magCoverImageUrl: '',
-        magCoverText: ''
+        magCoverText: '',
+        isBrandPage: false,
+        modifier: null
     };
 
     static contextTypes = {
         config: PropTypes.object
     };
 
+    shouldComponentUpdate() {
+        return false;
+    }
+
     render() {
         const { config } = this.context;
-        const { modifier, logoList, magCover, magCoverImageUrl, magCoverText } = this.props;
+        const { modifier, logoList, magCover, magCoverImageUrl, magCoverText, isBrandPage, brand } = this.props;
         const subscribeContent = config.subscribe;
-        let classNames = 'footer';
 
         // Only show the brand logos and title, if the array list has items.
         const brandLogos =
@@ -37,21 +46,23 @@ export default class Footer extends Component {
                     <span className="footer__logos-title">CONTENT SUPPORTED BY</span>
                     <br />
                     <nav className="footer__logos-nav">
-                        <Logos className="footer__logos-list" openInNewTab logoList={logoList} />
+                        <Logos className="footer__logos-list" gtmPrefix="footer" openInNewTab logoList={logoList} />
                     </nav>
                 </div>
             );
 
-        if (modifier) {
-            classNames += ` footer--${modifier}`;
-        }
+        const rootClass = classNames('footer', {
+            [`footer--${modifier}`]: modifier
+        });
+
+        const socialUrls = isBrandPage ? config.brands.uniheader.find(b => b.id === brand.id).socialLinks : config.urls.socialUrls;
 
         return (
             <div>
-                <footer className={classNames}>
+                <footer className={rootClass}>
                     <div className="home-page__get-social-container">
                         <span className="home-page__social-logo">{config.site.name}</span>
-                        <SocialContainer socialUrls={config.urls.socialUrls} />
+                        <SocialContainer socialUrls={socialUrls} />
                     </div>
                     <FooterSubscribe content={{ ...subscribeContent, magCover, magCoverImageUrl, magCoverText }} isDisplayed={magCover !== {}} />
 

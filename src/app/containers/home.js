@@ -35,12 +35,12 @@ export default class Home extends Component {
 
     static propTypes = {
         heroTeaser: PropTypes.object.isRequired,
-        list: PropTypes.array.isRequired,
+        list: PropTypes.object.isRequired,
         listNextParams: PropTypes.object.isRequired,
         homePageSearchBox: PropTypes.object.isRequired,
         teasers: PropTypes.array,
         currentUrl: PropTypes.string.isRequired,
-        theme: PropTypes.object,
+        theme: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         magazineImageUrl: PropTypes.string
     };
 
@@ -69,13 +69,14 @@ export default class Home extends Component {
 
     render() {
         const { config } = this.context;
+        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magazineImageUrl, homePageSearchBox } = this.props;
+        const { topElm, bottomElm } = this.state;
         const brand = config.product;
         const polarLabels = config.polar.details;
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
         const { showBelowHero, showAboveBottomTeasers } = config.features.promoted;
-        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magazineImageUrl, homePageSearchBox } = this.props;
 
         const adProps = {
             className: 'ad--section-bottom-leaderboard',
@@ -156,23 +157,31 @@ export default class Home extends Component {
                                             )}
                                         </div>
                                         <div className="page__social-wrapper columns large-4 xlarge-3">
-                                            <div className="columns medium-6 large-12">
-                                                <StickyAndDockAd
-                                                    offsetTop={95}
-                                                    offsetBottom={16}
-                                                    customiseBreakpoint={1024}
-                                                    bottomElm={this.state.bottomElm}
-                                                    topElm={this.state.topElm}
-                                                >
-                                                    <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
-                                                    <SideBlock
-                                                        showBrandMagazine={isBrandDefined}
-                                                        showBrandNewsletter={isBrandDefined}
-                                                        showGiftCard={giftCardEnabled}
-                                                        brand={brand}
-                                                        magazineImageUrl={magazineImageUrl}
-                                                    />
-                                                </StickyAndDockAd>
+                                            <div className="columns medium-6 large-12" style={{ minHeight: '300px' }}>
+                                                {bottomElm &&
+                                                    topElm && (
+                                                        <StickyAndDockAd
+                                                            offsetTop={95}
+                                                            offsetBottom={16}
+                                                            customiseBreakpoint={1024}
+                                                            bottomElm={bottomElm}
+                                                            topElm={topElm}
+                                                        >
+                                                            <Ad
+                                                                className="ad--section-mrec"
+                                                                sizes="mrec"
+                                                                displayFor="large"
+                                                                pageLocation={Ad.pos.aside}
+                                                            />
+                                                            <SideBlock
+                                                                showBrandMagazine={isBrandDefined}
+                                                                showBrandNewsletter={isBrandDefined}
+                                                                showGiftCard={giftCardEnabled}
+                                                                brand={brand}
+                                                                magazineImageUrl={magazineImageUrl}
+                                                            />
+                                                        </StickyAndDockAd>
+                                                    )}
                                             </div>
                                         </div>
                                     </div>
