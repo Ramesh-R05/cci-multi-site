@@ -755,29 +755,6 @@ jobs:
         - script: actualsize=$(wc -c <"@rerun.txt")
         - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
 
-  # iv. Smoke Test in Cosmo Dev CMS
-  - name: CMS-cosmo-smoke-test
-    type: runSh
-    always:
-      - NOTIFY: multi-qa-team-notifications
-    steps:
-     - IN: multi-site-repo
-       switch: off
-     - IN: cosmo-weekly-trigger
-     - TASK:
-        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-        - script: source ~/.nvm/nvm.sh
-        - script: nvm install "8.9.1"
-        - script: nvm use "8.9.1"
-        - script: cd ./IN/multi-site-repo/gitRepo/automation
-        - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-        - script: npm install
-        - script: export URL=http://cms.dev.cosmo.wn.bauer-media.net.au/cms/umbraco/
-        - script: export APP_KEY=cosmo-site
-        - script: npm run test:cms || true
-        - script: actualsize=$(wc -c <"@rerun.txt")
-        - script: bash -c "if [ $actualsize -eq 0 ]; then  echo 'rerun exit code' $actualsize; else npm run test:rerun; fi"
-
   # v. Smoke Test in GT Dev CMS
   - name: CMS-gt-smoke-test
     type: runSh

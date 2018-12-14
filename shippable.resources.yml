@@ -171,12 +171,6 @@ resources:
     seed:
       interval: "0 22 * * 0"
 
-  #"0 22 * * 2" is 10:00pm Tuesday which is Wednesday morning 9:00am daylight saving or 8:00am standard time in Sydney
-  - name: cosmo-weekly-trigger
-    type: time
-    seed:
-      interval: "0 22 * * 2"
-
   #"0 22 * * 4" is 10:00pm Thursday which is Friday morning 9:00am daylight saving or 8:00am standard time in Sydney
   - name: hb-weekly-trigger
     type: time
