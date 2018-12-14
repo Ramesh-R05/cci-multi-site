@@ -27,11 +27,12 @@ $global-header-height: $to-love-global-header-height-mobile;
 $global-header-height-desktop: $to-love-global-header-height-desktop;
 
 $header-logo-aspect-ratio: 4; // (140 / 35)
+$header-content-width-desktop: 1024px;
 $header-height: 54px;
-$header-height-desktop: 59px;
+$header-height-desktop: 61px;
 $header-banner-logo-height: 173px;
-$header-logo-width-desktop: 332px;
-$header-logo-container-width-desktop: $header-logo-width-desktop;
+$header-logo-width-desktop: 265px;
+$header-logo-container-width-desktop: 165px;
 $header-logo-path: '/assets/logos/header-logo.svg';
 $header-banner-background-path: '/assets/backgrounds/header.png';
 $header-transition-duration: 200ms;

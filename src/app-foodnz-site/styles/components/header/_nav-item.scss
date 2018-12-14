@@ -1,0 +1,34 @@
+.nav-item.nav-item.nav-item {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0 15px;
+  color: $color-accent;
+  letter-spacing: 0.4pt;
+  font: 12px $font-text;
+  text-transform: uppercase;
+  
+  &:before {
+      display: none;
+  }
+
+  &:active,
+  &:focus,
+  &:hover,
+  &.nav-item--active {
+      text-decoration: underline;
+  }
+
+  .header--pinned &:last-child {
+    @media #{$medium-up} {
+        display: none;
+    }
+
+    @media #{$large-up} {
+        display: inline-block;
+    }
+  }
+
+  &--active {
+      color: $color-tertiary;
+  }
+}

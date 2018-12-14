@@ -194,25 +194,23 @@ export default class Section extends Component {
                                     </div>
                                     <div className="page__social-wrapper columns large-4 xlarge-3">
                                         <div className="columns medium-6 large-12">
-                                            {bottomElm && (
-                                                <StickyAndDockAd
-                                                    offsetTop={95}
-                                                    offsetBottom={16}
-                                                    customiseBreakpoint={1024}
-                                                    bottomElm={bottomElm}
-                                                    topElm={topElm}
-                                                >
-                                                    <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
-                                                    <SideBlock
-                                                        isBrandPage={isBrandPage}
-                                                        showBrandMagazine={isBrandDefined}
-                                                        showBrandNewsletter={isBrandDefined}
-                                                        showGiftCard={giftCardEnabled}
-                                                        brand={brand}
-                                                        magazineImageUrl={magazineImageUrl}
-                                                    />
-                                                </StickyAndDockAd>
-                                            )}
+                                            <StickyAndDockAd
+                                                offsetTop={95}
+                                                offsetBottom={16}
+                                                customiseBreakpoint={1024}
+                                                bottomElm={bottomElm}
+                                                topElm={topElm}
+                                            >
+                                                <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
+                                                <SideBlock
+                                                    isBrandPage={isBrandPage}
+                                                    showBrandMagazine={isBrandDefined}
+                                                    showBrandNewsletter={isBrandDefined}
+                                                    showGiftCard={giftCardEnabled}
+                                                    brand={brand}
+                                                    magazineImageUrl={magazineImageUrl}
+                                                />
+                                            </StickyAndDockAd>
                                         </div>
                                     </div>
                                 </div>

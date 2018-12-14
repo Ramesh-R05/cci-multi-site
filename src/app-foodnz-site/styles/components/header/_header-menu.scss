@@ -1,0 +1,21 @@
+.header-menu {
+    flex: 0 0 58px;
+    display: flex;    
+  
+  &__button-menu {
+      padding: 0 $column-gutter / 2;
+  }    
+
+  svg,
+  svg path {
+      fill: $color-accent;
+  }
+
+  &:hover svg,
+  &:hover svg path {
+      fill: $color-button-hover;
+      opacity: $hover-opacity;
+      transition: opacity 0.3s;
+      transition-timing-function: ease-in-out;
+  }
+}

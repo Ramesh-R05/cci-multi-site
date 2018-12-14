@@ -1,0 +1,24 @@
+.header-wrapper {
+  $root: &;
+
+  overflow: auto;
+  margin-bottom: 54px;
+  padding-bottom: 1px;
+
+  @media #{$medium-up} {
+      padding-bottom: 0;
+      margin-bottom: 95px;
+  }
+
+  &--expanded {
+        margin-bottom: 75px;
+
+        @media #{$medium-up} {
+            margin-bottom: 285px;
+        }
+  
+        @media #{$large-up} {
+            margin-bottom: 255px !important;
+        }
+      }
+}

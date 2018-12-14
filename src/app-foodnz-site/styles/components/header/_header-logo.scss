@@ -1,0 +1,64 @@
+.header-logo {
+  $root: &;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: width $header-transition-duration;
+  flex: 1 0 auto;
+
+  @media #{$medium-up} {    
+      width: 260px;
+      margin-left: -20px;
+  }
+
+  &__link-image {
+      width: auto;        
+      background-image: none;        
+
+      &:hover {
+          opacity: $hover-opacity;
+      }
+  }
+
+  .icon-logo {
+      color: $color-accent;
+      font-size: 31px;
+
+      @media #{$medium-up} {
+        line-height: unset;
+        font-size: 18px;
+      }
+
+      @media #{$large-up} {
+        line-height: unset;
+        font-size: 28px;
+      }
+  }
+
+.header.header--expanded.header--pinned & {
+  @media #{$medium-up} {
+        width: 165px;
+    }
+  
+    @media #{$large-up} {
+        width: 265px;
+    }
+  }
+
+  .header--expanded:not(.header--pinned) & {
+    
+    @media #{$medium-up} {
+        flex: 0 0 0px;
+    }
+    
+    @media #{$large-up} {
+          margin-left: 0;
+      }
+
+      @media #{$xlarge-up} {
+          transition: none;
+      }
+  }    
+}

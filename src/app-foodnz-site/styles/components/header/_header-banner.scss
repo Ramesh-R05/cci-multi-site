@@ -1,0 +1,39 @@
+.header-banner {
+  background: none;
+  line-height: unset;
+
+  a {
+      background-image: none;
+      height: 100px;
+      vertical-align: top;
+      width: 70%;
+
+      @media #{$medium-up} {
+          margin: 8px 0;
+          height: auto;
+          width: (158px * $header-logo-aspect-ratio);
+      }
+
+      @media #{$large-up} {
+          height: 155px;
+      }
+  }
+
+  &__icon-logo { 
+      @media #{$medium-up} {
+        font-size: 50px;
+        line-height: 2em;
+        color: $color-accent;
+      }
+
+      @media #{$large-up} {
+        font-size: 75px;
+        line-height: 2em;
+        color: $color-accent;
+      }
+  }
+
+  .header--expanded:not(.header--pinned) & {
+      background-color: $color-white;
+  }
+}
