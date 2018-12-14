@@ -1,0 +1,54 @@
+
+@media print {
+
+    .article__hero-container {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+	#adwrapper {
+		display: none;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .article__date-created {
+        display: none;
+    }
+
+    .header-menu__button-icon {
+        display: none;
+    }
+
+    .header-search--icon {
+        display: none;
+    }
+
+	footer {
+		display: none;
+    }
+
+	.OUTBRAIN {
+		display: none;
+    }
+
+	.content-body__feed-carousel-content {
+		display: none;
+    }
+
+
+	.newsletter-signup-wrapper {
+		display: none;
+    }
+
+	.more-from {
+		display: none;
+    }
+
+	.back-to-top {
+		display: none !important;
+    }
+
+}
