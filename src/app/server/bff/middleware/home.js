@@ -9,15 +9,19 @@ const videoGalleryTeaserCount = 6;
 export default async function home(req, res, next) {
     try {
         let pageNo = 1;
+
         if (req.query) {
             const { page, section, tag } = req.query;
+
             if (page || section || tag) {
                 next();
+
                 return;
             }
 
             pageNo = parseInt(req.query.pageNo || pageNo, 10);
         }
+
         const videoQuery = req.data.excludeTagQuery ? `video eq %27$contentTags%27 and ${req.data.excludeTagQuery}` : 'video eq %27$contentTags%27';
         const skip = (pageNo - 1) * listCount;
         const [pageData, latestTeasersResp, videoGalleryTeasers] = await Promise.all([
@@ -27,6 +31,7 @@ export default async function home(req, res, next) {
         ]);
         videoGalleryTeasers.data = videoGalleryTeasers.data.map(gallery => {
             gallery.contentImageUrl = get(gallery, 'contentVideo.properties.videoConfiguration.videoStillUrl', gallery.contentImageUrl);
+
             return gallery;
         });
 
@@ -36,6 +41,7 @@ export default async function home(req, res, next) {
         };
 
         let previousPage = null;
+
         if (pageNo > 1) {
             const path = pageNo === 2 ? '/' : `/?pageNo=${pageNo - 1}`;
             previousPage = {

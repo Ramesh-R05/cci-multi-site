@@ -1,6 +1,7 @@
 import makeRequest from '../../makeRequest';
 import tagsToQuery from '../helper/tagsToQuery';
 import logger from '../../../../logger';
+
 export default async function commercialTag(req, res, next) {
     try {
         const {
@@ -14,8 +15,10 @@ export default async function commercialTag(req, res, next) {
 
         req.data = req.data || {};
         req.data.isFoodSite = ['awwfood', 'foodnz'].includes(prefix.toLowerCase());
+
         if (!req.data.isFoodSite) {
             next();
+
             return;
         }
 
@@ -23,6 +26,7 @@ export default async function commercialTag(req, res, next) {
 
         if (!allCommercailSectionTags || !Array.isArray(allCommercailSectionTags) || !allCommercailSectionTags.length) {
             next();
+
             return;
         }
 
@@ -31,6 +35,7 @@ export default async function commercialTag(req, res, next) {
         const tagsToExclude = commercialTagSections.reduce((fullNameList, currentTag) => {
             const tagsDetails = Array.isArray(currentTag.tagsDetails) && currentTag.tagsDetails.length ? currentTag.tagsDetails : [];
             const newFullNames = tagsDetails.map(t => t.fullName);
+
             return [...fullNameList, ...newFullNames];
         }, []);
 

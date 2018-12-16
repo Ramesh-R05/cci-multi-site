@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-if (!process.env.APP_KEY) throw new Error('APP_KEY environment variable not set');
+if (!process.env.APP_KEY) {
+    throw new Error('APP_KEY environment variable not set');
+}
 
 function fileExists(filePath) {
     try {
@@ -13,7 +15,9 @@ function fileExists(filePath) {
 
 // eslint-disable-next-line consistent-return,func-names
 module.exports = function(url, prev, done) {
-    if (url.indexOf('../../node_modules') >= 0 || prev.indexOf('node_modules') >= 0) return done(null);
+    if (url.indexOf('../../node_modules') >= 0 || prev.indexOf('node_modules') >= 0) {
+        return done(null);
+    }
 
     // console.log('\n\nurl', url);
     // console.log('\n\nthis', this);
@@ -38,5 +42,7 @@ module.exports = function(url, prev, done) {
         // enable for debugging only as the log text will appear in the stylesheet code
         // console.log(`/* -> replacement found for ${originalPath}, using ${replacementPath} */`);
         done({ file: replacementPath });
-    } else done(null);
+    } else {
+        done(null);
+    }
 };

@@ -23,13 +23,17 @@ export default class Subscribe extends Component {
     getMagCoverWithButtonText(magCover) {
         const { config } = this.context;
         const footerSubscribeButtonText = get(config, 'product.footerSubscribeButtonText', null);
-        if (!footerSubscribeButtonText || !Array.isArray(magCover)) return null;
+
+        if (!footerSubscribeButtonText || !Array.isArray(magCover)) {
+            return null;
+        }
 
         return magCover.map(cover => {
             const coverRes = { ...cover };
             const buttonConfig = footerSubscribeButtonText.find(button => button.url === coverRes.url);
             coverRes.buttonText = (buttonConfig && buttonConfig.text) || 'Subscribe';
             coverRes.url = cover.url && `https://www.magshop.com.au${cover.url}`;
+
             return coverRes;
         });
     }
@@ -38,9 +42,14 @@ export default class Subscribe extends Component {
         let siteMagCover = {};
         let otherMagCovers = [];
         const AllMagCovers = this.getMagCoverWithButtonText(magCover);
-        if (!AllMagCovers) return { siteMagCover, otherMagCovers };
+
+        if (!AllMagCovers) {
+            return { siteMagCover, otherMagCovers };
+        }
+
         siteMagCover = AllMagCovers.find(button => button.isSiteMagCover) || {};
         otherMagCovers = AllMagCovers.filter(button => !button.isSiteMagCover);
+
         return { siteMagCover, otherMagCovers };
     }
 

@@ -1,4 +1,7 @@
-if (!process.env.APP_KEY) throw new Error('APP_KEY environment variable not set');
+if (!process.env.APP_KEY) {
+    throw new Error('APP_KEY environment variable not set');
+}
+
 process.title = process.env.APP_KEY;
 process.on('uncaughtException', e => {
     throw e;
@@ -16,10 +19,12 @@ let timerId = null;
 
 function startWhenReady() {
     attemptCount++;
+
     if (timerId) {
         clearTimeout(timerId);
         timerId = null;
     }
+
     if (fs.existsSync(requiredFile)) {
         logger.info(`${requiredFile} exists, ok to start`);
         require('./app/server/server');

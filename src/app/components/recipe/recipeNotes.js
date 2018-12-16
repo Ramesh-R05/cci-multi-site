@@ -4,7 +4,10 @@ import parse from '@bxm/markdown/lib/parse';
 class RecipeNotes extends Component {
     render() {
         const { recipeNotes } = this.props;
-        if (!recipeNotes) return null;
+
+        if (!recipeNotes) {
+            return null;
+        }
 
         return (
             <div className="recipe-notes columns small-12">

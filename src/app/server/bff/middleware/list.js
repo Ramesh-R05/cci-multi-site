@@ -9,6 +9,7 @@ export default async function list(req, res, next) {
         const { section, filter, tagSectionQuery } = req.query;
 
         let listingQuery;
+
         if (tagSectionQuery) {
             listingQuery = tagSectionQuery;
         } else {
@@ -23,6 +24,7 @@ export default async function list(req, res, next) {
 
         const basePath = section ? `/${section}` : '/';
         let previousPage = null;
+
         if (pageNo > 1) {
             const path = `${basePath}?pageNo=${pageNo - 1}`;
             previousPage = {
@@ -32,6 +34,7 @@ export default async function list(req, res, next) {
         }
 
         let nextPage = null;
+
         if (skip + listResp.data.length < listResp.totalCount) {
             const path = `${basePath}?pageNo=${pageNo + 1}`;
             nextPage = {

@@ -46,7 +46,9 @@ class StickyAndDockAd extends Component {
     };
 
     componentDidMount() {
-        if (this.props.viewport.width < this.props.customiseBreakpoint) return;
+        if (this.props.viewport.width < this.props.customiseBreakpoint) {
+            return;
+        }
 
         this.addListener();
         this.onScroll();

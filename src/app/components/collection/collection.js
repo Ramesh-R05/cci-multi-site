@@ -129,6 +129,7 @@ export default class Collection extends Component {
         if (sticky) {
             return <StickyAd adProps={adProps} minHeight={450} />;
         }
+
         return <Ad {...adProps} />;
     }
 

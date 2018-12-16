@@ -22,13 +22,19 @@ class Promoted extends Component {
     render() {
         const { promoted, show } = this.props;
 
-        if (!show) return null;
+        if (!show) {
+            return null;
+        }
 
-        if (!promoted) return null;
+        if (!promoted) {
+            return null;
+        }
 
         let promotedItems = promoted.items;
 
-        if (!promotedItems || promotedItems.length === 0 || promotedItems.length < 4) return null;
+        if (!promotedItems || promotedItems.length === 0 || promotedItems.length < 4) {
+            return null;
+        }
 
         const shortenedNameList = this.context.config.brands.shortSources || {};
         const imageSizes = this.context.config.features.promoted.imageSizes || {};
@@ -40,6 +46,7 @@ class Promoted extends Component {
             const item = { ...promotedItem };
             item.id = `promo${index + 1}-homepage`;
             item.source = shortenedNameList[item.source] || item.source;
+
             return item;
         });
 

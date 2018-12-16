@@ -54,9 +54,11 @@ class Application extends Component {
 
     componentDidUpdate(prevProps) {
         const newProps = this.props;
+
         if (newProps.title === prevProps.title) {
             return;
         }
+
         document.title = newProps.title;
     }
 
@@ -76,6 +78,7 @@ class Application extends Component {
         });
 
         const className = canUseDOM ? '' : 'no-js';
+
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
                 <div className={className}>

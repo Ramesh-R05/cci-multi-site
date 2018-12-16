@@ -8,13 +8,17 @@ export default class RecipeAtGlance extends Component {
     };
 
     static getRecipeServings(recipeServings) {
-        if (!recipeServings) return '';
+        if (!recipeServings) {
+            return '';
+        }
+
         const { serveMax, serveMin, yieldMeasure, yieldQuantity } = recipeServings;
         const serveMaxInt = parseInt(serveMax, 10);
         const serveMinInt = parseInt(serveMin, 10);
         const yieldQuantityInt = parseInt(yieldQuantity, 10);
 
         const recipeServingsArr = [];
+
         if (serveMaxInt && serveMinInt) {
             recipeServingsArr.push(`Serves ${serveMinInt} - ${serveMaxInt}`);
         } else if (serveMaxInt || serveMinInt) {
@@ -44,6 +48,7 @@ export default class RecipeAtGlance extends Component {
             const hourFormated = hours ? `${hours} ${hours > 1 ? 'hrs' : 'hr'} ` : '';
             const minFormated = mins ? `${mins} ${mins > 1 ? 'mins' : 'min'}` : '';
             const timeFormated = `${hourFormated}${minFormated}`;
+
             return `${timeFormated} ${labelAlias[time.id]}${time.label ? ` ${time.label}` : ''}`;
         });
     }
@@ -58,11 +63,14 @@ export default class RecipeAtGlance extends Component {
         if (getRecipeServingsDetail) {
             glanceDetails.push(getRecipeServingsDetail);
         }
+
         if (getRecipeCookingTimeDtails.length) {
             glanceDetails = glanceDetails.concat(getRecipeCookingTimeDtails);
         }
 
-        if (glanceDetails.length === 0) return null;
+        if (glanceDetails.length === 0) {
+            return null;
+        }
 
         return glanceDetails.map((detail, id) => <li key={id.toString()}>{detail}</li>);
     }
@@ -70,7 +78,10 @@ export default class RecipeAtGlance extends Component {
     render() {
         const { recipeAtGlance } = this.props;
         const glanceDetails = this.getGlanceDetails();
-        if (!recipeAtGlance || Object.keys(recipeAtGlance).length === 0 || !glanceDetails) return null;
+
+        if (!recipeAtGlance || Object.keys(recipeAtGlance).length === 0 || !glanceDetails) {
+            return null;
+        }
 
         return <ul className="article__at_glance">{glanceDetails}</ul>;
     }

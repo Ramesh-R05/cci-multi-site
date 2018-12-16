@@ -72,6 +72,7 @@ export default class Teaser extends Component {
 
     getGTMClass = () => {
         const article = this.props.article;
+
         return has(article, 'id') ? `gtm-${article.id}` : '';
     };
 
@@ -106,8 +107,13 @@ export default class Teaser extends Component {
     getReviewSuffix(title, nodeType) {
         const { config } = this.context;
         const ifReviewSuffixEnabled = get(config, 'features.reviewTitleSuffix.enabled', false);
-        if (!ifReviewSuffixEnabled || nodeType !== 'Review') return title;
+
+        if (!ifReviewSuffixEnabled || nodeType !== 'Review') {
+            return title;
+        }
+
         const reviewSuffix = get(config, 'features.reviewTitleSuffix.titleSuffix', '');
+
         return `${title}${reviewSuffix}`;
     }
 
@@ -116,7 +122,9 @@ export default class Teaser extends Component {
         const { className, sourceClassName, showDate, sourceDefault, polar, showImageBadge, tagsToShow, linesToShow } = this.props;
         let { article } = this.props;
 
-        if (!article) return null;
+        if (!article) {
+            return null;
+        }
 
         article = teaserContentOverride(article);
         const { title, shortTitle, summaryTitle, nodeType, id, teaserIndex } = article;
@@ -134,6 +142,7 @@ export default class Teaser extends Component {
         });
 
         let articleSourceClassName = sourceClassName;
+
         if (article.source) {
             articleSourceClassName = `${sourceClassName} ${sourceClassName}--${article.source.toLowerCase().replace(/[^A-Z0-9]/gi, '-')}`;
         }
@@ -160,6 +169,7 @@ export default class Teaser extends Component {
 
         let teaserTitle = article.parentName;
         const isAlternativeTitleEnabled = get(config, 'features.alternativeTitle.enabled', false);
+
         if (isAlternativeTitleEnabled) {
             const alternativeTitleMap = get(config, 'alternativeTitleMap', {});
             teaserTitle = alternativeTitleMap[article.nodeType.toLowerCase()] || article.nodeType;

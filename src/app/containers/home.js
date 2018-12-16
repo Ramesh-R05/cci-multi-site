@@ -19,6 +19,7 @@ import PageSearchBox from '../components/search/pageSearchBox';
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');
     const teaserStore = context.getStore('TeaserStore');
+
     return {
         heroTeaser: teaserStore.getHeroTeaser(),
         teasers: teaserStore.getLatestTeasers(),

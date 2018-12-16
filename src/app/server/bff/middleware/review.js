@@ -6,8 +6,10 @@ const TOP = 20;
 export default async function review(req, res, next) {
     try {
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
+
         if (nodeTypeAlias !== 'Review') {
             next();
+
             return;
         }
 
@@ -19,6 +21,7 @@ export default async function review(req, res, next) {
             req.data.entity.pageTitle += titleSuffix;
             req.data.entity.contentTitle += titleSuffix;
         }
+
         next();
     } catch (error) {
         next(error);

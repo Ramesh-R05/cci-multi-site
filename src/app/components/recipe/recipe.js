@@ -150,16 +150,26 @@ export default class Recipe extends Component {
         if (sticky) {
             return <StickyAd adProps={adProps} minHeight={450} />;
         }
+
         return <Ad {...adProps} />;
     }
 
     addToHeaderBefore(exisitingComponent, toAddComponent) {
         const { articleHeaderOrder } = this.props;
-        if (!articleHeaderOrder) return null;
+
+        if (!articleHeaderOrder) {
+            return null;
+        }
+
         const indexOfExisting = articleHeaderOrder.indexOf(exisitingComponent);
-        if (indexOfExisting === -1) return articleHeaderOrder;
+
+        if (indexOfExisting === -1) {
+            return articleHeaderOrder;
+        }
+
         const recipeHeaderOrder = articleHeaderOrder.slice();
         recipeHeaderOrder.splice(indexOfExisting, 0, toAddComponent);
+
         return recipeHeaderOrder;
     }
 

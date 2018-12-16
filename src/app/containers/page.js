@@ -120,7 +120,9 @@ export default class Page extends Component {
                                 }
                             }
                         }
+
                         break;
+
                     default:
                         if (content.parentName) {
                             for (let i = 0, sectionsLength = sections.length; i < sectionsLength; i++) {

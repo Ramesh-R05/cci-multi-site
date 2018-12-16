@@ -16,7 +16,10 @@ app.plug(batchedUpdatePlugin());
 adConfig.init();
 
 app.rehydrate(window.App, (err, context) => {
-    if (err) throw err;
+    if (err) {
+        throw err;
+    }
+
     const mountNode = document.getElementById('app');
     const userAgent = window.navigator.userAgent;
     ReactDOM.render(createElementWithContext(context, { userAgent }), mountNode, () => {});

@@ -155,7 +155,10 @@ class GallerySection extends Component {
     render() {
         const { gallery, hamburgerNavItems, headerNavItems, customisedTeaser, theme, magCover, currentUrl } = this.props;
         const pageLocation = Ad.pos.outside;
-        if (!gallery) return null;
+
+        if (!gallery) {
+            return null;
+        }
 
         const tags = gallery.tagsDetails;
         const keyword = tags ? tags.map(tag => tag.fullName) : '';

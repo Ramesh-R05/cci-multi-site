@@ -17,6 +17,7 @@ export default class BrandTitle extends Component {
         const { imageUrl, id, title } = brand;
         const brandClass = `brand-title brand-title-${id}`;
         const crumbClass = `brand-breadcrumb-${id}`;
+
         return (
             <div className={`brand brand-${id}`}>
                 <div className={brandClass}>

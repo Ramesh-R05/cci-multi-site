@@ -66,6 +66,7 @@ export default function responseBody(req, res, next) {
             const lhsData = req.data.leftHandSide.data.map(lhsTeaser => {
                 const withDefaultImg = { ...lhsTeaser };
                 withDefaultImg.contentImageUrl = withDefaultImg.contentImageUrl || req.app.locals.config.defaultImageUrl;
+
                 return withDefaultImg;
             });
             res.body.leftHandSide = { items: parseEntities(lhsData) };

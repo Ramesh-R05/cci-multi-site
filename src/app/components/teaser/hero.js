@@ -32,7 +32,10 @@ export default class HeroTeaser extends Component {
     };
 
     render() {
-        if (!this.props.article) return null;
+        if (!this.props.article) {
+            return null;
+        }
+
         const { config } = this.context;
         const { article, imageSizes, showPromoted, brand, showDate, magazineImageUrl } = this.props;
         const pageLocation = Ad.pos.outside;

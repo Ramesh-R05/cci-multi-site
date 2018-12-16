@@ -40,9 +40,11 @@ export default class RecipeContent extends Component {
     render() {
         const { config } = this.context;
         let excludedSource = ``;
+
         if (config.product.id === `awwfood`) {
             excludedSource = `Australian Women's Weekly`;
         }
+
         const {
             enableTeads,
             menuSliderClassName,

@@ -49,15 +49,19 @@ function cosmoRedirectsMiddleware(req, res, next) {
     if (process.env.APP_KEY !== 'cosmo-site') {
         return next();
     }
+
     const s = req.url.split('/')[1] || 'homepage';
+
     if (cosmoRedirects[s]) {
         return res.redirect(301, cosmoRedirects[s]);
     }
+
     return next();
 }
 
 export default function bff(server) {
     server.get('/api/asset', assetProxy);
+
     if (process.env.APP_STUBBED === 'true') {
         stubServer(server, server.locals.config);
         logger.warn('stubbing does not exercise BFF code');

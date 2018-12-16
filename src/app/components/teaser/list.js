@@ -59,9 +59,13 @@ export default class TeaserListView extends Component {
             xl: { w: 1010, h: 478 }
         });
 
-        if (index) adProps.targets.position += index;
+        if (index) {
+            adProps.targets.position += index;
+        }
 
-        if (!items || !Array.isArray(items) || !items.length) return null;
+        if (!items || !Array.isArray(items) || !items.length) {
+            return null;
+        }
 
         let ad = null;
 

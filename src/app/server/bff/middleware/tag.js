@@ -20,8 +20,10 @@ export default async function tagMiddleware(req, res, next) {
         const contentSummary = get(req, 'data.entity.contentSummary', '');
         const tagsDetails = get(req, 'data.entity.tagsDetails', []);
         const { excludeTagQuery } = req.data;
+
         if (!tag || query.page || (entity && entity.nodeTypeAlias !== 'TagSection')) {
             next();
+
             return;
         }
 
@@ -40,20 +42,27 @@ export default async function tagMiddleware(req, res, next) {
             (await makeRequest(`${entityService}/section/${tag}`)
                 .then(listingData => {
                     const defaultTagUrl = `/tags/${tag}`;
+
                     return listingData.nodeTypeAlias !== 'TagSection' ? defaultTagUrl : listingData.url || defaultTagUrl;
                 })
                 .catch(() => `/tags/${tag}`));
 
         const tagData = await makeRequest(`${tagService}/tags/${title}`)
             .then(({ data }) => {
-                if (!data.length) return {};
+                if (!data.length) {
+                    return {};
+                }
+
                 return (
                     find(data, tagObj => {
                         const tagName = getTagName(tagObj.tag.name);
+
                         if (tagName.toLowerCase() === title.toLowerCase()) {
                             title = tagName; // Override tagName with one received from service
+
                             return true;
                         }
+
                         return false;
                     }) || {}
                 );
@@ -77,6 +86,7 @@ export default async function tagMiddleware(req, res, next) {
 
         const basePath = query.section ? `/${tag}` : `/tags/${tag}`;
         let previousPage = null;
+
         if (pageNo > 1) {
             const path = pageNo === 2 ? `${basePath}` : `${basePath}?pageNo=${pageNo - 1}`;
             previousPage = {
@@ -86,6 +96,7 @@ export default async function tagMiddleware(req, res, next) {
         }
 
         let nextPage = null;
+
         if (skip + latestTeasers.data.length < latestTeasers.totalCount) {
             const path = `${basePath}?pageNo=${pageNo + 1}`;
             nextPage = {

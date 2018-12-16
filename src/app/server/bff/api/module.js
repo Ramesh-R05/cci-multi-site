@@ -6,7 +6,9 @@ import logger from '../../../../logger';
 
 export default async function getModules(...args) {
     try {
-        if (!args.length) return {};
+        if (!args.length) {
+            return {};
+        }
 
         const moduleNames = args.join(',');
         const modules = await makeRequest(`${config.services.remote.module}/${moduleNames}`);
@@ -33,6 +35,7 @@ export default async function getModules(...args) {
 
                     let isSiteMagCover = !!module.moduleTitle;
                     const newModuleObj = { ...module };
+
                     if (newModuleObj.moduleTitle === 'null') {
                         delete newModuleObj.moduleTitle;
                     }
@@ -51,6 +54,7 @@ export default async function getModules(...args) {
         return moduleList;
     } catch (error) {
         logger.error(error);
+
         return {};
     }
 }

@@ -30,7 +30,9 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
             const search = payload.body.search;
             const footer = payload.body.footer || {};
 
-            if (!search) return state;
+            if (!search) {
+                return state;
+            }
 
             return {
                 error: null,

@@ -67,6 +67,7 @@ export default class Document extends Component {
         const { content, moreFrom, currentUrl, nodeType, theme } = this.props;
         const { config } = this.context;
         let sourceEnabled = true;
+
         if (config.product.id === 'awwfood') {
             sourceEnabled = false;
         }
@@ -112,6 +113,7 @@ export default class Document extends Component {
                 </Page>
             );
         }
+
         if (nodeType === 'Recipe') {
             return (
                 <Page

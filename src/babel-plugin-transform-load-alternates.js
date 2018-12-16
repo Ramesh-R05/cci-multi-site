@@ -16,26 +16,38 @@ module.exports = function(babel) {
 
     function transformImportCall(nodePath, state) {
         // ignore if running unit tests, otherwise this will mess up stubbed imports
-        if (process.env.APP_UNIT_TEST) return;
+        if (process.env.APP_UNIT_TEST) {
+            return;
+        }
 
         // the string that represents the imported module
         // eg. in this code: `import module from './module';` ... the value of moduleArg.value is "./module".
         const moduleArg = nodePath.node.source;
 
         // string imports only (no variables)
-        if (moduleArg.type !== 'StringLiteral') return;
+        if (moduleArg.type !== 'StringLiteral') {
+            return;
+        }
 
         // no external modules
-        if (moduleArg.value.substr(0, 1) !== '.') return;
+        if (moduleArg.value.substr(0, 1) !== '.') {
+            return;
+        }
 
         // do not find alternates for automation files, automation contentApi does it itself
-        if (state.file.opts.filename.indexOf('automation') >= 0) return;
+        if (state.file.opts.filename.indexOf('automation') >= 0) {
+            return;
+        }
 
         // config merge functionality looks after config, so ignore all its imports
-        if (state.file.opts.filename.indexOf(`${path.sep}config`) >= 0) return;
+        if (state.file.opts.filename.indexOf(`${path.sep}config`) >= 0) {
+            return;
+        }
 
         // Don't bother parsing the file, if app-APP_KEY already exists in the path
-        if (state.file.opts.filename.indexOf(`app-${process.env.APP_KEY}`) > -1) return;
+        if (state.file.opts.filename.indexOf(`app-${process.env.APP_KEY}`) > -1) {
+            return;
+        }
 
         // create the path to the potential alternate file
         let alternateFile = path.join(
@@ -44,7 +56,9 @@ module.exports = function(babel) {
         );
 
         // the replacement path should have app-{APP_KEY} in it, if not (for whatever reason), don't proceed, only replace app files
-        if (alternateFile.indexOf(`app-${process.env.APP_KEY}`) < 0) return;
+        if (alternateFile.indexOf(`app-${process.env.APP_KEY}`) < 0) {
+            return;
+        }
 
         // only continue if the alternate file exists on disk
         if (!fileExists(alternateFile)) {

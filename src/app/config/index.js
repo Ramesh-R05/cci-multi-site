@@ -7,6 +7,7 @@ function load(f) {
     const relative = path.relative('.', absolute);
     const loaded = require(absolute).default; // eslint-disable-line import/no-dynamic-require
     logger.info(`${relative} loaded`);
+
     return loaded;
 }
 

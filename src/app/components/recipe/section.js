@@ -37,6 +37,7 @@ class Section extends Component {
 
     getHero() {
         const { imageUrl, imageAltText, imageCaption, video } = this.props.content;
+
         return { imageUrl, imageAltText, imageCaption, video };
     }
 
@@ -77,6 +78,7 @@ class Section extends Component {
 
 export default connectToStores(Section, [articleStore], context => {
     const store = context.getStore(articleStore);
+
     return {
         content: store.getContent(),
         feedModuleConfig: store.getConfiguration(),

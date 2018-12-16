@@ -6,8 +6,10 @@ const TOP = 20;
 export default async function gallery(req, res, next) {
     try {
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
+
         if (nodeTypeAlias !== 'Gallery') {
             next();
+
             return;
         }
 

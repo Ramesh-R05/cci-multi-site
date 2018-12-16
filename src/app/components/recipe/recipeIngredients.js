@@ -11,6 +11,7 @@ const RecipeIngredients = ({ recipeIngredients }) => (
                     <ul className="recipe-ingredients__list">
                         {ingredientData.ingredients.map(item => {
                             const combinedIngredients = `${item.quantity} ${item.measure} ${item.ingredient}`;
+
                             return <li className="recipe-ingredients__list--item" dangerouslySetInnerHTML={{ __html: parse(combinedIngredients) }} />;
                         })}
                     </ul>

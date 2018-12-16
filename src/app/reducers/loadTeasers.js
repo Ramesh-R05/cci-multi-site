@@ -37,6 +37,7 @@ export function reducer(state = initialState, payload = { body: {} }, eventName 
                 collectionRecipeEntities
             };
         }
+
         case 'LOAD_CONTENT_FAILED': {
             return {
                 heroTeaser: null,
@@ -49,6 +50,7 @@ export function reducer(state = initialState, payload = { body: {} }, eventName 
                 collectionRecipeEntities: []
             };
         }
+
         case 'LOAD_LIST': {
             return {
                 ...state,
@@ -58,6 +60,7 @@ export function reducer(state = initialState, payload = { body: {} }, eventName 
                 }
             };
         }
+
         default:
             return state;
     }

@@ -16,6 +16,7 @@ export default async function sectionMiddleware(req, res, next) {
         pageNo = parseInt(req.query.pageNo || pageNo, 10);
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
         const id = get(req, 'data.entity.id', '');
+
         if (
             (nodeTypeAlias !== 'Section' &&
                 nodeTypeAlias !== 'Subsection' &&
@@ -25,6 +26,7 @@ export default async function sectionMiddleware(req, res, next) {
             page
         ) {
             next();
+
             return;
         }
 
@@ -40,6 +42,7 @@ export default async function sectionMiddleware(req, res, next) {
             if (!currentCommercialTagSection || isEmptyTagsDetails) {
                 req.data.latestTeasers = [];
                 next();
+
                 return;
             }
 
@@ -76,6 +79,7 @@ export default async function sectionMiddleware(req, res, next) {
         const totalPage = latestTeasersResp.totalCount % listCount ? totalPageFloor : totalPageFloor + 1;
         const err = new Error('Page not found');
         err.status = 404;
+
         if (totalPage < pageNo - 1) {
             throw err;
         }
@@ -86,6 +90,7 @@ export default async function sectionMiddleware(req, res, next) {
         };
 
         let previousPage = null;
+
         if (pageNo > 1) {
             const path = pageNo === 2 ? `${sectionQuery}` : `/${sectionQuery}?pageNo=${pageNo - 1}`;
             previousPage = {
@@ -95,6 +100,7 @@ export default async function sectionMiddleware(req, res, next) {
         }
 
         let nextPage = null;
+
         if (skip + latestTeasers.data.length < latestTeasers.totalCount) {
             const path = `${sectionQuery}?pageNo=${pageNo + 1}`;
             nextPage = {

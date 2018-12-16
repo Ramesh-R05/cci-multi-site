@@ -8,6 +8,7 @@ export default class Links extends Component {
 
     render() {
         const { links = [] } = this.props;
+
         return (
             <section className="get-social">
                 <div className="get-social-title" />

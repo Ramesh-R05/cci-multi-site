@@ -6,8 +6,10 @@ const TOP = 20;
 export default async function article(req, res, next) {
     try {
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
+
         if (nodeTypeAlias !== 'Article') {
             next();
+
             return;
         }
 

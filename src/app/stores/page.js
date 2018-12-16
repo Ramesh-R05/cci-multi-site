@@ -31,10 +31,13 @@ export default createReducerStore({
         },
 
         getMagazineImageUrl(state) {
-            if (!state.magCover) return '';
+            if (!state.magCover) {
+                return '';
+            }
 
             if (Array.isArray(state.magCover) && state.magCover.length) {
                 const siteMagCover = state.magCover.find(mag => mag.isSiteMagCover);
+
                 return !!siteMagCover && siteMagCover.moduleImageUrl;
             }
 
@@ -42,10 +45,13 @@ export default createReducerStore({
         },
 
         getMagazineText(state) {
-            if (!state.magCover) return '';
+            if (!state.magCover) {
+                return '';
+            }
 
             if (Array.isArray(state.magCover) && state.magCover.length) {
                 const siteMagCover = state.magCover.find(mag => mag.isSiteMagCover);
+
                 return !!siteMagCover && siteMagCover.moduleTitle;
             }
 
@@ -61,7 +67,10 @@ export default createReducerStore({
         },
 
         getModule: (state, module) => {
-            if (!module) return [];
+            if (!module) {
+                return [];
+            }
+
             return state[module] || [];
         },
 
