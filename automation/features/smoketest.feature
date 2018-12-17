@@ -32,10 +32,6 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site  | signUpUrl                                         |
             | hb    | https://www.harpersbazaar.com.au/hb-newsletter    |
-    @smoketestcosmo @optional
-        Examples:
-            | site  | signUpUrl                                         |
-            | cosmo | https://www.cosmopolitan.com.au/cosmo-newsletter  |
     @smoketestgt @optional
         Examples:
             | site  | signUpUrl                                         |
@@ -88,10 +84,6 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site  | signUpUrl                                         |
             | hb    | https://www.harpersbazaar.com.au/hb-newsletter    |
-    @smoketestcosmo @optional
-        Examples:
-            | site  | signUpUrl                                         |
-            | cosmo | https://www.cosmopolitan.com.au/cosmo-newsletter  |
     @smoketestgt @optional
         Examples:
             | site  | signUpUrl                                         |
@@ -196,17 +188,6 @@ Feature: Smoke test for all sites in SIT environment
             | article       | long title    |
             | amp gallery   | long title    |
 
-    @smoketestcosmo @optional
-    Scenario Outline: Verify the "<doctype>" page is up on COSMO
-        Given I am currently viewing "<doctype>" page on "cosmo" site
-        Then I should see the "<element>" element
-        Examples:
-            | doctype       | element       |
-            | article       | long title    |
-            | gallery       | long title    |
-            | amp article   | long title    |
-            | amp gallery   | long title    |
-
     @smoketestgt
     Scenario Outline: Verify the "<doctype>" page is up on GT
         Given I am currently viewing "<doctype>" page on "gt" site
@@ -277,18 +258,6 @@ Feature: Smoke test for all sites in SIT environment
             |Pinterest  |http://www.pinterest.com/bazaaraustralia/              |
             |YouTube    |https://www.youtube.com/user/BAZAARaustralia           |
 
-    @smoketestcosmo @optional
-    Scenario: Verify the footer in the "mobile" view on COSMO
-        Given I switch to "mobile" view
-        When I am currently viewing "tag" page on "cosmo" site
-        * I can see the social icons clickable to open its page in the footer
-            |social     |url                                           |
-            |Facebook   |https://www.facebook.com/cosmoaustralia       |
-            |Twitter    |https://twitter.com/cosmoaustralia            |
-            |Instagram  |https://www.instagram.com/cosmoaustralia      |
-            |Pinterest  |https://au.pinterest.com/cosmoaustralia       |
-            |YouTube    |https://www.youtube.com/cosmoaustralia        |
-
     @smoketestgt
     Scenario: Verify the footer in the "mobile" view on GT
         Given I switch to "mobile" view
@@ -343,10 +312,6 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site  | class                 |
             | hb    | gtm-navbar-harper     |
-    @smoketestcosmo @optional
-        Examples:
-            | site  | class                 |
-            | cosmo | gtm-navbar-cosmo      |
     @smoketestgt @optional
         Examples:
             | site  | class                         |
@@ -369,10 +334,6 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site  | class                 |
             | hb    | gtm-navbar-harper     |
-    @smoketestcosmo @optional
-        Examples:
-            | site  | class                 |
-            | cosmo | gtm-navbar-cosmo      |
     @smoketestgt @optional
         Examples:
             | site  | class                         |
@@ -394,10 +355,6 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site      | gtm           |
             | hb        | GTM-NX2PKZ    |
-    @smoketestcosmo @optional
-        Examples:
-            | site      | gtm           |
-            | cosmo     | GTM-K774C2    |
     @smoketestgt
         Examples:
             | site      | gtm           |
@@ -419,10 +376,6 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site      | ga            |
             | hb        | UA-8689567-1  |
-    @smoketestcosmo @optional
-        Examples:
-            | site      | ga            |
-            | cosmo     | UA-8689462-1  |
     @smoketestgt
         Examples:
             | site      | ga            |
@@ -471,26 +424,6 @@ Feature: Smoke test for all sites in SIT environment
         When I navigate to the "gallery" page in "hb"
         Then our readers can enjoy the created "gallery" page
         When I navigate to the "amp gallery" page in "hb"
-        Then our readers can enjoy the created "amp gallery" page
-
-    @smoketestcosmo @optional
-    Scenario: Verify all the doc type items on COSMO
-        Given I switch to "mobile" view
-        # -----------------------
-        Given Emily just published the "section" doc type item in "cosmo"
-        When I navigate to the "section" page in "cosmo"
-        Then our readers can enjoy the created "section" page
-        # -----------------------
-        Given Emily just published the "article" doc type item in "cosmo"
-        When I navigate to the "article" page in "cosmo"
-        Then our readers can enjoy the created "article" page
-        When I navigate to the "amp article" page in "cosmo"
-        Then our readers can enjoy the created "amp article" page
-        # -----------------------
-        Given Emily just published the "gallery" doc type item in "cosmo"
-        When I navigate to the "gallery" page in "cosmo"
-        Then our readers can enjoy the created "gallery" page
-        When I navigate to the "amp gallery" page in "cosmo"
         Then our readers can enjoy the created "amp gallery" page
 
     @smoketestgt @optional
@@ -601,22 +534,6 @@ Feature: Smoke test for all sites in SIT environment
         * I should see "title" tag containing a value
         When I am currently viewing "rss/info" url on "hb" site
         * I should see "rss/summary/hb" in json
-
-    @smoketestcosmo @optional
-    Scenario: Verify the RSS feed on COSMO
-        Given I am currently viewing "rss" url on "cosmo" site
-        Then I should see "link" tag containing "http://cosmo-site-au.sit.bxm.net.au" value
-        * I should see "dc:creator" tag containing "Cosmopolitan" in CDATA
-        * I should see "title" tag containing a value
-        * I should see "dc:creator" tag containing a value
-        * I should see "content:encoded" tag containing a value
-        When I am currently viewing "rss/summary" url on "cosmo" site
-        * I should see "title" tag containing a value
-        * I should not see "content:encoded" tag
-        When I am currently viewing "rss/summary/cosmo" url on "cosmo" site
-        * I should see "title" tag containing a value
-        When I am currently viewing "rss/info" url on "cosmo" site
-        * I should see "rss/summary/cosmo" in json
 
     @smoketestgt @optional
     Scenario: Verify the RSS feed on GT

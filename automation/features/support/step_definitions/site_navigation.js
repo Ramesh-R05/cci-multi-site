@@ -103,7 +103,7 @@ module.exports = function() {
             //validates position of menu base on Index
             expect(menuTitle).toEqual(row['title']);
             expect(menuhref).toMatch(row['url']);
-            expect(menuGTM).toEqual(row['gtm']);
+            expect(menuGTM).toContain(row['gtm']);
         }
         browser.click(site_nav.siteHamburgerClose);
     });
