@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import classNames from 'classnames';
 
 export default class Logos extends Component {
     static propTypes = {
@@ -13,24 +14,29 @@ export default class Logos extends Component {
     };
 
     render() {
-        const { logoList } = this.props;
+        const { logoList, className, gtmPrefix } = this.props;
 
         if (!logoList || logoList.length <= 0) {
             return null;
         }
 
-        const html = logoList.map(item => {
-            const gtmClassName = `gtm-${this.props.gtmPrefix || this.props.className}-${item.id}`;
-
-            const imgClassName = `${this.props.className}__logo--${item.id}`
-                .replace(/[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~]/g, '')
-                .replace(/ /g, '-')
-                .toLowerCase();
+        const html = logoList.map(({ id, url, title, imageUrl }) => {
+            const classes = {
+                root: classNames({ [`${className}__list-item`]: className }),
+                anchor: classNames(`${className}__link`, `gtm-${gtmPrefix || className}-${id}`),
+                img: classNames(
+                    `${className}__logo`,
+                    `${className}__logo--${id}`
+                        .replace(/[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~]/g, '')
+                        .replace(/ /g, '-')
+                        .toLowerCase()
+                )
+            };
 
             return (
-                <li key={item.id}>
-                    <a href={item.url} target={this.props.openInNewTab ? '_blank' : '_self'} title={item.title} className={gtmClassName}>
-                        <img src={item.imageUrl} alt={item.title} className={imgClassName} />
+                <li key={id} className={classes.root}>
+                    <a href={url} target={this.props.openInNewTab ? '_blank' : '_self'} title={title} className={classes.anchor}>
+                        <img src={imageUrl} alt={title} className={classes.img} />
                     </a>
                 </li>
             );

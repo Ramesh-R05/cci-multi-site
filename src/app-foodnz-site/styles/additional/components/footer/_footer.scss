@@ -180,7 +180,6 @@ $footer-section-gap: 35px;
         }
     }
 
-    &::before,
     &__navigation {
         margin-left: 15px;
         margin-right: 15px;
@@ -196,15 +195,10 @@ $footer-section-gap: 35px;
         }
     }
 
-    &::before,
     &__navigation::before {
         border-bottom: 1px solid $color-gt-black-1;
         content: '';
         display: block;
-    }
-
-    &::before {
-        margin-bottom: $footer-section-gap;
     }
 
     &__navigation::before {

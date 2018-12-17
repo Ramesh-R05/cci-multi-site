@@ -39,18 +39,6 @@ export default class Footer extends Component {
         const { modifier, logoList, magCover, magCoverImageUrl, magCoverText, isBrandPage, brand } = this.props;
         const subscribeContent = config.subscribe;
 
-        // Only show the brand logos and title, if the array list has items.
-        const brandLogos =
-            logoList.length === 0 ? null : (
-                <div className="footer__logos">
-                    <span className="footer__logos-title">CONTENT SUPPORTED BY</span>
-                    <br />
-                    <nav className="footer__logos-nav">
-                        <Logos className="footer__logos-list" gtmPrefix="footer" openInNewTab logoList={logoList} />
-                    </nav>
-                </div>
-            );
-
         const rootClass = classNames('footer', {
             [`footer--${modifier}`]: modifier
         });
@@ -66,7 +54,15 @@ export default class Footer extends Component {
                     </div>
                     <FooterSubscribe content={{ ...subscribeContent, magCover, magCoverImageUrl, magCoverText }} isDisplayed={magCover !== {}} />
 
-                    {brandLogos}
+                    {logoList && logoList.length >= 1 ? (
+                        <div className="footer__logos">
+                            <span className="footer__logos-title">CONTENT SUPPORTED BY</span>
+                            <br />
+                            <nav className="footer__logos-nav">
+                                <Logos className="footer__logos-list" gtmPrefix="footer" openInNewTab logoList={logoList} />
+                            </nav>
+                        </div>
+                    ) : null}
 
                     <FooterNavigation footerUrls={config.urls.footerUrls} />
                     <div className="footer__copyright">

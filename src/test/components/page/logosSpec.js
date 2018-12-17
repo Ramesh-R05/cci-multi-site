@@ -56,7 +56,7 @@ describe('Brand Header', () => {
             const anchor = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a');
             const anchorClass = anchor[0].props.className;
             const correctClass = 'gtm-uniheader-' + logoListStub[0].id;
-            expect(anchorClass).to.equal(correctClass);
+            expect(anchorClass).to.include(correctClass);
         });
     });
 
