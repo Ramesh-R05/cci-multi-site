@@ -14,8 +14,6 @@ jobs:
     steps:
       - OUT: gt-site-img-master
       - OUT: gt-site-img-branch
-      - OUT: cosmo-site-img-master
-      - OUT: cosmo-site-img-branch
       - OUT: elle-site-img-master
       - OUT: elle-site-img-branch
       - OUT: hb-site-img-master
@@ -73,22 +71,6 @@ jobs:
       - IN: gt-site-opts-sit
       - TASK: managed
 
-  # 2branchCOSMO. Manifest for a BRANCH image
-  - name: cosmo-site-man-branch
-    type: manifest
-    steps:
-      - IN: cosmo-site-img-branch
-      - IN: cosmo-site-opts-sit
-      - TASK: managed
-
-  # 2COSMO. Manifest for MASTER image
-  - name: cosmo-site-man-master
-    type: manifest
-    steps:
-      - IN: cosmo-site-img-master
-      - IN: cosmo-site-opts-sit
-      - TASK: managed
-
   # 2branchELLE. Manifest for a BRANCH image
   - name: elle-site-man-branch
     type: manifest
@@ -135,42 +117,6 @@ jobs:
         applyTo:
           - manifest: elle-site-man-master
             image: elle-site-img-master
-            port: 3001
-      - TASK: managed
-        deployMethod: replace
-
-  # 3BranchCOSMO. SIT deployment for feature BRANCH
-  - name: cosmo-site-sit-deploy-branch
-    type: deploy
-    always:
-      - NOTIFY: multi-slack-notifications
-    steps:
-      - IN: cosmo-site-man-branch
-        switch: off
-      - IN: multi-env-sit-ecs
-      - IN: multi-site-params-sit
-      - IN: cosmo-site-alb-sit-branch
-        applyTo:
-          - manifest: cosmo-site-man-branch
-            image: cosmo-site-img-branch
-            port: 3001
-      - TASK: managed
-        deployMethod: replace
-
-  # 3COSMO. SIT deployment for MASTER
-  - name: cosmo-site-sit-deploy-master
-    type: deploy
-    always:
-      - NOTIFY: multi-slack-notifications
-    steps:
-      - IN: cosmo-site-man-master # for master - auto deploy to SIT
-        switch: on
-      - IN: multi-env-sit-ecs
-      - IN: multi-site-params-sit
-      - IN: cosmo-site-alb-sit
-        applyTo:
-          - manifest: cosmo-site-man-master
-            image: cosmo-site-img-master
             port: 3001
       - TASK: managed
         deployMethod: replace
@@ -418,7 +364,6 @@ jobs:
     steps:
     - IN: elle-site-sit-deploy-master
     - IN: hb-site-sit-deploy-master
-    - IN: cosmo-site-sit-deploy-master
     - IN: gt-site-sit-deploy-master
     - IN: awwfood-site-sit-deploy-master
     - IN: foodnz-site-sit-deploy-master
@@ -470,22 +415,6 @@ jobs:
       script:
         - *template-lighthouse-csv-report
       NOTIFY: multi-slack-notifications
-
-  # 5COSMO. Package release for production release
-  - name: cosmo-release-master
-    type: release
-    dependencyMode: strict
-    always:
-    - NOTIFY: multi-slack-notifications
-    steps:
-      - IN: multi-site-automation-test
-      - IN: multi-site-smoke-test
-      - IN: cosmo-site-version
-      - IN: cosmo-site-man-master
-        switch: off
-      - TASK: managed
-    on_success:
-      - NOTIFY: cosmo-deployment-notifications
 
   # 5ELLE. Package release for production release
   - name: elle-release-master
@@ -566,25 +495,6 @@ jobs:
       - TASK: managed
     on_success:
       - NOTIFY: foodnz-deployment-notifications
-
-  # 6COSMO. PROD deployment for MASTER COSMO
-  - name: cosmo-site-prod-deploy-master
-    type: deploy
-    always:
-      - NOTIFY: multi-slack-notifications
-      - NOTIFY: cosmo-deployment-notifications
-    steps:
-      - IN: cosmo-release-master
-        switch: off
-      - IN: multi-env-prod-ecs
-      - IN: multi-site-params-prod
-      - IN: cosmo-site-alb-prod
-        applyTo:
-          - manifest: cosmo-site-man-master
-            image: cosmo-site-img-master
-            port: 3001
-      - TASK: managed
-        deployMethod: upgrade
 
   # 6ELLE. PROD deployment for MASTER ELLE
   - name: elle-site-prod-deploy-master
