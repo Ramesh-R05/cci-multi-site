@@ -11,7 +11,7 @@ function load(f) {
     return loaded;
 }
 
-const environment = (process.env.APP_ENV || process.env.NODE_ENV || 'local').toLowerCase();
+const environment = (process.env.APP_ENV || 'local').toLowerCase();
 
 const configApi = {
     get(configPath, defaultValue = '') {
