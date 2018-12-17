@@ -229,14 +229,16 @@
 }
 
 .promoted-teaser-view-grid {
-    border-width: 1px 0;
+    border-width: 2px 0;
     border-style: solid;
-    border-color: $color-gt-black-1;
+    border-color: $color-accent;
     margin: 25px 0 1px;
 
     @media #{$medium-up} {
         border-width: 1px;
-        padding: 0 30px 10px 30px;
+        border-left-width: 0;
+        border-right-width: 0;
+        padding: 0 20px 10px 20px;
         margin: 35px 27px 0 27px;
     }
 

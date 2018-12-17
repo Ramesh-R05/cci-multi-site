@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 30px;
-  border-top: 1px solid $color-grey-lighter;
 
   @media #{$medium-up} {
       margin-right: 30px;
@@ -43,13 +41,13 @@
   } 
 
   &-list__logo {
+    filter: invert(0.5) opacity(0.8);
     height: 100%;
     width: 80px;
-    transition: opacity linear .175s;
-    opacity: 1;
-
+    transition: filter linear .175s;    
+  
     &:hover {
-        opacity: .8;
+      filter: none;
     }
-  }  
+  } 
 }

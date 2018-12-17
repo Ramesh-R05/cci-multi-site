@@ -129,7 +129,9 @@ $footer-section-gap: 35px;
     }
 
     .home-page__get-social-container {
-        margin-bottom: $footer-section-gap;
+        padding-top: 30px;
+        border-top: 1px solid $color-grey-lighter;
+        margin-bottom: 30px;
     }
 
     .home-page__social-logo,
