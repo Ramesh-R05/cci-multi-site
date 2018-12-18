@@ -1,7 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 export default class SearchBar extends Component {
     static displayName = 'SearchBar';
+
+    static propTypes = {
+        placeholderText: PropTypes.string,
+        inPageSearchBox: PropTypes.bool
+    };
+
+    static defaultProps = {
+        placeholderText: 'Search',
+        inPageSearchBox: false
+    };
 
     constructor(props) {
         super(props);
@@ -33,19 +44,30 @@ export default class SearchBar extends Component {
         }
     }
 
-    shouldComponentUpdate = (nextProps, nextState) => this.state.searchTerm !== nextState.searchTerm;
+    shouldComponentUpdate(nextProps, nextState) {
+        const { searchTerm } = this.state;
+
+        return searchTerm !== nextState.searchTerm;
+    }
 
     render() {
+        const { placeholderText, inPageSearchBox } = this.props;
+        const { searchTerm } = this.state;
+
+        const rootClass = classNames('search-bar', {
+            'search-bar--in-page-search-box': inPageSearchBox
+        });
+
         return (
-            <div className="search-bar">
+            <div className={rootClass}>
                 <div className="search-bar__input">
                     <form onSubmit={this.handleSubmit} className="search-bar__form">
                         <input
-                            className="search-bar__searchTerm"
+                            className="search-bar__search-term"
                             type="text"
                             name="searchTerm"
-                            placeholder="Search"
-                            value={this.state.searchTerm}
+                            placeholder={placeholderText}
+                            value={searchTerm}
                             onChange={this.handleInputChange}
                         />
                         <input

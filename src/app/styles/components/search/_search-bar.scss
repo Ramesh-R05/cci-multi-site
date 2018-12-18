@@ -1,4 +1,5 @@
 .search-bar {
+    $root: &;
     display: none;
 
     @media #{$medium-up} {
@@ -12,21 +13,12 @@
         border: 1px solid black;
         background-color: $color-white;
 
-        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        &::placeholder {
             color: $color-black-origin;
-        }
-        ::-moz-placeholder { /* Firefox 19+ */
-            color: $color-black-origin;
-        }
-        :-ms-input-placeholder { /* IE 10+ */
-            color: $color-black-origin;
-        }
-        :-moz-placeholder { /* Firefox 18- */
-            color: $color-black-origin;
-        }
+        }        
     }
 
-    &__searchTerm {
+    &__search-term {
         height: 58px;
         width: 100%;
         padding: 0 25px;
@@ -42,12 +34,12 @@
         width: 60px;
         height: 57px;
         top: 2px;
-    }
+    }    
 
-    .page-search-box & {
+    &--in-page-search-box {
         display: block;
         
-        &__input {
+        #{$root}__input {
             display: block;
             position: relative;
             border-color: transparent;
@@ -75,12 +67,12 @@
             }
         }
 
-        &__searchTerm {
+        #{$root}__search-term {
             border-radius: 5px;
             height: inherit;
         }
 
-        &__submit {
+        #{$root}__submit {
             right: 0;
             top: -1px;
             opacity: 0;
@@ -88,7 +80,7 @@
             width: 50px;
         }
 
-        &__form {
+        #{$root}__form {
             overflow: hidden;
             height: 100%;
         }

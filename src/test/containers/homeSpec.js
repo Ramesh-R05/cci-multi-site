@@ -68,7 +68,8 @@ describe('Home Container', () => {
                     showBelowHero: false,
                     showAboveBottomTeasers: true
                 }
-            }
+            },
+            isFeatureEnabled: () => {}
         }
     };
 

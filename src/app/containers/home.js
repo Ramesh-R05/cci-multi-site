@@ -76,6 +76,7 @@ export default class Home extends Component {
         const polarLabels = config.polar.details;
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
+        const usePlaceholderForSearchBoxInput = config.isFeatureEnabled('homeSearchPlaceholderText');
         const { showInsideContainer, showOutsideContainer } = config.features.mustRead;
         const { showBelowHero, showAboveBottomTeasers } = config.features.promoted;
 
@@ -115,7 +116,7 @@ export default class Home extends Component {
                                             }}
                                         >
                                             <div className="row">
-                                                <PageSearchBox {...homePageSearchBox} />
+                                                <PageSearchBox {...homePageSearchBox} usePlaceholder={usePlaceholderForSearchBoxInput} />
                                             </div>
                                             <div className="row">
                                                 <MustRead show={showInsideContainer} />

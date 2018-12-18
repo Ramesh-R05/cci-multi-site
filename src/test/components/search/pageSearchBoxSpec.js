@@ -57,7 +57,7 @@ describe(`Page Search Box`, () => {
 
     it('should render search background image, if provided', () => {
         reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, 'background image', ''));
-        const searchBg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__bg');
+        const searchBg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__background');
         expect(searchBg).to.exist;
         expect(searchBg.props.style).to.deep.equal({
             backgroundImage: 'url("background image?width=600&height=225&mode=crop&quality=75")',
@@ -68,21 +68,21 @@ describe(`Page Search Box`, () => {
 
     it('should not render background image, if not provided', () => {
         reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, '', ''));
-        const searchBg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__bg');
+        const searchBg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__background');
         expect(searchBg).to.exist;
         expect(searchBg.props.style).to.deep.equal({});
     });
 
     it('should render search text, if provided', () => {
         reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, '', 'search describe text'));
-        searchDescribeText = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__text');
+        searchDescribeText = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__title-text');
         expect(searchDescribeText).to.exist;
         expect(ReactDOM.findDOMNode(searchDescribeText).innerHTML).to.equal('search describe text');
     });
 
     it('should not render search text, if not provided', () => {
         reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, '', ''));
-        searchDescribeText = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'page-search-box__text');
+        searchDescribeText = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'page-search-box__title-text');
         expect(searchDescribeText.length).to.equal(0);
     });
 

@@ -6,10 +6,21 @@ export default class PageSearchBox extends Component {
         enableHomeSearchBox: PropTypes.bool.isRequired,
         linkToBackgroundImage: PropTypes.string.isRequired,
         searchDescribeText: PropTypes.string.isRequired,
-        searchTagsDetails: PropTypes.array.isRequired
+        searchTagsDetails: PropTypes.array.isRequired,
+        usePlaceholder: PropTypes.bool
     };
 
-    static getTagList(searchTagsDetails) {
+    static defaultProps = {
+        usePlaceholder: false
+    };
+
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
+    renderTagList = () => {
+        const { searchTagsDetails } = this.props;
+
         if (searchTagsDetails.length === 0) {
             return null;
         }
@@ -17,22 +28,18 @@ export default class PageSearchBox extends Component {
         return (
             <ul className="page-search-box__tag-list">
                 {searchTagsDetails.map(tag => (
-                    <li key={`list-item-${tag.fullName}`} className="page-search-box__tag-list__item">
-                        <a className="page-search-box__tag-list__item__link" href={`/tags/${tag.urlName}`}>
+                    <li key={`list-item-${tag.fullName}`} className="page-search-box__tag-item">
+                        <a className="page-search-box__tag-link" href={`/tags/${tag.urlName}`}>
                             {tag.displayName}
                         </a>
                     </li>
                 ))}
             </ul>
         );
-    }
-
-    static getSearchText(searchDescribeText) {
-        return searchDescribeText && <p className="page-search-box__text">{searchDescribeText}</p>;
-    }
+    };
 
     render() {
-        const { enableHomeSearchBox, linkToBackgroundImage, searchTagsDetails, searchDescribeText } = this.props;
+        const { enableHomeSearchBox, linkToBackgroundImage, searchDescribeText, usePlaceholder } = this.props;
         const searchBoxStyle = !!linkToBackgroundImage && {
             backgroundImage: `url("${linkToBackgroundImage}?width=600&height=225&mode=crop&quality=75")`,
             backgroundPosition: 'center',
@@ -42,11 +49,11 @@ export default class PageSearchBox extends Component {
         return (
             enableHomeSearchBox && (
                 <div className="page-search-box">
-                    <div className="page-search-box__bg" style={{ ...searchBoxStyle }}>
+                    <div className="page-search-box__background" style={{ ...searchBoxStyle }}>
                         <div className="page-search-box__inner">
-                            <SearchBar />
-                            {PageSearchBox.getSearchText(searchDescribeText)}
-                            {PageSearchBox.getTagList(searchTagsDetails)}
+                            <SearchBar placeholderText={(usePlaceholder && searchDescribeText) || undefined} inPageSearchBox />
+                            {searchDescribeText && <p className="page-search-box__title-text">{searchDescribeText}</p>}
+                            {this.renderTagList()}
                         </div>
                     </div>
                 </div>
