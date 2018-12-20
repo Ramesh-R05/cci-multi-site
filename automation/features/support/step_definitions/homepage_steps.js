@@ -268,8 +268,8 @@ module.exports = function(){
         }
 
         expect(browser.waitForVisible(giftCardRhr,5000)).toEqual(true);
-        expect(browser.getAttribute(giftCardButton,'href')).toContain('gift-card-large');
-        expect(browser.getText(giftCardButton,5000)).toEqual('SEE OFFER'); //BXMA-1622 (The original button name is 'BUY NOW')
+        expect(browser.getAttribute(giftCardButton,'href')).toContain('https://gourmettravellergiftcard.com.au/bauer/web'); //BXMA-1624
+        expect(browser.getText(giftCardButton,5000)).toEqual('BUY NOW');
     });
 
     this.Then(/^I should see the sign up form in "([^"]*)" view$/, function (device) {
