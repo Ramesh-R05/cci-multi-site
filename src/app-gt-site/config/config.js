@@ -101,8 +101,8 @@ export default {
             xl: { w: 275 }
         },
         giftCard: {
-            buttonText: 'See Offer',
-            image: 'gift-card.jpg'
+            image: 'gift-card.jpg',
+            url: 'https://gourmettravellergiftcard.com.au/bauer/web'
         }
     },
 
