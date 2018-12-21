@@ -12,7 +12,7 @@ Feature: Recipe
         * I can see the hero image
         * I can see the short teaser "Automation Test Recipe Short Teaser"
         * I can see the body paragraph "Automation Test Recipe Body Paragraph 1"
-        * I can see the At A Glance
+        * I can see the recipe overview
         * I can see the recipe details
         * I can see the course and cuisine
         @high
@@ -49,7 +49,7 @@ Feature: Recipe
         * I can see the hero image
         * I can see the short teaser "Automation Test Recipe Short Teaser"
         * I can see the body paragraph "Automation Test Recipe Body Paragraph 1"
-        * I can see the At A Glance
+        * I can see the recipe overview
         * I can see the recipe details
         * I can see the course and cuisine
     @low

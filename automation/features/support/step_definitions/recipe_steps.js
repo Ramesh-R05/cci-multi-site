@@ -6,7 +6,7 @@ module.exports = function() {
         expect(browser.isVisible(recipe.recipeDetails)).toBe(true);
     });
 
-    this.Then(/^I can see the At A Glance$/, function () {
+    this.Then(/^I can see the recipe overview$/, function () {
         expect(browser.isVisible(recipe.overview)).toBe(true);
     });
 

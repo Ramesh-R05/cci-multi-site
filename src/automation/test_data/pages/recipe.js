@@ -240,7 +240,8 @@ export default {
         },
         recipeCourse: 'Main',
         recipeCuisine: 'Modern Australian',
-        recipeTips: 'This is recipe tips'
+        recipeTips: 'This is recipe tips',
+        recipeOverview: ['50 mins preparation', '40 mins cooking', 'serves 2']
     },
     headerMetaData: {
         googleTagManagerEnvironment: 'sit',
