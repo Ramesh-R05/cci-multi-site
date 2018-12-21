@@ -18,7 +18,7 @@ const RecommendationsStub = Context.createStubComponent();
 const RelatedContentComponentStub = Context.createStubComponent();
 const OutbrainStub = Context.createStubComponent();
 const FeedCarouselStub = Context.createStubComponent();
-const RecipeAtGlanceStub = Context.createStubComponent();
+const RecipeOverviewStub = Context.createStubComponent();
 const RecipeIngredientsStub = Context.createStubComponent();
 const RecipeMethodStub = Context.createStubComponent();
 const RecipeNotesStub = Context.createStubComponent();
@@ -73,7 +73,7 @@ const Recipe = proxyquire('../../../app/components/recipe/recipe', {
     '@bxm/article/lib/components/article/relatedContent': RelatedContentComponentStub,
     '@bxm/article/lib/components/article/moreFrom': MoreFromStub,
     '@bxm/ad/lib/google/components/stickyAd': StickyAdStub,
-    './recipeAtGlance': RecipeAtGlanceStub,
+    './recipeOverview': RecipeOverviewStub,
     './recipeIngredients': RecipeIngredientsStub,
     './recipeMethod': RecipeMethodStub,
     './recipeNotes': RecipeNotesStub
@@ -307,10 +307,10 @@ describe(`Recipe Component`, () => {
                 );
             });
 
-            it(`should present RecipeAtGlanceStub as an array element in the articleHeaderOrder prop of Header Component `, () => {
+            it(`should present RecipeOverviewStub as an array element in the articleHeaderOrder prop of Header Component `, () => {
                 headerSub = TestUtils.findRenderedComponentWithType(reactModule, HeaderStub);
                 const indexOfHero = headerSub.props.articleHeaderOrder.indexOf('Hero');
-                expect(headerSub.props.articleHeaderOrder[indexOfHero - 1].type).to.equal(RecipeAtGlanceStub);
+                expect(headerSub.props.articleHeaderOrder[indexOfHero - 1].type).to.equal(RecipeOverviewStub);
             });
         });
         // TODO - Cleanup ad tests

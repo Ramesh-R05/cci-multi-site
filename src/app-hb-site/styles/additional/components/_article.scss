@@ -117,8 +117,6 @@
             }
 
             .feed-item {
-                
-                &__section-tag > span,
                 &__section-tag {
                     @include type-teaser-tag;
                     display: block;

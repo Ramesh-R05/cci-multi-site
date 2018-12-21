@@ -274,7 +274,7 @@ export default class Page extends Component {
                                 }}
                             />
                             <HamburgerNav className="mobile-menu" items={mobileNav} currentUrl={currentUrl} />
-                            <Logos className="mobile-menu-list" gtmPrefix="hamburger" openInNewTab logoList={config.brands.hamburgers} />
+                            <Logos className="mobile-menu-list" gtmPrefix="hamburger" openInNewTab logoList={config.brands.network} />
                         </div>
                     </MobileOffCanvas>
                 </div>

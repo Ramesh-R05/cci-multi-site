@@ -78,7 +78,7 @@ export default {
             pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
         },
 
-        newsletterSignupInBodyCopy: '' // Not used on WWFood
+        newsletterSignupInBodyCopy: ''
     },
 
     // Used for the magazine image (not the one in the footer)
@@ -130,7 +130,8 @@ export default {
                     facebook: 'https://www.facebook.com/tastemagazine',
                     instagram: 'https://www.instagram.com/tastemagnz/'
                 },
-                newsletterUrl: '/newsletter-subscribe-new-zealand-taste'
+                newsletterUrl: '/newsletter-subscribe-new-zealand-taste',
+                newsletterSignupInBodyCopy: ''
             },
             {
                 id: 'nzww',
@@ -141,7 +142,8 @@ export default {
                     facebook: 'https://www.facebook.com/nzwomansweekly',
                     instagram: 'https://www.instagram.com/newzealandwomansweekly'
                 },
-                newsletterUrl: '/newsletter-subscribe-new-zealand-womans-weekly'
+                newsletterUrl: '/newsletter-subscribe-new-zealand-womans-weekly',
+                newsletterSignupInBodyCopy: ''
             },
             {
                 id: 'nzwd',
@@ -153,7 +155,8 @@ export default {
                     facebook: 'https://www.facebook.com/womansdaynz',
                     instagram: 'https://www.instagram.com/womansdaynz'
                 },
-                newsletterUrl: '/newsletter-subscribe-womans-day'
+                newsletterUrl: '/newsletter-subscribe-womans-day',
+                newsletterSignupInBodyCopy: ''
             },
             {
                 id: 'awwnz',
@@ -165,7 +168,8 @@ export default {
                     facebook: 'https://www.facebook.com/awwmagazine',
                     instagram: 'https://www.instagram.com/awwmagazine'
                 },
-                newsletterUrl: '/newsletter-subscribe-the-australian-womens-weekly'
+                newsletterUrl: '/newsletter-subscribe-the-australian-womens-weekly',
+                newsletterSignupInBodyCopy: ''
             },
             {
                 id: 'nzgh',
@@ -179,7 +183,8 @@ export default {
                     instagram: 'https://www.instagram.com/goodhealthnz/',
                     pinterest: 'https://nz.pinterest.com/goodhealthmag/'
                 },
-                newsletterUrl: '/newsletter-subscribe-good-health-and-wellbeing'
+                newsletterUrl: '/newsletter-subscribe-good-health-and-wellbeing',
+                newsletterSignupInBodyCopy: ''
             },
             {
                 id: 'nadia',
@@ -191,10 +196,11 @@ export default {
                     instagram: 'https://www.instagram.com/nadiamagazine',
                     facebook: 'https://www.facebook.com/Foodtolove.nz/'
                 },
-                newsletterUrl: '/newsletter-subscribe-nadia'
+                newsletterUrl: '/newsletter-subscribe-nadia',
+                newsletterSignupInBodyCopy: ''
             }
         ],
-        hamburgers: [
+        network: [
             {
                 id: 'now',
                 imageUrl: '/assets/images/menulogos/NTL-logo.svg',

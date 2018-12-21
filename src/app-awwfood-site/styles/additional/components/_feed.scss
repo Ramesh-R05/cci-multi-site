@@ -41,19 +41,14 @@
             }
 
             &__section-tag {
-                span {
-                    color: $color-text-gold;
-                    display: inline-block;
-                    border-bottom: 1px $color-awwfood-white dashed;
-                    text-transform: uppercase;
-                    margin-bottom: 5px;
-                    font-size: 13px;   
-                }
-            }
+                color: $color-text-gold;
+                display: inline-block;
+                border-bottom: 1px $color-awwfood-white dashed;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+                font-size: 13px;   
 
-            &__section-tag--link-disabled {
-
-                span {
+                &--link-disabled {
                     color: $color-text-gold;
                     display: inline-block;
                     border-bottom: 1px $color-awwfood-white dashed;

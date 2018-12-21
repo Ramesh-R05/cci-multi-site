@@ -39,11 +39,11 @@ describe('RecipeIngredients component', () => {
 
         it('should render heading and ingredients items', () => {
             const wrapper = shallow(<RecipeIngredients recipeIngredients={recipeIngredients} />);
-            expect(wrapper.contains(<h3>Ingredients</h3>)).to.equal(true);
+            expect(wrapper.contains(<h3 className="recipe-ingredients__title">Ingredients</h3>)).to.equal(true);
             expect(wrapper.contains(<div className="recipe-ingredients__heading">Heading</div>)).to.equal(true);
             expect(wrapper.contains(<div className="recipe-ingredients__heading">Heading2</div>)).to.equal(true);
             expect(wrapper.find('.recipe-ingredients__heading').length).to.equal(2);
-            expect(wrapper.find('.recipe-ingredients__list--item').length).to.equal(4);
+            expect(wrapper.find('.recipe-ingredients__list-item').length).to.equal(4);
         });
     });
 

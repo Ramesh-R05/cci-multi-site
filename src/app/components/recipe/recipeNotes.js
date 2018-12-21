@@ -11,7 +11,7 @@ class RecipeNotes extends Component {
 
         return (
             <div className="recipe-notes columns small-12">
-                <h3>Notes</h3>
+                <h3 className="recipe-notes__title">Notes</h3>
                 <p className="recipe-notes__content" dangerouslySetInnerHTML={{ __html: parse(recipeNotes) }} />
             </div>
         );

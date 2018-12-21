@@ -1,12 +1,11 @@
 .recipe-notes {
-
-    h3 {
+    &__title {
         border-bottom: none;
         margin-bottom: 0px;
         padding-bottom: 0px;
     }
 
-    p {
+    &__content {
         padding-bottom: 30px;
     }
 }

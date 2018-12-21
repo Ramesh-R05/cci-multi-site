@@ -1,0 +1,25 @@
+.recipe-method {
+
+  &__title-text {
+    @media #{$medium-up} {
+        border-top-left-radius: 0;
+    }
+}
+
+  &__heading {
+      @include type-header-secondary;
+      padding-top: $article-padding;
+  }  
+
+  &__step-container {
+    top: 1px;
+  }
+
+  &__step-count {
+    @include type-number;
+  }
+
+  &__step-description {
+    @include type-text;
+  }
+}

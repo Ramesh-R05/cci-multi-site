@@ -7,7 +7,7 @@ describe('RecipeNotes component with recipeNotes data', () => {
 
     it('should render notes', () => {
         const wrapper = mount(<RecipeNotes recipeNotes={recipeNotes} />);
-        expect(wrapper.contains(<h3>Notes</h3>)).to.equal(true);
+        expect(wrapper.contains(<h3 className="recipe-notes__title">Notes</h3>)).to.equal(true);
         expect(wrapper.find('.recipe-notes__content').text()).to.equal('Remember to clean the crab before cooking.');
     });
 });

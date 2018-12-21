@@ -200,40 +200,6 @@
         }
     }
 
-
-    &__at_glance {
-        display: block;
-        margin: 0;
-        background-color: $color-heading-bg;
-        color: $color-white;
-        text-align: center;
-        padding: 15px $article-padding;
-        line-height: 1.1;
-        margin-top: $article-padding;
-        margin-bottom: -1 * $article-padding;
-        position: relative;
-        z-index: 2;
-
-        @media #{$medium-up} {
-            margin-left: $article-padding;
-            margin-right: $article-padding;
-            border-top-left-radius: $article-padding;
-            border-top-right-radius: $article-padding;
-        }
-
-        li {
-            display: inline-block;
-            white-space: nowrap;
-            border-right: 1px solid $color-white;
-            font-size: 11px;
-            padding-left: 10px;
-            padding-right: 10px;
-            &:last-child {
-                border-right: none;
-            }
-        }
-    }
-
     .ad--beneath-hero {
         background-color: $body-bg-color;
         padding-top: $article-gap;

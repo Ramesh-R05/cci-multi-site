@@ -26,6 +26,7 @@
     &__heading {
         h2 {
             @include type-article-heading;
+            color: $color-accent;
             margin-top: $article-gap;
             margin-bottom: 0;
             padding-top: 0;
@@ -38,7 +39,7 @@
 
         figure figcaption {
             @include caption {
-                color: $color-gt-grey-2;;
+                color: $color-accent;
             }
             display: block;
             position: relative;
@@ -51,7 +52,7 @@
             &:after {
                 content: '';
                 position: absolute;
-                background-color: $color-gt-black-1;
+                background-color: $color-accent;
                 display: block;
                 width: 24px;
                 height: 8px;
@@ -62,6 +63,7 @@
             a {
                 @include type-link;
                 text-decoration: underline;
+                color: $color-accent
             }
         }
 
@@ -71,9 +73,8 @@
     }
 
     &__related-content {
-        border: 0px solid $line-color;
+        border: 0px solid $color-accent;
         border-top-width: 1px;
-        border-bottom-width: 1px;
         margin: $article-gap 0 0;
         margin-left: -($column-gutter/2);
         width: calc(100% + #{$column-gutter});
@@ -82,8 +83,6 @@
 
         @media #{$large-up} {
             text-align: center;
-            border-left-width: 1px;
-            border-right-width: 1px;
             margin-left: 0;
             margin-right: 0;
             width: auto;
@@ -96,6 +95,7 @@
         }
 
         .related-content__heading {
+            color: $color-accent;
             font-family: $font-family-sans-serif-light;
             font-size: 17px;
             letter-spacing: 0.05em;

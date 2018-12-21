@@ -1,0 +1,10 @@
+.recipe-ingredients {
+  &__heading {
+    @include type-header-secondary;
+    padding-top: $article-padding;
+
+    @media #{$medium-up} {
+      border-top-right-radius: 0;
+    }
+  }
+}

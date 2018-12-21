@@ -49,7 +49,8 @@ const entityPropertyMap = {
     searchBackgroundImage: 'searchBackgroundImage',
     searchDescribeText: 'searchDescribeText',
     searchTagsDetails: 'searchTagsDetails',
-    contentRecipeEntities: 'contentRecipeEntities'
+    contentRecipeEntities: 'contentRecipeEntities',
+    recipeOverview: 'recipeOverview'
 };
 
 export function parseEntity(data, propertyMapOverride = {}) {

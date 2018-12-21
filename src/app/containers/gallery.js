@@ -232,7 +232,7 @@ class GallerySection extends Component {
                                 }}
                             />
                             <HamburgerNav className="mobile-menu" items={mobileNav} currentUrl={currentUrl} />
-                            <Logos className="mobile-menu-list" openInNewTab logoList={this.context.config.brands.hamburgers} />
+                            <Logos className="mobile-menu-list" openInNewTab logoList={this.context.config.brands.network} />
                         </div>
                     </MobileOffCanvas>
                 </section>

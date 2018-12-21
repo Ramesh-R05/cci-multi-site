@@ -321,8 +321,8 @@ $font-family-sans-serif-light: $font-text-light;
 }
 
 @mixin type-article-heading {
-
     @include type-header-secondary;
+    font-family: $font-family-serif-primary;
     font-size: 16px;
     line-height: 22px;
     font-weight: 600;

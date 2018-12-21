@@ -13,7 +13,7 @@ import Outbrain from '@bxm/article/lib/components/article/outbrain';
 import RevContent from '@bxm/article/lib/components/article/revContent';
 import FeedCarousel from '@bxm/article/lib/components/article/feedCarousel';
 import MoreFrom from '@bxm/article/lib/components/article/moreFrom';
-import RecipeAtGlance from './recipeAtGlance';
+import RecipeOverview from './recipeOverview';
 import RecipeIngredients from './recipeIngredients';
 import RecipeMethod from './recipeMethod';
 import RecipeNotes from './recipeNotes';
@@ -49,6 +49,7 @@ export default class Recipe extends Component {
         recipeCookingMethod: PropTypes.array,
         recipeTips: PropTypes.string,
         excludedSource: PropTypes.string,
+        recipeOverview: PropTypes.arrayOf(PropTypes.string),
         moreFrom: PropTypes.shape({
             title: PropTypes.string,
             items: PropTypes.array,
@@ -84,7 +85,8 @@ export default class Recipe extends Component {
             title: '',
             items: [],
             options: {}
-        }
+        },
+        recipeOverview: []
     };
 
     static contextTypes = {
@@ -194,12 +196,11 @@ export default class Recipe extends Component {
             totalGalleryItems,
             siteName,
             feedItems,
-            recipeServings,
-            recipeCookingTime,
             recipeIngredients,
             recipeCookingMethod,
             recipeTips,
-            moreFrom
+            moreFrom,
+            recipeOverview
         } = this.props;
         const { config } = this.context;
 
@@ -222,9 +223,7 @@ export default class Recipe extends Component {
         const showFeedCarousel = config.isFeatureEnabled('feedCarousel');
         const showRecipeSource = config.isFeatureEnabled('showRecipeSourceAsAttribute');
         const showMoreFrom = config.isFeatureEnabled('moreFrom');
-
-        const recipeAtGlance = { recipeServings, recipeCookingTime };
-        const recipeHeaderOrder = this.addToHeaderBefore('Hero', <RecipeAtGlance recipeAtGlance={recipeAtGlance} />);
+        const recipeHeaderOrder = this.addToHeaderBefore('Hero', <RecipeOverview overviewDetails={recipeOverview} />);
         const articleAttributes = {
             className: classNames('article', 'recipe', className)
         };

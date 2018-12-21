@@ -178,7 +178,7 @@ export default {
                 }
             }
         ],
-        hamburgers: [
+        network: [
             {
                 id: 'homes',
                 imageUrl: '/assets/images/menulogos/HTL-logo-greytext.svg',

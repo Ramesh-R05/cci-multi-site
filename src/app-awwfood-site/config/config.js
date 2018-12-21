@@ -120,7 +120,7 @@ export default {
 
     brands: {
         uniheader: [],
-        hamburgers: [
+        network: [
             {
                 id: 'now',
                 imageUrl: '/assets/images/menulogos/NTL-logo.svg',

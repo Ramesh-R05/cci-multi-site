@@ -4,6 +4,7 @@
 @import './additional/components/container';
 @import './additional/components/title';
 @import './additional/components/article';
+@import './additional/components/recipe-overview';
 @import './additional/components/page/error';
 @import './additional/components/page/page';
 @import './additional/components/content-body';
@@ -20,7 +21,10 @@
 @import './additional/components/brand/brandMagazine';
 @import './additional/components/newsletter';
 @import './additional/components/repeatable';
-@import './additional/components/_recipe';
+@import './additional/components/recipe';
+@import './additional/components/recipe-notes';
+@import './additional/components/recipe-ingredients';
+@import './additional/components/recipe-method';
 @import './additional/components/signup-form';
 @import './additional/components/alert-box';
 @import './additional/components/external-embed';

@@ -7,7 +7,7 @@ module.exports = function() {
     });
 
     this.Then(/^I can see the At A Glance$/, function () {
-        expect(browser.isVisible(recipe.atGlance)).toBe(true);
+        expect(browser.isVisible(recipe.overview)).toBe(true);
     });
 
     this.Then(/^I can see the course and cuisine$/, function () {

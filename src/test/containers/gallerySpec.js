@@ -135,7 +135,7 @@ describe('GallerySection', () => {
         type: '',
         value: {
             brands: {
-                hamburgers: []
+                network: []
             },
             site: {
                 name: 'Dolly',

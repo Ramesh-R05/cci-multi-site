@@ -45,13 +45,13 @@ export default {
     showTeaserBadgeLink: false,
     headerExpanded: true,
     outbrain: {
-        enabled: true
+        enabled: false
     },
     sailthru: {
         enabled: true
     },
     outbrainAmp: {
-        enabled: true
+        enabled: false
     },
     feedCarousel: {
         enabled: true

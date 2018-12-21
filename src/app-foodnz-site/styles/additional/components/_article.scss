@@ -2,6 +2,10 @@
     @include type-article-body;
     margin: 15px 0 0 0;
 
+    @media #{$medium-up} {
+        border-right: 1px solid $color-accent;
+    }
+
     &__date-created,
     &-header-author,
     &__image-count {
@@ -11,9 +15,10 @@
         color: $color-text;
         margin-top: $article-gap/2;
         margin-bottom: 0;
+        color: $color-accent;
 
         &__name {
-            color: $color-text-lighter;
+            color: $color-accent;
         }
     }
 
@@ -198,36 +203,6 @@
         }
     }
 
-    &__at_glance {
-        display: block;
-        margin: 0;
-        background-color: $color-gt-black-1;
-        color: $color-gt-white;
-        text-align: center;
-        padding: 15px;
-        line-height: 1.1;
-        margin-left: -15px;
-        margin-right: -15px;
-        margin-top: $article-gap;
-        margin-bottom: -1 * $article-gap;
-
-        @media #{$medium-up} {
-            margin-left: 0px;
-            margin-right: 0px;
-        }
-
-        li {
-            display: inline-block;
-            white-space: nowrap;
-            border-right: 1px solid $color-gt-white;
-            font-size: 11px;
-            padding-left: 10px;
-            padding-right: 10px;
-            &:last-child {
-                border-right: none;
-            }
-        }
-    }
 }
 
 .feed__container .feed-item.feed-item--gallery::after {

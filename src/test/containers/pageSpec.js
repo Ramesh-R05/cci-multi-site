@@ -58,7 +58,7 @@ describe('Page Container', () => {
     const siteName = 'Dolly';
     const brandStubData = {
         uniheader: [],
-        hamburgers: []
+        network: []
     };
     const contextConfigStub = {
         key: 'config',

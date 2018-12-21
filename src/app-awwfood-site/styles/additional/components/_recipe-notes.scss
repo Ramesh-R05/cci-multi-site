@@ -1,0 +1,19 @@
+.recipe-notes {
+  @media #{$medium-up} {
+    margin-top: 2 * $article-gap;
+  }
+  
+  &__title {
+    background: none;
+    color: $color-black;
+    width: 48px;
+    margin-left: 5px;
+    padding-left: 0;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #b6956a;
+  }
+
+  &__content {
+      padding-top: $article-padding;
+  }
+}

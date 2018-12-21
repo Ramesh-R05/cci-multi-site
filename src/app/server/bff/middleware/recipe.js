@@ -1,11 +1,12 @@
 import get from 'lodash/object/get';
 import { getLatestTeasers } from '../api/listing';
+import { getRecipeOverview } from '../dataTransforms';
 
-const TOP = 20;
-
-export default async function recipe(req, res, next) {
+export default async function recipeMiddleware(req, res, next) {
     try {
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
+        const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'";
+        const TOP = 20;
 
         if (nodeTypeAlias !== 'Recipe') {
             next();
@@ -13,8 +14,8 @@ export default async function recipe(req, res, next) {
             return;
         }
 
-        const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'";
         req.data.leftHandSide = await getLatestTeasers(TOP, undefined, listingQuery);
+        req.data.entity.recipeOverview = getRecipeOverview(req.data.entity);
 
         next();
     } catch (error) {

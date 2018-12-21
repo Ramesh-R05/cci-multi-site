@@ -10,19 +10,6 @@
         }
     }
 
-    .recipe-notes {
-
-        h3 {
-            background: none;
-            color: $color-black;
-            width: 48px;
-            margin-left: 5px;
-            padding-left: 0;
-            padding-bottom: 3px;
-            border-bottom: 2px solid #b6956a;
-        }
-    }
-
     h3 {
         @include type-header;
         background-color: $color-heading-bg;
@@ -55,57 +42,6 @@
             @include type-text;
             padding-bottom: 15px;
             color: $color-text;
-        }
-    }
-}
-
-.recipe-ingredients,
-.recipe-method,
-.recipe-notes {
-    &__heading {
-        @include type-header-secondary;
-        padding-top: $article-padding;
-    }
-}
-
-.recipe-notes {
-    @media #{$medium-up} {
-        margin-top: 2 * $article-gap;
-    }
-
-    &__content {
-        padding-top: $article-padding;
-    }
-}
-
-.recipe-method {
-
-    h3 {
-        @media #{$medium-up} {
-            border-top-left-radius: 0;
-        }
-    }
-
-    &__list--item {
-
-        &-left {
-            top: 1px;
-        }
-
-        &-right {
-            @include type-text;
-        }
-
-        div span {
-            @include type-number;
-        }
-    }
-}
-
-.recipe-ingredients {
-    h3 {
-        @media #{$medium-up} {
-            border-top-right-radius: 0;
         }
     }
 }

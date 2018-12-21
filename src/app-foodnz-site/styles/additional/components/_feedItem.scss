@@ -16,7 +16,7 @@
         padding-bottom: $feed-item-gap;
 
         &:last-child {
-            border-bottom: 1px solid $line-color;
+            border-bottom: 1px solid $color-accent;
         }
 
         &__body-title {
@@ -29,7 +29,7 @@
             text-transform: uppercase;
             font-family: $font-text;
             line-height: 30px;
-            color: $color-gt-grey-2;
+            color: $color-accent;
         }
 
         .article__date-created {
@@ -43,7 +43,7 @@
     }
 
     .feed-ad {
-        border-bottom: 1px solid $line-color;
+        border-bottom: 1px solid $color-accent;
         padding-top: $feed-item-gap;
         padding-bottom: $feed-item-gap;
         margin-bottom: $feed-item-gap;
