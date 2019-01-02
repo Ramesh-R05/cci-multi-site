@@ -21,17 +21,6 @@ module.exports = {
         'keyword1': 'australian',
         'keyword2': 'designer'
     },
-    cosmo: {
-        'homepage': 'https://www.sit.cosmopolitan.com.au/',
-        'section': 'fashion',
-        'tag': 'tags/reality-television',
-        'article': 'celebrity/khloe-kardashian-baby-name-true-meaning-18282',
-        'gallery': 'beauty/best-lengthening-mascaras-18530',
-        'amp article': 'amp/celebrity/khloe-kardashian-baby-name-true-meaning-18282',
-        'amp gallery': 'amp/beauty/best-lengthening-mascaras-18530',
-        'keyword1': 'baby',
-        'keyword2': 'name'
-    },
     gt: {
         'homepage': 'https://www.sit.gourmettraveller.com.au/',
         'section': 'travel',
@@ -62,6 +51,21 @@ module.exports = {
         'amp gallery': 'amp/guinness-world-records-food-31104',
         'amp recipe collection': 'amp/chip-recipes-31841',
         'amp recipe' : 'amp/recipes/sweet-potato-rosti-with-salmon-3935',
+        'keyword1': 'beef',
+        'keyword2': 'chicken'
+    },
+    foodnz: {
+        'homepage': 'http://foodnz-site-nz.sit.bxm.net.au/',
+        'section': 'recipes',
+        'tag': 'tags/cake',
+        'article': 'create-impressive-summer-entertaining-platter-1336',
+        'gallery': '10-of-food-magazines-all-time-favourite-desserts-32373',
+        'recipe collection': '12-sweet-coconut-treats-made-for-special-occasions-32949',
+        'recipe' : 'recipes/burnt-marshmallow-coconut-cones-31900',
+        'amp article': 'amp/create-impressive-summer-entertaining-platter-1336',
+        'amp gallery': 'amp/10-of-food-magazines-all-time-favourite-desserts-32373',
+        'amp recipe collection': 'amp/12-sweet-coconut-treats-made-for-special-occasions-32949',
+        'amp recipe' : 'amp/recipes/burnt-marshmallow-coconut-cones-31900',
         'keyword1': 'beef',
         'keyword2': 'chicken'
     }

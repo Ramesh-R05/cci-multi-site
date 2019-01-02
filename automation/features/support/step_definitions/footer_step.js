@@ -21,6 +21,18 @@ module.exports = function() {
         }
     });
 
+    this.Given(/^I can see the brand logos clickable to open its page in the footer$/, function (dataTable) {
+        var rows = dataTable.hashes();
+
+        for (var i = 0; i < rows.length; ++i) {
+            var row = rows[i];
+            var logoElement = '.footer__logos-nav [title=\'' + row['brand'].replace("'", "\\'") + '\']';
+            expect(browser.waitForVisible(logoElement, 10000)).toBe(true);
+            var logoLink = browser.getAttribute(logoElement, 'href');
+            expect(logoLink).toContain(row['url']);
+        }
+    });
+
     this.Given(/^I can see the brands title in the footer as "([^"]*)"$/, function (text) {
         //Validate the brands title is correct.
         expect(browser.getText(footer.footerLogosTitle)).toEqual(text)

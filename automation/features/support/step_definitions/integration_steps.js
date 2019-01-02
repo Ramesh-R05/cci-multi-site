@@ -11,11 +11,11 @@ var docType;
 var isBrowserStack = world.Urls.isBrowserStack;
 var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 var sitUrls = {
-    'cosmo': 'http://cosmo-site-au.sit.bxm.net.au/',
     'elle': 'http://elle-site-au.sit.bxm.net.au/',
     'gt': 'http://gt-site-au.sit.bxm.net.au/',
     'hb': 'http://hb-site-au.sit.bxm.net.au/',
-    'awwfood': 'http://awwfood-site-au.sit.bxm.net.au/'
+    'awwfood': 'http://awwfood-site-au.sit.bxm.net.au/',
+    'foodnz': 'http://foodnz-site-nz.sit.bxm.net.au/'
 };
 
 function randomValue() {
@@ -39,9 +39,6 @@ module.exports = function() {
                     case 'elle':
                         content_json = 'test-article-on-sit-elle.json'; // http://dev.umbraco.services.bauer-media.internal/v1/elle/documents/2757
                         break;
-                    case 'cosmo':
-                        content_json = 'test-article-on-sit-cosmo.json'; // http://dev.umbraco.services.bauer-media.internal/v1/cosmo/documents/17766
-                        break;
                     case 'hb':
                         content_json = 'test-article-on-sit-hb.json'; // http://dev.umbraco.services.bauer-media.internal/v1/hb/documents/13260
                         break;
@@ -51,6 +48,9 @@ module.exports = function() {
                     case 'awwfood':
                         content_json = 'test-article-on-sit-awwfood.json'; // http://dev.umbraco.services.bauer-media.internal/v1/awwfood/documents/2455
                         break;
+                    case 'foodnz':
+                        content_json = 'test-article-on-sit-foodnz.json'; // http://dev.umbraco.services.bauer-media.internal/v1/foodnz/documents/1336
+                        break;
                 }
                 break;
             case 'gallery':
@@ -58,9 +58,6 @@ module.exports = function() {
                 switch (site) {
                     case 'elle':
                         content_json = 'test-gallery-on-sit-elle.json'; // http://dev.umbraco.services.bauer-media.internal/v1/elle/documents/9256
-                        break;
-                    case 'cosmo':
-                        content_json = 'test-gallery-on-sit-cosmo.json'; // http://dev.umbraco.services.bauer-media.internal/v1/cosmo/documents/17630
                         break;
                     case 'hb':
                         content_json = 'test-gallery-on-sit-hb.json'; // http://dev.umbraco.services.bauer-media.internal/v1/hb/documents/13258
@@ -71,15 +68,15 @@ module.exports = function() {
                     case 'awwfood':
                         content_json = 'test-gallery-on-sit-awwfood.json'; // http://dev.umbraco.services.bauer-media.internal/v1/awwfood/documents/31151
                         break;
+                    case 'foodnz':
+                        content_json = 'test-gallery-on-sit-foodnz.json'; // http://dev.umbraco.services.bauer-media.internal/v1/foodnz/documents/32373
+                        break;
                 }
                 break;
             case 'section':
                 switch (site) {
                     case 'elle':
                         content_json = 'test-section-on-sit-elle.json'; // http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
-                        break;
-                    case 'cosmo':
-                        content_json = 'test-section-on-sit-cosmo.json'; // http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
                         break;
                     case 'hb':
                         content_json = 'test-section-on-sit-hb.json'; // http://dev.umbraco.services.bauer-media.internal/v1/now/documents/34189
@@ -89,6 +86,9 @@ module.exports = function() {
                         break;
                     case 'awwfood':
                         content_json = 'test-section-on-sit-awwfood.json'; // http://dev.umbraco.services.bauer-media.internal/v1/awwfood/documents/1191
+                        break;
+                    case 'foodnz':
+                        content_json = 'test-section-on-sit-foodnz.json'; // http://dev.umbraco.services.bauer-media.internal/v1/foodnz/documents/1998
                         break;
                 }
                 break;
@@ -114,6 +114,9 @@ module.exports = function() {
                     case 'awwfood':
                         content_json = 'test-recipe-collection-on-sit-awwfood.json'; // http://dev.umbraco.services.bauer-media.internal/v1/awwfood/documents/31902
                         break;
+                    case 'foodnz':
+                        content_json = 'test-recipe-collection-on-sit-foodnz.json'; // http://dev.umbraco.services.bauer-media.internal/v1/foodnz/documents/32949
+                        break;
                 }
                 break;
             case 'recipe':
@@ -124,6 +127,9 @@ module.exports = function() {
                         break;
                     case 'awwfood':
                         content_json = 'test-recipe-on-sit-awwfood.json'; // http://dev.umbraco.services.bauer-media.internal/v1/awwfood/documents/3979
+                        break;
+                    case 'foodnz':
+                        content_json = 'test-recipe-on-sit-foodnz.json'; // http://dev.umbraco.services.bauer-media.internal/v1/foodnz/documents/31900
                         break;
                 }
                 break;
@@ -138,7 +144,6 @@ module.exports = function() {
             case 'review':
             case 'recipe collection':
                 switch (site) {
-                    case 'cosmo':
                     case 'elle':
                     case 'hb':
                         body_content.document.nodeName = docType + " Test"; //e.g. Article Test
@@ -160,6 +165,7 @@ module.exports = function() {
                         docTypeID[page] = randomId;
                         break;
                     case 'awwfood':
+                    case 'foodnz':
                         body_content.document.nodeName = docType + " Test"; //e.g. Article Test
                         body_content.document.urlName = docType.replace(" ", "-") + "-test-"  + randomId; //e.g. article-test-xxxx
                         body_content.document.contentTitle = docType + " Test " + randomId; //e.g. Article Test xxxx
@@ -201,6 +207,7 @@ module.exports = function() {
                         docTypeID[page] = randomId;
                         break;
                     case 'awwfood':
+                    case 'foodnz':
                         body_content.document.nodeName = docType + " Test"; //e.g. Recipe Test
                         body_content.document.urlName = docType + "-test-" + randomId; //e.g. recipe-test-xxxx
                         body_content.document.contentTitle = docType + " Test " + randomId; //e.g. Recipe Test xxxx
@@ -243,6 +250,7 @@ module.exports = function() {
                 elementOnPage = '.article__title';
                 switch (site) {
                     case 'awwfood':
+                    case 'foodnz':
                         pageURL = sitUrls[site] + contentName[docType];
                         break;
                     default:
@@ -255,6 +263,7 @@ module.exports = function() {
                 switch (site) {
                     case 'gt':
                     case 'awwfood':
+                    case 'foodnz':
                         elementOnPage = ".article__title";
                         pageURL = sitUrls[site] + sectionName + '/' + (site === 'gt' ? subsectionName + '/' : '') + contentName[docType];
                         break;
@@ -279,6 +288,7 @@ module.exports = function() {
                 elementOnPage = ".article__title";
                 switch (site) {
                     case 'awwfood':
+                    case 'foodnz':
                         pageURL = sitUrls[site] + 'amp/' + contentName['article'];
                         break;
                     default:
@@ -292,6 +302,7 @@ module.exports = function() {
                 elementOnPage = ".article__title";
                 switch (site) {
                     case 'awwfood':
+                    case 'foodnz':
                         pageURL = sitUrls[site] + 'amp/' + contentName['gallery'];
                         break;
                     default:
@@ -318,6 +329,7 @@ module.exports = function() {
                         pageURL = sitUrls[site] + 'amp/' + sectionName + '/' + subsectionName + '/' + contentName['recipe'];
                         break;
                     case 'awwfood':
+                    case 'foodnz':
                         elementOnPage = ".article__title";
                         pageURL = sitUrls[site] + 'amp/recipes/' + contentName['recipe'];
                         break;

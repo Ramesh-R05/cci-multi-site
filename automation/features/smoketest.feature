@@ -17,8 +17,8 @@ Feature: Smoke test for all sites in SIT environment
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
         Examples:
-            | site  |
-            | gt    |
+            | site      |
+            | foodnz    |
 
     Scenario Outline: Verify the sign up element on homepage on "<site>"
         Given I switch to "mobile" view
@@ -67,10 +67,9 @@ Feature: Smoke test for all sites in SIT environment
         When I click on the Load More button
         Then I should see extra 14 teasers after loading more
         And I should see a load more feed item containing its image and clickable to open its page
-    @awwfoodmobile
         Examples:
             | site      |
-            | awwfood   |
+            | foodnz    |
 
     Scenario Outline: Verify the sign up element on the section landing page on "<site>"
         Given I switch to "mobile" view
@@ -135,7 +134,7 @@ Feature: Smoke test for all sites in SIT environment
         And I should see a load more feed item containing its image and clickable to open its page
         Examples:
             | site  |
-            | elle |
+            | elle  |
 
 ########## Tag section landing page ##########
     @smoketestawwfood @awwfoodmobile
@@ -233,6 +232,24 @@ Feature: Smoke test for all sites in SIT environment
 #        * I can see the hero image
         * I can see the list of recipes
 
+    @smoketestfoodnz
+    Scenario Outline: Verify the "<doctype>" page is up on FOODNZ
+        Given I am currently viewing "<doctype>" page on "foodnz" site
+        Then I should see the "<element>" element
+        Examples:
+            | doctype               | element      |
+            | recipe                | long title   |
+            | amp recipe collection | long title   |
+    @optional
+        Examples:
+            | doctype               | element      |
+            | article               | long title   |
+            | gallery               | long title   |
+            | recipe collection     | long title   |
+            | amp article           | long title   |
+            | amp gallery           | long title   |
+            | amp recipe            | long title   |
+
 ########## Footer ##########
     @smoketestelle @optional
     Scenario: Verify the footer in the "mobile" view on ELLE
@@ -270,7 +287,7 @@ Feature: Smoke test for all sites in SIT environment
             |Pinterest  |https://www.pinterest.com.au/gourmetpins/    |
             |GiftCard   |/gift-card                                   |
 
-    @smoketestawwfood @awwfoodmobile
+    @smoketestawwfood @awwfoodmobile @optional
     Scenario: Verify the footer in the "mobile" view on AWWFOOD
         Given I switch to "mobile" view
         When I am currently viewing "recipe" page on "awwfood" site
@@ -279,6 +296,25 @@ Feature: Smoke test for all sites in SIT environment
             |Facebook   |https://www.facebook.com/womensweeklyfood/   |
             |Instagram  |https://www.instagram.com/womensweeklyfood/  |
             |Pinterest  |https://www.pinterest.com.au/womensweeklyfood|
+
+#Social URLs need to be updated once they are ready
+    @smoketestfoodnz
+    Scenario: Verify the footer in the "mobile" view on FOODNZ
+        Given I switch to "mobile" view
+        When I am currently viewing "gallery" page on "foodnz" site
+        * I can see the social icons clickable to open its page in the footer
+            |social     |url                                          |
+            |Facebook   |https://www.facebook.com/womensweeklyfood/   |
+            |Instagram  |https://www.instagram.com/womensweeklyfood/  |
+            |Pinterest  |https://www.pinterest.com.au/womensweeklyfood|
+        * I can see the brand logos clickable to open its page in the footer
+            |brand                          |url                                    |
+            |New Zealand Taste              |/brands/new-zealand-taste              |
+            |New Zealand Woman's Weekly     |/brands/new-zealand-womans-weekly      |
+            |Woman's Day                    |/brands/womans-day                     |
+            |The Australian Women's Weekly  |/brands/the-australian-womens-weekly   |
+            |Good Health And Wellbeing      |/brands/good-health-and-wellbeing      |
+            |Nadia                          |/brands/nadia                          |
 
 ########## Hamburger menu ##########
     @smoketestelle
@@ -316,10 +352,15 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site  | class                         |
             | gt    | gtm-navbar-gourmet-traveller  |
-    @smoketestawwfood @awwfoodmobile
+    @smoketestawwfood @awwfoodmobile @optional
         Examples:
             | site      | class                                     |
             | awwfood   | gtm-navbar-australian-womens-weekly-food  |
+    #Class name needs to be updated for foodnz
+    @smoketestfoodnz
+        Examples:
+            | site     | class                                     |
+            | foodnz   | gtm-navbar-australian-womens-weekly-food  |
 
 ########## Navigation bar ##########
     Scenario Outline: I can see the site header logo in the desktop style on "<site>"
@@ -330,7 +371,7 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site  | class                 |
             | elle  | gtm-navbar-elle       |
-    @smoketesthb
+    @smoketesthb @optional
         Examples:
             | site  | class                 |
             | hb    | gtm-navbar-harper     |
@@ -342,6 +383,10 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site      | class                                     |
             | awwfood   | gtm-navbar-australian-womens-weekly-food  |
+    @smoketestfoodnz
+        Examples:
+            | site      | class                                     |
+            | foodnz    | gtm-navbar-australian-womens-weekly-food  |
 
 ########## GTM Container ##########
     Scenario Outline: I can see the GTM container with id "<gtm>" on "<site>"
@@ -363,6 +408,11 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site      | gtm           |
             | awwfood   | GTM-MHX78ZT   |
+    #Need to update GTM for foodnz
+    @smoketestfoodnz
+        Examples:
+            | site      | gtm           |
+            | foodnz    | GTM-P8JPLN    |
 
 ########## GA container  ##########
     Scenario Outline: I can see the GA container with id "<ga>" on "<site>"
@@ -384,6 +434,11 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site      | ga            |
             | awwfood   | UA-57795117-1 |
+##enable and update GA ID once it is ready
+#    @smoketestfoodnz
+#        Examples:
+#            | site      | ga            |
+#            | foodnz    | UA-57795117-3 |
 
 ########## Page creation ##########
     @smoketestelle
@@ -492,10 +547,44 @@ Feature: Smoke test for all sites in SIT environment
         When I navigate to the "amp recipe" page in "awwfood"
         Then our readers can enjoy the created "amp recipe" page
 
+    @smoketestfoodnz @optional
+    Scenario: Verify all the doc type items
+        Given I switch to "mobile" view
+        # -----------------------
+        Given Emily just published the "section" doc type item in "foodnz"
+        When I navigate to the "section" page in "foodnz"
+        Then our readers can enjoy the created "section" page
+        # -----------------------
+        Given Emily just published the "article" doc type item in "foodnz"
+        When I navigate to the "article" page in "foodnz"
+        Then our readers can enjoy the created "article" page
+        When I navigate to the "amp article" page in "foodnz"
+        Then our readers can enjoy the created "amp article" page
+        # -----------------------
+        Given Emily just published the "gallery" doc type item in "foodnz"
+        When I navigate to the "gallery" page in "foodnz"
+        Then our readers can enjoy the created "gallery" page
+        When I navigate to the "amp gallery" page in "foodnz"
+        Then our readers can enjoy the created "amp gallery" page
+        # -----------------------
+        Given Emily just published the "recipe collection" doc type item in "foodnz"
+        When I navigate to the "recipe collection" page in "foodnz"
+        Then our readers can enjoy the created "recipe collection" page
+        # -----------------------
+        Given Emily just published the "recipe" doc type item in "foodnz"
+        When I navigate to the "recipe" page in "foodnz"
+        Then our readers can enjoy the created "recipe" page
+        When I navigate to the "amp recipe" page in "foodnz"
+        Then our readers can enjoy the created "amp recipe" page
+
 ########## RSS feed ##########
     Scenario Outline: Verify the RSS url of "site" is up
         Given I am currently viewing "rss" url on "<site>" site
         Then I should see "link" tag containing "<link>" value
+        Examples:
+            | site      | link                                  |
+            | foodnz    | http://foodnz-site-nz.sit.bxm.net.au  |
+    @optional
         Examples:
             | site      | link                                  |
             | elle      | http://elle-site-au.sit.bxm.net.au    |
@@ -567,6 +656,23 @@ Feature: Smoke test for all sites in SIT environment
         When I am currently viewing "rss/info" url on "awwfood" site
         * I should see "rss/summary/awwfood" in json
 
+    #dc:creator needs to be updated for foodnz
+    @smoketestfoodnz @optional
+    Scenario: Verify the RSS feed on AWWFOOD
+        Given I am currently viewing "rss" url on "foodnz" site
+        Then I should see "link" tag containing "http://foodnz-site-nz.sit.bxm.net.au" value
+        * I should see "dc:creator" tag containing "Australian Women's Weekly Food" in CDATA
+        * I should see "title" tag containing a value
+        * I should see "dc:creator" tag containing a value
+        * I should see "content:encoded" tag containing a value
+        When I am currently viewing "rss/summary" url on "foodnz" site
+        * I should see "title" tag containing a value
+        * I should not see "content:encoded" tag
+        When I am currently viewing "rss/summary/foodnz" url on "foodnz" site
+        * I should see "title" tag containing a value
+        When I am currently viewing "rss/info" url on "foodnz" site
+        * I should see "rss/summary/foodnz" in json
+
 
 ########## Search ##########
     @smoketestlocal
@@ -603,18 +709,32 @@ Feature: Smoke test for all sites in SIT environment
         * I should see a search bar inside search box
     @awwfoodmobile
         Examples:
-            |device|
-            |mobile|
-    @awwfooddesktop
+            | device |
+            | mobile |
+    @awwfooddesktop @optional
         Examples:
-            |device|
-            |desktop|
+            | device  |
+            | desktop |
     @awwfoodtabletportrait @optional
         Examples:
-            |device|
-            |tablet portrait |
+            | device          |
+            | tablet portrait |
     @awwfoodtabletlandscape @optional
         Examples:
-            |device|
-            |tablet landscape|
+            | device           |
+            | tablet landscape |
+
+    @smoketestfoodnz
+    Scenario Outline: Verify the Homepage top search box "<device>" view on FOODNZ
+        When I switch to "<device>" view
+        Given I am currently viewing "homepage" page on "foodnz" site
+        * I should see top search box
+        * I should see a search bar inside search box
+    @optional
+        Examples:
+            | device  |
+            | mobile  |
+        Examples:
+            | device  |
+            | desktop |
 
