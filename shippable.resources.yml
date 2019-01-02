@@ -157,6 +157,12 @@ resources:
     seed:
       interval: "15 22 * * *"
 
+  #"45 20 * * 0" is 8:45pm every day which is 7:45am daylight saving or 6:45am standard time in Sydney
+  - name: multi-smoke-test-morning-trigger
+    type: time
+    seed:
+      interval: "45 20 * * *"
+
   #"0 22 * * 0" is 10:00pm Sunday which is Monday morning 9:00am daylight saving or 8:00am standard time in Sydney
   - name: elle-weekly-trigger
     type: time
@@ -186,25 +192,6 @@ resources:
 #    type: time
 #    seed:
 #      interval: "0 22 * * 3"
-
-  #"30 22 * * 0" is 10:30pm Sunday which is Monday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: gt-seo-live-trigger
-    type: time
-    seed:
-      interval: "30 22 * * 0"
-
-  # This is for homes-site performance test and SEO test only (Workaround)
-  #"30 22 * * 2" is 10:30pm Tuesday which is Wednesday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: homes-perf-test-trigger-workaround
-    type: time
-    seed:
-      interval: "30 22 * * 2"
-
-  #"30 22 * * 3" is 10:30pm Wednesday which is Thursday morning 9:30am daylight saving or 8:30am standard time in Sydney
-  - name: homes-seo-live-trigger-workaround
-    type: time
-    seed:
-      interval: "30 22 * * 3"
 
 ##############
 # ELLE

@@ -751,6 +751,7 @@ jobs:
     steps:
     - IN: multi-site-repo
       switch: off
+    - IN: multi-smoke-test-morning-trigger
     - TASK:
        - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
        - script: source ~/.nvm/nvm.sh
