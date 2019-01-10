@@ -7,12 +7,24 @@ export default class RecipeOverview extends Component {
         overviewDetails: PropTypes.arrayOf(PropTypes.string)
     };
 
+    static contextTypes = {
+        config: PropTypes.object
+    };
+
     static defaultProps = {
         overviewDetails: []
     };
 
+    handlePrint = event => {
+        event.preventDefault();
+        window.print();
+    };
+
     render() {
         const { overviewDetails } = this.props;
+        const { config } = this.context;
+
+        const imageUrl = `${config.site.host}/assets/images/printer.svg`;
 
         if (!Array.isArray(overviewDetails) || overviewDetails.length === 0) {
             return null;
@@ -25,6 +37,12 @@ export default class RecipeOverview extends Component {
                         {detail}
                     </li>
                 ))}
+                <div className="recipe-overview__print">
+                    <img alt="Print" src={imageUrl} onClick={this.handlePrint} />
+                </div>
+                <div className="recipe-overview__print--text" onClick={this.handlePrint}>
+                    Print
+                </div>
             </ul>
         );
     }

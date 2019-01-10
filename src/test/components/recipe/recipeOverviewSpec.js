@@ -7,7 +7,15 @@ import RecipeOverview from '../../../app/components/recipe/recipeOverview';
 const createTestProps = () => ({
     overviewDetails: ['50 mins preparation', '40 mins cooking', 'Serves 4 - 6']
 });
-const TestWrapper = (props = {}) => shallow(<RecipeOverview {...props} />);
+
+const context = {
+    config: {
+        site: {
+            host: 'https://someurl.com'
+        }
+    }
+};
+const TestWrapper = (props = {}) => shallow(<RecipeOverview {...props} />, { context });
 
 function filterErrors() {
     const consoleErrorCopy = console.error;
