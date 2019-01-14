@@ -130,7 +130,7 @@ module.exports = function() {
     this.Then(/^I should be able to add content in the item$/, function (dataTable) {
         var row = dataTable.hashes();
 
-        for (var i = 0; i < row.length; ++i) {
+        for (var i = 0; i < row.length; i++) {
             //Click the tab and record the tab no to use in the publishing step
             tabNo = cmsGoToTab(row[i]['tab'], browser);
             tabElement = '#body_TabView1_tab0' + tabNo + 'layer ';
@@ -209,12 +209,29 @@ module.exports = function() {
                     expect(videoSecondThumbnail).not.toEqual('');
                     break;
                 case 'Content Tags':
-                    browser.scroll(tabElement + cms.pageContentTags);
-                    browser.click(tabElement + cms.pageContentTags);
-                    var tagValue = 'cvg:cvg_platform:iPhone';
-                    browser.setValue(tabElement + cms.pageContentTags, tagValue);
-                    expect(browser.waitForVisible(cms.pageContentTagsFirstTag,5000)).toBe(true);
-                    browser.click(tabElement + cms.pageContentTagsFirstTag);
+                    if (!(world.Urls.home_page).includes('gt')) { //This condition is added because the tag field is not populated in the DEV GT CMS. We can remove this condition once it's fixed.
+                        browser.scroll(tabElement + cms.pageContentTags);
+                        browser.click(tabElement + cms.pageContentTags);
+                        var tagValue = 'cvg:cvg_platform:iPhone';
+                        browser.setValue(tabElement + cms.pageContentTags, tagValue);
+                        expect(browser.waitForVisible(cms.pageContentTagsFirstTag,5000)).toBe(true);
+                        browser.click(tabElement + cms.pageContentTagsFirstTag);
+                    }
+                    break;
+                case 'Content Tags (recipe)':
+                    if (!(world.Urls.home_page).includes('gt')) { //This condition is added because the tag field is not populated in the DEV GT CMS. We can remove this condition once it's fixed.
+                        var tagValueRecipe = ['food:Cuisine:Chinese', 'food:Meal:Starter'];
+                        var rowElement;
+
+                        for (var j = 1; j <= tagValueRecipe.length; j++) {
+                            rowElement = 'tag-picker .tag-list__item:nth-child(' + j + ') [ng-model="item.tagName"]';
+                            browser.scroll(tabElement + rowElement);
+                            browser.click(tabElement + rowElement);
+                            browser.setValue(tabElement + rowElement, tagValueRecipe[j - 1]);
+                            expect(browser.waitForVisible(cms.pageContentTagsFirstTag, 5000)).toBe(true);
+                            browser.click(tabElement + cms.pageContentTagsFirstTag);
+                        }
+                    }
                     break;
                 case 'Recipe Servings':
                     browser.waitForVisible(tabElement + cms.recipeRecipeServings,2000);
@@ -279,7 +296,7 @@ module.exports = function() {
         var row = dataTable.hashes();
         var tabElement; //To ensure we find an element under that tab
 
-        for (var i = 1; i <= row.length; ++i) {
+        for (var i = 1; i <= row.length; i++) {
             //Click the tab and record the tab no to use in the publishing step
             tabNo = cmsGoToTab('Editorial', browser);
             tabElement = '#body_TabView1_tab0' + tabNo + 'layer ';

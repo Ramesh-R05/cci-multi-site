@@ -23,7 +23,7 @@ Feature: CMS Smoke Test
 #           | Disable AMP   | Search and Social |  #We want to test the page with amp so we don't need to set this field.
             | Video         | Editorial         |
             | Body Video    | Editorial         |
-#           | Content Tags  | Page              | #Will enable this once this field in the DEV GT CMS is fixed.
+            | Content Tags  | Page              |
         * I should be able to publish the item
         * I should be able to see the "preview" URL
         * I should be able to see the "live" URL
@@ -70,7 +70,7 @@ Feature: CMS Smoke Test
             | Created at    | Properties        |
             | Video         | Editorial         |
             | Body Video    | Editorial         |
-#           | Content Tags  | Gallery           | #Will enable this once this field in the DEV GT CMS is fixed.
+            | Content Tags  | Gallery           |
         * I should be able to publish the item
         * I should be able to see the "preview" URL
         * I should be able to see the "live" URL
@@ -87,23 +87,23 @@ Feature: CMS Smoke Test
         * I should see the item is created
         When I am currently viewing "editContent.aspx?id=" of "Recipe"
         * I should be able to add content in the item
-            | field             | tab               |
-            | Long Title        | Editorial         |
-            | Short Teaser      | Editorial         |
-            | Image             | Editorial         |
-            | Body Paragraph    | Editorial         |
-            | Body Heading      | Editorial         |
-            | Page Title        | Search and Social |
-            | Created at        | Properties        |
-#           | Disable AMP       | Search and Social |  #We want to test the page with amp so we don't need to set this field.
-            | Video             | Editorial         |
-            | Body Video        | Editorial         |
-            | Recipe Servings   | Recipe            |
-            | Cooking Time      | Recipe            |
-            | Ingredients       | Recipe            |
-            | Cooking Method    | Recipe            |
-            | Recipe Tips       | Recipe            |
-#           | Content Tags      | Page              | #Will enable this once this field in the DEV GT CMS is fixed.
+            | field                      | tab               |
+            | Long Title                 | Editorial         |
+            | Short Teaser               | Editorial         |
+            | Image                      | Editorial         |
+            | Body Paragraph             | Editorial         |
+            | Body Heading               | Editorial         |
+            | Page Title                 | Search and Social |
+            | Created at                 | Properties        |
+#           | Disable AMP                | Search and Social |  #We want to test the page with amp so we don't need to set this field.
+            | Video                      | Editorial         |
+            | Body Video                 | Editorial         |
+            | Recipe Servings            | Recipe            |
+            | Cooking Time               | Recipe            |
+            | Ingredients                | Recipe            |
+            | Cooking Method             | Recipe            |
+            | Recipe Tips                | Recipe            |
+            | Content Tags (recipe)      | Page              |
         * I should be able to publish the item
         * I should be able to see the "preview" URL
         * I should be able to see the "live" URL
@@ -136,7 +136,7 @@ Feature: CMS Smoke Test
             | Address           | Editorial         |
             | Hours             | Editorial         |
             | Prices            | Editorial         |
-#           | Content Tags      | Page              | #Will enable this once this field in the DEV GT CMS is fixed.
+            | Content Tags      | Page              |
         * I should be able to publish the item
         * I should be able to see the "preview" URL
         * I should be able to see the "live" URL
