@@ -250,6 +250,45 @@ Feature: Smoke test for all sites in SIT environment
             | amp gallery           | long title   |
             | amp recipe            | long title   |
 
+    Scenario Outline: Verify the print button is showing on the recipe page on "<site>" on "<device>"
+        Given I switch to "<device>" view
+        When I am currently viewing "recipe" page on "<site>" site
+        Then I should see the recipe print button
+    @smoketestgt
+        Examples:
+            | site    | device            |
+            | gt      | desktop           |
+    @smoketestawwfood
+        Examples:
+            | site    | device            |
+            | awwfood | tablet landscape  |
+#    @smoketestfoodnz
+#        Examples:
+#            | site    | device            |
+#            | foodnz  | desktop           |
+    @smoketestgt @optional
+        Examples:
+            | site    | device            |
+            | gt      | tablet portrait   |
+
+    Scenario Outline: Verify the print button is not showing on the recipe page on "<site>" on "<device>"
+        Given I switch to "<device>" view
+        When I am currently viewing "recipe" page on "<site>" site
+        Then I should not see the recipe print button
+    @smoketestgt
+        Examples:
+            | site      | device           |
+            | gt        | mobile           |
+    @smoketestawwfood @optional
+        Examples:
+            | site      | device           |
+            | awwfood   | mobile           |
+#    @smoketestfoodnz
+#        Examples:
+#            | site      | device           |
+#            | foodnz    | mobile           |
+
+
 ########## Footer ##########
     @smoketestelle @optional
     Scenario: Verify the footer in the "mobile" view on ELLE

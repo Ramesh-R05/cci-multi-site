@@ -39,13 +39,13 @@ module.exports = function() {
         var pageUrl;
 
         //Identify the page URL
-        if (world.Urls.home_page.length === 0) {
+        if (world.Urls.home_page.length === 0) { //This is used when URL=<blank> which is for the follow scripts: smoketest:sit and smoketest:all
             if (page === 'homepage') {
                 pageUrl = sit[site].homepage;
             } else {
                 pageUrl = sit[site].homepage + sit[site][page];
             }
-        } else {
+        } else { //The URL is from the URL which is exported e.g. export URL=http....
             if (page === 'homepage') {
                 pageUrl = world.Urls.home_page;
             } else {
@@ -65,9 +65,9 @@ module.exports = function() {
         var pageUrl;
 
         //Identify the page URL
-        if (world.Urls.home_page.length === 0) {
+        if (world.Urls.home_page.length === 0) { //This is used when URL=<blank> which is for the follow scripts: smoketest:sit and smoketest:all
             pageUrl = sit[site].homepage + url;
-        } else {
+        } else { //The URL is from the URL which is exported e.g. export URL=http....
             pageUrl = world.Urls.home_page + url;
         }
 

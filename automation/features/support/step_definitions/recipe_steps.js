@@ -14,4 +14,13 @@ module.exports = function() {
         expect(browser.isVisible(recipe.course)).toBe(true);
         expect(browser.isVisible(recipe.cuisine)).toBe(true);
     });
+
+    this.Then(/^I should see the recipe print button$/, function () {
+        expect(browser.isVisible(recipe.print)).toBe(true);
+    });
+
+    this.Then(/^I should not see the recipe print button$/, function () {
+        expect(browser.isVisible(recipe.print)).toBe(false);
+    });
+
 };
