@@ -187,11 +187,11 @@ resources:
     seed:
       interval: "0 22 * * 0"
 
-#  #"0 22 * * 3" is 10:00pm Wednesday which is Thursday morning 9:00am daylight saving or 8:00am standard time in Sydney
-#  - name: foodnz-weekly-trigger
-#    type: time
-#    seed:
-#      interval: "0 22 * * 3"
+  #"0 22 * * 3" is 10:00pm Wednesday which is Thursday morning 9:00am daylight saving or 8:00am standard time in Sydney
+  - name: foodnz-weekly-trigger
+    type: time
+    seed:
+      interval: "0 22 * * 3"
 
 ##############
 # ELLE
