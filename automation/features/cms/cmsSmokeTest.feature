@@ -77,7 +77,7 @@ Feature: CMS Smoke Test
         * I should be able to visit the live URL
         * I should see the amp page is inactive
 
-    @gtcms @awwfoodcms
+    @gtcms @awwfoodcms @foodnzcms
     Scenario: Create the Recipe item
         Given I am logging in CMS
         When I am currently viewing the create form

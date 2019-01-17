@@ -23,6 +23,7 @@
     "test:cms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms\"",
     "test:gtcms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms,@gtcms\"",
     "test:awwfoodcms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms,@awwfoodcms\"",
+    "test:foodnzcms": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cms,@foodnzcms\"",
     "test:cmsprelive": "bash -c \"./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --tags=@cmsprelive --tags=~@manual\"",
     "smoketest:sit": "bash -c \"APP_KEY= URL= ./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestsit --tags=~@optional\"",
     "smoketest:all": "bash -c \"APP_KEY= URL= ./node_modules/.bin/chimp chimp.js --browser=phantomjs --format=rerun:@rerun.txt --jsonOutput=reports/regression.json --tags=@smoketestsit\"",

@@ -70,6 +70,9 @@ module.exports = function() {
             case 'awwfood-site':
                 cmsSectionID = '1191'; //Recipes
                 break;
+            case 'foodnz-site':
+                cmsSectionID = '1998'; //Recipes
+                break;
             default:
                 cmsSectionID = '1175'; //Those three sites have this ID as a section.
         }
