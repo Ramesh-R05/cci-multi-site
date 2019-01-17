@@ -349,8 +349,9 @@ jobs:
        - script: rm -rf node_modules/chimp/dist/lib/cucumberjs/hooks.js
        - script: cp features/support/files/chimp_hooks.backup node_modules/chimp/dist/lib/cucumberjs/hooks.js
        - script: export URL=http://multi-site.test.bxm.net.au/
-       - script: npm run test:mobile
-       - script: npm run test:desktop
+       - script: npm run test:mobile || mobileResult=failed
+       - script: npm run test:desktop  || desktopResult=failed
+       - script: if [ -n "$mobileResult" ] || [ -n "$desktopResult" ]; then fail; fi
 #    on_failure:
 #      - NOTIFY: elle-deployment-notifications
 
@@ -763,7 +764,7 @@ jobs:
        - script: echo $tabletportraitResult
        - script: npm run test:awwfoodtabletlandscape || tabletlandscapeResult=failed
        - script: echo $tabletlandscapeResult
-       - script: if [ -n "$mobileResult"] || [-n "$desktopResult"] || [-n "$tabletportraitResult"] || [-n "$tabletlandscapeResult"]; then fail; fi
+       - script: if [ -n "$mobileResult" ] || [ -n "$desktopResult" ] || [ -n "$tabletportraitResult" ] || [ -n "$tabletlandscapeResult" ]; then fail; fi
 
   #xii. Run full smoke test on SIT environment for all sites
   - name: full-multi-site-smoke-test
