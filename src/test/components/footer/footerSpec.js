@@ -49,6 +49,9 @@ describe(`Footer`, () => {
             },
             site: {
                 name: 'elle'
+            },
+            product: {
+                id: 'foodnz'
             }
         }
     };

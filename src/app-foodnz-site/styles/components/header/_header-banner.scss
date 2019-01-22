@@ -21,15 +21,15 @@
 
   &__icon-logo { 
       @media #{$medium-up} {
-        font-size: 50px;
-        line-height: 2em;
-        color: $color-accent;
+        font-size: 60px;
+        line-height: 1.5em;
+        color: $color-black-origin;
       }
 
       @media #{$large-up} {
-        font-size: 75px;
-        line-height: 2em;
-        color: $color-accent;
+        font-size: 90px;
+        line-height: 1.5em;
+        color: $color-black-origin;
       }
   }
 

@@ -43,7 +43,11 @@ export default class Footer extends Component {
             [`footer--${modifier}`]: modifier
         });
 
-        const socialUrls = isBrandPage ? config.brands.uniheader.find(b => b.id === brand.id).socialLinks : config.urls.socialUrls;
+        let socialUrls = isBrandPage ? config.brands.uniheader.find(b => b.id === brand.id).socialLinks : config.urls.socialUrls;
+
+        if (config.product.id === 'foodnz') {
+            socialUrls = config.urls.socialUrls;
+        }
 
         return (
             <div>

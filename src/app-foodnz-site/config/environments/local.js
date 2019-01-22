@@ -10,6 +10,6 @@ export default {
         script: `//players.brightcove.net/${brightcove.accountId}/${playerId}_default/index.min.js`
     },
     services: {
-        faceBookAppID: '363188680538038'
+        faceBookAppID: '1184546314908539'
     }
 };

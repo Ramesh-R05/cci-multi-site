@@ -10,7 +10,7 @@ export default {
             pageTypes: {
                 Brand: 'index'
             },
-            siteId: 'womensweeklyfood',
+            siteId: 'FoodToLoveNZ',
             tagsObject: 'tags',
             sizes: {
                 native: [250, 30],

@@ -21,5 +21,5 @@ export default {
     redirect: {
         url: 'http://services.sit.bxm.internal/redirect/v1/foodnz/301'
     },
-    faceBookAppID: '363188680538038'
+    faceBookAppID: '1184546314908539'
 };

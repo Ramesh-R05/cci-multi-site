@@ -19,7 +19,7 @@ $color-text-white:   $color-gt-white;
 $color-green: #31c7ce;
 $color-yellow: #ffff5c;
 $color-gold: #b49465;
-$color-eggplant: #614051; // FoodNZ accent
+$color-pink: #f6626e; // FoodNZ accent
 $color-orange: #ff771d;
 $color-red: #c40010;
 $feed-item-header-colour: $color-gt-black-1;
@@ -76,16 +76,16 @@ $nz-nadia-color: #151515;
 $nz-simply-you-color: #151515;
 
 // Other
-$line-color: $color-eggplant;
+$line-color: $color-pink;
 $color-section-separator: #e5e5e5;
 $color-header-menu-button: #555;
 $color-footer-grey: #555;
 
-$color-button:       $color-eggplant;
-$color-button-hover: lighten($color-eggplant, 10%);
+$color-button:       $color-pink;
+$color-button-hover: lighten($color-pink, 10%);
 
 // Main colours
 $color-primary: $color-black-light;
 $color-secondary: $color-grey;
 $color-tertiary: $color-grey-light;
-$color-accent: $color-eggplant;
+$color-accent: $color-pink;

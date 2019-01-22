@@ -342,10 +342,11 @@ Feature: Smoke test for all sites in SIT environment
         Given I switch to "mobile" view
         When I am currently viewing "gallery" page on "foodnz" site
         * I can see the social icons clickable to open its page in the footer
-            |social     |url                                          |
-            |Facebook   |https://www.facebook.com/womensweeklyfood/   |
-            |Instagram  |https://www.instagram.com/womensweeklyfood/  |
-            |Pinterest  |https://www.pinterest.com.au/womensweeklyfood|
+            |social     |url                                        |
+            |Facebook   |https://www.facebook.com/Foodtolove.nz/    |
+            |Instagram  |https://www.instagram.com/foodtolovenz/    |
+            |Pinterest  |https://www.pinterest.com.au/foodtolovenz/ |
+            |Twitter    |https://twitter.com/foodtolovenz           |
         * I can see the brand logos clickable to open its page in the footer
             |brand                          |url                                    |
             |New Zealand Taste              |/brands/new-zealand-taste              |
@@ -395,11 +396,10 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site      | class                                     |
             | awwfood   | gtm-navbar-australian-womens-weekly-food  |
-    #Class name needs to be updated for foodnz
     @smoketestfoodnz
         Examples:
             | site     | class                                     |
-            | foodnz   | gtm-navbar-australian-womens-weekly-food  |
+            | foodnz   | gtm-navbar-food-to-love                   |
 
 ########## Navigation bar ##########
     Scenario Outline: I can see the site header logo in the desktop style on "<site>"
@@ -425,7 +425,7 @@ Feature: Smoke test for all sites in SIT environment
     @smoketestfoodnz
         Examples:
             | site      | class                                     |
-            | foodnz    | gtm-navbar-australian-womens-weekly-food  |
+            | foodnz    | gtm-navbar-food-to-love                   |
 
 ########## GTM Container ##########
     Scenario Outline: I can see the GTM container with id "<gtm>" on "<site>"
@@ -451,7 +451,7 @@ Feature: Smoke test for all sites in SIT environment
     @smoketestfoodnz
         Examples:
             | site      | gtm           |
-            | foodnz    | GTM-P8JPLN    |
+            | foodnz    | GTM-5DSBNK    |
 
 ########## GA container  ##########
     Scenario Outline: I can see the GA container with id "<ga>" on "<site>"
@@ -697,10 +697,10 @@ Feature: Smoke test for all sites in SIT environment
 
     #dc:creator needs to be updated for foodnz
     @smoketestfoodnz @optional
-    Scenario: Verify the RSS feed on AWWFOOD
+    Scenario: Verify the RSS feed on FOODNZ
         Given I am currently viewing "rss" url on "foodnz" site
         Then I should see "link" tag containing "http://foodnz-site-nz.sit.bxm.net.au" value
-        * I should see "dc:creator" tag containing "Australian Women's Weekly Food" in CDATA
+        * I should see "dc:creator" tag containing "Food To Love" in CDATA
         * I should see "title" tag containing a value
         * I should see "dc:creator" tag containing a value
         * I should see "content:encoded" tag containing a value
@@ -762,18 +762,3 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | device           |
             | tablet landscape |
-
-    @smoketestfoodnz
-    Scenario Outline: Verify the Homepage top search box "<device>" view on FOODNZ
-        When I switch to "<device>" view
-        Given I am currently viewing "homepage" page on "foodnz" site
-        * I should see top search box
-        * I should see a search bar inside search box
-    @optional
-        Examples:
-            | device  |
-            | mobile  |
-        Examples:
-            | device  |
-            | desktop |
-

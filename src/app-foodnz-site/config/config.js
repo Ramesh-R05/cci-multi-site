@@ -7,11 +7,11 @@ import site from './site';
 import polar from './polar';
 
 export default {
-    ga: { id: 'UA-8689488-1' },
+    ga: { id: 'UA-57795117-3' },
 
-    gtm: { masthead: 'GT', id: 'GTM-P8JPLN' }, // TODO: Check that the masthead is correct
+    gtm: { masthead: 'NZFOOD', id: 'GTM-5DSBNK' },
 
-    defaultImageUrl: 'http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/awwfood/2018/09/03/1535939419920_awwfood-default.png',
+    defaultImageUrl: '/assets/images/default-hero-image.svg',
 
     brightcove,
 
@@ -67,15 +67,16 @@ export default {
 
     urls: {
         footerUrls: {
-            privacy: 'http://www.bauer-media.com.au/privacy',
-            advertise: 'http://www.bauer-media.com.au/advertising/advertise-with-us',
-            terms: 'http://www.bauer-media.com.au/terms/website-terms'
+            privacy: 'http://www.bauermedia.co.nz/privacy',
+            advertise: 'https://www.bauermediaadvertising.co.nz',
+            terms: 'http://www.bauermedia.co.nz/terms'
         },
 
         socialUrls: {
-            facebook: 'https://www.facebook.com/womensweeklyfood/',
-            instagram: 'https://www.instagram.com/womensweeklyfood/',
-            pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
+            facebook: 'https://www.facebook.com/Foodtolove.nz/',
+            instagram: 'https://www.instagram.com/foodtolovenz/',
+            pinterest: 'https://www.pinterest.com.au/foodtolovenz/',
+            twitter: 'https://twitter.com/foodtolovenz'
         },
 
         newsletterSignupInBodyCopy: ''
@@ -87,15 +88,15 @@ export default {
         title: '',
         magazineTitle: '',
         socialLinks: {
-            facebook: 'https://www.facebook.com/womensweeklyfood/',
-            instagram: 'https://www.instagram.com/womensweeklyfood/',
-            pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
+            facebook: 'https://www.facebook.com/Foodtolove.nz/',
+            instagram: 'https://twitter.com/foodtolovenz',
+            pinterest: 'https://www.pinterest.com.au/foodtolovenz/'
         },
         newsletterTitle: 'Get the newsletter',
         newsletterText: 'The latest news delivered to your inbox.',
-        newsletterUrl: '/newsletter',
-        subscribeButtonText: 'Subscribe',
-        subscribeButtonUrl: '/subscribe-magazine',
+        newsletterUrl: 'http://foodtolove.e.bauermedia.co.nz/join/5l5/signup-foodtolovenz',
+        subscribeButtonText: 'Subscribe Now',
+        subscribeButtonUrl: 'https://www.magshop.co.nz/store/bauer-media ',
         imageSizes: {
             s: { w: 275 },
             m: { w: 275 },
@@ -128,9 +129,9 @@ export default {
                 url: '/brands/new-zealand-taste',
                 socialLinks: {
                     facebook: 'https://www.facebook.com/tastemagazine',
-                    instagram: 'https://www.instagram.com/tastemagnz/'
+                    instagram: 'https://www.instagram.com/tastemagnz/?hl=en'
                 },
-                newsletterUrl: '/newsletter-subscribe-new-zealand-taste',
+                newsletterUrl: 'http://taste.e.bauermedia.co.nz/join/signup-taste-ftl',
                 newsletterSignupInBodyCopy: ''
             },
             {
@@ -142,7 +143,7 @@ export default {
                     facebook: 'https://www.facebook.com/nzwomansweekly',
                     instagram: 'https://www.instagram.com/newzealandwomansweekly'
                 },
-                newsletterUrl: '/newsletter-subscribe-new-zealand-womans-weekly',
+                newsletterUrl: 'http://nzww.e.bauermedia.co.nz/join/signup-nzww-ftl',
                 newsletterSignupInBodyCopy: ''
             },
             {
@@ -155,7 +156,7 @@ export default {
                     facebook: 'https://www.facebook.com/womansdaynz',
                     instagram: 'https://www.instagram.com/womansdaynz'
                 },
-                newsletterUrl: '/newsletter-subscribe-womans-day',
+                newsletterUrl: 'http://womansday.e.bauermedia.co.nz/join/signup-womansday-ftl',
                 newsletterSignupInBodyCopy: ''
             },
             {
@@ -168,7 +169,7 @@ export default {
                     facebook: 'https://www.facebook.com/awwmagazine',
                     instagram: 'https://www.instagram.com/awwmagazine'
                 },
-                newsletterUrl: '/newsletter-subscribe-the-australian-womens-weekly',
+                newsletterUrl: 'http://awwnz.e.bauermedia.co.nz/join/signup-awwnz-ftl',
                 newsletterSignupInBodyCopy: ''
             },
             {
@@ -183,7 +184,7 @@ export default {
                     instagram: 'https://www.instagram.com/goodhealthnz/',
                     pinterest: 'https://nz.pinterest.com/goodhealthmag/'
                 },
-                newsletterUrl: '/newsletter-subscribe-good-health-and-wellbeing',
+                newsletterUrl: 'http://goodhealth.e.bauermedia.co.nz/join/5kl/signup-ghc-ftl',
                 newsletterSignupInBodyCopy: ''
             },
             {
@@ -196,62 +197,75 @@ export default {
                     instagram: 'https://www.instagram.com/nadiamagazine',
                     facebook: 'https://www.facebook.com/Foodtolove.nz/'
                 },
-                newsletterUrl: '/newsletter-subscribe-nadia',
+                newsletterUrl: 'http://nadia.e.bauermedia.co.nz/join/signup-nadia-ftl',
+                newsletterSignupInBodyCopy: ''
+            },
+            {
+                id: 'food',
+                title: 'food',
+                magazineTitle: 'food',
+                imageUrl: '/assets/logos/food.svg',
+                url: '/brands/food',
+                socialLinks: {
+                    instagram: 'https://www.instagram.com/foodmagnz/?hl=en',
+                    facebook: 'https://www.facebook.com/foodmagnz/'
+                },
+                newsletterUrl: 'http://foodmagazine.e.bauermedia.co.nz/join/signup-food-ftl',
                 newsletterSignupInBodyCopy: ''
             }
         ],
         network: [
             {
-                id: 'now',
-                imageUrl: '/assets/images/menulogos/NTL-logo.svg',
-                url: 'https://www.nowtolove.com.au/',
-                title: 'Now To Love'
+                id: 'nztaste',
+                imageUrl: '/assets/logos/nz-taste.svg',
+                url: '/brands/new-zealand-taste',
+                title: 'New Zealand Taste'
             },
             {
-                id: 'homes',
-                imageUrl: '/assets/images/menulogos/HTL-logo-greytext.svg',
-                url: 'https://www.homestolove.com.au/',
-                title: 'Homes To Love'
+                id: 'awwnz',
+                imageUrl: '/assets/logos/aww.svg',
+                url: '/brands/the-australian-womens-weekly',
+                title: `The Australian Women's Weekly`
             },
             {
-                id: 'wwfood',
-                imageUrl: '/assets/images/menulogos/WWF-logo.svg',
-                url: 'https://www.womensweeklyfood.com.au/',
-                title: "Women's Weekly Food"
+                id: 'nzwd',
+                imageUrl: '/assets/logos/nzwd.svg',
+                url: '/brands/womans-day',
+                title: `Woman's Day`
             },
             {
-                id: 'elle',
-                imageUrl: '/assets/images/menulogos/elle-logo.svg',
-                url: 'https://www.elle.com.au/',
-                title: 'Elle'
+                id: 'nzww',
+                imageUrl: '/assets/logos/nzww.svg',
+                url: '/brands/new-zealand-womans-weekly',
+                title: `New Zealand Woman's Weekly`
             },
             {
-                id: 'harpers',
-                imageUrl: '/assets/images/menulogos/HB-logo.svg',
-                url: 'https://www.harpersbazaar.com.au/',
-                title: "Harper's Bazaar"
+                id: 'nzgh',
+                imageUrl: '/assets/logos/good-health.svg',
+                url: '/brands/good-health-and-wellbeing',
+                title: 'Good Health And Wellbeing'
             },
             {
-                id: 'gt',
-                imageUrl: '/assets/images/menulogos/GT-logo.svg',
-                url: 'https://www.gourmettraveller.com.au/',
-                title: 'Gourmet Traveller'
+                id: 'nadia',
+                imageUrl: '/assets/logos/nadia.svg',
+                url: '/brands/nadia',
+                title: 'Nadia'
             },
             {
-                id: 'dolly',
-                imageUrl: '/assets/images/menulogos/DOLLY-logo.svg',
-                url: 'http://www.dolly.com.au/',
-                title: 'Dolly'
+                id: 'food',
+                imageUrl: '/assets/logos/food.svg',
+                url: '/brands/food',
+                title: `food`
             },
             {
-                id: 'beautyheaven',
-                imageUrl: '/assets/images/menulogos/BEAUTYHEAVEN-logo.svg',
-                url: 'https://www.beautyheaven.com.au/',
-                title: 'Beauty Heaven'
+                id: 'countdown',
+                imageUrl: '/assets/images/countdown-logo.png',
+                url: 'https://www.countdown.co.nz/',
+                title: 'Countdown New Zealand'
             }
         ],
         shortSources: {
-            "Australian Women's Weekly": 'AWW'
+            'Food To Love': 'FTLNZ'
         }
     },
     outbrain: {
@@ -259,5 +273,5 @@ export default {
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
-    nielsen: '69335BF5-94E8-4D8B-B7DB-99D54705A524'
+    nielsen: ''
 };

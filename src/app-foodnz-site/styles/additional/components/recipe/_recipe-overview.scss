@@ -27,5 +27,32 @@
       &:last-child {
           border-right: none;
       }
+      @media #{$small-only} {
+          &:last-of-type {
+              border-right: none;
+          }
+      }
+  }
+
+  &__print {
+    display: none;
+    @media #{$medium-up} {
+        display: inline-block;
+        width: 3%;
+        margin: 0 0 0 10px;
+        cursor: pointer;
+    }
+  }
+
+  &__print--text {
+    display: none;
+    @media #{$medium-up} {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: bold;
+        cursor: pointer;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
   }
 }

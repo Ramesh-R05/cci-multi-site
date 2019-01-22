@@ -16,7 +16,7 @@
 .mobile-menu-list {
 
     &:before {
-        content: 'More from the To Love Network';
+        content: 'Content supported by';
         font-family: 'PlayfairDisplay-Bold', sans-serif;
         color: $color-white;
         font-size: 16px;
@@ -28,6 +28,10 @@
         @media #{$medium-up} {
             margin-left: -6px;
         }
+    }
+
+    &__logo {
+         max-width: 50%;
     }
 }
 

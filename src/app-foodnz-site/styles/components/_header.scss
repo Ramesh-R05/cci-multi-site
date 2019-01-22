@@ -60,8 +60,8 @@
         display: flex;
 
         @media #{$medium-up} {
-            border-top: 1px solid $color-accent;
-            border-bottom: 1px solid $color-accent;            
+            border-top: 1px solid $color-black-origin;
+            border-bottom: 1px solid $color-black-origin;
             height: 60px;
         }
 
@@ -72,14 +72,14 @@
         &:after {            
             display: none;            
 
-            @media only screen and (min-width: 1520px) {
+            @media screen and (min-width: 1425px) {
                 position: absolute;
                 display: block;
                 right: 10px;
-                background-image: url(/assets/images/countdown-logo.png);
+                background-image: url(/assets/images/countdown-logo.svg);
                 background-position: right;
                 background-repeat: no-repeat;
-                background-size: 253px;
+                background-size: 150px 30px;
                 width: 300px;
                 height: 100%;
                 top: 0;

@@ -13,7 +13,7 @@
   }
   
   &--is-open {
-    background: $color-accent;
+    background: $color-black-origin;
 
     #{$root}__icon-container {
       background: none;
@@ -45,8 +45,12 @@
     padding-top: 20px;
     width: 100%;
     display: block;
+    color: $color-black-origin;
     height: 100%;
     top: 0;
+    position: relative;
+    z-index: 1000;
+    top: 2;
 
     @media #{$medium-up} {
       .page--home & {
@@ -57,7 +61,7 @@
 
   &__svg {
     > path {
-      fill: $color-accent;
+      fill: $color-black-origin;
     }
   }
 

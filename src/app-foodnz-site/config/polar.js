@@ -1,6 +1,6 @@
 export default {
     url: '//plugin.mediavoice.com/plugin.js',
-    propertyId: 'NA-WOMEWEEKFOOD-11239342',
+    propertyId: 'NA-FOODTOLOVENZ-11237442',
     targets: { env: 'test' },
     adSize: '2x2',
     server: 'dfp',

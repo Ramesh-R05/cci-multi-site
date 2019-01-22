@@ -18,6 +18,6 @@ export default {
         proxy: 'http://proxy.mgmt.local:3128'
     },
     services: {
-        faceBookAppID: '363188680538038'
+        faceBookAppID: '1184546314908539'
     }
 };
