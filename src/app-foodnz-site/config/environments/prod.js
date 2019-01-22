@@ -4,7 +4,7 @@ export default {
     },
     gigya: { apiKey: '' },
     site: {
-        host: 'https://www.womensweeklyfood.com.au',
+        host: 'https://www.foodtolove.co.nz',
         protocol: 'https'
     },
     loggly: {

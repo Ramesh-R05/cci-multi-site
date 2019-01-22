@@ -262,10 +262,10 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site    | device            |
             | awwfood | tablet landscape  |
-#    @smoketestfoodnz
-#        Examples:
-#            | site    | device            |
-#            | foodnz  | desktop           |
+    @smoketestfoodnz
+        Examples:
+            | site    | device            |
+            | foodnz  | desktop           |
     @smoketestgt @optional
         Examples:
             | site    | device            |
@@ -283,10 +283,10 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site      | device           |
             | awwfood   | mobile           |
-#    @smoketestfoodnz
-#        Examples:
-#            | site      | device           |
-#            | foodnz    | mobile           |
+    @smoketestfoodnz
+        Examples:
+            | site      | device           |
+            | foodnz    | mobile           |
 
 
 ########## Footer ##########
