@@ -11,7 +11,7 @@ export default {
 
     gtm: { masthead: 'NZFOOD', id: 'GTM-5DSBNK' },
 
-    defaultImageUrl: '/assets/images/default-hero-image.svg',
+    defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/FoodNZ/2019/01/25/1248/default-hero-image.png',
 
     brightcove,
 
