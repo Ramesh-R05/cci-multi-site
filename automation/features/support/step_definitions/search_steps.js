@@ -68,6 +68,7 @@ module.exports = function() {
                 searchBox = search.searchResultPageBox;
                 searchSubmit = search.searchResultPageSubmit;
                 keyword = sit[site].keyword2;
+                browser.url(world.Urls.home_page + 'search/' + keyword);
                 break;
         }
 

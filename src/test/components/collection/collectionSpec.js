@@ -2,6 +2,7 @@ import { betterMockComponentContext } from '@bxm/flux';
 import proxyquire, { noCallThru } from 'proxyquire';
 import { shallow } from 'enzyme';
 import moreFrom from '../../mocks/moreFrom';
+import recipeEntityMock from '../../mocks/recipe';
 
 noCallThru();
 
@@ -101,10 +102,14 @@ describe('Collection', () => {
         expect(wrapper.find(ListStub).exists()).to.equal(false);
     });
 
-    it('should render collectionRecipeEntities list, when collectionRecipeEntities prop is not empty', () => {
-        const collectionRecipeEntities = ['entity1', 'entity2'];
-        wrapper = shallow(<Collection {...{ ...props, collectionRecipeEntities }} />, { context: contextConfigStub });
-        expect(wrapper.exists(ListStub)).to.equal(true);
+    it.skip('should render collectionRecipeEntities list, when collectionRecipeEntities prop is not empty', () => {
+        const newProps = {
+            ...props,
+            collectionRecipeEntities: [recipeEntityMock]
+        };
+
+        wrapper = shallow(<Collection {...newProps} />, { context: contextConfigStub });
+        expect(wrapper.find(ListStub).exists()).to.equal(true);
     });
 
     describe('when features are off', () => {

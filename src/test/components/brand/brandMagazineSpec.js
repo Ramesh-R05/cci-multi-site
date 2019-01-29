@@ -1,6 +1,7 @@
 import { betterMockComponentContext } from '@bxm/flux';
+import PropTypes from 'prop-types';
 const Context = betterMockComponentContext();
-const { React, TestUtils } = Context;
+const { TestUtils } = Context;
 import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
@@ -30,7 +31,7 @@ describe(`BrandMagazine`, () => {
 
     const contextConfigStub = {
         key: 'config',
-        type: '',
+        type: PropTypes.object,
         value: {
             global: {
                 breakpoints: ''
@@ -54,7 +55,7 @@ describe(`BrandMagazine`, () => {
 
         it('should render the second span and apply the correct class from the config', () => {
             const spans = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'span');
-            const secondSpanClass = spans[1].props.className;
+            const secondSpanClass = spans[1].className;
             const correctClass = 'button button--link button--subscribe';
             expect(secondSpanClass).to.equal(correctClass);
         });

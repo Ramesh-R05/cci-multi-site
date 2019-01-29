@@ -1,7 +1,9 @@
 import pageService from '../services/page';
 
 export default function loadPageContent(context, payload) {
-    const { url, navigate, query, params } = payload;
+    const { url, query, params } = payload;
+    const navigate = context.getStore('RouteStore').getCurrentNavigate();
+
     const pos = url.lastIndexOf('?');
     let path = pos > -1 ? url.substr(0, pos) : url;
 

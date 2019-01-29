@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connectToStores } from '@bxm/flux';
 import hamburgerWrapper from '@bxm/nav/lib/components/hamburgerWrapper';
 import MobileOffCanvas from '@bxm/nav/lib/components/offcanvas/content';

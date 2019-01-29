@@ -207,6 +207,11 @@ $head-logo-font-size: 35px;
                 transition-timing-function: ease-in-out;
             }
         }
+
+        &__button-icon {
+            height: 20px;
+            width: 20px;
+        }
     }
 
     .header-nav {

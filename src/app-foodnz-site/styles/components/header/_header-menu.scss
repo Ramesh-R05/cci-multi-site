@@ -18,4 +18,9 @@
       transition: opacity 0.3s;
       transition-timing-function: ease-in-out;
   }
+
+  &__button-icon {
+    width: 20px;
+    height: 20px;
+  }
 }

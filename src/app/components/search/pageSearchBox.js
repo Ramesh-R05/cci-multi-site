@@ -1,33 +1,34 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import SearchBar from './searchBar';
 
 export default class PageSearchBox extends Component {
     static propTypes = {
-        enableHomeSearchBox: PropTypes.bool.isRequired,
-        linkToBackgroundImage: PropTypes.string.isRequired,
-        searchDescribeText: PropTypes.string.isRequired,
-        searchTagsDetails: PropTypes.array.isRequired,
+        isEnabled: PropTypes.bool,
+        imageUrl: PropTypes.string,
+        titleText: PropTypes.string,
+        tags: PropTypes.array,
         usePlaceholder: PropTypes.bool
     };
 
     static defaultProps = {
+        isEnabled: false,
+        imageUrl: '',
+        titleText: '',
+        tags: [],
         usePlaceholder: false
     };
 
-    static contextTypes = {
-        config: PropTypes.object
-    };
-
     renderTagList = () => {
-        const { searchTagsDetails } = this.props;
+        const { tags } = this.props;
 
-        if (searchTagsDetails.length === 0) {
+        if (tags.length === 0) {
             return null;
         }
 
         return (
             <ul className="page-search-box__tag-list">
-                {searchTagsDetails.map(tag => (
+                {tags.map(tag => (
                     <li key={`list-item-${tag.fullName}`} className="page-search-box__tag-item">
                         <a className="page-search-box__tag-link" href={`/tags/${tag.urlName}`}>
                             {tag.displayName}
@@ -39,20 +40,22 @@ export default class PageSearchBox extends Component {
     };
 
     render() {
-        const { enableHomeSearchBox, linkToBackgroundImage, searchDescribeText, usePlaceholder } = this.props;
-        const searchBoxStyle = !!linkToBackgroundImage && {
-            backgroundImage: `url("${linkToBackgroundImage}?width=600&height=225&mode=crop&quality=75")`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover'
-        };
+        const { isEnabled, imageUrl, titleText, usePlaceholder } = this.props;
+        const searchBoxStyle = imageUrl
+            ? {
+                  backgroundImage: `url("${imageUrl}?width=600&height=225&mode=crop&quality=75")`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover'
+              }
+            : {};
 
         return (
-            enableHomeSearchBox && (
+            isEnabled && (
                 <div className="page-search-box">
                     <div className="page-search-box__background" style={{ ...searchBoxStyle }}>
                         <div className="page-search-box__inner">
-                            <SearchBar placeholderText={(usePlaceholder && searchDescribeText) || undefined} inPageSearchBox />
-                            {searchDescribeText && <p className="page-search-box__title-text">{searchDescribeText}</p>}
+                            <SearchBar placeholderText={(usePlaceholder && titleText) || undefined} inPageSearchBox />
+                            {titleText && <p className="page-search-box__title-text">{titleText}</p>}
                             {this.renderTagList()}
                         </div>
                     </div>

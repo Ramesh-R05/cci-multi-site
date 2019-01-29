@@ -1,17 +1,19 @@
 import { betterMockComponentContext } from '@bxm/flux';
-const Context = betterMockComponentContext();
-const { React, ReactDOM, TestUtils } = Context;
 import proxyquire, { noCallThru } from 'proxyquire';
+import ShallowWrapperFactory from '../../utils/ShallowWrapperFactory';
+
 noCallThru();
 
-const searchBarStub = Context.createStubComponent();
-
+const { React, createStubComponent } = betterMockComponentContext();
+const SearchBarStub = createStubComponent();
 const PageSearchBox = proxyquire('../../../app/components/search/pageSearchBox', {
     react: React,
-    './searchBar': searchBarStub
+    './searchBar': SearchBarStub
 }).default;
 
-const tagDetailsList = [
+const TestWrapper = new ShallowWrapperFactory(PageSearchBox);
+
+const tagsDetailsListMock = [
     {
         name: "food:Occasion:Father's Day",
         displayName: "Father's Day",
@@ -26,91 +28,164 @@ const tagDetailsList = [
     }
 ];
 
-const propsMaker = (enableHomeSearchBox = true, linkToBackgroundImage = '', searchDescribeText = '', searchTagsDetails = []) => ({
-    enableHomeSearchBox,
-    linkToBackgroundImage,
-    searchDescribeText,
-    searchTagsDetails
-});
+const selectors = {
+    root: '.page-search-box',
+    backgroundDiv: '.page-search-box__background',
+    inner: '.page-search-box__inner',
+    title: '.page-search-box__title-text',
+    tagList: '.page-search-box__tag-list',
+    listItem: '.page-search-box__tag-item',
+    link: '.page-search-box__tag-link'
+};
 
-describe(`Page Search Box`, () => {
-    let reactModule;
-    let searchBar;
-    let searchDescribeText;
-    let searchTagList;
+describe('<PageSearchBox/> component', () => {
+    describe('rendering', () => {
+        describe('with default props', () => {
+            let wrapper;
 
-    it('should not render PageSearchBox, if not enabled', () => {
-        reactModule = Context.mountComponent(PageSearchBox, propsMaker(false));
-        const wrapper = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'page-search-box');
-        searchBar = TestUtils.scryRenderedComponentsWithType(reactModule, searchBarStub);
-        expect(wrapper.length).to.equal(0);
-        expect(searchBar.length).to.equal(0);
-    });
+            before(() => {
+                [wrapper] = TestWrapper();
+            });
 
-    it('should render PageSearchBox, if enabled', () => {
-        reactModule = Context.mountComponent(PageSearchBox, propsMaker(true));
-        const wrapper = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'page-search-box');
-        searchBar = TestUtils.scryRenderedComponentsWithType(reactModule, searchBarStub);
-        expect(wrapper.length).to.equal(1);
-        expect(searchBar.length).to.equal(1);
-    });
-
-    it('should render search background image, if provided', () => {
-        reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, 'background image', ''));
-        const searchBg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__background');
-        expect(searchBg).to.exist;
-        expect(searchBg.props.style).to.deep.equal({
-            backgroundImage: 'url("background image?width=600&height=225&mode=crop&quality=75")',
-            backgroundPosition: 'center',
-            backgroundSize: 'cover'
-        });
-    });
-
-    it('should not render background image, if not provided', () => {
-        reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, '', ''));
-        const searchBg = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__background');
-        expect(searchBg).to.exist;
-        expect(searchBg.props.style).to.deep.equal({});
-    });
-
-    it('should render search text, if provided', () => {
-        reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, '', 'search describe text'));
-        searchDescribeText = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__title-text');
-        expect(searchDescribeText).to.exist;
-        expect(ReactDOM.findDOMNode(searchDescribeText).innerHTML).to.equal('search describe text');
-    });
-
-    it('should not render search text, if not provided', () => {
-        reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, '', ''));
-        searchDescribeText = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'page-search-box__title-text');
-        expect(searchDescribeText.length).to.equal(0);
-    });
-
-    describe('when search tag list is provided', () => {
-        let listItems;
-        beforeEach(() => {
-            reactModule = Context.mountComponent(PageSearchBox, propsMaker(true, '', '', tagDetailsList));
-            searchTagList = TestUtils.findRenderedDOMComponentWithClass(reactModule, 'page-search-box__tag-list');
-            listItems = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'li');
-        });
-        it('should render search tag list', () => {
-            expect(searchDescribeText).to.exist;
+            it('does not render', () => {
+                expect(wrapper.find(selectors.root).exists()).to.be.false;
+            });
         });
 
-        it(`should render ${tagDetailsList.length} list items`, () => {
-            expect(listItems.length).to.equal(tagDetailsList.length);
+        describe('with valid props', () => {
+            let wrapper;
+            let testProps;
+
+            beforeEach(() => {
+                [wrapper, testProps] = TestWrapper({
+                    isEnabled: true,
+                    imageUrl: 'http://image.com/',
+                    titleText: 'Search title',
+                    tags: tagsDetailsListMock,
+                    usePlaceholder: true
+                });
+            });
+
+            it('renders the component', () => {
+                expect(wrapper.find(selectors.root).exists()).to.be.true;
+            });
+
+            it('renders the background div', () => {
+                expect(wrapper.find(selectors.backgroundDiv).exists()).to.be.true;
+            });
+
+            it('sets the background image on the the background div using the image url prop', () => {
+                expect(wrapper.find(selectors.backgroundDiv).props().style).to.deep.eq({
+                    backgroundImage: `url("${testProps.imageUrl}?width=600&height=225&mode=crop&quality=75")`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover'
+                });
+            });
+
+            it('renders a <SearchBar/>', () => {
+                expect(wrapper.find(SearchBarStub).exists()).to.be.true;
+            });
+
+            it('passes props through a <SearchBar/>', () => {
+                expect(wrapper.find(SearchBarStub).props().placeholderText).to.eq(testProps.titleText);
+            });
+
+            it('renders the title text with the titleText as the content', () => {
+                expect(wrapper.find(selectors.title).text()).to.eq(testProps.titleText);
+            });
+
+            it('renders a list of tags', () => {
+                expect(wrapper.find(selectors.tagList).exists()).to.be.true;
+            });
+
+            it('renders a list item for each tag in the tags prop', () => {
+                const listItems = wrapper.find(selectors.listItem);
+
+                expect(listItems).to.have.length(testProps.tags.length);
+            });
         });
 
-        it('list item should has correct link name and href', () => {
-            const link = ReactDOM.findDOMNode(listItems[0]).getElementsByTagName('a')[0];
-            expect(link.innerHTML).to.equal(tagDetailsList[0].displayName);
-            expect(link.href).to.equal(`/tags/${tagDetailsList[0].urlName}`);
-        });
-    });
+        describe('with usePlaceholder prop set to false', () => {
+            let wrapper;
 
-    it('should not render search tag list, if not provided', () => {
-        reactModule = Context.mountComponent(PageSearchBox, propsMaker(true));
-        searchTagList = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'page-search-box__tag-list');
-        expect(searchTagList.length).to.equal(0);
+            before(() => {
+                [wrapper] = TestWrapper({
+                    isEnabled: true,
+                    imageUrl: 'http://image.com/',
+                    titleText: 'Search title',
+                    tags: tagsDetailsListMock,
+                    usePlaceholder: false
+                });
+            });
+
+            it('renders the component', () => {
+                expect(wrapper.find(selectors.root).exists()).to.be.true;
+            });
+
+            it('passes undefined to the <SearhBar/> as the placeholderText prop', () => {
+                expect(wrapper.find(SearchBarStub).props().placeholderText).to.eq(undefined);
+            });
+        });
+
+        describe('with valid props and no tags', () => {
+            let wrapper;
+
+            before(() => {
+                [wrapper] = TestWrapper({
+                    isEnabled: true,
+                    imageUrl: 'http://image.com/',
+                    titleText: 'Search title',
+                    tags: [],
+                    usePlaceholder: false
+                });
+            });
+
+            it('renders the component', () => {
+                expect(wrapper.find(selectors.root).exists()).to.be.true;
+            });
+
+            it('does not render the tags list', () => {
+                expect(wrapper.find(selectors.tagList).exists()).to.be.false;
+            });
+        });
+
+        describe('with valid props no background image url', () => {
+            let wrapper;
+
+            before(() => {
+                [wrapper] = TestWrapper({
+                    isEnabled: true,
+                    titleText: 'Search title',
+                    tags: [],
+                    usePlaceholder: false
+                });
+            });
+
+            it('renders the component', () => {
+                expect(wrapper.find(selectors.root).exists()).to.be.true;
+            });
+
+            it('does not apply a style to the background div', () => {
+                expect(wrapper.find(selectors.backgroundDiv).props().style).to.be.empty;
+            });
+        });
+
+        describe('with valid props and isEnabled set to false', () => {
+            let wrapper;
+
+            before(() => {
+                [wrapper] = TestWrapper({
+                    isEnabled: false,
+                    titleText: 'Search title',
+                    imageUrl: 'http://image.com/',
+                    tags: tagsDetailsListMock,
+                    usePlaceholder: false
+                });
+            });
+
+            it('does not render the component', () => {
+                expect(wrapper.find(selectors.root).exists()).to.be.false;
+            });
+        });
     });
 });

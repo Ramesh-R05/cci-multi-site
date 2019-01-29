@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connectToStores } from '@bxm/flux';
 import VerticalGallery from '@bxm/article/lib/gallery';
 import Article from '@bxm/article/lib/article';

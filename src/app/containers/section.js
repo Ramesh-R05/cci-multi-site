@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connectToStores } from '@bxm/flux';
 import Ad from '@bxm/ad/lib/google/components/ad';
 import get from 'lodash/object/get';
@@ -105,7 +106,7 @@ export default class Section extends Component {
         ) : (
             <h1 className="page-title">
                 <span className="page-title__symbol" />
-                {title}
+                <span>{title}</span>
             </h1>
         );
 

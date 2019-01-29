@@ -17,14 +17,13 @@ const dataLayerStub = {
 describe(`SocialIcon`, () => {
     const svgFile = 'facebook.svg';
     const name = 'socialName';
-    const url = 'http://www.socialpage.com';
+    const url = 'http://www.socialpage.com/';
     const label = '@IamaLabel';
     const className = `social-link`;
 
     let previousDataLayer;
     let reactModule;
     let anchor;
-    let svgSpan;
     let labelSpan;
 
     before(() => {
@@ -33,7 +32,6 @@ describe(`SocialIcon`, () => {
 
         reactModule = Context.mountComponent(SocialIcon, { svgFile, name, url, label });
         anchor = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a')[0];
-        svgSpan = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'social-link__icon')[0];
         labelSpan = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'social-link__label')[0];
     });
 
@@ -50,11 +48,11 @@ describe(`SocialIcon`, () => {
     });
 
     it(`sets the className to "${className} social-link--socialName"`, () => {
-        expect(ReactDOM.findDOMNode(reactModule).props.className).to.equal(className + ' social-link--socialName');
+        expect(ReactDOM.findDOMNode(reactModule).className).to.equal(className + ' social-link--socialName');
     });
 
     it(`renders the link with href "${url}"`, () => {
-        expect(anchor.props.href).to.eq(url);
+        expect(anchor.href).to.eq(url);
     });
 
     it(`renders the label with text "${label}"`, () => {
@@ -78,13 +76,12 @@ describe(`SocialIcon without URL`, () => {
 
     let reactModule;
     let anchor;
-    let svgSpan;
+
     let labelSpan;
 
     before(() => {
         reactModule = Context.mountComponent(SocialIcon, { svgFile, name, url: null, label });
         anchor = TestUtils.scryRenderedDOMComponentsWithTag(reactModule, 'a')[0];
-        svgSpan = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'social-link__icon')[0];
         labelSpan = TestUtils.scryRenderedDOMComponentsWithClass(reactModule, 'social-link__label')[0];
     });
 
@@ -93,7 +90,7 @@ describe(`SocialIcon without URL`, () => {
     });
 
     it(`sets the className to "${className} social-link--socialName"`, () => {
-        expect(ReactDOM.findDOMNode(reactModule).props.className).to.equal(className + ' social-link--socialName');
+        expect(ReactDOM.findDOMNode(reactModule).className).to.equal(className + ' social-link--socialName');
     });
 
     it(`should not renders the link`, () => {

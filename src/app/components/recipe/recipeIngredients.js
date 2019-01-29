@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import parse from '@bxm/markdown/lib/parse';
 
 const RecipeIngredients = ({ recipeIngredients }) => (

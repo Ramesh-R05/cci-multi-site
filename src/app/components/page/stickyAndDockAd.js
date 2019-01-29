@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import watchResize from '@bxm/behaviour/lib/components/resizeViewport';
 
 const styles = {
@@ -15,7 +16,7 @@ const styles = {
     }
 };
 
-class StickyAndDockAd extends Component {
+export class UnwrappedStickyAndDockAd extends Component {
     static displayName = 'StickyAndDockAd';
 
     static propTypes = {
@@ -119,9 +120,13 @@ class StickyAndDockAd extends Component {
     };
 
     render() {
-        const { adStyle, adContainerStyle, children } = this.props;
+        const { adStyle, adContainerStyle, children, viewport } = this.props;
         const adStyleWithDefault = Object.assign(styles.adStyle, adStyle);
         const adContainerStyleWithDefault = Object.assign(styles.adContainerStyle, adContainerStyle);
+
+        if (!viewport && !viewport.width) {
+            return null;
+        }
 
         return (
             <div style={adContainerStyleWithDefault}>
@@ -140,4 +145,4 @@ class StickyAndDockAd extends Component {
     }
 }
 
-export default watchResize(StickyAndDockAd);
+export default watchResize(UnwrappedStickyAndDockAd);

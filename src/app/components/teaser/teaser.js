@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import TeaserTitle from '@bxm/teaser/lib/components/title';
 import TeaserImage from '@bxm/teaser/lib/components/image';

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Feed from '@bxm/article/lib/components/feed/feed';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import Ad from '@bxm/ad/lib/google/components/ad';

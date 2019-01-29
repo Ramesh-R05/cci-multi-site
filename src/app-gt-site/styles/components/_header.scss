@@ -200,6 +200,11 @@ $head-content-width-medium: 1024px;
                 transition-timing-function: ease-in-out;
             }
         }
+
+        &__button-icon {
+            height: 20px;
+            width: 20px;
+        }
     }
 
     .header-nav {

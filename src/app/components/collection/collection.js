@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import ContentBody from '@bxm/article/lib/components/contentBody/contentBody';
 import NewsletterSignup from '@bxm/article/lib/components/article/newsletterSignup';
@@ -52,7 +53,7 @@ export default class Collection extends Component {
     static defaultProps = {
         authorProfiles: [],
         className: null,
-        contentBodyConfig: [],
+        contentBodyConfig: null,
         source: null,
         summary: null,
         parentName: null,

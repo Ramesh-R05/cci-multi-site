@@ -1,8 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connectToStores, provideContext } from '@bxm/flux';
 import AdManager from '@bxm/ad/lib/google/components/adManager';
 import { handleHistory } from 'fluxible-router';
-import { canUseDOM } from 'exenv';
+import canUseDOM from 'exenv';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import ErrorPage from '../components/page/error';

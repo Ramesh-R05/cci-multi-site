@@ -1,6 +1,7 @@
 import { betterMockComponentContext } from '@bxm/flux';
+import PropTypes from 'prop-types';
 const Context = betterMockComponentContext();
-const { React, ReactDOM, TestUtils } = Context;
+const { ReactDOM, TestUtils } = Context;
 import listingMock from '../../mocks/listing';
 import polarConfig from '../../mocks/polar';
 const items = listingMock.data;
@@ -10,11 +11,7 @@ noCallThru();
 const TeaserListStub = Context.createStubComponent();
 const TeaserStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
-const StickyStub = React.createClass({
-    render: function() {
-        return <div>{this.props.children}</div>;
-    }
-});
+const StickyStub = Context.createStubComponentWithChildren();
 
 const TeaserListView = proxyquire('../../../app/components/teaser/list', {
     '@bxm/teaser/lib/components/teaserList': TeaserListStub,
@@ -42,7 +39,7 @@ describe('TeaserListView', () => {
 
     const contextConfigStub = {
         key: 'config',
-        type: '',
+        type: PropTypes.object,
         value: {
             polar: polarConfig.polarSetting
         }
@@ -58,7 +55,7 @@ describe('TeaserListView', () => {
     describe('when receiving teasers', () => {
         describe('and there are more than 1', () => {
             beforeEach(() => {
-                reactModule = Context.mountComponent(TeaserListView, { items, showDate: false }, contextConfigStub);
+                reactModule = Context.mountComponent(TeaserListView, { items, showDate: false, index: 0 }, [contextConfigStub]);
                 TeaserListViewComponent = TestUtils.findRenderedComponentWithType(reactModule, TeaserListStub);
                 AdComponent = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
                 StickyComponent = TestUtils.findRenderedComponentWithType(reactModule, StickyStub);
@@ -86,8 +83,8 @@ describe('TeaserListView', () => {
             });
 
             it(`should render the Ad component with relevant props, inside a sticky Ad`, () => {
-                const adDOM = React.findDOMNode(AdComponent);
-                const stickyDOM = React.findDOMNode(StickyComponent);
+                const adDOM = ReactDOM.findDOMNode(AdComponent);
+                const stickyDOM = ReactDOM.findDOMNode(StickyComponent);
                 expect(stickyDOM.innerHTML).to.eq(adDOM.outerHTML);
                 expect(AdComponent.props).to.deep.eq({
                     className: 'ad--section-mrec',
@@ -101,7 +98,7 @@ describe('TeaserListView', () => {
 
         describe('and there is only 1', () => {
             beforeEach(() => {
-                reactModule = Context.mountComponent(TeaserListView, { items: items.slice(0, 1) });
+                reactModule = Context.mountComponent(TeaserListView, { items: items.slice(0, 1), index: 0 });
                 AdComponent = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
                 StickyComponent = TestUtils.scryRenderedComponentsWithType(reactModule, StickyStub);
             });
@@ -120,7 +117,7 @@ describe('TeaserListView', () => {
 
         describe('and there are 0', () => {
             beforeEach(() => {
-                reactModule = Context.mountComponent(TeaserListView, { items: [] });
+                reactModule = Context.mountComponent(TeaserListView, { items: [], index: 0 });
             });
 
             it(`should not render component`, () => {
@@ -131,7 +128,7 @@ describe('TeaserListView', () => {
 
     describe('when setting the adTargets', () => {
         beforeEach(() => {
-            reactModule = Context.mountComponent(TeaserListView, { items, adTargets: { position: 2 } });
+            reactModule = Context.mountComponent(TeaserListView, { items, adTargets: { position: 2 }, index: 0 });
             AdComponent = TestUtils.findRenderedComponentWithType(reactModule, AdStub);
         });
 

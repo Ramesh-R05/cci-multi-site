@@ -79,16 +79,16 @@ export default createReducerStore({
         },
 
         getHomeSearchBox(state) {
-            const enableHomeSearchBox = !!state.enableHomeSearchBox;
-            const linkToBackgroundImage = typeof state.linkToBackgroundImage === 'string' ? state.linkToBackgroundImage : '';
-            const searchDescribeText = state.searchDescribeText || '';
-            const searchTagsDetails = state.searchTagsDetails || [];
+            const isEnabled = !!state.enableHomeSearchBox;
+            const imageLink = typeof state.linkToBackgroundImage === 'string' ? state.linkToBackgroundImage : '';
+            const titleText = state.searchDescribeText || '';
+            const tags = state.searchTagsDetails || [];
 
             return {
-                enableHomeSearchBox,
-                linkToBackgroundImage,
-                searchDescribeText,
-                searchTagsDetails
+                isEnabled,
+                imageLink,
+                titleText,
+                tags
             };
         },
 

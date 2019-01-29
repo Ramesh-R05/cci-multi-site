@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Header from '@bxm/site-header';
 import GalleryDetailMain from '@bxm/gallery/lib/components/page/main';
 import GalleryDetailAside from '@bxm/gallery/lib/components/page/aside';
