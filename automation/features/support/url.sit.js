@@ -55,7 +55,7 @@ module.exports = {
         'keyword2': 'chicken'
     },
     foodnz: {
-        'homepage': 'http://foodnz-site-nz.sit.bxm.net.au/',
+        'homepage': 'https://www.sit.foodtolove.co.nz/',
         'section': 'recipes',
         'tag': 'tags/cake',
         'article': 'create-impressive-summer-entertaining-platter-1336',
