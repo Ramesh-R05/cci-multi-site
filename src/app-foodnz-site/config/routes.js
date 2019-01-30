@@ -38,6 +38,12 @@ export default {
         handler: SectionPage,
         action: loadPageContent
     },
+    previewPage: {
+        path: '/:preview(preview)/:section/:page',
+        method: 'get',
+        handler: SinglePage,
+        action: loadPageContent
+    },
     page: {
         path: '/:page(.*-):id([0-9]+)',
         method: 'get',
@@ -54,12 +60,6 @@ export default {
         path: '/:section/:subsection*',
         method: 'get',
         handler: SectionPage,
-        action: loadPageContent
-    },
-    previewPage: {
-        path: '/:preview(preview)/:section/:page',
-        method: 'get',
-        handler: SinglePage,
         action: loadPageContent
     },
     recipes: {
