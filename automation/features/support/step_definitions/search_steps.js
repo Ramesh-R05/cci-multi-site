@@ -29,7 +29,7 @@ module.exports = function() {
         } else {
             scrolling(browser,search.siteWrapper,isBrowserStack);
         }
-        wait(2000);
+        wait(4000); //To ensure the sticky top leaderboard disappearing before testing the search box
         var searchBox = browser.isVisible(search.searchNavBox);
         expect(searchBox).toBe(true);
 
@@ -41,7 +41,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should be able to search a keyword on "([^"]*)" and see the result page on "([^"]*)" site$/, function (position, site) {
-        var searchBox, searchSubmit, keyword;
+        var searchBox, searchSubmit, keyword, domainUrl;
         if (!isBrowserStack) {
             browser.scroll(0,0);
         } else {
@@ -52,6 +52,9 @@ module.exports = function() {
         //To get a site name from APP_KEY if the URL is specified
         if (world.Urls.home_page.length !== 0) {
             site = world.Urls.site;
+            domainUrl = world.Urls.home_page //this value is used to create a search result page URL if URL is specified
+        } else {
+            domainUrl = sit[site].homepage; //this value is used to create a search result page URL if URL is blank
         }
 
         switch (position){
@@ -68,7 +71,7 @@ module.exports = function() {
                 searchBox = search.searchResultPageBox;
                 searchSubmit = search.searchResultPageSubmit;
                 keyword = sit[site].keyword2;
-                browser.url(world.Urls.home_page + 'search/' + keyword);
+                browser.url(domainUrl + 'search/' + keyword);
                 break;
         }
 
