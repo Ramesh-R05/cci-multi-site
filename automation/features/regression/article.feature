@@ -15,6 +15,7 @@ Feature: Article
         * I can see the image alt text in the hero image element "Image ALT TEXT"
         * I can see the short teaser "Short Teaser EOM"
         * I can see the body paragraph "Test body paragraph"
+        * I can see the body list "a list item"
         * I can see the body related content
         * I can see the body image
         * I can see the body image caption "PHOTOGRAPHY BY"
