@@ -26,7 +26,7 @@
         text-decoration: underline;
     }
 
-    p {
+    p, &__paragraph {
         @include content-body-component;
         padding-bottom: 0;
         margin: 0;
