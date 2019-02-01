@@ -22,5 +22,5 @@ app.rehydrate(window.App, (err, context) => {
 
     const mountNode = document.getElementById('app');
     const userAgent = window.navigator.userAgent;
-    ReactDOM.render(createElementWithContext(context, { userAgent }), mountNode, () => {});
+    ReactDOM.hydrate(createElementWithContext(context, { userAgent }), mountNode, () => {});
 });
