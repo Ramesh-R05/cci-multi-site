@@ -19,8 +19,8 @@
     }
 
     p, &__paragraph {
-        margin-top: $article-gap/4;
-        margin-bottom: $article-gap/2;
+        padding: 0;
+        margin: 20px 0;
     }
 
     &__heading {
