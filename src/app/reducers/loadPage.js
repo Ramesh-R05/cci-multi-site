@@ -34,7 +34,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
                 enableHomeSearchBox: entity.enableSearch,
                 searchDescribeText: entity.searchDescribeText,
                 searchTagsDetails: entity.searchTagsDetails,
-                linkToBackgroundImage: entity.searchBackgroundImage,
+                backgroundImageUrl: entity.searchBackgroundImage,
                 footer,
                 magazineImageUrl: entity.imageUrl,
                 theme: payload.body.theme,
