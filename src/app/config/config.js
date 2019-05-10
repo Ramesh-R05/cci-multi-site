@@ -63,7 +63,7 @@ export default {
     },
 
     brands: {
-        uniheader: [
+        site: [
             {
                 id: 'aww',
                 title: "Australian Women's Weekly",

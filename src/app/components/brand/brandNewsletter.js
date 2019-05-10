@@ -28,7 +28,7 @@ export default class Newsletter extends Component {
         const { isBrandPage, brandId } = this.props;
         const { config } = this.context;
 
-        const brandConfigPath = isBrandPage && brandId ? config.brands.uniheader.find(b => b.id === brandId) : config;
+        const brandConfigPath = isBrandPage && brandId ? config.brands.site.find(b => b.id === brandId) : config;
 
         const url = get(brandConfigPath, isBrandPage ? 'newsletterUrl' : 'product.newsletterUrl', false);
         const title = get(brandConfigPath, isBrandPage ? 'newsletterTitle' : 'product.newsletterTitle', Newsletter.DEFAULT_TITLE);

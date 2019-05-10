@@ -57,7 +57,7 @@ const emailLinkTrackingMock = {
 describe('Page Container', () => {
     const siteName = 'Dolly';
     const brandStubData = {
-        uniheader: [],
+        site: [],
         network: []
     };
     const contextConfigStub = {

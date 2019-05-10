@@ -22,7 +22,7 @@ describe('Section middleware', () => {
             id: 'foobar'
         },
         brands: {
-            uniheader: [
+            site: [
                 {
                     id: 'aww',
                     imageUrl: '/assets/images/headerlogos/AWW-logo.svg',

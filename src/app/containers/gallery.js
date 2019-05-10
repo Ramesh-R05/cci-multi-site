@@ -216,7 +216,7 @@ class GallerySection extends Component {
                         </section>
                     </StandardPageAdsWrapper>
 
-                    <Footer magCover={magCover} logoList={this.context.config.brands.uniheader} />
+                    <Footer magCover={magCover} logoList={this.context.config.brands.site} />
 
                     <MobileOffCanvas side="left" toggleSideMenu={this.toggleMenu}>
                         <div className="off-canvas-content-wrapper">

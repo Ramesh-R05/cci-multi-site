@@ -49,7 +49,7 @@ const contextConfigStub = {
             }
         },
         brands: {
-            uniheader: []
+            site: []
         },
         product: {
             id: 'awwfood'

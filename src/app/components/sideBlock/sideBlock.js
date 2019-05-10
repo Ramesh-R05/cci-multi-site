@@ -40,7 +40,7 @@ export default class SideBlock extends Component {
         const { config } = this.context;
         const { showBrandMagazine, showBrandNewsletter, showGiftCard, showSocial, brand, isHero, magazineImageUrl, isBrandPage } = this.props;
 
-        const socialUrls = isBrandPage ? config.brands.uniheader.find(b => b.id === brand.id).socialLinks : config.urls.socialUrls;
+        const socialUrls = isBrandPage ? config.brands.site.find(b => b.id === brand.id).socialLinks : config.urls.socialUrls;
 
         return (
             <div className={isHero ? 'hide-for-large-up' : ''}>

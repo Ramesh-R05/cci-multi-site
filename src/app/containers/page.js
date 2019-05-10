@@ -177,7 +177,7 @@ export default class Page extends Component {
         const { config } = this.context;
 
         const isBrandPage = content && content.nodeType === 'Brand';
-        const brand = isBrandPage ? config.brands.uniheader.find(b => b.url === currentUrl) : config.product;
+        const brand = isBrandPage ? config.brands.site.find(b => b.url === currentUrl) : config.product;
 
         const pageLocation = Ad.pos.outside;
         const mobileNav = hamburgerNavItems ? hamburgerNavItems.slice() : headerNavItems.slice();
@@ -219,7 +219,7 @@ export default class Page extends Component {
         return (
             <div className={pageClassName}>
                 <div className={menuClasses}>
-                    {showUniheader && <UniHeader className="uniheader" logoList={config.brands.uniheader} />}
+                    {showUniheader && <UniHeader className="uniheader" logoList={config.brands.site} />}
 
                     <Header
                         currentUrl={currentUrl}
@@ -252,7 +252,7 @@ export default class Page extends Component {
                                     isBrandPage={isBrandPage}
                                     brand={brand}
                                     magCover={footerMagCover}
-                                    logoList={config.brands.uniheader}
+                                    logoList={config.brands.site}
                                     magCoverImageUrl={magCoverImageUrl}
                                     magCoverText={magCoverText}
                                 />

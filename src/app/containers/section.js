@@ -80,7 +80,7 @@ export default class Section extends Component {
         const { nodeType, teasers, title, currentUrl, theme, subsections, magazineImageUrl, summary, curatedHeroTeaser } = this.props;
         const { topElm, bottomElm } = this.state;
         const isBrandPage = nodeType === 'Brand';
-        const brand = isBrandPage ? config.brands.uniheader.find(b => b.url === currentUrl) : config.product;
+        const brand = isBrandPage ? config.brands.site.find(b => b.url === currentUrl) : config.product;
 
         // Using first teaser for each section because modules aren't setup for each one in the CMS
         let heroTeaser = teasers[0];

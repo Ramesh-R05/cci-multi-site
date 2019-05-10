@@ -120,7 +120,7 @@ export default {
     },
 
     brands: {
-        uniheader: [
+        site: [
             {
                 id: 'nztaste',
                 title: 'New Zealand Taste',

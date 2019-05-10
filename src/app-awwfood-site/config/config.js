@@ -119,7 +119,7 @@ export default {
     },
 
     brands: {
-        uniheader: [],
+        site: [],
         network: [
             {
                 id: 'now',
