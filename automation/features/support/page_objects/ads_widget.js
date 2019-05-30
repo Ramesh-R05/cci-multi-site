@@ -59,7 +59,7 @@ var ads_widget = {
 
     //Body
     ad_MrecAfterSlide3: '.gallery__feed-item--ad:nth-child(4) .gallery__ad [id^=ad-gpt-slot-]', //gallery
-    ad_MrecAfterSlide7: '.gallery__feed-item--ad:nth-child(9) .gallery__ad [id^=ad-gpt-slot-]', //gallery
+    ad_MrecAfterSlide6: '.gallery__feed-item--ad:nth-child(8) .gallery__ad [id^=ad-gpt-slot-]', //gallery
     ad_MrecAfterRecipe3:  '.teaser__list-item--ad [id^=ad-gpt-slot-]', //recipe collection
 
     //For Mobile
@@ -72,7 +72,7 @@ var ads_widget = {
     //--Non-ad element
     topFeedItem6: '.top-news-feed .teaser__list-item:nth-child(6)', //for 'I should see sticky MREC ad next to the top news feed'
     gallerySlide3: '.gallery__feed-item:nth-child(3)', //for 'I should see MREC ad between images'
-    gallerySlide7: '.gallery__feed-item:nth-child(8)', //for 'I should see MREC ad between images'
+    gallerySlide6: '.gallery__feed-item:nth-child(7)', //for 'I should see MREC ad between images'
 
     // Vertical Gallery
     galleryNativeAd: '.ad--article-native',

@@ -129,9 +129,9 @@ module.exports = function() {
         expect(browser.isExisting(wn_ads.ad_MrecAfterSlide3)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
 
         // Verify the mrec ad after slide no. 7
-        browser.scroll(wn_ads.gallerySlide7);
+        browser.scroll(wn_ads.gallerySlide6);
         //expect(browser.waitForVisible(wn_ads.ad_MrecAfterSlide7,5000)).toBe(true);
-        expect(browser.isExisting(wn_ads.ad_MrecAfterSlide7)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
+        expect(browser.isExisting(wn_ads.ad_MrecAfterSlide6)).toBe(true); //This line is a workaround of the above command because the ad sometimes doesn't appear in SIT.
     });
 
     this.Then(/^I should see four MREC ads in the RHR feed$/, function () {

@@ -83,9 +83,6 @@
             margin-left: -10px;
         }
 
-        @media only screen and (min-width: $gallery-footer-minor-bp-2) {
-            width: calc(100% - 50px);
-        }
     }
 
     &__native-ad {
@@ -160,7 +157,6 @@
             position: absolute;
             right: 0;
             text-align: left;
-            width: $gallery-aside-large-width;
 
             .social-share-count {
                 padding-left: 30px;

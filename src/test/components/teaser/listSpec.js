@@ -77,6 +77,7 @@ describe('TeaserListView', () => {
                         targets: {},
                         pageLocation: 'body'
                     },
+                    AdComponentClass: AdStub,
                     nativeAdConfig: {},
                     adPosition: 4
                 });
