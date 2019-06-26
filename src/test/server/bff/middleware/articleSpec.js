@@ -121,6 +121,50 @@ describe('Article middleware', () => {
             });
         });
 
+        describe('when it belongs to a section that has a alternate newsletter signup iframe', () => {
+            before(() => {
+                reqBase = {
+                    query: {
+                        section: validSection,
+                        subsection: validSubsection,
+                        page: validPage
+                    },
+                    data: {
+                        entity: {
+                            url: article.url,
+                            sectionId: article.sectionId,
+                            nodeTypeAlias: 'Article'
+                        }
+                    },
+                    app: {
+                        locals: {
+                            config: {
+                                urls: {
+                                    alternateNewsletterSignupIframeForArticle: {
+                                        fashion: 'http://testIframeurl.com.au'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                req = { ...reqBase };
+                next = sinon.spy();
+                getLatestTeasersStub = sinon.stub().resolves(listing);
+            });
+
+            it('Should have a the custom value as req.data.altArticleNewsLetterSignupUrl', done => {
+                articleMiddleware(req, res, next)
+                    .then(() => {
+                        expect(req.data).to.include.keys('altArticleNewsLetterSignupUrl');
+                        expect(req.data.altArticleNewsLetterSignupUrl).to.equal(req.app.locals.config.urls.alternateNewsletterSignupIframeForArticle.fashion);
+                        expect(next).to.be.called;
+                        done();
+                    })
+                    .catch(done);
+            })
+        });
+
         describe('when sectionId has a value', () => {
             before(() => {
                 reqBase = {

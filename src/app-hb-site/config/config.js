@@ -73,7 +73,10 @@ export default {
             pinterest: 'http://www.pinterest.com/bazaaraustralia/',
             youtube: 'https://www.youtube.com/user/BAZAARaustralia'
         },
-        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5ki/signup-harpersbazaar-article-iframe-bottom'
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5ki/signup-harpersbazaar-article-iframe-bottom',
+        alternateNewsletterSignupIframeForArticle: {
+            beauty: 'http://link.harpersbazaar.com.au/join/5ki/signup-hbbeautygen-article-iframe-bottom&hash=47c0eac6b402'
+        }
     },
 
     // Used for the magazine image (not the one in the footer)

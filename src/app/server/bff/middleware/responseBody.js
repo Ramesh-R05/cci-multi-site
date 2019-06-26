@@ -130,6 +130,10 @@ export default function responseBody(req, res, next) {
             res.body.comScoreSegmentIds = req.data.comScoreSegmentIds;
         }
 
+        if (get(req, 'data.altArticleNewsLetterSignupUrl')) {
+            res.body.altArticleNewsLetterSignupUrl = req.data.altArticleNewsLetterSignupUrl;
+        }
+
         next();
     } catch (error) {
         next(error);
