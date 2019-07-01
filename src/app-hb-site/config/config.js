@@ -75,7 +75,7 @@ export default {
         },
         newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5ki/signup-harpersbazaar-article-iframe-bottom',
         alternateNewsletterSignupIframeForArticle: {
-            beauty: 'http://link.harpersbazaar.com.au/join/5ki/signup-hbbeautygen-article-iframe-bottom&hash=47c0eac6b402'
+            beauty: 'https://link.harpersbazaar.com.au/join/5ki/signup-hbbeautygen-article-iframe-bottom&hash=47c0eac6b402'
         }
     },
 
