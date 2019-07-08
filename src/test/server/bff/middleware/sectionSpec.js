@@ -2,22 +2,25 @@ import proxyquire, { noCallThru } from 'proxyquire';
 
 noCallThru();
 
-let makeRequestStub = () => {};
-let getLatestTeasersStub = () => {};
+const getModuleStub = sinon.stub();
+const getLatestTeasersStub = sinon.stub();
+const parseEntitiesStub = sinon.stub();
 
 const sectionMiddleware = proxyquire('../../../../app/server/bff/middleware/section', {
-    '../../makeRequest': (...args) => {
-        return makeRequestStub(...args);
+    '../api/module': {
+        getModule: getModuleStub
     },
     '../api/listing': {
-        getLatestTeasers: (...args) => {
-            return getLatestTeasersStub(...args);
-        }
+        getLatestTeasers: getLatestTeasersStub
+    },
+    '../helper/parseEntity': {
+        parseEntities: parseEntitiesStub
     }
 }).default;
 
 describe('Section middleware', () => {
     const config = {
+        site: { host: 'http://site-host.com' },
         product: {
             id: 'foobar'
         },
@@ -49,13 +52,19 @@ describe('Section middleware', () => {
             }
         }
     };
-    const validRes = { data: [1, 2] };
+    const validRes = { data: [1, 2], totalCount: 2 };
     const validSection = 'fashion';
     const res = {};
     let next;
     let req;
     let reqBase;
     let rejectedResponse;
+
+    afterEach(() => {
+        getModuleStub.reset();
+        getLatestTeasersStub.reset();
+        parseEntitiesStub.reset();
+    });
 
     describe('when there is a section in the query param and nodeTypeAlias equal to Section', () => {
         before(() => {
@@ -76,7 +85,7 @@ describe('Section middleware', () => {
 
                 next = sinon.spy();
                 req = { ...reqBase };
-                getLatestTeasersStub = sinon.stub().rejects(rejectedResponse);
+                getModuleStub.throws(rejectedResponse);
             });
 
             it('should pass error to next middleware', done => {
@@ -104,7 +113,7 @@ describe('Section middleware', () => {
                 };
                 req.data.headerNav = [1, 2, 3];
                 next = sinon.spy();
-                getLatestTeasersStub = sinon.stub().resolves(validRes);
+                getLatestTeasersStub.resolves(validRes);
             });
 
             it('should store the latest teasers in `req.data`', done => {
@@ -128,6 +137,7 @@ describe('Section middleware', () => {
 
         describe('when a query param of pageNo 2 is passed in', () => {
             before(() => {
+                const validLargeRes = { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], totalCount: 16 };
                 req = {
                     ...reqBase,
                     app: {
@@ -141,7 +151,7 @@ describe('Section middleware', () => {
                 };
                 req.query.pageNo = 2;
                 next = sinon.spy();
-                getLatestTeasersStub = sinon.stub().resolves(validRes);
+                getLatestTeasersStub.resolves(validLargeRes);
             });
 
             it('should not have a query param in the previous page url', done => {
@@ -155,11 +165,14 @@ describe('Section middleware', () => {
         });
     });
 
+    describe('when there is a section in the query param and nodeTypeAlias equal to CommercialTagSection', () => {
+        // TODO - write tests for this functionality
+    });
+
     describe('when there is a page query param and nodeTypeAlias equal to Section', () => {
         before(() => {
-            req = { data: { entity: { nodeTypeAlias: 'Section' } }, query: { page: 'page' } };
+            req = { app: { locals: { config } }, data: { entity: { nodeTypeAlias: 'Section' } }, query: { page: 'page' } };
             next = sinon.stub();
-            getLatestTeasersStub = sinon.stub();
         });
 
         it(`should call next without making a request`, done => {
@@ -175,9 +188,8 @@ describe('Section middleware', () => {
 
     describe('when there is a page query param and nodeTypeAlias equal to Subsection', () => {
         before(() => {
-            req = { data: { entity: { nodeTypeAlias: 'Subsection' } }, query: { page: 'page' } };
+            req = { app: { locals: { config } }, data: { entity: { nodeTypeAlias: 'Subsection' } }, query: { page: 'page' } };
             next = sinon.stub();
-            getLatestTeasersStub = sinon.stub();
         });
 
         it(`should call next without making a request`, done => {
@@ -193,9 +205,8 @@ describe('Section middleware', () => {
 
     describe('when there is a page and section query param along with a nodeTypeAlias equal to Section', () => {
         before(() => {
-            req = { data: { entity: { nodeTypeAlias: 'Section' } }, query: { page: 'page', section: 'section' } };
+            req = { app: { locals: { config } }, data: { entity: { nodeTypeAlias: 'Section' } }, query: { page: 'page', section: 'section' } };
             next = sinon.stub();
-            getLatestTeasersStub = sinon.stub();
         });
 
         it(`should call next without making a request`, done => {
@@ -211,14 +222,14 @@ describe('Section middleware', () => {
 
     describe('when there is a section in the query param and nodeTypeAlias equal to Article', () => {
         before(() => {
-            reqBase = { data: { entity: { nodeTypeAlias: 'Article' } }, query: { section: 'section' } };
+            reqBase = { app: { locals: { config } }, data: { entity: { nodeTypeAlias: 'Article' } }, query: { section: 'section' } };
         });
 
+        // TODO - work out if this test is useful
         describe('and there is a nodeTypeAlias equal Section', () => {
             before(() => {
                 req = { ...reqBase, data: { entity: 'Section' } };
                 next = sinon.stub();
-                getLatestTeasersStub = sinon.stub();
             });
 
             it(`should call next without making a request`, done => {

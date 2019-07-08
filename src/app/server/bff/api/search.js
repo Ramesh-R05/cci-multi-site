@@ -12,7 +12,8 @@ export default function getSearchResults(size = 10, from = 0, query = '') {
 
             return {
                 total: 0,
-                results: []
+                results: [],
+                navigation: {}
             };
         });
 }

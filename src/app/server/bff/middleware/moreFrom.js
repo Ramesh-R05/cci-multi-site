@@ -6,8 +6,12 @@ export default async function moreFrom(req, res, next) {
         const { config } = req.app.locals;
 
         if (get(req, 'data.leftHandSide') && config.isFeatureEnabled('moreFrom')) {
-            const { leftHandSide } = req.data;
+            const { leftHandSide = {} } = req.data;
             const { moreFrom: moreFromConfig } = config.features;
+
+            if (!leftHandSide.data) {
+                leftHandSide.data = [];
+            }
 
             req.data = {
                 ...req.data,

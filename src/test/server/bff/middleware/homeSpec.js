@@ -1,40 +1,38 @@
 import proxyquire, { noCallThru } from 'proxyquire';
-import videoGalleryMock from '../../../mocks/galleryOfGalleries';
 
 noCallThru();
 
-let makeRequestStub = () => {};
-let getLatestTeasersStub = () => {};
-let getHeroTeaserStub = () => {};
+const getEntityStub = sinon.stub();
+const getLatestTeasersStub = sinon.stub();
+const parseEntitiesStub = sinon.stub();
 
 const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', {
-    '../../makeRequest': (...args) => {
-        return makeRequestStub(...args);
-    },
+    '../api/entity': getEntityStub,
     '../api/listing': {
-        getLatestTeasers: () => {
-            return getLatestTeasersStub();
-        }
+        getLatestTeasers: getLatestTeasersStub
     },
-    '../api/module': {
-        getHeroTeaser() {
-            return getHeroTeaserStub();
-        }
+    '../helper/parseEntity': {
+        parseEntities: parseEntitiesStub
     }
 }).default;
 
 describe('Home middleware', () => {
     const config = {
-        services: { remote: { entity: 'http://entitiesUrl.com/' }, module: 'http://module.url' },
         site: { host: 'http://site-host.com' }
     };
-    const latestTeasers = { data: ['Teaser 1', 'Teaser 2'] };
-    const hero = { name: 'hero' };
+    const latestTeasers = { data: ['Teaser 1', 'Teaser 2'], totalCount: 2 };
+    const teaserResponse = { data: [], totalCount: 0 };
     const entity = {
         id: 'DOLLY-ID'
     };
     const res = {};
     let next;
+
+    afterEach(() => {
+        getEntityStub.reset();
+        getLatestTeasersStub.reset();
+        parseEntitiesStub.reset();
+    });
 
     describe('when the remote returns an error response', () => {
         const rejectedResponse = {
@@ -46,10 +44,8 @@ describe('Home middleware', () => {
 
         before(() => {
             next = sinon.spy();
-            makeRequestStub = sinon.stub().rejects(rejectedResponse);
-            getLatestTeasersStub = sinon.stub();
-            getLatestTeasersStub.onFirstCall().resolves([]);
-            getLatestTeasersStub.onSecondCall().resolves([]);
+            getEntityStub.withArgs('homepage').throws(rejectedResponse);
+            getLatestTeasersStub.resolves(teaserResponse);
         });
 
         it('should pass error to next middleware', done => {
@@ -66,12 +62,10 @@ describe('Home middleware', () => {
         describe('and getLatestTeasers returns the teasers and video gallery teasers', () => {
             const req = { app: { locals: { config } }, data: { excludeTagQuery: '' } };
 
-            before(() => {
+            beforeEach(() => {
                 next = sinon.spy();
-                makeRequestStub = sinon.stub().resolves(entity);
-                getLatestTeasersStub = sinon.stub();
-                getLatestTeasersStub.onFirstCall().resolves(latestTeasers);
-                getLatestTeasersStub.onSecondCall().resolves(videoGalleryMock);
+                getEntityStub.withArgs('homepage').resolves(entity);
+                getLatestTeasersStub.resolves(latestTeasers);
             });
 
             it('should store the entity in `req.data`', done => {
@@ -100,48 +94,6 @@ describe('Home middleware', () => {
                     })
                     .catch(done);
             });
-
-            it('should store the videoGalleryTeasers in `req.data`', done => {
-                homeMiddleware(req, res, next)
-                    .then(() => {
-                        expect(req.data.videoGalleryTeasers).to.equal(videoGalleryMock);
-                        done();
-                    })
-                    .catch(done);
-            });
-
-            it('the videoGalleryTeasers should set the contentImageUrl as brightcove image still', done => {
-                let brightCoveImageStill =
-                    'http://brightcove04.o.brightcove.com/761709621001/761709621001_4761294440001_4761284339001-vs.jpg?pubId=761709621001';
-
-                homeMiddleware(req, res, next)
-                    .then(() => {
-                        expect(req.data.videoGalleryTeasers.data[0].contentImageUrl).to.deep.equal(brightCoveImageStill);
-                        done();
-                    })
-                    .catch(done);
-            });
-        });
-
-        describe('and getLatestTeasers returns an error when getting video gallery teasers', () => {
-            const req = { app: { locals: { config } }, data: { excludeTagQuery: '' } };
-
-            before(() => {
-                next = sinon.spy();
-                makeRequestStub = sinon.stub().resolves(entity);
-                getLatestTeasersStub = sinon.stub();
-                getLatestTeasersStub.onSecondCall().rejects();
-            });
-
-            it('should return an empty object for videoGalleryTeasers in `req.data.videoGalleryTeasers`', done => {
-                const emptyResponse = { data: [] };
-                homeMiddleware(req, res, next)
-                    .then(() => {
-                        expect(req.data.videoGalleryTeasers).to.deep.equal(emptyResponse);
-                        done();
-                    })
-                    .catch(done);
-            });
         });
     });
 
@@ -150,10 +102,8 @@ describe('Home middleware', () => {
 
         before(() => {
             next = sinon.spy();
-            makeRequestStub = sinon.stub().resolves(entity);
-            getLatestTeasersStub = sinon.stub();
+            getEntityStub.withArgs('homepage').resolves(entity);
             getLatestTeasersStub.onFirstCall().returns(latestTeasers);
-            getLatestTeasersStub.onSecondCall().returns({ data: [] });
         });
 
         it(`should keep the existing header data in 'req.data'`, done => {
@@ -177,7 +127,6 @@ describe('Home middleware', () => {
             describe(`and it contains a ${query} value`, () => {
                 before(() => {
                     next = sinon.stub();
-                    makeRequestStub = sinon.stub();
                     req.query[query] = query.toUpperCase();
                 });
 
@@ -185,7 +134,7 @@ describe('Home middleware', () => {
                     homeMiddleware(req, res, next)
                         .then(() => {
                             expect(next).to.have.been.called;
-                            expect(makeRequestStub).to.not.have.been.called;
+                            expect(getEntityStub).to.not.have.been.called;
                             done();
                         })
                         .catch(done);
@@ -198,10 +147,8 @@ describe('Home middleware', () => {
         const req = { app: { locals: { config } }, query: { pageNo: 2 }, data: { excludeTagQuery: '' } };
         before(() => {
             next = sinon.stub();
-            makeRequestStub = sinon.stub().resolves(entity);
-            getLatestTeasersStub = sinon.stub();
+            getEntityStub.withArgs('homepage').resolves(entity);
             getLatestTeasersStub.onFirstCall().resolves(latestTeasers);
-            getLatestTeasersStub.onSecondCall().resolves(videoGalleryMock);
         });
 
         it('should not have a query param in the previous page url', done => {

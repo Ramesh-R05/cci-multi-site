@@ -2,7 +2,7 @@ import proxyquire, { noCallThru } from 'proxyquire';
 
 noCallThru();
 
-let makeRequestStub = () => {};
+const getEntityStub = sinon.stub();
 const tagsToQueryStub = tags => tags;
 const tagResponseMock = [
     {
@@ -26,7 +26,7 @@ const tagResponseMock = [
     }
 ];
 const commercialTagMiddleware = proxyquire('../../../../app/server/bff/middleware/commercialTag', {
-    '../../makeRequest': url => makeRequestStub,
+    '../api/entity': getEntityStub,
     '../helper/tagsToQuery': tagsToQueryStub
 }).default;
 
@@ -47,7 +47,12 @@ describe('CommercialTag middleware', () => {
         };
     });
 
+    afterEach(() => {
+        getEntityStub.reset();
+    });
+
     it('Input argument will have property isFoodSite with correct value', () => {
+        getEntityStub.resolves(tagResponseMock);
         const foodReqStub = { ...reqStub };
         commercialTagMiddleware(foodReqStub, {}, next);
         expect(foodReqStub.data.isFoodSite).to.eq(true);
@@ -58,8 +63,8 @@ describe('CommercialTag middleware', () => {
         expect(noneFoodReqStub.data.isFoodSite).to.eq(false);
     });
 
-    it('Input argument will get propery commercialTag, if there is commercialTag returned', done => {
-        makeRequestStub = Promise.resolve(tagResponseMock);
+    it('Input argument will get property commercialTag, if there is commercialTag returned', done => {
+        getEntityStub.resolves(tagResponseMock);
         const foodReqStub = { ...reqStub };
         const expectTagSection = [tagResponseMock[0]];
         const expectCommercialTagSection = [tagResponseMock[1]];
@@ -74,8 +79,8 @@ describe('CommercialTag middleware', () => {
             .catch(e => done());
     });
 
-    it('Input argument will not get propery commercialTag, if remote return errors', done => {
-        makeRequestStub = sinon.stub().throws();
+    it('Input argument will not get property commercialTag, if remote return errors', done => {
+        getEntityStub.throws([]);
         const foodReqStub = { ...reqStub };
         commercialTagMiddleware(foodReqStub, {}, next)
             .then(() => {

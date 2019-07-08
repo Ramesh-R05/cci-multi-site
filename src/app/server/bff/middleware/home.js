@@ -1,10 +1,8 @@
-import get from 'lodash/object/get';
-import makeRequest from '../../makeRequest';
 import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
-const latestTeaserCount = 6;
-const listCount = 14;
-const videoGalleryTeaserCount = 6;
+import getEntity from '../api/entity';
+const LATEST_TEASER_COUNT = 6;
+const LIST_COUNT = 14;
 
 export default async function home(req, res, next) {
     try {
@@ -22,23 +20,14 @@ export default async function home(req, res, next) {
             pageNo = parseInt(req.query.pageNo || pageNo, 10);
         }
 
-        const videoQuery = req.data.excludeTagQuery ? `video eq %27$contentTags%27 and ${req.data.excludeTagQuery}` : 'video eq %27$contentTags%27';
-        const skip = (pageNo - 1) * listCount;
-        const [pageData, latestTeasersResp, videoGalleryTeasers] = await Promise.all([
-            makeRequest(`${req.app.locals.config.services.remote.entity}/homepage`),
-            getLatestTeasers(listCount, skip, req.data.excludeTagQuery),
-            getLatestTeasers(videoGalleryTeaserCount, undefined, videoQuery).catch(() => ({ data: [] }))
+        const skip = (pageNo - 1) * LIST_COUNT;
+        const [pageData, latestTeasersResp] = await Promise.all([
+            getEntity('homepage'),
+            getLatestTeasers(LIST_COUNT, skip, req.data.excludeTagQuery)
         ]);
-        videoGalleryTeasers.data = videoGalleryTeasers.data.map(gallery => {
-            gallery.contentImageUrl = get(gallery, 'contentVideo.properties.videoConfiguration.videoStillUrl', gallery.contentImageUrl);
 
-            return gallery;
-        });
-
-        // TODO: need to handle `data` in resp better
-        const latestTeasers = latestTeasersResp || {
-            data: []
-        };
+        const latestTeasersData = (latestTeasersResp && latestTeasersResp.data) || [];
+        const latestTeasersCount = (latestTeasersResp && latestTeasersResp.totalCount) || 0;
 
         let previousPage = null;
 
@@ -52,7 +41,7 @@ export default async function home(req, res, next) {
 
         let nextPage = null;
 
-        if (skip + latestTeasers.data.length < latestTeasers.totalCount) {
+        if (skip + latestTeasersData.length < latestTeasersCount) {
             const path = `/?pageNo=${pageNo + 1}`;
             nextPage = {
                 path,
@@ -68,7 +57,7 @@ export default async function home(req, res, next) {
 
         req.data = req.data || {};
         req.data.entity = { ...pageData };
-        req.data.latestTeasers = latestTeasers.data.slice(0, latestTeaserCount);
+        req.data.latestTeasers = latestTeasersData.slice(0, LATEST_TEASER_COUNT);
 
         if (pageData.enableSearch) {
             req.data.entity.searchBackgroundImage = pageData.searchBackgroundImage && pageData.searchBackgroundImage.url;
@@ -79,12 +68,12 @@ export default async function home(req, res, next) {
             params: {
                 pageNo
             },
-            items: [parseEntities(latestTeasers.data.slice(latestTeaserCount))],
+            items: [parseEntities(latestTeasersData.slice(LATEST_TEASER_COUNT))],
             previous: previousPage,
             current: currentPage,
             next: nextPage
         };
-        req.data.videoGalleryTeasers = videoGalleryTeasers;
+
         req.data.section = { id: pageData.id, name: 'Home', urlName: 'home' }; // Initally used to set the ad slot within @bxm/ads + gtm in @bxm/server
         next();
     } catch (error) {

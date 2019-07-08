@@ -1,14 +1,10 @@
-import makeRequest from '../../makeRequest';
 import tagsToQuery from '../helper/tagsToQuery';
-import logger from '../../../../logger';
+import getEntity from '../api/entity';
 
 export default async function commercialTag(req, res, next) {
     try {
         const {
             config: {
-                services: {
-                    remote: { entity }
-                },
                 site: { prefix }
             }
         } = req.app.locals;
@@ -22,7 +18,7 @@ export default async function commercialTag(req, res, next) {
             return;
         }
 
-        const allCommercailSectionTags = await makeRequest(`${entity}/alltagsections/`);
+        const allCommercailSectionTags = await getEntity('alltagsections').catch(() => []);
 
         if (!allCommercailSectionTags || !Array.isArray(allCommercailSectionTags) || !allCommercailSectionTags.length) {
             next();
@@ -34,7 +30,7 @@ export default async function commercialTag(req, res, next) {
         const tagSections = allCommercailSectionTags.filter(tag => tag.nodeTypeAlias === 'TagSection');
         const tagsToExclude = commercialTagSections.reduce((fullNameList, currentTag) => {
             const tagsDetails = Array.isArray(currentTag.tagsDetails) && currentTag.tagsDetails.length ? currentTag.tagsDetails : [];
-            const newFullNames = tagsDetails.map(t => t.fullName);
+            const newFullNames = tagsDetails.map(tag => tag.fullName);
 
             return [...fullNameList, ...newFullNames];
         }, []);
@@ -45,7 +41,6 @@ export default async function commercialTag(req, res, next) {
         req.data.excludeTagQuery = tagsToQuery(tagsToExclude);
         next();
     } catch (error) {
-        logger.error(error);
-        next();
+        next(error);
     }
 }

@@ -159,7 +159,8 @@ describe('SearchAPI', () => {
             describe('and the search returns an error response', () => {
                 const rejectedResponse = {
                     total: 0,
-                    results: []
+                    results: [],
+                    navigation: {}
                 };
 
                 beforeEach(() => {

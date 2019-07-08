@@ -1,5 +1,5 @@
 import has from 'lodash/object/has';
-import makeRequest from '../../makeRequest';
+import getEntity from '../api/entity';
 
 export default async function listing(req, res, next) {
     try {
@@ -11,13 +11,13 @@ export default async function listing(req, res, next) {
             return;
         }
 
-        const listingData = await makeRequest(`${req.app.locals.config.services.remote.entity}/?url=${path}`);
+        const listingData = await getEntity(`?url=${path}`);
         let entityData = { ...listingData };
         let sectionData = listingData;
         let subsectionData;
 
         if (subsection) {
-            sectionData = await makeRequest(`${req.app.locals.config.services.remote.entity}/?url=/${section}`);
+            sectionData = await getEntity(`?url=/${section}`);
             subsectionData = listingData;
             entityData = { ...subsectionData };
         }

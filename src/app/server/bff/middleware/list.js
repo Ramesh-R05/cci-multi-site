@@ -20,7 +20,8 @@ export default async function list(req, res, next) {
 
         const top = listCount;
         const skip = (pageNo - 1) * listCount;
-        const listResp = await getLatestTeasers(top, skip, listingQuery);
+        const latestTeasers = await getLatestTeasers(top, skip, listingQuery);
+        const listResp = latestTeasers && latestTeasers.data ? latestTeasers : { data: [] };
 
         const basePath = section ? `/${section}` : '/';
         let previousPage = null;

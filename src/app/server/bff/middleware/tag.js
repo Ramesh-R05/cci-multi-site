@@ -1,7 +1,8 @@
 import get from 'lodash/object/get';
 import find from 'lodash/collection/find';
 import getTagName from '@bxm/tags/lib/utils/getTagName';
-import makeRequest from '../../makeRequest';
+import getEntity from '../api/entity';
+import getTags from '../api/tag';
 import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
 import tagsToQuery from '../helper/tagsToQuery';
@@ -31,7 +32,6 @@ export default async function tagMiddleware(req, res, next) {
             .split('-')
             .map(capitalize)
             .join(' ');
-        const { entity: entityService, tag: tagService } = req.app.locals.config.services.remote;
 
         // TODO(thatzi): I don't like this. Need a better way to handle tag pages, tag data and tag canonicals
         // Check the current entity url if it is a /:section page. If this is a /tags/:tag page, then this won't exist.
@@ -39,7 +39,7 @@ export default async function tagMiddleware(req, res, next) {
         // as a TagSection node type to have a tag url without '/tags' so to correctly define the canonical url
         const url =
             get(req, 'data.entity.url') ||
-            (await makeRequest(`${entityService}/section/${tag}`)
+            (await getEntity(`section/${tag}`)
                 .then(listingData => {
                     const defaultTagUrl = `/tags/${tag}`;
 
@@ -47,7 +47,7 @@ export default async function tagMiddleware(req, res, next) {
                 })
                 .catch(() => `/tags/${tag}`));
 
-        const tagData = await makeRequest(`${tagService}/tags/${title}`)
+        const tagData = await getTags(title)
             .then(({ data }) => {
                 if (!data.length) {
                     return {};

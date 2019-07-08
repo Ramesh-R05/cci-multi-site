@@ -157,12 +157,14 @@ describe('Article middleware', () => {
                 articleMiddleware(req, res, next)
                     .then(() => {
                         expect(req.data).to.include.keys('altArticleNewsLetterSignupUrl');
-                        expect(req.data.altArticleNewsLetterSignupUrl).to.equal(req.app.locals.config.urls.alternateNewsletterSignupIframeForArticle.fashion);
+                        expect(req.data.altArticleNewsLetterSignupUrl).to.equal(
+                            req.app.locals.config.urls.alternateNewsletterSignupIframeForArticle.fashion
+                        );
                         expect(next).to.be.called;
                         done();
                     })
                     .catch(done);
-            })
+            });
         });
 
         describe('when sectionId has a value', () => {

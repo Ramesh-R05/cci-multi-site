@@ -2,15 +2,16 @@ import find from 'lodash/collection/find';
 import get from 'lodash/object/get';
 import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
-import makeRequest from '../../makeRequest';
+import { getModule } from '../api/module';
 import tagsToQuery from '../helper/tagsToQuery';
-const latestTeaserCount = 7;
-const listCount = 14;
+const LATEST_TEASER_COUNT = 6;
+const LIST_COUNT = 14;
 
 export default async function sectionMiddleware(req, res, next) {
     try {
         let pageNo = 1;
         const { page, section, subsection } = req.query;
+
         const { config } = req.app.locals;
         const { commercialTagSections, excludeTagQuery } = req.data;
         pageNo = parseInt(req.query.pageNo || pageNo, 10);
@@ -37,7 +38,10 @@ export default async function sectionMiddleware(req, res, next) {
 
         if (nodeTypeAlias === 'CommercialTagSection') {
             const currentCommercialTagSection = commercialTagSections.find(tag => tag.id === id);
-            const isEmptyTagsDetails = !Array.isArray(currentCommercialTagSection.tagsDetails) || !currentCommercialTagSection.tagsDetails.length;
+            const isEmptyTagsDetails =
+                !currentCommercialTagSection ||
+                !Array.isArray(currentCommercialTagSection.tagsDetails) ||
+                !currentCommercialTagSection.tagsDetails.length;
 
             if (!currentCommercialTagSection || isEmptyTagsDetails) {
                 req.data.latestTeasers = [];
@@ -59,7 +63,7 @@ export default async function sectionMiddleware(req, res, next) {
             teaserFilter = 'parentUrl';
             const sectionListingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
             listingQuery = excludeTagQuery ? `${sectionListingQuery} and ${excludeTagQuery}` : sectionListingQuery;
-            req.data.subsectionList = await makeRequest(`${config.services.remote.module}/sections/${section}`);
+            req.data.subsectionList = await getModule(`sections/${section}`);
         }
 
         if (nodeTypeAlias === 'Brand') {
@@ -73,21 +77,20 @@ export default async function sectionMiddleware(req, res, next) {
             listingQuery = excludeTagQuery ? `${brandListingQuery} and ${excludeTagQuery}` : brandListingQuery;
         }
 
-        const skip = (pageNo - 1) * listCount;
-        const latestTeasersResp = await getLatestTeasers(listCount, skip, listingQuery);
-        const totalPageFloor = Math.floor(latestTeasersResp.totalCount / listCount);
-        const totalPage = latestTeasersResp.totalCount % listCount ? totalPageFloor : totalPageFloor + 1;
+        const skip = (pageNo - 1) * LIST_COUNT;
+        const latestTeasersResp = await getLatestTeasers(LIST_COUNT, skip, listingQuery);
+
+        const latestTeasersData = (latestTeasersResp && latestTeasersResp.data) || [];
+        const latestTeasersCount = (latestTeasersResp && latestTeasersResp.totalCount) || 0;
+
+        const totalPageFloor = Math.floor(latestTeasersCount / LIST_COUNT);
+        const totalPage = latestTeasersCount % LIST_COUNT ? totalPageFloor : totalPageFloor + 1;
         const err = new Error('Page not found');
         err.status = 404;
 
         if (totalPage < pageNo - 1) {
             throw err;
         }
-
-        // TODO: need to handle `data` in resp better
-        const latestTeasers = latestTeasersResp || {
-            data: []
-        };
 
         let previousPage = null;
 
@@ -101,7 +104,7 @@ export default async function sectionMiddleware(req, res, next) {
 
         let nextPage = null;
 
-        if (skip + latestTeasers.data.length < latestTeasers.totalCount) {
+        if (skip + latestTeasersData.length < latestTeasersCount) {
             const path = `${sectionQuery}?pageNo=${pageNo + 1}`;
             nextPage = {
                 path,
@@ -115,7 +118,7 @@ export default async function sectionMiddleware(req, res, next) {
             url: `${config.site.host}${path}`
         };
 
-        req.data.latestTeasers = latestTeasers.data.slice(0, latestTeaserCount);
+        req.data.latestTeasers = latestTeasersData.slice(0, LATEST_TEASER_COUNT);
         req.data.list = {
             listName: section,
             params: {
@@ -124,7 +127,7 @@ export default async function sectionMiddleware(req, res, next) {
                 filter: teaserFilter,
                 sectionFormatted: section
             },
-            items: [parseEntities(latestTeasers.data.slice(latestTeaserCount))],
+            items: [parseEntities(latestTeasersData.slice(LATEST_TEASER_COUNT))],
             previous: previousPage,
             current: currentPage,
             next: nextPage

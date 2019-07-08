@@ -5,18 +5,42 @@ import parseModule from '../helper/parseModule';
 
 export default function responseBody(req, res, next) {
     try {
+        const { data = {} } = req;
+        const {
+            entity,
+            theme,
+            search,
+            headernavigation,
+            hamburgernavigation,
+            footer,
+            mustread,
+            moreFrom,
+            moreGalleries,
+            hero,
+            latestTeasers,
+            videoGalleryTeasers,
+            leftHandSide,
+            list,
+            section,
+            subsectionList,
+            promoted,
+            magcover,
+            comScoreSegmentIds,
+            altArticleNewsLetterSignupUrl
+        } = data;
+
         res.body = {
             ...res.body,
-            entity: parseEntity(req.data.entity),
-            headerMetaData: parseHeaderMetaData(req.data.entity, get(req, 'data.headerMetaData', {}))
+            entity: parseEntity(entity),
+            headerMetaData: parseHeaderMetaData(entity, get(req, 'data.headerMetaData', {}))
         };
 
         if (get(req, 'data.theme')) {
-            res.body.theme = req.data.theme;
+            res.body.theme = theme;
         }
 
         if (get(req, 'data.search')) {
-            res.body.search = req.data.search;
+            res.body.search = search;
             res.body.headerMetaData = {
                 ...res.body.headerMetaData,
                 robots: 'NOINDEX,FOLLOW',
@@ -26,22 +50,22 @@ export default function responseBody(req, res, next) {
 
         if (get(req, 'data.headernavigation')) {
             res.body.headerNavigation = {
-                items: parseEntities(req.data.headernavigation, { contentTitle: 'name' })
+                items: parseEntities(headernavigation, { contentTitle: 'name' })
             };
         }
 
         if (get(req, 'data.hamburgernavigation')) {
             res.body.hamburgerNavigation = {
-                items: parseEntities(req.data.hamburgernavigation, { contentTitle: 'name' })
+                items: parseEntities(hamburgernavigation, { contentTitle: 'name' })
             };
         }
 
         if (get(req, 'data.footer')) {
-            res.body.footer = parseModule(req.data.footer);
+            res.body.footer = parseModule(footer);
         }
 
         if (get(req, 'data.entity.contentTitle', null)) {
-            const curatedHeroTeaserKey = `${req.data.entity.contentTitle.toLowerCase()}hero`;
+            const curatedHeroTeaserKey = `${entity.contentTitle.toLowerCase()}hero`;
             const hasCuratedHeroTeaser = get(req, `data.${curatedHeroTeaserKey}`);
 
             if (hasCuratedHeroTeaser) {
@@ -49,13 +73,13 @@ export default function responseBody(req, res, next) {
                 // Checking the length is needed to get the boolean logic in an empty array
                 // Executing it inside the block does the trick
                 if (hasCuratedHeroTeaser.length) {
-                    res.body.curatedHeroTeaser = parseEntity(req.data[curatedHeroTeaserKey][0]);
+                    res.body.curatedHeroTeaser = parseEntity(data[curatedHeroTeaserKey][0]);
                 }
             }
         }
 
         if (get(req, 'data.mustread')) {
-            res.body.mustRead = parseEntities(req.data.mustread, {
+            res.body.mustRead = parseEntities(mustread, {
                 title: 'title',
                 imageUrl: 'imageUrl',
                 location: 'url'
@@ -63,7 +87,7 @@ export default function responseBody(req, res, next) {
         }
 
         if (get(req, 'data.leftHandSide')) {
-            const lhsData = req.data.leftHandSide.data.map(lhsTeaser => {
+            const lhsData = leftHandSide.data.map(lhsTeaser => {
                 const withDefaultImg = { ...lhsTeaser };
                 withDefaultImg.contentImageUrl = withDefaultImg.contentImageUrl || req.app.locals.config.defaultImageUrl;
 
@@ -74,37 +98,37 @@ export default function responseBody(req, res, next) {
 
         if (get(req, 'data.moreFrom')) {
             res.body.moreFrom = {
-                title: req.data.moreFrom.title,
-                items: parseEntities(req.data.moreFrom.items)
+                title: moreFrom.title,
+                items: parseEntities(moreFrom.items)
             };
         }
 
-        if (req.data.moreGalleries) {
-            res.body.moreGalleries = parseEntities(req.data.moreGalleries.data);
+        if (moreGalleries) {
+            res.body.moreGalleries = parseEntities(moreGalleries.data);
         }
 
         if (get(req, 'data.hero')) {
-            res.body.heroTeaser = parseEntity(req.data.hero);
+            res.body.heroTeaser = parseEntity(hero);
         }
 
         if (get(req, 'data.latestTeasers')) {
-            res.body.latestTeasers = parseEntities(req.data.latestTeasers);
+            res.body.latestTeasers = parseEntities(latestTeasers);
         }
 
         if (get(req, 'data.list')) {
-            res.body.list = req.data.list;
+            res.body.list = list;
         }
 
         if (get(req, 'data.videoGalleryTeasers')) {
-            res.body.videoGalleryTeasers = parseEntities(req.data.videoGalleryTeasers.data);
+            res.body.videoGalleryTeasers = parseEntities(videoGalleryTeasers.data);
         }
 
         if (get(req, 'data.section')) {
-            res.body.section = req.data.section;
+            res.body.section = section;
         }
 
         if (get(req, 'data.subsectionList')) {
-            res.body.subsectionList = req.data.subsectionList;
+            res.body.subsectionList = subsectionList;
         }
 
         if (get(req, 'data.promoted')) {
@@ -113,25 +137,25 @@ export default function responseBody(req, res, next) {
                 items: []
             };
 
-            res.body.promoted.items = parseEntities(req.data.promoted.items, {
+            res.body.promoted.items = parseEntities(promoted.items, {
                 title: 'title',
                 imageUrl: 'imageUrl',
                 location: 'url'
             });
 
-            res.body.promoted.title = req.data.promoted.title;
+            res.body.promoted.title = promoted.title;
         }
 
         if (get(req, 'data.magcover')) {
-            res.body.magCover = req.data.magcover;
+            res.body.magCover = magcover;
         }
 
         if (get(req, 'data.comScoreSegmentIds')) {
-            res.body.comScoreSegmentIds = req.data.comScoreSegmentIds;
+            res.body.comScoreSegmentIds = comScoreSegmentIds;
         }
 
         if (get(req, 'data.altArticleNewsLetterSignupUrl')) {
-            res.body.altArticleNewsLetterSignupUrl = req.data.altArticleNewsLetterSignupUrl;
+            res.body.altArticleNewsLetterSignupUrl = altArticleNewsLetterSignupUrl;
         }
 
         next();
