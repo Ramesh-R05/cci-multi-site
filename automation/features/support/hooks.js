@@ -9,7 +9,7 @@ module.exports = function hooks() {
         const timeoutInMs = 240000;
         const timeoutInMins = timeoutInMs / 1000 / 60;
 
-        this.setDefaultTimeout(timeout);
+        this.setDefaultTimeout(timeoutInMs);
         console.log(`Updated default timeout to ${timeoutInMins} minutes`);
     });
 
