@@ -1,16 +1,19 @@
 'use strict';
 
 module.exports = function hooks() {
-
-    this.setDefaultTimeout(120 * 1000);
-    console.log("Update timeout to 120000");
-
-
-    var nconf = require('nconf');
+    const nconf = require('nconf');
     nconf.argv().env();
-    var domainName = nconf.get('APP_KEY');
+    const domainName = nconf.get('APP_KEY');
 
-    this.After(function (scenario) {
+    this.BeforeFeatures(() => {
+        const timeoutInMs = 240000;
+        const timeoutInMins = timeoutInMs / 1000 / 60;
+
+        this.setDefaultTimeout(timeout);
+        console.log(`Updated default timeout to ${timeoutInMins} minutes`);
+    });
+
+    this.After(function(scenario) {
         browser.deleteCookie();
     });
 };
