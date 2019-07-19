@@ -15,6 +15,11 @@ export default {
 
     brightcove,
 
+    jwPlayer: {
+        scriptKey: 'cThZre8L',
+        baseUrl: 'https://cdn.jwplayer.com'
+    },
+
     gigya: { apiKey: '3_9adtmm8qGhCt_TN8f88ifpDX8YdJZVYyRkgnO_nokUIw1f0kbwQt9TMAfhdR0Pb8' },
 
     subscribe: {

@@ -23,6 +23,9 @@ export default {
             xl: { w: 230, h: 173 }
         }
     },
+    jwPlayer: {
+        enabled: false
+    },
     galleryOfGalleries: {
         enabled: true
     },

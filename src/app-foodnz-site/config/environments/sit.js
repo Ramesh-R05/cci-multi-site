@@ -19,5 +19,10 @@ export default {
     },
     services: {
         faceBookAppID: '1184546314908539'
+    },
+    features: {
+        jwPlayer: {
+            enabled: true
+        }
     }
 };

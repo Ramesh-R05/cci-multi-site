@@ -5,6 +5,11 @@ export default {
     site: {
         host: 'http://awwfood-site-au.sit.bxm.net.au'
     },
+    features: {
+        jwPlayer: {
+            enabled: true
+        }
+    },
     brightcove: {
         playerId,
         script: `//players.brightcove.net/${brightcove.accountId}/${playerId}_default/index.min.js`
@@ -19,5 +24,6 @@ export default {
     },
     services: {
         faceBookAppID: '363188680538038'
-    }
+    },
+
 };
