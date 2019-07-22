@@ -86,7 +86,7 @@ export default function responseBody(req, res, next) {
             });
         }
 
-        if (get(req, 'data.leftHandSide')) {
+        if (get(leftHandSide, 'data')) {
             const lhsData = leftHandSide.data.map(lhsTeaser => {
                 const withDefaultImg = { ...lhsTeaser };
                 withDefaultImg.contentImageUrl = withDefaultImg.contentImageUrl || req.app.locals.config.defaultImageUrl;
@@ -103,7 +103,7 @@ export default function responseBody(req, res, next) {
             };
         }
 
-        if (moreGalleries) {
+        if (get(moreGalleries, 'data')) {
             res.body.moreGalleries = parseEntities(moreGalleries.data);
         }
 

@@ -24,6 +24,5 @@ export default {
     },
     services: {
         faceBookAppID: '363188680538038'
-    },
-
+    }
 };
