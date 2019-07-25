@@ -77,7 +77,19 @@ export default class Section extends Component {
 
     render() {
         const { config } = this.context;
-        const { nodeType, teasers, title, currentUrl, theme, subsections, magazineImageUrl, summary, curatedHeroTeaser } = this.props;
+        const {
+            nodeType,
+            teasers,
+            title,
+            currentUrl,
+            theme,
+            subsections,
+            magazineImageUrl,
+            summary,
+            curatedHeroTeaser,
+            list,
+            listNextParams
+        } = this.props;
         const { topElm, bottomElm } = this.state;
         const isBrandPage = nodeType === 'Brand';
         const brand = isBrandPage ? config.brands.site.find(b => b.url === currentUrl) : config.product;
@@ -89,8 +101,12 @@ export default class Section extends Component {
 
         if (curatedHeroTeaserEnabled && curatedHeroTeaser) {
             heroTeaser = curatedHeroTeaser;
-            this.props.list.items[0].unshift(teasers[6]);
-            this.props.list.items[0] = [...new Set(this.props.list.items[0])];
+
+            if (teasers && teasers[6]) {
+                list.items[0].unshift(teasers[6]);
+            }
+
+            list.items[0] = [...new Set(list.items[0])];
             firstTeaserList = teasers.slice(0, 6);
         }
 
@@ -243,15 +259,15 @@ export default class Section extends Component {
                         component={TeaserListView}
                         action={loadList}
                         showDate
-                        dataSource={this.props.list}
-                        nextParams={this.props.listNextParams}
+                        dataSource={list}
+                        nextParams={listNextParams}
                         className="news-feed bottom-news-feed"
                         adTargets={{ keyword }}
                         nativeAdConfig={{ slotPositionIndex: polarLabels.sectionBottomFeed }}
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}
-                    {get(this.props.list, 'items[0].length') ? (
+                    {get(list, 'items[0].length') ? (
                         <StickyAd adProps={adProps} minHeight={450} stickyAtViewPort="mediumRangeMax" stickyDelay={5500} />
                     ) : null}
                 </div>

@@ -4,7 +4,7 @@ import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
 import { getModule } from '../api/module';
 import tagsToQuery from '../helper/tagsToQuery';
-const LATEST_TEASER_COUNT = 6;
+const LATEST_TEASER_COUNT = 7;
 const LIST_COUNT = 14;
 
 export default async function sectionMiddleware(req, res, next) {
@@ -119,6 +119,7 @@ export default async function sectionMiddleware(req, res, next) {
         };
 
         req.data.latestTeasers = latestTeasersData.slice(0, LATEST_TEASER_COUNT);
+
         req.data.list = {
             listName: section,
             params: {
