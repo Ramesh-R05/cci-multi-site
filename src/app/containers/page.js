@@ -40,7 +40,6 @@ export default class Page extends Component {
         className: PropTypes.string.isRequired,
         children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
         content: PropTypes.object.isRequired,
-        headerExpanded: PropTypes.bool.isRequired,
         hideFooter: PropTypes.bool,
         menuClasses: PropTypes.string.isRequired,
         headerNavItems: PropTypes.array.isRequired,
@@ -160,7 +159,6 @@ export default class Page extends Component {
             hamburgerNavItems,
             showUniheader,
             currentUrl,
-            headerExpanded,
             hideFooter,
             hideLeaderboard,
             pageTitle,
@@ -223,7 +221,7 @@ export default class Page extends Component {
 
                     <Header
                         currentUrl={currentUrl}
-                        isExpanded={headerExpanded}
+                        isExpanded
                         navItems={headerNavItems}
                         siteName={config.site.name}
                         toggleMenu={this.toggleMenu}
