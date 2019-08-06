@@ -36,37 +36,57 @@ export default {
         path: '/tags/:tag',
         method: 'get',
         handler: SectionPage,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            tag: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     previewPage: {
         path: '/:preview(preview)/:section/:page',
         method: 'get',
         handler: SinglePage,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            section: /^[^\W_]+(-[^\W_]+)*$/g,
+            page: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     page: {
         path: '/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: SinglePage,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            page: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     section: {
         path: '/:section',
         method: 'get',
         handler: SectionPage,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            section: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     subsection: {
         path: '/:section/:subsection*',
         method: 'get',
         handler: SectionPage,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            section: /^[^\W_]+(-[^\W_]+)*$/g,
+            subsection: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     recipes: {
         path: '/recipes/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: SinglePage,
-        action: loadPageContent
+        action: loadPageContent,
+        validators: {
+            page: /^[^\W_]+(-[^\W_]+)*$/g
+        }
     },
     all: {
         path: '/:all*',
