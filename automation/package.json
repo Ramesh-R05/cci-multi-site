@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@bxm/automation": "^7.0.0",
+    "cucumber": "github:TheBrainFamily/cucumber-js#v1.3.0-chimp.7",
     "dotenv": "^8.0.0"
   },
   "devDependencies": {
