@@ -116,8 +116,8 @@ resources:
         APP_ENV: "sit"
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
         APP_DEBUG: true
-        # EMAIL_HASH_SERVICE_SECRET_KEY
-        secure: oVyEE7T+g+VsVQhrAt36xQz8NQOHvz3kNhIWYxZ5IsMusszkrfcwb7hoQk5lL1tM4wuHNciLF6AakZhe/bj7o9b+U+bKzsU3j/VUYlrB8zWUaPgjPlBGtbWV2TyT4/EfCReFOD4LDI8Jb+NEiaYBrnZVEt1/rI77rGYG7hmJYrA03GvtCBkV1Cck9JpMmtZSrFqL7klidbNRe0GWvIN0gkgvjJCZtltX5+v1+f/wArzw4mcLOX2WPZ5ESZE3Cee/W6CbNnRcrdFNfgWJm+QBGdxVJL5v0Jd1ijivNGwCGMw1B/Nf6kCTMgWroAO4miESEBODWOTmobGGLnUDR8bCOg==
+        # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
+        secure: D4Ql+sBOZYaOEQdlZd58EqVla95/HyyRBeRnmJeRYiF1O2xPEtDlHikAHezQ52iwDG8MFjtx8qt9NJFu1aiCaIx+ABRa52qJxO69vaQEDyQSwfD6/HRYfNnqEL/hv0llB3Qa9qupfZ6ML7m4aPCvih83janWbZXXWNXcDD1YIQ3ak0PlBd5+3b7JtJphay5XRQtgDRiFNR0ZQ14Zd3dEpP+NioEKibbfL1G32H89+u2MxcODPrTLJGp2Ck3+QFPdfH2g2qwEddcqFow980SiQcxByWxqTXC+vShObR16vG1Sc435LsyRRE+b2IelewacNIbrZ/gXulUU/Vw1fd/M4w==
 
   # TEST Parameter
   - name: multi-site-params-test
@@ -128,6 +128,14 @@ resources:
         APP_ENV: "test"
         APP_STUBBED: true
         APP_DEBUG: true
+
+  # TEST secure env
+  - name: multi-site-test-env
+    type: params
+    versionTemplate:
+      params:
+        # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
+        secure: D4Ql+sBOZYaOEQdlZd58EqVla95/HyyRBeRnmJeRYiF1O2xPEtDlHikAHezQ52iwDG8MFjtx8qt9NJFu1aiCaIx+ABRa52qJxO69vaQEDyQSwfD6/HRYfNnqEL/hv0llB3Qa9qupfZ6ML7m4aPCvih83janWbZXXWNXcDD1YIQ3ak0PlBd5+3b7JtJphay5XRQtgDRiFNR0ZQ14Zd3dEpP+NioEKibbfL1G32H89+u2MxcODPrTLJGp2Ck3+QFPdfH2g2qwEddcqFow980SiQcxByWxqTXC+vShObR16vG1Sc435LsyRRE+b2IelewacNIbrZ/gXulUU/Vw1fd/M4w==
 
   # AWS TEST load Balancer - MULTI STUBBED - MASTER branch
   - name: multi-site-alb-test
@@ -144,8 +152,8 @@ resources:
         NODE_ENV: "production"
         APP_ENV: "prod"
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
-        # EMAIL_HASH_SERVICE_SECRET_KEY
-        secure: YTSUblTEQb4LrMM/28/vshr3sTBx7YMBOGjHg945LpMV5zPaIp7aWWI4R3YAxz3hC2j9NoJUy2rZb5yEKoKDVVvZHGa00YDKpntRlxmiMuY1AveWduTw/N71RPh2V16KnAVBcBSQRDRUNhp2qNIVo8dmPTUUNLfZKgAgckYOO267qNQlV9y6GjtCl00Jalp1ItVT3eLeSGqO8Fw1/148T3xvR4DzG/0NKZllpz8jHm42SHk/OUhjnai9/SYUGYx+n7EZgYlyEMdrRY59WTPkVITYLEwCY7nMXsTI/NKOQv96AHILwGPIyKFHOkSUh5HTT3Ur9/NCcYoZHL7iAqNiIg==
+        # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
+        secure: GIR8DFB4xHNS6Lper6iG6dBDjg8ThZISC5LrE7RCWGI/fWd6o689qAHiT1Aw3+V6UquvuLkm93DBhV+NxqT8R7L4bbrknHU1ZxSPxLAtizNpX8jJqHzQKpTDCQHSPWCbDEYik6g2w8fYq5PhTkpT398V0ItGP8+hu1aAY67kIK133eGfN1hEPvGGiJHKikcp0gQizwXzJm4yKCW52eO8ImyWanDh+5viMeQ8a+iG320VyLNtmXZxqSGn0X7ZAc3ip5Yk6Lhn5UCPzwUdspPB4FErCizgSutyTc96SEGXxoOTkxKaPYmfY+RpVRfTi13mOH2C10pC2OpaeNETqSDvLA==        
 
         
   #Schedule Run of automation

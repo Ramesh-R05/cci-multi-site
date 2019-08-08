@@ -370,6 +370,7 @@ jobs:
     - IN: gt-site-sit-deploy-master
     - IN: awwfood-site-sit-deploy-master
     - IN: foodnz-site-sit-deploy-master
+    - IN: multi-site-test-env
     - IN: multi-site-repo
       switch: off
     - TASK:
