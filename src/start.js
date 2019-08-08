@@ -6,10 +6,18 @@ process.title = process.env.APP_KEY;
 process.on('uncaughtException', e => {
     throw e;
 });
-require('babel-polyfill');
-require('babel-register');
+require('@babel/polyfill');
+require('@babel/register');
 const fs = require('fs');
+
+const path = require('path');
+
+require('dotenv').config({
+    path: process.env.APP_ENV === 'prod' ? path.resolve(process.cwd(), '.prod.env') : path.resolve(process.cwd(), '.sit.env')
+});
+
 const logger = require('./logger').default;
+
 require('./apm');
 const requiredFile = './dist/manifest.json';
 const retryDelay = 5000;

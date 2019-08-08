@@ -7,9 +7,9 @@ const getTagStub = sinon.stub();
 const getLatestTeasersStub = sinon.stub();
 
 const tagMiddleware = proxyquire('../../../../app/server/bff/middleware/tag', {
-    '../api/entity': getEntityStub,
-    '../api/tag': getTagStub,
-    '../api/listing': {
+    '../api': {
+        getEntity: getEntityStub,
+        getTags: getTagStub,
         getLatestTeasers: getLatestTeasersStub
     }
 }).default;

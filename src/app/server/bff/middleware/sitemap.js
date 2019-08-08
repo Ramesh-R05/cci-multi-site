@@ -1,4 +1,4 @@
-import getSitemap from '../api/sitemap';
+import API from '../api';
 
 export default async function sitemap(req, res, next) {
     const section = req.params.section;
@@ -9,7 +9,7 @@ export default async function sitemap(req, res, next) {
             throw { status: 404, message: 'Page Not Found' };
         }
 
-        const sitemaps = await getSitemap(path);
+        const sitemaps = await API.getSitemap(path);
         res.header('Cache-Control', 'public, max-age=0');
         res.header('Content-Type', 'text/xml');
         res.send(sitemaps);

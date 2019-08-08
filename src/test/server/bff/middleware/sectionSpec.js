@@ -2,15 +2,13 @@ import proxyquire, { noCallThru } from 'proxyquire';
 
 noCallThru();
 
-const getModuleStub = sinon.stub();
+const getModulesStub = sinon.stub();
 const getLatestTeasersStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 
 const sectionMiddleware = proxyquire('../../../../app/server/bff/middleware/section', {
-    '../api/module': {
-        getModule: getModuleStub
-    },
-    '../api/listing': {
+    '../api': {
+        getModules: getModulesStub,
         getLatestTeasers: getLatestTeasersStub
     },
     '../helper/parseEntity': {
@@ -61,7 +59,7 @@ describe('Section middleware', () => {
     let rejectedResponse;
 
     afterEach(() => {
-        getModuleStub.reset();
+        getModulesStub.reset();
         getLatestTeasersStub.reset();
         parseEntitiesStub.reset();
     });
@@ -85,7 +83,7 @@ describe('Section middleware', () => {
 
                 next = sinon.spy();
                 req = { ...reqBase };
-                getModuleStub.throws(rejectedResponse);
+                getModulesStub.throws(rejectedResponse);
             });
 
             it('should pass error to next middleware', done => {

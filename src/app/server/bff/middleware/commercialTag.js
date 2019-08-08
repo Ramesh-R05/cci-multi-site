@@ -1,5 +1,5 @@
 import tagsToQuery from '../helper/tagsToQuery';
-import getEntity from '../api/entity';
+import API from '../api';
 
 export default async function commercialTag(req, res, next) {
     try {
@@ -18,16 +18,16 @@ export default async function commercialTag(req, res, next) {
             return;
         }
 
-        const allCommercailSectionTags = await getEntity('alltagsections').catch(() => []);
+        const allCommercialTagSections = await API.getEntity('alltagsections').catch(() => []);
 
-        if (!allCommercailSectionTags || !Array.isArray(allCommercailSectionTags) || !allCommercailSectionTags.length) {
+        if (!allCommercialTagSections || !Array.isArray(allCommercialTagSections) || !allCommercialTagSections.length) {
             next();
 
             return;
         }
 
-        const commercialTagSections = allCommercailSectionTags.filter(tag => tag.nodeTypeAlias === 'CommercialTagSection');
-        const tagSections = allCommercailSectionTags.filter(tag => tag.nodeTypeAlias === 'TagSection');
+        const commercialTagSections = allCommercialTagSections.filter(tag => tag.nodeTypeAlias === 'CommercialTagSection');
+        const tagSections = allCommercialTagSections.filter(tag => tag.nodeTypeAlias === 'TagSection');
         const tagsToExclude = commercialTagSections.reduce((fullNameList, currentTag) => {
             const tagsDetails = Array.isArray(currentTag.tagsDetails) && currentTag.tagsDetails.length ? currentTag.tagsDetails : [];
             const newFullNames = tagsDetails.map(tag => tag.fullName);

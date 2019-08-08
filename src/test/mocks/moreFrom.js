@@ -1,4 +1,4 @@
-export default {
+const moreFromMock = {
     title: 'More from site',
     items: [
         {
@@ -375,3 +375,5 @@ export default {
         }
     ]
 };
+
+export default moreFromMock;

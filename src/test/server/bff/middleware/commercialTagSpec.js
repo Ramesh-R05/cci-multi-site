@@ -26,7 +26,7 @@ const tagResponseMock = [
     }
 ];
 const commercialTagMiddleware = proxyquire('../../../../app/server/bff/middleware/commercialTag', {
-    '../api/entity': getEntityStub,
+    '../api': { getEntity: getEntityStub },
     '../helper/tagsToQuery': tagsToQueryStub
 }).default;
 

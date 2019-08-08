@@ -3,13 +3,11 @@ import collection from '../../../mocks/collection';
 import listing from '../../../mocks/listing';
 noCallThru();
 
-let getLatestTeasersStub = () => {};
+const getLatestTeasersStub = sinon.stub();
 
 const collectionMiddleware = proxyquire('../../../../app/server/bff/middleware/collection', {
-    '../api/listing': {
-        getLatestTeasers: () => {
-            return getLatestTeasersStub();
-        }
+    '../api': {
+        getLatestTeasers: getLatestTeasersStub
     }
 }).default;
 
@@ -31,7 +29,7 @@ describe('Collection middleware', () => {
                 data: { entity: collection }
             };
             next = sinon.spy();
-            getLatestTeasersStub = sinon.stub().resolves(listing);
+            getLatestTeasersStub.resolves(listing);
             req.data.entity.nodeTypeAlias = 'Gallery';
         });
 
@@ -95,7 +93,7 @@ describe('Collection middleware', () => {
                 };
                 req = { ...reqBase };
                 next = sinon.spy();
-                getLatestTeasersStub = sinon.stub().resolves(listing);
+                getLatestTeasersStub.resolves(listing);
             });
         });
 
@@ -117,7 +115,7 @@ describe('Collection middleware', () => {
                 };
                 req = { ...reqBase };
                 next = sinon.spy();
-                getLatestTeasersStub = sinon.stub().resolves(listing);
+                getLatestTeasersStub.resolves(listing);
             });
         });
 
@@ -140,7 +138,7 @@ describe('Collection middleware', () => {
                 };
                 req = { ...reqBase };
                 next = sinon.spy();
-                getLatestTeasersStub = sinon.stub().resolves(listing);
+                getLatestTeasersStub.resolves(listing);
             });
 
             it('should set leftHandSide in req.data with `getLatestTeasers` response', done => {

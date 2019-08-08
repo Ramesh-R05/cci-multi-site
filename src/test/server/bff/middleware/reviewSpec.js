@@ -11,20 +11,17 @@ const config = {
     }
 };
 
-let getLatestTeasersStub = () => {};
+const getLatestTeasersStub = sinon.stub();
 
 const reviewMiddleware = proxyquire('../../../../app/server/bff/middleware/review', {
-    '../api/listing': {
-        getLatestTeasers: (...args) => {
-            return getLatestTeasersStub(...args);
-        }
+    '../api': {
+        getLatestTeasers: getLatestTeasersStub
     }
 }).default;
 
 describe('Review middleware', () => {
     const res = {};
     let next = sinon.spy();
-    getLatestTeasersStub = sinon.stub();
 
     describe('when nodeTypeAlias is NOT `Review`', () => {
         let req;

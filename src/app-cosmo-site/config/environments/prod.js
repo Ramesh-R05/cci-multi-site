@@ -17,12 +17,12 @@ export default {
     },
     services: {
         remote: {
-            entity: 'http://services.prod.bxm.internal/entity//v1/cosmo',
-            listings: 'http://services.prod.bxm.internal/listing/v1/cosmo',
-            module: 'http://services.prod.bxm.internal/module/v1/cosmo',
+            entity: 'https://services.prod.bxm.net.au/entity/v1/cosmo',
+            listings: 'https://services.prod.bxm.net.au/listing/v1/cosmo',
+            module: 'https://services.prod.bxm.net.au/module/v1/cosmo',
             sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/cosmo',
-            tag: 'http://services.prod.bxm.internal/tag/v1/cosmo',
-            search: 'http://services.prod.bxm.internal/es-search/v1/cosmo',
+            tag: 'https://services.prod.bxm.net.au/tag/v1/cosmo',
+            search: 'https://services.prod.bxm.net.au/es-search/v1/cosmo',
             identity: 'https://live.dmp.bauer-media.net.au/api/identity'
         },
         redirect: {

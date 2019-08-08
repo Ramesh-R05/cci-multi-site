@@ -96,6 +96,7 @@ Temporary Items
 
 ## Directory-based project format:
 .idea/
+.vscode/
 
 ## File-based project format:
 *.ipr
@@ -123,4 +124,13 @@ crashlytics-build.properties
 automation/now/artifacts
 automation/screenshots/
 .screenshots
-.vscode/
+
+# Shippable
+shippable/
+
+# nyc test coverage
+.nyc_output
+
+# dotenv files
+*.env
+!*sample.*.env

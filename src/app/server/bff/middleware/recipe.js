@@ -1,5 +1,5 @@
 import get from 'lodash/object/get';
-import { getLatestTeasers } from '../api/listing';
+import API from '../api';
 import { getRecipeOverview } from '../dataTransforms';
 
 export default async function recipeMiddleware(req, res, next) {
@@ -16,7 +16,7 @@ export default async function recipeMiddleware(req, res, next) {
             return;
         }
 
-        req.data.leftHandSide = await getLatestTeasers(TOP, undefined, listingQuery);
+        req.data.leftHandSide = await API.getLatestTeasers(TOP, undefined, listingQuery);
         req.data.entity.recipeOverview = getRecipeOverview(entity);
 
         next();

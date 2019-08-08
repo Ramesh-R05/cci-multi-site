@@ -1,9 +1,7 @@
 import get from 'lodash/object/get';
 import find from 'lodash/collection/find';
 import getTagName from '@bxm/tags/lib/utils/getTagName';
-import getEntity from '../api/entity';
-import getTags from '../api/tag';
-import { getLatestTeasers } from '../api/listing';
+import API from '../api';
 import { parseEntities } from '../helper/parseEntity';
 import tagsToQuery from '../helper/tagsToQuery';
 import capitalize from '../helper/capitalize';
@@ -39,7 +37,7 @@ export default async function tagMiddleware(req, res, next) {
         // as a TagSection node type to have a tag url without '/tags' so to correctly define the canonical url
         const url =
             get(req, 'data.entity.url') ||
-            (await getEntity(`section/${tag}`)
+            (await API.getEntity(`section/${tag}`)
                 .then(listingData => {
                     const defaultTagUrl = `/tags/${tag}`;
 
@@ -47,7 +45,7 @@ export default async function tagMiddleware(req, res, next) {
                 })
                 .catch(() => `/tags/${tag}`));
 
-        const tagData = await getTags(title)
+        const tagData = await API.getTags(title)
             .then(({ data }) => {
                 if (!data.length) {
                     return {};
@@ -77,7 +75,7 @@ export default async function tagMiddleware(req, res, next) {
             : `tagsDetails/urlName eq %27${loweredCaseTag}%27`;
 
         const listingQuery = excludeTagQuery ? `${tagListingQuery} and ${excludeTagQuery}` : tagListingQuery;
-        const latestTeasersResp = await getLatestTeasers(listCount, skip, listingQuery);
+        const latestTeasersResp = await API.getLatestTeasers(listCount, skip, listingQuery);
 
         // TODO: need to handle `data` in resp better
         const latestTeasers = latestTeasersResp || {

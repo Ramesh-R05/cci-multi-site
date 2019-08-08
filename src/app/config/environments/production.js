@@ -9,11 +9,12 @@ export default {
     },
     services: {
         remote: {
-            entity: 'http://live.entities.services.bauer-media.internal/v1/now',
-            listings: 'http://live.listings.services.bauer-media.internal/v1/now',
-            module: 'http://live.modules.services.bauer-media.internal/v1/now',
-            sitemap: 'http://live.sitemaps.services.bauer-media.internal/v1/now',
-            tag: 'http://live.tags.services.bauer-media.internal/v1/now',
+            entity: 'https://services.prod.bxm.net.au/entity/v1/now',
+            listings: 'https://services.prod.bxm.net.au/listing/v1/now',
+            module: 'https://services.prod.bxm.net.au/module/v1/now',
+            sitemap: 'http://sitemap-service.prod.bxm.net.au/v1/now',
+            tag: 'https://services.prod.bxm.net.au/tag/v1/now',
+            search: 'https://services.prod.bxm.net.au/es-search/v1/now',
             identity: 'https://live.dmp.bauer-media.net.au/api/identity'
         },
         redirect: {

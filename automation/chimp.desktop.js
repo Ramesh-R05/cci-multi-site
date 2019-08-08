@@ -5,8 +5,12 @@ var run_version = nconf.get('BrowserVersion');
 var run_os = nconf.get('BrowserOs');
 var run_osversion = nconf.get('BrowserOsVersion');
 
-module.exports = {
+const path = require('path');
+require('dotenv').config({
+    path: path.resolve(process.cwd(), '../src/.sit.env')
+});
 
+module.exports = {
     featurePath: './features/compatibility',
     tags: '@desktop',
     offline: false,
@@ -22,17 +26,17 @@ module.exports = {
 
     webdriverio: {
         desiredCapabilities: {
-            "project": 'Multi Repo',
-            "browser_version": run_version,
-            "os": run_os,
-            "os_version": run_osversion,
-            "resolution" : '1920x1080',
-            "browserstack.debug": true,
+            project: 'Multi Repo',
+            browser_version: run_version,
+            os: run_os,
+            os_version: run_osversion,
+            resolution: '1920x1080',
+            'browserstack.debug': true,
             'safari.options': {
-                'technologyPreview': true
+                technologyPreview: true
             },
             chromeOptions: {
-                args: ["--start-fullscreen"]
+                args: ['--start-fullscreen']
             }
         }
     }

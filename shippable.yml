@@ -40,7 +40,6 @@ build:
     - echo "module.exports={buildNumber:'$BRANCH_NAME'};" > version.js
     - cat version.js
     - npm run test:ci
-    - ./node_modules/.bin/babel-istanbul report cobertura --dir  ..//shippable/codecoverage/
     - NODE_ENV=production npm run build
     - cd ..
     - if [ $IS_PULL_REQUEST == false ]; then docker build --build-arg APP_KEY=$APP_KEY -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME .; fi

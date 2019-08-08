@@ -1,5 +1,5 @@
 import get from 'lodash/object/get';
-import { getMoreGalleries, getLatestTeasers } from '../api/listing';
+import API from '../api';
 
 const TOP = 20;
 
@@ -17,8 +17,8 @@ export default async function gallery(req, res, next) {
         req.data.altArticleNewsLetterSignupUrl = get(req, `app.locals.config.urls.alternateNewsletterSignupIframeForArticle.${section}`, null);
 
         const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'";
-        req.data.leftHandSide = await getLatestTeasers(TOP, undefined, listingQuery);
-        req.data.moreGalleries = await getMoreGalleries();
+        req.data.leftHandSide = await API.getLatestTeasers(TOP, undefined, listingQuery);
+        req.data.moreGalleries = await API.getMoreGalleries();
 
         next();
     } catch (error) {

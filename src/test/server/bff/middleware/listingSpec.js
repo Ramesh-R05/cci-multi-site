@@ -5,7 +5,7 @@ noCallThru();
 const getEntityStub = sinon.stub();
 
 const listingMiddleware = proxyquire('../../../../app/server/bff/middleware/listing', {
-    '../api/entity': getEntityStub
+    '../api': { getEntity: getEntityStub }
 }).default;
 
 describe('Listing middleware', () => {

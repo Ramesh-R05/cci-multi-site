@@ -1,5 +1,5 @@
 import has from 'lodash/object/has';
-import getEntity from '../api/entity';
+import API from '../api';
 
 export default async function listing(req, res, next) {
     try {
@@ -11,13 +11,13 @@ export default async function listing(req, res, next) {
             return;
         }
 
-        const listingData = await getEntity(`?url=${path}`);
+        const listingData = await API.getEntity(`?url=${path}`);
         let entityData = { ...listingData };
         let sectionData = listingData;
         let subsectionData;
 
         if (subsection) {
-            sectionData = await getEntity(`?url=/${section}`);
+            sectionData = await API.getEntity(`?url=/${section}`);
             subsectionData = listingData;
             entityData = { ...subsectionData };
         }

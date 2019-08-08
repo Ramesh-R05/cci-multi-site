@@ -1,6 +1,6 @@
 import has from 'lodash/object/has';
 import getPageID from '../helper/getPageID';
-import getEntity from '../api/entity';
+import API from '../api';
 
 export default async function pageMiddleware(req, res, next) {
     try {
@@ -20,7 +20,7 @@ export default async function pageMiddleware(req, res, next) {
         }
 
         const saved = `?saved=${!!preview}`;
-        const pageData = await getEntity(`${pageID}${saved}`);
+        const pageData = await API.getEntity(`${pageID}${saved}`);
 
         if (!id) {
             const path = subsection ? `/${section}/${subsection}/${page}` : `/${section}/${page}`;

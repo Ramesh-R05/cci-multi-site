@@ -132,6 +132,7 @@ describe(`Recipe Component`, () => {
         let recipeIngredientsStub;
         let recipeMethodStub;
         let recipeNotesStub;
+        let moreFrom;
 
         before(`rendering component`, () => {
             reactModule = Context.mountComponent(
@@ -176,6 +177,7 @@ describe(`Recipe Component`, () => {
             recipeIngredientsStub = TestUtils.findRenderedComponentWithType(reactModule, RecipeIngredientsStub);
             recipeMethodStub = TestUtils.findRenderedComponentWithType(reactModule, RecipeMethodStub);
             recipeNotesStub = TestUtils.findRenderedComponentWithType(reactModule, RecipeNotesStub);
+            moreFrom = TestUtils.findRenderedComponentWithType(reactModule, MoreFromStub);
         });
 
         it(`should render the component with class "${articleClassName}"`, () => {
@@ -252,11 +254,11 @@ describe(`Recipe Component`, () => {
 
         describe('moreFrom sub component', () => {
             it('should render to the page', () => {
-                expect(MoreFromStub).to.exist;
+                expect(moreFrom).to.exist;
             });
 
             it('should be passed the moreFrom data as props', () => {
-                expect(MoreFromStub.props).to.deep.eq(...moreFromMock);
+                expect(moreFrom.props).to.deep.eq({ ...moreFromMock });
             });
         });
 
@@ -340,8 +342,6 @@ describe(`Recipe Component`, () => {
         //     });
         //
         //     it(`should have sizes object`, () => {
-        //         console.log('-----------------');
-        //         console.log(topAdStub.props.sizes)
         //         expect(topAdStub.props.sizes).to.eql(sizes);
         //     });
         //

@@ -2,6 +2,12 @@
 var nconf = require('nconf');
 nconf.argv().env();
 var site_domain = nconf.get('APP_KEY');
+
+const path = require('path');
+require('dotenv').config({
+    path: path.resolve(process.cwd(), '../src/.sit.env')
+});
+
 var exportedObject = {
     //Generic config
     tags: null,
@@ -13,7 +19,7 @@ var exportedObject = {
         desiredCapabilities: {
             // go to https://peter.sh/experiments/chromium-command-line-switches/
             chromeOptions: {
-                args: ["--enable-automation", "--allow-insecure-localhost"]
+                args: ['--enable-automation', '--allow-insecure-localhost']
             }
         }
     },
@@ -39,11 +45,11 @@ var exportedObject = {
 };
 
 // Ensure APP_KEY is specified
-if (typeof site_domain === 'undefined'){
+if (typeof site_domain === 'undefined') {
     throw new Error('APP_KEY environment variable not set');
 } else {
     var tag_id = site_domain.split('-');
-    exportedObject['tags'] = '@'+tag_id[0];
+    exportedObject['tags'] = '@' + tag_id[0];
 }
 
 module.exports = exportedObject;

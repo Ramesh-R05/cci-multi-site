@@ -1,60 +1,61 @@
 import proxyquire, { noCallThru } from 'proxyquire';
+import { MiddlewareTestFactory } from '@bxm/unit-test-utils';
 
 noCallThru();
 
-let getModulesStub = () => {};
+const getModulesStub = sinon.stub();
 
 const pageModulesMiddleware = proxyquire('../../../../app/server/bff/middleware/pageModules', {
-    '../api/module': () => getModulesStub(),
+    '../api': {
+        getModules: getModulesStub
+    },
     '../../../../logger': { error() {} }
 }).default;
 
+const middlewareTest = MiddlewareTestFactory(pageModulesMiddleware, { baseRequest: { data: {} } });
+
 describe('PageModules middleware', () => {
-    const res = {};
-    const module = [];
-    let req = {};
-    let next;
-
     describe('when the response is valid', () => {
-        before(() => {
-            next = sinon.spy();
-            getModulesStub = sinon.stub().resolves({ headernavigation: module });
+        let testArgs;
+        let result;
+        let callMiddleware;
+
+        before(async () => {
+            [testArgs, callMiddleware] = await middlewareTest({});
+
+            getModulesStub.resolves({ headernavigation: module });
+
+            result = await callMiddleware();
         });
 
-        after(() => {
-            req = {};
+        it('should set `req.data.headernavigation` to equal the response', () => {
+            expect(result.req.data).to.deep.eq({ headernavigation: module });
         });
 
-        it('should set `req.data.headernavigation` to equal the response', done => {
-            pageModulesMiddleware(req, res, next)
-                .then(() => {
-                    expect(req.data).to.deep.eq({ headernavigation: module });
-                    expect(next).to.be.called;
-                    done();
-                })
-                .catch(done);
+        it('calls the next middleware', () => {
+            expect(testArgs.next).to.be.calledWith();
         });
     });
 
     describe('when the response returns an error', () => {
-        before(() => {
-            req = { test: '123' };
-            next = sinon.spy();
-            getModulesStub = sinon.stub().rejects();
+        let testArgs;
+        let result;
+        let callMiddleware;
+
+        before(async () => {
+            [testArgs, callMiddleware] = await middlewareTest({});
+
+            getModulesStub.rejects();
+
+            result = await callMiddleware();
         });
 
-        after(() => {
-            req = {};
+        it('does not change `req.data`', () => {
+            expect(testArgs.req).to.deep.eq(result.req);
         });
 
-        it('should have not changed `req.data` and call next without any args', done => {
-            pageModulesMiddleware(req, res, next)
-                .then(() => {
-                    expect(req).to.deep.eq(req);
-                    expect(next).to.be.calledWith();
-                    done();
-                })
-                .catch(done);
+        it('calls the next middleware', () => {
+            expect(testArgs.next).to.be.calledWith();
         });
     });
 });

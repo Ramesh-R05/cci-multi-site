@@ -4,17 +4,13 @@ import moreGalleries from '../../../mocks/moreGalleries';
 import listing from '../../../mocks/listing';
 noCallThru();
 
-let getLatestTeasersStub = () => {};
-let getMoreGalleriesStub = () => {};
+const getLatestTeasersStub = sinon.stub();
+const getMoreGalleriesStub = sinon.stub();
 
 const galleryMiddleware = proxyquire('../../../../app/server/bff/middleware/gallery', {
-    '../api/listing': {
-        getLatestTeasers: () => {
-            return getLatestTeasersStub();
-        },
-        getMoreGalleries: () => {
-            return getMoreGalleriesStub();
-        }
+    '../api': {
+        getLatestTeasers: getLatestTeasersStub,
+        getMoreGalleries: getMoreGalleriesStub
     }
 }).default;
 
@@ -30,6 +26,11 @@ describe('Gallery middleware', () => {
     let next;
     let req;
 
+    afterEach(() => {
+        getLatestTeasersStub.reset();
+        getMoreGalleriesStub.reset();
+    });
+
     describe('when nodeTypeAlias is NOT `Gallery`', () => {
         before(() => {
             req = {
@@ -37,8 +38,8 @@ describe('Gallery middleware', () => {
             };
             next = sinon.spy();
             req.data.entity.nodeTypeAlias = 'Article';
-            getLatestTeasersStub = sinon.stub().resolves(listing);
-            getMoreGalleriesStub = sinon.stub().resolves(moreGalleries);
+            getLatestTeasersStub.resolves(listing);
+            getMoreGalleriesStub.resolves(moreGalleries);
         });
 
         after(() => {
@@ -111,7 +112,7 @@ describe('Gallery middleware', () => {
                 };
                 req = { ...reqBase };
                 next = sinon.spy();
-                getMoreGalleriesStub = sinon.stub().resolves(moreGalleries);
+                getMoreGalleriesStub.resolves(moreGalleries);
             });
         });
 
@@ -133,7 +134,7 @@ describe('Gallery middleware', () => {
                 };
                 req = { ...reqBase };
                 next = sinon.spy();
-                getMoreGalleriesStub = sinon.stub().resolves(moreGalleries);
+                getMoreGalleriesStub.resolves(moreGalleries);
             });
         });
 
@@ -156,13 +157,12 @@ describe('Gallery middleware', () => {
                 };
                 req = { ...reqBase };
                 next = sinon.spy();
-                getMoreGalleriesStub = sinon.stub().resolves(moreGalleries);
+                getMoreGalleriesStub.resolves(moreGalleries);
             });
 
             it('should set moreGalleries in req.data with `getMoreGalleries` response', done => {
                 galleryMiddleware(req, res, next)
                     .then(() => {
-                        console.log(req.data);
                         expect(req.data).to.include.keys('moreGalleries');
                         expect(req.data.moreGalleries).to.equal(moreGalleries);
                         expect(next).to.be.called;
@@ -191,8 +191,8 @@ describe('Gallery middleware', () => {
                 };
                 req = { ...reqBase };
                 next = sinon.spy();
-                getLatestTeasersStub = sinon.stub().resolves(listing);
-                getMoreGalleriesStub = sinon.stub().resolves(moreGalleries);
+                getLatestTeasersStub.resolves(listing);
+                getMoreGalleriesStub.resolves(moreGalleries);
             });
 
             it('should set leftHandSide in req.data with `getLatestTeasers` response', done => {

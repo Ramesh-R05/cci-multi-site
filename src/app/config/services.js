@@ -1,11 +1,12 @@
 export default {
     local: 'http://127.0.0.1',
     remote: {
-        entity: 'http://dev.entities.services.bauer-media.internal/v1/now',
-        listings: 'http://dev.listings.services.bauer-media.internal/v1/now',
-        module: 'http://dev.modules.services.bauer-media.internal/v1/now',
-        sitemap: 'http://dev.sitemaps.services.bauer-media.internal/v1/now',
-        tag: 'http://dev.tags.services.bauer-media.internal/v1/now',
+        entity: 'https://services.sit.bxm.net.au/entity/v1/now',
+        listings: 'https://services.sit.bxm.net.au/listing/v1/now',
+        module: 'https://services.sit.bxm.net.au/module/v1/now',
+        sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/now',
+        tag: 'https://services.sit.bxm.net.au/tag/v1/now',
+        search: 'https://services.sit.bxm.net.au/es-search/v1/now',
         identity: 'https://dev.dmp.bauer-media.net.au/api/identity'
     },
     endpoints: {
@@ -17,7 +18,7 @@ export default {
         url: 'https://d38h2iiydertbj.cloudfront.net/header/prod/globalheader.json'
     },
     redirect: {
-        url: 'http://dev.redirect.services.bauer-media.internal/v1/now/301'
+        url: 'http://services.sit.bxm.internal/redirect/v1/now/301'
     },
     faceBookAppID: '373446372845719'
 };

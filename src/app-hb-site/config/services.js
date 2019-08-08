@@ -1,12 +1,12 @@
 export default {
     local: 'http://127.0.0.1',
     remote: {
-        entity: 'http://services.sit.bxm.internal/entity/v1/hb',
-        listings: 'http://services.sit.bxm.internal/listing/v1/hb',
-        module: 'http://services.sit.bxm.internal/module/v1/hb',
+        entity: 'https://services.sit.bxm.net.au/entity/v1/hb',
+        listings: 'https://services.sit.bxm.net.au/listing/v1/hb',
+        module: 'https://services.sit.bxm.net.au/module/v1/hb',
         sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/hb',
-        tag: 'http://services.sit.bxm.internal/tag/v1/hb',
-        search: 'http://services.sit.bxm.internal/es-search/v1/hb',
+        tag: 'https://services.sit.bxm.net.au/tag/v1/hb',
+        search: 'https://services.sit.bxm.net.au/es-search/v1/hb',
         identity: 'https://dev.dmp.bauer-media.net.au/api/identity'
     },
     endpoints: {

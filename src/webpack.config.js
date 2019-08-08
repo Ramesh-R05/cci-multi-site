@@ -38,8 +38,12 @@ const config = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015', 'react', 'stage-1'],
-                        plugins: ['transform-decorators-legacy', path.resolve('./babel-plugin-transform-load-alternates')]
+                        presets: ['@babel/preset-env', '@babel/react'],
+                        plugins: [
+                            ['@babel/plugin-proposal-decorators', { legacy: true }],
+                            '@babel/plugin-proposal-class-properties',
+                            path.resolve('./babel-plugin-transform-load-alternates')
+                        ]
                     }
                 }
             },

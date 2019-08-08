@@ -1,6 +1,5 @@
-import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
-import getEntity from '../api/entity';
+import API from '../api';
 const LATEST_TEASER_COUNT = 6;
 const LIST_COUNT = 14;
 
@@ -22,8 +21,8 @@ export default async function home(req, res, next) {
 
         const skip = (pageNo - 1) * LIST_COUNT;
         const [pageData, latestTeasersResp] = await Promise.all([
-            getEntity('homepage'),
-            getLatestTeasers(LIST_COUNT, skip, req.data.excludeTagQuery)
+            API.getEntity('homepage'),
+            API.getLatestTeasers(LIST_COUNT, skip, req.data.excludeTagQuery)
         ]);
 
         const latestTeasersData = (latestTeasersResp && latestTeasersResp.data) || [];

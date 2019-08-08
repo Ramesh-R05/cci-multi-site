@@ -1,4 +1,4 @@
-import { getLatestTeasers } from '../api/listing';
+import API from '../api';
 import { parseEntities } from '../helper/parseEntity';
 const listCount = 14;
 
@@ -20,7 +20,7 @@ export default async function list(req, res, next) {
 
         const top = listCount;
         const skip = (pageNo - 1) * listCount;
-        const latestTeasers = await getLatestTeasers(top, skip, listingQuery);
+        const latestTeasers = await API.getLatestTeasers(top, skip, listingQuery);
         const listResp = latestTeasers && latestTeasers.data ? latestTeasers : { data: [] };
 
         const basePath = section ? `/${section}` : '/';

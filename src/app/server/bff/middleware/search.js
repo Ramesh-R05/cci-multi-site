@@ -1,7 +1,7 @@
 import get from 'lodash/object/get';
 import qs from 'qs';
 import { parseEntities } from '../helper/parseEntity';
-import getSearchResults from '../api/search';
+import API from '../api';
 
 const searchResultTeaserCount = 6;
 const searchCount = 14;
@@ -43,7 +43,7 @@ export default async function searchMiddleware(req, res, next) {
 
         const query = req.query.params ? get(req, 'query.params.query', '') : get(req, 'query.q', '');
         const from = (pageNo - 1) * searchCount;
-        const searchDataResp = await getSearchResults(searchCount, from, query);
+        const searchDataResp = await API.getSearchResults({ searchCount, from, query });
 
         const searchData = (searchDataResp && searchDataResp.results) || [];
         const searchDataCount = (searchDataResp && searchDataResp.total) || 0;

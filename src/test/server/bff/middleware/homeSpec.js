@@ -7,10 +7,11 @@ const getLatestTeasersStub = sinon.stub();
 const parseEntitiesStub = sinon.stub();
 
 const homeMiddleware = proxyquire('../../../../app/server/bff/middleware/home', {
-    '../api/entity': getEntityStub,
-    '../api/listing': {
+    '../api': {
+        getEntity: getEntityStub,
         getLatestTeasers: getLatestTeasersStub
     },
+
     '../helper/parseEntity': {
         parseEntities: parseEntitiesStub
     }

@@ -1,8 +1,7 @@
 import find from 'lodash/collection/find';
 import get from 'lodash/object/get';
-import { getLatestTeasers } from '../api/listing';
 import { parseEntities } from '../helper/parseEntity';
-import { getModule } from '../api/module';
+import API from '../api';
 import tagsToQuery from '../helper/tagsToQuery';
 const LATEST_TEASER_COUNT = 7;
 const LIST_COUNT = 14;
@@ -63,7 +62,7 @@ export default async function sectionMiddleware(req, res, next) {
             teaserFilter = 'parentUrl';
             const sectionListingQuery = `${teaserFilter} eq %27${teaserQuery}%27`;
             listingQuery = excludeTagQuery ? `${sectionListingQuery} and ${excludeTagQuery}` : sectionListingQuery;
-            req.data.subsectionList = await getModule(`sections/${section}`);
+            req.data.subsectionList = await API.getModules([`sections/${section}`]);
         }
 
         if (nodeTypeAlias === 'Brand') {
@@ -78,7 +77,7 @@ export default async function sectionMiddleware(req, res, next) {
         }
 
         const skip = (pageNo - 1) * LIST_COUNT;
-        const latestTeasersResp = await getLatestTeasers(LIST_COUNT, skip, listingQuery);
+        const latestTeasersResp = await API.getLatestTeasers(LIST_COUNT, skip, listingQuery);
 
         const latestTeasersData = (latestTeasersResp && latestTeasersResp.data) || [];
         const latestTeasersCount = (latestTeasersResp && latestTeasersResp.totalCount) || 0;

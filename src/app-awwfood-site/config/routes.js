@@ -57,7 +57,7 @@ export default {
         handler: SinglePage,
         action: loadPageContent,
         validators: {
-            page: /^[^\W_]+(-[^\W_]+)*$/g
+            page: /^[^\W_]+(-[^\W_]+)*-$/g
         }
     },
     section: {
@@ -85,7 +85,7 @@ export default {
         handler: SinglePage,
         action: loadPageContent,
         validators: {
-            page: /^[^\W_]+(-[^\W_]+)*$/g
+            page: /^[^\W_]+(-[^\W_]+)*-?$/g
         }
     },
     all: {

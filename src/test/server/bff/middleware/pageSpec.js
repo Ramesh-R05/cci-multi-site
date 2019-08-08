@@ -6,7 +6,7 @@ const getEntityStub = sinon.stub();
 const getPageIDStub = sinon.stub();
 
 const pageMiddleware = proxyquire('../../../../app/server/bff/middleware/page', {
-    '../api/entity': getEntityStub,
+    '../api': { getEntity: getEntityStub },
     '../helper/getPageID': getPageIDStub
 }).default;
 

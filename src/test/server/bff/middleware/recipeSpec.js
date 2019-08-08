@@ -6,7 +6,7 @@ const getLatestTeasersStub = sinon.stub();
 const getRecipeOverviewStub = sinon.stub();
 
 const recipeMiddleware = proxyquire('../../../../app/server/bff/middleware/recipe', {
-    '../api/listing': {
+    '../api': {
         getLatestTeasers: getLatestTeasersStub
     },
     '../dataTransforms': {

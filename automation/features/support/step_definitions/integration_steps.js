@@ -11,11 +11,11 @@ var docType;
 var isBrowserStack = world.Urls.isBrowserStack;
 var scrolling = require('../../../node_modules/@bxm/automation/lib/utils/scrolling');
 var sitUrls = {
-    'elle': 'http://elle-site-au.sit.bxm.net.au/',
-    'gt': 'http://gt-site-au.sit.bxm.net.au/',
-    'hb': 'http://hb-site-au.sit.bxm.net.au/',
-    'awwfood': 'http://awwfood-site-au.sit.bxm.net.au/',
-    'foodnz': 'http://foodnz-site-nz.sit.bxm.net.au/'
+    'elle': process.env.URL || 'http://elle-site-au.sit.bxm.net.au/',
+    'gt': process.env.URL || 'http://gt-site-au.sit.bxm.net.au/',
+    'hb': process.env.URL ||'http://hb-site-au.sit.bxm.net.au/',
+    'awwfood': process.env.URL || 'http://awwfood-site-au.sit.bxm.net.au/',
+    'foodnz': process.env.URL || 'http://foodnz-site-nz.sit.bxm.net.au/'
 };
 
 function randomValue() {
@@ -222,17 +222,17 @@ module.exports = function() {
 
         // Post File to PUBLISHING BR0KER
         var options = { method: 'POST',
-            url: 'http://services.sit.bxm.internal/publishing-broker/',
+            url: 'https://services.sit.bxm.net.au/publishing-broker/',
             json: true,
             headers: {
                 'postman-token': '98215063-b20d-eb89-4865-35af75c73e11',
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'x-service-access-key': process.env.APP_SERVICES_ACCESS_KEY
             },
             body: body_content
         };
         request(options, function (error, response, body) {
             if (error) throw new Error(error);
-            console.log(body);
         });
 
     });
