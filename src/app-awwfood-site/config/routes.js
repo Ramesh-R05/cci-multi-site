@@ -55,10 +55,7 @@ export default {
         path: '/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: SinglePage,
-        action: loadPageContent,
-        validators: {
-            page: /^[^\W_]+(-[^\W_]+)*-$/g
-        }
+        action: loadPageContent
     },
     section: {
         path: '/:section',
@@ -83,10 +80,7 @@ export default {
         path: '/recipes/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: SinglePage,
-        action: loadPageContent,
-        validators: {
-            page: /^[^\W_]+(-[^\W_]+)*-?$/g
-        }
+        action: loadPageContent
     },
     all: {
         path: '/:all*',
