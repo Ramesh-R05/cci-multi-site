@@ -45,21 +45,13 @@ export default {
         path: '/:preview(preview)/:section/:page',
         method: 'get',
         handler: SinglePage,
-        action: loadPageContent,
-        validators: {
-            section: /^[^\W_]+(-[^\W_]+)*$/g,
-            page: /^[^\W_]+(-[^\W_]+)*$/g
-        }
+        action: loadPageContent
     },
     page: {
         path: '/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: SinglePage,
-        action: loadPageContent,
-        validators: {
-            page: /^[^\W_]+(-[^\W_]+)*-$/g,
-            id: /^[0-9]*$/g
-        }
+        action: loadPageContent
     },
     section: {
         path: '/:section',
@@ -84,11 +76,7 @@ export default {
         path: '/recipes/:page(.*-):id([0-9]+)',
         method: 'get',
         handler: SinglePage,
-        action: loadPageContent,
-        validators: {
-            page: /^[^\W_]+(-[^\W_]+)*-$/g,
-            id: /^[0-9]*$/g
-        }
+        action: loadPageContent
     },
     all: {
         path: '/:all*',
