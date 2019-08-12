@@ -16,7 +16,7 @@ export default {
     brightcove,
 
     jwPlayer: {
-        scriptKey: 'pHgLLmI0',
+        scriptKey: 'wbnwKpx0',
         baseUrl: 'https://cdn.jwplayer.com'
     },
 
