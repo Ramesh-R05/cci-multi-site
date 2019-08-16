@@ -6,12 +6,12 @@
     color: $color-text;
     position: fixed;
     border-bottom: 1px solid $color-accent;
-    height: 54px;    
+    height: 54px;
 
     @media #{$medium-up} {
         border-width: 1px;
-        border-bottom: none;        
-    }    
+        border-bottom: none;
+    }
 
     &--hidden {
         @media #{$small-only} {
@@ -23,10 +23,7 @@
 
     &--expanded {
         position: absolute;
-
-        @media #{$small-only} {
-            height: 105px;
-        }
+        height: 55px;
     }
 
     &--pinned {
@@ -35,17 +32,14 @@
 
     .page--home, .page--section & {
         position: absolute;
+
         #{$root}--pinned {
             position: fixed;
-        }        
+        }
     }
 
     .page--home & {
         height: 55px;
-
-        @media #{$medium-up} {
-            height: auto;
-        }
     }
 
     .error-page & {
@@ -69,8 +63,8 @@
             padding: 0 calc( 50% - #{$header-content-width-desktop/2} );
         }
 
-        &:after {            
-            display: none;            
+        &:after {
+            display: none;
 
             @media screen and (min-width: 1425px) {
                 position: absolute;
