@@ -24,7 +24,7 @@ export default {
         }
     },
     jwPlayer: {
-        enabled: false
+        enabled: true
     },
     galleryOfGalleries: {
         enabled: true
