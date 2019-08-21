@@ -3,6 +3,7 @@ import get from 'lodash/object/get';
 import { parseEntities } from '../helper/parseEntity';
 import API from '../api';
 import tagsToQuery from '../helper/tagsToQuery';
+import { reviewItemsSort } from '../dataTransforms';
 const LATEST_TEASER_COUNT = 7;
 const LIST_COUNT = 14;
 
@@ -117,8 +118,8 @@ export default async function sectionMiddleware(req, res, next) {
             url: `${config.site.host}${path}`
         };
 
-        req.data.latestTeasers = latestTeasersData.slice(0, LATEST_TEASER_COUNT);
-
+        const latestTeaserItems = reviewItemsSort(latestTeasersData, `${section}/${subsection}`, config);
+        req.data.latestTeasers = latestTeaserItems.slice(0, LATEST_TEASER_COUNT);
         req.data.list = {
             listName: section,
             params: {
@@ -127,7 +128,7 @@ export default async function sectionMiddleware(req, res, next) {
                 filter: teaserFilter,
                 sectionFormatted: section
             },
-            items: [parseEntities(latestTeasersData.slice(LATEST_TEASER_COUNT))],
+            items: [parseEntities(latestTeaserItems.slice(LATEST_TEASER_COUNT))],
             previous: previousPage,
             current: currentPage,
             next: nextPage
