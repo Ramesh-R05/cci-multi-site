@@ -7,7 +7,12 @@ export default class Repeatable extends Component {
         component: PropTypes.func.isRequired,
         action: PropTypes.func.isRequired,
         dataSource: PropTypes.object.isRequired,
-        nextParams: PropTypes.object.isRequired
+        nextParams: PropTypes.object.isRequired,
+        currentUrl: PropTypes.string
+    };
+
+    static defaultProps = {
+        currentUrl: ''
     };
 
     static contextTypes = {
@@ -35,7 +40,7 @@ export default class Repeatable extends Component {
     }
 
     render() {
-        const { component: ChildComponent, dataSource, ...otherProps } = this.props;
+        const { component: ChildComponent, dataSource, currentUrl, ...otherProps } = this.props;
 
         const items = dataSource.items;
 
@@ -63,8 +68,9 @@ export default class Repeatable extends Component {
         };
 
         let loadMore = null;
+        const restaurantGuide = '/dining-out/restaurant-guide';
 
-        if (nextUrl) {
+        if (nextUrl && currentUrl !== restaurantGuide) {
             loadMore = (
                 <div className="load-more">
                     <button className="button gtm-loadmore-button button--load-more" onClick={this.onLoadMore}>

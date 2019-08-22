@@ -5,12 +5,18 @@ import API from '../api';
 import tagsToQuery from '../helper/tagsToQuery';
 import { reviewItemsSort } from '../dataTransforms';
 const LATEST_TEASER_COUNT = 7;
-const LIST_COUNT = 14;
 
 export default async function sectionMiddleware(req, res, next) {
+    let LIST_COUNT = 14;
+
     try {
         let pageNo = 1;
         const { page, section, subsection } = req.query;
+        const reviewSection = 'dining-out/restaurant-guide';
+
+        if (`${section}/${subsection}` === reviewSection) {
+            LIST_COUNT = 200;
+        }
 
         const { config } = req.app.locals;
         const { commercialTagSections, excludeTagQuery } = req.data;

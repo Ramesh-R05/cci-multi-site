@@ -258,6 +258,7 @@ export default class Section extends Component {
                     <Repeatable
                         component={TeaserListView}
                         action={loadList}
+                        currentUrl={currentUrl}
                         showDate
                         dataSource={list}
                         nextParams={listNextParams}
