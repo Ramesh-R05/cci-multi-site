@@ -2,7 +2,7 @@
   padding: 0;
 
   &:before {
-    content: 'MORE FROM THE TO LOVE NETWORK';
+    content: 'MORE FROM OUR NETWORK';
     width: 100%;
     display: block;
     font-family: proxima-nova, sans-serif;
@@ -13,12 +13,12 @@
     margin: 28px 0px 40px;
     left: 0;
     height: 0px;
-  
+
     @media #{$small-only} {
         font-size: 11px;
         margin: 25px 0px 34px;
     }
-  }  
+  }
 
   li {
       display: inline-block;
