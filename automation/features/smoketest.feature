@@ -174,18 +174,18 @@ Feature: Smoke test for all sites in SIT environment
             | amp article   | long title    |
 
     @smoketesthb
-    Scenario Outline: Verify the "<doctype>" page is up on HB
-        Given I am currently viewing "<doctype>" page on "hb" site
-        Then I should see the "<element>" element
-        Examples:
-            | doctype       | element       |
-            | gallery       | long title    |
-            | amp article   | long title    |
-    @optional
-        Examples:
-            | doctype       | element       |
-            | article       | long title    |
-            | amp gallery   | long title    |
+    # Scenario Outline: Verify the "<doctype>" page is up on HB
+    #     Given I am currently viewing "<doctype>" page on "hb" site
+    #     Then I should see the "<element>" element
+    #     Examples:
+    #         | doctype       | element       |
+    #         | gallery       | long title    |
+    #         | amp article   | long title    |
+    # @optional
+    #     Examples:
+    #         | doctype       | element       |
+    #         | article       | long title    |
+    #         | amp gallery   | long title    |
 
     @smoketestgt
     Scenario Outline: Verify the "<doctype>" page is up on GT
