@@ -1,10 +1,11 @@
 import API from '../api';
 import { parseEntities } from '../helper/parseEntity';
+import tagsToQuery from '../helper/tagsToQuery';
 const listCount = 14;
 
 export default async function list(req, res, next) {
     try {
-        const { excludeTagQuery } = req.data;
+        const { commercialTagSections, excludeTagQuery } = req.data;
         const pageNo = parseInt(req.query.pageNo, 10);
         const { section, filter, tagSectionQuery } = req.query;
 
@@ -16,6 +17,16 @@ export default async function list(req, res, next) {
             const query = section && filter ? `${filter} eq %27${section}%27` : undefined;
             const queryWithCommercialTag = query ? `${query} and ${excludeTagQuery}` : excludeTagQuery;
             listingQuery = excludeTagQuery ? queryWithCommercialTag : query;
+            const currentCommercialTag = Array.isArray(commercialTagSections)
+                ? commercialTagSections.filter(commercialTagSection => commercialTagSection.url === req.query.section)
+                : [];
+
+            if (currentCommercialTag.length && Array.isArray(currentCommercialTag[0].tagsDetails)) {
+                if (currentCommercialTag[0].tagsDetails.length) {
+                    const commercialTagFullNames = currentCommercialTag[0].tagsDetails.map(tag => tag.fullName);
+                    listingQuery = tagsToQuery(commercialTagFullNames, 'eq');
+                }
+            }
         }
 
         const top = listCount;
