@@ -61,7 +61,7 @@
         "@bxm/tags": "^4.0.0",
         "@bxm/teaser": "^8.2.0",
         "@bxm/ui": "^18.0.0",
-        "@bxm/video": "^9.0.0",
+        "@bxm/video": "^9.1.0",
         "@bxm/winston-logger": "^1.1.0",
         "classnames": "^2.1.2",
         "dotenv": "^8.0.0",
