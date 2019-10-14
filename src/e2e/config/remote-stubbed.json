@@ -1,0 +1,6 @@
+{
+    "baseUrl": "http://multi-site.test.bxm.net.au",
+    "env": {
+        "includedTags": "@stub"
+    }
+}

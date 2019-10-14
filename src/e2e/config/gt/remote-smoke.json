@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://gt-site-au.sit.bxm.net.au",
+    "env": {
+        "includedTags": "@sitGT"
+    }
+    
+}

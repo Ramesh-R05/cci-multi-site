@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://awwfood-site-au.sit.bxm.net.au",
+    "env": {
+        "includedTags": "@sitAWWFOOD"
+    }
+    
+}

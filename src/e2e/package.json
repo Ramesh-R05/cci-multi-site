@@ -1,0 +1,40 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "Integration test using Cypress",
+  "main": "index.js",
+  "scripts": {
+    "setup:local": "configure ./config/local.json",
+    "setup:remote-smoke-awwfood": "configure ./config/awwfood/remote-smoke.json",
+    "setup:remote-smoke-elle": "configure ./config/elle/remote-smoke.json",
+    "setup:remote-smoke-foodnz": "configure ./config/foodnz/remote-smoke.json",
+    "setup:remote-smoke-gt": "configure ./config/gt/remote-smoke.json",
+    "setup:remote-smoke-hb": "configure ./config/hb/remote-smoke.json",
+    "setup:remote-stub": "configure ./config/remote-stubbed.json",
+    "setup:remote-stub-high": "configure ./config/remote-stubbed-high.json",
+    "test:ui": "integration open",
+    "test:headless": "integration run",
+    "run:local:ui": "run-s setup:local test:ui",
+    "run:remote-smoke-awwfood:headless": "run-s setup:remote-smoke-awwfood test:headless",
+    "run:remote-smoke-foodnz:headless": "run-s setup:remote-smoke-foodnz test:headless",
+    "run:remote-smoke-elle:headless": "run-s setup:remote-smoke-elle test:headless",
+    "run:remote-smoke-gt:headless": "run-s setup:remote-smoke-gt test:headless",
+    "run:remote-smoke-hb:headless": "run-s setup:remote-smoke-hb test:headless",
+    "run:remote-smoke-awwfood:local": "run-s setup:remote-smoke-awwfood test:ui",
+    "run:remote-smoke-elle:local": "run-s setup:remote-smoke-elle test:ui",
+    "run:remote-smoke-foodnz:local": "run-s setup:remote-smoke-foodnz test:ui",
+    "run:remote-smoke-gt:local": "run-s setup:remote-smoke-gt test:ui",
+    "run:remote-smoke-hb:local": "run-s setup:remote-smoke-hb test:ui",
+    "run:remote-stub:headless": "run-s setup:remote-stub test:headless",
+    "run:remote-stub-high:headless": "run-s setup:remote-stub-high test:headless"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bxm/integration": "^1.1.0"
+  },
+  "devDependencies": {
+    "@bxm/code-quality": "^1.0.0",
+    "npm-run-all": "^4.1.5"
+  }
+}

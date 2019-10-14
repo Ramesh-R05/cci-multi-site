@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://elle-site-au.sit.bxm.net.au",
+    "env": {
+        "includedTags": "@sitELLE"
+    }
+    
+}

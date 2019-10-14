@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://foodnz-site-nz.sit.bxm.net.au",
+    "env": {
+        "includedTags": "@sitFOODNZ"
+    }
+    
+}

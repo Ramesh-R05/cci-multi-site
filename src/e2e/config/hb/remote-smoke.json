@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://hb-site-au.sit.bxm.net.au",
+    "env": {
+        "includedTags": "@sitHB"
+    }
+    
+}
