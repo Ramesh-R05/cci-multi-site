@@ -420,6 +420,197 @@ jobs:
         - *template-lighthouse-csv-report
       NOTIFY: multi-slack-notifications
 
+  # 4e. Run INTEGRATION smoke test on SIT environment for ELLE site
+  - name: elle-integration-smoke-test
+    type: runSh
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: elle-site-sit-deploy-master
+    - IN: multi-site-test-env
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/src/e2e
+       - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+       - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+       - script: sudo apt-get update
+       - script: sudo apt-get install google-chrome-stable
+       - script: google-chrome --product-version
+       - script: java -version
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=elle-site
+       - script: export URL=http://elle-site-au.sit.bxm.net.au
+       - script: npm run run:remote-smoke-elle:headless || true
+    on_failure:
+      - NOTIFY: multi-deployment-notifications
+
+  # 4f. Run INTEGRATION smoke test on SIT environment for HB site
+  - name: hb-integration-smoke-test
+    type: runSh
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: hb-site-sit-deploy-master
+    - IN: multi-site-test-env
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/src/e2e
+       - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+       - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+       - script: sudo apt-get update
+       - script: sudo apt-get install google-chrome-stable
+       - script: google-chrome --product-version
+       - script: java -version
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=hb-site
+       - script: export URL=http://hb-site-au.sit.bxm.net.au
+       - script: npm run run:remote-smoke-hb:headless || true
+    on_failure:
+      - NOTIFY: multi-deployment-notifications
+
+  # 4g. Run INTEGRATION smoke test on SIT environment for GT site
+  - name: gt-integration-smoke-test
+    type: runSh
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: gt-site-sit-deploy-master
+    - IN: multi-site-test-env
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/src/e2e
+       - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+       - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+       - script: sudo apt-get update
+       - script: sudo apt-get install google-chrome-stable
+       - script: google-chrome --product-version
+       - script: java -version
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=gt-site
+       - script: export URL=http://gt-site-au.sit.bxm.net.au
+       - script: npm run run:remote-smoke-gt:headless || true
+    on_failure:
+      - NOTIFY: multi-deployment-notifications
+
+  # 4k. Run INTEGRATION smoke test on SIT environment for AWWFOOD site
+  - name: awwfood-integration-smoke-test
+    type: runSh
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: awwfood-site-sit-deploy-master
+    - IN: multi-site-test-env
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/src/e2e
+       - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+       - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+       - script: sudo apt-get update
+       - script: sudo apt-get install google-chrome-stable
+       - script: google-chrome --product-version
+       - script: java -version
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=awwfood-site
+       - script: export URL=http://awwfood-site-au.sit.bxm.net.au
+       - script: npm run run:remote-smoke-awwfood:headless || true
+    on_failure:
+      - NOTIFY: multi-deployment-notifications
+
+  # 4l. Run INTEGRATION smoke test on SIT environment for FOODNZ site
+  - name: foodnz-integration-smoke-test
+    type: runSh
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: foodnz-site-sit-deploy-master
+    - IN: multi-site-test-env
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/src/e2e
+       - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+       - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+       - script: sudo apt-get update
+       - script: sudo apt-get install google-chrome-stable
+       - script: google-chrome --product-version
+       - script: java -version
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=foodnz-site
+       - script: export URL=http://foodnz-site-nz.sit.bxm.net.au
+       - script: npm run run:remote-smoke-foodnz:headless || true
+    on_failure:
+      - NOTIFY: multi-deployment-notifications
+
+  # 4m. Run INTEGRATION stub test on TEST environment for multi sites
+  - name: multi-site-integration-stub-test
+    type: runSh
+    dependencyMode: strict
+    always:
+    - NOTIFY: multi-slack-notifications
+    - NOTIFY: multi-qa-team-notifications
+    steps:
+    - IN: multi-site-test-deploy-master
+    - IN: multi-site-repo
+      switch: off
+    - TASK:
+       - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+       - script: source ~/.nvm/nvm.sh
+       - script: nvm install "8.9.1"
+       - script: nvm use "8.9.1"
+       - script: cd ./IN/multi-site-repo/gitRepo/src/e2e
+       - script: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+       - script: sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+       - script: sudo apt-get update
+       - script: sudo apt-get install google-chrome-stable
+       - script: google-chrome --product-version
+       - script: java -version
+       - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+       - script: npm install
+       - script: export APP_KEY=elle-site
+       - script: export URL=http://multi-site.test.bxm.net.au/
+       - script: npm run run:remote-stub-high:headless || true
+    on_failure:
+      - NOTIFY: elle-deployment-notifications
+
   # 5ELLE. Package release for production release
   - name: elle-release-master
     type: release
