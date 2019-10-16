@@ -1,4 +1,3 @@
-import brightcove from './brightcove';
 import cache from './cache';
 import features from './features';
 import global from './global';
@@ -10,8 +9,6 @@ export default {
     gtm: { masthead: 'NOW', id: 'GTM-MSL9XB' },
 
     defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/now/defaultimage.png',
-
-    brightcove,
 
     gigya: { apiKey: '3_R74vzxKbWVOiWuMSjElPNubJi5gS7NQ-KkpquR6Y3zVBafukYzJSZRMHKtri2igs' },
 

@@ -995,15 +995,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },
@@ -1110,15 +1112,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },
@@ -1225,15 +1229,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },
@@ -1340,15 +1346,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },
@@ -1455,15 +1463,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },
@@ -1570,15 +1580,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },
@@ -1685,15 +1697,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },
@@ -1800,15 +1814,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },
@@ -1915,15 +1931,17 @@ export default [
         imageAltText: 'Fine china',
         imageCaption: 'The Wedgwood ‘Arris’ range of fine bone china.',
         video: {
-            id: 'VIDEO-2265',
-            name: '4141553739001',
+            id: 'Wdojqhyf',
+            name: "Everything you need to know about Sarah Jessica Parker's new wine",
             type: 'VideoItem',
             properties: {
                 videoConfiguration: {
-                    videoId: 'VIDEO-2265',
-                    status: 'Video upload is complete',
-                    brightcoveId: '4141553739001',
-                    statusCode: 200
+                    status: '',
+                    videoId: 'Wdojqhyf',
+                    videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
+                    statusCode: 200,
+                    thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                    videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                 }
             }
         },

@@ -6,19 +6,17 @@ export default {
             parentName: 'Fashion',
             contentTitle: 'Adi Video',
             contentVideo: {
-                id: '4761284339001',
-                name: 'Did Miley Cyrus and Liam Hemsworth secretly get hitched?',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4761284339001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4761284339001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4761294439001_4761284339001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4761294440001_4761284339001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -33,19 +31,17 @@ export default {
             parentName: 'unmapped',
             contentTitle: "Lucy Hale's pretty little beauty secret will make your makeup routine 300% better",
             contentVideo: {
-                id: '4749738766001',
-                name: 'Lucy Hale spills her epic pretty little beauty secret',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4749738766001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4749738766001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4749774058001_4749738766001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4749774056001_4749738766001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -61,19 +57,17 @@ export default {
             parentName: 'unmapped',
             contentTitle: 'Easy, breezy, beautiful Zendaya has just landed herself the campaign of a lifetime…',
             contentVideo: {
-                id: '4715956351001',
-                name: 'Easy, breezy, beautiful Zendaya has just landed herself the campaign of a lifetime…',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4715956351001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4715956351001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4715959745001_4715956351001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4715959748001_4715956351001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -89,19 +83,17 @@ export default {
             parentName: 'Dolly Doctor',
             contentTitle: 'That one time JLAW vomited up a slurpee a first date',
             contentVideo: {
-                id: '4525150025001',
-                name: 'That one time JLAW vomited up a slurpee a first date',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4525150025001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4525150025001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4525190812001_4525150025001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4525190815001_4525150025001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },
@@ -117,19 +109,17 @@ export default {
             parentName: 'Dolly Doctor',
             contentTitle: 'Brooklyn Beckham’s guide to Instagram is the greatest thing you’ll watch all day',
             contentVideo: {
-                id: '4477126213001',
-                name: 'Brooklyn Beckham’s guide to Instagram is the greatest thing you’ll watch all day',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
                         status: '',
-                        videoId: '4477126213001',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4477126213001',
-                        thumbnailUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4580219633001_4477126213001-th.jpg?pubId=761709621001',
-                        videoStillUrl:
-                            'http://brightcove04.o.brightcove.com/761709621001/761709621001_4580219636001_4477126213001-vs.jpg?pubId=761709621001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             },

@@ -1,7 +1,4 @@
 export default {
-    jwPlayer: {
-        enabled: true
-    },
     mustRead: {
         desktopCount: 4,
         tabletCount: 2,

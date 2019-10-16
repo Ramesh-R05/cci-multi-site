@@ -28,15 +28,17 @@ export default {
             type: 'video',
             label: 'Video',
             content: {
-                id: 'VIDEO-3006',
-                name: '4701284094001',
+                id: 'Wdojqhyf',
+                name: "Everything you need to know about Sarah Jessica Parker's new wine",
                 type: 'VideoItem',
                 properties: {
                     videoConfiguration: {
-                        status: 'Video upload is complete',
-                        videoId: 'VIDEO-3006',
+                        status: '',
+                        videoId: 'Wdojqhyf',
+                        videoUrl: 'https://cdn.jwplayer.com/manifests/Wdojqhyf.m3u8',
                         statusCode: 200,
-                        brightcoveId: '4701284094001'
+                        thumbnailUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-320.jpg',
+                        videoStillUrl: 'https://cdn.jwplayer.com/thumbs/Wdojqhyf-720.jpg'
                     }
                 }
             }

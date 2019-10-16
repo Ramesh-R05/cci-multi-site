@@ -1,9 +1,6 @@
 import imageResize from '@bxm/ui/lib/common/ImageResize';
 
 export default {
-    jwPlayer: {
-        enabled: true
-    },
     mustRead: {
         desktopCount: 4,
         tabletCount: 2,

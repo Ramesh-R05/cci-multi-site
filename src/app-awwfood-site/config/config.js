@@ -1,4 +1,3 @@
-import brightcove from './brightcove';
 import cache from './cache';
 import features from './features';
 import global from './global';
@@ -12,8 +11,6 @@ export default {
     gtm: { masthead: 'AWWFOOD', id: 'GTM-MHX78ZT' }, // TODO: Check that the masthead is correct
 
     defaultImageUrl: 'http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/awwfood/2018/09/03/1535939419920_awwfood-default.png',
-
-    brightcove,
 
     jwPlayer: {
         scriptKey: 'V2EH3i8K',

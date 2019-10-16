@@ -1,4 +1,3 @@
-import brightcove from './brightcove';
 import cache from './cache';
 import features from './features';
 import global from './global';
@@ -12,8 +11,6 @@ export default {
     gtm: { masthead: 'COSMO', id: 'GTM-K774C2' },
 
     defaultImageUrl: 'https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/cosmo/defaultimage.png',
-
-    brightcove,
 
     jwPlayer: {
         scriptKey: 'MfeY2XJK',
