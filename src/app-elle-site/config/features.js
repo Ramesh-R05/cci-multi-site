@@ -55,9 +55,6 @@ export default {
             { ca: '20002304', a: '30tp4z58' } // Women's sites pixel
         ]
     },
-    oriel: {
-        enabled: true
-    },
     feedCarousel: {
         enabled: true
     },

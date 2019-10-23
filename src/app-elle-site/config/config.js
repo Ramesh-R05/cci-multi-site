@@ -153,8 +153,5 @@ export default {
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
-    oriel: {
-        scriptUrl: '//n74s9.com/fise4rdvhmpg3lqob8dsu1fj.js'
-    },
     nielsen: '5714739C-ACCD-4AC1-9BFB-EB7DD3E8DAD4'
 };
