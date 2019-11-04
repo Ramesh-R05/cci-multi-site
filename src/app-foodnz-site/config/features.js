@@ -121,5 +121,8 @@ export default {
     },
     homeSearchPlaceholderText: {
         enabled: true
+    },
+    polar: {
+        enabled: true
     }
 };
