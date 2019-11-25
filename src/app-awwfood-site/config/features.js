@@ -119,6 +119,10 @@ export default {
         enabled: true,
         id: 926929
     },
+    skimLinks: {
+        enabled: false,
+        publisherCode: ''
+    },
     moreFrom: {
         enabled: true,
         title: "More From Women's Weekly Food",

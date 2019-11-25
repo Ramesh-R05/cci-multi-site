@@ -106,5 +106,12 @@ export default {
     ias: {
         enabled: true,
         id: 926929
+    },
+    jwPlayer: {
+        enabled: true
+    },
+    skimLinks: {
+        enabled: true,
+        publisherCode: '105419X1577742'
     }
 };

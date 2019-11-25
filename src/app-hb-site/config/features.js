@@ -67,5 +67,9 @@ export default {
     ias: {
         enabled: true,
         id: 926929
+    },
+    skimLinks: {
+        enabled: true,
+        publisherCode: '105419X1569492'
     }
 };
