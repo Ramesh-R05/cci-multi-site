@@ -94,8 +94,8 @@ export default {
             youtube: 'https://www.youtube.com/user/BAZAARaustralia'
         },
         newsletterUrl: 'https://www.harpersbazaar.com.au/hb-newsletter',
-        subscribeButtonText: 'Subscribe',
-        subscribeButtonUrl: '/subscribe-magazine',
+        subscribeButtonText: 'Download',
+        subscribeButtonUrl: '/download-ebook',
         imageSizes: {
             s: { w: 275 },
             m: { w: 275 },
