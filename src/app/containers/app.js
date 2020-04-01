@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connectToStores, provideContext } from '@bxm/flux';
+
 import AdManager from '@bxm/ad/lib/google/components/adManager';
-import { handleHistory } from 'fluxible-router';
-import canUseDOM from 'exenv';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import PropTypes from 'prop-types';
+import canUseDOM from 'exenv';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { handleHistory } from 'fluxible-router';
 import ErrorPage from '../components/page/error';
 
 function mapStateToProps(context) {
@@ -30,6 +31,7 @@ class Application extends Component {
         currentNavigateError: PropTypes.shape({
             statusCode: PropTypes.number.isRequired
         }),
+        title: PropTypes.string,
         nodeType: PropTypes.string.isRequired,
         error: PropTypes.object,
         theme: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
@@ -39,6 +41,7 @@ class Application extends Component {
     static defaultProps = {
         error: null,
         theme: null,
+        title: '',
         currentRoute: null,
         currentNavigateError: null,
         isNavigateComplete: false
