@@ -26,7 +26,8 @@ export default function responseBody(req, res, next) {
             promoted,
             magcover,
             comScoreSegmentIds,
-            altArticleNewsLetterSignupUrl
+            altArticleNewsLetterSignupUrl,
+            sailthruArticleNewsLetterSignupUrl
         } = data;
 
         res.body = {
@@ -156,6 +157,10 @@ export default function responseBody(req, res, next) {
 
         if (get(req, 'data.altArticleNewsLetterSignupUrl')) {
             res.body.altArticleNewsLetterSignupUrl = altArticleNewsLetterSignupUrl;
+        }
+
+        if (get(req, 'data.sailthruArticleNewsLetterSignupUrl')) {
+            res.body.sailthruArticleNewsLetterSignupUrl = sailthruArticleNewsLetterSignupUrl;
         }
 
         next();

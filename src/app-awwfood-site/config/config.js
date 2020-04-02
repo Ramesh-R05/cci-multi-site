@@ -80,7 +80,8 @@ export default {
             pinterest: 'https://www.pinterest.com.au/womensweeklyfood/'
         },
 
-        newsletterSignupInBodyCopy: '' // Not used on WWFood
+        newsletterSignupInBodyCopy: 'https://cb.sailthru.com/join/5kw/signup-foodtolove-article-iframe-bottom', // for non-AMP pages on WWFood
+        newsletterAmpSignupInBodyCopy: 'https://cb.sailthru.com/join/5kw/signup-foodtolove-amp-article-iframe-bottom' // Only used on AMP pages of WWFood
     },
 
     // Used for the magazine image (not the one in the footer)

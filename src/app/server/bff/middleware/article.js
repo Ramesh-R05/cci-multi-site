@@ -17,6 +17,12 @@ export default async function article(req, res, next) {
 
         req.data.altArticleNewsLetterSignupUrl = get(req, `app.locals.config.urls.alternateNewsletterSignupIframeForArticle.${section}`, null);
 
+        req.data.sailthruArticleNewsLetterSignupUrl = get(
+            req,
+            `app.locals.config.urls.alternateSailthruNewsletterSignupIframeForArticle.${section}`,
+            null
+        );
+
         const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'";
         req.data.leftHandSide = await API.getLatestTeasers(TOP, undefined, listingQuery);
 
