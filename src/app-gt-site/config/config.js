@@ -163,5 +163,11 @@ export default {
         widgetId: 'AR_1',
         scriptUrl: '//widgets.outbrain.com/outbrain.js'
     },
-    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708'
+    nielsen: '0C1B8319-D481-4F99-B742-68A42FE2A708',
+
+    meta: {
+        commissionFactoryVerification: {
+            content: '5f59a6842b0043d5ba3f0a24475c5c2e'
+        }
+    }
 };
