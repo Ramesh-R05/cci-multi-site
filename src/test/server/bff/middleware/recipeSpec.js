@@ -24,7 +24,7 @@ const createBaseRequest = (
     ...req
 });
 
-const mockListingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'";
+const mockListingQuery = "nodeTypeAlias eq 'Article,Gallery,Recipe,Review'";
 
 function resetStubs() {
     getLatestTeasersStub.reset();

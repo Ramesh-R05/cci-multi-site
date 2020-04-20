@@ -68,9 +68,7 @@ describe('Review middleware', () => {
             reviewMiddleware(req, res, next)
                 .then(() => {
                     expect(getLatestTeasersStub).to.be.called;
-                    expect(getLatestTeasersStub.getCall(0).args[2]).to.equal(
-                        "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'"
-                    );
+                    expect(getLatestTeasersStub.getCall(0).args[2]).to.equal("nodeTypeAlias eq 'Article,Gallery,Recipe,Review'");
                     expect(next).to.be.called;
                     done();
                 })

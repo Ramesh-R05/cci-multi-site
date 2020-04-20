@@ -7,7 +7,7 @@ export default async function recipeMiddleware(req, res, next) {
         const { data = {} } = req;
         const { entity } = data;
         const nodeTypeAlias = get(req, 'data.entity.nodeTypeAlias', '');
-        const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'";
+        const listingQuery = "nodeTypeAlias eq 'Article,Gallery,Recipe,Review'";
         const TOP = 20;
 
         if (nodeTypeAlias !== 'Recipe') {

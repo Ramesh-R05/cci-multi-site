@@ -13,7 +13,7 @@ export default async function collection(req, res, next) {
             return;
         }
 
-        const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'";
+        const listingQuery = "nodeTypeAlias eq 'Article,Gallery,Recipe,Review'";
         req.data.leftHandSide = await API.getLatestTeasers(TOP, undefined, listingQuery);
 
         next();

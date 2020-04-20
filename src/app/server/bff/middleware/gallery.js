@@ -16,7 +16,7 @@ export default async function gallery(req, res, next) {
         const section = get(req, 'query.section', '');
         req.data.altArticleNewsLetterSignupUrl = get(req, `app.locals.config.urls.alternateNewsletterSignupIframeForArticle.${section}`, null);
 
-        const listingQuery = "nodeTypeAlias eq 'Article' or nodeTypeAlias eq 'Gallery' or nodeTypeAlias eq 'Recipe' or nodeTypeAlias eq 'Review'";
+        const listingQuery = "nodeTypeAlias eq 'Article,Gallery,Recipe,Review'";
         req.data.leftHandSide = await API.getLatestTeasers(TOP, undefined, listingQuery);
         req.data.moreGalleries = await API.getMoreGalleries();
 
