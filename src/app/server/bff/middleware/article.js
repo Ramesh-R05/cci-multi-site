@@ -22,7 +22,7 @@ export default async function article(req, res, next) {
             `app.locals.config.urls.alternateSailthruNewsletterSignupIframeForArticle.${section}`,
             null
         );
-        
+
         const listingQuery = "nodeTypeAlias eq 'Article,Gallery,Recipe,Review'";
         req.data.leftHandSide = await API.getLatestTeasers(TOP, undefined, listingQuery);
 

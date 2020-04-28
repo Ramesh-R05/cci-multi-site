@@ -19,7 +19,8 @@ export const initialState = {
         items: []
     },
     latestTeasers: [],
-    theme: {}
+    theme: {},
+    siteAlert: {}
 };
 
 export function reducer(state = initialState, payload = {}, eventName = '') {
@@ -40,6 +41,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
                 footer,
                 magazineImageUrl: payload.body.magCover.moduleImageUrl,
                 theme: payload.body.theme,
+                siteAlert: payload.body.siteAlert,
                 magCover: payload.body.magCover,
                 latestTeasers: payload.body.list.params.pageNo === 1 ? payload.body.latestTeasers : state.latestTeasers,
                 list: {
@@ -68,6 +70,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
                 footer,
                 magazineImageUrl: '',
                 theme: {},
+                siteAlert: {},
                 magCover,
                 list: {
                     items: []

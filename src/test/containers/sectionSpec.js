@@ -1,8 +1,10 @@
+import proxyquire, { noCallThru } from 'proxyquire';
+
 import { betterMockComponentContext } from '@bxm/flux';
+import polarConfig from '../mocks/polar';
+
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
-import polarConfig from '../mocks/polar';
-import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const PageStub = Context.createStubComponentWithChildren();
@@ -86,6 +88,9 @@ describe('Section Container', () => {
             return 'http://stubbedimages.biz/content.jpg';
         },
         getSubsections() {
+            return {};
+        },
+        getSiteAlert() {
             return {};
         }
     });

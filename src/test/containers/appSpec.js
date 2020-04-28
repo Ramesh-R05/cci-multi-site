@@ -1,7 +1,7 @@
 import { betterMockComponentContext, connectToStores } from '@bxm/flux';
+import proxyquire, { noCallThru } from 'proxyquire';
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
-import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 const ErrorStub = Context.createStubComponent();
 
@@ -26,6 +26,19 @@ describe('App Component', () => {
         themeImage: 'http://dev.assets.cougar.bauer-media.net.au/s3/digital-cougar-assets-dev/Now/2017/02/08/32655/recording-(3).gif',
         themeAlignment: 'center'
     };
+
+    const siteAlertMock = {
+        styles: {
+            textColor: '#ffffff',
+            backgroundColor: '#031424',
+            backgroundImage: ''
+        },
+        primaryText: 'SITE ALERT GOURMET TRAVEL TEST.',
+        secondaryText: 'try your favourite food and vote now!',
+        link: 'https://aws.amazon.com/blogs/networking-and-content-delivery/continually-enhancing-domain-security-on-amazon-cloudfront/',
+        isEnabled: true
+    };
+
     let error = null;
 
     Context.addStore('PageStore', {
@@ -40,6 +53,9 @@ describe('App Component', () => {
         },
         getModule() {
             return themeMock;
+        },
+        getSiteAlert() {
+            return siteAlertMock;
         }
     });
 
@@ -72,7 +88,7 @@ describe('App Component', () => {
         });
 
         it(`should pass appropriate props to the Handler Component`, () => {
-            expect(HandlerComponent.props).to.deep.eq({ currentUrl: currentRoute.url, nodeType, theme: themeMock });
+            expect(HandlerComponent.props).to.deep.eq({ currentUrl: currentRoute.url, nodeType, theme: themeMock, siteAlert: siteAlertMock });
         });
 
         it(`should not render the Error Component`, () => {

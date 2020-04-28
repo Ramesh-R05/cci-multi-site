@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connectToStores } from '@bxm/flux';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
-import get from 'lodash/object/get';
+import PropTypes from 'prop-types';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
+import { connectToStores } from '@bxm/flux';
+import get from 'lodash/object/get';
 import Page from './page';
-import TeaserListView from '../components/teaser/list';
 import Repeatable from '../components/repeatable';
-import loadSearch from '../actions/loadSearch';
-import StickyAndDockAd from '../components/page/stickyAndDockAd';
-import SideBlock from '../components/sideBlock/sideBlock';
 import SearchBar from '../components/search/searchBar';
+import SideBlock from '../components/sideBlock/sideBlock';
+import StickyAndDockAd from '../components/page/stickyAndDockAd';
+import TeaserListView from '../components/teaser/list';
+import loadSearch from '../actions/loadSearch';
 
 function mapStateToProps(context) {
     const SearchStore = context.getStore('SearchStore');
@@ -21,7 +22,8 @@ function mapStateToProps(context) {
         magazineImageUrl: SearchStore.getMagazineImageUrl(),
         searchTotal: SearchStore.getSearchTotal(),
         teasers: SearchStore.getInitialSearchResults(),
-        list: SearchStore.getSearchResultsList()
+        list: SearchStore.getSearchResultsList(),
+        siteAlert: SearchStore.getSiteAlert()
     };
 }
 
@@ -35,6 +37,7 @@ export default class Search extends Component {
         title: PropTypes.string.isRequired,
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
+        siteAlert: PropTypes.object,
         searchTotal: PropTypes.number.isRequired,
         teasers: PropTypes.array,
         list: PropTypes.object.isRequired,
@@ -44,6 +47,7 @@ export default class Search extends Component {
     static defaultProps = {
         teasers: [],
         theme: {},
+        siteAlert: {},
         magazineImageUrl: ''
     };
 
@@ -67,7 +71,7 @@ export default class Search extends Component {
     render() {
         const { config } = this.context;
         const brand = config.product;
-        const { nodeType, teasers, title, currentUrl, theme, searchTotal, list, listNextParams, magazineImageUrl } = this.props;
+        const { nodeType, teasers, title, currentUrl, theme, searchTotal, list, listNextParams, magazineImageUrl, siteAlert } = this.props;
         const keyword = nodeType === 'TagSection' && title ? [title] : [];
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
@@ -104,6 +108,7 @@ export default class Search extends Component {
                 pageTitle={pageTitle}
                 className="page--section"
                 theme={themeEnabled ? theme : {}}
+                siteAlert={siteAlert}
             >
                 <div className="section-page search-page">
                     <div className="container">

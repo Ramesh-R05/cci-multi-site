@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connectToStores } from '@bxm/flux';
-import VerticalGallery from '@bxm/article/lib/gallery';
-import Article from '@bxm/article/lib/article';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
-import RecipeSection from '../components/recipe/section';
+import Article from '@bxm/article/lib/article';
+import PropTypes from 'prop-types';
+import VerticalGallery from '@bxm/article/lib/gallery';
+import { connectToStores } from '@bxm/flux';
 import CollectionSection from '../components/collection/section';
 import Page from './page';
+import RecipeSection from '../components/recipe/section';
 import Teaser from '../components/teaser/teaser';
 
 function mapStateToProps(context) {
@@ -25,11 +26,13 @@ export default class Document extends Component {
         moreFrom: PropTypes.object.isRequired,
         currentUrl: PropTypes.string.isRequired,
         nodeType: PropTypes.string.isRequired,
-        theme: PropTypes.object
+        theme: PropTypes.object,
+        siteAlert: PropTypes.object
     };
 
     static defaultProps = {
-        theme: {}
+        theme: {},
+        siteAlert: {}
     };
 
     static contextTypes = {
@@ -65,7 +68,7 @@ export default class Document extends Component {
     };
 
     render() {
-        const { content, moreFrom, currentUrl, nodeType, theme } = this.props;
+        const { content, moreFrom, currentUrl, nodeType, theme, siteAlert } = this.props;
         const { config } = this.context;
         let sourceEnabled = true;
 
@@ -98,6 +101,7 @@ export default class Document extends Component {
                     headerExpanded={config.features.headerExpanded && themeEnabled}
                     hideFooter={false}
                     theme={themeEnabled ? theme : {}}
+                    siteAlert={siteAlert}
                 >
                     <VerticalGallery
                         articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'ImageCount', 'NativeAd', 'Hero']}
@@ -122,6 +126,7 @@ export default class Document extends Component {
                     headerExpanded={config.features.headerExpanded && themeEnabled}
                     hideFooter={false}
                     theme={themeEnabled ? theme : {}}
+                    siteAlert={siteAlert}
                 >
                     <RecipeSection
                         articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
@@ -147,6 +152,7 @@ export default class Document extends Component {
                     headerExpanded={config.features.headerExpanded && themeEnabled}
                     hideFooter={false}
                     theme={themeEnabled ? theme : {}}
+                    siteAlert={siteAlert}
                 >
                     <CollectionSection
                         articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
@@ -171,6 +177,7 @@ export default class Document extends Component {
                 headerExpanded={config.features.headerExpanded && themeEnabled}
                 hideFooter={false}
                 theme={themeEnabled ? theme : {}}
+                siteAlert={siteAlert}
             >
                 <Article
                     articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}

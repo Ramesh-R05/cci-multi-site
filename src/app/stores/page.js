@@ -22,6 +22,10 @@ export default createReducerStore({
             return state.error;
         },
 
+        getSiteAlert(state) {
+            return state.siteAlert;
+        },
+
         getNodeType(state) {
             return state.nodeType;
         },

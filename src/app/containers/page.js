@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connectToStores } from '@bxm/flux';
-import hamburgerWrapper from '@bxm/nav/lib/components/hamburgerWrapper';
-import MobileOffCanvas from '@bxm/nav/lib/components/offcanvas/content';
-import Header from '@bxm/site-header';
-import HamburgerNav from '@bxm/site-header/lib/components/hamburgerNav';
-import classnames from 'classnames';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
+import HamburgerNav from '@bxm/site-header/lib/components/hamburgerNav';
+import Header from '@bxm/site-header';
+import MobileOffCanvas from '@bxm/nav/lib/components/offcanvas/content';
+import PropTypes from 'prop-types';
 import StandardPageAdsWrapper from '@bxm/ad/lib/google/components/standardPageAdsWrapper';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
-import Logos from '../components/page/logos';
+import classnames from 'classnames';
+import { connectToStores } from '@bxm/flux';
+import hamburgerWrapper from '@bxm/nav/lib/components/hamburgerWrapper';
 import UniHeader from '../components/uniheader';
+import SiteAlert from '../components/siteAlert';
+import Logos from '../components/page/logos';
 import Footer from '../components/footer';
 
 function mapStateToProps(context) {
@@ -56,6 +58,7 @@ export default class Page extends Component {
         isSearchPage: PropTypes.bool,
         magCoverImageUrl: PropTypes.string,
         magCoverText: PropTypes.string,
+        siteAlert: PropTypes.object,
         emailLinkTrackingData: PropTypes.shape({
             bauer_global_unique_id: PropTypes.string,
             source: PropTypes.string,
@@ -72,6 +75,7 @@ export default class Page extends Component {
         hideLeaderboard: false,
         headerClassName: 'header',
         theme: {},
+        siteAlert: null,
         magCover: {},
         searchMagCover: {},
         isSearchPage: false,
@@ -165,6 +169,7 @@ export default class Page extends Component {
             headerClassName,
             content,
             theme,
+            siteAlert,
             menuClasses,
             magCover,
             magCoverImageUrl,
@@ -227,6 +232,8 @@ export default class Page extends Component {
                         toggleMenu={this.toggleMenu}
                         headerClassName={headerClassName}
                         theme={theme}
+                        SubHeaderComponent={siteAlert && siteAlert.isEnabled ? SiteAlert : null}
+                        subHeaderComponentProps={siteAlert && siteAlert.isEnabled ? siteAlert : {}}
                     />
 
                     {!hideLeaderboard && (

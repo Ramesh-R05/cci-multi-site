@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connectToStores } from '@bxm/flux';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
-import get from 'lodash/object/get';
+import PropTypes from 'prop-types';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
-import Page from './page';
+import { connectToStores } from '@bxm/flux';
+import get from 'lodash/object/get';
 import HeroTeaser from '../components/teaser/hero';
+import Page from './page';
+import Repeatable from '../components/repeatable';
+import SideBlock from '../components/sideBlock/sideBlock';
+import StickyAndDockAd from '../components/page/stickyAndDockAd';
+import SubsectionList from '../components/subsectionList';
 import TeaserGridView from '../components/teaser/grid';
 import TeaserListView from '../components/teaser/list';
-import Repeatable from '../components/repeatable';
 import loadList from '../actions/loadList';
-import StickyAndDockAd from '../components/page/stickyAndDockAd';
-import SideBlock from '../components/sideBlock/sideBlock';
-import SubsectionList from '../components/subsectionList';
 
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');
@@ -22,6 +23,7 @@ function mapStateToProps(context) {
         title: pageStore.getTitle(),
         heroTeaser: teaserStore.getHeroTeaser(),
         teasers: teaserStore.getLatestTeasers(),
+        siteAlert: pageStore.getSiteAlert(),
         list: teaserStore.getList(),
         listNextParams: teaserStore.getListNextParams(),
         magazineImageUrl: pageStore.getMagazineImageUrl(),
@@ -44,6 +46,7 @@ export default class Section extends Component {
         title: PropTypes.string.isRequired,
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.object,
+        siteAlert: PropTypes.object,
         subsections: PropTypes.object,
         magazineImageUrl: PropTypes.string,
         summary: PropTypes.string
@@ -53,6 +56,7 @@ export default class Section extends Component {
         teasers: [],
         curatedHeroTeaser: null,
         theme: {},
+        siteAlert: {},
         subsections: { data: [], totalCount: 0 },
         magazineImageUrl: '',
         summary: ''
@@ -83,6 +87,7 @@ export default class Section extends Component {
             title,
             currentUrl,
             theme,
+            siteAlert,
             subsections,
             magazineImageUrl,
             summary,
@@ -153,6 +158,7 @@ export default class Section extends Component {
                 pageTitle={pageTitle}
                 className="page--section"
                 theme={themeEnabled ? theme : {}}
+                siteAlert={siteAlert}
             >
                 <div className="section-page">
                     <div className="container">

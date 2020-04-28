@@ -1,30 +1,31 @@
 import amp from '@bxm/server/lib/middleware/amp';
 import assetProxy from '@bxm/server/lib/middleware/assetProxy';
 import emailLinkTracking from '@bxm/server/lib/middleware/emailLinkTracking';
-import page from './bff/middleware/page';
-import home from './bff/middleware/home';
 import article from './bff/middleware/article';
-import recipe from './bff/middleware/recipe';
-import gallery from './bff/middleware/gallery';
-import review from './bff/middleware/review';
-import responseBody from './bff/middleware/responseBody';
-import https from './bff/middleware/https';
-import render from './bff/middleware/render';
-import error from './bff/middleware/error';
-import pageModules from './bff/middleware/pageModules';
-import listing from './bff/middleware/listing';
-import section from './bff/middleware/section';
-import tag from './bff/middleware/tag';
-import headerMeta from './bff/middleware/headerMeta';
-import sitemap from './bff/middleware/sitemap';
-import list from './bff/middleware/list';
-import stubServer from '../../automation/test_data/contentApi';
-import logger from '../../logger';
-import comScore from './bff/middleware/comScore';
-import search from './bff/middleware/search';
-import commercialTag from './bff/middleware/commercialTag';
 import collection from './bff/middleware/collection';
+import comScore from './bff/middleware/comScore';
+import commercialTag from './bff/middleware/commercialTag';
+import error from './bff/middleware/error';
+import gallery from './bff/middleware/gallery';
+import headerMeta from './bff/middleware/headerMeta';
+import home from './bff/middleware/home';
+import https from './bff/middleware/https';
+import list from './bff/middleware/list';
+import listing from './bff/middleware/listing';
+import logger from '../../logger';
 import moreFrom from './bff/middleware/moreFrom';
+import page from './bff/middleware/page';
+import pageModules from './bff/middleware/pageModules';
+import recipe from './bff/middleware/recipe';
+import render from './bff/middleware/render';
+import responseBody from './bff/middleware/responseBody';
+import review from './bff/middleware/review';
+import search from './bff/middleware/search';
+import section from './bff/middleware/section';
+import siteAlert from './bff/middleware/siteAlert';
+import sitemap from './bff/middleware/sitemap';
+import stubServer from '../../automation/test_data/contentApi';
+import tag from './bff/middleware/tag';
 
 const cosmoRedirects = {
     beauty: 'https://www.elle.com.au/beauty',
@@ -115,6 +116,7 @@ export default function bff(server) {
             server.locals.config.services.endpoints.page,
             emailLinkTracking,
             pageModules,
+            siteAlert,
             commercialTag,
             comScore,
             home,

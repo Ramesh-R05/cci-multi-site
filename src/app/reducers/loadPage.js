@@ -38,6 +38,7 @@ export function reducer(state = initialState, payload = {}, eventName = '') {
                 footer,
                 magazineImageUrl: entity.imageUrl,
                 theme: payload.body.theme,
+                siteAlert: payload.body.siteAlert,
                 magCover: payload.body.magCover,
                 subsections,
                 comScoreSegmentIds,

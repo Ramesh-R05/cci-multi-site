@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import get from 'lodash/object/get';
-import { connectToStores } from '@bxm/flux';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
+import PropTypes from 'prop-types';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
+import { connectToStores } from '@bxm/flux';
+import get from 'lodash/object/get';
 import HeroTeaser from '../components/teaser/hero';
+import MustRead from '../components/mustRead/mustRead';
+import Page from './page';
+import PageSearchBox from '../components/search/pageSearchBox';
+import Promoted from '../components/promoted/promoted';
+import Repeatable from '../components/repeatable';
+import SideBlock from '../components/sideBlock/sideBlock';
+import StickyAndDockAd from '../components/page/stickyAndDockAd';
 import TeaserGridView from '../components/teaser/grid';
 import TeaserListView from '../components/teaser/list';
-import Page from './page';
-import Repeatable from '../components/repeatable';
 import loadList from '../actions/loadList';
-import StickyAndDockAd from '../components/page/stickyAndDockAd';
-import MustRead from '../components/mustRead/mustRead';
-import Promoted from '../components/promoted/promoted';
-import SideBlock from '../components/sideBlock/sideBlock';
-import PageSearchBox from '../components/search/pageSearchBox';
 
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');
@@ -42,12 +43,14 @@ export default class Home extends Component {
         teasers: PropTypes.array,
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+        siteAlert: PropTypes.object,
         magazineImageUrl: PropTypes.string
     };
 
     static defaultProps = {
         teasers: [],
         theme: {},
+        siteAlert: {},
         magazineImageUrl: ''
     };
 
@@ -70,7 +73,7 @@ export default class Home extends Component {
 
     render() {
         const { config } = this.context;
-        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magazineImageUrl, homePageSearchBox } = this.props;
+        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magazineImageUrl, homePageSearchBox, siteAlert } = this.props;
         const { topElm, bottomElm } = this.state;
         const brand = config.product;
         const polarLabels = config.polar.details;
@@ -98,7 +101,14 @@ export default class Home extends Component {
         const isBrandDefined = typeof brand !== 'undefined';
 
         return (
-            <Page currentUrl={currentUrl} headerExpanded={config.features.headerExpanded} showUniheader theme={theme} className="page--home">
+            <Page
+                currentUrl={currentUrl}
+                headerExpanded={config.features.headerExpanded}
+                showUniheader
+                theme={theme}
+                siteAlert={siteAlert}
+                className="page--home"
+            >
                 <div className="home-page">
                     {/* 1st Leaderboard or billboard to show on tablet and up */}
                     <div className="stripe-bg">

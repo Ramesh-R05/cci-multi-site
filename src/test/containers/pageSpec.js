@@ -1,7 +1,9 @@
+import proxyquire, { noCallThru } from 'proxyquire';
+
 import { betterMockComponentContext } from '@bxm/flux';
+
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
-import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const OffCanvasStub = Context.createStubComponentWithChildren();
@@ -172,7 +174,8 @@ describe('Page Container', () => {
             showUniheader: true,
             hideLeaderboard: false,
             theme: {},
-            magCover: {}
+            magCover: {},
+            siteAlert: {}
         };
 
         before(() => {
@@ -215,12 +218,13 @@ describe('Page Container', () => {
             expect(siteHeaderStub.props).to.deep.eq({
                 currentUrl: props.currentUrl,
                 isExpanded: props.headerExpanded,
-                headerClassName: '',
+                headerClassName: 'header',
                 navItems: headerItems,
-                siteName: siteName,
+                siteName,
+                SubHeaderComponent: null,
+                subHeaderComponentProps: {},
                 toggleMenu: currentInstance.toggleMenu,
-                theme: {},
-                headerClassName: 'header'
+                theme: {}
             });
         });
 

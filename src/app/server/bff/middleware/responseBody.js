@@ -1,5 +1,6 @@
 import get from 'lodash/object/get';
-import { parseEntity, parseEntities } from '../helper/parseEntity';
+import { parseEntities, parseEntity } from '../helper/parseEntity';
+
 import parseHeaderMetaData from '../helper/parseHeaderMetaData';
 import parseModule from '../helper/parseModule';
 
@@ -38,6 +39,10 @@ export default function responseBody(req, res, next) {
 
         if (get(req, 'data.theme')) {
             res.body.theme = theme;
+        }
+
+        if (get(req, 'data.siteAlert')) {
+            res.body.siteAlert = req.data.siteAlert;
         }
 
         if (get(req, 'data.search')) {
