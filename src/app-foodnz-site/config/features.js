@@ -128,5 +128,8 @@ export default {
     },
     polar: {
         enabled: true
+    },
+    jwPlayer: {
+        enabled: true
     }
 };

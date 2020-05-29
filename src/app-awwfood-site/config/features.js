@@ -137,5 +137,8 @@ export default {
                 xl: { w: 368, h: 306 }
             }
         }
+    },
+    jwPlayer: {
+        enabled: true
     }
 };
