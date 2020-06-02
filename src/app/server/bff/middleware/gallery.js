@@ -18,7 +18,6 @@ export default async function gallery(req, res, next) {
 
         const listingQuery = "nodeTypeAlias eq 'Article,Gallery,Recipe,Review'";
         req.data.leftHandSide = await API.getLatestTeasers(TOP, undefined, listingQuery);
-        req.data.moreGalleries = await API.getMoreGalleries();
 
         next();
     } catch (error) {

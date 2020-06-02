@@ -16,7 +16,6 @@ export default function responseBody(req, res, next) {
             footer,
             mustread,
             moreFrom,
-            moreGalleries,
             hero,
             latestTeasers,
             videoGalleryTeasers,
@@ -107,10 +106,6 @@ export default function responseBody(req, res, next) {
                 title: moreFrom.title,
                 items: parseEntities(moreFrom.items)
             };
-        }
-
-        if (get(moreGalleries, 'data')) {
-            res.body.moreGalleries = parseEntities(moreGalleries.data);
         }
 
         if (get(req, 'data.hero')) {
