@@ -25,7 +25,7 @@ resources:
     versionTemplate:
       params:
         AWS_S3_BUCKET: "s3://test-result-s3/"
-        secure: eLFlf9nWSWJbMdNziICYW5J6aHjIKLsuK5qU/IXyCLXlWyMuaw3HZrPqoL5nqyJYudHYI1se56UVw2AFytKPI11kloH4J7vx/CHz3Lp2AcdBAq/w4ZTWiWVKmq15MUjlUAegOwX2TEBgD4IDnIbdeDgC15kPavRTqtqKEYAi9DgPTgqW02tvsu2Q+xiJFtihqSOD126M2xz1JGEM2dMwZYJSZiMA2CHSSlXhVNZBtonC3PTYwfwKt1o26IrIcVXfy17J/5/6Dme9l8fJLP4bxxCUa8PEpNUqeAt5mDpMPged6sFz+g6mX4kWMLjM6wimpy+tLdHXM+4OhzKfcbT5UA==
+        secure: RjtingaIcxV+m5fUrOHX1wqFoHx+V2SV8FEiPa+WvgY3iT9QZIbMCkj4RDdyv7O8PWUdBuLXaTz3W/E7GLPeOQtDA3aX4HZ6RT2CfLrQ7Oo2gmm/QS1wJTD1OwqT02sImgR38MjkKJ+BEO16Fo/PHf/icge3nBzQSxwm3YDDx15zG7MUIfWM0K0iN8X7loi91tKZBzNiWZ47vTUl4GBNQOi9K4VfJOIxy48sMvbU56kk8/tjjwaubNcroXgD0OAVOMKXccyV4M26Ax+q019ggjdmp8ABg1c/XmeqKxwOMl6D5prCvYoDLw6jxev6ql6t/IJOOQb6CK2SqmRAKFHs6w==
 
   # Slack connection
   - name: multi-slack-notifications
@@ -50,7 +50,7 @@ resources:
     pointer:
       recipients:
         - "#au-shippable"
-        
+
   # Slack connection
   - name: elle-deployment-notifications
     type: notification                          #required
@@ -58,7 +58,7 @@ resources:
     pointer:
       recipients:
         - "#au-shippable"
-        
+
   # Slack connection
   - name: hb-deployment-notifications
     type: notification                          #required
@@ -117,7 +117,7 @@ resources:
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
         APP_DEBUG: true
         # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-        secure: D4Ql+sBOZYaOEQdlZd58EqVla95/HyyRBeRnmJeRYiF1O2xPEtDlHikAHezQ52iwDG8MFjtx8qt9NJFu1aiCaIx+ABRa52qJxO69vaQEDyQSwfD6/HRYfNnqEL/hv0llB3Qa9qupfZ6ML7m4aPCvih83janWbZXXWNXcDD1YIQ3ak0PlBd5+3b7JtJphay5XRQtgDRiFNR0ZQ14Zd3dEpP+NioEKibbfL1G32H89+u2MxcODPrTLJGp2Ck3+QFPdfH2g2qwEddcqFow980SiQcxByWxqTXC+vShObR16vG1Sc435LsyRRE+b2IelewacNIbrZ/gXulUU/Vw1fd/M4w==
+        secure: Di1vmo/D3PGoNkBTiWYKLWDMLVm5AdBRaAe+n6iER1ngNYNCIAX49OETcBM8n9Zxv+iBgIN8iVeq7D807d68YY1gUriYXtlFuJdXQrgmsrlkPQHia79epyHssDQR1sHWE2Monijd9mhqIu2uLu4Ad0JaPuDEO5ORIINyqIv5EcJginnLHlCJAmcWS5yGExMnVYfEsIX4Bu7Ao2KLPHTinM+s/n3jd61QuGTiBg1K138KPkD2J+ZDGFLPG4YU/Sc9o2kJLGMhXMYGSWAug/QkNXoILeuyNmX5P++J/H1GIewEiB/zk7ptMKRCuiqyUlcbry2smFlHIyLOayMyTDmzMleZtonBevUNH3PVdQJlFMBmmAk08NeERaQnoiGYdjTSirMPwwSSi6QbuEhEqw5stFz7702eLOyVyTeZ5HqyJrkSyeZXPjLlz0yptx627Acs2NuqnBpDgdHVToBEhCkd2ofY8g81R7kCHFs7WX1Nv3dX18qXczNepJydtqI5VXgLv+G7BDxleSCy1M7d9mKO7XoQJkqJEJB9vmNfvZf0dtrDviie65SUBbdCWKm5NRbdFXcjRDHOmCgcP6NnGaRfW1iHzzvxhMEV9ReagAk9MDAYMIlhd4NoCO9a1kefx4JlZMStrnOz+aeFncXW6+JdTf9SATUKjsjir9TQKaffEvQ=
 
   # TEST Parameter
   - name: multi-site-params-test
@@ -135,7 +135,7 @@ resources:
     versionTemplate:
       params:
         # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-        secure: D4Ql+sBOZYaOEQdlZd58EqVla95/HyyRBeRnmJeRYiF1O2xPEtDlHikAHezQ52iwDG8MFjtx8qt9NJFu1aiCaIx+ABRa52qJxO69vaQEDyQSwfD6/HRYfNnqEL/hv0llB3Qa9qupfZ6ML7m4aPCvih83janWbZXXWNXcDD1YIQ3ak0PlBd5+3b7JtJphay5XRQtgDRiFNR0ZQ14Zd3dEpP+NioEKibbfL1G32H89+u2MxcODPrTLJGp2Ck3+QFPdfH2g2qwEddcqFow980SiQcxByWxqTXC+vShObR16vG1Sc435LsyRRE+b2IelewacNIbrZ/gXulUU/Vw1fd/M4w==
+        secure: Di1vmo/D3PGoNkBTiWYKLWDMLVm5AdBRaAe+n6iER1ngNYNCIAX49OETcBM8n9Zxv+iBgIN8iVeq7D807d68YY1gUriYXtlFuJdXQrgmsrlkPQHia79epyHssDQR1sHWE2Monijd9mhqIu2uLu4Ad0JaPuDEO5ORIINyqIv5EcJginnLHlCJAmcWS5yGExMnVYfEsIX4Bu7Ao2KLPHTinM+s/n3jd61QuGTiBg1K138KPkD2J+ZDGFLPG4YU/Sc9o2kJLGMhXMYGSWAug/QkNXoILeuyNmX5P++J/H1GIewEiB/zk7ptMKRCuiqyUlcbry2smFlHIyLOayMyTDmzMleZtonBevUNH3PVdQJlFMBmmAk08NeERaQnoiGYdjTSirMPwwSSi6QbuEhEqw5stFz7702eLOyVyTeZ5HqyJrkSyeZXPjLlz0yptx627Acs2NuqnBpDgdHVToBEhCkd2ofY8g81R7kCHFs7WX1Nv3dX18qXczNepJydtqI5VXgLv+G7BDxleSCy1M7d9mKO7XoQJkqJEJB9vmNfvZf0dtrDviie65SUBbdCWKm5NRbdFXcjRDHOmCgcP6NnGaRfW1iHzzvxhMEV9ReagAk9MDAYMIlhd4NoCO9a1kefx4JlZMStrnOz+aeFncXW6+JdTf9SATUKjsjir9TQKaffEvQ=
 
   # AWS TEST load Balancer - MULTI STUBBED - MASTER branch
   - name: multi-site-alb-test
@@ -153,9 +153,8 @@ resources:
         APP_ENV: "prod"
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
         # EMAIL_HASH_SERVICE_SECRET_KEY APP_SERVICES_ACCESS_KEY
-        secure: GIR8DFB4xHNS6Lper6iG6dBDjg8ThZISC5LrE7RCWGI/fWd6o689qAHiT1Aw3+V6UquvuLkm93DBhV+NxqT8R7L4bbrknHU1ZxSPxLAtizNpX8jJqHzQKpTDCQHSPWCbDEYik6g2w8fYq5PhTkpT398V0ItGP8+hu1aAY67kIK133eGfN1hEPvGGiJHKikcp0gQizwXzJm4yKCW52eO8ImyWanDh+5viMeQ8a+iG320VyLNtmXZxqSGn0X7ZAc3ip5Yk6Lhn5UCPzwUdspPB4FErCizgSutyTc96SEGXxoOTkxKaPYmfY+RpVRfTi13mOH2C10pC2OpaeNETqSDvLA==        
+        secure: E+y1VetbVn9JBqwkrlLjmg+IiaBNBn5nfFUulOhgcmiJS7mmNx6ADfaD3B3EhKL5QuWaKi5ekEhYj/tj8Dl7YcG3zCWKDQZP7V1EeEI67NAfY0pzOhGxgi/viuFheEgxU7ViceiHORwqAFXlC4uAU5tjAm2oJM9c7MRVG/gN3TkOhSVgyDCjeGlMJDcOswuBisfrxkXx/oltPVOBqQn/0yK4HkQT3bAJCkB3TVvrLaFatXTiqb1S61ntIWLMdlbCY37xn9SpAf/F5zQ46OzXzCl25f2g4d8K+5GD1dsEye5NuatLuChrkOdLiTGxf5t0Abd7ug5+jdE5YX6rxkktUw8E7ndp+KIf6TvKRUjB4RuMmwY1UtP5EgvnMZNWiI1M9wbMYr1T1WYkQcB20vhdiGIoLPFcecYeaJj1EdsQfhCdVXeKNSzrgzS2GOcLx2FPyLppHcBRkZeqhpuQzWH1BvS661hlIRALuEzI1KUHcNGLZhYvb/Y1Bc4fAS2uphz1IJ8+xCFd5RX67wAcxLJxxXIk96JP+b632NOgnB5tQ7sJZHAVVVIfQabqrpdGONfkuyz1dOLqVjmW4K+wIUZEy7ht9xKIwk15T9edlb9+rP+b/4BhBnSimrrq9z6n7PqortANwHR6D/QsBDRfi03cHjQZAiHXSc+QBIRqZuuGDD0=
 
-        
   #Schedule Run of automation
   # This is using Shippable timezone
   # CRON is (15 22 * * *") this is 10:15pm every day refer to https://en.wikipedia.org/wiki/Cron
