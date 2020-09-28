@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import classNames from 'classnames';
+
 import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
-import SocialContainer from '../social/block';
 import FooterNavigation from './footerNavigation';
-import Logos from '../page/logos';
 import FooterSubscribe from './footerSubscribe';
+import Logos from '../page/logos';
+import PropTypes from 'prop-types';
+import SocialContainer from '../social/block';
+import classNames from 'classnames';
 
 export default class Footer extends Component {
     static propTypes = {
@@ -71,7 +72,7 @@ export default class Footer extends Component {
 
                     <FooterNavigation footerUrls={config.urls.footerUrls} />
                     <div className="footer__copyright">
-                        <span className="footer__copyright-bauer">&copy; Copyright Bauer Media Pty Ltd</span>
+                        <span className="footer__copyright-bauer">&copy; Copyright {new Date().getFullYear()} Are Media Pty Limited</span>
                         <span className="footer__copyright-rights">All Rights Reserved</span>
                     </div>
                 </footer>

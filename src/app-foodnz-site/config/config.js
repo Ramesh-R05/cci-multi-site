@@ -1,9 +1,9 @@
 import cache from './cache';
 import features from './features';
 import global from './global';
+import polar from './polar';
 import services from './services';
 import site from './site';
-import polar from './polar';
 
 export default {
     ga: { id: 'UA-57795117-3' },
@@ -69,9 +69,9 @@ export default {
 
     urls: {
         footerUrls: {
-            privacy: 'http://www.bauermedia.co.nz/privacy',
-            advertise: 'https://www.bauermediaadvertising.co.nz',
-            terms: 'http://www.bauermedia.co.nz/terms'
+            privacy: 'https://www.aremedia.com.au/privacy/',
+            advertise: 'https://www.aremedia.com.au/brands/',
+            terms: 'https://www.aremedia.com.au/terms/'
         },
 
         socialUrls: {
