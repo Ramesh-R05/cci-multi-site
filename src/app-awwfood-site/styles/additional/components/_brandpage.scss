@@ -1,0 +1,6 @@
+.brand--magazine-container {
+
+    @media #{$large-up} {
+        border-width: 0;
+    }
+}

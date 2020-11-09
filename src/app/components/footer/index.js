@@ -6,6 +6,7 @@ import FooterSubscribe from './footerSubscribe';
 import Logos from '../page/logos';
 import PropTypes from 'prop-types';
 import SocialContainer from '../social/block';
+import has from 'lodash/object/has';
 import classNames from 'classnames';
 
 export default class Footer extends Component {
@@ -20,7 +21,7 @@ export default class Footer extends Component {
     };
 
     static defaultProps = {
-        magCover: {},
+        magCover: [],
         brand: null,
         magCoverImageUrl: '',
         magCoverText: '',
@@ -39,6 +40,7 @@ export default class Footer extends Component {
     render() {
         const { config } = this.context;
         const { modifier, logoList, magCover, magCoverImageUrl, magCoverText, isBrandPage, brand } = this.props;
+        const showMagazineDisplay = Array.isArray(magCover) && has(magCover[0], 'moduleImageUrl');
         const subscribeContent = config.subscribe;
 
         const rootClass = classNames('footer', {
@@ -58,7 +60,7 @@ export default class Footer extends Component {
                         <span className="home-page__social-logo">{config.site.name}</span>
                         <SocialContainer socialUrls={socialUrls} />
                     </div>
-                    <FooterSubscribe content={{ ...subscribeContent, magCover, magCoverImageUrl, magCoverText }} isDisplayed={magCover !== {}} />
+                    <FooterSubscribe content={{ ...subscribeContent, magCover, magCoverImageUrl, magCoverText }} isDisplayed={showMagazineDisplay} />
 
                     {logoList && logoList.length >= 1 ? (
                         <div className="footer__logos">

@@ -75,6 +75,7 @@ export default class Search extends Component {
         const keyword = nodeType === 'TagSection' && title ? [title] : [];
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
+        const showMagazineDisplay = config.isFeatureEnabled('showMagazineDisplay');
         const isBrandDefined = typeof brand !== 'undefined';
         const pageTitle = (
             <h1 className="page-title">
@@ -148,7 +149,7 @@ export default class Search extends Component {
                                                 >
                                                     <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
                                                     <SideBlock
-                                                        showBrandMagazine={isBrandDefined}
+                                                        showBrandMagazine={showMagazineDisplay}
                                                         showBrandNewsletter={isBrandDefined}
                                                         showGiftCard={giftCardEnabled}
                                                         brand={brand}

@@ -14,6 +14,7 @@ import SubsectionList from '../components/subsectionList';
 import TeaserGridView from '../components/teaser/grid';
 import TeaserListView from '../components/teaser/list';
 import loadList from '../actions/loadList';
+import has from "lodash/object/has";
 
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');
@@ -26,6 +27,7 @@ function mapStateToProps(context) {
         siteAlert: pageStore.getSiteAlert(),
         list: teaserStore.getList(),
         listNextParams: teaserStore.getListNextParams(),
+        magCover: pageStore.getModule('magCover'),
         magazineImageUrl: pageStore.getMagazineImageUrl(),
         subsections: pageStore.getSubsections(),
         summary: pageStore.getSummary(),
@@ -48,6 +50,7 @@ export default class Section extends Component {
         theme: PropTypes.object,
         siteAlert: PropTypes.object,
         subsections: PropTypes.object,
+        magCover: PropTypes.object,
         magazineImageUrl: PropTypes.string,
         summary: PropTypes.string
     };
@@ -58,6 +61,7 @@ export default class Section extends Component {
         theme: {},
         siteAlert: {},
         subsections: { data: [], totalCount: 0 },
+        magCover: [],
         magazineImageUrl: '',
         summary: ''
     };
@@ -89,6 +93,7 @@ export default class Section extends Component {
             theme,
             siteAlert,
             subsections,
+            magCover,
             magazineImageUrl,
             summary,
             curatedHeroTeaser,
@@ -119,6 +124,7 @@ export default class Section extends Component {
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const summaryEnabled = get(config, 'features.summary.enabled', false);
+        const showMagazineDisplay = Array.isArray(magCover) && has(magCover[0], 'moduleImageUrl');
         const isBrandDefined = typeof brand !== 'undefined';
         const pageTitle = isBrandPage ? (
             <h1 className="page-title page-title--with-brand-logo">
@@ -227,7 +233,7 @@ export default class Section extends Component {
                                                 <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
                                                 <SideBlock
                                                     isBrandPage={isBrandPage}
-                                                    showBrandMagazine={isBrandDefined}
+                                                    showBrandMagazine={showMagazineDisplay}
                                                     showBrandNewsletter={isBrandDefined}
                                                     showGiftCard={giftCardEnabled}
                                                     brand={brand}
