@@ -74,6 +74,10 @@ describe('Home Container', () => {
     };
 
     Context.addStore('PageStore', {
+        getModule() {
+            return [];
+        },
+
         promotedItems() {
             return [];
         },
