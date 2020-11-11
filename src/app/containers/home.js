@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import { connectToStores } from '@bxm/flux';
 import get from 'lodash/object/get';
+import has from 'lodash/object/has';
 import HeroTeaser from '../components/teaser/hero';
 import MustRead from '../components/mustRead/mustRead';
 import Page from './page';
@@ -26,6 +27,7 @@ function mapStateToProps(context) {
         teasers: teaserStore.getLatestTeasers(),
         list: teaserStore.getList(),
         listNextParams: teaserStore.getListNextParams(),
+        magCover: pageStore.getModule('magCover'),
         magazineImageUrl: pageStore.getMagazineImageUrl(),
         homePageSearchBox: pageStore.getHomeSearchBox()
     };
@@ -44,6 +46,7 @@ export default class Home extends Component {
         currentUrl: PropTypes.string.isRequired,
         theme: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         siteAlert: PropTypes.object,
+        magCover: PropTypes.array,
         magazineImageUrl: PropTypes.string
     };
 
@@ -51,6 +54,7 @@ export default class Home extends Component {
         teasers: [],
         theme: {},
         siteAlert: {},
+        magCover: [],
         magazineImageUrl: ''
     };
 
@@ -73,7 +77,8 @@ export default class Home extends Component {
 
     render() {
         const { config } = this.context;
-        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magazineImageUrl, homePageSearchBox, siteAlert } = this.props;
+        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magCover,
+            magazineImageUrl, homePageSearchBox, siteAlert } = this.props;
         const { topElm, bottomElm } = this.state;
         const brand = config.product;
         const polarLabels = config.polar.details;
@@ -99,6 +104,7 @@ export default class Home extends Component {
         const tagsToShow = get(config, 'features.homePage.newsFeed.tagsToShow', 0);
         const linesToShow = get(config, 'features.homePage.newsFeed.linesToShow', 0);
         const isBrandDefined = typeof brand !== 'undefined';
+        const showMagazineDisplay = Array.isArray(magCover) && has(magCover[0], 'moduleImageUrl');
 
         return (
             <Page
@@ -179,7 +185,7 @@ export default class Home extends Component {
                                                 >
                                                     <Ad className="ad--section-mrec" sizes="mrec" displayFor="large" pageLocation={Ad.pos.aside} />
                                                     <SideBlock
-                                                        showBrandMagazine={isBrandDefined}
+                                                        showBrandMagazine={showMagazineDisplay}
                                                         showBrandNewsletter={isBrandDefined}
                                                         showGiftCard={giftCardEnabled}
                                                         brand={brand}

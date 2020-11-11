@@ -75,6 +75,10 @@ const contextConfigStub = {
 
 describe('Section Container', () => {
     Context.addStore('PageStore', {
+        getModule() {
+            return [];
+        },
+
         getTitle() {
             return 'Title';
         },
