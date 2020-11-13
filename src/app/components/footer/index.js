@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
+import PropTypes from 'prop-types';
+import has from 'lodash/object/has';
+import classNames from 'classnames';
 import FooterNavigation from './footerNavigation';
 import FooterSubscribe from './footerSubscribe';
 import Logos from '../page/logos';
-import PropTypes from 'prop-types';
 import SocialContainer from '../social/block';
-import has from 'lodash/object/has';
-import classNames from 'classnames';
 
 export default class Footer extends Component {
     static propTypes = {

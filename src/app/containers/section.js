@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import StickyAd from '@bxm/ad/lib/google/components/stickyAd';
 import { connectToStores } from '@bxm/flux';
 import get from 'lodash/object/get';
+import has from 'lodash/object/has';
 import HeroTeaser from '../components/teaser/hero';
 import Page from './page';
 import Repeatable from '../components/repeatable';
@@ -14,7 +15,6 @@ import SubsectionList from '../components/subsectionList';
 import TeaserGridView from '../components/teaser/grid';
 import TeaserListView from '../components/teaser/list';
 import loadList from '../actions/loadList';
-import has from "lodash/object/has";
 
 function mapStateToProps(context) {
     const pageStore = context.getStore('PageStore');

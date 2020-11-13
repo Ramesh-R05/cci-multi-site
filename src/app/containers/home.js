@@ -77,8 +77,7 @@ export default class Home extends Component {
 
     render() {
         const { config } = this.context;
-        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magCover,
-            magazineImageUrl, homePageSearchBox, siteAlert } = this.props;
+        const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magCover, magazineImageUrl, homePageSearchBox, siteAlert } = this.props;
         const { topElm, bottomElm } = this.state;
         const brand = config.product;
         const polarLabels = config.polar.details;
