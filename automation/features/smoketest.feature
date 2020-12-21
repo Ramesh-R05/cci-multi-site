@@ -28,10 +28,6 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site  | signUpUrl                                         |
             | elle  | https://www.elle.com.au/elle-newsletter           |
-    @smoketesthb @optional
-        Examples:
-            | site  | signUpUrl                                         |
-            | hb    | https://www.harpersbazaar.com.au/hb-newsletter    |
     @smoketestgt @optional
         Examples:
             | site  | signUpUrl                                         |
@@ -79,10 +75,6 @@ Feature: Smoke test for all sites in SIT environment
         Examples:
             | site  | signUpUrl                                         |
             | elle  | https://www.elle.com.au/elle-newsletter           |
-    @smoketesthb
-        Examples:
-            | site  | signUpUrl                                         |
-            | hb    | https://www.harpersbazaar.com.au/hb-newsletter    |
     @smoketestgt @optional
         Examples:
             | site  | signUpUrl                                         |
@@ -302,18 +294,6 @@ Feature: Smoke test for all sites in SIT environment
             |Pinterest  |https://www.pinterest.com.au/elle_australia        |
             |YouTube    |https://www.youtube.com/elleaus                    |
 
-    @smoketesthb @optional
-    Scenario: Verify the footer in the "mobile" view on HB
-        Given I switch to "mobile" view
-        When I am currently viewing "section" page on "hb" site
-        * I can see the social icons clickable to open its page in the footer
-            |social     |url                                                    |
-            |Facebook   |https://www.facebook.com/HarpersBAZAARAustralia        |
-            |Twitter    |https://twitter.com/BAZAARAustralia                    |
-            |Instagram  |http://instagram.com/bazaaraustralia                   |
-            |Pinterest  |http://www.pinterest.com/bazaaraustralia/              |
-            |YouTube    |https://www.youtube.com/user/BAZAARaustralia           |
-
     @smoketestgt
     Scenario: Verify the footer in the "mobile" view on GT
         Given I switch to "mobile" view
@@ -366,7 +346,6 @@ Feature: Smoke test for all sites in SIT environment
             |Now To Love                |https://www.nowtolove.com.au/           |gtm-hamburger-now          |
             |Homes To Love              |https://www.homestolove.com.au/         |gtm-hamburger-homes        |
             |Women's Weekly Food        |https://www.womensweeklyfood.com.au/    |gtm-hamburger-wwfood       |
-            |Harper's Bazaar            |https://www.harpersbazaar.com.au/       |gtm-hamburger-harpers      |
             |Gourmet Traveller          |https://www.gourmettraveller.com.au/    |gtm-hamburger-gt           |
             |Dolly                      |http://www.dolly.com.au/                |gtm-hamburger-dolly        |
             |Beauty Heaven              |https://www.beautyheaven.com.au/        |gtm-hamburger-beautyheaven |

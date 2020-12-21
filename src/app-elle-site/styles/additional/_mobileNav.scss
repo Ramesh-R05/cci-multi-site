@@ -28,6 +28,13 @@
     }
 }
 
+.mobile-menu-list {
+
+    li:nth-child(5) {
+        margin-left: -3px;
+    }
+}
+
 .off-canvas {
     background-color: $offcanvas-background-color;
 }

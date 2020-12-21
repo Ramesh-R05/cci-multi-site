@@ -120,12 +120,6 @@ export default {
                 title: "Women's Weekly Food"
             },
             {
-                id: 'harpers',
-                imageUrl: '/assets/images/menulogos/HB-logo.svg',
-                url: 'https://www.harpersbazaar.com.au/',
-                title: "Harper's Bazaar"
-            },
-            {
                 id: 'gt',
                 imageUrl: '/assets/images/menulogos/GT-logo.svg',
                 url: 'https://www.gourmettraveller.com.au/',

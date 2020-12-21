@@ -10,17 +10,6 @@ module.exports = {
         'keyword1': 'birthday',
         'keyword2': 'her'
     },
-    hb: {
-        'homepage': 'https://www.sit.harpersbazaar.com.au/',
-        'section': 'fashion',
-        'tag': 'tags/melania-trump',
-        'article': 'fashion/victoria-beckham-leopard-print-14124',
-        'gallery': 'culture/meghan-markle-australian-designers-13782',
-        'amp article': 'amp/fashion/victoria-beckham-leopard-print-14124',
-        'amp gallery': 'amp/culture/meghan-markle-australian-designers-13782',
-        'keyword1': 'australian',
-        'keyword2': 'designer'
-    },
     gt: {
         'homepage': 'https://www.sit.gourmettraveller.com.au/',
         'section': 'travel',

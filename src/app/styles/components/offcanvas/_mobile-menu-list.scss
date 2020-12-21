@@ -31,13 +31,8 @@
 
       @media #{$medium-up} {
           &:nth-child(3),
-          &:nth-child(4),
-          &:nth-child(5) {
-              padding-right: 15px;
-          }
-
           &:nth-child(4) {
-              padding-right: 10px;
+              padding-right: 15px;
           }
       }
 
@@ -98,7 +93,6 @@
                   @media #{$small-only} {
                       width: 88px;
                       height: 28px;
-                      margin-left: -3px;
                   }
               }
 

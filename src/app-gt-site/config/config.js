@@ -136,12 +136,6 @@ export default {
                 title: 'Elle'
             },
             {
-                id: 'harpers',
-                imageUrl: '/assets/images/menulogos/HB-logo.svg',
-                url: 'https://www.harpersbazaar.com.au/',
-                title: "Harper's Bazaar"
-            },
-            {
                 id: 'dolly',
                 imageUrl: '/assets/images/menulogos/DOLLY-logo.svg',
                 url: 'http://www.dolly.com.au/',

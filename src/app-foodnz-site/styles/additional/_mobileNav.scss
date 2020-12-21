@@ -23,10 +23,10 @@
     }
 
     li:nth-child(5) {
-        margin-left: -3px;
+        margin-left: 0px;
 
         @media #{$medium-up} {
-            margin-left: -6px;
+            margin-left: -1px;
         }
     }
 
