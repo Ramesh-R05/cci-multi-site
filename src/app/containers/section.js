@@ -137,7 +137,7 @@ export default class Section extends Component {
             </h1>
         );
 
-        const polarLabels = this.context.config.polar.details;
+        const googleNativeAdLabels = this.context.config.googleNativeAds.details;
         const themeEnabled = !!theme && !!theme.headerSmallBackground && !!theme.headerMediumBackground && !!theme.headerLargeBackground;
 
         const adProps = {
@@ -201,7 +201,7 @@ export default class Section extends Component {
                                                 className="news-feed top-news-feed"
                                                 adPosition={8}
                                                 adTargets={{ keyword }}
-                                                nativeAdConfig={{ slotPositionIndex: polarLabels.sectionTopFeed }}
+                                                nativeAdConfig={{ slotPositionIndex: googleNativeAdLabels.sectionTopFeed }}
                                             />
                                         )}
                                         {topListType === 'list' && (
@@ -210,7 +210,7 @@ export default class Section extends Component {
                                                 items={teasers.slice(0, 6)}
                                                 className="news-feed top-news-feed"
                                                 nativeAdConfig={{
-                                                    slotPositionIndex: polarLabels.homeTopFeed
+                                                    slotPositionIndex: googleNativeAdLabels.homeTopFeed
                                                 }}
                                                 showDate={false}
                                                 loadAgain={false}
@@ -276,7 +276,7 @@ export default class Section extends Component {
                         nextParams={listNextParams}
                         className="news-feed bottom-news-feed"
                         adTargets={{ keyword }}
-                        nativeAdConfig={{ slotPositionIndex: polarLabels.sectionBottomFeed }}
+                        nativeAdConfig={{ slotPositionIndex: googleNativeAdLabels.sectionBottomFeed }}
                     />
 
                     {/* 3rd Leaderboard to show on tablet and up */}

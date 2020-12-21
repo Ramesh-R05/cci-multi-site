@@ -1,7 +1,7 @@
 import proxyquire, { noCallThru } from 'proxyquire';
 
 import { betterMockComponentContext } from '@bxm/flux';
-import polarConfig from '../mocks/polar';
+import googleNativeAdsConfig from '../mocks/googleNativeAds';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
@@ -69,7 +69,7 @@ const contextConfigStub = {
         features: {
             headerExpanded: true
         },
-        polar: polarConfig.polarSetting
+        googleNativeAds: googleNativeAdsConfig.googleNativeAdsSetting
     }
 };
 

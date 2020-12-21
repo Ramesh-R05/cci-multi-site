@@ -64,6 +64,9 @@ export default {
         enabled: true,
         id: 926929
     },
+    googleNativeAds: {
+        enabled: true
+    },
     jwPlayer: {
         enabled: true
     }

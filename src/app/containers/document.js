@@ -104,7 +104,7 @@ export default class Document extends Component {
                     siteAlert={siteAlert}
                 >
                     <VerticalGallery
-                        articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'ImageCount', 'NativeAd', 'Hero']}
+                        articleHeaderOrder={['Source', 'Title', 'Summary', 'Date', 'Author', 'ImageCount', 'Hero']}
                         contentBodyConfig={Document.articleContentBodyConfig}
                         enableTeads
                         CustomisedTeaser={Teaser}
@@ -129,7 +129,7 @@ export default class Document extends Component {
                     siteAlert={siteAlert}
                 >
                     <RecipeSection
-                        articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
+                        articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'Hero', headerAd]}
                         contentBodyConfig={Document.articleContentBodyConfig}
                         enableTeads
                         CustomisedTeaser={Teaser}
@@ -155,7 +155,7 @@ export default class Document extends Component {
                     siteAlert={siteAlert}
                 >
                     <CollectionSection
-                        articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
+                        articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'Hero', headerAd]}
                         contentBodyConfig={Document.articleContentBodyConfig}
                         enableTeads
                         CustomisedTeaser={Teaser}
@@ -180,7 +180,7 @@ export default class Document extends Component {
                 siteAlert={siteAlert}
             >
                 <Article
-                    articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd]}
+                    articleHeaderOrder={['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'Hero', headerAd]}
                     contentBodyConfig={Document.articleContentBodyConfig}
                     enableTeads
                     CustomisedTeaser={Teaser}

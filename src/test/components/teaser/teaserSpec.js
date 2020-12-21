@@ -1,6 +1,6 @@
-import teaserMock from '../../mocks/teaser';
 import { betterMockComponentContext } from '@bxm/flux';
 import { shallow } from 'enzyme';
+import teaserMock from '../../mocks/teaser';
 
 const Context = betterMockComponentContext();
 const { React } = Context;
@@ -8,8 +8,24 @@ const ImageStub = Context.createStubComponent();
 const TeaserTitleStub = Context.createStubComponent();
 const DateStub = Context.createStubComponent();
 const AdStub = Context.createStubComponent();
+
+AdStub.pos = {
+    aside: 'rhs',
+    outside: 'outside',
+    body: 'body',
+    wallpaper: 'wallpaper',
+    inskin: 'inskin',
+    panel: 'panel'
+};
+
 const context = {
     config: {
+        isFeatureEnabled: () => true,
+        features: {
+            googleNativeAds: {
+                enabled: true
+            }
+        },
         defaultImageUrl: '',
         global: {
             breakpoints: ''
@@ -49,6 +65,24 @@ const suffixContext = {
         }
     }
 };
+
+const googleNativeAdsMock = {
+    index: 0,
+    label: 'home_top_feed_1',
+    targets: {
+        kw: 'home_top_feed_1',
+        adUnitPath: 'sponsored/HomeTopNewsFeed1',
+        adPositionClassName: 'google-native-ad-home-top-news-feed-1'
+    }
+};
+const nativeAdContentMock = {
+    link:
+        'https://www.sportingnews.com/au/nba/news/2020-21-nba-schedule-cant-miss-matchups-missed-out-on-durant-lebron-kawhi-curry-irving-lillard-wall/vxp7emul2sj318jpyes7zrzoe',
+    image: 'https://tpc.googlesyndication.com/simgad/9565448443628806830?',
+    headline: 'The biggest head-to-head matchups',
+    sponsor: 'NBA'
+};
+
 const proxyquire = require('proxyquire').noCallThru();
 const Teaser = proxyquire('../../../app/components/teaser/teaser', {
     react: React,
@@ -87,6 +121,49 @@ describe('Component', () => {
 
         it('it should use short title', () => {
             expect(wrapper.find(TeaserTitleStub).prop('title')).to.be.equal("George Clooney's wife takes name -- short");
+        });
+
+        describe('when not googleNativeAds and not nativeAdHasContentReady and not nativeAdContent', () => {
+            const wrapper = shallow(
+                <Teaser article={teaserMock.stores.homepageHeroItems.items[0]} sourceClassName="hero-teaser__source" className="hero-teaser" />,
+                { context }
+            );
+
+            it('it should render regular teaser', () => {
+                const elm = wrapper.find('.teaser__inner');
+                expect(elm.length).to.be.equal(1);
+            });
+        });
+
+        describe('when showGoogleNativeAds and googleNativeAds', () => {
+            const wrapper = shallow(<Teaser article={teaserMock.stores.homepageHeroItems.items[0]} googleNativeAds={googleNativeAdsMock} />, {
+                context
+            });
+
+            it('it should render ad slot', () => {
+                const elm = wrapper.find('.ad--slot-google-native');
+                expect(elm.length).to.be.equal(1);
+            });
+        });
+
+        describe('when showGoogleNativeAds and googleNativeAds and nativeAdHasContentReady and nativeAdContent', () => {
+            const wrapper = shallow(
+                <Teaser
+                    article={teaserMock.stores.homepageHeroItems.items[0]}
+                    googleNativeAds={googleNativeAdsMock}
+                    nativeAdHasContentReady={true}
+                    nativeAdContent={nativeAdContentMock}
+                />,
+                { context }
+            );
+            wrapper.setState({ nativeAdHasContentReady: true, nativeAdContent: nativeAdContentMock });
+
+            it('it should render google native ad teaser container', () => {
+                const elm = wrapper.find('.google-native-ad-teaser-container');
+                expect(elm.length).to.be.equal(1);
+                expect(wrapper.state('nativeAdHasContentReady')).to.equal(true);
+                expect(wrapper.state('nativeAdContent')).to.equal(nativeAdContentMock);
+            });
         });
 
         describe('when there is source field in the article', () => {

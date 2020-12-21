@@ -1,7 +1,7 @@
 import cache from './cache';
 import features from './features';
 import global from './global';
-import polar from './polar';
+import googleNativeAds from './googleNativeAds';
 import services from './services';
 import site from './site';
 
@@ -16,7 +16,7 @@ export default {
 
     global,
 
-    ads: { targets: { env: 'test' } },
+    ads: { networkId: 13534306, targets: { env: 'test' } },
 
     site,
 
@@ -43,7 +43,7 @@ export default {
         }
     },
 
-    polar,
+    googleNativeAds,
 
     urls: {
         footerUrls: {

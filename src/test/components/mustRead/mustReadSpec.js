@@ -1,9 +1,11 @@
+import proxyquire, { noCallThru } from 'proxyquire';
+
 import { betterMockComponentContext } from '@bxm/flux';
+import googleNativeAdsConfig from '../../mocks/googleNativeAds';
+
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
-import polarConfig from '../../mocks/polar';
 
-import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const TeaserListStub = Context.createStubComponentWithChildren();
@@ -24,7 +26,7 @@ describe('#MustRead Component', () => {
                     "Australian Women's Weekly": 'AWW'
                 }
             },
-            polar: polarConfig.polarSetting,
+            googleNativeAds: googleNativeAdsConfig.googleNativeAdsSetting,
             features: {
                 mustRead: {
                     desktopCount: 6,

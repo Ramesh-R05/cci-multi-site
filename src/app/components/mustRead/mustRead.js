@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { connectToStores } from '@bxm/flux';
+
+import PropTypes from 'prop-types';
 import TeaserList from '@bxm/teaser/lib/components/teaserList';
+import { connectToStores } from '@bxm/flux';
 import Teaser from '../teaser/teaser';
 
 class MustRead extends Component {
@@ -47,7 +48,7 @@ class MustRead extends Component {
             return mustReadItem;
         });
 
-        const polarLabels = config.polar.details;
+        const googleNativeAdLabels = config.googleNativeAds.details;
 
         return (
             <div className="mustread-teaser-view-grid">
@@ -62,7 +63,7 @@ class MustRead extends Component {
                         CustomisedTeaser={Teaser}
                         showDate={false}
                         nativeAdConfig={{
-                            slotPositionIndex: polarLabels.homeMustRead
+                            slotPositionIndex: googleNativeAdLabels.homeMustRead
                         }}
                         sourceDefault="SPONSORED"
                     />

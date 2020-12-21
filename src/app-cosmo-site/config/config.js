@@ -1,7 +1,7 @@
 import cache from './cache';
 import features from './features';
 import global from './global';
-import polar from './polar';
+import googleNativeAds from './googleNativeAds';
 import services from './services';
 import site from './site';
 
@@ -29,6 +29,7 @@ export default {
 
     ads: {
         targets: { env: 'test' },
+        networkId: 13534306,
         blocked: {
             sections: ['sex'],
             tags: [
@@ -71,7 +72,7 @@ export default {
         }
     },
 
-    polar,
+    googleNativeAds,
 
     urls: {
         footerUrls: {

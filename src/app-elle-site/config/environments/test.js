@@ -8,9 +8,6 @@ export default {
     site: {
         host: 'http://automation.elle-site.bauer-media.net.au/'
     },
-    polar: {
-        propertyId: 'NA-ELLECONTPROM-11238619'
-    },
     ads: {
         iasAds: false
     }

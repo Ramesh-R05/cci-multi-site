@@ -1,11 +1,13 @@
-import { betterMockComponentContext } from '@bxm/flux';
+import proxyquire, { noCallThru } from 'proxyquire';
+
 import PropTypes from 'prop-types';
+import { betterMockComponentContext } from '@bxm/flux';
+import googleNativeAdsConfig from '../../mocks/googleNativeAds';
+import listingMock from '../../mocks/listing';
+
 const Context = betterMockComponentContext();
 const { ReactDOM, TestUtils } = Context;
-import listingMock from '../../mocks/listing';
-import polarConfig from '../../mocks/polar';
 const items = listingMock.data;
-import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const TeaserListStub = Context.createStubComponent();
@@ -41,7 +43,7 @@ describe('TeaserListView', () => {
         key: 'config',
         type: PropTypes.object,
         value: {
-            polar: polarConfig.polarSetting
+            googleNativeAds: googleNativeAdsConfig.googleNativeAdsSetting
         }
     };
 

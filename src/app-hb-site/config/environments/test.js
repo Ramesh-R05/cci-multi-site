@@ -8,9 +8,6 @@ export default {
     site: {
         host: 'http://automation.hb-site.bauer-media.net.au/'
     },
-    polar: {
-        propertyId: 'NA-HARPSBAZACONTPROM-11238618'
-    },
     ads: {
         iasAds: false
     }

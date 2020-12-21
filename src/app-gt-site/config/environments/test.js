@@ -8,9 +8,6 @@ export default {
     site: {
         host: 'http://automation.gt-site.bauer-media.net.au/'
     },
-    polar: {
-        propertyId: 'NA-GOURTRAVCONTPROM-11238617'
-    },
     ads: {
         iasAds: false
     }

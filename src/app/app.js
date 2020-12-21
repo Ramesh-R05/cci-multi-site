@@ -1,14 +1,13 @@
-import { Flux } from '@bxm/flux';
 import AdStore from '@bxm/ad/lib/google/stores/ad';
 import ArticleStore from '@bxm/article/lib/stores/articleStore';
-import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
+import { Flux } from '@bxm/flux';
 import HtmlStore from '@bxm/server/lib/stores/html';
 import NavigationStore from '@bxm/site-header/lib/stores/navigation';
-import PolarAdStore from '@bxm/ad/lib/polar/stores/PolarAdStore';
-import PageStore from './stores/page';
-import SearchStore from './stores/search';
+import VerticalGalleryStore from '@bxm/article/lib/stores/verticalGalleryStore';
 import AppComponent from './containers/app';
+import PageStore from './stores/page';
 import RouteStore from './stores/route';
+import SearchStore from './stores/search';
 import TeaserStore from './stores/teaser';
 import TrackingStore from './stores/tracking';
 
@@ -21,7 +20,6 @@ export const stores = [
     NavigationStore,
     PageStore,
     SearchStore,
-    PolarAdStore,
     RouteStore,
     TeaserStore,
     TrackingStore

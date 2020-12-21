@@ -29,7 +29,7 @@ export default {
             url: 'http://services.prod.bxm.internal/redirect/v1/awwfood/301'
         }
     },
-    polar: {
+    googleNativeAds: {
         targets: {
             env: ''
         }

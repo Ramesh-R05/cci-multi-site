@@ -80,7 +80,7 @@ export default class Home extends Component {
         const { currentUrl, theme, heroTeaser, teasers, list, listNextParams, magCover, magazineImageUrl, homePageSearchBox, siteAlert } = this.props;
         const { topElm, bottomElm } = this.state;
         const brand = config.product;
-        const polarLabels = config.polar.details;
+        const googleNativeAdLabels = config.googleNativeAds.details;
         const pageLocation = Ad.pos.outside;
         const giftCardEnabled = get(config, 'features.giftCard.enabled', false);
         const usePlaceholderForSearchBoxInput = config.isFeatureEnabled('homeSearchPlaceholderText');
@@ -152,7 +152,7 @@ export default class Home extends Component {
                                                     adPosition={8}
                                                     adSizes={{ small: 'mrec', medium: ['mrec', 'double-mrec'] }}
                                                     nativeAdConfig={{
-                                                        slotPositionIndex: polarLabels.homeTopFeed
+                                                        slotPositionIndex: googleNativeAdLabels.homeTopFeed
                                                     }}
                                                 />
                                             )}
@@ -162,7 +162,7 @@ export default class Home extends Component {
                                                     items={teasers.slice(0, 6)}
                                                     className="news-feed top-news-feed"
                                                     nativeAdConfig={{
-                                                        slotPositionIndex: polarLabels.homeTopFeed
+                                                        slotPositionIndex: googleNativeAdLabels.homeTopFeed
                                                     }}
                                                     showDate={false}
                                                     loadAgain={false}
@@ -224,7 +224,7 @@ export default class Home extends Component {
                         nextParams={listNextParams}
                         className="news-feed bottom-news-feed"
                         nativeAdConfig={{
-                            slotPositionIndex: polarLabels.homeBottomFeed
+                            slotPositionIndex: googleNativeAdLabels.homeBottomFeed
                         }}
                         pageLocation={pageLocation}
                         showImageBadge={showImageBadge}

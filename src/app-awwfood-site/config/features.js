@@ -141,6 +141,9 @@ export default {
     jwPlayer: {
         enabled: true
     },
+    googleNativeAds: {
+        enabled: true
+    },
     ix: {
         enabled: true,
         scriptUrl: '//js-sec.indexww.com/ht/p/187830-276471052722483.js'

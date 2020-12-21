@@ -126,7 +126,7 @@ export default {
     homeSearchPlaceholderText: {
         enabled: true
     },
-    polar: {
+    googleNativeAds: {
         enabled: true
     },
     jwPlayer: {

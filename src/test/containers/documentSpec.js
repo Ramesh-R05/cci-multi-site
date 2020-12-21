@@ -1,9 +1,10 @@
+import proxyquire, { noCallThru } from 'proxyquire';
+
 import { betterMockComponentContext } from '@bxm/flux';
 import moreFromMock from '../mocks/moreFrom';
 
 const Context = betterMockComponentContext();
 const { React, ReactDOM, TestUtils } = Context;
-import proxyquire, { noCallThru } from 'proxyquire';
 noCallThru();
 
 const ArticleStub = Context.createStubComponent();
@@ -76,7 +77,7 @@ describe('Document Component', () => {
 
             expect(ArticleComponent.props).to.deep.eq({
                 enableTeads: true,
-                articleHeaderOrder: ['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'NativeAd', 'Hero', headerAd],
+                articleHeaderOrder: ['Source', 'Section', 'Title', 'Summary', 'Date', 'Author', 'Hero', headerAd],
                 contentBodyConfig: Document.articleContentBodyConfig,
                 showAdBeforeRecommendations: true,
                 CustomisedTeaser: CustomisedTeaserStub,

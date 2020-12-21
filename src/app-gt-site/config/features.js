@@ -114,6 +114,9 @@ export default {
         enabled: true,
         publisherCode: '105419X1577742'
     },
+    googleNativeAds: {
+        enabled: true
+    },
     ix: {
         enabled: true,
         scriptUrl: '//js-sec.indexww.com/ht/p/187830-212699378141095.js'

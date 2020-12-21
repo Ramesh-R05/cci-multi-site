@@ -42,7 +42,7 @@ export default {
     sailthru: {
         enabled: true
     },
-    polar: {
+    googleNativeAds: {
         enabled: true
     }
 };
