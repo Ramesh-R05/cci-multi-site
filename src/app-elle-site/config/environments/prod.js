@@ -32,5 +32,8 @@ export default {
         targets: {
             env: ''
         }
+    },
+    oovvuu: {
+        scriptUrl: 'http://videos.oovvuu.com/baum/v1/ovu_rec.js'
     }
 };

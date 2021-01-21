@@ -44,5 +44,8 @@ export default {
     },
     googleNativeAds: {
         enabled: true
+    },
+    oovvuu: {
+        enabled: true
     }
 };

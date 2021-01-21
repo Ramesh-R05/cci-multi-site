@@ -157,6 +157,12 @@
         display: table;
         width: 100%;
     }
+
+    #head-video {
+        display: block;
+        position: relative;
+        max-width: 100%;
+    }
 }
 
 .article__main-hero {
@@ -203,6 +209,12 @@
 
     @media #{$large-up} {
         width: 88%;
+    }
+
+    #foot-video {
+        display: block;
+        position: relative;
+        max-width: 100%;
     }
 }
 

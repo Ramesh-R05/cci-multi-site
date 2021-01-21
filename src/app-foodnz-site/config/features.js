@@ -131,5 +131,8 @@ export default {
     },
     jwPlayer: {
         enabled: true
+    },
+    oovvuu: {
+        enabled: true
     }
 };

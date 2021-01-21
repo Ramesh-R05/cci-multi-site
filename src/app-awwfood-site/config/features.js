@@ -147,5 +147,8 @@ export default {
     ix: {
         enabled: true,
         scriptUrl: '//js-sec.indexww.com/ht/p/187830-276471052722483.js'
+    },
+    oovvuu: {
+        enabled: true
     }
 };
