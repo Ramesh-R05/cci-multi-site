@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import classNames from 'classnames';
-import TeaserList from '@bxm/teaser/lib/components/teaserList';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
+import PropTypes from 'prop-types';
+import TeaserList from '@bxm/teaser/lib/components/teaserList';
+import classNames from 'classnames';
 import Teaser from './teaser';
 
 export default class TeaserGridView extends Component {
@@ -45,10 +46,10 @@ export default class TeaserGridView extends Component {
                             articles={teasers}
                             showSubSection
                             imageSizes={{
-                                s: { w: 690, h: 388 },
-                                m: { w: 486, h: 404 },
-                                l: { w: 624, h: 518 },
-                                xl: { w: 368, h: 306 }
+                                s: { w: 690, h: 427 },
+                                m: { w: 486, h: 300 },
+                                l: { w: 624, h: 386 },
+                                xl: { w: 368, h: 227 }
                             }}
                             nativeAdConfig={nativeAdConfig}
                             adConfig={{

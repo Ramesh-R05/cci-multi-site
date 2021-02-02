@@ -120,6 +120,13 @@ $hero-teaser-line-height: 25px;
             float: left;
             width: 58.33%;
         }
+
+        @media #{$medium-up} {
+
+            img {
+                border-radius: $teaser-image-border-radius;
+            }
+        }
     }
 
     .teaser__body {

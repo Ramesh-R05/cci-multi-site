@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import classNames from 'classnames';
-import TeaserList from '@bxm/teaser/lib/components/teaserList';
-import StickyBlock from '@bxm/behaviour/lib/components/sticky';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
+import PropTypes from 'prop-types';
+import StickyBlock from '@bxm/behaviour/lib/components/sticky';
+import TeaserList from '@bxm/teaser/lib/components/teaserList';
+import classNames from 'classnames';
 import get from 'lodash/object/get';
 import Teaser from './teaser';
 
@@ -54,10 +55,10 @@ export default class TeaserListView extends Component {
             pageLocation: Ad.pos.aside
         };
         const sizes = get(config, 'features.teaserImageSizes', {
-            s: { w: 323, h: 269 },
-            m: { w: 452, h: 254 },
-            l: { w: 409, h: 230 },
-            xl: { w: 1010, h: 478 }
+            s: { w: 323, h: 200 },
+            m: { w: 452, h: 279 },
+            l: { w: 409, h: 253 },
+            xl: { w: 1010, h: 624 }
         });
 
         if (index) {

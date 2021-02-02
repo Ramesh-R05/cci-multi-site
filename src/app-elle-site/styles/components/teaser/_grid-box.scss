@@ -101,6 +101,16 @@
 
     }
 
+    .teaser__image {
+
+        @media #{$medium-up} {
+
+            img {
+                border-radius: $teaser-image-border-radius;
+            }
+        }
+    }
+
     .teaser__section-tag {
         padding: 0 $column-gutter/2;
         margin-top: 16px;
@@ -157,6 +167,12 @@
                     }
                 }
 
+            }
+
+            &__image {
+                img {
+                    border-radius: $teaser-image-border-radius;
+                }
             }
 
             &__title {
@@ -305,6 +321,13 @@
 
         &__list-item {
             padding-bottom: 0;
+
+            .teaser__image {
+
+                img {
+                    border-radius: $teaser-image-border-radius;
+                }
+            }
 
             &:nth-child(-n+4) {
                 padding-left: $promoted-teaser-gutter/2;

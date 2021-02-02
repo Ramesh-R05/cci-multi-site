@@ -167,7 +167,18 @@ export default class Teaser extends Component {
 
     render() {
         const { config } = this.context;
-        const { className, sourceClassName, showDate, sourceDefault, googleNativeAds, showImageBadge, tagsToShow, linesToShow } = this.props;
+        const {
+            className,
+            sourceClassName,
+            showDate,
+            sourceDefault,
+            googleNativeAds,
+            showImageBadge,
+            tagsToShow,
+            linesToShow,
+            imageSizes,
+            onClick
+        } = this.props;
         let { article } = this.props;
         const { nativeAdHasContentReady, nativeAdContent } = this.state;
 
@@ -226,7 +237,7 @@ export default class Teaser extends Component {
         }
 
         return (
-            <article className={containerClassNames} onClick={this.props.onClick}>
+            <article className={containerClassNames} onClick={onClick}>
                 {!googleNativeAds &&
                     !nativeAdHasContentReady &&
                     !nativeAdContent && (
@@ -298,7 +309,8 @@ export default class Teaser extends Component {
                                 nativeAdContent={nativeAdContent}
                                 gtmClassName={this.getGTMClass()}
                                 googleNativeAds={googleNativeAds}
-                                onClick={this.props.onClick}
+                                onClick={onClick}
+                                imageSizes={imageSizes}
                             />
                         </div>
                     )}

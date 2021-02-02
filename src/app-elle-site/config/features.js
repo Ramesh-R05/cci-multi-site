@@ -9,10 +9,10 @@ export default {
         showBelowHero: false,
         showAboveBottomTeasers: true,
         imageSizes: {
-            s: { w: 300, h: 170 },
-            m: { w: 300, h: 170 },
-            l: { w: 300, h: 170 },
-            xl: { w: 219, h: 124 }
+            s: { w: 300, h: 185 },
+            m: { w: 300, h: 185 },
+            l: { w: 300, h: 185 },
+            xl: { w: 219, h: 142 }
         }
     },
     galleryOfGalleries: {
@@ -64,6 +64,12 @@ export default {
     ias: {
         enabled: true,
         id: 926929
+    },
+    teaserImageSizes: {
+        s: { w: 323, h: 200 },
+        m: { w: 452, h: 279 },
+        l: { w: 409, h: 253 },
+        xl: { w: 1010, h: 624 }
     },
     jwPlayer: {
         enabled: true

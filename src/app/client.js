@@ -1,10 +1,11 @@
 import '@babel/polyfill';
 import 'picturefill';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import batchedUpdatePlugin from 'fluxible-addons-react/batchedUpdatePlugin';
 import { createElementWithContext } from 'fluxible-addons-react';
 import fluxibleConfigPlugin from 'fluxible-plugin-context-config';
-import batchedUpdatePlugin from 'fluxible-addons-react/batchedUpdatePlugin';
 import app from './app';
 import adConfig from './config/ads';
 

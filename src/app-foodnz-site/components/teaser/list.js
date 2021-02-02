@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import classNames from 'classnames';
-import TeaserList from '@bxm/teaser/lib/components/teaserList';
-import StickyBlock from '@bxm/behaviour/lib/components/sticky';
+
 import Ad from '@bxm/ad/lib/google/components/ad';
+import PropTypes from 'prop-types';
+import StickyBlock from '@bxm/behaviour/lib/components/sticky';
+import TeaserList from '@bxm/teaser/lib/components/teaserList';
+import classNames from 'classnames';
 import Teaser from '../../../app/components/teaser/teaser';
 
 export default class TeaserListView extends Component {
@@ -98,10 +99,10 @@ export default class TeaserListView extends Component {
                             articles={items}
                             showSubSection
                             imageSizes={{
-                                s: { w: 323, h: 242 },
-                                m: { w: 452, h: 339 },
-                                l: { w: 409, h: 307 },
-                                xl: { w: 1010, h: 756 }
+                                s: { w: 323, h: 200 },
+                                m: { w: 452, h: 279 },
+                                l: { w: 409, h: 253 },
+                                xl: { w: 1010, h: 624 }
                             }}
                             adPosition={4}
                             adConfig={{

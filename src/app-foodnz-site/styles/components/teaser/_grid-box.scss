@@ -15,7 +15,7 @@
     .teaser__summary {
         line-height: 21px;
         font-size: 13px;
-    } 
+    }
 
     .teaser__body {
         margin-top: 7px;
@@ -86,6 +86,16 @@
 }
 
 .teaser-view-grid {
+
+    .teaser__image {
+
+        @media #{$medium-up} {
+
+            img {
+                border-radius: $teaser-image-border-radius;
+            }
+        }
+    }
 
     .teaser__title {
         line-height: 24px;
@@ -167,6 +177,12 @@
 
             &__summary {
                 display: none;
+            }
+
+            &__image {
+                img {
+                    border-radius: $teaser-image-border-radius;
+                }
             }
 
             &__body {
@@ -326,6 +342,13 @@
                     display: block;
                 }
 
+            }
+
+            .teaser__image {
+
+                img {
+                    border-radius: $teaser-image-border-radius;
+                }
             }
         }
 

@@ -7,20 +7,20 @@ export default {
         showOutsideContainer: false,
         showInsideContainer: true,
         imageSizes: {
-            s: { w: 300, h: 225 },
-            m: { w: 300, h: 225 },
-            l: { w: 300, h: 225 },
-            xl: { w: 230, h: 173 }
+            s: { w: 300, h: 185 },
+            m: { w: 300, h: 185 },
+            l: { w: 300, h: 185 },
+            xl: { w: 230, h: 142 }
         }
     },
     promoted: {
         showBelowHero: false,
         showAboveBottomTeasers: true,
         imageSizes: {
-            s: { w: 300, h: 225 },
-            m: { w: 300, h: 225 },
-            l: { w: 300, h: 225 },
-            xl: { w: 230, h: 173 }
+            s: { w: 300, h: 185 },
+            m: { w: 300, h: 185 },
+            l: { w: 300, h: 185 },
+            xl: { w: 230, h: 142 }
         }
     },
     galleryOfGalleries: {
@@ -59,10 +59,10 @@ export default {
     galleryItemCountSeparator: '/',
     teaserImageAnchorType: imageResize.anchor.MC,
     teaserImageSizes: {
-        s: { w: 323, h: 242 },
-        m: { w: 452, h: 339 },
-        l: { w: 409, h: 307 },
-        xl: { w: 1010, h: 756 }
+        s: { w: 323, h: 200 },
+        m: { w: 452, h: 279 },
+        l: { w: 409, h: 253 },
+        xl: { w: 1010, h: 624 }
     },
     homePage: {
         topNewsFeedListType: 'grid',

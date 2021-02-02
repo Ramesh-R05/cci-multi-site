@@ -27,6 +27,13 @@
             padding-left: 0;
             padding-right: 0;
             display: inline-block;
+
+            @media #{$medium-up} {
+
+                img {
+                    border-radius: $teaser-image-border-radius;
+                }
+            }
         }
 
         &__source {

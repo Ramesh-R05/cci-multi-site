@@ -61,6 +61,13 @@
                 padding-right: $column-gutter/4;
             }
 
+            @media #{$medium-up} {
+
+                img {
+                    border-radius: $teaser-image-border-radius;
+                }
+            }
+
             @media #{$xlarge-up} {
                 position: relative;
 
@@ -120,7 +127,7 @@
             text-transform: uppercase;
             margin-top: 7px;
             letter-spacing: .7px;
-            
+
             @media #{$medium-up} {
                 padding: 0;
                 line-height: 12px;
@@ -220,7 +227,7 @@
             .teaser__source--new-zealand-s-woman-s-weekly span:first-child:not(.teaser__source__breaker) {
                 color: $nz-womans-weekly-color;
             }
-            
+
             .teaser__source--simply-you span:first-child:not(.teaser__source__breaker) {
                 color: $nz-simply-you-color;
             }

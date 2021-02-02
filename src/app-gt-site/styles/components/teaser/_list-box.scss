@@ -68,6 +68,13 @@
                 padding-right: 12px;
             }
 
+            @media #{$medium-up} {
+
+                img {
+                    border-radius: $teaser-image-border-radius;
+                }
+            }
+
             @media #{$large-up} {
                 padding-right: 0;
             }

@@ -1,6 +1,17 @@
 .mustread-teaser-view-grid,
 .promoted-teaser-view-grid,
 .teaser-view-grid {
+
+    .teaser__image {
+
+        @media #{$medium-up} {
+
+            img {
+                border-radius: $teaser-image-border-radius;
+            }
+        }
+    }
+
     .teaser__title {
         text-transform: none;
         margin-bottom: 6px;
@@ -193,6 +204,13 @@
     .teaser__list-item {
         padding-bottom: 0;
 
+        .teaser__image {
+
+            img {
+                border-radius: $teaser-image-border-radius;
+            }
+        }
+
         .teaser__title {
             font-size: $must-teaser-title-size;
             line-height: $must-teaser-title-lineheight;
@@ -302,6 +320,13 @@
 
     .teaser__list-item {
         padding-bottom: 0;
+
+        .teaser__image {
+
+            img {
+                border-radius: $teaser-image-border-radius;
+            }
+        }
 
         .teaser__title {
             font-size: $promoted-teaser-title-size;
