@@ -11,7 +11,7 @@
                 @media #{$medium-up} {
 
                     img {
-                        border-radius: 3px;
+                        border-radius: $teaser-image-border-radius;
                     }
                 }
             }

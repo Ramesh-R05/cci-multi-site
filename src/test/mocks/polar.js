@@ -95,14 +95,7 @@ export default {
                         kw: 'article_right_feed_4'
                     }
                 }
-            ],
-            articleRelatedFeed: {
-                index: 0,
-                label: 'article_related_1',
-                targets: {
-                    kw: 'article_related_1'
-                }
-            }
+            ]
         }
     }
 };
