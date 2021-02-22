@@ -23,8 +23,8 @@ const config = {
     },
     resolve: {
         alias: {
-            /* 
-                ensure there is only one instance of react when resolving modules 
+            /*
+                ensure there is only one instance of react when resolving modules
                 this helps with symlinks
             */
             react: path.join(__dirname, 'node_modules/react')
