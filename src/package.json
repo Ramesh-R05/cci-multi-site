@@ -73,7 +73,7 @@
         "fluxible-plugin-context-config": "^2.0.0",
         "fluxible-reducer-store": "^0.1.0",
         "fluxible-router": "^1.5.1",
-        "lodash": "^3.10.1",
+        "lodash": "^4.17.19",
         "lodash.get": "^4.4.2",
         "lodash.mergewith": "^4.6.0",
         "lodash.set": "^4.3.2",
