@@ -233,4 +233,25 @@ $footer-section-gap: 35px;
         }
     }
 
+    &__affiliate {
+        padding-top: 0;
+        margin-top: 10px;
+
+        span {
+            @include type-text-light;
+            font-size: 12px;
+            color: $color-text;
+        }
+
+        &-rights {
+            margin-left: 0;
+            display: block;
+
+            @media #{$medium-up} {
+                display: inline-block;
+                margin-left: 10px;
+            }
+        }
+    }
+
 }

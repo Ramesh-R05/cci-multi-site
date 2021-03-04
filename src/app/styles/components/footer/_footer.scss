@@ -41,6 +41,24 @@
         }
     }
 
+    &__affiliate {
+        line-height: 15px;
+        padding-top: 4px;
+        text-align: center;
+
+        span {
+            color: $color-grey-light;
+            font-family: $small-text-font;
+            font-size: 12px;
+            letter-spacing: .020em;
+            text-transform:  uppercase;
+
+            @media #{$large-up} {
+                font-size: 12px;
+            }
+        }
+    }
+
     .get-social {
         width: 300px;
 

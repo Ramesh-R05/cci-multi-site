@@ -91,6 +91,22 @@
         }
     }
 
+    &__affiliate {
+        margin-top: 15px;
+        padding-top: 0;
+
+        &-rights {
+            margin-left: 0;
+            display: block;
+            margin-top: 5px;
+
+            @media #{$medium-up} {
+                display: inline-block;
+                margin-left: 10px;
+            }
+        }
+    }
+
 }
 
 .footer .social-link,

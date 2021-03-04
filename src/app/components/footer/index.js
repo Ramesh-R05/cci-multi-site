@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import BackToTop from '@bxm/ui/lib/back-to-top/backToTop';
 import PropTypes from 'prop-types';
-import has from 'lodash/object/has';
 import classNames from 'classnames';
+import has from 'lodash/object/has';
 import FooterNavigation from './footerNavigation';
 import FooterSubscribe from './footerSubscribe';
 import Logos from '../page/logos';
@@ -76,6 +76,12 @@ export default class Footer extends Component {
                     <div className="footer__copyright">
                         <span className="footer__copyright-bauer">&copy; Copyright {new Date().getFullYear()} Are Media Pty Limited</span>
                         <span className="footer__copyright-rights">All Rights Reserved</span>
+                    </div>
+                    <div className="footer__affiliate">
+                        <span>
+                            All products are independently selected, tested or recommended by our team of experts. If you buy something, we may earn
+                            an affiliate commission.
+                        </span>
                     </div>
                 </footer>
                 <BackToTop className="button" />
