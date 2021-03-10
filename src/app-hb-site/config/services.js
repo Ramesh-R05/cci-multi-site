@@ -7,7 +7,7 @@ export default {
         sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/hb',
         tag: 'https://services.sit.bxm.net.au/tag/v1/hb',
         search: 'https://services.sit.bxm.net.au/es-search/v1/hb',
-        identity: 'https://dev.dmp.bauer-media.net.au/api/identity'
+        identity: 'https://dev.dmp.aremedia.net.au/federation/api/identity'
     },
     endpoints: {
         page: '/api/getPageContent',

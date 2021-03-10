@@ -7,7 +7,7 @@ export default {
         sitemap: 'http://sitemap-service.sit.bxm.net.au/v1/cosmo',
         tag: 'https://services.sit.bxm.net.au/tag/v1/cosmo',
         search: 'https://services.sit.bxm.net.au/es-search/v1/cosmo',
-        identity: 'https://dev.dmp.bauer-media.net.au/api/identity'
+        identity: 'https://dev.dmp.aremedia.net.au/federation/api/identity'
     },
     endpoints: {
         page: '/api/getPageContent',
