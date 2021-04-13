@@ -16,8 +16,14 @@ jobs:
   ecr-buildandpush-dockerimage:
     environment:
       # Settings for APP
-      APP_KEY: now-site
       APP_STUBBED: true
+      APP_KEY: now-site
+      APP_KEY: gt-site
+      APP_KEY: elle-site
+      APP_KEY: foodnz-site
+      APP_KEY: awwfood-site      
+      # APP_KEY: hb-site
+    #   - APP_KEY=cosmo-site
       # Settings for master
       SIT_MASTER_SERVICE_NAME: sit-master-now-site-service-v1
       SIT_MASTER_TASK_NAME: sit-master-now-site-task
