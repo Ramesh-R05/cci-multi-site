@@ -21,7 +21,7 @@ jobs:
       APP_KEY: gt-site
       APP_KEY: elle-site
       APP_KEY: foodnz-site
-      APP_KEY: awwfood-site      
+      APP_KEY: awwfood-site
       # APP_KEY: hb-site
     #   - APP_KEY=cosmo-site
       # Settings for master
