@@ -17,7 +17,6 @@ jobs:
     environment:
       # Settings for APP
       APP_STUBBED: true
-      APP_KEY: now-site
       APP_KEY: gt-site
       APP_KEY: elle-site
       APP_KEY: foodnz-site
@@ -83,7 +82,6 @@ jobs:
           name: "Install | NVM | NPM | NODE_JS"
           command: |
                 echo -e "\n\n\n ### UBUNTU_16.04 | NVM | NPM | NODE_JS "
-                cd src; pwd;
                 echo -e "\n ### Install NVM (Node Version Manager) - Installer for NodeJS + NPM "
                 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
                 source ~/.profile
@@ -92,6 +90,7 @@ jobs:
                 nvm use v10.19.0;
                 echo -e "\n ### Setting NPM Registry as BXM "
                 npm set @bxm:registry http://npm.digital.bauer-media.net.au
+                cd src; pwd;                
                 npm install
                 npm rebuild node-sass --force
                 npm run test:ci
