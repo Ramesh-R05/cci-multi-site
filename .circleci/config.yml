@@ -16,13 +16,13 @@ jobs:
   ecr-buildandpush-dockerimage:
     environment:
       # Settings for APP
+      APP_KEY_GT: gt-site
+      APP_KEY_ELLE: elle-site
+      APP_KEY_FOODNZ: foodnz-site
+      APP_KEY_AWWFOOD: awwfood-site
       APP_STUBBED: true
-      APP_KEY: gt-site
-      APP_KEY: elle-site
-      APP_KEY: foodnz-site
-      APP_KEY: awwfood-site
-      # APP_KEY: hb-site
-    #   - APP_KEY=cosmo-site
+      #APP_KEY_HB: hb-site
+      #APP_KEY=cosmo-site
       # Settings for master
       SIT_MASTER_SERVICE_NAME: sit-master-now-site-service-v1
       SIT_MASTER_TASK_NAME: sit-master-now-site-task
@@ -90,7 +90,7 @@ jobs:
                 nvm use v10.19.0;
                 echo -e "\n ### Setting NPM Registry as BXM "
                 npm set @bxm:registry http://npm.digital.bauer-media.net.au
-                cd src; pwd;                
+                cd src; pwd;
                 npm install
                 npm rebuild node-sass --force
                 npm run test:ci
