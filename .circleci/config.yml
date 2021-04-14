@@ -136,7 +136,7 @@ jobs:
 
 workflows:
   version: 2
-  now-site-build:
+  multi-site-build:
     jobs:
       - ecr-buildandpush-dockerimage:
           filters:
