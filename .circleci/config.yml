@@ -188,6 +188,21 @@ workflows:
               ignore:
                 - main
 
+# hb - SITE
+      - ecr-buildandpush-dockerimage:
+          APP_NAME: hb-site
+          filters:
+            branches:
+              only:
+                - circleci-project-setup
+                - master
+                - /fix.*/
+                - /feature.*/
+                - /dependabot.*/
+              ignore:
+                - main
+
+
 
 ### END ###
 
