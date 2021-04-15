@@ -160,6 +160,20 @@ workflows:
               ignore:
                 - main
 
+# awwfood - SITE
+      - ecr-buildandpush-dockerimage:
+          APP_NAME: awwfood-site
+          filters:
+            branches:
+              only:
+                - circleci-project-setup
+                - master
+                - /fix.*/
+                - /feature.*/
+                - /dependabot.*/
+              ignore:
+                - main
+
 # foodnz - SITE
       - ecr-buildandpush-dockerimage:
           APP_NAME: foodnz-site
@@ -174,19 +188,6 @@ workflows:
               ignore:
                 - main
 
-# awwfood - SITE
-      - ecr-buildandpush-dockerimage:
-          APP_NAME: awwfood-site
-          filters:
-            branches:
-              only:
-                - circleci-project-setup
-                - master
-                - /fix.*/
-                - /feature.*/
-                - /dependabot.*/
-              ignore:
-                - main
 
 # hb - SITE
       - ecr-buildandpush-dockerimage:
