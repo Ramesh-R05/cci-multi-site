@@ -145,7 +145,7 @@ workflows:
   multi-site-build:
     jobs:
       - ecr-buildandpush-dockerimage:
-          APP_KEY: gt-site
+          APP_NAME: gt-site
           filters:
             branches:
               only:
