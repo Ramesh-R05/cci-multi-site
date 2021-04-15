@@ -139,6 +139,7 @@ workflows:
   version: 2
   multi-site-build:
     jobs:
+# gt - SITE
       - ecr-buildandpush-dockerimage:
           APP_NAME: gt-site
           filters:
@@ -151,7 +152,35 @@ workflows:
                 - /dependabot.*/
               ignore:
                 - main
-#
+# elle - SITE
+      - ecr-buildandpush-dockerimage:
+          APP_NAME: elle-site
+          filters:
+            branches:
+              only:
+                - circleci-project-setup
+                - master
+                - /fix.*/
+                - /feature.*/
+                - /dependabot.*/
+              ignore:
+                - main
+
+# foodnz - SITE
+      - ecr-buildandpush-dockerimage:
+          APP_NAME: elle-site
+          filters:
+            branches:
+              only:
+                - circleci-project-setup
+                - master
+                - /fix.*/
+                - /feature.*/
+                - /dependabot.*/
+              ignore:
+                - main
+
+# awwfood - SITE
       - ecr-buildandpush-dockerimage:
           APP_NAME: elle-site
           filters:
