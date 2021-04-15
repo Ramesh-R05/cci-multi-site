@@ -19,8 +19,13 @@ jobs:
         type: string
         default: "Use_App_Name"
     environment:
-      # Settings for APP
       APP_KEY: << parameters.APP_NAME >>
+      # Settings for APP
+      #APP_KEY: awwfood-site
+      #APP_KEY: gt-site
+      #APP_KEY: elle-site
+      #APP_KEY: hb-site
+      #APP_KEY: foodnz-site
       # Settings for commons
       CLUSTER_NAME: cci-app-ecs
       APP_STUBBED: true
@@ -133,8 +138,10 @@ workflows:
   version: 2
   multi-site-build:
     jobs:
+
 # gt - SITE
       - ecr-buildandpush-dockerimage:
+          name: GT-SITE # Name of the job - for reference in pipeline view
           APP_NAME: gt-site
           filters:
             branches:
@@ -146,8 +153,10 @@ workflows:
                 - /dependabot.*/
               ignore:
                 - main
+
 # elle - SITE
       - ecr-buildandpush-dockerimage:
+          name: ELLE-SITE # Name of the job - for reference in pipeline view
           APP_NAME: elle-site
           filters:
             branches:
@@ -162,6 +171,7 @@ workflows:
 
 # awwfood - SITE
       - ecr-buildandpush-dockerimage:
+          name: AWWFOOD-SITE # Name of the job - for reference in pipeline view
           APP_NAME: awwfood-site
           filters:
             branches:
@@ -176,6 +186,7 @@ workflows:
 
 # foodnz - SITE
       - ecr-buildandpush-dockerimage:
+          name: FOODNZ-SITE # Name of the job - for reference in pipeline view
           APP_NAME: foodnz-site
           filters:
             branches:
@@ -188,9 +199,9 @@ workflows:
               ignore:
                 - main
 
-
 # hb - SITE
       - ecr-buildandpush-dockerimage:
+          name: HB-SITE # Name of the job - for reference in pipeline view
           APP_NAME: hb-site
           filters:
             branches:
