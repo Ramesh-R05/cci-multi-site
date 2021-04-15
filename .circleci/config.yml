@@ -17,6 +17,7 @@ jobs:
     parameters:
       APP_KEY:
         type: String
+        default: default
     environment:
       # Settings for APP
       APP_KEY_GT: gt-site
