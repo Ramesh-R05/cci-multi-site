@@ -42,7 +42,6 @@ jobs:
                   echo "export REPOS_NAME=cci-$APP_KEY" >> $BASH_ENV;
                   echo "export CONTAINER_NAME=$APP_KEY-container" >> $BASH_ENV;
                   echo "export IMAGE_NAME=$CCI_BRANCH_NAME" >> $BASH_ENV;
-                  echo "export APP_KEY=$APP_KEY" >> $BASH_ENV;
                 fi
                 if [ $CIRCLE_BRANCH != master ]; then
                   CCI_BRANCH_NAME=$(echo $CIRCLE_BRANCH | sed -e 's/\//-/g').$CIRCLE_BUILD_NUM;
@@ -53,7 +52,6 @@ jobs:
                   echo "export REPOS_NAME=cci-$APP_KEY" >> $BASH_ENV;
                   echo "export CONTAINER_NAME=$APP_KEY-container" >> $BASH_ENV;
                   echo "export IMAGE_NAME=$CCI_BRANCH_NAME" >> $BASH_ENV;
-                  echo "export APP_KEY=$APP_KEY" >> $BASH_ENV;
                 fi
 
 # Print ENV Vars - Verify CircleCI ENV
