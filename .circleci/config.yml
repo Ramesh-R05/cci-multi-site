@@ -136,7 +136,7 @@ workflows:
 
 # gt - SITE
       - ecr-buildandpush-dockerimage:
-          name: GT-SITE # Name of the job - for reference
+          name: GT-SITE # Name of the job - for reference in pipeline view
           APP_NAME: gt-site
           filters:
             branches:
@@ -151,6 +151,7 @@ workflows:
 
 # elle - SITE
       - ecr-buildandpush-dockerimage:
+          name: ELLE-SITE # Name of the job - for reference in pipeline view
           APP_NAME: elle-site
           filters:
             branches:
@@ -165,6 +166,7 @@ workflows:
 
 # awwfood - SITE
       - ecr-buildandpush-dockerimage:
+          name: AWWFOOD-SITE # Name of the job - for reference in pipeline view
           APP_NAME: awwfood-site
           filters:
             branches:
@@ -179,6 +181,7 @@ workflows:
 
 # foodnz - SITE
       - ecr-buildandpush-dockerimage:
+          name: FOODNZ-SITE # Name of the job - for reference in pipeline view
           APP_NAME: foodnz-site
           filters:
             branches:
@@ -191,9 +194,9 @@ workflows:
               ignore:
                 - main
 
-
 # hb - SITE
       - ecr-buildandpush-dockerimage:
+          name: HB-SITE # Name of the job - for reference in pipeline view
           APP_NAME: hb-site
           filters:
             branches:
