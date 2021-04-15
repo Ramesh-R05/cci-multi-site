@@ -15,31 +15,29 @@ orbs:
 jobs:
   ecr-buildandpush-dockerimage:
     parameters:
-      APP_KEY:
+      APP_NAME:
         type: string
-        default: "Hello World"
+        default: "HelloWorld"
     environment:
       # Settings for APP
-      APP_NAME: << parameters.APP_KEY >>
-      APP_KEY_GT: gt-site
-      APP_KEY_ELLE: elle-site
-      APP_KEY_FOODNZ: foodnz-site
-      APP_KEY_AWWFOOD: awwfood-site
-      APP_STUBBED: true
-      #APP_KEY_HB: hb-site
-      #APP_KEY=cosmo-site
+      APP_KEY: << parameters.APP_NAME >>
+
       # Settings for master
       SIT_MASTER_SERVICE_NAME: sit-master-now-site-service-v1
       SIT_MASTER_TASK_NAME: sit-master-now-site-task
       SIT_MASTER_TASKDEF_JSON_FILENAME: sit-master-now-site-task-def.json
+
       # Settings for branch
       SIT_BRANCH_SERVICE_NAME: sit-branch-now-site-service-v1
       SIT_BRANCH_TASK_NAME: sit-branch-now-site-task
       SIT_BRANCH_TASKDEF_JSON_FILENAME: sit-branch-now-site-task-def.json
+
       # Settings for commons
       CLUSTER_NAME: cci-app-ecs
       REPOS_NAME: cci-now-site
       CONTAINER_NAME: now-site-container
+      APP_STUBBED: true
+
     machine:
       image: ubuntu-1604:202010-01
     working_directory: ~/now-site
@@ -52,10 +50,11 @@ jobs:
                 if [ $CIRCLE_BRANCH == master ]; then
                   CCI_BRANCH_NAME=$CIRCLE_BRANCH.$CIRCLE_BUILD_NUM;
                   echo "export BRANCH_NAME=$CCI_BRANCH_NAME" >> $BASH_ENV;
-                  echo "export SERVICE_NAME=$SIT_MASTER_SERVICE_NAME" >> $BASH_ENV;
-                  echo "export TASK_NAME=$SIT_MASTER_TASK_NAME" >> $BASH_ENV;
-                  echo "export TASKDEF_JSON_FILENAME=$SIT_MASTER_TASKDEF_JSON_FILENAME" >> $BASH_ENV;
-                  echo "export IMAGE_NAME=$CCI_BRANCH_NAME" >> $BASH_ENV;                  
+                  echo "export SERVICE_NAME=sit-master-$APP_KEY-service-v1" >> $BASH_ENV;
+                  echo "export TASK_NAME=sit-master-$APP_KEY-task" >> $BASH_ENV;
+                  echo "export TASKDEF_JSON_FILENAME=sit-master-$APP_KEY-task-def-json" >> $BASH_ENV;
+                  echo "export REPOS_NAME=cci-$APP_KEY" >> $BASH_ENV;
+                  echo "export IMAGE_NAME=$CCI_BRANCH_NAME" >> $BASH_ENV;
                 fi
                 if [ $CIRCLE_BRANCH != master ]; then
                   CCI_BRANCH_NAME=$(echo $CIRCLE_BRANCH | sed -e 's/\//-/g').$CIRCLE_BUILD_NUM;
@@ -78,7 +77,7 @@ jobs:
                 echo "REPOS_NAME=$REPOS_NAME";
                 echo "CONTAINER_NAME=$CONTAINER_NAME"
                 echo "IMAGE_NAME=$IMAGE_NAME";
-                echo "APP_NAME=$APP_NAME";
+                echo "APP_NAME=$APP_KEY";
 
 # Code Checkout - CCI_Build
       - checkout
@@ -105,6 +104,7 @@ jobs:
                 echo -e "\n ### NVM Version  : $(nvm --version)"
                 echo -e "\n ### NPM Version  : $(npm --version)"
                 echo -e "\n ### Node Version : $(node --version)"
+                echo -e "\n ### Docker Version : $(docker --version)"
 
 # AWS ECR Integration: Build and Push Docker Image to ECR
       - aws-ecr/build-and-push-image:
@@ -160,8 +160,14 @@ workflows:
 
 ### END ###
 
-#          echo -e "\n ### This is pipeline ID << pipeline.id >> # << pipeline.git.branch >>"
-#          echo -e "\n ### This is pipeline ID << pipeline.id >> # << pipeline.git.branch >>"
-#          source ~/.profile
-#          tag: 'latest,$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM'
-#          echo -e "\n\n\n ### CCI_BRANCHNAME: $CCI_BRANCH_NAME"
+#       echo -e "\n ### This is pipeline ID << pipeline.id >> # << pipeline.git.branch >>"
+#       echo -e "\n ### This is pipeline ID << pipeline.id >> # << pipeline.git.branch >>"
+#       source ~/.profile
+#       tag: 'latest,$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM'
+#       echo -e "\n\n\n ### CCI_BRANCHNAME: $CCI_BRANCH_NAME"
+#       APP_KEY_GT: gt-site
+#       APP_KEY_ELLE: elle-site
+#       APP_KEY_FOODNZ: foodnz-site
+#       APP_KEY_AWWFOOD: awwfood-site
+#       APP_KEY_HB: hb-site
+#       APP_KEY=cosmo-site
