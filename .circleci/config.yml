@@ -39,8 +39,6 @@ jobs:
       CLUSTER_NAME: cci-app-ecs
       REPOS_NAME: cci-now-site
       CONTAINER_NAME: now-site-container
-
-
     machine:
       image: ubuntu-1604:202010-01
     working_directory: ~/now-site
@@ -146,7 +144,7 @@ workflows:
   multi-site-build:
     jobs:
       - ecr-buildandpush-dockerimage:
-          APP_KEY: "gt-site"
+          APP_KEY: gt-site
           filters:
             branches:
               only:
