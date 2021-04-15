@@ -34,9 +34,11 @@ jobs:
 
       # Settings for commons
       CLUSTER_NAME: cci-app-ecs
-      REPOS_NAME: cci-now-site
-      CONTAINER_NAME: now-site-container
       APP_STUBBED: true
+      #
+      # REPOS_NAME: cci-now-site
+      # CONTAINER_NAME: now-site-container
+
 
     machine:
       image: ubuntu-1604:202010-01
@@ -54,14 +56,17 @@ jobs:
                   echo "export TASK_NAME=sit-master-$APP_KEY-task" >> $BASH_ENV;
                   echo "export TASKDEF_JSON_FILENAME=sit-master-$APP_KEY-task-def-json" >> $BASH_ENV;
                   echo "export REPOS_NAME=cci-$APP_KEY" >> $BASH_ENV;
+                  echo "export CONTAINER_NAME=$APP_KEY-container" >> $BASH_ENV;
                   echo "export IMAGE_NAME=$CCI_BRANCH_NAME" >> $BASH_ENV;
                 fi
                 if [ $CIRCLE_BRANCH != master ]; then
                   CCI_BRANCH_NAME=$(echo $CIRCLE_BRANCH | sed -e 's/\//-/g').$CIRCLE_BUILD_NUM;
                   echo "export BRANCH_NAME=$CCI_BRANCH_NAME" >> $BASH_ENV;
-                  echo "export SERVICE_NAME=$SIT_BRANCH_SERVICE_NAME" >> $BASH_ENV;
-                  echo "export TASK_NAME=$SIT_BRANCH_TASK_NAME" >> $BASH_ENV;
-                  echo "export TASKDEF_JSON_FILENAME=$SIT_BRANCH_TASKDEF_JSON_FILENAME" >> $BASH_ENV;
+                  echo "export SERVICE_NAME=sit-branch-$APP_KEY-service-v1" >> $BASH_ENV;
+                  echo "export TASK_NAME=sit-branch-$APP_KEY-task" >> $BASH_ENV;
+                  echo "export TASKDEF_JSON_FILENAME=sit-branch-$APP_KEY-task-def-json" >> $BASH_ENV;
+                  echo "export REPOS_NAME=cci-$APP_KEY" >> $BASH_ENV;
+                  echo "export CONTAINER_NAME=$APP_KEY-container" >> $BASH_ENV;
                   echo "export IMAGE_NAME=$CCI_BRANCH_NAME" >> $BASH_ENV;
                 fi
 
@@ -76,8 +81,8 @@ jobs:
                 echo "TASKDEF_JSON_FILENAME=$TASKDEF_JSON_FILENAME";
                 echo "REPOS_NAME=$REPOS_NAME";
                 echo "CONTAINER_NAME=$CONTAINER_NAME"
-                echo "IMAGE_NAME=$IMAGE_NAME";
                 echo "APP_NAME=$APP_KEY";
+                echo "IMAGE_NAME=$IMAGE_NAME";
 
 # Code Checkout - CCI_Build
       - checkout
