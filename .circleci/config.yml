@@ -22,16 +22,6 @@ jobs:
       # Settings for APP
       APP_KEY: << parameters.APP_NAME >>
 
-      # Settings for master
-      #SIT_MASTER_SERVICE_NAME: sit-master-now-site-service-v1
-      #SIT_MASTER_TASK_NAME: sit-master-now-site-task
-      #SIT_MASTER_TASKDEF_JSON_FILENAME: sit-master-now-site-task-def.json
-
-      # Settings for branch
-      #SIT_BRANCH_SERVICE_NAME: sit-branch-now-site-service-v1
-      #SIT_BRANCH_TASK_NAME: sit-branch-now-site-task
-      #SIT_BRANCH_TASKDEF_JSON_FILENAME: sit-branch-now-site-task-def.json
-
       # Settings for commons
       CLUSTER_NAME: cci-app-ecs
       APP_STUBBED: true
@@ -42,7 +32,7 @@ jobs:
 
     machine:
       image: ubuntu-1604:202010-01
-    working_directory: ~/$APP_KEY
+    working_directory: ~/multi-site
     steps:
 
 # Set ENV Vars to use with ECR/DOCKER - Verify CircleCI Task
