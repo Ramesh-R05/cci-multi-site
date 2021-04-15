@@ -1,3 +1,12 @@
+#APP_KEY: awwfood-site
+#APP_KEY: gt-site
+#APP_KEY: elle-site
+#APP_KEY: hb-site
+#APP_KEY: foodnz-site
+
+
+
+
 
 BRANCH_NAME=master.27
 CLUSTER_NAME=cci-app-ecs

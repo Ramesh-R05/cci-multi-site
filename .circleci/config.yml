@@ -19,16 +19,11 @@ jobs:
         type: string
         default: "Use_App_Name"
     environment:
-      APP_KEY: << parameters.APP_NAME >>
       # Settings for APP
-      #APP_KEY: awwfood-site
-      #APP_KEY: gt-site
-      #APP_KEY: elle-site
-      #APP_KEY: hb-site
-      #APP_KEY: foodnz-site
+      APP_KEY: << parameters.APP_NAME >>
+      APP_STUBBED: true
       # Settings for commons
       CLUSTER_NAME: cci-app-ecs
-      APP_STUBBED: true
     machine:
       image: ubuntu-1604:202010-01
     working_directory: ~/multi-site

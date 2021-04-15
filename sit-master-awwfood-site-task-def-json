@@ -21,10 +21,13 @@
             "environment":
             [
                 {
+                "name": "APP_KEY",
+                "value": "awwfood-site"
+                },
+                {
                 "name": "APM_KEY",
                 "value": "c777240932e6282ffacc6a42ae6a0709426522bb"
                 },
-                {
                 "name": "APP_DEBUG",
                 "value": "true"
                 },
