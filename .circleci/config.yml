@@ -136,6 +136,7 @@ workflows:
 
 # gt - SITE
       - ecr-buildandpush-dockerimage:
+          name: GT-SITE # Name of the job - for reference
           APP_NAME: gt-site
           filters:
             branches:
