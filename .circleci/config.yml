@@ -17,32 +17,32 @@ jobs:
     parameters:
       APP_NAME:
         type: string
-        default: "HelloWorld"
+        default: "Use_App_Name"
     environment:
       # Settings for APP
       APP_KEY: << parameters.APP_NAME >>
 
       # Settings for master
-      SIT_MASTER_SERVICE_NAME: sit-master-now-site-service-v1
-      SIT_MASTER_TASK_NAME: sit-master-now-site-task
-      SIT_MASTER_TASKDEF_JSON_FILENAME: sit-master-now-site-task-def.json
+      #SIT_MASTER_SERVICE_NAME: sit-master-now-site-service-v1
+      #SIT_MASTER_TASK_NAME: sit-master-now-site-task
+      #SIT_MASTER_TASKDEF_JSON_FILENAME: sit-master-now-site-task-def.json
 
       # Settings for branch
-      SIT_BRANCH_SERVICE_NAME: sit-branch-now-site-service-v1
-      SIT_BRANCH_TASK_NAME: sit-branch-now-site-task
-      SIT_BRANCH_TASKDEF_JSON_FILENAME: sit-branch-now-site-task-def.json
+      #SIT_BRANCH_SERVICE_NAME: sit-branch-now-site-service-v1
+      #SIT_BRANCH_TASK_NAME: sit-branch-now-site-task
+      #SIT_BRANCH_TASKDEF_JSON_FILENAME: sit-branch-now-site-task-def.json
 
       # Settings for commons
       CLUSTER_NAME: cci-app-ecs
       APP_STUBBED: true
+
       #
       # REPOS_NAME: cci-now-site
       # CONTAINER_NAME: now-site-container
 
-
     machine:
       image: ubuntu-1604:202010-01
-    working_directory: ~/now-site
+    working_directory: ~/$APP_KEY
     steps:
 
 # Set ENV Vars to use with ECR/DOCKER - Verify CircleCI Task
@@ -151,6 +151,19 @@ workflows:
     jobs:
       - ecr-buildandpush-dockerimage:
           APP_NAME: gt-site
+          filters:
+            branches:
+              only:
+                - circleci-project-setup
+                - master
+                - /fix.*/
+                - /feature.*/
+                - /dependabot.*/
+              ignore:
+                - main
+#
+      - ecr-buildandpush-dockerimage:
+          APP_NAME: elle-site
           filters:
             branches:
               only:
