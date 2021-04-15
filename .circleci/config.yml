@@ -21,15 +21,9 @@ jobs:
     environment:
       # Settings for APP
       APP_KEY: << parameters.APP_NAME >>
-
       # Settings for commons
       CLUSTER_NAME: cci-app-ecs
       APP_STUBBED: true
-
-      #
-      # REPOS_NAME: cci-now-site
-      # CONTAINER_NAME: now-site-container
-
     machine:
       image: ubuntu-1604:202010-01
     working_directory: ~/multi-site
@@ -168,7 +162,7 @@ workflows:
 
 # foodnz - SITE
       - ecr-buildandpush-dockerimage:
-          APP_NAME: elle-site
+          APP_NAME: foodnz-site
           filters:
             branches:
               only:
@@ -182,7 +176,7 @@ workflows:
 
 # awwfood - SITE
       - ecr-buildandpush-dockerimage:
-          APP_NAME: elle-site
+          APP_NAME: awwfood-site
           filters:
             branches:
               only:
