@@ -1,3 +1,7 @@
+
+
+
+
 BRANCH_NAME=master.27
 CLUSTER_NAME=cci-app-ecs
 SERVICE_NAME=sit-master-gt-site-service-v1
@@ -43,3 +47,29 @@ CONTAINER_NAME=foodnz-site-container
 APP_NAME=foodnz-site
 IMAGE_NAME=master.29
 CircleCI received exit code 0
+
+
+
+
+
+sit-master-hb-site-service-v1
+sit-master-gt-site-service-v1
+sit-master-elle-site-service-v1
+sit-master-foodnz-site-service-v1
+sit-master-awwfood-site-service-v1
+
+###
+
+sit-branch-hb-site-service-v1
+sit-branch-gt-site-service-v1
+sit-branch-elle-site-service-v1
+sit-branch-foodnz-site-service-v1
+sit-branch-awwfood-site-service-v1
+
+###
+
+
+
+
+
+#
