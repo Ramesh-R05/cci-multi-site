@@ -16,7 +16,7 @@ jobs:
   ecr-buildandpush-dockerimage:
     parameters:
       APP_KEY:
-        type: String
+        type: string
         default: "Hello World"
     environment:
       # Settings for APP
