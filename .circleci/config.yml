@@ -134,36 +134,6 @@ workflows:
   multi-site-build:
     jobs:
 
-# gt - SITE
-      - ecr-buildandpush-dockerimage:
-          name: GT-SITE # Name of the job - for reference in pipeline view
-          APP_NAME: gt-site
-          filters:
-            branches:
-              only:
-                - circleci-project-setup
-                - master
-                - /fix.*/
-                - /feature.*/
-                - /dependabot.*/
-              ignore:
-                - main
-
-# elle - SITE
-      - ecr-buildandpush-dockerimage:
-          name: ELLE-SITE # Name of the job - for reference in pipeline view
-          APP_NAME: elle-site
-          filters:
-            branches:
-              only:
-                - circleci-project-setup
-                - master
-                - /fix.*/
-                - /feature.*/
-                - /dependabot.*/
-              ignore:
-                - main
-
 # awwfood - SITE
       - ecr-buildandpush-dockerimage:
           name: AWWFOOD-SITE # Name of the job - for reference in pipeline view
@@ -179,35 +149,6 @@ workflows:
               ignore:
                 - main
 
-# foodnz - SITE
-      - ecr-buildandpush-dockerimage:
-          name: FOODNZ-SITE # Name of the job - for reference in pipeline view
-          APP_NAME: foodnz-site
-          filters:
-            branches:
-              only:
-                - circleci-project-setup
-                - master
-                - /fix.*/
-                - /feature.*/
-                - /dependabot.*/
-              ignore:
-                - main
-
-# hb - SITE
-      - ecr-buildandpush-dockerimage:
-          name: HB-SITE # Name of the job - for reference in pipeline view
-          APP_NAME: hb-site
-          filters:
-            branches:
-              only:
-                - circleci-project-setup
-                - master
-                - /fix.*/
-                - /feature.*/
-                - /dependabot.*/
-              ignore:
-                - main
 
 
 
