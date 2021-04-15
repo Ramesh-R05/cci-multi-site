@@ -58,6 +58,7 @@ jobs:
       - run:
           name: Print Env Vars - Verify
           command: |
+                echo "APP_NAME=$APP_KEY";
                 echo "BRANCH_NAME=$BRANCH_NAME";
                 echo "CLUSTER_NAME=$CLUSTER_NAME";
                 echo "SERVICE_NAME=$SERVICE_NAME";
@@ -65,7 +66,6 @@ jobs:
                 echo "TASKDEF_JSON_FILENAME=$TASKDEF_JSON_FILENAME";
                 echo "REPOS_NAME=$REPOS_NAME";
                 echo "CONTAINER_NAME=$CONTAINER_NAME"
-                echo "APP_NAME=$APP_KEY";
                 echo "IMAGE_NAME=$IMAGE_NAME";
 
 # Code Checkout - CCI_Build

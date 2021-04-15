@@ -1,0 +1,45 @@
+BRANCH_NAME=master.27
+CLUSTER_NAME=cci-app-ecs
+SERVICE_NAME=sit-master-gt-site-service-v1
+TASK_NAME=sit-master-gt-site-task
+TASKDEF_JSON_FILENAME=sit-master-gt-site-task-def-json
+REPOS_NAME=cci-gt-site
+CONTAINER_NAME=gt-site-container
+APP_NAME=gt-site
+IMAGE_NAME=master.27
+CircleCI received exit code 0
+
+
+BRANCH_NAME=master.26
+CLUSTER_NAME=cci-app-ecs
+SERVICE_NAME=sit-master-elle-site-service-v1
+TASK_NAME=sit-master-elle-site-task
+TASKDEF_JSON_FILENAME=sit-master-elle-site-task-def-json
+REPOS_NAME=cci-elle-site
+CONTAINER_NAME=elle-site-container
+APP_NAME=elle-site
+IMAGE_NAME=master.26
+CircleCI received exit code 0
+
+BRANCH_NAME=master.28
+CLUSTER_NAME=cci-app-ecs
+SERVICE_NAME=sit-master-awwfood-site-service-v1
+TASK_NAME=sit-master-awwfood-site-task
+TASKDEF_JSON_FILENAME=sit-master-awwfood-site-task-def-json
+REPOS_NAME=cci-awwfood-site
+CONTAINER_NAME=awwfood-site-container
+APP_NAME=awwfood-site
+IMAGE_NAME=master.28
+CircleCI received exit code 0
+
+
+BRANCH_NAME=master.29
+CLUSTER_NAME=cci-app-ecs
+SERVICE_NAME=sit-master-foodnz-site-service-v1
+TASK_NAME=sit-master-foodnz-site-task
+TASKDEF_JSON_FILENAME=sit-master-foodnz-site-task-def-json
+REPOS_NAME=cci-foodnz-site
+CONTAINER_NAME=foodnz-site-container
+APP_NAME=foodnz-site
+IMAGE_NAME=master.29
+CircleCI received exit code 0
